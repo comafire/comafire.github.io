@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "OSX에서 GO개발환경 만들기"
-categories: jekyll update
+categories: golang, OSX
 ---
 
 ## Brew 설치

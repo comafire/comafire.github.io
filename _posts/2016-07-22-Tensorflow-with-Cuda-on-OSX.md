@@ -18,6 +18,7 @@ tags:
 OSX 에서는 기본적으로 Cuda 를 지원하는 바이너리 패키지가 없이 때문에 컴파일을 통해서 패키지를 만들어 설치합니다.
 
 소스컴파일을 위한 의존성 패키지, python 은 2.7 사용을 권장합니다.
+
 ```
 > brew install bazel swig coreutils
 > sudo easy_install -U six

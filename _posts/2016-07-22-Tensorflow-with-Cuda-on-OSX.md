@@ -49,8 +49,7 @@ tensorflow 0.9 컴파일 후 실행시 tensorflow 는 libcuda.1.dylib 라이브�
 > sudo ln -s libcuda.dylib libcuda.1.dylib
 ```
 
-다음으로 Nvidia 에서 제공하는 cudnn (https://developer.nvidia.com/cudnn) 설치
-다운로드시에 로그인 필요
+다음으로 Nvidia 에서 제공하는 cudnn (https://developer.nvidia.com/cudnn)을 설치합니다.(다운로드시에 로그인이 필요)
 
 ```
 > cd ~/Downloads

@@ -9,10 +9,10 @@ tags:
 ## Macbook Pro 에서 Cuda 사용 가능하도록 Tensorflow 설치
 
 ### Macbook Pro 2014-Mid
-CPU: 2.5 GHz Intel Core i7
-RAM: 16GB 1600 MHz DDR3
-GPU: NVIDIA GeForce GT 750M 2048 MB
-OSX: El Capitan 10.11.5
+* CPU: 2.5 GHz Intel Core i7
+* RAM: 16GB 1600 MHz DDR3
+* GPU: NVIDIA GeForce GT 750M 2048 MB
+* OSX: El Capitan 10.11.5
 
 ### Tensorflow Source Compile Install with Cuda on OSX
 OSX 에서는 기본적으로 Cuda 를 지원하는 바이너리 패키지가 없이 때문에 컴파일을 통해서 패키지를 만들어 설치합니다.

@@ -5,6 +5,7 @@ categories: torch
 ---
 
 ## Torch Install
+
 ### Install Cuda
 
 **Ubuntu 14.04**
@@ -20,6 +21,7 @@ Torch를 통해서 딥러닝을 트레이닝 시킬때 GPU를 이용하면 시�
 OSX 에서는 [Cuda Tookit] (https://developer.nvidia.com/cuda-toolkit) 다운로드 페이지에서 OSX 용 패키지를 다운로드 받아 설치하면 간단하게 설치가 끝납니다.
 
 ### Install Torch
+
 Torch는 의존성 패키지를 자동으로 설치해주는 easy install script를 지원하므로 쉘에서 아래 명령을 입력하면 어렵지 않게 설치가 가능합니다.
 
 ```
@@ -74,6 +76,7 @@ Do you really want to exit ([y]/n)? y
 위와 같이 Torch 쉘을 실행할 수 있다면 설치가 성공적으로 이루어진 것입니다.
 
 ### Install iTorch
+
 Torch를 브라우저를 통해서 편리하게 사용할 수 있는 도구입니다.
 
 iTorch는 iPython을 이용하는데 python의 버전 의존성 때문에 많은 골치 아픈 문제가 발생합니다.
@@ -144,9 +147,10 @@ ipython (3.2.0)
 [I 16:09:26.849 NotebookApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
 ```
 
-![screen shot](https://raw.githubusercontent.com/reachlab-kr/reachlab-kr.github.io/master/_images/2015-06-26-Torch-Install-01.png)
+![screen shot](https://raw.githubusercontent.com/comafire/comafire.github.io/master/_images/2015-06-26-Torch-Install-01.png)
 
 ## Package Install
+
 Torch는 Lua에서 제공하는 Luarocks 라는 package 관리 시스템을 사용합니다.
 따라서 필요한 모듈은 luarocks 명령을 통해서 간단하게 설치가 가능합니다.
 

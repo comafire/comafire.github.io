@@ -1,0 +1,428 @@
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Tensor">Tensor<a class="anchor-link" href="#Tensor">&#182;</a></h2><p>Tensor는 Multi-dimensional matrix 입니다. 
+여기서는 Tensor에 대한 간단한 사용법을 다룹니다. 
+상세 사용법은 추후 사용처가 생길때 마다 추가로 설명하겠습니다.</p>
+<p>Tensor 관련 상세 사용법이 궁금하신분은 [Torch 공식 Tensor Manual]
+(<a href="https://github.com/torch/torch7/blob/master/doc/tensor.md#torch.Tensor.dim">https://github.com/torch/torch7/blob/master/doc/tensor.md#torch.Tensor.dim</a>) 을 참조하세요</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Tensor-&#49373;&#49457;">Tensor &#49373;&#49457;<a class="anchor-link" href="#Tensor-&#49373;&#49457;">&#182;</a></h3><p>Tensor는 파라미터의 갯수를 늘려가면서 다차원의 matrix 를 생성할 수 있습니다.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-lua"><pre><span class="n">t2d</span> <span class="o">=</span> <span class="n">torch</span><span class="p">.</span><span class="n">Tensor</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">t3d</span> <span class="o">=</span> <span class="n">torch</span><span class="p">.</span><span class="n">Tensor</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">t4d</span> <span class="o">=</span> <span class="n">torch</span><span class="p">.</span><span class="n">Tensor</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Tensor-&#51221;&#48372;">Tensor &#51221;&#48372;<a class="anchor-link" href="#Tensor-&#51221;&#48372;">&#182;</a></h3><p>생성한 Tensor에 대한 type, size 정보를 볼수 있습니다.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-lua"><pre><span class="nb">print</span><span class="p">(</span><span class="n">t2d</span><span class="p">:</span><span class="nb">type</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">t2d</span><span class="p">:</span><span class="n">size</span><span class="p">())</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[2]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>torch.DoubleTensor	
+
+ 2
+ 2
+[torch.LongStorage of size 2]
+
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Tensor-Type">Tensor Type<a class="anchor-link" href="#Tensor-Type">&#182;</a></h3><p>Tensor는 아래와 같은 다양한 type 을 지원합니다. 하지만 numeric operation 은 오직 FloatTensor 및 Double Tensor만 지원합니다.</p>
+<ul>
+<li>ByteTensor -- contains unsigned chars</li>
+<li>CharTensor -- contains signed chars</li>
+<li>ShortTensor -- contains shorts</li>
+<li>IntTensor -- contains ints</li>
+<li>FloatTensor -- contains floats</li>
+<li>DoubleTensor -- contains doubles</li>
+</ul>
+<p>Tensor는 torch.Tensor() 함수를 이용하여 생성하는데 torch.setdefaulttensortype() 함수를 이용하면 default 생성 type 을 조정 할 수 있습니다. 기본 default type 은 DoubleTensor 입니다.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-lua"><pre><span class="n">torch</span><span class="p">.</span><span class="n">setdefaulttensortype</span><span class="p">(</span><span class="s1">&#39;</span><span class="s">torch.FloatTensor&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">torch</span><span class="p">.</span><span class="n">Tensor</span><span class="p">():</span><span class="nb">type</span><span class="p">())</span>
+
+<span class="n">torch</span><span class="p">.</span><span class="n">setdefaulttensortype</span><span class="p">(</span><span class="s1">&#39;</span><span class="s">torch.DoubleTensor&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">torch</span><span class="p">.</span><span class="n">Tensor</span><span class="p">():</span><span class="nb">type</span><span class="p">())</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[3]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>torch.FloatTensor	
+torch.DoubleTensor	
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Tensor-Type-&#48320;&#54872;">Tensor Type &#48320;&#54872;<a class="anchor-link" href="#Tensor-Type-&#48320;&#54872;">&#182;</a></h3><p>생성된 Tensor 는 type 변환 함수를 통해 type 변환이 가능합니다.</p>
+<ul>
+<li>ByteTensor: byte() </li>
+<li>CharTensor: char()</li>
+<li>ShortTensor: short()</li>
+<li>IntTensor: int()</li>
+<li>FloatTensor: float()</li>
+<li>DoubleTensor: double()</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-lua"><pre><span class="n">t2d</span> <span class="o">=</span> <span class="n">torch</span><span class="p">.</span><span class="n">Tensor</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">t2d</span><span class="p">:</span><span class="nb">type</span><span class="p">())</span>
+<span class="n">t2d_f</span> <span class="o">=</span> <span class="n">t2d</span><span class="p">:</span><span class="n">float</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">t2d_f</span><span class="p">:</span><span class="nb">type</span><span class="p">())</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[4]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>torch.DoubleTensor	
+torch.FloatTensor	
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Tensor-&#52488;&#44592;&#54868;">Tensor &#52488;&#44592;&#54868;<a class="anchor-link" href="#Tensor-&#52488;&#44592;&#54868;">&#182;</a></h3><p>Tensor 생성시 초기화를 zero(), fill() 함수를 제공합니다. Lua Table을 직접 파라미터로 하여 초기화도 가능합니다.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-lua"><pre><span class="nb">print</span><span class="p">(</span><span class="n">torch</span><span class="p">.</span><span class="n">Tensor</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">):</span><span class="n">zero</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">torch</span><span class="p">.</span><span class="n">Tensor</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">):</span><span class="n">fill</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">torch</span><span class="p">.</span><span class="n">Tensor</span><span class="p">({</span> <span class="p">{</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">},</span> <span class="p">{</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">}</span> <span class="p">}))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[5]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre> 0  0
+ 0  0
+[torch.DoubleTensor of size 2x2]
+
+ 1  1
+ 1  1
+[torch.DoubleTensor of size 2x2]
+
+ 2  2
+ 2  2
+[torch.DoubleTensor of size 2x2]
+
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Tensor-&#48373;&#49324;">Tensor &#48373;&#49324;<a class="anchor-link" href="#Tensor-&#48373;&#49324;">&#182;</a></h3><p>Tensor간에 간편하게 복사가 가능한 clone(), copy() 함수를 제공합니다.
+clone() 함수는 Tensor 전체를 구조 변경 없이 복사하는데 사용하고, copy() 함수는 복사할 Tensor를 미리 생성하고 복사하기 때문에 Tensor의 구조 변경과 동시에 복사가 가능합니다.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-lua"><pre><span class="n">t2d</span> <span class="o">=</span> <span class="n">torch</span><span class="p">.</span><span class="n">Tensor</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span><span class="n">fill</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">t2d_clone</span> <span class="o">=</span> <span class="n">t2d</span><span class="p">:</span><span class="n">clone</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">t2d_clone</span><span class="p">)</span>
+
+<span class="n">t2d_copy</span> <span class="o">=</span> <span class="n">torch</span><span class="p">.</span><span class="n">Tensor</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">):</span><span class="n">copy</span><span class="p">(</span><span class="n">t2d</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">t2d_copy</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[6]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre> 1
+ 1
+ 1
+ 1
+[torch.DoubleTensor of size 4]
+
+ 1  1
+ 1  1
+[torch.DoubleTensor of size 2x2]
+
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Tensor-&#48320;&#54805;">Tensor &#48320;&#54805;<a class="anchor-link" href="#Tensor-&#48320;&#54805;">&#182;</a></h3><p>size()함수를 통해 Tensor의 size뿐 아니라 구조도 변경이 가능합니다.
+transpose() 또는 t() 함수를 통해 Tensor의 차원간 변경이 가능합니다.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-lua"><pre><span class="n">t1d</span> <span class="o">=</span> <span class="n">torch</span><span class="p">.</span><span class="n">Tensor</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span><span class="n">fill</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">t1d</span><span class="p">)</span>
+<span class="n">t2d</span> <span class="o">=</span> <span class="n">t1d</span><span class="p">:</span><span class="n">resize</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">t2d</span><span class="p">)</span>
+
+<span class="n">t2d</span> <span class="o">=</span> <span class="n">torch</span><span class="p">.</span><span class="n">Tensor</span><span class="p">({</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">},</span> <span class="p">{</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">}</span> <span class="p">})</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">t2d</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">t2d</span><span class="p">:</span><span class="n">transpose</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">t2d</span><span class="p">:</span><span class="n">t</span><span class="p">())</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[7]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre> 1
+ 1
+ 1
+ 1
+[torch.DoubleTensor of size 4]
+
+ 1  1
+ 1  1
+[torch.DoubleTensor of size 2x2]
+
+ 1  2
+ 3  4
+[torch.DoubleTensor of size 2x2]
+
+ 1  3
+ 2  4
+[torch.DoubleTensor of size 2x2]
+
+ 1  3
+ 2  4
+[torch.DoubleTensor of size 2x2]
+
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Tensor-get-and-set">Tensor get and set<a class="anchor-link" href="#Tensor-get-and-set">&#182;</a></h3><p>Tensor의 값을 편리하게 get하고 set할수 있는 다양한 기능을 제공합니다.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-lua"><pre><span class="n">t2d</span> <span class="o">=</span> <span class="n">torch</span><span class="p">.</span><span class="n">Tensor</span><span class="p">({</span> <span class="p">{</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">},</span> <span class="p">{</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">}</span> <span class="p">})</span>
+<span class="n">t2d</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1">-- set row 1, column 1</span>
+<span class="n">t2d</span><span class="p">[{</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">}]</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1">-- set row 1, column 1</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">t2d</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">t2d</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="c1">-- get row 1</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">t2d</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span> <span class="c1">-- get row 1, column 1</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">t2d</span><span class="p">[{</span> <span class="p">{},</span> <span class="mi">2</span> <span class="p">}])</span> <span class="c1">-- get row all, column 2</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[8]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre> 1  2
+ 3  4
+[torch.DoubleTensor of size 2x2]
+
+ 1
+ 2
+[torch.DoubleTensor of size 2]
+
+1	
+ 2
+ 4
+[torch.DoubleTensor of size 2]
+
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>

@@ -1,0 +1,260 @@
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Julia-&#50640;&#49436;-R-&#50616;&#50612;&#50640;&#49436;-&#51088;&#51452;-&#49324;&#50857;&#46104;&#45716;-Dataset-&#47196;&#46377;&#54616;&#44592;">Julia &#50640;&#49436; R &#50616;&#50612;&#50640;&#49436; &#51088;&#51452; &#49324;&#50857;&#46104;&#45716; Dataset &#47196;&#46377;&#54616;&#44592;<a class="anchor-link" href="#Julia-&#50640;&#49436;-R-&#50616;&#50612;&#50640;&#49436;-&#51088;&#51452;-&#49324;&#50857;&#46104;&#45716;-Dataset-&#47196;&#46377;&#54616;&#44592;">&#182;</a></h3><p>데이터 분석을 배우는 과정에서 많은 경우 예를 위해 샘플 데이터 셋을 많이 이용합니다.
+Julia 에서는 통계 언어인 R 에서 많이 사용되는 데이터 셋을 RDatasets 패키지를 이용하여 편하게 로딩하고 사용할 수 있습니다.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>RDatasets 패키지는 DataFrames 패키지에 의존성이 있어 같이 설치합니다.
+DataFrames 패키지는 Julia 에서 R 언어의 DataFrames 편리성을 사용할 수 있도록 만들어진 패키지입니다.</p>
+<ul>
+<li>Rdatasets: <a href="https://github.com/johnmyleswhite/RDatasets.jl">https://github.com/johnmyleswhite/RDatasets.jl</a></li>
+<li>DataFrames: <a href="https://github.com/JuliaStats/DataFrames.jl">https://github.com/JuliaStats/DataFrames.jl</a></li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span class="n">Pkg</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
+<span class="n">Pkg</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s">&quot;DataFrames&quot;</span><span class="p">)</span>
+<span class="n">Pkg</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s">&quot;Rdatasets&quot;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span class="k">using</span> <span class="n">RDatasets</span><span class="p">,</span> <span class="n">DataFrames</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>RDatasets.packages() 함수는 통해 지원되는 데이터 셋을 리턴하며, head() 함수를 통해서 일부만 볼수 있습니다.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span class="n">packages</span> <span class="o">=</span> <span class="n">RDatasets</span><span class="o">.</span><span class="n">packages</span><span class="p">()</span>
+<span class="n">head</span><span class="p">(</span><span class="n">packages</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[3]:</div>
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<table class="data-frame"><tr><th></th><th>Package</th><th>Title</th></tr><tr><th>1</th><td>COUNT</td><td>Functions, data and code for count data.</td></tr><tr><th>2</th><td>Ecdat</td><td>Data sets for econometrics</td></tr><tr><th>3</th><td>HSAUR</td><td>A Handbook of Statistical Analyses Using R (1st Edition)</td></tr><tr><th>4</th><td>HistData</td><td>Data sets from the history of statistics and data visualization</td></tr><tr><th>5</th><td>ISLR</td><td>Data for An Introduction to Statistical Learning with Applications in R</td></tr><tr><th>6</th><td>KMsurv</td><td>Data sets from Klein and Moeschberger (1997), Survival Analysis</td></tr></table>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>데이터 셋 패키지가 총 몇개이고, 어떤 패키지 이름들을 가지는지 살펴 봅니다.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span class="n">println</span><span class="p">(</span><span class="s">&quot;nrow: &quot;</span><span class="p">,</span> <span class="n">nrow</span><span class="p">(</span><span class="n">packages</span><span class="p">))</span>
+<span class="n">println</span><span class="p">(</span><span class="s">&quot;package: &quot;</span><span class="p">,</span> <span class="n">packages</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">])</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>nrow: 33
+package: UTF8String[&quot;COUNT&quot;,&quot;Ecdat&quot;,&quot;HSAUR&quot;,&quot;HistData&quot;,&quot;ISLR&quot;,&quot;KMsurv&quot;,&quot;MASS&quot;,&quot;SASmixed&quot;,&quot;Zelig&quot;,&quot;adehabitatLT&quot;,&quot;boot&quot;,&quot;car&quot;,&quot;cluster&quot;,&quot;datasets&quot;,&quot;gap&quot;,&quot;ggplot2&quot;,&quot;lattice&quot;,&quot;lme4&quot;,&quot;mgcv&quot;,&quot;mlmRev&quot;,&quot;nlreg&quot;,&quot;plm&quot;,&quot;plyr&quot;,&quot;pscl&quot;,&quot;psych&quot;,&quot;quantreg&quot;,&quot;reshape2&quot;,&quot;robustbase&quot;,&quot;rpart&quot;,&quot;sandwich&quot;,&quot;sem&quot;,&quot;survival&quot;,&quot;vcd&quot;]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>데이터 셋 패키지 중에 R dataset package 인 "datasets" 데이터셋을 가져오고, 그중 head() 함수를 통해 일부만 출력해 보겠습니다.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span class="n">datasets</span> <span class="o">=</span> <span class="n">RDatasets</span><span class="o">.</span><span class="n">datasets</span><span class="p">(</span><span class="s">&quot;datasets&quot;</span><span class="p">)</span>
+<span class="n">head</span><span class="p">(</span><span class="n">datasets</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[5]:</div>
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<table class="data-frame"><tr><th></th><th>Package</th><th>Dataset</th><th>Title</th><th>Rows</th><th>Columns</th></tr><tr><th>1</th><td>datasets</td><td>BOD</td><td>Biochemical Oxygen Demand</td><td>6</td><td>2</td></tr><tr><th>2</th><td>datasets</td><td>CO2</td><td>Carbon Dioxide Uptake in Grass Plants</td><td>84</td><td>5</td></tr><tr><th>3</th><td>datasets</td><td>Formaldehyde</td><td>Determination of Formaldehyde</td><td>6</td><td>2</td></tr><tr><th>4</th><td>datasets</td><td>HairEyeColor</td><td>Hair and Eye Color of Statistics Students</td><td>32</td><td>4</td></tr><tr><th>5</th><td>datasets</td><td>InsectSprays</td><td>Effectiveness of Insect Sprays</td><td>72</td><td>2</td></tr><tr><th>6</th><td>datasets</td><td>LifeCycleSavings</td><td>Intercountry Life-Cycle Savings Data</td><td>50</td><td>6</td></tr></table>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>데이터 셋이 총 몇개의 데이터 셋을 가지고 어떤 이름을 가지는지 출력해봅니다.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span class="n">println</span><span class="p">(</span><span class="s">&quot;nrow: &quot;</span><span class="p">,</span> <span class="n">nrow</span><span class="p">(</span><span class="n">datasets</span><span class="p">))</span>
+<span class="n">println</span><span class="p">(</span><span class="s">&quot;datasets: &quot;</span><span class="p">,</span> <span class="n">datasets</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">])</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>nrow: 50
+datasets: UTF8String[&quot;BOD&quot;,&quot;CO2&quot;,&quot;Formaldehyde&quot;,&quot;HairEyeColor&quot;,&quot;InsectSprays&quot;,&quot;LifeCycleSavings&quot;,&quot;Loblolly&quot;,&quot;OrchardSprays&quot;,&quot;PlantGrowth&quot;,&quot;Puromycin&quot;,&quot;Theoph&quot;,&quot;Titanic&quot;,&quot;ToothGrowth&quot;,&quot;UCBAdmissions&quot;,&quot;USArrests&quot;,&quot;USJudgeRatings&quot;,&quot;USPersonalExpenditure&quot;,&quot;VADeaths&quot;,&quot;WorldPhones&quot;,&quot;airquality&quot;,&quot;anscombe&quot;,&quot;attenu&quot;,&quot;attitude&quot;,&quot;cars&quot;,&quot;chickwts&quot;,&quot;crimtab&quot;,&quot;esoph&quot;,&quot;euro&quot;,&quot;faithful&quot;,&quot;freeny&quot;,&quot;infert&quot;,&quot;iris&quot;,&quot;islands&quot;,&quot;longley&quot;,&quot;morley&quot;,&quot;mtcars&quot;,&quot;occupationalStatus&quot;,&quot;precip&quot;,&quot;pressure&quot;,&quot;quakes&quot;,&quot;randu&quot;,&quot;rivers&quot;,&quot;rock&quot;,&quot;sleep&quot;,&quot;stackloss&quot;,&quot;swiss&quot;,&quot;trees&quot;,&quot;volcano&quot;,&quot;warpbreaks&quot;,&quot;women&quot;]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>데이터 셋 중에 "iris" 데이터 셋을 가져와서 head() 함수를 통해 일부만 출력해 봅니다.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span class="n">iris</span> <span class="o">=</span> <span class="n">dataset</span><span class="p">(</span><span class="s">&quot;datasets&quot;</span><span class="p">,</span> <span class="s">&quot;iris&quot;</span><span class="p">)</span>
+<span class="n">head</span><span class="p">(</span><span class="n">iris</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[7]:</div>
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<table class="data-frame"><tr><th></th><th>SepalLength</th><th>SepalWidth</th><th>PetalLength</th><th>PetalWidth</th><th>Species</th></tr><tr><th>1</th><td>5.1</td><td>3.5</td><td>1.4</td><td>0.2</td><td>setosa</td></tr><tr><th>2</th><td>4.9</td><td>3.0</td><td>1.4</td><td>0.2</td><td>setosa</td></tr><tr><th>3</th><td>4.7</td><td>3.2</td><td>1.3</td><td>0.2</td><td>setosa</td></tr><tr><th>4</th><td>4.6</td><td>3.1</td><td>1.5</td><td>0.2</td><td>setosa</td></tr><tr><th>5</th><td>5.0</td><td>3.6</td><td>1.4</td><td>0.2</td><td>setosa</td></tr><tr><th>6</th><td>5.4</td><td>3.9</td><td>1.7</td><td>0.4</td><td>setosa</td></tr></table>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>iris 데이터 셋(<a href="https://en.wikipedia.org/wiki/Iris_flower_data_set">https://en.wikipedia.org/wiki/Iris_flower_data_set</a>) 붓꽃의 4가지 속성에 따라 종을 분류해 놓은 데이터 셋으로 데이터 분석시 자주 예제로 쓰입니다.</p>
+
+</div>
+</div>
+</div>

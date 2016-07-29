@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "2016-07-22-Tensorflow-with-Cuda-on-OSX"
+title: "OSX에 Cuda사용 가능하도록 Tensorflow 소스 컴파일 설치 Cuda"
 tags:
     - tensorflow
     - python

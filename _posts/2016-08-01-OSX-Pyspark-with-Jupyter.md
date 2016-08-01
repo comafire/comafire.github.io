@@ -70,7 +70,7 @@ export PYTHON=/usr/local/bin/python
 
 py4j 라이브러리의 경우 설치한 spark 안에 라이브러리 버전을 확인하여 이름을 넣어주세요.
 
-이제 notebook 디렉토리롤 사용할 디렉토리를 생성하고 해당 디렉토리내에서 notebook을 실행하시면 브라우저가 실행되면서 친숙한 화면을 보실수 있습니다.
+이제 notebook 디렉토리로 사용할 디렉토리를 생성하고 해당 디렉토리내에서 notebook을 실행하시면 브라우저가 실행되면서 친숙한 화면을 보실수 있습니다.
 
 ```
 > mkdir -p ~/Projects/notebooks

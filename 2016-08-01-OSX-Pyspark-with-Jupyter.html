@@ -35,8 +35,7 @@
 
 
 
-        <meta name="tags" contents="Ubuntu" />
-        <meta name="tags" contents="IP Masquerade" />
+        <meta name="tags" contents="PySpark" />
 
 
 			<meta property="og:locale" content="ko">
@@ -44,11 +43,11 @@
 
 	<meta property="og:type" content="article">
 	<meta property="article:author" content="">
-	<meta property="og:url" content="/2015-06-22-Ubuntu-IP-MASQUERADE.html">
-	<meta property="og:title" content="Ubuntu IP Masquerade 공유 설정">
+	<meta property="og:url" content="/2016-08-01-OSX-Pyspark-with-Jupyter.html">
+	<meta property="og:title" content="OSX에서 Spark설치 및 Jupyter를 통해 PySpark 이용하기">
 	<meta property="og:description" content="">
 	<meta property="og:image" content="/">
-	<meta property="article:published_time" content="2015-06-22 00:00:00+09:00">
+	<meta property="article:published_time" content="2016-08-01 00:00:00+09:00">
 </head>
 
 <body>
@@ -84,10 +83,10 @@
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                     <div class="post-heading">
-                        <h1>Ubuntu IP Masquerade 공유 설정</h1>
+                        <h1>OSX에서 Spark설치 및 Jupyter를 통해 PySpark 이용하기</h1>
                         <span class="meta">Posted by
                                 <a href="/author/comafire.html">comafire</a>
-                             on Mon 22 June 2015
+                             on Mon 01 August 2016
                         </span>
                         
                     </div>
@@ -1079,92 +1078,53 @@ h6:hover .anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>간단하게 실험용 Cluster를 구축 할때 아래와 같이 Master 서버가 Slave 서버가 외부 네트워크와 통신할 수 있도록 IP 공유기 역할을 해야 할때 IP MASQUERADE를 이용하는 방법입니다.</p>
-<pre><code>Internet <--> Master <--> 스위치허브 <---> Slave1,2,3 ...</code></pre>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Master-서버">Master 서버<a class="anchor-link" href="#Master-서버">¶</a></h2><h3 id="interface-설정">interface 설정<a class="anchor-link" href="#interface-설정">¶</a></h3><p>Master 서버는 랜카드를 2개 가지고 있다고 가정합니다.
-eth0은 외부 네트워크용이고 eth1은 내부 내트워크용 랜카드 입니다.</p>
-<pre><code>> sudo vi /etc/network/inetrfaces</code></pre>
-<p>설정 파일을 열어보면 eth0은 보통 인터넷 공유기와 바로 연결되어 있어 dhcp 로 설정되어 있을 것입니다.</p>
-<p>이제 아래와 같이 eth1 랜카드를 내부 네트워크 고정 ip 로 설정합니다.</p>
-<pre><code># interfaces(5) file used by ifup(8) and ifdown(8)
-auto lo
-iface lo inet loopback
+<hr>
+<p>layout: post
+title:  "OSX에서 Spark설치 및 Jupyter를 통해 Pyspark 이용하기"</p>
+<h2 id="categories:-spark,-python,-pyspark,-jupyter">categories: spark, python, pyspark, jupyter<a class="anchor-link" href="#categories:-spark,-python,-pyspark,-jupyter">¶</a></h2><h2 id="Spark">Spark<a class="anchor-link" href="#Spark">¶</a></h2><p>Spark 하면 먼저 클러스터를 떠올리게 되는데, 사실 로컬상에서 Spark을 이용해 프로그래밍을 하는 것도 복잡한 멀티프로세스, 멀티스레드 프로그래밍의 수고를 덜면서 로컬노드의 멀티 코어 자원을 손쉽게 활용할 수 있는 방법이기도 합니다.</p>
+<p>맥북에 Spark을 설치하고 Jupyter를 통해 Python을 이용하여 손쉽게 Spark을 사용해 봅시다.</p>
+<h3 id="Spark-Install">Spark Install<a class="anchor-link" href="#Spark-Install">¶</a></h3><p>Java가 설치되어 있는지 확인합니다. 설치가 안되어 있다면 <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html">http://www.oracle.com/technetwork/java/javase/downloads/index.html</a> 오라클 사이트에서 다운받아 설치합니다.</p>
+<pre><code>> which java
+/usr/bin/java
+> java -version
+java version "1.8.0_91"
+Java(TM) SE Runtime Environment (build 1.8.0_91-b14)
+Java HotSpot(TM) 64-Bit Server VM (build 25.91-b14, mixed mode)</code></pre>
+<p>Scala를 brew를 통해 설치합니다.</p>
+<pre><code>> brew install scala</code></pre>
+<p>Python 을 brew를 이용해 설치하고 의존성 패키지를 설치합니다.</p>
+<pre><code>> brew install python
+> sudo easy_install pip
+> sudo pip install py4j
+> sudo pip install ipython[all]
+> sudo pip install jupyter</code></pre>
+<p><a href="https://spark.apache.org/downloads.html">https://spark.apache.org/downloads.html</a> 사이트에서 원하는 버전의 Spark 을 다운로드 받습니다.</p>
+<p>로컬에 Spark을 설치하는 것은 간단히 Spark을 받아 압축을 푸는 것으로 끝납니다. 편의를 위해서 심볼릭 링크를 걸어둡니다.</p>
+<pre><code>> cd /usr/local
+> mv ~/Downloads/spark-2.0.0-bin-hadoop2.7.tgz ./
+> tar -zxvf spark-2.0.0-bin-hadoop2.7.tgz
+> ln -s spark-2.0.0-bin-hadoop2.7 spark</code></pre>
+<p>이제 쉘 환경설정파일에 환경변수를 설정합니다.</p>
+<pre><code>> vi ~/.bash_profile
 
-auto eth0
-iface eth0 inet dhcp
+export PATH="/usr/local/sbin:$PATH"
 
-auto eth1
-iface eth1 inet static
-address 192.168.0.1
-netmask 255.255.255.0
-network 192.168.0.0
-broadcast 192.168.10.255
-gateway 192.168.0.1
-dns-nameservers 8.8.8.8</code></pre>
-<p>설정 후 네트워크를 재시작합니다.</p>
-<pre><code>> sudo service networking restart</code></pre>
-<h3 id="dns-서버-설정">dns 서버 설정<a class="anchor-link" href="#dns-서버-설정">¶</a></h3><p>resolvconf 서비스를 통해서 접근할 dns 서버를 설정해 줍니다.</p>
-<pre><code>> sudo vi /etc/resolvconf/resolv.conf.d/head</code></pre>
-<p>설정 파일을 열어 아래와 같이 수정합니다.</p>
-<pre><code># Dynamic resolv.conf(5) file for glibc resolver(3) generated by resolvconf(8)
-#     DO NOT EDIT THIS FILE BY HAND -- YOUR CHANGES WILL BE OVERWRITTEN
-nameserver 8.8.8.8</code></pre>
-<p>설정 파일 저장 후 resolvconf 서비스를 재시작합니다.</p>
-<pre><code>> sudo service resolvconf retart</code></pre>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="iptables-설정">iptables 설정<a class="anchor-link" href="#iptables-설정">¶</a></h2><p>이제 Master 서버의 eth1 내부 네트워크를 통해 요청되는 패킷을 eth0 외부 네트워크카드로 전달하도록 해주는 rule 를 iptables 라는 명령어를 통해 등록해 줍니다.</p>
-<pre><code>> sudo /sbin/iptables -A FORWARD -o etho -j ACCEPT
-> sudo /sbin/iptables -t nat -A POSTROUTING -o etho -j MASQUERADE</code></pre>
-<p>iptables rule 은 재부팅시에 사라지게 되므로 재부팅 시 마다 자동으로 rule 이 등록 될 수 있도록 /etc/rc.local 파일을 열어 등록해줍니다.</p>
-<pre><code>> sudo vi /etc/rc.local</code></pre>
-<p>아래와 같이 명령을 등록해 줍니다.</p>
-<pre><code>#!/bin/sh -e
-#
-# rc.local
-#
-# This script is executed at the end of each multiuser runlevel.
-# Make sure that the script will "exit 0" on success or any other
-# value on error.
-#
-# In order to enable or disable this script just change the execution
-# bits.
-#
-# By default this script does nothing.
+export JAVA_HOME=$(/usr/libexec/java_home)
+export SCALA_HOME=/usr/local/bin/scala
+export PATH=$PATH:$SCALA_HOME/bin
 
-/sbin/iptables -A FORWARD -o eth0 -j ACCEPT
-/sbin/iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
+export SPARK_HOME=/usr/local/spark
+export PATH=$PATH:$SPARK_HOME/bin
+export PYTHONPATH=$SPARK_HOME/python/:$PYTHONPATH
+export PYTHONPATH=$SPARK_HOME/python/lib/py4j-0.10-src.zip:$PYTHONPATH
 
-exit 0</code></pre>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Slave-서버-설정">Slave 서버 설정<a class="anchor-link" href="#Slave-서버-설정">¶</a></h2><p>Slave 서버의 네트워크 interface 와 dns 서버 설정은  Master 서버의 내부 네트워크 interface 설정하듯이 내부 ip로 설정해주면 됩니다.</p>
-<h2 id="테스트">테스트<a class="anchor-link" href="#테스트">¶</a></h2><p>Slave 서버에서 외부 주소로 ping 이 성공하면 성공입니다.</p>
-<pre><code>> ping www.google.co.kr
-PING www.google.co.kr (58.123.220.104) 56(84) bytes of data.
-64 bytes from 58.123.220.104: icmp_seq=1 ttl=56 time=0.859 ms
-64 bytes from 58.123.220.104: icmp_seq=2 ttl=56 time=0.961 ms</code></pre>
-</div>
+export PYTHON=/usr/local/bin/python</code></pre>
+<p>py4j 라이브러리의 경우 설치한 spark 안에 라이브러리 버전을 확인하여 이름을 넣어주세요.</p>
+<p>이제 notebook 디렉토리로 사용할 디렉토리를 생성하고 해당 디렉토리내에서 notebook을 실행하시면 브라우저가 실행되면서 친숙한 화면을 보실수 있습니다.</p>
+<pre><code>> mkdir -p ~/Projects/notebooks
+> cd ~/Projects/notebooks
+> ipython notebook</code></pre>
+</hr></div>
 </div>
 </div>
 <script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {

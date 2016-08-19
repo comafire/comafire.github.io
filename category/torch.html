@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
         <meta charset="utf-8" />
-        <title>comafire - comafire</title>
+        <title>comafire - Torch</title>
         <link rel="stylesheet" href="/theme/css/main.css" />
 
         <!--[if IE]>
@@ -15,7 +15,7 @@
                 <h1><a href="/">comafire </a></h1>
                 <nav><ul>
                     <li><a href="/category/linux.html">Linux</a></li>
-                    <li><a href="/category/torch.html">Torch</a></li>
+                    <li class="active"><a href="/category/torch.html">Torch</a></li>
                 </ul></nav>
         </header><!-- /#banner -->
 
@@ -2328,77 +2328,6 @@ var disqus_config = function () {
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>  
             </aside><!-- /#featured -->
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <hr />
-                    <ol id="posts-list" class="hfeed">
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/2015-06-22-Ubuntu-IP-MASQUERADE.html" rel="bookmark"
-                           title="Permalink to Ubuntu 14.04 IP MASQUERADE(IP 공유) 설정">Ubuntu 14.04 IP MASQUERADE(IP 공유) 설정</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2015-06-22T00:00:00+09:00">
-                Published: Mon 22 June 2015
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/comafire.html">comafire</a>
-        </address>
-<p>In <a href="/category/linux.html">Linux</a>.</p>
-<p>tags: <a href="/tag/ubuntu.html">Ubuntu</a> <a href="/tag/ip-masquerade.html">IP Masquerade</a> </p>
-</footer><!-- /.post-info -->                
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>간단하게 실험용 Cluster를 구축 할때 아래와 같이 Master 서버가 Slave 서버가 외부 네트워크와 통신할 수 있도록 IP 공유기 역할을 해야 할때 IP MASQUERADE를 이용하는 방법입니다.</p>
-
-<pre><code>Internet &lt;--&gt; Master &lt;--&gt; 스위치허브 &lt;---&gt; Slave1,2,3 ...</code></pre>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Master-서버">Master &#49436;&#48260;<a class="anchor-link" href="#Master-서버">&#182;</a></h2><h3 id="interface-설정">interface &#49444;&#51221;<a class="anchor-link" href="#interface-설정">&#182;</a></h3><p>Master 서버는 랜카드를 2개 가지고 있다고 가정합니다.
-eth0은 외부 네트워크용이고 eth1은 내부 내트워크용 랜카드 입니다.</p>
-
-<pre><code>&gt; sudo vi /etc/network/inetrfaces</code>
-                <a class="readmore" href="/2015-06-22-Ubuntu-IP-MASQUERADE.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/2015-06-21-Ubuntu-SSH-Root-Login.html" rel="bookmark"
-                           title="Permalink to 우분투에 SSH를 통해 root로 접속하기">우분투에 SSH를 통해 root로 접속하기</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2015-06-21T00:00:00+09:00">
-                Published: Sun 21 June 2015
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/comafire.html">comafire</a>
-        </address>
-<p>In <a href="/category/linux.html">Linux</a>.</p>
-<p>tags: <a href="/tag/ubuntu.html">Ubuntu</a> <a href="/tag/ssh.html">SSH</a> </p>
-</footer><!-- /.post-info -->                None
-                <a class="readmore" href="/2015-06-21-Ubuntu-SSH-Root-Login.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-                </ol><!-- /#posts-list -->
-                </section><!-- /#content -->
         <section id="extras" class="body">
                 <div class="blogroll">
                         <h2>blogroll</h2>

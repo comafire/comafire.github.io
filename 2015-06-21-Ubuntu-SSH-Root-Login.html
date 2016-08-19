@@ -1,43 +1,108 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-        <meta charset="utf-8" />
-        <title>우분투에 SSH를 통해 root로 접속하기</title>
-        <link rel="stylesheet" href="/theme/css/main.css" />
 
-        <!--[if IE]>
-            <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<head>
+            <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title>comafire</title>
+
+
+        <!-- Bootstrap Core CSS -->
+        <link href="/theme/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Custom CSS -->
+        <link href="/theme/css/clean-blog.min.css" rel="stylesheet">
+
+        <!-- Code highlight color scheme -->
+            <link href="/theme/css/code_blocks/darkly.css" rel="stylesheet">
+
+        <!-- Custom Fonts -->
+        <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
+
+
+
+
+        <meta name="tags" contents="Ubuntu" />
+        <meta name="tags" contents="SSH" />
+
+
+			<meta property="og:locale" content="ko">
+		<meta property="og:site_name" content="comafire">
+
+	<meta property="og:type" content="article">
+	<meta property="article:author" content="">
+	<meta property="og:url" content="/2015-06-21-Ubuntu-SSH-Root-Login.html">
+	<meta property="og:title" content="우분투에 SSH를 통해 root로 접속하기">
+	<meta property="og:description" content="">
+	<meta property="og:image" content="/">
+	<meta property="article:published_time" content="2015-06-21 00:00:00+09:00">
 </head>
 
-<body id="index" class="home">
-        <header id="banner" class="body">
-                <h1><a href="/">comafire </a></h1>
-                <nav><ul>
-                    <li class="active"><a href="/category/linux.html">Linux</a></li>
-                    <li><a href="/category/torch.html">Torch</a></li>
-                </ul></nav>
-        </header><!-- /#banner -->
-<section id="content" class="body">
-  <article>
-    <header>
-      <h1 class="entry-title">
-        <a href="/2015-06-21-Ubuntu-SSH-Root-Login.html" rel="bookmark"
-           title="Permalink to 우분투에 SSH를 통해 root로 접속하기">우분투에 SSH를 통해 root로 접속하기</a></h1>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">comafire</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Page Header -->
+        <header class="intro-header" style="background-image: url('/theme/images/post-bg.jpg')">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="post-heading">
+                        <h1>우분투에 SSH를 통해 root로 접속하기</h1>
+                        <span class="meta">Posted by
+                                <a href="/author/comafire.html">comafire</a>
+                             on Sun 21 June 2015
+                        </span>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
     </header>
 
-    <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2015-06-21T00:00:00+09:00">
-                Published: Sun 21 June 2015
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/comafire.html">comafire</a>
-        </address>
-<p>In <a href="/category/linux.html">Linux</a>.</p>
-<p>tags: <a href="/tag/ubuntu.html">Ubuntu</a> <a href="/tag/ssh.html">SSH</a> </p>
-</footer><!-- /.post-info -->      <style type="text/css">/*!
+    <!-- Main Content -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+    <!-- Post Content -->
+    <article>
+        <style type="text/css">/*!
 *
 * IPython notebook
 *
@@ -1014,10 +1079,9 @@ h6:hover .anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Root-계정-활성화">Root &#44228;&#51221; &#54876;&#49457;&#54868;<a class="anchor-link" href="#Root-계정-활성화">&#182;</a></h2><p>일반 계정으로 접속뒤 아래와 같이 root 계정의 passwd 를 설정하여 계정을 활성화합니다.</p>
-<div class="highlight"><pre><span></span>&gt; sudo passwd root
+<h2 id="Root-계정-활성화">Root 계정 활성화<a class="anchor-link" href="#Root-계정-활성화">¶</a></h2><p>일반 계정으로 접속뒤 아래와 같이 root 계정의 passwd 를 설정하여 계정을 활성화합니다.</p>
+<div class="highlight"><pre><span></span>> sudo passwd root
 </pre></div>
-
 </div>
 </div>
 </div>
@@ -1026,8 +1090,8 @@ h6:hover .anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="SSH-인증-설정">SSH &#51064;&#51613; &#49444;&#51221;<a class="anchor-link" href="#SSH-인증-설정">&#182;</a></h2><p>기본적으로 root 접속은 보안상 막혀있으므로 아래와 같이 풀어주고 SSH를 다시 실행시켜 줍니다.</p>
-<div class="highlight"><pre><span></span>&gt; sudo vi /etc/ssh/sshd_config
+<h2 id="SSH-인증-설정">SSH 인증 설정<a class="anchor-link" href="#SSH-인증-설정">¶</a></h2><p>기본적으로 root 접속은 보안상 막혀있으므로 아래와 같이 풀어주고 SSH를 다시 실행시켜 줍니다.</p>
+<div class="highlight"><pre><span></span>> sudo vi /etc/ssh/sshd_config
 
 ...
 
@@ -1038,9 +1102,8 @@ without-password를 yes로 변경하고 ssh를 다시 시작합니다.
 
 ...
 
-&gt; sudo service ssh restart
+> sudo service ssh restart
 </pre></div>
-
 </div>
 </div>
 </div>
@@ -1072,9 +1135,8 @@ without-password를 yes로 변경하고 ssh를 다시 시작합니다.
 }
 </script>
 
-    </div><!-- /.entry-content -->
+    </article>
 
-  </article>
 <div class="analytics">
 
   <script>
@@ -1088,9 +1150,7 @@ without-password를 yes로 변경하고 ssh를 다시 시작합니다.
 
   </script>
   
-</div>                                                                                                    
-                                                                                                                                    
-<div class="adsense">
+</div><div class="adsense">
 
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <!-- comafire.github.io -->
@@ -1103,9 +1163,7 @@ without-password를 yes로 변경하고 ssh를 다시 시작합니다.
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
-</div>                                                                                                      
-                                                                                                                                    
-
+</div>
 <div id="disqus_thread"></div>
 <script>
 
@@ -1125,48 +1183,61 @@ var disqus_config = function () {
     (d.head || d.body).appendChild(s);
 })();
 </script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript> 
-</section>
-        <section id="extras" class="body">
-                <div class="blogroll">
-                        <h2>blogroll</h2>
-                        <ul>
-                            <li><a href="http://getpelican.com/">Pelican</a></li>
-                            <li><a href="http://python.org/">Python.org</a></li>
-                            <li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
-                            <li><a href="#">You can modify those links in your config file</a></li>
-                        </ul>
-                </div><!-- /.blogroll -->
-                <div class="social">
-                        <h2>social</h2>
-                        <ul>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>    <hr>
 
-                            <li><a href="#">You can add links in your config file</a></li>
-                            <li><a href="#">Another social link</a></li>
-                        </ul>
-                </div><!-- /.social -->
-        </section><!-- /#extras -->
+            </div>
+        </div>
+    </div>
 
-        <footer id="contentinfo" class="body">
-                <address id="about" class="vcard body">
-                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
-                </address><!-- /#about -->
+    <hr>
 
-                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
-        </footer><!-- /#contentinfo -->
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <ul class="list-inline text-center">
+                        <li>
+                            <a href="">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                    <p class="copyright text-muted">Blog powered by <a href="http://getpelican.com">Pelican</a>,
+                which takes great advantage of <a href="http://python.org">Python</a>.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
 
-<div class="analytics">
+    <!-- jQuery -->
+    <script src="/theme/js/jquery.js"></script>
 
-  <script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/theme/js/bootstrap.min.js"></script>
 
-    ga('create', 'UA-81648003-1', 'auto');
-    ga('send', 'pageview');
+    <!-- Custom Theme JavaScript -->
+    <script src="/theme/js/clean-blog.min.js"></script>
 
-  </script>
-  
-</div></body>
+</body>
+
 </html>

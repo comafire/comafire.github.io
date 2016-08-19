@@ -1,43 +1,107 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-        <meta charset="utf-8" />
-        <title>Torch 설치</title>
-        <link rel="stylesheet" href="/theme/css/main.css" />
 
-        <!--[if IE]>
-            <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<head>
+            <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title>comafire</title>
+
+
+        <!-- Bootstrap Core CSS -->
+        <link href="/theme/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Custom CSS -->
+        <link href="/theme/css/clean-blog.min.css" rel="stylesheet">
+
+        <!-- Code highlight color scheme -->
+            <link href="/theme/css/code_blocks/darkly.css" rel="stylesheet">
+
+        <!-- Custom Fonts -->
+        <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
+
+
+
+
+        <meta name="tags" contents="Torch Install" />
+
+
+			<meta property="og:locale" content="ko">
+		<meta property="og:site_name" content="comafire">
+
+	<meta property="og:type" content="article">
+	<meta property="article:author" content="">
+	<meta property="og:url" content="/2015-06-26-Torch-Install.html">
+	<meta property="og:title" content="Torch 설치">
+	<meta property="og:description" content="">
+	<meta property="og:image" content="/">
+	<meta property="article:published_time" content="2015-06-26 00:00:00+09:00">
 </head>
 
-<body id="index" class="home">
-        <header id="banner" class="body">
-                <h1><a href="/">comafire </a></h1>
-                <nav><ul>
-                    <li><a href="/category/linux.html">Linux</a></li>
-                    <li class="active"><a href="/category/torch.html">Torch</a></li>
-                </ul></nav>
-        </header><!-- /#banner -->
-<section id="content" class="body">
-  <article>
-    <header>
-      <h1 class="entry-title">
-        <a href="/2015-06-26-Torch-Install.html" rel="bookmark"
-           title="Permalink to Torch 설치">Torch 설치</a></h1>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">comafire</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Page Header -->
+        <header class="intro-header" style="background-image: url('/theme/images/post-bg.jpg')">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="post-heading">
+                        <h1>Torch 설치</h1>
+                        <span class="meta">Posted by
+                                <a href="/author/comafire.html">comafire</a>
+                             on Fri 26 June 2015
+                        </span>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
     </header>
 
-    <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2015-06-26T00:00:00+09:00">
-                Published: Fri 26 June 2015
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="/author/comafire.html">comafire</a>
-        </address>
-<p>In <a href="/category/torch.html">Torch</a>.</p>
-<p>tags: <a href="/tag/torch-install.html">Torch Install</a> </p>
-</footer><!-- /.post-info -->      <style type="text/css">/*!
+    <!-- Main Content -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+    <!-- Post Content -->
+    <article>
+        <style type="text/css">/*!
 *
 * IPython notebook
 *
@@ -1014,37 +1078,32 @@ h6:hover .anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Torch-Install">Torch Install<a class="anchor-link" href="#Torch-Install">&#182;</a></h2><h3 id="Install-Cuda">Install Cuda<a class="anchor-link" href="#Install-Cuda">&#182;</a></h3><p><strong>Ubuntu 14.04</strong></p>
+<h2 id="Torch-Install">Torch Install<a class="anchor-link" href="#Torch-Install">¶</a></h2><h3 id="Install-Cuda">Install Cuda<a class="anchor-link" href="#Install-Cuda">¶</a></h3><p><strong>Ubuntu 14.04</strong></p>
 <p>Torch를 통해서 딥러닝을 트레이닝 시킬때 GPU를 이용하면 시간이 많이 절약됩니다.</p>
 <p>노트북 GPU가 Nvidia가 아니라서 링크만 걸어 놓습니다. 아래 참조해서 설치하세요.</p>
 <p>[Installing CUDA Toolkit 7.0 on Ubuntu 14.04 Linux] (<a href="http://www.r-tutor.com/gpu-computing/cuda-installation/cuda7.0-ubuntu">http://www.r-tutor.com/gpu-computing/cuda-installation/cuda7.0-ubuntu</a>)</p>
 <p><strong>OSX</strong></p>
 <p>OSX 에서는 [Cuda Tookit] (<a href="https://developer.nvidia.com/cuda-toolkit">https://developer.nvidia.com/cuda-toolkit</a>) 다운로드 페이지에서 OSX 용 패키지를 다운로드 받아 설치하면 간단하게 설치가 끝납니다.</p>
-<h3 id="Install-Torch">Install Torch<a class="anchor-link" href="#Install-Torch">&#182;</a></h3><p>Torch는 의존성 패키지를 자동으로 설치해주는 easy install script를 지원하므로 쉘에서 아래 명령을 입력하면 어렵지 않게 설치가 가능합니다.</p>
-
-<pre><code>&gt; curl -sk https://raw.githubusercontent.com/torch/ezinstall/master/install-deps | bash
-&gt; git clone https://github.com/torch/distro.git ~/torch --recursive
-&gt; cd ~/torch; ./install.sh</code></pre>
+<h3 id="Install-Torch">Install Torch<a class="anchor-link" href="#Install-Torch">¶</a></h3><p>Torch는 의존성 패키지를 자동으로 설치해주는 easy install script를 지원하므로 쉘에서 아래 명령을 입력하면 어렵지 않게 설치가 가능합니다.</p>
+<pre><code>> curl -sk https://raw.githubusercontent.com/torch/ezinstall/master/install-deps | bash
+> git clone https://github.com/torch/distro.git ~/torch --recursive
+> cd ~/torch; ./install.sh</code></pre>
 <p><strong>Ubuntu 14.04</strong></p>
 <p>설치가 완료되고 나면 환경 변수에 현재 설치된 Torch의 경로를 추가하겠냐는 메시지가 나오는데 yes 를 선택해주고 source 명령으로 현재 쉘에 적용해 줍니다.</p>
-
 <pre><code>Do you want to automatically prepend the Torch install location
 to PATH and LD_LIBRARY_PATH in your /home/reachlab-kr/.bashrc? (yes/no)
-[yes] &gt;&gt;&gt;
+[yes] >>>
 yes
 
-&gt; source ~/.bashrc</code></pre>
+> source ~/.bashrc</code></pre>
 <p><strong>OSX</strong></p>
 <p>설치가 완료되고 나면 ~/.profile 파일에 아래 내용을 추가하라는 메시지가 나옵니다. 파일을 열어 아래 내용을 추가하고 source 명령으로 적용해줍니다.</p>
-
 <pre><code>export PATH=/Users/reachlab-kr/torch/install/bin:$PATH
 export LD_LIBRARY_PATH=/Users/reachlab-kr/torch/install/lib:$LD_LIBRARY_PATH
 export DYLD_LIBRARY_PATH=/Users/reachlab-kr/torch/install/lib:$DYLD_LIBRARY_PATH</code></pre>
-
-<pre><code>&gt; source ~/.profile</code></pre>
+<pre><code>> source ~/.profile</code></pre>
 <p>이제 torch shell 을 수행해 봅니다.</p>
-
-<pre><code>&gt; th
+<pre><code>> th
 
   ______             __   |  Torch7
  /_  __/__  ________/ /   |  Scientific computing for Lua.
@@ -1052,80 +1111,66 @@ export DYLD_LIBRARY_PATH=/Users/reachlab-kr/torch/install/lib:$DYLD_LIBRARY_PATH
  /_/  \___/_/  \__/_//_/  |  https://github.com/torch
                           |  http://torch.ch
 
-th&gt; exit
+th> exit
 Do you really want to exit ([y]/n)? y
-&gt;</code></pre>
+></code></pre>
 <p>위와 같이 Torch 쉘을 실행할 수 있다면 설치가 성공적으로 이루어진 것입니다.</p>
-<h3 id="Install-iTorch">Install iTorch<a class="anchor-link" href="#Install-iTorch">&#182;</a></h3><p>Torch를 브라우저를 통해서 편리하게 사용할 수 있는 도구입니다.</p>
+<h3 id="Install-iTorch">Install iTorch<a class="anchor-link" href="#Install-iTorch">¶</a></h3><p>Torch를 브라우저를 통해서 편리하게 사용할 수 있는 도구입니다.</p>
 <p>iTorch는 iPython을 이용하는데 python의 버전 의존성 때문에 많은 골치 아픈 문제가 발생합니다.
 따라서 iTorch를 위한 전용 iPython 가상환경을 만들어서 사용하기로 합니다.
 python 의 virtualenv 패키지를 이용하면 시스템의 python 환경을 사용하지 않고 sandbox형태의 가상 환경을 만들어 사용할 수 있도록 해줍니다.</p>
 <p>먼저 virtualenv 패키지를 설치합니다.</p>
 <p><strong>Ubuntu 14.04</strong></p>
-
-<pre><code>&gt; sudo apt-get install libncurses5-dev
-&gt; sudo apt-get install libzmq3-dev
-&gt; sudo apt-get install python
-&gt; sudo apt-get install python-virtualenv python-dev</code></pre>
+<pre><code>> sudo apt-get install libncurses5-dev
+> sudo apt-get install libzmq3-dev
+> sudo apt-get install python
+> sudo apt-get install python-virtualenv python-dev</code></pre>
 <p><strong>OSX</strong></p>
-
-<pre><code>&gt; brew install zmq
-&gt; brew install python3
-&gt; brew install pip3
-&gt; pip3 install virtualenv</code></pre>
+<pre><code>> brew install zmq
+> brew install python3
+> brew install pip3
+> pip3 install virtualenv</code></pre>
 <p>이제 iPython 에서 사용할 가상 환경을 만들어 줍니다.</p>
-
-<pre><code>&gt; cd ~
-&gt; virtualenv iPython
-&gt; cd iPython
-&gt; source bin/activate
+<pre><code>> cd ~
+> virtualenv iPython
+> cd iPython
+> source bin/activate
 (iPython)reachlab-kr:~$</code></pre>
 <p>이제 가상 환경안에서 iPython 에 필요한 패키지를 pip 를 통해 설치합니다.</p>
-
 <pre><code>(iPython)reachlab-kr:~$ pip install jinja2 sphinx pygments tornado nose pyzmq readline
 (iPython)reachlab-kr:~$ pip install ipython[notebook]</code></pre>
 <p>iTorch를 위해 우리는 iPython 3.x 버전을 사용할 것이므로 설치된 ipython 의 버전을 확인합니다.</p>
-
 <pre><code>(iPython)reachlab-kr:~$ pip list | grep ipython
 ipython (3.2.0)</code></pre>
 <p>이제 iTorch 를 설치합니다.</p>
-
 <pre><code>(iPython)reachlab-kr:~$ cd ~
 (iPython)reachlab-kr:~$ git clone https://github.com/facebook/iTorch.git
 (iPython)reachlab-kr:~$ cd iTorch
 (iPython)reachlab-kr:~$ luarocks make</code></pre>
 <p>설치되었다면 아래 명령으로 notebook 모드로 브라우저에서 torch 사용이 가능합니다.</p>
-
 <pre><code>(iPython)reachlab-kr:~$ itorch notebook
 [I 16:09:26.827 NotebookApp] Using MathJax from CDN: https://cdn.mathjax.org/mathjax/latest/MathJax.js
 [I 16:09:26.849 NotebookApp] Serving notebooks from local directory: /home/reachlab-kr/torch_workspace
 [I 16:09:26.849 NotebookApp] 0 active kernels
 [I 16:09:26.849 NotebookApp] The IPython Notebook is running at: http://localhost:8888/
 [I 16:09:26.849 NotebookApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).</code></pre>
-
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In [5]:</div>
 <div class="inner_cell">
-    <div class="input_area">
+<div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Image</span>
-<span class="n">Image</span><span class="p">(</span><span class="s1">&#39;2015-06-26-Torch-Install-01.png&#39;</span><span class="p">)</span>
+<span class="n">Image</span><span class="p">(</span><span class="s1">'2015-06-26-Torch-Install-01.png'</span><span class="p">)</span>
 </pre></div>
-
 </div>
 </div>
 </div>
-
 <div class="output_wrapper">
 <div class="output">
-
-
 <div class="output_area"><div class="prompt output_prompt">Out[5]:</div>
-
-
 <div class="output_png output_subarea output_execute_result">
 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArYAAAHGCAYAAACByciwAAAKu2lDQ1BJQ0MgUHJvZmlsZQAASImV
 lwdQU+kWx797b3qhBSKdUEOv0qXXAArSwUZIQgglhBREbKiIK7gWRESwrOgKiIKrUmRREQu2RbD3
@@ -2224,20 +2269,17 @@ AW8CBFtv9FSMAAIIIIAAAggg4FKAYOtSk7IQQAABBBBAAAEEvAkQbL3RUzECCCCAAAIIIICASwGC
 rUtNykIAAQQQQAABBBDwJkCw9UZPxQgggAACCCCAAAIuBQi2LjUpCwEEEEAAAQQQQMCbAMHWGz0V
 I4AAAggggAACCLgU+H9ugMc8xkAi1QAAAABJRU5ErkJggg==
 ">
-</div>
-
-</div>
-
+</img></div>
 </div>
 </div>
-
+</div>
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Package-Install">Package Install<a class="anchor-link" href="#Package-Install">&#182;</a></h2><p>Torch는 Lua에서 제공하는 Luarocks 라는 package 관리 시스템을 사용합니다.
+<h2 id="Package-Install">Package Install<a class="anchor-link" href="#Package-Install">¶</a></h2><p>Torch는 Lua에서 제공하는 Luarocks 라는 package 관리 시스템을 사용합니다.
 따라서 필요한 모듈은 luarocks 명령을 통해서 간단하게 설치가 가능합니다.</p>
 <p>자주 사용되는 옵션은</p>
 <ul>
@@ -2247,12 +2289,10 @@ I4AAAggggAACCLgU+H9ugMc8xkAi1QAAAABJRU5ErkJggg==
 <li>remove : 패키지 삭제</li>
 </ul>
 <p>아래는 image 라는 패키지가 설치되어 있는지 확인해보고 검색해서 설치하고 삭제 해보는 예제 입니다.</p>
-
-<pre><code>&gt; luarocks list | grep image
-&gt; luarocks search image
-&gt; luarocks install image
-&gt; luarocks remove image</code></pre>
-
+<pre><code>> luarocks list | grep image
+> luarocks search image
+> luarocks install image
+> luarocks remove image</code></pre>
 </div>
 </div>
 </div>
@@ -2284,9 +2324,8 @@ I4AAAggggAACCLgU+H9ugMc8xkAi1QAAAABJRU5ErkJggg==
 }
 </script>
 
-    </div><!-- /.entry-content -->
+    </article>
 
-  </article>
 <div class="analytics">
 
   <script>
@@ -2300,9 +2339,7 @@ I4AAAggggAACCLgU+H9ugMc8xkAi1QAAAABJRU5ErkJggg==
 
   </script>
   
-</div>                                                                                                    
-                                                                                                                                    
-<div class="adsense">
+</div><div class="adsense">
 
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <!-- comafire.github.io -->
@@ -2315,9 +2352,7 @@ I4AAAggggAACCLgU+H9ugMc8xkAi1QAAAABJRU5ErkJggg==
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
-</div>                                                                                                      
-                                                                                                                                    
-
+</div>
 <div id="disqus_thread"></div>
 <script>
 
@@ -2337,48 +2372,61 @@ var disqus_config = function () {
     (d.head || d.body).appendChild(s);
 })();
 </script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript> 
-</section>
-        <section id="extras" class="body">
-                <div class="blogroll">
-                        <h2>blogroll</h2>
-                        <ul>
-                            <li><a href="http://getpelican.com/">Pelican</a></li>
-                            <li><a href="http://python.org/">Python.org</a></li>
-                            <li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
-                            <li><a href="#">You can modify those links in your config file</a></li>
-                        </ul>
-                </div><!-- /.blogroll -->
-                <div class="social">
-                        <h2>social</h2>
-                        <ul>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>    <hr>
 
-                            <li><a href="#">You can add links in your config file</a></li>
-                            <li><a href="#">Another social link</a></li>
-                        </ul>
-                </div><!-- /.social -->
-        </section><!-- /#extras -->
+            </div>
+        </div>
+    </div>
 
-        <footer id="contentinfo" class="body">
-                <address id="about" class="vcard body">
-                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
-                </address><!-- /#about -->
+    <hr>
 
-                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
-        </footer><!-- /#contentinfo -->
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <ul class="list-inline text-center">
+                        <li>
+                            <a href="">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                    <p class="copyright text-muted">Blog powered by <a href="http://getpelican.com">Pelican</a>,
+                which takes great advantage of <a href="http://python.org">Python</a>.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
 
-<div class="analytics">
+    <!-- jQuery -->
+    <script src="/theme/js/jquery.js"></script>
 
-  <script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/theme/js/bootstrap.min.js"></script>
 
-    ga('create', 'UA-81648003-1', 'auto');
-    ga('send', 'pageview');
+    <!-- Custom Theme JavaScript -->
+    <script src="/theme/js/clean-blog.min.js"></script>
 
-  </script>
-  
-</div></body>
+</body>
+
 </html>

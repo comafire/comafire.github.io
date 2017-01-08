@@ -1107,8 +1107,7 @@ h6:hover .anchor-link {
 <div class="prompt input_prompt">In [2]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Tensorflow에서 제공해주는 MNIST 모듈을 이용해서 데이터를 로드합니다.</span>
-<span class="n">mnist</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">mnist</span><span class="o">.</span><span class="n">read_data_sets</span><span class="p">(</span><span class="s2">"MNIST_data/"</span><span class="p">,</span> <span class="n">one_hot</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">mnist</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">mnist</span><span class="o">.</span><span class="n">read_data_sets</span><span class="p">(</span><span class="s2">"MNIST_data/"</span><span class="p">,</span> <span class="n">one_hot</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1140,10 +1139,9 @@ Extracting MNIST_data/t10k-labels-idx1-ubyte.gz
     <span class="n">y</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">placeholder</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="bp">None</span><span class="p">,</span> <span class="mi">10</span><span class="p">])</span>
     <span class="n">keep_prob</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">placeholder</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
 
-<span class="c1"># 데이터셋이 모듈 형태로 나와있어 층을 행렬 곱만으로 구성하는 것이 여렵기 때문에 각 층을 위한 bias도 생성해줍니다.</span>
 <span class="c1"># 각 층은 전단계 층 차원의 반이 되도록 weight와 bias를 생성했습니다.</span>
-<span class="c1"># 층이 깊어 질수록 weight와 bias의 초기 값은 빠른 학습에 지대한 영향을 미치게 됩니다.</span>
-<span class="c1"># 기존에는 정규 분포 랜덤 값 초기화를 많이 사용하였지만, 대부분 xavier 초기 값을 사용합니다.</span>
+<span class="c1"># 층이 깊어 질수록 weight와 bias의 초기 값은 학습속도에 영향을 미칩니다.</span>
+<span class="c1"># 정규 분포 랜덤 값 초기화를 많이 사용하였지만, 여기서는 학습일 잘된다는 xavier 초기 값을 사용했습니다.</span>
 <span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">name_scope</span><span class="p">(</span><span class="s2">"weights"</span><span class="p">):</span>
     <span class="n">w1</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">get_variable</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">"w1"</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="mi">784</span><span class="p">,</span> <span class="mi">392</span><span class="p">],</span> <span class="n">initializer</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">contrib</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">xavier_initializer</span><span class="p">())</span>
     <span class="n">b1</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">get_variable</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">"b1"</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">392</span><span class="p">],</span> <span class="n">initializer</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">contrib</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">xavier_initializer</span><span class="p">())</span>
@@ -1168,10 +1166,8 @@ Extracting MNIST_data/t10k-labels-idx1-ubyte.gz
     <span class="c1"># w5 = tf.Variable(tf.random_normal([49, 10], stddev=0.1))</span>
     <span class="c1"># b5 = tf.Variable(tf.random_normal([1, 10], stddev=0.1))</span>
 
-<span class="c1"># 깊은 층에서도 훈련을 위한 에러의 back propagation 이 잘되도록 relu 함수를 사용합니다.</span>
+<span class="c1"># 깊은 층에서도 back propagation 이 잘되도록 relu 함수를 사용합니다.</span>
 <span class="c1"># softmax 를 적용하기 전 층에 overfitting을 방지하기 위하여 drop out을 적용해주었습니다.</span>
-<span class="c1"># 편리성측면에서 cost 함수를 tensorflow 에서 제공한 함수를 사용하기 위해 </span>
-<span class="c1"># 마지막 층에 softmax 적용을 생략하였습니다.  </span>
 <span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">name_scope</span><span class="p">(</span><span class="s2">"layers"</span><span class="p">):</span>
     <span class="n">l1</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">w1</span><span class="p">),</span> <span class="n">b1</span><span class="p">))</span>
     <span class="n">l2</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">l1</span><span class="p">,</span> <span class="n">w2</span><span class="p">),</span> <span class="n">b2</span><span class="p">))</span>
@@ -1185,8 +1181,7 @@ Extracting MNIST_data/t10k-labels-idx1-ubyte.gz
     <span class="n">cost</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">reduce_mean</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">softmax_cross_entropy_with_logits</span><span class="p">(</span><span class="n">l5</span><span class="p">,</span> <span class="n">y</span><span class="p">))</span>
     <span class="n">optimizer</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">AdamOptimizer</span><span class="p">(</span><span class="mf">0.001</span><span class="p">)</span><span class="o">.</span><span class="n">minimize</span><span class="p">(</span><span class="n">cost</span><span class="p">)</span>
 
-<span class="c1"># 마지막 층에 softmax 적용을 하지 않았기 때문에 </span>
-<span class="c1"># 예측시에는 훈련된 NN의 마지막 층에 softmax를 적용해 줍니다.</span>
+<span class="c1"># 예측시 훈련된 NN의 마지막 층에 softmax를 적용해 줍니다.</span>
 <span class="c1"># softmax가 적용된 값은 확률 값이기에 one hot 인코딩 된 실제 label과 직접 비교할 수 없으므로,</span>
 <span class="c1"># 최대 값의 인덱스를 돌려주는 argmax 함수를 통해 실제 label과 예측 label을 비교하고 정확도를 계산합니다.</span>
 <span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">name_scope</span><span class="p">(</span><span class="s2">"evaluate"</span><span class="p">):</span>
@@ -1227,7 +1222,7 @@ Extracting MNIST_data/t10k-labels-idx1-ubyte.gz
 
     <span class="k">for</span> <span class="n">epoch</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">30</span><span class="p">):</span>    
         <span class="c1"># Tensorflow 세션을 초기화 합니다. </span>
-        <span class="c1"># r12 부터 초기화 함수가 global_variables_initializer()로 변경되었습니다.</span>
+        <span class="c1"># r12 버전 부터 초기화 함수가 global_variables_initializer()로 변경되었습니다.</span>
         <span class="n">init</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">global_variables_initializer</span><span class="p">()</span>
         <span class="n">sess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">init</span><span class="p">)</span>
     

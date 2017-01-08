@@ -1160,7 +1160,7 @@ Extracting MNIST_data/t10k-labels-idx1-ubyte.gz
 <span class="c1"># CNN을 구성합니다.</span>
 <span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">name_scope</span><span class="p">(</span><span class="s2">"layers"</span><span class="p">):</span>
     <span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">variable_scope</span><span class="p">(</span><span class="s2">"l1"</span><span class="p">):</span>
-        <span class="c1"># CNN은 이미지를 입력으로 받기때문에 Tensor를 </span>
+        <span class="c1"># CNN은 이미지를 입력으로 받기 때문에 Tensor를 </span>
         <span class="c1"># 28x28x1(width, height, channel)로 변형합니다.</span>
         <span class="n">x_img</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
         <span class="c1"># filter 사이즈는 5x5x1 이고 32개를 사용합니다.</span>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>comafire</title><link>https://comafire.github.io/</link><description>comafire's lab</description><atom:link href="https://comafire.github.io/rss.xml" rel="self" type="application/rss+xml"></atom:link><language>ko</language><lastBuildDate>Sun, 12 Feb 2017 13:45:53 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>about-me</title><link>https://comafire.github.io/posts/about-me/</link><dc:creator>comafire</dc:creator><description>&lt;div tabindex="-1" id="notebook" class="border-box-sizing"&gt;
+<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>comafire</title><link>https://comafire.github.io/</link><description>comafire's lab</description><atom:link href="https://comafire.github.io/rss.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><lastBuildDate>Sun, 12 Feb 2017 13:47:34 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>about-me</title><link>https://comafire.github.io/posts/about-me/</link><dc:creator>comafire</dc:creator><description>&lt;div tabindex="-1" id="notebook" class="border-box-sizing"&gt;
     &lt;div class="container" id="notebook-container"&gt;
 
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;
@@ -14,7 +14,7 @@
 &lt;/div&gt;
     &lt;/div&gt;
   &lt;/div&gt;
-</description><guid>https://comafire.github.io/posts/about-me/</guid><pubDate>Sun, 12 Feb 2017 08:00:00 GMT</pubDate></item><item><title>Jupyter로 개발부터 블로깅까지2</title><link>https://comafire.github.io/posts/Jupyter%EB%A1%9C%20%EA%B0%9C%EB%B0%9C%EB%B6%80%ED%84%B0%20%EB%B8%94%EB%A1%9C%EA%B9%85%EA%B9%8C%EC%A7%802/</link><dc:creator>comafire</dc:creator><description>&lt;div tabindex="-1" id="notebook" class="border-box-sizing"&gt;
+</description><guid>https://comafire.github.io/posts/about-me/</guid><pubDate>Sun, 12 Feb 2017 08:00:00 GMT</pubDate></item><item><title>jupyter-from-dev-to-blog-with-docker</title><link>https://comafire.github.io/posts/jupyter-from-dev-to-blog-with-docker/</link><dc:creator>comafire</dc:creator><description>&lt;div tabindex="-1" id="notebook" class="border-box-sizing"&gt;
     &lt;div class="container" id="notebook-container"&gt;
 
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;
@@ -43,7 +43,7 @@
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h3 id="home-brew"&gt;home brew&lt;a class="anchor-link" href="https://comafire.github.io/posts/Jupyter%EB%A1%9C%20%EA%B0%9C%EB%B0%9C%EB%B6%80%ED%84%B0%20%EB%B8%94%EB%A1%9C%EA%B9%85%EA%B9%8C%EC%A7%802/#home-brew"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;OSX 에서 편리하게 linux 개발 툴을 사용하기 위해 필수적으로 필요한 패키지 관리자입니다. (&lt;a href="http://brew.sh/index_ko.html"&gt;http://brew.sh/index_ko.html&lt;/a&gt;)&lt;/p&gt;
+&lt;h3 id="home-brew"&gt;home brew&lt;a class="anchor-link" href="https://comafire.github.io/posts/jupyter-from-dev-to-blog-with-docker/#home-brew"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;OSX 에서 편리하게 linux 개발 툴을 사용하기 위해 필수적으로 필요한 패키지 관리자입니다. (&lt;a href="http://brew.sh/index_ko.html"&gt;http://brew.sh/index_ko.html&lt;/a&gt;)&lt;/p&gt;
 &lt;p&gt;설치는 간단합니다. 아래와 같이 스크립트를 수행해 주면 됩니다.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&amp;gt; /usr/bin/ruby -e &lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install&lt;span class="k"&gt;)&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
@@ -57,7 +57,7 @@
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h3 id="git,-github.com"&gt;git, github.com&lt;a class="anchor-link" href="https://comafire.github.io/posts/Jupyter%EB%A1%9C%20%EA%B0%9C%EB%B0%9C%EB%B6%80%ED%84%B0%20%EB%B8%94%EB%A1%9C%EA%B9%85%EA%B9%8C%EC%A7%802/#git,-github.com"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;소스와 블로그의 버전을 관리하기 위해 brew 를 통해 버전 관리 툴인 git을 설치합니다.&lt;/p&gt;
+&lt;h3 id="git,-github.com"&gt;git, github.com&lt;a class="anchor-link" href="https://comafire.github.io/posts/jupyter-from-dev-to-blog-with-docker/#git,-github.com"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;소스와 블로그의 버전을 관리하기 위해 brew 를 통해 버전 관리 툴인 git을 설치합니다.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&amp;gt; brew install git
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;소스와 블로그의 버전별 저장은 github.com 을 통해서 합니다. (프로젝트가 공개일 경우 무료입니다.)&lt;/p&gt;
@@ -75,7 +75,7 @@
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h3 id="pyenv,-pyenv-virtualenv,-autoenv"&gt;pyenv, pyenv-virtualenv, autoenv&lt;a class="anchor-link" href="https://comafire.github.io/posts/Jupyter%EB%A1%9C%20%EA%B0%9C%EB%B0%9C%EB%B6%80%ED%84%B0%20%EB%B8%94%EB%A1%9C%EA%B9%85%EA%B9%8C%EC%A7%802/#pyenv,-pyenv-virtualenv,-autoenv"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;프로젝트를 진행할때, 파이썬의 특성상 파이썬 자체의 버전과 패키지 버전들에 대한 의존성이 생기게 됩니다. 프로젝트 별로 편리하게 의존성을 관리하기 위해 3가지 툴을 조합하여 사용합니다.&lt;/p&gt;
+&lt;h3 id="pyenv,-pyenv-virtualenv,-autoenv"&gt;pyenv, pyenv-virtualenv, autoenv&lt;a class="anchor-link" href="https://comafire.github.io/posts/jupyter-from-dev-to-blog-with-docker/#pyenv,-pyenv-virtualenv,-autoenv"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;프로젝트를 진행할때, 파이썬의 특성상 파이썬 자체의 버전과 패키지 버전들에 대한 의존성이 생기게 됩니다. 프로젝트 별로 편리하게 의존성을 관리하기 위해 3가지 툴을 조합하여 사용합니다.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;pyenv: 로컬에 멀티 버전의 파이썬을 설치/사용, 파이썬 버전에 대한 의존성을 해결&lt;/li&gt;
 &lt;li&gt;virtualenv: 로컬에 멀티 파이썬 환경을 설치/사용, 프로젝트별 패키지에 대한 의존성을 해결&lt;/li&gt;
@@ -129,7 +129,7 @@ pyenv activate pyenv-3.6.0
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h3 id="nikola"&gt;nikola&lt;a class="anchor-link" href="https://comafire.github.io/posts/Jupyter%EB%A1%9C%20%EA%B0%9C%EB%B0%9C%EB%B6%80%ED%84%B0%20%EB%B8%94%EB%A1%9C%EA%B9%85%EA%B9%8C%EC%A7%802/#nikola"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;nikola(&lt;a href="https://getnikola.xn--com)-yc0q"&gt;https://getnikola.com)는&lt;/a&gt; 여러 jupyter, markdown 등 여러 타입의 파일을 html 형태로 변환하여 github page 서비스에서 사용할 수 있도록 해주는 툴입니다.&lt;/p&gt;
+&lt;h3 id="nikola"&gt;nikola&lt;a class="anchor-link" href="https://comafire.github.io/posts/jupyter-from-dev-to-blog-with-docker/#nikola"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;nikola(&lt;a href="https://getnikola.xn--com)-yc0q"&gt;https://getnikola.com)는&lt;/a&gt; 여러 jupyter, markdown 등 여러 타입의 파일을 html 형태로 변환하여 github page 서비스에서 사용할 수 있도록 해주는 툴입니다.&lt;/p&gt;
 &lt;p&gt;여기서는 comafire.github.io-nikola 는 위에서 설정한 pyenv-3.6.0 가상환경을 사용할 것이기 때문에 가상환경이 활성화된 상태에서 nikola 를 설치합니다.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;pyenv-3.6.0&lt;span class="o"&gt;)&lt;/span&gt; &amp;gt; pip install nikola&lt;span class="o"&gt;[&lt;/span&gt;extras&lt;span class="o"&gt;]&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
@@ -256,7 +256,7 @@ github_deploy 명령을 수행하면 html 로 변경된 부분은 github reposit
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h3 id="jupyter"&gt;jupyter&lt;a class="anchor-link" href="https://comafire.github.io/posts/Jupyter%EB%A1%9C%20%EA%B0%9C%EB%B0%9C%EB%B6%80%ED%84%B0%20%EB%B8%94%EB%A1%9C%EA%B9%85%EA%B9%8C%EC%A7%802/#jupyter"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;jupyter의 의존 패키지인 zeromq를 brew로 설치후 jupyter를 설치합니다.&lt;/p&gt;
+&lt;h3 id="jupyter"&gt;jupyter&lt;a class="anchor-link" href="https://comafire.github.io/posts/jupyter-from-dev-to-blog-with-docker/#jupyter"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;jupyter의 의존 패키지인 zeromq를 brew로 설치후 jupyter를 설치합니다.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;pyenv-3.6.0&lt;span class="o"&gt;)&lt;/span&gt; &amp;gt; brew install zmq
 &lt;span class="o"&gt;(&lt;/span&gt;pyenv-3.6.0&lt;span class="o"&gt;)&lt;/span&gt; &amp;gt; pip install jupyter
 &lt;/pre&gt;&lt;/div&gt;
@@ -308,7 +308,7 @@ github_deploy 명령을 수행하면 html 로 변경된 부분은 github reposit
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h3 id="docker"&gt;docker&lt;a class="anchor-link" href="https://comafire.github.io/posts/Jupyter%EB%A1%9C%20%EA%B0%9C%EB%B0%9C%EB%B6%80%ED%84%B0%20%EB%B8%94%EB%A1%9C%EA%B9%85%EA%B9%8C%EC%A7%802/#docker"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;docker는 시스템 단위에서 python 에서 pyenv 과 같은 존재입니다. (to be continue..)&lt;/p&gt;
+&lt;h3 id="docker"&gt;docker&lt;a class="anchor-link" href="https://comafire.github.io/posts/jupyter-from-dev-to-blog-with-docker/#docker"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;docker는 시스템 단위에서 python 에서 pyenv 과 같은 존재입니다. (to be continue..)&lt;/p&gt;
 
 &lt;/div&gt;
 &lt;/div&gt;
@@ -328,7 +328,7 @@ github_deploy 명령을 수행하면 html 로 변경된 부분은 github reposit
 &lt;/div&gt;
     &lt;/div&gt;
   &lt;/div&gt;
-</description><guid>https://comafire.github.io/posts/Jupyter%EB%A1%9C%20%EA%B0%9C%EB%B0%9C%EB%B6%80%ED%84%B0%20%EB%B8%94%EB%A1%9C%EA%B9%85%EA%B9%8C%EC%A7%802/</guid><pubDate>Sat, 11 Feb 2017 15:00:00 GMT</pubDate></item><item><title>Jupyter로 개발부터 블로깅까지</title><link>https://comafire.github.io/posts/Jupyter%EB%A1%9C%20%EA%B0%9C%EB%B0%9C%EB%B6%80%ED%84%B0%20%EB%B8%94%EB%A1%9C%EA%B9%85%EA%B9%8C%EC%A7%80/</link><dc:creator>comafire</dc:creator><description>&lt;div tabindex="-1" id="notebook" class="border-box-sizing"&gt;
+</description><guid>https://comafire.github.io/posts/jupyter-from-dev-to-blog-with-docker/</guid><pubDate>Sat, 11 Feb 2017 15:00:00 GMT</pubDate></item><item><title>2016-08-26-Jupyter-From-Dev-To-Blogging</title><link>https://comafire.github.io/posts/2016-08-26-Jupyter-From-Dev-To-Blogging/</link><dc:creator>comafire</dc:creator><description>&lt;div tabindex="-1" id="notebook" class="border-box-sizing"&gt;
     &lt;div class="container" id="notebook-container"&gt;
 
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;
@@ -336,11 +336,11 @@ github_deploy 명령을 수행하면 html 로 변경된 부분은 github reposit
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h3 id="Jupyter로-개발부터-블로깅까지"&gt;Jupyter로 개발부터 블로깅까지&lt;a class="anchor-link" href="https://comafire.github.io/posts/Jupyter%EB%A1%9C%20%EA%B0%9C%EB%B0%9C%EB%B6%80%ED%84%B0%20%EB%B8%94%EB%A1%9C%EA%B9%85%EA%B9%8C%EC%A7%80/#Jupyter%EB%A1%9C-%EA%B0%9C%EB%B0%9C%EB%B6%80%ED%84%B0-%EB%B8%94%EB%A1%9C%EA%B9%85%EA%B9%8C%EC%A7%80"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;빅데이터상에서 데이터를 다루고 분석하다보니 여러 시스템과 여러 언어를 시험삼아 사용해야 하는 상황에서 하나의 툴로 최대한 많은 영역을 커버하는 편리한 개발 환경을 구축하기 어렵습니다.&lt;/p&gt;
+&lt;h3 id="Jupyter로-개발부터-블로깅까지"&gt;Jupyter로 개발부터 블로깅까지&lt;a class="anchor-link" href="https://comafire.github.io/posts/2016-08-26-Jupyter-From-Dev-To-Blogging/#Jupyter%EB%A1%9C-%EA%B0%9C%EB%B0%9C%EB%B6%80%ED%84%B0-%EB%B8%94%EB%A1%9C%EA%B9%85%EA%B9%8C%EC%A7%80"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;빅데이터상에서 데이터를 다루고 분석하다보니 여러 시스템과 여러 언어를 시험삼아 사용해야 하는 상황에서 하나의 툴로 최대한 많은 영역을 커버하는 편리한 개발 환경을 구축하기 어렵습니다.&lt;/p&gt;
 &lt;p&gt;Jupyter는 데이터 과학자에게는 대단히 유용한 개발툴임에 틀림없습니다.
 여러 툴들을 전전했지만, 이글을 쓰는 시점에 개인 노트북안에서 Jupyter 만큼 여러 분석툴과 문서화까지 다양하게 응용하여 사용 가능한 툴을 찾지 못했습니다.&lt;/p&gt;
 &lt;p&gt;저와 비슷한 상황이신 분들에게 도움이되었으면 좋겠네요.. ㅋ&lt;/p&gt;
-&lt;h4 id="환경"&gt;환경&lt;a class="anchor-link" href="https://comafire.github.io/posts/Jupyter%EB%A1%9C%20%EA%B0%9C%EB%B0%9C%EB%B6%80%ED%84%B0%20%EB%B8%94%EB%A1%9C%EA%B9%85%EA%B9%8C%EC%A7%80/#%ED%99%98%EA%B2%BD"&gt;¶&lt;/a&gt;&lt;/h4&gt;&lt;ul&gt;
+&lt;h4 id="환경"&gt;환경&lt;a class="anchor-link" href="https://comafire.github.io/posts/2016-08-26-Jupyter-From-Dev-To-Blogging/#%ED%99%98%EA%B2%BD"&gt;¶&lt;/a&gt;&lt;/h4&gt;&lt;ul&gt;
 &lt;li&gt;노트북: MacBook Pro (Retina, 15-inch, Mid 2014)&lt;/li&gt;
 &lt;li&gt;운영체제: OSX Elcapitan 10.11.6 (15G31)&lt;/li&gt;
 &lt;li&gt;개발언어: Python, Scala, Lua, Julia, R&lt;/li&gt;
@@ -356,7 +356,7 @@ github_deploy 명령을 수행하면 html 로 변경된 부분은 github reposit
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h4 id="Home-Brew"&gt;Home Brew&lt;a class="anchor-link" href="https://comafire.github.io/posts/Jupyter%EB%A1%9C%20%EA%B0%9C%EB%B0%9C%EB%B6%80%ED%84%B0%20%EB%B8%94%EB%A1%9C%EA%B9%85%EA%B9%8C%EC%A7%80/#Home-Brew"&gt;¶&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;OSX 에서 linux 개발 툴을 사용하기 위해 필수적으로 필요한 패키지 관리자입니다.&lt;/p&gt;
+&lt;h4 id="Home-Brew"&gt;Home Brew&lt;a class="anchor-link" href="https://comafire.github.io/posts/2016-08-26-Jupyter-From-Dev-To-Blogging/#Home-Brew"&gt;¶&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;OSX 에서 linux 개발 툴을 사용하기 위해 필수적으로 필요한 패키지 관리자입니다.&lt;/p&gt;
 &lt;p&gt;&lt;a href="http://brew.sh/index_ko.html"&gt;http://brew.sh/index_ko.html&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;설치는 간단합니다. 아래와 같이 스크립트를 수행해 주면 됩니다.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&amp;gt; /usr/bin/ruby -e &lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install&lt;span class="k"&gt;)&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;
@@ -371,7 +371,7 @@ github_deploy 명령을 수행하면 html 로 변경된 부분은 github reposit
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h4 id="Python-&amp;amp;-Jupyter"&gt;Python &amp;amp; Jupyter&lt;a class="anchor-link" href="https://comafire.github.io/posts/Jupyter%EB%A1%9C%20%EA%B0%9C%EB%B0%9C%EB%B6%80%ED%84%B0%20%EB%B8%94%EB%A1%9C%EA%B9%85%EA%B9%8C%EC%A7%80/#Python-&amp;amp;-Jupyter"&gt;¶&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;brew를 이용하여 python 및 jupyter 설치합니다. python 버전은 2.x 를 사용하는 것이 공통으로 사용할때 문제를 덜 일으키기에 2.x 를 사용합니다. 여러 버전의 python 을 사용하시는 분들은 virtualenv 패키지를 통해 분리된 환경내에서 python을 사용하시는 것을 권장합니다.&lt;/p&gt;
+&lt;h4 id="Python-&amp;amp;-Jupyter"&gt;Python &amp;amp; Jupyter&lt;a class="anchor-link" href="https://comafire.github.io/posts/2016-08-26-Jupyter-From-Dev-To-Blogging/#Python-&amp;amp;-Jupyter"&gt;¶&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;brew를 이용하여 python 및 jupyter 설치합니다. python 버전은 2.x 를 사용하는 것이 공통으로 사용할때 문제를 덜 일으키기에 2.x 를 사용합니다. 여러 버전의 python 을 사용하시는 분들은 virtualenv 패키지를 통해 분리된 환경내에서 python을 사용하시는 것을 권장합니다.&lt;/p&gt;
 &lt;p&gt;python를 위한 패키지 관리자인 pip를 설치하고 pip를 이용하여 jupyter를 설치합니다.&lt;/p&gt;
 &lt;p&gt;jupyter의 의존 패키지인 zeromq를 brew로 설치합니다.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&amp;gt; brew install python
@@ -442,7 +442,7 @@ github_deploy 명령을 수행하면 html 로 변경된 부분은 github reposit
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h4 id="Jupyter,-Pelican-&amp;amp;-Github-Pages로-블로깅하기"&gt;Jupyter, Pelican &amp;amp; Github Pages로 블로깅하기&lt;a class="anchor-link" href="https://comafire.github.io/posts/Jupyter%EB%A1%9C%20%EA%B0%9C%EB%B0%9C%EB%B6%80%ED%84%B0%20%EB%B8%94%EB%A1%9C%EA%B9%85%EA%B9%8C%EC%A7%80/#Jupyter,-Pelican-&amp;amp;-Github-Pages%EB%A1%9C-%EB%B8%94%EB%A1%9C%EA%B9%85%ED%95%98%EA%B8%B0"&gt;¶&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;github 하면 개발 소스 저장소가 가장 먼저 떠오르지만, github 에서는 얼마전부터 pages 라는 서비스를 통해 github 저장소에 올려놓은 웹 페이지 소스를 브라우저를 통해 볼수 있도록하면서, 웹 서버가 없어도 개인이 static 블로깅이 가능하도록 서비스하고 있습니다.&lt;/p&gt;
+&lt;h4 id="Jupyter,-Pelican-&amp;amp;-Github-Pages로-블로깅하기"&gt;Jupyter, Pelican &amp;amp; Github Pages로 블로깅하기&lt;a class="anchor-link" href="https://comafire.github.io/posts/2016-08-26-Jupyter-From-Dev-To-Blogging/#Jupyter,-Pelican-&amp;amp;-Github-Pages%EB%A1%9C-%EB%B8%94%EB%A1%9C%EA%B9%85%ED%95%98%EA%B8%B0"&gt;¶&lt;/a&gt;&lt;/h4&gt;&lt;p&gt;github 하면 개발 소스 저장소가 가장 먼저 떠오르지만, github 에서는 얼마전부터 pages 라는 서비스를 통해 github 저장소에 올려놓은 웹 페이지 소스를 브라우저를 통해 볼수 있도록하면서, 웹 서버가 없어도 개인이 static 블로깅이 가능하도록 서비스하고 있습니다.&lt;/p&gt;
 &lt;p&gt;wordpress, blogger, tistory 등등 수많은 블로그 시스템이 존재하지만, 개발을 하다가 그때그때 편리하게 블로깅 가능한 면에서는 이 조합을 따라올 수 있는 블로깅 환경이 없는거 같습니다.&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://github.com/"&gt;https://github.com/&lt;/a&gt; 에 계정을 만듭니다.&lt;/p&gt;
 &lt;p&gt;pelican(&lt;a href="http://docs.getpelican.com/en/3.6.3/)%EC%9C%BC%EB%A1%9C"&gt;http://docs.getpelican.com/en/3.6.3/)으로&lt;/a&gt; 블로깅을 하기 위해서 2개의 repository 를 생성합니다.&lt;/p&gt;
@@ -550,4 +550,4 @@ Done: Processed 1 articles, 0 drafts, 0 pages and 0 hidden pages in 0.46 seconds
 &lt;/div&gt;
     &lt;/div&gt;
   &lt;/div&gt;
-</description><guid>https://comafire.github.io/posts/Jupyter%EB%A1%9C%20%EA%B0%9C%EB%B0%9C%EB%B6%80%ED%84%B0%20%EB%B8%94%EB%A1%9C%EA%B9%85%EA%B9%8C%EC%A7%80/</guid><pubDate>Thu, 25 Aug 2016 15:00:00 GMT</pubDate></item></channel></rss>
+</description><guid>https://comafire.github.io/posts/2016-08-26-Jupyter-From-Dev-To-Blogging/</guid><pubDate>Thu, 25 Aug 2016 15:00:00 GMT</pubDate></item></channel></rss>

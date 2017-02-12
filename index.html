@@ -29,13 +29,13 @@ article: http://ogp.me/ns/article#
 
         </ul></section><section class="page-content"><div class="content" rel="main">
         <div class="post">
-            <h1 class="title"><a href="posts/jupyter-from-dev-to-blogging-with-docker/">jupyter-from-dev-to-blogging-with-docker</a></h1>
+            <h1 class="title"><a href="posts/2017-02-12-Jupyter-From-Dev-To-Blogging2/">2017-02-12-Jupyter-From-Dev-To-Blogging2</a></h1>
             <div class="meta">
                 <div class="authordate">
                     <time class="timeago" datetime="2017-02-12T00:00:00+09:00">2017-02-12 00:00</time>
 </div>
                 <div class="stats">
-                                <a href="posts/jupyter-from-dev-to-blogging-with-docker/#disqus_thread" data-disqus-identifier="cache/posts/jupyter-from-dev-to-blogging-with-docker.html">Comments</a>
+                                <a href="posts/2017-02-12-Jupyter-From-Dev-To-Blogging2/#disqus_thread" data-disqus-identifier="cache/posts/2017-02-12-Jupyter-From-Dev-To-Blogging2.html">Comments</a>
 
 
                 </div>
@@ -50,7 +50,7 @@ article: http://ogp.me/ns/article#
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Jupyter로-개발부터-블로깅까지-2">Jupyter로 개발부터 블로깅까지 2<a class="anchor-link" href="posts/jupyter-from-dev-to-blogging-with-docker/#Jupyter%EB%A1%9C-%EA%B0%9C%EB%B0%9C%EB%B6%80%ED%84%B0-%EB%B8%94%EB%A1%9C%EA%B9%85%EA%B9%8C%EC%A7%80-2">¶</a>
+<h2 id="Jupyter로-개발부터-블로깅까지-2">Jupyter로 개발부터 블로깅까지 2<a class="anchor-link" href="posts/2017-02-12-Jupyter-From-Dev-To-Blogging2/#Jupyter%EB%A1%9C-%EA%B0%9C%EB%B0%9C%EB%B6%80%ED%84%B0-%EB%B8%94%EB%A1%9C%EA%B9%85%EA%B9%8C%EC%A7%80-2">¶</a>
 </h2>
 <p>이전 글에서 static site 생성 툴인 pelican과 github page 서비스를 이용하여 jupyter notebook으로 블로깅하는 방법에 대해 다뤘었습니다.</p>
 <p>이번에는 Pelican 대신 Nikola 를 사용해 보도록 하겠습니다. Pelican도 다양한 기능을 제공하는 좋은 툴임에는 분명하지만 Nikola의 경우가 Jupyter notebook을 블로깅에 활용하는데 더욱 편리한 기능들을 제공해주고 있습니다.</p>
@@ -72,7 +72,7 @@ article: http://ogp.me/ns/article#
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="home-brew">home brew<a class="anchor-link" href="posts/jupyter-from-dev-to-blogging-with-docker/#home-brew">¶</a>
+<h3 id="home-brew">home brew<a class="anchor-link" href="posts/2017-02-12-Jupyter-From-Dev-To-Blogging2/#home-brew">¶</a>
 </h3>
 <p>OSX 에서 편리하게 linux 개발 툴을 사용하기 위해 필수적으로 필요한 패키지 관리자입니다. (<a href="http://brew.sh/index_ko.html">http://brew.sh/index_ko.html</a>)</p>
 <p>설치는 간단합니다. 아래와 같이 스크립트를 수행해 주면 됩니다.</p>
@@ -88,7 +88,7 @@ article: http://ogp.me/ns/article#
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="git,-github.com">git, github.com<a class="anchor-link" href="posts/jupyter-from-dev-to-blogging-with-docker/#git,-github.com">¶</a>
+<h3 id="git,-github.com">git, github.com<a class="anchor-link" href="posts/2017-02-12-Jupyter-From-Dev-To-Blogging2/#git,-github.com">¶</a>
 </h3>
 <p>소스와 블로그의 버전을 관리하기 위해 brew 를 통해 버전 관리 툴인 git을 설치합니다.</p>
 <div class="highlight"><pre><span></span>&gt; brew install git
@@ -108,7 +108,7 @@ article: http://ogp.me/ns/article#
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="pyenv,-pyenv-virtualenv,-autoenv">pyenv, pyenv-virtualenv, autoenv<a class="anchor-link" href="posts/jupyter-from-dev-to-blogging-with-docker/#pyenv,-pyenv-virtualenv,-autoenv">¶</a>
+<h3 id="pyenv,-pyenv-virtualenv,-autoenv">pyenv, pyenv-virtualenv, autoenv<a class="anchor-link" href="posts/2017-02-12-Jupyter-From-Dev-To-Blogging2/#pyenv,-pyenv-virtualenv,-autoenv">¶</a>
 </h3>
 <p>프로젝트를 진행할때, 파이썬의 특성상 파이썬 자체의 버전과 패키지 버전들에 대한 의존성이 생기게 됩니다. 프로젝트 별로 편리하게 의존성을 관리하기 위해 3가지 툴을 조합하여 사용합니다.</p>
 <ul>
@@ -164,7 +164,7 @@ pyenv activate pyenv-3.6.0
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="nikola">nikola<a class="anchor-link" href="posts/jupyter-from-dev-to-blogging-with-docker/#nikola">¶</a>
+<h3 id="nikola">nikola<a class="anchor-link" href="posts/2017-02-12-Jupyter-From-Dev-To-Blogging2/#nikola">¶</a>
 </h3>
 <p>nikola(<a href="https://getnikola.xn--com)-yc0q">https://getnikola.com)는</a> 여러 jupyter, markdown 등 여러 타입의 파일을 html 형태로 변환하여 github page 서비스에서 사용할 수 있도록 해주는 툴입니다.</p>
 <p>여기서는 comafire.github.io-nikola 는 위에서 설정한 pyenv-3.6.0 가상환경을 사용할 것이기 때문에 가상환경이 활성화된 상태에서 nikola 를 설치합니다.</p>
@@ -293,7 +293,7 @@ github_deploy 명령을 수행하면 html 로 변경된 부분은 github reposit
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="jupyter">jupyter<a class="anchor-link" href="posts/jupyter-from-dev-to-blogging-with-docker/#jupyter">¶</a>
+<h3 id="jupyter">jupyter<a class="anchor-link" href="posts/2017-02-12-Jupyter-From-Dev-To-Blogging2/#jupyter">¶</a>
 </h3>
 <p>jupyter의 의존 패키지인 zeromq를 brew로 설치후 jupyter를 설치합니다.</p>
 <div class="highlight"><pre><span></span><span class="o">(</span>pyenv-3.6.0<span class="o">)</span> &gt; brew install zmq
@@ -347,7 +347,7 @@ github_deploy 명령을 수행하면 html 로 변경된 부분은 github reposit
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="docker">docker<a class="anchor-link" href="posts/jupyter-from-dev-to-blogging-with-docker/#docker">¶</a>
+<h3 id="docker">docker<a class="anchor-link" href="posts/2017-02-12-Jupyter-From-Dev-To-Blogging2/#docker">¶</a>
 </h3>
 <p>docker는 시스템 단위에서 python 에서 pyenv 과 같은 존재입니다. (to be continue..)</p>
 

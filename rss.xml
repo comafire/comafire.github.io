@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>comafire</title><link>https://comafire.github.io/</link><description>comafire's lab</description><atom:link href="https://comafire.github.io/rss.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><lastBuildDate>Sun, 12 Feb 2017 13:55:52 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>jupyter-from-dev-to-blogging-with-docker</title><link>https://comafire.github.io/posts/jupyter-from-dev-to-blogging-with-docker/</link><dc:creator>comafire</dc:creator><description>&lt;div tabindex="-1" id="notebook" class="border-box-sizing"&gt;
+<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>comafire</title><link>https://comafire.github.io/</link><description>comafire's lab</description><atom:link href="https://comafire.github.io/rss.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><lastBuildDate>Sun, 12 Feb 2017 13:59:16 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>2017-02-12-Jupyter-From-Dev-To-Blogging2</title><link>https://comafire.github.io/posts/2017-02-12-Jupyter-From-Dev-To-Blogging2/</link><dc:creator>comafire</dc:creator><description>&lt;div tabindex="-1" id="notebook" class="border-box-sizing"&gt;
     &lt;div class="container" id="notebook-container"&gt;
 
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;
@@ -7,7 +7,7 @@
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h2 id="Jupyter로-개발부터-블로깅까지-2"&gt;Jupyter로 개발부터 블로깅까지 2&lt;a class="anchor-link" href="https://comafire.github.io/posts/jupyter-from-dev-to-blogging-with-docker/#Jupyter%EB%A1%9C-%EA%B0%9C%EB%B0%9C%EB%B6%80%ED%84%B0-%EB%B8%94%EB%A1%9C%EA%B9%85%EA%B9%8C%EC%A7%80-2"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;이전 글에서 static site 생성 툴인 pelican과 github page 서비스를 이용하여 jupyter notebook으로 블로깅하는 방법에 대해 다뤘었습니다.&lt;/p&gt;
+&lt;h2 id="Jupyter로-개발부터-블로깅까지-2"&gt;Jupyter로 개발부터 블로깅까지 2&lt;a class="anchor-link" href="https://comafire.github.io/posts/2017-02-12-Jupyter-From-Dev-To-Blogging2/#Jupyter%EB%A1%9C-%EA%B0%9C%EB%B0%9C%EB%B6%80%ED%84%B0-%EB%B8%94%EB%A1%9C%EA%B9%85%EA%B9%8C%EC%A7%80-2"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;이전 글에서 static site 생성 툴인 pelican과 github page 서비스를 이용하여 jupyter notebook으로 블로깅하는 방법에 대해 다뤘었습니다.&lt;/p&gt;
 &lt;p&gt;이번에는 Pelican 대신 Nikola 를 사용해 보도록 하겠습니다. Pelican도 다양한 기능을 제공하는 좋은 툴임에는 분명하지만 Nikola의 경우가 Jupyter notebook을 블로깅에 활용하는데 더욱 편리한 기능들을 제공해주고 있습니다.&lt;/p&gt;
 &lt;p&gt;그리고 이번에는 pyenv, pyenv-virtualenv, autoenv를 통한 파이썬 개발환경 가상화와 시스템 단위 개발환경 가상화 툴인 docker를 이용해서 프로젝트마다 독립적인 환경을 유지하는 법에 대해서 다뤄봅니다.&lt;/p&gt;
 &lt;p&gt;현재는 개발 환경으로 MacOS를 사용하기에 MacOS 기준으로 설명합니다. 소스코드와 블로그는 github 을 이용합니다.&lt;/p&gt;
@@ -28,7 +28,7 @@
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h3 id="home-brew"&gt;home brew&lt;a class="anchor-link" href="https://comafire.github.io/posts/jupyter-from-dev-to-blogging-with-docker/#home-brew"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;OSX 에서 편리하게 linux 개발 툴을 사용하기 위해 필수적으로 필요한 패키지 관리자입니다. (&lt;a href="http://brew.sh/index_ko.html"&gt;http://brew.sh/index_ko.html&lt;/a&gt;)&lt;/p&gt;
+&lt;h3 id="home-brew"&gt;home brew&lt;a class="anchor-link" href="https://comafire.github.io/posts/2017-02-12-Jupyter-From-Dev-To-Blogging2/#home-brew"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;OSX 에서 편리하게 linux 개발 툴을 사용하기 위해 필수적으로 필요한 패키지 관리자입니다. (&lt;a href="http://brew.sh/index_ko.html"&gt;http://brew.sh/index_ko.html&lt;/a&gt;)&lt;/p&gt;
 &lt;p&gt;설치는 간단합니다. 아래와 같이 스크립트를 수행해 주면 됩니다.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&amp;gt; /usr/bin/ruby -e &lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install&lt;span class="k"&gt;)&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
@@ -42,7 +42,7 @@
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h3 id="git,-github.com"&gt;git, github.com&lt;a class="anchor-link" href="https://comafire.github.io/posts/jupyter-from-dev-to-blogging-with-docker/#git,-github.com"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;소스와 블로그의 버전을 관리하기 위해 brew 를 통해 버전 관리 툴인 git을 설치합니다.&lt;/p&gt;
+&lt;h3 id="git,-github.com"&gt;git, github.com&lt;a class="anchor-link" href="https://comafire.github.io/posts/2017-02-12-Jupyter-From-Dev-To-Blogging2/#git,-github.com"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;소스와 블로그의 버전을 관리하기 위해 brew 를 통해 버전 관리 툴인 git을 설치합니다.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&amp;gt; brew install git
 &lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;소스와 블로그의 버전별 저장은 github.com 을 통해서 합니다. (프로젝트가 공개일 경우 무료입니다.)&lt;/p&gt;
@@ -60,7 +60,7 @@
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h3 id="pyenv,-pyenv-virtualenv,-autoenv"&gt;pyenv, pyenv-virtualenv, autoenv&lt;a class="anchor-link" href="https://comafire.github.io/posts/jupyter-from-dev-to-blogging-with-docker/#pyenv,-pyenv-virtualenv,-autoenv"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;프로젝트를 진행할때, 파이썬의 특성상 파이썬 자체의 버전과 패키지 버전들에 대한 의존성이 생기게 됩니다. 프로젝트 별로 편리하게 의존성을 관리하기 위해 3가지 툴을 조합하여 사용합니다.&lt;/p&gt;
+&lt;h3 id="pyenv,-pyenv-virtualenv,-autoenv"&gt;pyenv, pyenv-virtualenv, autoenv&lt;a class="anchor-link" href="https://comafire.github.io/posts/2017-02-12-Jupyter-From-Dev-To-Blogging2/#pyenv,-pyenv-virtualenv,-autoenv"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;프로젝트를 진행할때, 파이썬의 특성상 파이썬 자체의 버전과 패키지 버전들에 대한 의존성이 생기게 됩니다. 프로젝트 별로 편리하게 의존성을 관리하기 위해 3가지 툴을 조합하여 사용합니다.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;pyenv: 로컬에 멀티 버전의 파이썬을 설치/사용, 파이썬 버전에 대한 의존성을 해결&lt;/li&gt;
 &lt;li&gt;virtualenv: 로컬에 멀티 파이썬 환경을 설치/사용, 프로젝트별 패키지에 대한 의존성을 해결&lt;/li&gt;
@@ -114,7 +114,7 @@ pyenv activate pyenv-3.6.0
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h3 id="nikola"&gt;nikola&lt;a class="anchor-link" href="https://comafire.github.io/posts/jupyter-from-dev-to-blogging-with-docker/#nikola"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;nikola(&lt;a href="https://getnikola.xn--com)-yc0q"&gt;https://getnikola.com)는&lt;/a&gt; 여러 jupyter, markdown 등 여러 타입의 파일을 html 형태로 변환하여 github page 서비스에서 사용할 수 있도록 해주는 툴입니다.&lt;/p&gt;
+&lt;h3 id="nikola"&gt;nikola&lt;a class="anchor-link" href="https://comafire.github.io/posts/2017-02-12-Jupyter-From-Dev-To-Blogging2/#nikola"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;nikola(&lt;a href="https://getnikola.xn--com)-yc0q"&gt;https://getnikola.com)는&lt;/a&gt; 여러 jupyter, markdown 등 여러 타입의 파일을 html 형태로 변환하여 github page 서비스에서 사용할 수 있도록 해주는 툴입니다.&lt;/p&gt;
 &lt;p&gt;여기서는 comafire.github.io-nikola 는 위에서 설정한 pyenv-3.6.0 가상환경을 사용할 것이기 때문에 가상환경이 활성화된 상태에서 nikola 를 설치합니다.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;pyenv-3.6.0&lt;span class="o"&gt;)&lt;/span&gt; &amp;gt; pip install nikola&lt;span class="o"&gt;[&lt;/span&gt;extras&lt;span class="o"&gt;]&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
@@ -241,7 +241,7 @@ github_deploy 명령을 수행하면 html 로 변경된 부분은 github reposit
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h3 id="jupyter"&gt;jupyter&lt;a class="anchor-link" href="https://comafire.github.io/posts/jupyter-from-dev-to-blogging-with-docker/#jupyter"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;jupyter의 의존 패키지인 zeromq를 brew로 설치후 jupyter를 설치합니다.&lt;/p&gt;
+&lt;h3 id="jupyter"&gt;jupyter&lt;a class="anchor-link" href="https://comafire.github.io/posts/2017-02-12-Jupyter-From-Dev-To-Blogging2/#jupyter"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;jupyter의 의존 패키지인 zeromq를 brew로 설치후 jupyter를 설치합니다.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;pyenv-3.6.0&lt;span class="o"&gt;)&lt;/span&gt; &amp;gt; brew install zmq
 &lt;span class="o"&gt;(&lt;/span&gt;pyenv-3.6.0&lt;span class="o"&gt;)&lt;/span&gt; &amp;gt; pip install jupyter
 &lt;/pre&gt;&lt;/div&gt;
@@ -293,7 +293,7 @@ github_deploy 명령을 수행하면 html 로 변경된 부분은 github reposit
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h3 id="docker"&gt;docker&lt;a class="anchor-link" href="https://comafire.github.io/posts/jupyter-from-dev-to-blogging-with-docker/#docker"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;docker는 시스템 단위에서 python 에서 pyenv 과 같은 존재입니다. (to be continue..)&lt;/p&gt;
+&lt;h3 id="docker"&gt;docker&lt;a class="anchor-link" href="https://comafire.github.io/posts/2017-02-12-Jupyter-From-Dev-To-Blogging2/#docker"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;docker는 시스템 단위에서 python 에서 pyenv 과 같은 존재입니다. (to be continue..)&lt;/p&gt;
 
 &lt;/div&gt;
 &lt;/div&gt;
@@ -313,7 +313,7 @@ github_deploy 명령을 수행하면 html 로 변경된 부분은 github reposit
 &lt;/div&gt;
     &lt;/div&gt;
   &lt;/div&gt;
-</description><guid>https://comafire.github.io/posts/jupyter-from-dev-to-blogging-with-docker/</guid><pubDate>Sat, 11 Feb 2017 15:00:00 GMT</pubDate></item><item><title>about-me</title><link>https://comafire.github.io/posts/about-me/</link><dc:creator>comafire</dc:creator><description>&lt;div tabindex="-1" id="notebook" class="border-box-sizing"&gt;
+</description><guid>https://comafire.github.io/posts/2017-02-12-Jupyter-From-Dev-To-Blogging2/</guid><pubDate>Sat, 11 Feb 2017 15:00:00 GMT</pubDate></item><item><title>about-me</title><link>https://comafire.github.io/posts/about-me/</link><dc:creator>comafire</dc:creator><description>&lt;div tabindex="-1" id="notebook" class="border-box-sizing"&gt;
     &lt;div class="container" id="notebook-container"&gt;
 
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;

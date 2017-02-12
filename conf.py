@@ -86,7 +86,7 @@ BLOG_DESCRIPTION = "comafire's lab"  # (translatable)
 # in the default language will be shown instead.
 
 # What is the default language?
-DEFAULT_LANG = "en"
+DEFAULT_LANG = "ko"
 
 # What other languages do you have?
 # The format is {"translationcode" : "path/to/translation" }

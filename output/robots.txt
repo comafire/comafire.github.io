@@ -1,0 +1,4 @@
+Sitemap: https://comafire.github.io/sitemapindex.xml
+
+User-Agent: *
+Host: comafire.github.io

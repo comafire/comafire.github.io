@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>comafire</title><link>https://comafire.github.io/</link><description>comafire's lab</description><atom:link href="https://comafire.github.io/rss.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><lastBuildDate>Sun, 12 Feb 2017 09:17:19 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>about-me</title><link>https://comafire.github.io/posts/about-me/</link><dc:creator>comafire</dc:creator><description>&lt;div tabindex="-1" id="notebook" class="border-box-sizing"&gt;
+    &lt;div class="container" id="notebook-container"&gt;
+
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;
+&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;p&gt;comafire@gmail.com&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+</description><guid>https://comafire.github.io/posts/about-me/</guid><pubDate>Sun, 12 Feb 2017 08:10:59 GMT</pubDate></item><item><title>jupyter-from-dev-to-blog-with-docker</title><link>https://comafire.github.io/posts/jupyter-from-dev-to-blog-with-docker/</link><dc:creator>comafire</dc:creator><description>&lt;div tabindex="-1" id="notebook" class="border-box-sizing"&gt;
+    &lt;div class="container" id="notebook-container"&gt;
+
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;
+&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;p&gt;빅데이터상에서 데이터를 다루고 분석 할때 종종 다양한 시스템과 개발 언어를 시험삼아 사용해야 경우를 맞이하게 됩니다. 개인 노트북안에서 여러 환경을 만들고 시험할 때 매번 개발 시스템 설치와 설정을 반복 한다는 것은 분명 삽질임에 틀림없습니다.&lt;/p&gt;
+&lt;p&gt;Jupyter와 Docker의 조합은 이런 삽질이 필요한 상황에서 막강한 파워를 가지게 됩니다. 추후 또다시 삽질을 막고자 한번 정리해 봅니다.&lt;/p&gt;
+&lt;p&gt;현재는 개발 환경으로 MacOS를 사용하기에 MacOS 기준으로 설명합니다. 소스코드와 블로그는 github 을 이용합니다.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;home brew &lt;/li&gt;
+&lt;li&gt;git, github.com&lt;/li&gt;
+&lt;li&gt;pyenv, pyenv-virtualenv, autoenv&lt;/li&gt;
+&lt;li&gt;nikola &lt;/li&gt;
+&lt;li&gt;pelican &lt;/li&gt;
+&lt;li&gt;docker &lt;/li&gt;
+&lt;li&gt;jupyter &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;
+&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h3 id="home-brew"&gt;home brew&lt;a class="anchor-link" href="https://comafire.github.io/posts/jupyter-from-dev-to-blog-with-docker/#home-brew"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;OSX 에서 편리하게 linux 개발 툴을 사용하기 위해 필수적으로 필요한 패키지 관리자입니다. (&lt;a href="http://brew.sh/index_ko.html"&gt;http://brew.sh/index_ko.html&lt;/a&gt;)&lt;/p&gt;
+&lt;p&gt;설치는 간단합니다. 아래와 같이 스크립트를 수행해 주면 됩니다.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&amp;gt; /usr/bin/ruby -e &lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install&lt;span class="k"&gt;)&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;이제 필요한 linux 개발 툴들이 있으면 brew install 명령을 통해 손쉽게 설치할수 있습니다.&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;
+&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h3 id="git,-github.com"&gt;git, github.com&lt;a class="anchor-link" href="https://comafire.github.io/posts/jupyter-from-dev-to-blog-with-docker/#git,-github.com"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;소스와 블로그의 버전을 관리하기 위해 brew 를 통해 버전 관리 툴인 git을 설치합니다.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&amp;gt; brew install git
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;소스와 블로그의 버전별 저장은 github.com 을 통해서 합니다. (프로젝트가 공개일 경우 무료입니다.)&lt;/p&gt;
+&lt;p&gt;github 하면 개발 소스 저장소가 가장 먼저 떠오르지만, github 에서는 얼마전부터 pages 라는 서비스를 통해 github 저장소에 올려놓은 웹 페이지 소스를 브라우저를 통해 볼수 있도록하면서, 웹 서버가 없어도 개인이 static 블로깅이 가능하도록 서비스하고 있습니다.&lt;/p&gt;
+&lt;p&gt;github.com에서는 github page 서비스를 통해 html페이지를 무료로 호스팅 해주고 있으므로 이 서비스를 잘 이용하면 손쉽게 개인 블로그를 운영이 가능합니다.&lt;/p&gt;
+&lt;p&gt;github page 서비스를 이용해 jupyter를 이용한 개인 블로그를 이용하려면 2 종류의 프로젝트가 필요합니다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;github page: comafire.github.io&lt;/li&gt;
+&lt;li&gt;github page generator: comafire.github.io-nikola, comafire.github.io-pelican&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;github page 프로젝트에 html 파일을 올리면 github.com 에서 자동으로 웹 호스팅을 해주게 됩니다. 예를 들어 저의 계정이 comafire 이고 제가 comafire.github.io 라는 프로젝트를 만들고 (프로젝트 이름은 [계정].github.io 로 고정되어 있습니다.) 이 프로젝트에 html 파일을을 넣어 놓으면 사람들은 &lt;a href="https://comafire.github.io"&gt;https://comafire.github.io&lt;/a&gt; 주소를 통해 저의 블로그에 접근 할 수 있게 되는 것입니다.&lt;/p&gt;
+&lt;p&gt;github page generator 용 프로젝트는 github page 생성하기위한 툴과 글들을 관리하는 프로젝트 입니다. 예를 들면 저는 comafire.github.io-nikola 라는 프로젝트를 만들고 jupyter notebook 을 이용해 작성한 글들을 nikola 라는 툴을 이용해 github page 서비스를 위한 html 파일로 변환하고 git 툴을 이용하여 github page 프로젝트에 파일을 적용 시키게 되면 &lt;a href="https://comafire.github.io"&gt;https://comafire.github.io&lt;/a&gt; 주소를 통해 해당 블로그 글에 접근이 가능하게 됩니다.&lt;/p&gt;
+&lt;p&gt;해당 프로젝트를 github.com 에 생성하고 git clone 명령을 통해 로컬 컴퓨터에 다운로드합니다.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&amp;gt; git clone https://github.com/comafire/comafire.github.io
+&amp;gt; git clone https://github.com/comafire/comafire.github.io-nikola.git
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;
+&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h3 id="pyenv,-pyenv-virtualenv,-autoenv"&gt;pyenv, pyenv-virtualenv, autoenv&lt;a class="anchor-link" href="https://comafire.github.io/posts/jupyter-from-dev-to-blog-with-docker/#pyenv,-pyenv-virtualenv,-autoenv"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;프로젝트를 진행할때, 파이썬의 특성상 파이썬 자체의 버전과 패키지 버전들에 대한 의존성이 생기게 됩니다. 프로젝트 별로 편리하게 의존성을 관리하기 위해 3가지 툴을 조합하여 사용합니다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;pyenv: 로컬에 멀티 버전의 파이썬을 설치/사용, 파이썬 버전에 대한 의존성을 해결&lt;/li&gt;
+&lt;li&gt;virtualenv: 로컬에 멀티 파이썬 환경을 설치/사용, 프로젝트별 패키지에 대한 의존성을 해결&lt;/li&gt;
+&lt;li&gt;autoenv: 프로젝트 디렉토리에 들어갈때 마다 자동 환경 셋팅, .bash_profile 과 비슷한 역활&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;3가지 툴을 설치하고 기본 셋팅합니다.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&amp;gt; brew update
+&amp;gt; brew install pyenv
+&amp;gt; brew install pyenv-virtualenv
+&amp;gt; brew install autoenv
+&amp;gt; &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s1"&gt;'eval "$(pyenv init -)"'&lt;/span&gt; &amp;gt;&amp;gt; ~/.bash_profile 
+&amp;gt; &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s1"&gt;'eval "$(pyenv virtualenv-init -)"'&lt;/span&gt; &amp;gt;&amp;gt; ~/.bash_profile
+&amp;gt; &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s1"&gt;'source /usr/local/opt/autoenv/activate.sh'&lt;/span&gt; &amp;gt;&amp;gt; ~/.bash_profile
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;pyenv를 이용해 파이썬 여러 버전을 설치합니다. 주로 사용하는 2.x 대와 3.x 대의 최신 버전을 설치해 봅니다.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&amp;gt; pyenv install &lt;span class="m"&gt;2&lt;/span&gt;.7.13
+&amp;gt; pyenv install &lt;span class="m"&gt;3&lt;/span&gt;.6.0
+&amp;gt; pyenv versions
+* system &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;set&lt;/span&gt; by /Users/daehongseo/.pyenv/version&lt;span class="o"&gt;)&lt;/span&gt;
+  &lt;span class="m"&gt;2&lt;/span&gt;.7.13
+  &lt;span class="m"&gt;3&lt;/span&gt;.6.0
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;pyenv-virtualenv를 이용해 각 버전의 파이썬 가상환경을 만들어 봅니다.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&amp;gt; pyenv virtualenv &lt;span class="m"&gt;2&lt;/span&gt;.7.13 pyenv-2.7.13
+&amp;gt; pyenv virtualenv &lt;span class="m"&gt;3&lt;/span&gt;.6.0 pyenv-3.6.0
+&amp;gt; pyenv virtualenvs
+  ...
+  pyenv-2.7.13 &lt;span class="o"&gt;(&lt;/span&gt;created from /Users/comafire/.pyenv/versions/2.7.13&lt;span class="o"&gt;)&lt;/span&gt;
+  pyenv-3.6.0 &lt;span class="o"&gt;(&lt;/span&gt;created from /Users/comafire/.pyenv/versions/3.6.0&lt;span class="o"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;이제 github page generator 를 위한 프로젝트를 생성하고 프로젝트의 기본 환경을 자동 셋팅할 수 있도록 autoenv를 사용해 봅니다. autoenv를 이용하면 프로젝트 폴더에 들어갈때 마다 특정 파이썬 가상환경을 활성화하는 명령을 일일이 하지 않고 프로젝트 폴더에 들어가면 자동으로 특정 버전의 파이썬 가상환경 활성화 하도록 할 수 있습니다.&lt;/p&gt;
+&lt;p&gt;예를 들어 github page generator를 위한 comafire.github.io-nikola 프로젝트 폴더를 만들고 들어갈 때 마다 nikola를 사용하기 위한 파이썬 3.x 버전의 가상환경을 자동 활성화가 가능하게 됩니다.&lt;/p&gt;
+&lt;p&gt;방법은 간단히 프로젝트의 최상위 폴더아래 .env 파일을 만들고 아래 내용을 적어주면 됩니다.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&amp;gt; vi .env
+
+pyenv activate pyenv-3.6.0
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;해당 작업환경에서 나오고 싶다면 deactivate 명령을 사용하면 됩니다.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&amp;gt; pyenv deactivate
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;git clone을 통해 다운받은 comafire.github.io-nikola 아래에 .env 파일을 생성하고 해당 디렉토리로 들어가면 pyenv-3.6.0 이 활성화된 것을 볼 수 있습니다.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&amp;gt; &lt;span class="nb"&gt;cd&lt;/span&gt; comafire.github.io-nikola
+&lt;span class="o"&gt;(&lt;/span&gt;pyenv-3.6.0&lt;span class="o"&gt;)&lt;/span&gt; &amp;gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;
+&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h3 id="nikola"&gt;nikola&lt;a class="anchor-link" href="https://comafire.github.io/posts/jupyter-from-dev-to-blog-with-docker/#nikola"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;nikola(&lt;a href="https://getnikola.xn--com)-yc0q"&gt;https://getnikola.com)는&lt;/a&gt; 여러 jupyter, markdown 등 여러 타입의 파일을 html 형태로 변환하여 github page 서비스에서 사용할 수 있도록 해주는 툴입니다.&lt;/p&gt;
+&lt;p&gt;여기서는 comafire.github.io-nikola 는 위에서 설정한 pyenv-3.6.0 가상환경을 사용할 것이기 때문에 가상환경이 활성화된 상태에서 nikola 를 설치합니다.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;pyenv-3.6.0&lt;span class="o"&gt;)&lt;/span&gt; &amp;gt; pip install nikola&lt;span class="o"&gt;[&lt;/span&gt;extras&lt;span class="o"&gt;]&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;이제 nikola 에서 jupyter notebook을 사용하기 위한 초기 셋팅을 해줍니다. 몇가지 질문에 답하면 nikola 에 필요한 파일을 자동으로 생성합니다.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&amp;gt; &lt;span class="nb"&gt;cd&lt;/span&gt; comafire.github.io-nikola
+&lt;span class="o"&gt;(&lt;/span&gt;pyenv-3.6.0&lt;span class="o"&gt;)&lt;/span&gt; &amp;gt; nikola init .
+Creating Nikola &lt;span class="nv"&gt;Site&lt;/span&gt;
+&lt;span class="o"&gt;====================&lt;/span&gt;
+...
+&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="m"&gt;2017&lt;/span&gt;-02-11T18:36:05Z&lt;span class="o"&gt;]&lt;/span&gt; INFO: init: Created empty site at ..
+...
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;이제 jupyter ipynb 확장자를 사용해서 html 생성이 가능하도록 테마 설치와 설정을 합니다. 현재 jupyter ipynb 확장자를 가장 깔끔하게 지원하는 테마는 zen-iptyhon 인거 같습니다. 해당 테마를 사용해 봅니다.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;pyenv-3.6.0&lt;span class="o"&gt;)&lt;/span&gt; &amp;gt; nikola install_theme zen-ipython
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;conf.py 파일을 열어 테마 설정 및 jupyter 사용하도록 주요 설정을 합니다. (상세 설정은 nikola 홈피 참조)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;pyenv-3.6.0&lt;span class="o"&gt;)&lt;/span&gt; &amp;gt; vi conf.py
+
+&lt;span class="c1"&gt;# 테마를 위한 메뉴설정 (자신이 필요한 메뉴와 링크로 변경합니다.)&lt;/span&gt;
+&lt;span class="nv"&gt;NAVIGATION_LINKS&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
+    DEFAULT_LANG: &lt;span class="o"&gt;(&lt;/span&gt;
+        &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'/index.html'&lt;/span&gt;, &lt;span class="s1"&gt;'Home'&lt;/span&gt;, &lt;span class="s1"&gt;'icon-home'&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;,
+        &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'/archive.html'&lt;/span&gt;, &lt;span class="s1"&gt;'Archives'&lt;/span&gt;, &lt;span class="s1"&gt;'icon-folder-open-alt'&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;,
+        &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'/categories/index.html'&lt;/span&gt;, &lt;span class="s1"&gt;'Tags'&lt;/span&gt;, &lt;span class="s1"&gt;'icon-tags'&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;,
+        &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'/rss.xml'&lt;/span&gt;, &lt;span class="s1"&gt;'RSS'&lt;/span&gt;, &lt;span class="s1"&gt;'icon-rss'&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;,
+        &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'/galleries/index.html'&lt;/span&gt;, &lt;span class="s1"&gt;'Galleries'&lt;/span&gt;, &lt;span class="s1"&gt;'icon-camera'&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;,
+        &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'/aboutme.html'&lt;/span&gt;, &lt;span class="s1"&gt;'About me'&lt;/span&gt;, &lt;span class="s1"&gt;'icon-user'&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;,
+        &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'https://github.com/comafire'&lt;/span&gt;, &lt;span class="s1"&gt;'My Github'&lt;/span&gt;, &lt;span class="s1"&gt;'icon-github'&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;,
+    &lt;span class="o"&gt;)&lt;/span&gt;
+&lt;span class="o"&gt;}&lt;/span&gt;
+
+&lt;span class="c1"&gt;# 테마 설정&lt;/span&gt;
+&lt;span class="nv"&gt;THEME&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;"zen-ipython"&lt;/span&gt;
+
+&lt;span class="c1"&gt;# jupyter 를 사용하기 위한 설정&lt;/span&gt;
+&lt;span class="nv"&gt;POSTS&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;
+    &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"posts/*.md"&lt;/span&gt;, &lt;span class="s2"&gt;"posts"&lt;/span&gt;, &lt;span class="s2"&gt;"post.tmpl"&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;,
+    &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"posts/*.ipynb"&lt;/span&gt;, &lt;span class="s2"&gt;"posts"&lt;/span&gt;, &lt;span class="s2"&gt;"post.tmpl"&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;,
+    &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"posts/*.txt"&lt;/span&gt;, &lt;span class="s2"&gt;"posts"&lt;/span&gt;, &lt;span class="s2"&gt;"post.tmpl"&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;,
+    &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"posts/*.rst"&lt;/span&gt;, &lt;span class="s2"&gt;"posts"&lt;/span&gt;, &lt;span class="s2"&gt;"post.tmpl"&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;,
+    &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"posts/*.html"&lt;/span&gt;, &lt;span class="s2"&gt;"posts"&lt;/span&gt;, &lt;span class="s2"&gt;"post.tmpl"&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
+&lt;span class="o"&gt;)&lt;/span&gt;
+
+&lt;span class="nv"&gt;PAGES&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;
+    &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"pages/*.md"&lt;/span&gt;, &lt;span class="s2"&gt;"pages"&lt;/span&gt;, &lt;span class="s2"&gt;"story.tmpl"&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;,
+    &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"pages/*.ipynb"&lt;/span&gt;, &lt;span class="s2"&gt;"pages"&lt;/span&gt;, &lt;span class="s2"&gt;"story.tmpl"&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;,
+    &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"pages/*.txt"&lt;/span&gt;, &lt;span class="s2"&gt;"pages"&lt;/span&gt;, &lt;span class="s2"&gt;"story.tmpl"&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;,
+    &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"pages/*.rst"&lt;/span&gt;, &lt;span class="s2"&gt;"pages"&lt;/span&gt;, &lt;span class="s2"&gt;"story.tmpl"&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;,
+    &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"pages/*.html"&lt;/span&gt;, &lt;span class="s2"&gt;"pages"&lt;/span&gt;, &lt;span class="s2"&gt;"story.tmpl"&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
+&lt;span class="o"&gt;)&lt;/span&gt;
+
+&lt;span class="c1"&gt;# 시간대 설정&lt;/span&gt;
+&lt;span class="nv"&gt;TIMEZONE&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;"Asia/Seoul"&lt;/span&gt;
+
+&lt;span class="c1"&gt;# comment 시스템 설정&lt;/span&gt;
+&lt;span class="nv"&gt;COMMENT_SYSTEM&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;"disqus"&lt;/span&gt;
+&lt;span class="nv"&gt;COMMENT_SYSTEM_ID&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;"comafire"&lt;/span&gt;
+
+&lt;span class="c1"&gt;# 이미지 갤러리 설정&lt;/span&gt;
+&lt;span class="nv"&gt;GALLERY_FOLDERS&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;&lt;span class="s2"&gt;"galleries"&lt;/span&gt;: &lt;span class="s2"&gt;"galleries"&lt;/span&gt;&lt;span class="o"&gt;}&lt;/span&gt;
+&lt;span class="nv"&gt;THUMBNAIL_SIZE&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="m"&gt;180&lt;/span&gt;
+&lt;span class="nv"&gt;MAX_IMAGE_SIZE&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="m"&gt;1280&lt;/span&gt;
+&lt;span class="nv"&gt;USE_FILENAME_AS_TITLE&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; True
+&lt;span class="nv"&gt;GALLERY_SORT_BY_DATE&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; True
+
+&lt;span class="c1"&gt;# 만든 블로그를 Gtihub page 서비스에 deploy 하기 위한 설정 &lt;/span&gt;
+&lt;span class="nv"&gt;GITHUB_SOURCE_BRANCH&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;'src'&lt;/span&gt;
+&lt;span class="nv"&gt;GITHUB_DEPLOY_BRANCH&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;'master'&lt;/span&gt;
+&lt;span class="nv"&gt;GITHUB_REMOTE_NAME&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;'origin'&lt;/span&gt;
+&lt;span class="nv"&gt;GITHUB_COMMIT_SOURCE&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; True
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;
+&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h3 id="jupyter"&gt;jupyter&lt;a class="anchor-link" href="https://comafire.github.io/posts/jupyter-from-dev-to-blog-with-docker/#jupyter"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;python를 위한 패키지 관리자인 pip를 설치하고 pip를 이용하여 jupyter를 설치합니다. jupyter의 의존 패키지인 zeromq를 brew로 설치합니다.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;pyenv-3.6.0&lt;span class="o"&gt;)&lt;/span&gt; &amp;gt; brew install zmq
+&lt;span class="o"&gt;(&lt;/span&gt;pyenv-3.6.0&lt;span class="o"&gt;)&lt;/span&gt; &amp;gt; pip install jupyter
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;jupyter 명령을 통해 jupyter-notebook 에 접속합니다.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;pyenv-3.6.0&lt;span class="o"&gt;)&lt;/span&gt; &amp;gt; jupyter-notebook
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;이제 jupyter를 통해 python 을 사용할수 있습니다. 또한 jupyter에서는 terminal 기능도 제공하므로 jupyter를 띄울때 외에는 jupyter를 벗어나지 않고 거의 모든 작업이 가능합니다.&lt;/p&gt;
+&lt;p&gt;그리고 그 화면을 Cmd + Shift + 4 키로 스크린 샷을 떠서 저장한 뒤에 블로그를 작성중인 이 notebook 에서 이미지를 뿌려보겠습니다.&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://comafire.github.io/posts/galleries/jupyter-from-dev-to-blog-with-docker.png" alt="test"&gt;&lt;/p&gt;
+&lt;p&gt;이처럼 jupyter를 블로깅에 이용하면 따로 개발 환경을 띄워서 작업할 필요없이 블로그 작성 중간중간 코드를 이용하여 결과를 보면서 정리하는 것이 가능해집니다. 정말 막강한 편리함이죠.&lt;/p&gt;
+&lt;p&gt;기존 처럼 블로깅을 하려면 코드를 붙여 넣고 결과를 다시 스크린 샷으로 저장하고 블로그에 붙여넣고.. ㅠㅠ 블로깅 하려다가 포기하게 됩니다. ㅋ&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [ ]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt; 
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;
+&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h3 id="nikola-설치하기"&gt;nikola 설치하기&lt;a class="anchor-link" href="https://comafire.github.io/posts/jupyter-from-dev-to-blog-with-docker/#nikola-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;pip install nikola&lt;span class="o"&gt;[&lt;/span&gt;extras&lt;span class="o"&gt;]&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;
+&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;p&gt;"nikola": {
+    "category": "",
+    "date": "2017-02-12 17:10:59 UTC+09:00",
+    "description": "",
+    "link": "",
+    "slug": "about-me",
+    "tags": "",
+    "title": "about-me",
+    "type": "text"
+  }&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;
+&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;p&gt;&lt;img src="https://comafire.github.io/posts/galleries/test.png" alt="test"&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+</description><guid>https://comafire.github.io/posts/jupyter-from-dev-to-blog-with-docker/</guid><pubDate>Sun, 12 Feb 2017 08:10:59 GMT</pubDate></item></channel></rss>

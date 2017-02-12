@@ -1,4 +1,4 @@
-User-agent: *
-Allow: /
+Sitemap: https://comafire.github.io/sitemapindex.xml
 
-Sitemap: http://comafire.github.io/sitemap.xml
+User-Agent: *
+Host: comafire.github.io

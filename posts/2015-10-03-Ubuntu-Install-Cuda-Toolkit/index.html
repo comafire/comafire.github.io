@@ -6,17 +6,21 @@ article: http://ogp.me/ns/article#
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width">
-<title>about-me | comafire</title>
+<title>2015-10-03-Ubuntu-Install-Cuda-Toolkit | comafire</title>
 <link href="../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
 <link rel="alternate" type="application/rss+xml" title="RSS" href="../../rss.xml">
-<link rel="canonical" href="https://comafire.github.io/posts/about-me/">
+<link rel="canonical" href="https://comafire.github.io/posts/2015-10-03-Ubuntu-Install-Cuda-Toolkit/">
 <!--[if lt IE 9]><script src="/assets/js/html5.js"></script><![endif]--><meta name="author" content="comafire">
 <meta property="og:site_name" content="comafire">
-<meta property="og:title" content="about-me">
-<meta property="og:url" content="https://comafire.github.io/posts/about-me/">
-<meta property="og:description" content="comafire">
+<meta property="og:title" content="2015-10-03-Ubuntu-Install-Cuda-Toolkit">
+<meta property="og:url" content="https://comafire.github.io/posts/2015-10-03-Ubuntu-Install-Cuda-Toolkit/">
+<meta property="og:description" content="우부투에서 Nvidia 그래픽 카드의 Cuda Toolkit 설치하기
+Cuda 툴킷 저장소 파일 받기
+
+&gt; wget http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1404/x86_64/cuda-repo-ubuntu1404_7.5-18_amd64.deb
+2015-10-03 07:51:47 (25">
 <meta property="og:type" content="article">
-<meta property="article:published_time" content="2017-02-11T00:00:00+09:00">
+<meta property="article:published_time" content="2015-10-03T00:00:00+09:00">
 </head>
 <body>
     <section class="social"><ul>
@@ -25,16 +29,16 @@ article: http://ogp.me/ns/article#
             <li><a href="../../categories/index.html" title="Tags"><i class="icon-tags"></i></a></li>
             <li><a href="../../rss.xml" title="RSS"><i class="icon-rss"></i></a></li>
             <li><a href="../../galleries/index.html" title="Galleries"><i class="icon-camera"></i></a></li>
-            <li><a href="#" title="About me"><i class="icon-user"></i></a></li>
+            <li><a href="../about-me/index.html" title="About me"><i class="icon-user"></i></a></li>
             <li><a href="https://github.com/comafire" title="My Github"><i class="icon-github"></i></a></li>
 
         </ul></section><section class="page-content"><div class="content" rel="main">
     <div class="post">
-        <h1 class="p-name entry-title" itemprop="headline name">about-me</h1>
+        <h1 class="p-name entry-title" itemprop="headline name">2015-10-03-Ubuntu-Install-Cuda-Toolkit</h1>
 
         <div class="meta">
             <div class="authordate">
-                <time class="timeago" datetime="2017-02-11T00:00:00+09:00">2017-02-11 00:00</time>
+                <time class="timeago" datetime="2015-10-03T00:00:00+09:00">2015-10-03 00:00</time>
             
                       |  
         <a href="index.ipynb" id="sourcelink">Source</a>
@@ -51,7 +55,50 @@ article: http://ogp.me/ns/article#
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>comafire</p>
+<p>우부투에서 Nvidia 그래픽 카드의 Cuda Toolkit 설치하기</p>
+<p>Cuda 툴킷 저장소 파일 받기</p>
+
+<pre><code>&gt; wget http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1404/x86_64/cuda-repo-ubuntu1404_7.5-18_amd64.deb
+2015-10-03 07:51:47 (252 MB/s) - ‘cuda-repo-ubuntu1404_7.5-18_amd64.deb’ saved</code></pre>
+<p>Cuda 툴킷 저장소 우분투에 등록</p>
+
+<pre><code>&gt; sudo dpkg -i cuda-repo-ubuntu1404_7.5-18_amd64.deb
+Selecting previously unselected package cuda-repo-ubuntu1404.
+...
+OK
+
+&gt; sudo apt-get update
+...
+Hit http://security.ubuntu.com trusty-security/universe Translation-en         
+Fetched 1,222 kB in 7s (169 kB/s)                                              
+Reading package lists... Done</code></pre>
+<p>Cuda 설치</p>
+
+<pre><code>&gt; sudo apt-get install cuda
+...
+After this operation, 2,195 MB of additional disk space will be used.
+Do you want to continue? [Y/n] Y
+...
+done.</code></pre>
+<p>쉘에 환경 설정 추가</p>
+
+<pre><code>&gt; vi ~/.bashrc
+export CUDA_HOME=/usr/local/cuda
+export LD_LIBRARY_PATH=$CUDA_HOME/lib64  
+export PATH=$CUDA_HOME/bin:$PATH
+&gt; source ~/.basrc</code></pre>
+<p>설치확인</p>
+
+<pre><code>&gt; nvidia-smi
++------------------------------------------------------+                       
+| NVIDIA-SMI 352.39     Driver Version: 352.39         |                       
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|===============================+======================+======================|
+|   0  GeForce GTX TIT...  Off  | 0000:06:00.0     Off |                  N/A |
+|  0%   50C    P0    59W / 250W |     23MiB / 12284MiB |      0%      Default |
++-------------------------------+----------------------+----------------------+</code></pre>
 
 </div>
 </div>
@@ -62,18 +109,18 @@ article: http://ogp.me/ns/article#
         </div>
                 <ul class="pager hidden-print">
 <li class="previous">
-                <a href="../2016-12-10-python-tf-cnn-mnist/" rel="prev" title="2016-12-10-python-tf-cnn-mnist">Previous post</a>
+                <a href="../2015-10-03-Ubuntu-fstab/" rel="prev" title="2015-10-03-Ubuntu-fstab">Previous post</a>
             </li>
             <li class="next">
-                <a href="../2017-02-12-Jupyter-From-Dev-To-Blogging2/" rel="next" title="2017-02-12-Jupyter-From-Dev-To-Blogging2">Next post</a>
+                <a href="../2015-11-03-OSX-Install-Scientific-Python/" rel="next" title="2015-11-03-OSX-Install-Scientific-Python">Next post</a>
             </li>
         </ul>
 <div id="disqus_thread"></div>
         <script>
         var disqus_shortname ="comafire",
-            disqus_url="https://comafire.github.io/posts/about-me/",
-        disqus_title="about-me",
-        disqus_identifier="cache/posts/about-me.html",
+            disqus_url="https://comafire.github.io/posts/2015-10-03-Ubuntu-Install-Cuda-Toolkit/",
+        disqus_title="2015-10-03-Ubuntu-Install-Cuda-Toolkit",
+        disqus_identifier="cache/posts/2015-10-03-Ubuntu-Install-Cuda-Toolkit.html",
         disqus_config = function () {
             this.language = "en";
         };

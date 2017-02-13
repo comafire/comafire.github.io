@@ -5,48 +5,44 @@ article: http://ogp.me/ns/article#
 " lang="en">
 <head>
 <meta charset="utf-8">
+<meta name="description" content="comafire's lab">
 <meta name="viewport" content="width=device-width">
-<title>2015-06-26-Torch-Install | comafire</title>
-<link href="../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
-<link rel="alternate" type="application/rss+xml" title="RSS" href="../../rss.xml">
-<link rel="canonical" href="https://comafire.github.io/posts/2015-06-26-Torch-Install/">
-<!--[if lt IE 9]><script src="/assets/js/html5.js"></script><![endif]--><meta name="author" content="comafire">
-<meta property="og:site_name" content="comafire">
-<meta property="og:title" content="2015-06-26-Torch-Install">
-<meta property="og:url" content="https://comafire.github.io/posts/2015-06-26-Torch-Install/">
-<meta property="og:description" content="Torch Install¶Install Cuda¶Ubuntu 14.04
-Torch를 통해서 딥러닝을 트레이닝 시킬때 GPU를 이용하면 시간이 많이 절약됩니다.
-노트북 GPU가 Nvidia가 아니라서 링크만 걸어 놓습니다. 아래 참조해서 설치하세요.
-[Installing CUDA Toolkit 7.0 on Ubuntu 14.04 Linux] (http://w">
-<meta property="og:type" content="article">
-<meta property="article:published_time" content="2015-06-26T00:00:00+09:00">
+<title>comafire (old posts, page 1) | comafire</title>
+<link href="assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="rss.xml">
+<link rel="canonical" href="https://comafire.github.io/index-1.html">
+<!--[if lt IE 9]><script src="/assets/js/html5.js"></script><![endif]--><style>
+    div.input_prompt {
+      display: none;
+    }
+    </style>
 </head>
 <body>
     <section class="social"><ul>
-<li><a href="../../index.html" title="Home"><i class="icon-home"></i></a></li>
-            <li><a href="../../archive.html" title="Archives"><i class="icon-folder-open-alt"></i></a></li>
-            <li><a href="../../categories/index.html" title="Tags"><i class="icon-tags"></i></a></li>
-            <li><a href="../../rss.xml" title="RSS"><i class="icon-rss"></i></a></li>
-            <li><a href="../../galleries/index.html" title="Galleries"><i class="icon-camera"></i></a></li>
-            <li><a href="../about-me/index.html" title="About me"><i class="icon-user"></i></a></li>
+<li><a href="index.html" title="Home"><i class="icon-home"></i></a></li>
+            <li><a href="archive.html" title="Archives"><i class="icon-folder-open-alt"></i></a></li>
+            <li><a href="categories/index.html" title="Tags"><i class="icon-tags"></i></a></li>
+            <li><a href="rss.xml" title="RSS"><i class="icon-rss"></i></a></li>
+            <li><a href="galleries/index.html" title="Galleries"><i class="icon-camera"></i></a></li>
+            <li><a href="posts/about-me/index.html" title="About me"><i class="icon-user"></i></a></li>
             <li><a href="https://github.com/comafire" title="My Github"><i class="icon-github"></i></a></li>
 
         </ul></section><section class="page-content"><div class="content" rel="main">
-    <div class="post">
-        <h1 class="p-name entry-title" itemprop="headline name">2015-06-26-Torch-Install</h1>
+        <div class="post">
+            <h1 class="title"><a href="posts/2015-10-03-Ubuntu-Install-Cuda-Toolkit/">2015-10-03-Ubuntu-Install-Cuda-Toolkit</a></h1>
+            <div class="meta">
+                <div class="authordate">
+                    <time class="timeago" datetime="2015-10-03T00:00:00+09:00">2015-10-03 00:00</time>
+</div>
+                <div class="stats">
+                                <a href="posts/2015-10-03-Ubuntu-Install-Cuda-Toolkit/#disqus_thread" data-disqus-identifier="cache/posts/2015-10-03-Ubuntu-Install-Cuda-Toolkit.html">Comments</a>
 
-        <div class="meta">
-            <div class="authordate">
-                <time class="timeago" datetime="2015-06-26T00:00:00+09:00">2015-06-26 00:00</time>
+
+                </div>
             
-                      |  
-        <a href="index.ipynb" id="sourcelink">Source</a>
-
             </div>
-            
-        </div>
-        <div class="body">
-            <div tabindex="-1" id="notebook" class="border-box-sizing">
+            <div class="body">
+                <div tabindex="-1" id="notebook" class="border-box-sizing">
     <div class="container" id="notebook-container">
 
 <div class="cell border-box-sizing text_cell rendered">
@@ -54,9 +50,393 @@ Torch를 통해서 딥러닝을 트레이닝 시킬때 GPU를 이용하면 시�
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Torch-Install">Torch Install<a class="anchor-link" href="#Torch-Install">¶</a>
+<p>우부투에서 Nvidia 그래픽 카드의 Cuda Toolkit 설치하기</p>
+<p>Cuda 툴킷 저장소 파일 받기</p>
+
+<pre><code>&gt; wget http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1404/x86_64/cuda-repo-ubuntu1404_7.5-18_amd64.deb
+2015-10-03 07:51:47 (252 MB/s) - ‘cuda-repo-ubuntu1404_7.5-18_amd64.deb’ saved</code></pre>
+<p>Cuda 툴킷 저장소 우분투에 등록</p>
+
+<pre><code>&gt; sudo dpkg -i cuda-repo-ubuntu1404_7.5-18_amd64.deb
+Selecting previously unselected package cuda-repo-ubuntu1404.
+...
+OK
+
+&gt; sudo apt-get update
+...
+Hit http://security.ubuntu.com trusty-security/universe Translation-en         
+Fetched 1,222 kB in 7s (169 kB/s)                                              
+Reading package lists... Done</code></pre>
+<p>Cuda 설치</p>
+
+<pre><code>&gt; sudo apt-get install cuda
+...
+After this operation, 2,195 MB of additional disk space will be used.
+Do you want to continue? [Y/n] Y
+...
+done.</code></pre>
+<p>쉘에 환경 설정 추가</p>
+
+<pre><code>&gt; vi ~/.bashrc
+export CUDA_HOME=/usr/local/cuda
+export LD_LIBRARY_PATH=$CUDA_HOME/lib64  
+export PATH=$CUDA_HOME/bin:$PATH
+&gt; source ~/.basrc</code></pre>
+<p>설치확인</p>
+
+<pre><code>&gt; nvidia-smi
++------------------------------------------------------+                       
+| NVIDIA-SMI 352.39     Driver Version: 352.39         |                       
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|===============================+======================+======================|
+|   0  GeForce GTX TIT...  Off  | 0000:06:00.0     Off |                  N/A |
+|  0%   50C    P0    59W / 250W |     23MiB / 12284MiB |      0%      Default |
++-------------------------------+----------------------+----------------------+</code></pre>
+
+</div>
+</div>
+</div>
+    </div>
+  </div>
+
+            </div>
+        </div>
+        <div class="post">
+            <h1 class="title"><a href="posts/2015-09-13-Ubuntu-Nvidia-nomodeset/">2015-09-13-Ubuntu-Nvidia-nomodeset</a></h1>
+            <div class="meta">
+                <div class="authordate">
+                    <time class="timeago" datetime="2015-09-13T00:00:00+09:00">2015-09-13 00:00</time>
+</div>
+                <div class="stats">
+                                <a href="posts/2015-09-13-Ubuntu-Nvidia-nomodeset/#disqus_thread" data-disqus-identifier="cache/posts/2015-09-13-Ubuntu-Nvidia-nomodeset.html">Comments</a>
+
+
+                </div>
+            
+            </div>
+            <div class="body">
+                <div tabindex="-1" id="notebook" class="border-box-sizing">
+    <div class="container" id="notebook-container">
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Ubuntu 설치 이미지가 대부분의 그래픽 드라이버를 잘 지원하기는 하지만, 때때로 Nvidia 그래픽카드가 내장된
+컴퓨터에 설치시 이미지안에 들어있는 커널 드라이버와 호환성이 좋지 않아 그래픽이 깨져보이는 현상을 겪을 수 있습니다.</p>
+<p>이럴때는 설치 후 Nvidia에서 제공하는 드라이버를 설치하면 해결되지만, 아예 부팅시 먹통이 되는 경우가 생기면
+난감하게 됩니다.</p>
+<p>이럴때는 부팅시 커널에서 사용하는 그래픽 모드를 사용하지 않도록 해주면 낮은 해상도로 부팅이 가능하게 됩니다.
+Ubuntu 부팅시에 왼쪽 shift 키를 누르고 있으면 부팅 메뉴 모드로 들어갈 수 있습니다.</p>
+<p>이제 2가지 방법중 하나를 통해서 부팅하고 최신 Nvidia 그래픽 드라이버를 찾아서 설치해주면 됩니다.</p>
+<h5 id="부팅-커널의-옵션-바로-수정">부팅 커널의 옵션 바로 수정<a class="anchor-link" href="posts/2015-09-13-Ubuntu-Nvidia-nomodeset/#%EB%B6%80%ED%8C%85-%EC%BB%A4%EB%84%90%EC%9D%98-%EC%98%B5%EC%85%98-%EB%B0%94%EB%A1%9C-%EC%88%98%EC%A0%95">¶</a>
+</h5>
+<p>메뉴에서 화살표로 부팅할 커널로 옮긴다음 'e' 문자를 누르면 부팅 옵션 수정이 가능합니다.</p>
+
+<pre><code>linux /boot/vmlinuz-linux ..... quiet splash nomodeset</code></pre>
+<p>여기서 맨끝에 nomodeset 추가 후 부팅</p>
+<h5 id="Grub-설정-수정">Grub 설정 수정<a class="anchor-link" href="posts/2015-09-13-Ubuntu-Nvidia-nomodeset/#Grub-%EC%84%A4%EC%A0%95-%EC%88%98%EC%A0%95">¶</a>
+</h5>
+<p>메뉴에서 아예 복구 모드로 들어가 root shell 를 띄운다음에 grub 부팅 옵션을 아래와 같이 수정해 줍니다.</p>
+
+<pre><code>&gt; sudo vi /etc/default/grub
+
+GRUB_CMDLINE_LINUX_DEFAULT="quiet splash nomodeset"
+
+&gt; sudo update-grub2</code></pre>
+
+</div>
+</div>
+</div>
+    </div>
+  </div>
+
+            </div>
+        </div>
+        <div class="post">
+            <h1 class="title"><a href="posts/2015-09-12-Julia/">2015-09-12-Julia</a></h1>
+            <div class="meta">
+                <div class="authordate">
+                    <time class="timeago" datetime="2015-09-12T00:00:00+09:00">2015-09-12 00:00</time>
+</div>
+                <div class="stats">
+                                <a href="posts/2015-09-12-Julia/#disqus_thread" data-disqus-identifier="cache/posts/2015-09-12-Julia.html">Comments</a>
+
+
+                </div>
+            
+            </div>
+            <div class="body">
+                <div tabindex="-1" id="notebook" class="border-box-sizing">
+    <div class="container" id="notebook-container">
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="소개">소개<a class="anchor-link" href="posts/2015-09-12-Julia/#%EC%86%8C%EA%B0%9C">¶</a>
 </h3>
-<h4 id="Install-Cuda">Install Cuda<a class="anchor-link" href="#Install-Cuda">¶</a>
+<p><a href="http://julialang.org/">http://julialang.org/</a></p>
+<p>소개글</p>
+<ul>
+<li>Julia Manual: <a href="https://juliakorea.github.io/latest/manual/introduction.html">https://juliakorea.github.io/latest/manual/introduction.html</a>
+</li>
+<li>줄리아를 소개합니다 by 권창현: <a href="http://thoughts.chkwon.net/the-julia-language/">http://thoughts.chkwon.net/the-julia-language/</a>
+</li>
+</ul>
+<p>커뮤니티</p>
+<ul>
+<li>페이스북 그룹: <a href="https://www.facebook.com/groups/juliakorea/">https://www.facebook.com/groups/juliakorea/</a>
+</li>
+</ul>
+<p>서적</p>
+<ul>
+<li>Getting Started with Julia: <a href="https://www.packtpub.com/application-development/getting-started-julia-programming/">https://www.packtpub.com/application-development/getting-started-julia-programming/</a>
+</li>
+<li>Matering Julia: <a href="https://www.packtpub.com/application-development/mastering-julia">https://www.packtpub.com/application-development/mastering-julia</a>
+</li>
+</ul>
+<p>컨퍼런스</p>
+<ul>
+<li>JuliaCon: <a href="http://juliacon.org/">http://juliacon.org/</a><ul>
+<li>2015: <a href="http://juliacon.org/2015">http://juliacon.org/2015</a>
+</li>
+<li>2014: <a href="http://juliacon.org/2014">http://juliacon.org/2014</a>
+</li>
+</ul>
+</li>
+</ul>
+<p>동영상자료</p>
+<ul>
+<li>JuliaCon 2015: <a href="https://www.youtube.com/playlist?list=PLP8iPy9hna6Sdx4soiGrSefrmOPdUWixM">https://www.youtube.com/playlist?list=PLP8iPy9hna6Sdx4soiGrSefrmOPdUWixM</a>
+</li>
+</ul>
+<h3 id="설치">설치<a class="anchor-link" href="posts/2015-09-12-Julia/#%EC%84%A4%EC%B9%98">¶</a>
+</h3>
+<h4 id="OSX">OSX<a class="anchor-link" href="posts/2015-09-12-Julia/#OSX">¶</a>
+</h4>
+<p>dmg 바이너리 파일이나 juno를 사용할 수 있지만, 여기서는 atom editor를 이용하여 julia를 사용할 것이므로
+Homebrew를 통해 설치합니다.</p>
+<p>Homebrew 이용 (HomeBrew 설치: <a href="http://brew.sh/index_ko.html">http://brew.sh/index_ko.html</a>)</p>
+<p>Stable Version 설치</p>
+
+<pre><code>&gt; brew tap staticfloat/julia
+&gt; brew install --64bit julia</code></pre>
+<p>Dev Version 설치</p>
+
+<pre><code>&gt; brew tap staticfloat/julia
+&gt; brew install --HEAD --64bit julia</code></pre>
+<h4 id="Linux">Linux<a class="anchor-link" href="posts/2015-09-12-Julia/#Linux">¶</a>
+</h4>
+<p>to be continue..</p>
+<h3 id="실행">실행<a class="anchor-link" href="posts/2015-09-12-Julia/#%EC%8B%A4%ED%96%89">¶</a>
+</h3>
+<pre><code>&gt; julia
+               _
+   _       _ _(_)_     |  A fresh approach to technical computing
+  (_)     | (_) (_)    |  Documentation: http://docs.julialang.org
+   _ _   _| |_  __ _   |  Type "help()" for help.
+  | | | | | | |/ _` |  |
+  | | |_| | | | (_| |  |  Version 0.3.11 (2015-07-27 06:18 UTC)
+ _/ |\__'_|_|_|\__'_|  |  
+|__/                   |  x86_64-apple-darwin14.3.0
+
+julia&gt;</code></pre>
+
+</div>
+</div>
+</div>
+    </div>
+  </div>
+
+            </div>
+        </div>
+        <div class="post">
+            <h1 class="title"><a href="posts/2015-07-03-Docker-Proxy-Certificates-Ubuntu/">2015-07-03-Docker-Proxy-Certificates-Ubuntu</a></h1>
+            <div class="meta">
+                <div class="authordate">
+                    <time class="timeago" datetime="2015-07-03T00:00:00+09:00">2015-07-03 00:00</time>
+</div>
+                <div class="stats">
+                                <a href="posts/2015-07-03-Docker-Proxy-Certificates-Ubuntu/#disqus_thread" data-disqus-identifier="cache/posts/2015-07-03-Docker-Proxy-Certificates-Ubuntu.html">Comments</a>
+
+
+                </div>
+            
+            </div>
+            <div class="body">
+                <div tabindex="-1" id="notebook" class="border-box-sizing">
+    <div class="container" id="notebook-container">
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Docker 사용시 네트워크에 Proxy 및 Self Signed SSL Certification 을 사용하도록 되어 있는 곳에서는 Docker Hub에서 Docker 이미지를 검색하고 내려받을때 접속 에러와 'x509: certificate signed by unknown authority' 에러를 만나게 됩니다.</p>
+<p>이럴때는 proxy 및 SSL Certification 아래와 같이 설정합니다.</p>
+<h3 id="Proxy-설정">Proxy 설정<a class="anchor-link" href="posts/2015-07-03-Docker-Proxy-Certificates-Ubuntu/#Proxy-%EC%84%A4%EC%A0%95">¶</a>
+</h3>
+<p>/etc/default/docker.io 파일에서 proxy 설정 후에 docker service 를 재실행합니다.</p>
+
+<pre><code>&gt; sudo vi /etc/default/docker.io
+...
+export http_proxy="http://&lt;proxy_ip&gt;:&lt;proxy_port&gt;"
+export https_proxy="https://&lt;proxy_ip&gt;:&lt;proxy_port&gt;"
+...
+&gt; sudo service docker.io restart</code></pre>
+<h3 id="SSL-Certification-설정">SSL Certification 설정<a class="anchor-link" href="posts/2015-07-03-Docker-Proxy-Certificates-Ubuntu/#SSL-Certification-%EC%84%A4%EC%A0%95">¶</a>
+</h3>
+<p>Self Signed Certification 파일을 예를 들어 Self.crt 라고 한다면, 해당 파일을 /usr/local/share/ca-certificates 에 복사하고 update-ca-certificates 명령으로 업데이트 해줍니다.</p>
+
+<pre><code>&gt; sudo cp ./Self.crt /usr/local/share/ca-certificates/
+&gt; sudo update-ca-certificates
+&gt; sudo service docker.io restart</code></pre>
+
+</div>
+</div>
+</div>
+    </div>
+  </div>
+
+            </div>
+        </div>
+        <div class="post">
+            <h1 class="title"><a href="posts/2015-07-03-Many-Files-Directory-Remove-Linux/">2015-07-03-Many-Files-Directory-Remove-Linux</a></h1>
+            <div class="meta">
+                <div class="authordate">
+                    <time class="timeago" datetime="2015-07-03T00:00:00+09:00">2015-07-03 00:00</time>
+</div>
+                <div class="stats">
+                                <a href="posts/2015-07-03-Many-Files-Directory-Remove-Linux/#disqus_thread" data-disqus-identifier="cache/posts/2015-07-03-Many-Files-Directory-Remove-Linux.html">Comments</a>
+
+
+                </div>
+            
+            </div>
+            <div class="body">
+                <div tabindex="-1" id="notebook" class="border-box-sizing">
+    <div class="container" id="notebook-container">
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>프로그래밍을 할때 실수로 디렉토리내에 많은 파일을 생성하게 하는 실수를 할 경우 해당 디렉토리가 rm -rf 명령으로 지워지지 않는 경우가 있습니다.</p>
+<p>이럴 때는 아래와 같은 명령으로 삭제가 가능합니다.</p>
+
+<pre><code>&gt; ls -1 -f | xargs rm</code></pre>
+<p>신기하게도 ls 명령도 먹통이던 디렉토리에서 위 명령은 신속하게 파일을 지워줍니다.
+비결은 옵션에 있습니다. ls 명령은 내부에서 sort를 기본으로 하는데 파일이 많을 경우 이 작업에 많은 시간을 소요하게 됩니다.
+이 sort 옵션을 끄게 되면 신속하게 파일이름을 가져와서 xargs 를 통해 rm 명령을 수행해 파일을 지울수 있게 됩니다.</p>
+
+</div>
+</div>
+</div>
+    </div>
+  </div>
+
+            </div>
+        </div>
+        <div class="post">
+            <h1 class="title"><a href="posts/2015-06-26-Torch/">2015-06-26-Torch</a></h1>
+            <div class="meta">
+                <div class="authordate">
+                    <time class="timeago" datetime="2015-06-26T00:00:00+09:00">2015-06-26 00:00</time>
+</div>
+                <div class="stats">
+                                <a href="posts/2015-06-26-Torch/#disqus_thread" data-disqus-identifier="cache/posts/2015-06-26-Torch.html">Comments</a>
+
+
+                </div>
+            
+            </div>
+            <div class="body">
+                <div tabindex="-1" id="notebook" class="border-box-sizing">
+    <div class="container" id="notebook-container">
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Torch">Torch<a class="anchor-link" href="posts/2015-06-26-Torch/#Torch">¶</a>
+</h3>
+<p>Torch는 폭 넓은 Machine Learning 알고리즘을 지원하는 scientific computing framework 입니다.
+Torch는 스크립트 언어인 Lua로 작성되었으며 빠른 연산이 필요한 부분은 C/CUDA로 작성되어 있습니다.</p>
+<p>특징</p>
+<ul>
+<li>a powerful N-dimensional array</li>
+<li>lots of routines for indexing, slicing, transposing, ...</li>
+<li>amazing interface to C, via LuaJIT</li>
+<li>linear algebra routines</li>
+<li>neural network, and energy-based models</li>
+<li>numeric optimization routines</li>
+<li>Fast and efficient GPU support</li>
+<li>Embeddable, with ports to iOS, Android and FPGA backends</li>
+</ul>
+<p>현재 Facebook, Google, Twitter, NYU, IDIAP, Purdue 등 많은 곳에서 사용되어지고 있습니다.</p>
+<p>공식 홈페이지: <a href="http://torch.ch/">http://torch.ch/</a></p>
+<p>Tutorials:</p>
+<ul>
+<li>[Machine Learning with Torch7] (<a href="http://code.madbits.com/wiki/doku.php">http://code.madbits.com/wiki/doku.php</a>)</li>
+<li>[Torch7 Cheat Sheet] (<a href="https://github.com/torch/torch7/wiki/Cheatsheet">https://github.com/torch/torch7/wiki/Cheatsheet</a>)</li>
+</ul>
+<h4 id="Lua">Lua<a class="anchor-link" href="posts/2015-06-26-Torch/#Lua">¶</a>
+</h4>
+<p>스크립트 언어로 유용한 최소한의 기능만을 담아 빠르고 많은 플랫폼에 이식 가능하며 배우기 쉽습니다.</p>
+<p>특징</p>
+<ul>
+<li>C 코드와 바인딩하기 쉽다.</li>
+<li>스크립트 언어 중에서 크기가 작고 수행속도가 빠르다. (<a href="http://benchmarksgame.alioth.debian.org/u64/compare.php?lang=lua&amp;lang2=python3">Lua vs Python3</a>)</li>
+<li>Table 이라는 강략한 연관배열을 지원한다.</li>
+<li>문법이 간단하고 배우기 쉽다.</li>
+</ul>
+<p>현재 WoW, 앵그리버스 등 많은 상업적 게임프로그램에서 사용되고 있습니다.</p>
+<p>공식 홈페이지: <a href="http://www.lua.org/">http://www.lua.org/</a></p>
+<p>Tutorials:</p>
+<ul>
+<li>[Tutorial Points Lua] (<a href="http://www.tutorialspoint.com/lua/">http://www.tutorialspoint.com/lua/</a>)</li>
+<li>[Learn Lua in 15 Minutes] (<a href="http://tylerneylon.com/a/learn-lua/">http://tylerneylon.com/a/learn-lua/</a>)</li>
+</ul>
+</div>
+</div>
+</div>
+    </div>
+  </div>
+
+            </div>
+        </div>
+        <div class="post">
+            <h1 class="title"><a href="posts/2015-06-26-Torch-Install/">2015-06-26-Torch-Install</a></h1>
+            <div class="meta">
+                <div class="authordate">
+                    <time class="timeago" datetime="2015-06-26T00:00:00+09:00">2015-06-26 00:00</time>
+</div>
+                <div class="stats">
+                                <a href="posts/2015-06-26-Torch-Install/#disqus_thread" data-disqus-identifier="cache/posts/2015-06-26-Torch-Install.html">Comments</a>
+
+
+                </div>
+            
+            </div>
+            <div class="body">
+                <div tabindex="-1" id="notebook" class="border-box-sizing">
+    <div class="container" id="notebook-container">
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Torch-Install">Torch Install<a class="anchor-link" href="posts/2015-06-26-Torch-Install/#Torch-Install">¶</a>
+</h3>
+<h4 id="Install-Cuda">Install Cuda<a class="anchor-link" href="posts/2015-06-26-Torch-Install/#Install-Cuda">¶</a>
 </h4>
 <p><strong>Ubuntu 14.04</strong></p>
 <p>Torch를 통해서 딥러닝을 트레이닝 시킬때 GPU를 이용하면 시간이 많이 절약됩니다.</p>
@@ -64,7 +444,7 @@ Torch를 통해서 딥러닝을 트레이닝 시킬때 GPU를 이용하면 시�
 <p>[Installing CUDA Toolkit 7.0 on Ubuntu 14.04 Linux] (<a href="http://www.r-tutor.com/gpu-computing/cuda-installation/cuda7.0-ubuntu">http://www.r-tutor.com/gpu-computing/cuda-installation/cuda7.0-ubuntu</a>)</p>
 <p><strong>OSX</strong></p>
 <p>OSX 에서는 [Cuda Tookit] (<a href="https://developer.nvidia.com/cuda-toolkit">https://developer.nvidia.com/cuda-toolkit</a>) 다운로드 페이지에서 OSX 용 패키지를 다운로드 받아 설치하면 간단하게 설치가 끝납니다.</p>
-<h4 id="Install-Torch">Install Torch<a class="anchor-link" href="#Install-Torch">¶</a>
+<h4 id="Install-Torch">Install Torch<a class="anchor-link" href="posts/2015-06-26-Torch-Install/#Install-Torch">¶</a>
 </h4>
 <p>Torch는 의존성 패키지를 자동으로 설치해주는 easy install script를 지원하므로 쉘에서 아래 명령을 입력하면 어렵지 않게 설치가 가능합니다.</p>
 
@@ -102,7 +482,7 @@ th&gt; exit
 Do you really want to exit ([y]/n)? y
 &gt;</code></pre>
 <p>위와 같이 Torch 쉘을 실행할 수 있다면 설치가 성공적으로 이루어진 것입니다.</p>
-<h4 id="Install-iTorch">Install iTorch<a class="anchor-link" href="#Install-iTorch">¶</a>
+<h4 id="Install-iTorch">Install iTorch<a class="anchor-link" href="posts/2015-06-26-Torch-Install/#Install-iTorch">¶</a>
 </h4>
 <p>Torch를 브라우저를 통해서 편리하게 사용할 수 있는 도구입니다.</p>
 <p>iTorch는 iPython을 이용하는데 python의 버전 의존성 때문에 많은 골치 아픈 문제가 발생합니다.
@@ -191,7 +571,7 @@ ipython (3.2.0)</code></pre>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Package-Install">Package Install<a class="anchor-link" href="#Package-Install">¶</a>
+<h3 id="Package-Install">Package Install<a class="anchor-link" href="posts/2015-06-26-Torch-Install/#Package-Install">¶</a>
 </h3>
 <p>Torch는 Lua에서 제공하는 Luarocks 라는 package 관리 시스템을 사용합니다.
 따라서 필요한 모듈은 luarocks 명령을 통해서 간단하게 설치가 가능합니다.</p>
@@ -215,40 +595,300 @@ ipython (3.2.0)</code></pre>
     </div>
   </div>
 
+            </div>
         </div>
-                <ul class="pager hidden-print">
-<li class="previous">
-                <a href="../2015-06-26-Torch/" rel="prev" title="2015-06-26-Torch">Previous post</a>
-            </li>
-            <li class="next">
-                <a href="../2015-07-03-Many-Files-Directory-Remove-Linux/" rel="next" title="2015-07-03-Many-Files-Directory-Remove-Linux">Next post</a>
-            </li>
-        </ul>
-<div id="disqus_thread"></div>
-        <script>
-        var disqus_shortname ="comafire",
-            disqus_url="https://comafire.github.io/posts/2015-06-26-Torch-Install/",
-        disqus_title="2015-06-26-Torch-Install",
-        disqus_identifier="cache/posts/2015-06-26-Torch-Install.html",
-        disqus_config = function () {
-            this.language = "en";
-        };
-        (function() {
-            var dsq = document.createElement('script'); dsq.async = true;
-            dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
-            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-        })();
-    </script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a>
-</noscript>
-    <a href="https://disqus.com" class="dsq-brlink" rel="nofollow">Comments powered by <span class="logo-disqus">Disqus</span></a>
+        <div class="post">
+            <h1 class="title"><a href="posts/2015-06-22-Ubuntu-IP-MASQUERADE/">2015-06-22-Ubuntu-IP-MASQUERADE</a></h1>
+            <div class="meta">
+                <div class="authordate">
+                    <time class="timeago" datetime="2015-06-22T00:00:00+09:00">2015-06-22 00:00</time>
+</div>
+                <div class="stats">
+                                <a href="posts/2015-06-22-Ubuntu-IP-MASQUERADE/#disqus_thread" data-disqus-identifier="cache/posts/2015-06-22-Ubuntu-IP-MASQUERADE.html">Comments</a>
 
 
+                </div>
+            
+            </div>
+            <div class="body">
+                <div tabindex="-1" id="notebook" class="border-box-sizing">
+    <div class="container" id="notebook-container">
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>간단하게 실험용 Cluster를 구축 할때 아래와 같이 Master 서버가 Slave 서버가 외부 네트워크와 통신할 수 있도록 IP 공유기 역할을 해야 할때 IP MASQUERADE를 이용하는 방법입니다.</p>
+
+<pre><code>Internet &lt;--&gt; Master &lt;--&gt; 스위치허브 &lt;---&gt; Slave1,2,3 ...</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Master-서버">Master 서버<a class="anchor-link" href="posts/2015-06-22-Ubuntu-IP-MASQUERADE/#Master-%EC%84%9C%EB%B2%84">¶</a>
+</h3>
+<h4 id="interface-설정">interface 설정<a class="anchor-link" href="posts/2015-06-22-Ubuntu-IP-MASQUERADE/#interface-%EC%84%A4%EC%A0%95">¶</a>
+</h4>
+<p>Master 서버는 랜카드를 2개 가지고 있다고 가정합니다.
+eth0은 외부 네트워크용이고 eth1은 내부 내트워크용 랜카드 입니다.</p>
+
+<pre><code>&gt; sudo vi /etc/network/inetrfaces</code></pre>
+<p>설정 파일을 열어보면 eth0은 보통 인터넷 공유기와 바로 연결되어 있어 dhcp 로 설정되어 있을 것입니다.</p>
+<p>이제 아래와 같이 eth1 랜카드를 내부 네트워크 고정 ip 로 설정합니다.</p>
+
+<pre><code># interfaces(5) file used by ifup(8) and ifdown(8)
+auto lo
+iface lo inet loopback
+
+auto eth0
+iface eth0 inet dhcp
+
+auto eth1
+iface eth1 inet static
+address 192.168.0.1
+netmask 255.255.255.0
+network 192.168.0.0
+broadcast 192.168.10.255
+gateway 192.168.0.1
+dns-nameservers 8.8.8.8</code></pre>
+<p>설정 후 네트워크를 재시작합니다.</p>
+
+<pre><code>&gt; sudo service networking restart</code></pre>
+<h4 id="dns-서버-설정">dns 서버 설정<a class="anchor-link" href="posts/2015-06-22-Ubuntu-IP-MASQUERADE/#dns-%EC%84%9C%EB%B2%84-%EC%84%A4%EC%A0%95">¶</a>
+</h4>
+<p>resolvconf 서비스를 통해서 접근할 dns 서버를 설정해 줍니다.</p>
+
+<pre><code>&gt; sudo vi /etc/resolvconf/resolv.conf.d/head</code></pre>
+<p>설정 파일을 열어 아래와 같이 수정합니다.</p>
+
+<pre><code># Dynamic resolv.conf(5) file for glibc resolver(3) generated by resolvconf(8)
+#     DO NOT EDIT THIS FILE BY HAND -- YOUR CHANGES WILL BE OVERWRITTEN
+nameserver 8.8.8.8</code></pre>
+<p>설정 파일 저장 후 resolvconf 서비스를 재시작합니다.</p>
+
+<pre><code>&gt; sudo service resolvconf retart</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="iptables-설정">iptables 설정<a class="anchor-link" href="posts/2015-06-22-Ubuntu-IP-MASQUERADE/#iptables-%EC%84%A4%EC%A0%95">¶</a>
+</h3>
+<p>이제 Master 서버의 eth1 내부 네트워크를 통해 요청되는 패킷을 eth0 외부 네트워크카드로 전달하도록 해주는 rule 를 iptables 라는 명령어를 통해 등록해 줍니다.</p>
+
+<pre><code>&gt; sudo /sbin/iptables -A FORWARD -o etho -j ACCEPT
+&gt; sudo /sbin/iptables -t nat -A POSTROUTING -o etho -j MASQUERADE</code></pre>
+<p>iptables rule 은 재부팅시에 사라지게 되므로 재부팅 시 마다 자동으로 rule 이 등록 될 수 있도록 /etc/rc.local 파일을 열어 등록해줍니다.</p>
+
+<pre><code>&gt; sudo vi /etc/rc.local</code></pre>
+<p>아래와 같이 명령을 등록해 줍니다.</p>
+
+<pre><code>#!/bin/sh -e
+#
+# rc.local
+#
+# This script is executed at the end of each multiuser runlevel.
+# Make sure that the script will "exit 0" on success or any other
+# value on error.
+#
+# In order to enable or disable this script just change the execution
+# bits.
+#
+# By default this script does nothing.
+
+/sbin/iptables -A FORWARD -o eth0 -j ACCEPT
+/sbin/iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
+
+exit 0</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Slave-서버-설정">Slave 서버 설정<a class="anchor-link" href="posts/2015-06-22-Ubuntu-IP-MASQUERADE/#Slave-%EC%84%9C%EB%B2%84-%EC%84%A4%EC%A0%95">¶</a>
+</h3>
+<p>Slave 서버의 네트워크 interface 와 dns 서버 설정은  Master 서버의 내부 네트워크 interface 설정하듯이 내부 ip로 설정해주면 됩니다.</p>
+<h3 id="테스트">테스트<a class="anchor-link" href="posts/2015-06-22-Ubuntu-IP-MASQUERADE/#%ED%85%8C%EC%8A%A4%ED%8A%B8">¶</a>
+</h3>
+<p>Slave 서버에서 외부 주소로 ping 이 성공하면 성공입니다.</p>
+
+<pre><code>&gt; ping www.google.co.kr
+PING www.google.co.kr (58.123.220.104) 56(84) bytes of data.
+64 bytes from 58.123.220.104: icmp_seq=1 ttl=56 time=0.859 ms
+64 bytes from 58.123.220.104: icmp_seq=2 ttl=56 time=0.961 ms</code></pre>
+
+</div>
+</div>
+</div>
     </div>
-                     <footer id="footer"><p>Contents © 2017         <a href="mailto:comafire@gmail.com">comafire</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         </p>
+  </div>
+
+            </div>
+        </div>
+        <div class="post">
+            <h1 class="title"><a href="posts/2015-06-22-Ubuntu-Static-IP-Network-Setting/">2015-06-22-Ubuntu-Static-IP-Network-Setting</a></h1>
+            <div class="meta">
+                <div class="authordate">
+                    <time class="timeago" datetime="2015-06-22T00:00:00+09:00">2015-06-22 00:00</time>
+</div>
+                <div class="stats">
+                                <a href="posts/2015-06-22-Ubuntu-Static-IP-Network-Setting/#disqus_thread" data-disqus-identifier="cache/posts/2015-06-22-Ubuntu-Static-IP-Network-Setting.html">Comments</a>
+
+
+                </div>
+            
+            </div>
+            <div class="body">
+                <div tabindex="-1" id="notebook" class="border-box-sizing">
+    <div class="container" id="notebook-container">
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>우분투에서 Network 를 콘솔 상에서 설정하기</p>
+<h3 id="interface-설정">interface 설정<a class="anchor-link" href="posts/2015-06-22-Ubuntu-Static-IP-Network-Setting/#interface-%EC%84%A4%EC%A0%95">¶</a>
+</h3>
+<p>eth0를 static IP 로 사용한다고 가정합니다.</p>
+
+<pre><code>&gt; sudo vi /etc/network/inetrfaces</code></pre>
+<p>interface 파일을 열어 아래와 같이 수정합니다.</p>
+
+<pre><code># interfaces(5) file used by ifup(8) and ifdown(8)
+auto lo
+iface lo inet loopback
+
+auto eth0
+iface eth0 inet static
+address 192.168.0.1
+netmask 255.255.255.0
+network 192.168.0.0
+broadcast 192.168.10.255
+gateway 192.168.0.1
+dns-nameservers 8.8.8.8</code></pre>
+<p>수정 후 networking 서비스 restart</p>
+
+<pre><code>&gt; sudo service networking restart</code></pre>
+<h3 id="dns-서버-설정">dns 서버 설정<a class="anchor-link" href="posts/2015-06-22-Ubuntu-Static-IP-Network-Setting/#dns-%EC%84%9C%EB%B2%84-%EC%84%A4%EC%A0%95">¶</a>
+</h3>
+<p>resolvconf 서비스를 통해서 접근할 dns 서버를 설정해 줍니다.</p>
+
+<pre><code>&gt; sudo vi /etc/resolvconf/resolv.conf.d/head</code></pre>
+<p>설정 파일을 열어 아래와 같이 수정합니다.</p>
+
+<pre><code># Dynamic resolv.conf(5) file for glibc resolver(3) generated by resolvconf(8)
+#     DO NOT EDIT THIS FILE BY HAND -- YOUR CHANGES WILL BE OVERWRITTEN
+nameserver 8.8.8.8</code></pre>
+<p>설정 파일 저장 후 resolvconf 서비스를 재시작합니다.</p>
+
+<pre><code>&gt; sudo service resolvconf retart</code></pre>
+
+</div>
+</div>
+</div>
+    </div>
+  </div>
+
+            </div>
+        </div>
+        <div class="post">
+            <h1 class="title"><a href="posts/2015-06-21-Ubuntu-SSH-Root-Login/">2015-06-21-Ubuntu-SSH-Root-Login</a></h1>
+            <div class="meta">
+                <div class="authordate">
+                    <time class="timeago" datetime="2015-06-21T00:00:00+09:00">2015-06-21 00:00</time>
+</div>
+                <div class="stats">
+                                <a href="posts/2015-06-21-Ubuntu-SSH-Root-Login/#disqus_thread" data-disqus-identifier="cache/posts/2015-06-21-Ubuntu-SSH-Root-Login.html">Comments</a>
+
+
+                </div>
+            
+            </div>
+            <div class="body">
+                <div tabindex="-1" id="notebook" class="border-box-sizing">
+    <div class="container" id="notebook-container">
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Root-계정-활성화">Root 계정 활성화<a class="anchor-link" href="posts/2015-06-21-Ubuntu-SSH-Root-Login/#Root-%EA%B3%84%EC%A0%95-%ED%99%9C%EC%84%B1%ED%99%94">¶</a>
+</h3>
+<p>일반 계정으로 접속뒤 아래와 같이 root 계정의 passwd 를 설정하여 계정을 활성화합니다.</p>
+<div class="highlight"><pre><span></span>&gt; sudo passwd root
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="SSH-인증-설정">SSH 인증 설정<a class="anchor-link" href="posts/2015-06-21-Ubuntu-SSH-Root-Login/#SSH-%EC%9D%B8%EC%A6%9D-%EC%84%A4%EC%A0%95">¶</a>
+</h3>
+<p>기본적으로 root 접속은 보안상 막혀있으므로 아래와 같이 풀어주고 SSH를 다시 실행시켜 줍니다.</p>
+<div class="highlight"><pre><span></span>&gt; sudo vi /etc/ssh/sshd_config
+
+...
+
+LoginGraceTime <span class="m">120</span>
+PermitRootLogin without-password
+StrictModes yes
+without-password를 yes로 변경하고 ssh를 다시 시작합니다.
+
+...
+
+&gt; sudo service ssh restart
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+    </div>
+  </div>
+
+            </div>
+        </div>
+            <nav class="postindexpager"><ul class="pager">
+<li class="previous">
+                <a href="index-2.html" rel="prev">Newer posts</a>
+            </li>
+        </ul></nav><script>var disqus_shortname="comafire";(function(){var a=document.createElement("script");a.async=true;a.src="https://"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script><footer id="footer"><p>Contents © 2017         <a href="mailto:comafire@gmail.com">comafire</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         </p>
             
         </footer>
 </div>
-    </section><script src="../../assets/js/all-nocdn.js" type="text/javascript"></script><script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"> </script><script type="text/x-mathjax-config">
+    </section><script src="assets/js/all-nocdn.js" type="text/javascript"></script><script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"> </script><script type="text/x-mathjax-config">
     MathJax.Hub.Config({tex2jax: {inlineMath: [['$latex ','$'], ['\\(','\\)']]}});
     </script><script type="text/javascript">
             $(function(){

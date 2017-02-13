@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html prefix="
+og: http://ogp.me/ns#
+article: http://ogp.me/ns/article#
+" lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="description" content="comafire's lab">
+<meta name="viewport" content="width=device-width">
+<title>comafire (old posts, page 3) | comafire</title>
+<link href="assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="rss.xml">
+<link rel="canonical" href="https://comafire.github.io/index-3.html">
+<!--[if lt IE 9]><script src="/assets/js/html5.js"></script><![endif]--><style>
+    div.input_prompt {
+      display: none;
+    }
+    </style>
+</head>
+<body>
+    <section class="social"><ul>
+<li><a href="index.html" title="Home"><i class="icon-home"></i></a></li>
+            <li><a href="archive.html" title="Archives"><i class="icon-folder-open-alt"></i></a></li>
+            <li><a href="categories/index.html" title="Tags"><i class="icon-tags"></i></a></li>
+            <li><a href="rss.xml" title="RSS"><i class="icon-rss"></i></a></li>
+            <li><a href="galleries/index.html" title="Galleries"><i class="icon-camera"></i></a></li>
+            <li><a href="posts/about-me/index.html" title="About me"><i class="icon-user"></i></a></li>
+            <li><a href="https://github.com/comafire" title="My Github"><i class="icon-github"></i></a></li>
+
+        </ul></section><section class="page-content"><div class="content" rel="main">
+        <div class="post">
+            <h1 class="title"><a href="posts/2015-07-03-Many-Files-Directory-Remove-Linux/">2015-07-03-Many-Files-Directory-Remove-Linux</a></h1>
+            <div class="meta">
+                <div class="authordate">
+                    <time class="timeago" datetime="2015-07-03T00:00:00+09:00">2015-07-03 00:00</time>
+</div>
+                <div class="stats">
+                                <a href="posts/2015-07-03-Many-Files-Directory-Remove-Linux/#disqus_thread" data-disqus-identifier="cache/posts/2015-07-03-Many-Files-Directory-Remove-Linux.html">Comments</a>
+
+
+                </div>
+            
+            </div>
+            <div class="body">
+                <div tabindex="-1" id="notebook" class="border-box-sizing">
+    <div class="container" id="notebook-container">
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>프로그래밍을 할때 실수로 디렉토리내에 많은 파일을 생성하게 하는 실수를 할 경우 해당 디렉토리가 rm -rf 명령으로 지워지지 않는 경우가 있습니다.</p>
+<p>이럴 때는 아래와 같은 명령으로 삭제가 가능합니다.</p>
+
+<pre><code>&gt; ls -1 -f | xargs rm</code></pre>
+<p>신기하게도 ls 명령도 먹통이던 디렉토리에서 위 명령은 신속하게 파일을 지워줍니다.
+비결은 옵션에 있습니다. ls 명령은 내부에서 sort를 기본으로 하는데 파일이 많을 경우 이 작업에 많은 시간을 소요하게 됩니다.
+이 sort 옵션을 끄게 되면 신속하게 파일이름을 가져와서 xargs 를 통해 rm 명령을 수행해 파일을 지울수 있게 됩니다.</p>
+
+</div>
+</div>
+</div>
+    </div>
+  </div>
+
+            </div>
+        </div>
+        <div class="post">
+            <h1 class="title"><a href="posts/2015-06-26-Torch/">2015-06-26-Torch</a></h1>
+            <div class="meta">
+                <div class="authordate">
+                    <time class="timeago" datetime="2015-06-26T00:00:00+09:00">2015-06-26 00:00</time>
+</div>
+                <div class="stats">
+                                <a href="posts/2015-06-26-Torch/#disqus_thread" data-disqus-identifier="cache/posts/2015-06-26-Torch.html">Comments</a>
+
+
+                </div>
+            
+            </div>
+            <div class="body">
+                <div tabindex="-1" id="notebook" class="border-box-sizing">
+    <div class="container" id="notebook-container">
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Torch">Torch<a class="anchor-link" href="posts/2015-06-26-Torch/#Torch">¶</a>
+</h3>
+<p>Torch는 폭 넓은 Machine Learning 알고리즘을 지원하는 scientific computing framework 입니다.
+Torch는 스크립트 언어인 Lua로 작성되었으며 빠른 연산이 필요한 부분은 C/CUDA로 작성되어 있습니다.</p>
+<p>특징</p>
+<ul>
+<li>a powerful N-dimensional array</li>
+<li>lots of routines for indexing, slicing, transposing, ...</li>
+<li>amazing interface to C, via LuaJIT</li>
+<li>linear algebra routines</li>
+<li>neural network, and energy-based models</li>
+<li>numeric optimization routines</li>
+<li>Fast and efficient GPU support</li>
+<li>Embeddable, with ports to iOS, Android and FPGA backends</li>
+</ul>
+<p>현재 Facebook, Google, Twitter, NYU, IDIAP, Purdue 등 많은 곳에서 사용되어지고 있습니다.</p>
+<p>공식 홈페이지: <a href="http://torch.ch/">http://torch.ch/</a></p>
+<p>Tutorials:</p>
+<ul>
+<li>[Machine Learning with Torch7] (<a href="http://code.madbits.com/wiki/doku.php">http://code.madbits.com/wiki/doku.php</a>)</li>
+<li>[Torch7 Cheat Sheet] (<a href="https://github.com/torch/torch7/wiki/Cheatsheet">https://github.com/torch/torch7/wiki/Cheatsheet</a>)</li>
+</ul>
+<h4 id="Lua">Lua<a class="anchor-link" href="posts/2015-06-26-Torch/#Lua">¶</a>
+</h4>
+<p>스크립트 언어로 유용한 최소한의 기능만을 담아 빠르고 많은 플랫폼에 이식 가능하며 배우기 쉽습니다.</p>
+<p>특징</p>
+<ul>
+<li>C 코드와 바인딩하기 쉽다.</li>
+<li>스크립트 언어 중에서 크기가 작고 수행속도가 빠르다. (<a href="http://benchmarksgame.alioth.debian.org/u64/compare.php?lang=lua&amp;lang2=python3">Lua vs Python3</a>)</li>
+<li>Table 이라는 강략한 연관배열을 지원한다.</li>
+<li>문법이 간단하고 배우기 쉽다.</li>
+</ul>
+<p>현재 WoW, 앵그리버스 등 많은 상업적 게임프로그램에서 사용되고 있습니다.</p>
+<p>공식 홈페이지: <a href="http://www.lua.org/">http://www.lua.org/</a></p>
+<p>Tutorials:</p>
+<ul>
+<li>[Tutorial Points Lua] (<a href="http://www.tutorialspoint.com/lua/">http://www.tutorialspoint.com/lua/</a>)</li>
+<li>[Learn Lua in 15 Minutes] (<a href="http://tylerneylon.com/a/learn-lua/">http://tylerneylon.com/a/learn-lua/</a>)</li>
+</ul>
+</div>
+</div>
+</div>
+    </div>
+  </div>
+
+            </div>
+        </div>
+            <nav class="postindexpager"><ul class="pager">
+<li class="previous">
+                <a href="index-4.html" rel="prev">Newer posts</a>
+            </li>
+            <li class="next">
+                <a href="index-2.html" rel="next">Older posts</a>
+            </li>
+        </ul></nav><script>var disqus_shortname="comafire";(function(){var a=document.createElement("script");a.async=true;a.src="https://"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script><footer id="footer"><p>Contents © 2017         <a href="mailto:comafire@gmail.com">comafire</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         </p>
+            
+        </footer>
+</div>
+    </section><script src="assets/js/all-nocdn.js" type="text/javascript"></script><script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"> </script><script type="text/x-mathjax-config">
+    MathJax.Hub.Config({tex2jax: {inlineMath: [['$latex ','$'], ['\\(','\\)']]}});
+    </script><script type="text/javascript">
+            $(function(){
+                $('.timeago').timeago();
+            });
+        </script>
+</body>
+</html>

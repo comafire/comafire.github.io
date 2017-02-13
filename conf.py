@@ -28,6 +28,33 @@ SITE_URL = "https://comafire.github.io/"
 BLOG_EMAIL = "comafire@gmail.com"
 BLOG_DESCRIPTION = "comafire's lab"  # (translatable)
 
+# Google analytics or whatever else you use. Added to the bottom of <body>
+# in the default template (base.tmpl).
+ANALYTICS = """
+        <!-- Start of StatCounter Code -->
+        <script type="text/javascript">
+        sc_project=1436219;
+        sc_invisible=1;
+        sc_partition=13;
+        sc_security="b91cd70a";
+        </script>
+        <script type="text/javascript" src="http://www.statcounter.com/counter/counter.js"></script>
+        <noscript>
+            <div class="statcounter">
+            <a title="free hit counters" href="http://www.statcounter.com/" target="_blank"><img class="statcounter" src="http://c14.statcounter.com/1436219/0/b91cd70a/1/" alt="free hit counters" ></a>
+            </div>
+        </noscript>
+        <!-- End of StatCounter Code -->
+        <!-- Start of Google Analytics -->
+            <script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+            </script>
+            <script type="text/javascript">
+            _uacct = "UA-81648003-1";
+            urchinTracker();
+            </script>
+        <!-- End of Google Analytics -->
+    """
+
 # Nikola is multilingual!
 #
 # Currently supported languages are:

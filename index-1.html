@@ -29,6 +29,321 @@ article: http://ogp.me/ns/article#
 
         </ul></section><section class="page-content"><div class="content" rel="main">
         <div class="post">
+            <h1 class="title"><a href="posts/2015-10-03-Ubuntu-Install-Cuda-Toolkit/">2015-10-03-Ubuntu-Install-Cuda-Toolkit</a></h1>
+            <div class="meta">
+                <div class="authordate">
+                    <time class="timeago" datetime="2015-10-03T00:00:00+09:00">2015-10-03 00:00</time>
+</div>
+                <div class="stats">
+                                <a href="posts/2015-10-03-Ubuntu-Install-Cuda-Toolkit/#disqus_thread" data-disqus-identifier="cache/posts/2015-10-03-Ubuntu-Install-Cuda-Toolkit.html">Comments</a>
+
+
+                </div>
+            
+            </div>
+            <div class="body">
+                <div tabindex="-1" id="notebook" class="border-box-sizing">
+    <div class="container" id="notebook-container">
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>우부투에서 Nvidia 그래픽 카드의 Cuda Toolkit 설치하기</p>
+<p>Cuda 툴킷 저장소 파일 받기</p>
+
+<pre><code>&gt; wget http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1404/x86_64/cuda-repo-ubuntu1404_7.5-18_amd64.deb
+2015-10-03 07:51:47 (252 MB/s) - ‘cuda-repo-ubuntu1404_7.5-18_amd64.deb’ saved</code></pre>
+<p>Cuda 툴킷 저장소 우분투에 등록</p>
+
+<pre><code>&gt; sudo dpkg -i cuda-repo-ubuntu1404_7.5-18_amd64.deb
+Selecting previously unselected package cuda-repo-ubuntu1404.
+...
+OK
+
+&gt; sudo apt-get update
+...
+Hit http://security.ubuntu.com trusty-security/universe Translation-en         
+Fetched 1,222 kB in 7s (169 kB/s)                                              
+Reading package lists... Done</code></pre>
+<p>Cuda 설치</p>
+
+<pre><code>&gt; sudo apt-get install cuda
+...
+After this operation, 2,195 MB of additional disk space will be used.
+Do you want to continue? [Y/n] Y
+...
+done.</code></pre>
+<p>쉘에 환경 설정 추가</p>
+
+<pre><code>&gt; vi ~/.bashrc
+export CUDA_HOME=/usr/local/cuda
+export LD_LIBRARY_PATH=$CUDA_HOME/lib64  
+export PATH=$CUDA_HOME/bin:$PATH
+&gt; source ~/.basrc</code></pre>
+<p>설치확인</p>
+
+<pre><code>&gt; nvidia-smi
++------------------------------------------------------+                       
+| NVIDIA-SMI 352.39     Driver Version: 352.39         |                       
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|===============================+======================+======================|
+|   0  GeForce GTX TIT...  Off  | 0000:06:00.0     Off |                  N/A |
+|  0%   50C    P0    59W / 250W |     23MiB / 12284MiB |      0%      Default |
++-------------------------------+----------------------+----------------------+</code></pre>
+
+</div>
+</div>
+</div>
+    </div>
+  </div>
+
+            </div>
+        </div>
+        <div class="post">
+            <h1 class="title"><a href="posts/2015-09-13-Ubuntu-Nvidia-nomodeset/">2015-09-13-Ubuntu-Nvidia-nomodeset</a></h1>
+            <div class="meta">
+                <div class="authordate">
+                    <time class="timeago" datetime="2015-09-13T00:00:00+09:00">2015-09-13 00:00</time>
+</div>
+                <div class="stats">
+                                <a href="posts/2015-09-13-Ubuntu-Nvidia-nomodeset/#disqus_thread" data-disqus-identifier="cache/posts/2015-09-13-Ubuntu-Nvidia-nomodeset.html">Comments</a>
+
+
+                </div>
+            
+            </div>
+            <div class="body">
+                <div tabindex="-1" id="notebook" class="border-box-sizing">
+    <div class="container" id="notebook-container">
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Ubuntu 설치 이미지가 대부분의 그래픽 드라이버를 잘 지원하기는 하지만, 때때로 Nvidia 그래픽카드가 내장된
+컴퓨터에 설치시 이미지안에 들어있는 커널 드라이버와 호환성이 좋지 않아 그래픽이 깨져보이는 현상을 겪을 수 있습니다.</p>
+<p>이럴때는 설치 후 Nvidia에서 제공하는 드라이버를 설치하면 해결되지만, 아예 부팅시 먹통이 되는 경우가 생기면
+난감하게 됩니다.</p>
+<p>이럴때는 부팅시 커널에서 사용하는 그래픽 모드를 사용하지 않도록 해주면 낮은 해상도로 부팅이 가능하게 됩니다.
+Ubuntu 부팅시에 왼쪽 shift 키를 누르고 있으면 부팅 메뉴 모드로 들어갈 수 있습니다.</p>
+<p>이제 2가지 방법중 하나를 통해서 부팅하고 최신 Nvidia 그래픽 드라이버를 찾아서 설치해주면 됩니다.</p>
+<h5 id="부팅-커널의-옵션-바로-수정">부팅 커널의 옵션 바로 수정<a class="anchor-link" href="posts/2015-09-13-Ubuntu-Nvidia-nomodeset/#%EB%B6%80%ED%8C%85-%EC%BB%A4%EB%84%90%EC%9D%98-%EC%98%B5%EC%85%98-%EB%B0%94%EB%A1%9C-%EC%88%98%EC%A0%95">¶</a>
+</h5>
+<p>메뉴에서 화살표로 부팅할 커널로 옮긴다음 'e' 문자를 누르면 부팅 옵션 수정이 가능합니다.</p>
+
+<pre><code>linux /boot/vmlinuz-linux ..... quiet splash nomodeset</code></pre>
+<p>여기서 맨끝에 nomodeset 추가 후 부팅</p>
+<h5 id="Grub-설정-수정">Grub 설정 수정<a class="anchor-link" href="posts/2015-09-13-Ubuntu-Nvidia-nomodeset/#Grub-%EC%84%A4%EC%A0%95-%EC%88%98%EC%A0%95">¶</a>
+</h5>
+<p>메뉴에서 아예 복구 모드로 들어가 root shell 를 띄운다음에 grub 부팅 옵션을 아래와 같이 수정해 줍니다.</p>
+
+<pre><code>&gt; sudo vi /etc/default/grub
+
+GRUB_CMDLINE_LINUX_DEFAULT="quiet splash nomodeset"
+
+&gt; sudo update-grub2</code></pre>
+
+</div>
+</div>
+</div>
+    </div>
+  </div>
+
+            </div>
+        </div>
+        <div class="post">
+            <h1 class="title"><a href="posts/2015-09-12-Julia/">2015-09-12-Julia</a></h1>
+            <div class="meta">
+                <div class="authordate">
+                    <time class="timeago" datetime="2015-09-12T00:00:00+09:00">2015-09-12 00:00</time>
+</div>
+                <div class="stats">
+                                <a href="posts/2015-09-12-Julia/#disqus_thread" data-disqus-identifier="cache/posts/2015-09-12-Julia.html">Comments</a>
+
+
+                </div>
+            
+            </div>
+            <div class="body">
+                <div tabindex="-1" id="notebook" class="border-box-sizing">
+    <div class="container" id="notebook-container">
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="소개">소개<a class="anchor-link" href="posts/2015-09-12-Julia/#%EC%86%8C%EA%B0%9C">¶</a>
+</h3>
+<p><a href="http://julialang.org/">http://julialang.org/</a></p>
+<p>소개글</p>
+<ul>
+<li>Julia Manual: <a href="https://juliakorea.github.io/latest/manual/introduction.html">https://juliakorea.github.io/latest/manual/introduction.html</a>
+</li>
+<li>줄리아를 소개합니다 by 권창현: <a href="http://thoughts.chkwon.net/the-julia-language/">http://thoughts.chkwon.net/the-julia-language/</a>
+</li>
+</ul>
+<p>커뮤니티</p>
+<ul>
+<li>페이스북 그룹: <a href="https://www.facebook.com/groups/juliakorea/">https://www.facebook.com/groups/juliakorea/</a>
+</li>
+</ul>
+<p>서적</p>
+<ul>
+<li>Getting Started with Julia: <a href="https://www.packtpub.com/application-development/getting-started-julia-programming/">https://www.packtpub.com/application-development/getting-started-julia-programming/</a>
+</li>
+<li>Matering Julia: <a href="https://www.packtpub.com/application-development/mastering-julia">https://www.packtpub.com/application-development/mastering-julia</a>
+</li>
+</ul>
+<p>컨퍼런스</p>
+<ul>
+<li>JuliaCon: <a href="http://juliacon.org/">http://juliacon.org/</a><ul>
+<li>2015: <a href="http://juliacon.org/2015">http://juliacon.org/2015</a>
+</li>
+<li>2014: <a href="http://juliacon.org/2014">http://juliacon.org/2014</a>
+</li>
+</ul>
+</li>
+</ul>
+<p>동영상자료</p>
+<ul>
+<li>JuliaCon 2015: <a href="https://www.youtube.com/playlist?list=PLP8iPy9hna6Sdx4soiGrSefrmOPdUWixM">https://www.youtube.com/playlist?list=PLP8iPy9hna6Sdx4soiGrSefrmOPdUWixM</a>
+</li>
+</ul>
+<h3 id="설치">설치<a class="anchor-link" href="posts/2015-09-12-Julia/#%EC%84%A4%EC%B9%98">¶</a>
+</h3>
+<h4 id="OSX">OSX<a class="anchor-link" href="posts/2015-09-12-Julia/#OSX">¶</a>
+</h4>
+<p>dmg 바이너리 파일이나 juno를 사용할 수 있지만, 여기서는 atom editor를 이용하여 julia를 사용할 것이므로
+Homebrew를 통해 설치합니다.</p>
+<p>Homebrew 이용 (HomeBrew 설치: <a href="http://brew.sh/index_ko.html">http://brew.sh/index_ko.html</a>)</p>
+<p>Stable Version 설치</p>
+
+<pre><code>&gt; brew tap staticfloat/julia
+&gt; brew install --64bit julia</code></pre>
+<p>Dev Version 설치</p>
+
+<pre><code>&gt; brew tap staticfloat/julia
+&gt; brew install --HEAD --64bit julia</code></pre>
+<h4 id="Linux">Linux<a class="anchor-link" href="posts/2015-09-12-Julia/#Linux">¶</a>
+</h4>
+<p>to be continue..</p>
+<h3 id="실행">실행<a class="anchor-link" href="posts/2015-09-12-Julia/#%EC%8B%A4%ED%96%89">¶</a>
+</h3>
+<pre><code>&gt; julia
+               _
+   _       _ _(_)_     |  A fresh approach to technical computing
+  (_)     | (_) (_)    |  Documentation: http://docs.julialang.org
+   _ _   _| |_  __ _   |  Type "help()" for help.
+  | | | | | | |/ _` |  |
+  | | |_| | | | (_| |  |  Version 0.3.11 (2015-07-27 06:18 UTC)
+ _/ |\__'_|_|_|\__'_|  |  
+|__/                   |  x86_64-apple-darwin14.3.0
+
+julia&gt;</code></pre>
+
+</div>
+</div>
+</div>
+    </div>
+  </div>
+
+            </div>
+        </div>
+        <div class="post">
+            <h1 class="title"><a href="posts/2015-07-03-Docker-Proxy-Certificates-Ubuntu/">2015-07-03-Docker-Proxy-Certificates-Ubuntu</a></h1>
+            <div class="meta">
+                <div class="authordate">
+                    <time class="timeago" datetime="2015-07-03T00:00:00+09:00">2015-07-03 00:00</time>
+</div>
+                <div class="stats">
+                                <a href="posts/2015-07-03-Docker-Proxy-Certificates-Ubuntu/#disqus_thread" data-disqus-identifier="cache/posts/2015-07-03-Docker-Proxy-Certificates-Ubuntu.html">Comments</a>
+
+
+                </div>
+            
+            </div>
+            <div class="body">
+                <div tabindex="-1" id="notebook" class="border-box-sizing">
+    <div class="container" id="notebook-container">
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Docker 사용시 네트워크에 Proxy 및 Self Signed SSL Certification 을 사용하도록 되어 있는 곳에서는 Docker Hub에서 Docker 이미지를 검색하고 내려받을때 접속 에러와 'x509: certificate signed by unknown authority' 에러를 만나게 됩니다.</p>
+<p>이럴때는 proxy 및 SSL Certification 아래와 같이 설정합니다.</p>
+<h3 id="Proxy-설정">Proxy 설정<a class="anchor-link" href="posts/2015-07-03-Docker-Proxy-Certificates-Ubuntu/#Proxy-%EC%84%A4%EC%A0%95">¶</a>
+</h3>
+<p>/etc/default/docker.io 파일에서 proxy 설정 후에 docker service 를 재실행합니다.</p>
+
+<pre><code>&gt; sudo vi /etc/default/docker.io
+...
+export http_proxy="http://&lt;proxy_ip&gt;:&lt;proxy_port&gt;"
+export https_proxy="https://&lt;proxy_ip&gt;:&lt;proxy_port&gt;"
+...
+&gt; sudo service docker.io restart</code></pre>
+<h3 id="SSL-Certification-설정">SSL Certification 설정<a class="anchor-link" href="posts/2015-07-03-Docker-Proxy-Certificates-Ubuntu/#SSL-Certification-%EC%84%A4%EC%A0%95">¶</a>
+</h3>
+<p>Self Signed Certification 파일을 예를 들어 Self.crt 라고 한다면, 해당 파일을 /usr/local/share/ca-certificates 에 복사하고 update-ca-certificates 명령으로 업데이트 해줍니다.</p>
+
+<pre><code>&gt; sudo cp ./Self.crt /usr/local/share/ca-certificates/
+&gt; sudo update-ca-certificates
+&gt; sudo service docker.io restart</code></pre>
+
+</div>
+</div>
+</div>
+    </div>
+  </div>
+
+            </div>
+        </div>
+        <div class="post">
+            <h1 class="title"><a href="posts/2015-07-03-Many-Files-Directory-Remove-Linux/">2015-07-03-Many-Files-Directory-Remove-Linux</a></h1>
+            <div class="meta">
+                <div class="authordate">
+                    <time class="timeago" datetime="2015-07-03T00:00:00+09:00">2015-07-03 00:00</time>
+</div>
+                <div class="stats">
+                                <a href="posts/2015-07-03-Many-Files-Directory-Remove-Linux/#disqus_thread" data-disqus-identifier="cache/posts/2015-07-03-Many-Files-Directory-Remove-Linux.html">Comments</a>
+
+
+                </div>
+            
+            </div>
+            <div class="body">
+                <div tabindex="-1" id="notebook" class="border-box-sizing">
+    <div class="container" id="notebook-container">
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>프로그래밍을 할때 실수로 디렉토리내에 많은 파일을 생성하게 하는 실수를 할 경우 해당 디렉토리가 rm -rf 명령으로 지워지지 않는 경우가 있습니다.</p>
+<p>이럴 때는 아래와 같은 명령으로 삭제가 가능합니다.</p>
+
+<pre><code>&gt; ls -1 -f | xargs rm</code></pre>
+<p>신기하게도 ls 명령도 먹통이던 디렉토리에서 위 명령은 신속하게 파일을 지워줍니다.
+비결은 옵션에 있습니다. ls 명령은 내부에서 sort를 기본으로 하는데 파일이 많을 경우 이 작업에 많은 시간을 소요하게 됩니다.
+이 sort 옵션을 끄게 되면 신속하게 파일이름을 가져와서 xargs 를 통해 rm 명령을 수행해 파일을 지울수 있게 됩니다.</p>
+
+</div>
+</div>
+</div>
+    </div>
+  </div>
+
+            </div>
+        </div>
+        <div class="post">
             <h1 class="title"><a href="posts/2015-06-26-Torch/">2015-06-26-Torch</a></h1>
             <div class="meta">
                 <div class="authordate">

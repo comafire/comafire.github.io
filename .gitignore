@@ -90,3 +90,7 @@ ENV/
 
 # pyenv settings
 .env
+
+# data science
+datasets/
+models/

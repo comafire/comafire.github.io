@@ -7,7 +7,11 @@
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <url>
   <loc>https://comafire.github.io/</loc>
-  <lastmod>2017-02-12T13:31:00Z</lastmod>
+  <lastmod>2017-02-13T14:14:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://comafire.github.io/2015/</loc>
+  <lastmod>2017-02-13T14:14:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/2016/</loc>
@@ -19,7 +23,7 @@
  </url>
  <url>
   <loc>https://comafire.github.io/archive.html</loc>
-  <lastmod>2017-02-12T13:47:00Z</lastmod>
+  <lastmod>2017-02-13T14:14:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/categories/</loc>
@@ -32,6 +36,26 @@
  <url>
   <loc>https://comafire.github.io/listings/</loc>
   <lastmod>2017-02-12T13:30:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://comafire.github.io/posts/2015-06-21-Ubuntu-SSH-Root-Login/</loc>
+  <lastmod>2017-02-13T14:14:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://comafire.github.io/posts/2015-06-22-Ubuntu-IP-MASQUERADE/</loc>
+  <lastmod>2017-02-13T14:14:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://comafire.github.io/posts/2015-06-22-Ubuntu-Static-IP-Network-Setting/</loc>
+  <lastmod>2017-02-13T14:14:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://comafire.github.io/posts/2015-06-26-Torch-Install/</loc>
+  <lastmod>2017-02-13T14:14:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://comafire.github.io/posts/2015-06-26-Torch/</loc>
+  <lastmod>2017-02-13T14:14:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/posts/2016-08-26-Jupyter-From-Dev-To-Blogging/</loc>

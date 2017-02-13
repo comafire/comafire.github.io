@@ -882,7 +882,7 @@ IMAGE_FOLDERS = {'images': 'images'}
 # )
 
 # Show teasers (instead of full posts) in indexes? Defaults to False.
-# INDEX_TEASERS = False
+INDEX_TEASERS = True 
 
 # HTML fragments with the Read more... links.
 # The following tags exist and are replaced for you:
@@ -1130,7 +1130,7 @@ MARKDOWN_EXTENSIONS = ['fenced_code', 'codehilite', 'extra']
 
 # Only inlclude teasers in Atom and RSS feeds. Disabling include the full
 # content. Defaults to True.
-# FEED_TEASERS = True
+FEED_TEASERS = True
 
 # Strip HTML from Atom annd RSS feed summaries and content. Defaults to False.
 # FEED_PLAIN = False

@@ -352,7 +352,7 @@ POSTS_SECTIONS = True
 
 # Setting this to False generates a list page instead of an index. Indexes
 # are the default and will apply GENERATE_ATOM if set.
-# POSTS_SECTIONS_ARE_INDEXES = True
+POSTS_SECTIONS_ARE_INDEXES = True
 
 # Each post and section page will have an associated color that can be used
 # to style them with a recognizable color detail across your site. A color
@@ -882,7 +882,7 @@ IMAGE_FOLDERS = {'images': 'images'}
 # )
 
 # Show teasers (instead of full posts) in indexes? Defaults to False.
-INDEX_TEASERS = True 
+# INDEX_TEASERS = False 
 
 # HTML fragments with the Read more... links.
 # The following tags exist and are replaced for you:
@@ -1113,7 +1113,7 @@ MARKDOWN_EXTENSIONS = ['fenced_code', 'codehilite', 'extra']
 
 # Modify the number of Post per Index Page
 # Defaults to 10
-INDEX_DISPLAY_POST_COUNT = 5 
+INDEX_DISPLAY_POST_COUNT = 10 
 
 # By default, Nikola generates RSS files for the website and for tags, and
 # links to it.  Set this to False to disable everything RSS-related.
@@ -1130,7 +1130,7 @@ INDEX_DISPLAY_POST_COUNT = 5
 
 # Only inlclude teasers in Atom and RSS feeds. Disabling include the full
 # content. Defaults to True.
-FEED_TEASERS = True
+# FEED_TEASERS = True
 
 # Strip HTML from Atom annd RSS feed summaries and content. Defaults to False.
 # FEED_PLAIN = False

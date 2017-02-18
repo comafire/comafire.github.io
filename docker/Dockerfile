@@ -79,7 +79,7 @@ RUN curl -sL --retry 3 \
 && ln -s $SPARK_HOME /usr/local/spark \
 && chown -R root:root $SPARK_HOME
 ENV PYTHONPATH $SPARK_HOME/python/:$PYTHONPATH
-ENV PYTHONPATH $SPARK_HOME/python/lib/py4j-0.10.3-src.zip:$PYTHONPATH
+ENV PYTHONPATH $SPARK_HOME/python/lib/py4j-0.10.4-src.zip:$PYTHONPATH
 
 # Scala
 RUN apt-get update && apt-get install -y --no-install-recommends \
@@ -97,4 +97,6 @@ VOLUME /root/volume
 
 EXPOSE 8888
 
-CMD cd $HOME && cd volume && jupyter notebook --ip='*' --no-browser
+COPY jupyter_notebook_config.py /root/.jupyter/
+COPY run_jupyter.sh /root/
+CMD cd $HOME && cd volume && sh /root/run_jupyter.sh

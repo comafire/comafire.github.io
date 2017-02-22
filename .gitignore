@@ -92,6 +92,7 @@ ENV/
 .env
 
 # data science
-datasets/
-models/
-logs/
+**/datasets/
+**/models/
+**/logs/
+**/tmp/

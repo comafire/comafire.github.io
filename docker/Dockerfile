@@ -32,6 +32,15 @@ RUN pip3 install --upgrade pip
 # Jupyter
 RUN pip3 install setuptools
 RUN pip3 install jupyter
+# Jupyter extensions
+RUN pip3 install jupyter_contrib_nbextensions
+RUN jupyter contrib nbextension install --user
+RUN pip3 install yapf
+# JupyterLab
+RUN pip3 install jupyterlab
+RUN jupyter serverextension enable --py jupyterlab --sys-prefix
+# Jupyter for Atom
+RUN pip3 install jupyter jupyter_kernel_gateway
 
 # Python-Deps
 RUN apt-get update && apt-get install -y --no-install-recommends \

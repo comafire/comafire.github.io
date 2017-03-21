@@ -51,6 +51,9 @@ RUN pip3 install numpy scipy sklearn
 # Tensorflow
 RUN pip3 install --upgrade tensorflow
 
+# Keras
+RUN pip3 install --upgrade keras
+
 # Julia
 RUN add-apt-repository ppa:staticfloat/juliareleases
 RUN add-apt-repository ppa:staticfloat/julia-deps

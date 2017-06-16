@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>comafire</title><link>https://comafire.github.io/</link><description>comafire's lab</description><atom:link href="https://comafire.github.io/rss.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><lastBuildDate>Tue, 21 Mar 2017 23:58:32 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>2017-03-22-python-tf-rnn-iap</title><link>https://comafire.github.io/posts/2017-03-22-python-tf-rnn-iap/</link><dc:creator>comafire</dc:creator><description>&lt;div tabindex="-1" id="notebook" class="border-box-sizing"&gt;
+<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>comafire</title><link>https://comafire.github.io/</link><description>comafire's lab</description><atom:link href="https://comafire.github.io/rss.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><lastBuildDate>Fri, 16 Jun 2017 05:39:53 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>2017-03-22-python-tf-rnn-iap</title><link>https://comafire.github.io/posts/2017-03-22-python-tf-rnn-iap/</link><dc:creator>comafire</dc:creator><description>&lt;div tabindex="-1" id="notebook" class="border-box-sizing"&gt;
     &lt;div class="container" id="notebook-container"&gt;
 
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;
@@ -949,9 +949,9 @@ github_deploy 명령을 수행하면 html 로 변경된 부분은 github reposit
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;p&gt;Tensorflow를 이용해서 CNN(Convolution Neural Network)으로 MNIST 데이터셋을 분류해 보도록 하겠습니다.&lt;/p&gt;
-&lt;p&gt;MNIST 데이터 셋은 &lt;a href="https://comafire.github.io/2016-12-01-python-tf-mnist.html"&gt;Tensorflow에서 Mnist 데이터셋 살펴보기&lt;/a&gt;에서 다루었었으므로 참조하세요.&lt;/p&gt;
-&lt;p&gt;CNN은 Convolution Layer + Pooling Layer + Fully Connected Layer(DNN)의 조합이기에 CNN 구성 부분외에 Tensorflow를 통한 훈련과 평가는 &lt;a href="https://comafire.github.io/2016-12-06-python-tf-dnn-mnist.html"&gt;Tensorflow에서 DNN으로 Mnist 데이터셋 분류하기&lt;/a&gt;에서 다루었던 내용과 같으므로 해당 내용을 참조하세요.&lt;/p&gt;
-&lt;p&gt;Tensorflow의 변수 생성을 함수를 통해 간편하게 하기 위해 변수 범위를 한정하는 방법은 &lt;a href="https://comafire.github.io/2016-12-08-python-tf-dnn-mnist-with-vscope.html"&gt;Tensorflow에서 variable_scope 사용하기&lt;/a&gt;에서 다루었으므로 참조하세요.&lt;/p&gt;
+&lt;p&gt;MNIST 데이터 셋은 &lt;a href="https://comafire.github.io/posts/2016-python-tf-mnist"&gt;Tensorflow에서 Mnist 데이터셋 살펴보기&lt;/a&gt;에서 다루었었으므로 참조하세요.&lt;/p&gt;
+&lt;p&gt;CNN은 Convolution Layer + Pooling Layer + Fully Connected Layer(DNN)의 조합이기에 CNN 구성 부분외에 Tensorflow를 통한 훈련과 평가는 &lt;a href="https://comafire.github.io/posts/2016-python-tf-dnn-mnist"&gt;Tensorflow에서 DNN으로 Mnist 데이터셋 분류하기&lt;/a&gt;에서 다루었던 내용과 같으므로 해당 내용을 참조하세요.&lt;/p&gt;
+&lt;p&gt;Tensorflow의 변수 생성을 함수를 통해 간편하게 하기 위해 변수 범위를 한정하는 방법은 &lt;a href="https://comafire.github.io/posts/2016-python-tf-dnn-mnist-with-vscope"&gt;Tensorflow에서 variable_scope 사용하기&lt;/a&gt;에서 다루었으므로 참조하세요.&lt;/p&gt;
 
 &lt;/div&gt;
 &lt;/div&gt;

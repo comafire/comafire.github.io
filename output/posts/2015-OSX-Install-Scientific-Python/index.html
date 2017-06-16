@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html prefix="
+og: http://ogp.me/ns#
+article: http://ogp.me/ns/article#
+" lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>2015-OSX-Install-Scientific-Python | comafire</title>
+<link href="../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="../../rss.xml">
+<link rel="canonical" href="https://comafire.github.io/posts/2015-OSX-Install-Scientific-Python/">
+<!--[if lt IE 9]><script src="/assets/js/html5.js"></script><![endif]--><meta name="author" content="comafire">
+<meta property="og:site_name" content="comafire">
+<meta property="og:title" content="2015-OSX-Install-Scientific-Python">
+<meta property="og:url" content="https://comafire.github.io/posts/2015-OSX-Install-Scientific-Python/">
+<meta property="og:description" content="OSX에 Data Scientific을 위한 Python 설치 스크립트 메모
+참조: https://joernhees.de/blog/2014/02/25/scientific-python-on-mac-os-x-10-9-with-homebrew/
+Homebrew 설치¶http://brew.sh 를 방문하여 ruby 스크립트를 복사해서 실행합니다.
+
+ruby -e ">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2015-01-01T00:00:00+09:00">
+</head>
+<body>
+    <section class="social"><ul>
+<li><a href="../../index.html" title="Home"><i class="icon-home"></i></a></li>
+            <li><a href="../../archive.html" title="Archives"><i class="icon-folder-open-alt"></i></a></li>
+            <li><a href="../../categories/index.html" title="Tags"><i class="icon-tags"></i></a></li>
+            <li><a href="../../rss.xml" title="RSS"><i class="icon-rss"></i></a></li>
+            <li><a href="../../galleries/index.html" title="Galleries"><i class="icon-camera"></i></a></li>
+            <li><a href="../about-me/index.html" title="About me"><i class="icon-user"></i></a></li>
+            <li><a href="https://github.com/comafire" title="My Github"><i class="icon-github"></i></a></li>
+
+        </ul></section><section class="page-content"><div class="content" rel="main">
+    <div class="post">
+        <h1 class="p-name entry-title" itemprop="headline name">2015-OSX-Install-Scientific-Python</h1>
+
+        <div class="meta">
+            <div class="authordate">
+                <time class="timeago" datetime="2015-01-01T00:00:00+09:00">2015-01-01 00:00</time>
+            
+                      |  
+        <a href="index.ipynb" id="sourcelink">Source</a>
+
+            </div>
+            
+        </div>
+        <div class="body">
+            <div tabindex="-1" id="notebook" class="border-box-sizing">
+    <div class="container" id="notebook-container">
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>OSX에 Data Scientific을 위한 Python 설치 스크립트 메모</p>
+<p>참조: <a href="https://joernhees.de/blog/2014/02/25/scientific-python-on-mac-os-x-10-9-with-homebrew/">https://joernhees.de/blog/2014/02/25/scientific-python-on-mac-os-x-10-9-with-homebrew/</a></p>
+<h4 id="Homebrew-설치">Homebrew 설치<a class="anchor-link" href="#Homebrew-%EC%84%A4%EC%B9%98">¶</a>
+</h4>
+<p><a href="http://brew.sh">http://brew.sh</a> 를 방문하여 ruby 스크립트를 복사해서 실행합니다.</p>
+
+<pre><code>ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"</code></pre>
+<h4 id="Scientific-Python-Package-설치">Scientific Python Package 설치<a class="anchor-link" href="#Scientific-Python-Package-%EC%84%A4%EC%B9%98">¶</a>
+</h4>
+<pre><code># set up some taps and update brew
+brew tap homebrew/science # a lot of cool formulae for scientific tools
+brew tap homebrew/python # numpy, scipy, matplotlib, ...
+brew update &amp;&amp; brew upgrade
+
+# install a brewed python
+brew install python
+
+# install PIL, imagemagick, graphviz and other
+# image generating stuff
+brew install libtiff libjpeg webp little-cms2
+pip install Pillow
+brew install imagemagick --with-fftw --with-librsvg --with-x11
+brew install graphviz --with-librsvg --with-x11
+brew install cairo
+brew install py2cairo # this will ask you to download xquartz and install it
+brew install qt pyqt
+
+# install virtualenv, nose (unittests &amp; doctests on steroids)
+pip install virtualenv
+pip install nose
+
+# install numpy and scipy
+# there are two ways to install numpy and scipy now: via pip or via brew.
+# PICK ONE, i prefer pip for proper virtualenv support and more up-to-date versions.
+pip install numpy
+pip install scipy
+# OR:
+# (if you want to run numpy and scipy with openblas also remove comments below:)
+#brew install openblas
+brew install numpy # --with-openblas
+brew install scipy # --with-openblas
+
+# test the numpy &amp; scipy install
+python -c 'import numpy ; numpy.test();'
+python -c 'import scipy ; scipy.test();'
+
+# some cool python libs (if you don't know them, look them up)
+# matplotlib: generate plots
+# pandas: time series stuff
+# nltk: natural language toolkit
+# sympy: symbolic maths in python
+# q: fancy debugging output
+# snakeviz: cool visualization of profiling output (aka what's taking so long?)
+#brew install Caskroom/cask/mactex  # if you want to install matplotlib with tex support and don't have mactex installed already
+brew install matplotlib --with-cairo --with-tex  # cairo: png ps pdf svg filetypes, tex: tex fonts &amp; formula in plots
+pip install pandas
+pip install nltk
+pip install sympy
+pip install q
+pip install snakeviz
+pip install scikit-learn
+
+# ipython with parallel and notebook support
+brew install zmq
+pip install ipython[all]
+
+# html stuff (parsing)
+pip install html5lib cssselect pyquery lxml BeautifulSoup
+
+# webapps / apis (choose what you like)
+pip install Flask Django tornado
+
+# semantic web stuff: rdf &amp; sparql
+pip install rdflib SPARQLWrapper
+
+# graphs (graph metrics, social network analysis, layouting)
+pip install networkx
+
+# maintenance: updating of pip libs
+pip list --outdated  # see Updating section below</code></pre>
+<h4 id="Scientific-Python-Package-업데이트">Scientific Python Package 업데이트<a class="anchor-link" href="#Scientific-Python-Package-%EC%97%85%EB%8D%B0%EC%9D%B4%ED%8A%B8">¶</a>
+</h4>
+<p>설치 후 최신 패키지로 유지하기</p>
+<p>brew update</p>
+
+<pre><code>brew update &amp;&amp; brew outdated &amp;&amp; brew upgrade --all</code></pre>
+<p>pip update</p>
+<p>--outdated 옵션으로 리스트 확인 후에 -U 옵션으로 업그레이드</p>
+
+<pre><code>pip list --outdated
+pip install -U package1 package2 ...</code></pre>
+
+</div>
+</div>
+</div>
+    </div>
+  </div>
+
+        </div>
+                <ul class="pager hidden-print">
+<li class="previous">
+                <a href="../2015-Torch-Install/" rel="prev" title="2015-Torch-Install">Previous post</a>
+            </li>
+            <li class="next">
+                <a href="../2015-Many-Files-Directory-Remove-Linux/" rel="next" title="2015-Many-Files-Directory-Remove-Linux">Next post</a>
+            </li>
+        </ul>
+<div id="disqus_thread"></div>
+        <script>
+        var disqus_shortname ="comafire",
+            disqus_url="https://comafire.github.io/posts/2015-OSX-Install-Scientific-Python/",
+        disqus_title="2015-OSX-Install-Scientific-Python",
+        disqus_identifier="cache/posts/2015-OSX-Install-Scientific-Python.html",
+        disqus_config = function () {
+            this.language = "en";
+        };
+        (function() {
+            var dsq = document.createElement('script'); dsq.async = true;
+            dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+    <a href="https://disqus.com" class="dsq-brlink" rel="nofollow">Comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+    </div>
+                     <footer id="footer"><p>Contents © 2017         <a href="mailto:comafire@gmail.com">comafire</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         </p>
+            
+        </footer>
+</div>
+    </section><script src="../../assets/js/all-nocdn.js" type="text/javascript"></script><script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"> </script><script type="text/x-mathjax-config">
+    MathJax.Hub.Config({tex2jax: {inlineMath: [['$latex ','$'], ['\\(','\\)']]}});
+    </script><script type="text/javascript">
+            $(function(){
+                $('.timeago').timeago();
+            });
+        </script>
+</body>
+</html>

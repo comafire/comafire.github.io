@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>comafire</title><link>https://comafire.github.io/</link><description>comafire's lab</description><atom:link href="https://comafire.github.io/rss.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><lastBuildDate>Sun, 18 Jun 2017 06:18:46 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>2017-Jupyter-From-Dev-To-Blogging2</title><link>https://comafire.github.io/posts/2017-Jupyter-From-Dev-To-Blogging2/</link><dc:creator>comafire</dc:creator><description>&lt;div tabindex="-1" id="notebook" class="border-box-sizing"&gt;
+<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>comafire</title><link>https://comafire.github.io/</link><description>comafire's lab</description><atom:link href="https://comafire.github.io/rss.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><lastBuildDate>Sun, 18 Jun 2017 06:44:49 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>2017-Jupyter-From-Dev-To-Blogging2</title><link>https://comafire.github.io/posts/2017-Jupyter-From-Dev-To-Blogging2/</link><dc:creator>comafire</dc:creator><description>&lt;div tabindex="-1" id="notebook" class="border-box-sizing"&gt;
     &lt;div class="container" id="notebook-container"&gt;
 
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
@@ -282,19 +282,7 @@ github_deploy 명령을 수행하면 html 로 변경된 부분은 github reposit
 &lt;/ul&gt;
 &lt;p&gt;개발을 하다가 보면 그때 그때 필요해서 여러 패키지를 설치하지만, 정리해 놓지 않으면 환경을 다시 구성하기 힘들때가 많습니다.&lt;/p&gt;
 &lt;p&gt;Dockerfile 을 이용하면 그때 그때 개발 환경 셋팅을 정리해서 이미지로 빌드 할 수 있기에 초기 학습시간은 들지만 이후 개발 환경 셋팅의 삽질에 낭비하는 시간을 많이 줄일 수 있습니다.&lt;/p&gt;
-&lt;p&gt;docker 디렉토리를 만들고 Dockerfile 을 작성합니다.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;gt; mkdir docker
-&amp;gt; vi docker/Dockerfile&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;실제 Dockerfile 은 아래 링크의 docker 디렉토리를 참조하세요.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="https://github.com/comafire/comafire.github.io/blob/src"&gt;https://github.com/comafire/comafire.github.io/blob/src&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;이제 docker 이미지를 빌드하고 올려주면 로컬 컴퓨터와는 상관없이 ubuntu 상에서 작업하는 것과 동일하게 개발 환경을 가져갈 수 있게 됩니다.&lt;/p&gt;
-&lt;p&gt;저장소 안에 스크립트를 이용하면 바로 docker를 통해 jupyter를 띄우고 사용할 수 있습니다.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;gt; docker_build.sh
-&amp;gt; docker_start.sh&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;현재 블로깅시 사용하는 도커이미지는 &lt;a href="https://github.com/comafire/docker-jupyter"&gt;https://github.com/comafire/docker-jupyter&lt;/a&gt; 에 올려져 있으므로 참조하여 사용하시면 됩니다.&lt;/p&gt;
 
 &lt;/div&gt;
 &lt;/div&gt;

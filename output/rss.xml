@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>comafire</title><link>https://comafire.github.io/</link><description>comafire's lab</description><atom:link href="https://comafire.github.io/rss.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><lastBuildDate>Fri, 16 Jun 2017 07:02:28 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>2017-python-tf-rnn-iap</title><link>https://comafire.github.io/posts/2017-python-tf-rnn-iap/</link><dc:creator>comafire</dc:creator><description>&lt;div tabindex="-1" id="notebook" class="border-box-sizing"&gt;
+<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>comafire</title><link>https://comafire.github.io/</link><description>comafire's lab</description><atom:link href="https://comafire.github.io/rss.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><lastBuildDate>Sun, 18 Jun 2017 06:14:16 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>2017-python-tf-rnn-iap</title><link>https://comafire.github.io/posts/2017-python-tf-rnn-iap/</link><dc:creator>comafire</dc:creator><description>&lt;div tabindex="-1" id="notebook" class="border-box-sizing"&gt;
     &lt;div class="container" id="notebook-container"&gt;
 
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
@@ -16,8 +15,7 @@
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
@@ -83,7 +81,9 @@
 
 
 &lt;div class="output_area"&gt;
+
 &lt;div class="prompt"&gt;&lt;/div&gt;
+
 
 &lt;div class="output_subarea output_stream output_stdout output_text"&gt;
 &lt;pre&gt;      Month  Passengers
@@ -117,7 +117,9 @@
 &lt;/div&gt;
 
 &lt;div class="output_area"&gt;
+
 &lt;div class="prompt"&gt;&lt;/div&gt;
+
 
 
 
@@ -128,7 +130,9 @@
 &lt;/div&gt;
 
 &lt;div class="output_area"&gt;
+
 &lt;div class="prompt"&gt;&lt;/div&gt;
+
 
 &lt;div class="output_subarea output_stream output_stdout output_text"&gt;
 &lt;pre&gt;(132, 13)
@@ -153,7 +157,9 @@
 &lt;/div&gt;
 
 &lt;div class="output_area"&gt;
+
 &lt;div class="prompt"&gt;&lt;/div&gt;
+
 
 
 
@@ -167,8 +173,7 @@
 &lt;/div&gt;
 
 &lt;/div&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
@@ -225,7 +230,9 @@
 
 
 &lt;div class="output_area"&gt;
+
 &lt;div class="prompt"&gt;&lt;/div&gt;
+
 
 &lt;div class="output_subarea output_stream output_stdout output_text"&gt;
 &lt;pre&gt;&amp;lt;class 'numpy.ndarray'&amp;gt; (100, 13)
@@ -314,7 +321,9 @@
 
 
 &lt;div class="output_area"&gt;
+
 &lt;div class="prompt"&gt;&lt;/div&gt;
+
 
 &lt;div class="output_subarea output_stream output_stdout output_text"&gt;
 &lt;pre&gt;Tensor("Placeholder:0", shape=(?, 12, 1), dtype=float32)
@@ -384,7 +393,9 @@ Tensor("strided_slice:0", shape=(?, 1), dtype=float32)
 
 
 &lt;div class="output_area"&gt;
+
 &lt;div class="prompt"&gt;&lt;/div&gt;
+
 
 &lt;div class="output_subarea output_stream output_stdout output_text"&gt;
 &lt;pre&gt;epoch: 0, train_cost: 0.244708
@@ -446,7 +457,9 @@ save model: ../models/tf-rnn-iap-004/model
 
 
 &lt;div class="output_area"&gt;
+
 &lt;div class="prompt"&gt;&lt;/div&gt;
+
 
 &lt;div class="output_subarea output_stream output_stdout output_text"&gt;
 &lt;pre&gt;epoch: 4, train_cost: 0.188916
@@ -480,7 +493,9 @@ epoch: 4, test_cost: 0.204153
 
 
 &lt;div class="output_area"&gt;
+
 &lt;div class="prompt"&gt;&lt;/div&gt;
+
 
 &lt;div class="output_subarea output_stream output_stdout output_text"&gt;
 &lt;pre&gt;(100, 1)
@@ -489,7 +504,9 @@ epoch: 4, test_cost: 0.204153
 &lt;/div&gt;
 
 &lt;div class="output_area"&gt;
+
 &lt;div class="prompt output_prompt"&gt;Out[12]:&lt;/div&gt;
+
 
 
 
@@ -500,7 +517,9 @@ epoch: 4, test_cost: 0.204153
 &lt;/div&gt;
 
 &lt;div class="output_area"&gt;
+
 &lt;div class="prompt"&gt;&lt;/div&gt;
+
 
 
 
@@ -536,7 +555,9 @@ epoch: 4, test_cost: 0.204153
 
 
 &lt;div class="output_area"&gt;
+
 &lt;div class="prompt"&gt;&lt;/div&gt;
+
 
 &lt;div class="output_subarea output_stream output_stdout output_text"&gt;
 &lt;pre&gt;(31, 1)
@@ -545,7 +566,9 @@ epoch: 4, test_cost: 0.204153
 &lt;/div&gt;
 
 &lt;div class="output_area"&gt;
+
 &lt;div class="prompt output_prompt"&gt;Out[13]:&lt;/div&gt;
+
 
 
 
@@ -556,7 +579,9 @@ epoch: 4, test_cost: 0.204153
 &lt;/div&gt;
 
 &lt;div class="output_area"&gt;
+
 &lt;div class="prompt"&gt;&lt;/div&gt;
+
 
 
 
@@ -585,11 +610,10 @@ epoch: 4, test_cost: 0.204153
 &lt;/div&gt;
     &lt;/div&gt;
   &lt;/div&gt;
-</description><guid>https://comafire.github.io/posts/2017-python-tf-rnn-iap/</guid><pubDate>Thu, 15 Jun 2017 15:00:00 GMT</pubDate></item><item><title>2017-Jupyter-From-Dev-To-Blogging2</title><link>https://comafire.github.io/posts/2017-Jupyter-From-Dev-To-Blogging2/</link><dc:creator>comafire</dc:creator><description>&lt;div tabindex="-1" id="notebook" class="border-box-sizing"&gt;
+</description><guid>https://comafire.github.io/posts/2017-python-tf-rnn-iap/</guid><pubDate>Sat, 17 Jun 2017 15:00:00 GMT</pubDate></item><item><title>2017-Jupyter-From-Dev-To-Blogging2</title><link>https://comafire.github.io/posts/2017-Jupyter-From-Dev-To-Blogging2/</link><dc:creator>comafire</dc:creator><description>&lt;div tabindex="-1" id="notebook" class="border-box-sizing"&gt;
     &lt;div class="container" id="notebook-container"&gt;
 
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
@@ -602,8 +626,7 @@ epoch: 4, test_cost: 0.204153
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
@@ -620,8 +643,7 @@ epoch: 4, test_cost: 0.204153
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
@@ -674,8 +696,7 @@ pyenv activate pyenv-3.6.0
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
@@ -801,8 +822,7 @@ github_deploy 명령을 수행하면 html 로 변경된 부분은 github reposit
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
@@ -839,7 +859,9 @@ github_deploy 명령을 수행하면 html 로 변경된 부분은 github reposit
 
 
 &lt;div class="output_area"&gt;
+
 &lt;div class="prompt output_prompt"&gt;Out[1]:&lt;/div&gt;
+
 
 
 
@@ -853,8 +875,7 @@ github_deploy 명령을 수행하면 html 로 변경된 부분은 github reposit
 &lt;/div&gt;
 
 &lt;/div&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
@@ -907,8 +928,7 @@ github_deploy 명령을 수행하면 html 로 변경된 부분은 github reposit
 </description><guid>https://comafire.github.io/posts/2017-Jupyter-From-Dev-To-Blogging2/</guid><pubDate>Sat, 31 Dec 2016 15:00:00 GMT</pubDate></item><item><title>about-me</title><link>https://comafire.github.io/posts/about-me/</link><dc:creator>comafire</dc:creator><description>&lt;div tabindex="-1" id="notebook" class="border-box-sizing"&gt;
     &lt;div class="container" id="notebook-container"&gt;
 
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
@@ -919,11 +939,10 @@ github_deploy 명령을 수행하면 html 로 변경된 부분은 github reposit
 &lt;/div&gt;
     &lt;/div&gt;
   &lt;/div&gt;
-</description><guid>https://comafire.github.io/posts/about-me/</guid><pubDate>Wed, 15 Jun 2016 15:00:00 GMT</pubDate></item><item><title>2016-Julia-Basic</title><link>https://comafire.github.io/posts/2016-Julia-Basic/</link><dc:creator>comafire</dc:creator><description>&lt;div tabindex="-1" id="notebook" class="border-box-sizing"&gt;
+</description><guid>https://comafire.github.io/posts/about-me/</guid><pubDate>Fri, 17 Jun 2016 15:00:00 GMT</pubDate></item><item><title>2016-Julia-Basic</title><link>https://comafire.github.io/posts/2016-Julia-Basic/</link><dc:creator>comafire</dc:creator><description>&lt;div tabindex="-1" id="notebook" class="border-box-sizing"&gt;
     &lt;div class="container" id="notebook-container"&gt;
 
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
@@ -932,8 +951,7 @@ github_deploy 명령을 수행하면 html 로 변경된 부분은 github reposit
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
@@ -965,7 +983,9 @@ github_deploy 명령을 수행하면 html 로 변경된 부분은 github reposit
 
 
 &lt;div class="output_area"&gt;
+
 &lt;div class="prompt output_prompt"&gt;Out[1]:&lt;/div&gt;
+
 
 
 
@@ -1003,7 +1023,9 @@ github_deploy 명령을 수행하면 html 로 변경된 부분은 github reposit
 
 
 &lt;div class="output_area"&gt;
+
 &lt;div class="prompt"&gt;&lt;/div&gt;
+
 
 &lt;div class="output_subarea output_stream output_stdout output_text"&gt;
 &lt;pre&gt;type: Int64
@@ -1038,7 +1060,9 @@ isa: false
 
 
 &lt;div class="output_area"&gt;
+
 &lt;div class="prompt"&gt;&lt;/div&gt;
+
 
 &lt;div class="output_subarea output_stream output_stdout output_text"&gt;
 &lt;pre&gt;type: Float64, value: 1.1234
@@ -1069,7 +1093,9 @@ isa: false
 
 
 &lt;div class="output_area"&gt;
+
 &lt;div class="prompt"&gt;&lt;/div&gt;
+
 
 &lt;div class="output_subarea output_stream output_stdout output_text"&gt;
 &lt;pre&gt;type: Float64, value: 1
@@ -1100,7 +1126,9 @@ isa: false
 
 
 &lt;div class="output_area"&gt;
+
 &lt;div class="prompt"&gt;&lt;/div&gt;
+
 
 &lt;div class="output_subarea output_stream output_stdout output_text"&gt;
 &lt;pre&gt;type: String
@@ -1132,7 +1160,9 @@ isa: false
 
 
 &lt;div class="output_area"&gt;
+
 &lt;div class="prompt"&gt;&lt;/div&gt;
+
 
 &lt;div class="output_subarea output_stream output_stdout output_text"&gt;
 &lt;pre&gt;slice: 쥴리아
@@ -1163,7 +1193,9 @@ isa: false
 
 
 &lt;div class="output_area"&gt;
+
 &lt;div class="prompt"&gt;&lt;/div&gt;
+
 
 &lt;div class="output_subarea output_stream output_stdout output_text"&gt;
 &lt;pre&gt;interpolation: hello, how are you? 쥴리아.
@@ -1194,7 +1226,9 @@ isa: false
 
 
 &lt;div class="output_area"&gt;
+
 &lt;div class="prompt"&gt;&lt;/div&gt;
+
 
 &lt;div class="output_subarea output_stream output_stdout output_text"&gt;
 &lt;pre&gt;4
@@ -1225,7 +1259,9 @@ isa: false
 
 
 &lt;div class="output_area"&gt;
+
 &lt;div class="prompt"&gt;&lt;/div&gt;
+
 
 &lt;div class="output_subarea output_stream output_stdout output_text"&gt;
 &lt;pre&gt;true
@@ -1260,7 +1296,9 @@ isa: false
 
 
 &lt;div class="output_area"&gt;
+
 &lt;div class="prompt"&gt;&lt;/div&gt;
+
 
 &lt;div class="output_subarea output_stream output_stdout output_text"&gt;
 &lt;pre&gt;true
@@ -1301,7 +1339,9 @@ nothing
 
 
 &lt;div class="output_area"&gt;
+
 &lt;div class="prompt"&gt;&lt;/div&gt;
+
 
 &lt;div class="output_subarea output_stream output_stdout output_text"&gt;
 &lt;pre&gt;c = 3, type: Int64
@@ -1340,7 +1380,9 @@ nothing
 
 
 &lt;div class="output_area"&gt;
+
 &lt;div class="prompt"&gt;&lt;/div&gt;
+
 
 &lt;div class="output_subarea output_stream output_stdout output_text"&gt;
 &lt;pre&gt;foo: Hello, world., foo.baz: 23, 1.5
@@ -1394,7 +1436,9 @@ fieldnames: Symbol[:bar,:baz,:qux]
 
 
 &lt;div class="output_area"&gt;
+
 &lt;div class="prompt"&gt;&lt;/div&gt;
+
 
 &lt;div class="output_subarea output_stream output_stdout output_text"&gt;
 &lt;pre&gt;foo2.bar: 10
@@ -1433,7 +1477,9 @@ foo2.bar: 20
 
 
 &lt;div class="output_area"&gt;
+
 &lt;div class="prompt"&gt;&lt;/div&gt;
+
 
 &lt;div class="output_subarea output_stream output_stdout output_text"&gt;
 &lt;pre&gt;p1 type: Point{Int64}
@@ -1471,7 +1517,9 @@ p2 type: Point{Float64}
 
 
 &lt;div class="output_area"&gt;
+
 &lt;div class="prompt"&gt;&lt;/div&gt;
+
 
 &lt;div class="output_subarea output_stream output_stdout output_text"&gt;
 &lt;pre&gt;bar1.baz: 1
@@ -1480,7 +1528,9 @@ p2 type: Point{Float64}
 &lt;/div&gt;
 
 &lt;div class="output_area"&gt;
+
 &lt;div class="prompt"&gt;&lt;/div&gt;
+
 
 &lt;div class="output_subarea output_text output_error"&gt;
 &lt;pre&gt;
@@ -1516,7 +1566,9 @@ while loading In[16], in expression starting on line 9
 
 
 &lt;div class="output_area"&gt;
+
 &lt;div class="prompt"&gt;&lt;/div&gt;
+
 
 &lt;div class="output_subarea output_stream output_stdout output_text"&gt;
 &lt;pre&gt;type a: Int64
@@ -1558,7 +1610,9 @@ type b: String
 
 
 &lt;div class="output_area"&gt;
+
 &lt;div class="prompt"&gt;&lt;/div&gt;
+
 
 &lt;div class="output_subarea output_stream output_stdout output_text"&gt;
 &lt;pre&gt;type t: Tuple{Int64,String,Float64}
@@ -1573,8 +1627,7 @@ value t[1]: 1
 &lt;/div&gt;
 
 &lt;/div&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
@@ -1603,7 +1656,9 @@ value t[1]: 1
 
 
 &lt;div class="output_area"&gt;
+
 &lt;div class="prompt"&gt;&lt;/div&gt;
+
 
 &lt;div class="output_subarea output_stream output_stdout output_text"&gt;
 &lt;pre&gt;add: 5
@@ -1638,7 +1693,9 @@ value t[1]: 1
 
 
 &lt;div class="output_area"&gt;
+
 &lt;div class="prompt"&gt;&lt;/div&gt;
+
 
 &lt;div class="output_subarea output_stream output_stdout output_text"&gt;
 &lt;pre&gt;minus: -1
@@ -1678,7 +1735,9 @@ a: 5
 
 
 &lt;div class="output_area"&gt;
+
 &lt;div class="prompt"&gt;&lt;/div&gt;
+
 
 &lt;div class="output_subarea output_stream output_stdout output_text"&gt;
 &lt;pre&gt;x: [1,4,9]
@@ -1688,7 +1747,9 @@ y: [1,4,9]
 &lt;/div&gt;
 
 &lt;div class="output_area"&gt;
+
 &lt;div class="prompt output_prompt"&gt;Out[21]:&lt;/div&gt;
+
 
 
 
@@ -1724,7 +1785,9 @@ y: [1,4,9]
 
 
 &lt;div class="output_area"&gt;
+
 &lt;div class="prompt"&gt;&lt;/div&gt;
+
 
 &lt;div class="output_subarea output_stream output_stdout output_text"&gt;
 &lt;pre&gt;am: 3, 1, 4
@@ -1759,7 +1822,9 @@ y: [1,4,9]
 
 
 &lt;div class="output_area"&gt;
+
 &lt;div class="prompt"&gt;&lt;/div&gt;
+
 
 &lt;div class="output_subarea output_stream output_stdout output_text"&gt;
 &lt;pre&gt;2
@@ -1795,7 +1860,9 @@ y: [1,4,9]
 
 
 &lt;div class="output_area"&gt;
+
 &lt;div class="prompt"&gt;&lt;/div&gt;
+
 
 &lt;div class="output_subarea output_stream output_stdout output_text"&gt;
 &lt;pre&gt;x^2: 4
@@ -1832,7 +1899,9 @@ x^3: 8
 
 
 &lt;div class="output_area"&gt;
+
 &lt;div class="prompt"&gt;&lt;/div&gt;
+
 
 &lt;div class="output_subarea output_stream output_stdout output_text"&gt;
 &lt;pre&gt;3
@@ -1880,7 +1949,9 @@ x^3: 8
 
 
 &lt;div class="output_area"&gt;
+
 &lt;div class="prompt"&gt;&lt;/div&gt;
+
 
 &lt;div class="output_subarea output_stream output_stdout output_text"&gt;
 &lt;pre&gt;a type: Int64, b type: Int64
@@ -1890,7 +1961,9 @@ c type: Int64, value: 36
 &lt;/div&gt;
 
 &lt;div class="output_area"&gt;
+
 &lt;div class="prompt output_prompt"&gt;Out[26]:&lt;/div&gt;
+
 
 
 &lt;div class="output_html rendered_html output_subarea output_execute_result"&gt;
@@ -1903,8 +1976,7 @@ c type: Int64, value: 36
 &lt;/div&gt;
 
 &lt;/div&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
@@ -1937,7 +2009,9 @@ c type: Int64, value: 36
 
 
 &lt;div class="output_area"&gt;
+
 &lt;div class="prompt"&gt;&lt;/div&gt;
+
 
 &lt;div class="output_subarea output_stream output_stdout output_text"&gt;
 &lt;pre&gt;a == 1
@@ -1970,7 +2044,9 @@ c type: Int64, value: 36
 
 
 &lt;div class="output_area"&gt;
+
 &lt;div class="prompt"&gt;&lt;/div&gt;
+
 
 &lt;div class="output_subarea output_stream output_stdout output_text"&gt;
 &lt;pre&gt;a: 1
@@ -2010,7 +2086,9 @@ c type: Int64, value: 36
 
 
 &lt;div class="output_area"&gt;
+
 &lt;div class="prompt"&gt;&lt;/div&gt;
+
 
 &lt;div class="output_subarea output_stream output_stdout output_text"&gt;
 &lt;pre&gt;i: 1
@@ -2055,7 +2133,9 @@ i: 2, j: 4
 
 
 &lt;div class="output_area"&gt;
+
 &lt;div class="prompt"&gt;&lt;/div&gt;
+
 
 &lt;div class="output_subarea output_stream output_stdout output_text"&gt;
 &lt;pre&gt;i: 2
@@ -2093,7 +2173,9 @@ i: 2, j: 4
 
 
 &lt;div class="output_area"&gt;
+
 &lt;div class="prompt"&gt;&lt;/div&gt;
+
 
 &lt;div class="output_subarea output_stream output_stdout output_text"&gt;
 &lt;pre&gt;Error is UndefVarError
@@ -2127,7 +2209,9 @@ Finally
 
 
 &lt;div class="output_area"&gt;
+
 &lt;div class="prompt"&gt;&lt;/div&gt;
+
 
 &lt;div class="output_subarea output_stream output_stdout output_text"&gt;
 &lt;pre&gt;String["1,5\n","2,3\n","3,4\n","4,7\n","5,4\n","6,3\n","7,5\n","8,7\n","9,4\n","10,4\n"]
@@ -2139,8 +2223,7 @@ Finally
 &lt;/div&gt;
 
 &lt;/div&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
@@ -2175,7 +2258,9 @@ Finally
 
 
 &lt;div class="output_area"&gt;
+
 &lt;div class="prompt output_prompt"&gt;Out[33]:&lt;/div&gt;
+
 
 
 
@@ -2216,7 +2301,9 @@ Finally
 
 
 &lt;div class="output_area"&gt;
+
 &lt;div class="prompt"&gt;&lt;/div&gt;
+
 
 &lt;div class="output_subarea output_stream output_stdout output_text"&gt;
 &lt;pre&gt;f1
@@ -2254,7 +2341,9 @@ f3
 
 
 &lt;div class="output_area"&gt;
+
 &lt;div class="prompt"&gt;&lt;/div&gt;
+
 
 &lt;div class="output_subarea output_stream output_stdout output_text"&gt;
 &lt;pre&gt;f1
@@ -2289,7 +2378,9 @@ f3
 
 
 &lt;div class="output_area"&gt;
+
 &lt;div class="prompt"&gt;&lt;/div&gt;
+
 
 &lt;div class="output_subarea output_stream output_stdout output_text"&gt;
 &lt;pre&gt;f1
@@ -2329,7 +2420,9 @@ f2
 
 
 &lt;div class="output_area"&gt;
+
 &lt;div class="prompt"&gt;&lt;/div&gt;
+
 
 &lt;div class="output_subarea output_text output_error"&gt;
 &lt;pre&gt;
@@ -2367,7 +2460,9 @@ while loading In[37], in expression starting on line 6
 
 
 &lt;div class="output_area"&gt;
+
 &lt;div class="prompt"&gt;&lt;/div&gt;
+
 
 &lt;div class="output_subarea output_stream output_stdout output_text"&gt;
 &lt;pre&gt;String["/usr/local/Cellar/julia/0.5.0/local/share/julia/site/v0.5","/usr/local/Cellar/julia/0.5.0/share/julia/site/v0.5"]
@@ -2376,7 +2471,9 @@ while loading In[37], in expression starting on line 6
 &lt;/div&gt;
 
 &lt;div class="output_area"&gt;
+
 &lt;div class="prompt output_prompt"&gt;Out[38]:&lt;/div&gt;
+
 
 
 
@@ -2411,8 +2508,7 @@ while loading In[37], in expression starting on line 6
 </description><guid>https://comafire.github.io/posts/2016-Julia-Basic/</guid><pubDate>Thu, 31 Dec 2015 15:00:00 GMT</pubDate></item><item><title>2016-Julia-Dataframes</title><link>https://comafire.github.io/posts/2016-Julia-Dataframes/</link><dc:creator>comafire</dc:creator><description>&lt;div tabindex="-1" id="notebook" class="border-box-sizing"&gt;
     &lt;div class="container" id="notebook-container"&gt;
 
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
@@ -2440,7 +2536,9 @@ while loading In[37], in expression starting on line 6
 
 
 &lt;div class="output_area"&gt;
+
 &lt;div class="prompt"&gt;&lt;/div&gt;
+
 
 &lt;div class="output_subarea output_stream output_stderr output_text"&gt;
 &lt;pre&gt;INFO: Nothing to be done
@@ -2487,7 +2585,9 @@ while loading In[37], in expression starting on line 6
 
 
 &lt;div class="output_area"&gt;
+
 &lt;div class="prompt"&gt;&lt;/div&gt;
+
 
 &lt;div class="output_subarea output_stream output_stdout output_text"&gt;
 &lt;pre&gt;DataArrays.DataArray{Int64,1}
@@ -2543,7 +2643,9 @@ DataFrames.DataFrame
 
 
 &lt;div class="output_area"&gt;
+
 &lt;div class="prompt"&gt;&lt;/div&gt;
+
 
 &lt;div class="output_subarea output_stream output_stderr output_text"&gt;
 &lt;pre&gt;INFO: Nothing to be done
@@ -2577,7 +2679,9 @@ DataFrames.DataFrame
 
 
 &lt;div class="output_area"&gt;
+
 &lt;div class="prompt"&gt;&lt;/div&gt;
+
 
 &lt;div class="output_subarea output_stream output_stdout output_text"&gt;
 &lt;pre&gt;6×8 DataFrames.DataFrame
@@ -2613,7 +2717,9 @@ DataFrames.DataFrame
 
 
 &lt;div class="output_area"&gt;
+
 &lt;div class="prompt"&gt;&lt;/div&gt;
+
 
 &lt;div class="output_subarea output_stream output_stdout output_text"&gt;
 &lt;pre&gt;6×8 DataFrames.DataFrame
@@ -2650,7 +2756,9 @@ DataFrames.DataFrame
 
 
 &lt;div class="output_area"&gt;
+
 &lt;div class="prompt"&gt;&lt;/div&gt;
+
 
 &lt;div class="output_subarea output_stream output_stdout output_text"&gt;
 &lt;pre&gt;11×8 DataFrames.DataFrame
@@ -2690,7 +2798,9 @@ DataFrames.DataFrame
 
 
 &lt;div class="output_area"&gt;
+
 &lt;div class="prompt"&gt;&lt;/div&gt;
+
 
 &lt;div class="output_subarea output_stream output_stdout output_text"&gt;
 &lt;pre&gt;size: (11,8)
@@ -2721,7 +2831,9 @@ length: 8
 
 
 &lt;div class="output_area"&gt;
+
 &lt;div class="prompt output_prompt"&gt;Out[8]:&lt;/div&gt;
+
 
 
 
@@ -2764,7 +2876,9 @@ length: 8
 
 
 &lt;div class="output_area"&gt;
+
 &lt;div class="prompt output_prompt"&gt;Out[9]:&lt;/div&gt;
+
 
 
 
@@ -2807,7 +2921,9 @@ length: 8
 
 
 &lt;div class="output_area"&gt;
+
 &lt;div class="prompt"&gt;&lt;/div&gt;
+
 
 &lt;div class="output_subarea output_stream output_stdout output_text"&gt;
 &lt;pre&gt;3×2 DataFrames.DataFrame
@@ -2840,7 +2956,9 @@ length: 8
 
 
 &lt;div class="output_area"&gt;
+
 &lt;div class="prompt"&gt;&lt;/div&gt;
+
 
 &lt;div class="output_subarea output_stream output_stdout output_text"&gt;
 &lt;pre&gt;3×2 DataFrames.DataFrame
@@ -2873,7 +2991,9 @@ length: 8
 
 
 &lt;div class="output_area"&gt;
+
 &lt;div class="prompt"&gt;&lt;/div&gt;
+
 
 &lt;div class="output_subarea output_stream output_stdout output_text"&gt;
 &lt;pre&gt;11×2 DataFrames.DataFrame
@@ -2915,7 +3035,9 @@ length: 8
 
 
 &lt;div class="output_area"&gt;
+
 &lt;div class="prompt"&gt;&lt;/div&gt;
+
 
 &lt;div class="output_subarea output_stream output_stdout output_text"&gt;
 &lt;pre&gt;2×2 DataFrames.DataFrame
@@ -2950,7 +3072,9 @@ length: 8
 
 
 &lt;div class="output_area"&gt;
+
 &lt;div class="prompt"&gt;&lt;/div&gt;
+
 
 &lt;div class="output_subarea output_stream output_stdout output_text"&gt;
 &lt;pre&gt;sum of Y1, Y2: 82.51000000000002 82.51
@@ -2991,7 +3115,9 @@ sum of Y1, Y2: Any[[82.51],[82.51]]
 
 
 &lt;div class="output_area"&gt;
+
 &lt;div class="prompt"&gt;&lt;/div&gt;
+
 
 &lt;div class="output_subarea output_stream output_stdout output_text"&gt;
 &lt;pre&gt;DataFrameRow (row 1)
@@ -3042,7 +3168,9 @@ col mean: 7.523333333333333
 
 
 &lt;div class="output_area"&gt;
+
 &lt;div class="prompt"&gt;&lt;/div&gt;
+
 
 &lt;div class="output_subarea output_stream output_stdout output_text"&gt;
 &lt;pre&gt;X1
@@ -3101,7 +3229,9 @@ NA%      0.0%
 
 
 &lt;div class="output_area"&gt;
+
 &lt;div class="prompt"&gt;&lt;/div&gt;
+
 
 &lt;div class="output_subarea output_stream output_stdout output_text"&gt;
 &lt;pre&gt;inner join: 1×3 DataFrames.DataFrame
@@ -3184,7 +3314,9 @@ cross join: 4×4 DataFrames.DataFrame
 
 
 &lt;div class="output_area"&gt;
+
 &lt;div class="prompt"&gt;&lt;/div&gt;
+
 
 &lt;div class="output_subarea output_stream output_stderr output_text"&gt;
 &lt;pre&gt;INFO: Recompiling stale cache file /Users/daehongseo/.julia/lib/v0.5/RData.ji for module RData.
@@ -3193,7 +3325,9 @@ cross join: 4×4 DataFrames.DataFrame
 &lt;/div&gt;
 
 &lt;div class="output_area"&gt;
+
 &lt;div class="prompt"&gt;&lt;/div&gt;
+
 
 &lt;div class="output_subarea output_stream output_stdout output_text"&gt;
 &lt;pre&gt;6×5 DataFrames.DataFrame
@@ -3266,7 +3400,9 @@ group: virginica, mean: 5.5520000000000005
 
 
 &lt;div class="output_area"&gt;
+
 &lt;div class="prompt"&gt;&lt;/div&gt;
+
 
 &lt;div class="output_subarea output_stream output_stdout output_text"&gt;
 &lt;pre&gt;6×5 DataFrames.DataFrame
@@ -3311,7 +3447,9 @@ group: virginica, mean: 5.5520000000000005
 
 
 &lt;div class="output_area"&gt;
+
 &lt;div class="prompt"&gt;&lt;/div&gt;
+
 
 &lt;div class="output_subarea output_stream output_stdout output_text"&gt;
 &lt;pre&gt;6×5 DataFrames.DataFrame
@@ -3348,7 +3486,9 @@ group: virginica, mean: 5.5520000000000005
 
 
 &lt;div class="output_area"&gt;
+
 &lt;div class="prompt"&gt;&lt;/div&gt;
+
 
 &lt;div class="output_subarea output_stream output_stdout output_text"&gt;
 &lt;pre&gt;6×5 DataFrames.DataFrame
@@ -3385,7 +3525,9 @@ group: virginica, mean: 5.5520000000000005
 
 
 &lt;div class="output_area"&gt;
+
 &lt;div class="prompt"&gt;&lt;/div&gt;
+
 
 &lt;div class="output_subarea output_stream output_stdout output_text"&gt;
 &lt;pre&gt;6×5 DataFrames.DataFrame
@@ -3423,7 +3565,9 @@ group: virginica, mean: 5.5520000000000005
 
 
 &lt;div class="output_area"&gt;
+
 &lt;div class="prompt"&gt;&lt;/div&gt;
+
 
 &lt;div class="output_subarea output_stream output_stdout output_text"&gt;
 &lt;pre&gt;6×9 DataFrames.DataFrame
@@ -3487,7 +3631,9 @@ group: virginica, mean: 5.5520000000000005
 
 
 &lt;div class="output_area"&gt;
+
 &lt;div class="prompt"&gt;&lt;/div&gt;
+
 
 &lt;div class="output_subarea output_stream output_stdout output_text"&gt;
 &lt;pre&gt; - PkgDev                        0.1.2
@@ -3518,7 +3664,9 @@ group: virginica, mean: 5.5520000000000005
 
 
 &lt;div class="output_area"&gt;
+
 &lt;div class="prompt output_prompt"&gt;Out[2]:&lt;/div&gt;
+
 
 
 
@@ -3550,7 +3698,9 @@ group: virginica, mean: 5.5520000000000005
 
 
 &lt;div class="output_area"&gt;
+
 &lt;div class="prompt"&gt;&lt;/div&gt;
+
 
 &lt;div class="output_subarea output_stream output_stderr output_text"&gt;
 &lt;pre&gt;INFO: Updating METADATA...
@@ -3583,7 +3733,9 @@ INFO: No packages to install, update or remove
 
 
 &lt;div class="output_area"&gt;
+
 &lt;div class="prompt"&gt;&lt;/div&gt;
+
 
 &lt;div class="output_subarea output_stream output_stderr output_text"&gt;
 &lt;pre&gt;INFO: Removing PkgDev v0.1.2
@@ -3614,7 +3766,9 @@ INFO: Package database updated
 
 
 &lt;div class="output_area"&gt;
+
 &lt;div class="prompt"&gt;&lt;/div&gt;
+
 
 &lt;div class="output_subarea output_stream output_stderr output_text"&gt;
 &lt;pre&gt;INFO: Installing PkgDev v0.1.2
@@ -3649,7 +3803,9 @@ INFO: Package database updated
 
 
 &lt;div class="output_area"&gt;
+
 &lt;div class="prompt"&gt;&lt;/div&gt;
+
 
 &lt;div class="output_subarea output_stream output_stdout output_text"&gt;
 &lt;pre&gt; - PkgDev                        0.1.2
@@ -3658,7 +3814,9 @@ INFO: Package database updated
 &lt;/div&gt;
 
 &lt;div class="output_area"&gt;
+
 &lt;div class="prompt"&gt;&lt;/div&gt;
+
 
 &lt;div class="output_subarea output_stream output_stderr output_text"&gt;
 &lt;pre&gt;INFO: Checking out PkgDev master...
@@ -3668,7 +3826,9 @@ INFO: Pulling PkgDev latest master...
 &lt;/div&gt;
 
 &lt;div class="output_area"&gt;
+
 &lt;div class="prompt"&gt;&lt;/div&gt;
+
 
 &lt;div class="output_subarea output_stream output_stdout output_text"&gt;
 &lt;pre&gt; - PkgDev                        0.1.2+             master
@@ -3677,7 +3837,9 @@ INFO: Pulling PkgDev latest master...
 &lt;/div&gt;
 
 &lt;div class="output_area"&gt;
+
 &lt;div class="prompt"&gt;&lt;/div&gt;
+
 
 &lt;div class="output_subarea output_stream output_stderr output_text"&gt;
 &lt;pre&gt;INFO: No packages to install, update or remove
@@ -3686,7 +3848,9 @@ INFO: Pulling PkgDev latest master...
 &lt;/div&gt;
 
 &lt;div class="output_area"&gt;
+
 &lt;div class="prompt"&gt;&lt;/div&gt;
+
 
 &lt;div class="output_subarea output_stream output_stdout output_text"&gt;
 &lt;pre&gt; - PkgDev                        0.1.2
@@ -3695,7 +3859,9 @@ INFO: Pulling PkgDev latest master...
 &lt;/div&gt;
 
 &lt;div class="output_area"&gt;
+
 &lt;div class="prompt"&gt;&lt;/div&gt;
+
 
 &lt;div class="output_subarea output_stream output_stderr output_text"&gt;
 &lt;pre&gt;INFO: Freeing PkgDev
@@ -3730,7 +3896,9 @@ INFO: No packages to install, update or remove
 
 
 &lt;div class="output_area"&gt;
+
 &lt;div class="prompt"&gt;&lt;/div&gt;
+
 
 &lt;div class="output_subarea output_stream output_stdout output_text"&gt;
 &lt;pre&gt; - PkgDev                        0.1.2
@@ -3739,7 +3907,9 @@ INFO: No packages to install, update or remove
 &lt;/div&gt;
 
 &lt;div class="output_area"&gt;
+
 &lt;div class="prompt"&gt;&lt;/div&gt;
+
 
 &lt;div class="output_subarea output_stream output_stderr output_text"&gt;
 &lt;pre&gt;INFO: Package PkgDev: checking out existing branch pinned.e242d965.tmp
@@ -3749,7 +3919,9 @@ INFO: No packages to install, update or remove
 &lt;/div&gt;
 
 &lt;div class="output_area"&gt;
+
 &lt;div class="prompt"&gt;&lt;/div&gt;
+
 
 &lt;div class="output_subarea output_stream output_stdout output_text"&gt;
 &lt;pre&gt; - PkgDev                        0.1.1              pinned.e242d965.tmp
@@ -3758,7 +3930,9 @@ INFO: No packages to install, update or remove
 &lt;/div&gt;
 
 &lt;div class="output_area"&gt;
+
 &lt;div class="prompt"&gt;&lt;/div&gt;
+
 
 &lt;div class="output_subarea output_stream output_stderr output_text"&gt;
 &lt;pre&gt;INFO: Freeing PkgDev
@@ -3768,7 +3942,9 @@ INFO: No packages to install, update or remove
 &lt;/div&gt;
 
 &lt;div class="output_area"&gt;
+
 &lt;div class="prompt"&gt;&lt;/div&gt;
+
 
 &lt;div class="output_subarea output_stream output_stdout output_text"&gt;
 &lt;pre&gt; - PkgDev                        0.1.2
@@ -3780,8 +3956,7 @@ INFO: No packages to install, update or remove
 &lt;/div&gt;
 
 &lt;/div&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
@@ -3866,7 +4041,9 @@ INFO: No packages to install, update or remove
 
 
 &lt;div class="output_area"&gt;
+
 &lt;div class="prompt"&gt;&lt;/div&gt;
+
 
 &lt;div class="output_subarea output_stream output_stdout output_text"&gt;
 &lt;pre&gt; - FooBar                        0.0.0-             master (unregistered)
@@ -3896,7 +4073,9 @@ INFO: No packages to install, update or remove
 
 
 &lt;div class="output_area"&gt;
+
 &lt;div class="prompt"&gt;&lt;/div&gt;
+
 
 &lt;div class="output_subarea output_stream output_stdout output_text"&gt;
 &lt;pre&gt;.
@@ -3918,8 +4097,7 @@ test
 &lt;/div&gt;
 
 &lt;/div&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
@@ -3958,7 +4136,9 @@ test
 
 
 &lt;div class="output_area"&gt;
+
 &lt;div class="prompt"&gt;&lt;/div&gt;
+
 
 &lt;div class="output_subarea output_stream output_stdout output_text"&gt;
 &lt;pre&gt;Hello Julia!!&lt;/pre&gt;
@@ -3969,8 +4149,7 @@ test
 &lt;/div&gt;
 
 &lt;/div&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
@@ -4013,7 +4192,9 @@ Github에서 FooBar 저장소를 생성하였다는 가정하에 초기 커밋�
 
 
 &lt;div class="output_area"&gt;
+
 &lt;div class="prompt"&gt;&lt;/div&gt;
+
 
 &lt;div class="output_subarea output_stream output_stdout output_text"&gt;
 &lt;pre&gt;[master d934e75] first commit
@@ -4061,7 +4242,9 @@ Github에서 FooBar 저장소를 생성하였다는 가정하에 초기 커밋�
 
 
 &lt;div class="output_area"&gt;
+
 &lt;div class="prompt"&gt;&lt;/div&gt;
+
 
 &lt;div class="output_subarea output_stream output_stderr output_text"&gt;
 &lt;pre&gt;INFO: Removing FooBar (unregistered)
@@ -4093,7 +4276,9 @@ INFO: No packages to install, update or remove
 
 
 &lt;div class="output_area"&gt;
+
 &lt;div class="prompt"&gt;&lt;/div&gt;
+
 
 &lt;div class="output_subarea output_stream output_stdout output_text"&gt;
 &lt;pre&gt; - FooBar                        0.0.0-             master (unregistered)
@@ -4110,8 +4295,7 @@ INFO: No packages to install, update or remove
 </description><guid>https://comafire.github.io/posts/2016-Julia-Package/</guid><pubDate>Thu, 31 Dec 2015 15:00:00 GMT</pubDate></item><item><title>2016-Jupyter-From-Dev-To-Blogging</title><link>https://comafire.github.io/posts/2016-Jupyter-From-Dev-To-Blogging/</link><dc:creator>comafire</dc:creator><description>&lt;div tabindex="-1" id="notebook" class="border-box-sizing"&gt;
     &lt;div class="container" id="notebook-container"&gt;
 
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
@@ -4130,8 +4314,7 @@ INFO: No packages to install, update or remove
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
@@ -4145,8 +4328,7 @@ INFO: No packages to install, update or remove
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
@@ -4191,7 +4373,9 @@ INFO: No packages to install, update or remove
 
 
 &lt;div class="output_area"&gt;
+
 &lt;div class="prompt output_prompt"&gt;Out[1]:&lt;/div&gt;
+
 
 
 
@@ -4205,8 +4389,7 @@ INFO: No packages to install, update or remove
 &lt;/div&gt;
 
 &lt;/div&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
@@ -4216,8 +4399,7 @@ INFO: No packages to install, update or remove
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
@@ -4242,9 +4424,9 @@ INFO: No packages to install, update or remove
 &amp;gt; git submodule add git://github.com/danielfrg/pelican-ipynb.git plugins/ipynb
 &amp;gt; git submodule add git://github.com/gilsondev/pelican-clean-blog themes/clean-blog
 &amp;gt; ls
-LICENSE            develop_server.sh    output            plugins            workspace
-Makefile        fabfile.py        pelicanconf.py        publishconf.py
-content            footer            pelicanconf.pyc        themes
+LICENSE         develop_server.sh   output          plugins         workspace
+Makefile        fabfile.py      pelicanconf.py      publishconf.py
+content         footer          pelicanconf.pyc     themes
 &amp;gt; ls plugins/
 ipynb
 &amp;gt; ls themes/
@@ -4313,7 +4495,9 @@ Done: Processed 1 articles, 0 drafts, 0 pages and 0 hidden pages in 0.46 seconds
 
 
 &lt;div class="output_area"&gt;
+
 &lt;div class="prompt output_prompt"&gt;Out[2]:&lt;/div&gt;
+
 
 
 
@@ -4332,8 +4516,7 @@ Done: Processed 1 articles, 0 drafts, 0 pages and 0 hidden pages in 0.46 seconds
 </description><guid>https://comafire.github.io/posts/2016-Jupyter-From-Dev-To-Blogging/</guid><pubDate>Thu, 31 Dec 2015 15:00:00 GMT</pubDate></item><item><title>2016-Jupyter-Spark</title><link>https://comafire.github.io/posts/2016-Jupyter-Spark/</link><dc:creator>comafire</dc:creator><description>&lt;div tabindex="-1" id="notebook" class="border-box-sizing"&gt;
     &lt;div class="container" id="notebook-container"&gt;
 
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
@@ -4409,7 +4592,9 @@ export PYTHON=/usr/local/bin/python&lt;/code&gt;&lt;/pre&gt;
 
 
 &lt;div class="output_area"&gt;
+
 &lt;div class="prompt"&gt;&lt;/div&gt;
+
 
 &lt;div class="output_subarea output_stream output_stdout output_text"&gt;
 &lt;pre&gt;+----+-------+
@@ -4428,8 +4613,7 @@ export PYTHON=/usr/local/bin/python&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
 &lt;/div&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
@@ -4457,7 +4641,9 @@ export PYTHON=/usr/local/bin/python&lt;/code&gt;&lt;/pre&gt;
 
 
 &lt;div class="output_area"&gt;
+
 &lt;div class="prompt output_prompt"&gt;Out[2]:&lt;/div&gt;
+
 
 
 
@@ -4479,8 +4665,7 @@ export PYTHON=/usr/local/bin/python&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
 &lt;/div&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
@@ -4509,7 +4694,9 @@ export PYTHON=/usr/local/bin/python&lt;/code&gt;&lt;/pre&gt;
 
 
 &lt;div class="output_area"&gt;
+
 &lt;div class="prompt output_prompt"&gt;Out[4]:&lt;/div&gt;
+
 
 
 
@@ -4529,8 +4716,7 @@ export PYTHON=/usr/local/bin/python&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
 &lt;/div&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
@@ -4558,8 +4744,7 @@ export PYTHON=/usr/local/bin/python&lt;/code&gt;&lt;/pre&gt;
 </description><guid>https://comafire.github.io/posts/2016-Jupyter-Spark/</guid><pubDate>Thu, 31 Dec 2015 15:00:00 GMT</pubDate></item><item><title>2016-Jupyter-Spark-Brunel</title><link>https://comafire.github.io/posts/2016-Jupyter-Spark-Brunel/</link><dc:creator>comafire</dc:creator><description>&lt;div tabindex="-1" id="notebook" class="border-box-sizing"&gt;
     &lt;div class="container" id="notebook-container"&gt;
 
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
@@ -4578,8 +4763,7 @@ export PYTHON=/usr/local/bin/python&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
@@ -4605,7 +4789,9 @@ export PYTHON=/usr/local/bin/python&lt;/code&gt;&lt;/pre&gt;
 
 
 &lt;div class="output_area"&gt;
+
 &lt;div class="prompt"&gt;&lt;/div&gt;
+
 
 &lt;div class="output_subarea output_stream output_stdout output_text"&gt;
 &lt;pre&gt;Starting download from https://brunelvis.org/jar/spark-kernel-brunel-all-2.0.jar
@@ -4618,8 +4804,7 @@ Finished download of spark-kernel-brunel-all-2.0.jar
 &lt;/div&gt;
 
 &lt;/div&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
@@ -4646,7 +4831,9 @@ Finished download of spark-kernel-brunel-all-2.0.jar
 
 
 &lt;div class="output_area"&gt;
+
 &lt;div class="prompt"&gt;&lt;/div&gt;
+
 
 &lt;div class="output_subarea output_stream output_stdout output_text"&gt;
 &lt;pre&gt;Marking com.databricks:spark-csv_2.11:1.4.0 for download
@@ -4664,8 +4851,7 @@ Preparing to fetch from:
 &lt;/div&gt;
 
 &lt;/div&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
@@ -4692,8 +4878,7 @@ Preparing to fetch from:
 &lt;/div&gt;
 
 &lt;/div&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
@@ -4720,7 +4905,9 @@ Preparing to fetch from:
 
 
 &lt;div class="output_area"&gt;
+
 &lt;div class="prompt"&gt;&lt;/div&gt;
+
 
 &lt;div class="output_subarea output_stream output_stdout output_text"&gt;
 &lt;pre&gt;+---+---------+------+----------+------+------------+----+--------+--------------------+
@@ -4740,8 +4927,7 @@ only showing top 3 rows
 &lt;/div&gt;
 
 &lt;/div&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
@@ -4768,7 +4954,9 @@ data('dfCars') x(origin) y(horsepower) mean(horsepower) bar tooltip(#all) :: wid
 
 
 &lt;div class="output_area"&gt;
+
 &lt;div class="prompt output_prompt"&gt;Out[5]:&lt;/div&gt;
+
 
 
 &lt;div class="output_html rendered_html output_subarea output_execute_result"&gt;
@@ -5163,8 +5351,7 @@ v.build(table1);
 &lt;/div&gt;
 
 &lt;/div&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
@@ -5192,7 +5379,9 @@ v.build(table1);
 
 
 &lt;div class="output_area"&gt;
+
 &lt;div class="prompt output_prompt"&gt;Out[2]:&lt;/div&gt;
+
 
 
 
@@ -5206,8 +5395,7 @@ v.build(table1);
 &lt;/div&gt;
 
 &lt;/div&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
@@ -5222,8 +5410,7 @@ v.build(table1);
 </description><guid>https://comafire.github.io/posts/2016-Jupyter-Spark-Brunel/</guid><pubDate>Thu, 31 Dec 2015 15:00:00 GMT</pubDate></item><item><title>2016-OSX-Pyspark-with-Jupyter</title><link>https://comafire.github.io/posts/2016-OSX-Pyspark-with-Jupyter/</link><dc:creator>comafire</dc:creator><description>&lt;div tabindex="-1" id="notebook" class="border-box-sizing"&gt;
     &lt;div class="container" id="notebook-container"&gt;
 
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;

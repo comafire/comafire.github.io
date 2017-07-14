@@ -7,7 +7,7 @@
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <url>
   <loc>https://comafire.github.io/</loc>
-  <lastmod>2017-07-14T06:56:00Z</lastmod>
+  <lastmod>2017-07-14T06:59:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/2015/</loc>
@@ -15,15 +15,15 @@
  </url>
  <url>
   <loc>https://comafire.github.io/2016/</loc>
-  <lastmod>2017-02-12T13:31:00Z</lastmod>
+  <lastmod>2017-07-14T06:59:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/2017/</loc>
-  <lastmod>2017-02-12T13:30:00Z</lastmod>
+  <lastmod>2017-07-14T06:59:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/archive.html</loc>
-  <lastmod>2017-07-14T06:56:00Z</lastmod>
+  <lastmod>2017-07-14T06:59:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/categories/</loc>
@@ -31,39 +31,39 @@
  </url>
  <url>
   <loc>https://comafire.github.io/galleries/</loc>
-  <lastmod>2017-02-12T13:30:00Z</lastmod>
+  <lastmod>2017-07-14T06:59:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/index-1.html</loc>
-  <lastmod>2017-06-16T06:56:00Z</lastmod>
+  <lastmod>2017-07-14T06:59:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/index-2.html</loc>
-  <lastmod>2017-06-16T06:56:00Z</lastmod>
+  <lastmod>2017-07-14T06:59:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/index-3.html</loc>
-  <lastmod>2017-06-16T06:56:00Z</lastmod>
+  <lastmod>2017-07-14T06:59:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/index-4.html</loc>
-  <lastmod>2017-06-16T06:56:00Z</lastmod>
+  <lastmod>2017-07-14T06:59:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/index-5.html</loc>
-  <lastmod>2017-07-14T06:56:00Z</lastmod>
+  <lastmod>2017-07-14T06:59:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/index-6.html</loc>
-  <lastmod>2017-07-14T06:56:00Z</lastmod>
+  <lastmod>2017-07-14T06:59:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/listings/</loc>
-  <lastmod>2017-02-12T13:30:00Z</lastmod>
+  <lastmod>2017-07-14T06:59:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/posts/2015-Docker-Proxy-Certificates-Ubuntu/</loc>
-  <lastmod>2017-06-16T06:56:00Z</lastmod>
+  <lastmod>2017-07-14T06:59:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/posts/2015-Julia/</loc>
@@ -79,7 +79,7 @@
  </url>
  <url>
   <loc>https://comafire.github.io/posts/2015-Torch-Install/</loc>
-  <lastmod>2017-06-16T06:56:00Z</lastmod>
+  <lastmod>2017-07-14T06:59:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/posts/2015-Torch/</loc>
@@ -87,7 +87,7 @@
  </url>
  <url>
   <loc>https://comafire.github.io/posts/2015-Ubuntu-IP-MASQUERADE/</loc>
-  <lastmod>2017-06-16T06:56:00Z</lastmod>
+  <lastmod>2017-07-14T06:59:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/posts/2015-Ubuntu-Install-Cuda-Toolkit/</loc>
@@ -99,7 +99,7 @@
  </url>
  <url>
   <loc>https://comafire.github.io/posts/2015-Ubuntu-SSH-Root-Login/</loc>
-  <lastmod>2017-06-16T06:56:00Z</lastmod>
+  <lastmod>2017-07-14T06:59:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/posts/2015-Ubuntu-Static-IP-Network-Setting/</loc>
@@ -111,27 +111,27 @@
  </url>
  <url>
   <loc>https://comafire.github.io/posts/2016-Julia-Basic/</loc>
-  <lastmod>2017-06-16T06:56:00Z</lastmod>
+  <lastmod>2017-07-14T06:59:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/posts/2016-Julia-Dataframes/</loc>
-  <lastmod>2017-06-16T06:56:00Z</lastmod>
+  <lastmod>2017-07-14T06:59:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/posts/2016-Julia-Package/</loc>
-  <lastmod>2017-06-16T06:56:00Z</lastmod>
+  <lastmod>2017-07-14T06:59:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/posts/2016-Jupyter-From-Dev-To-Blogging/</loc>
-  <lastmod>2017-06-16T06:56:00Z</lastmod>
+  <lastmod>2017-07-14T06:59:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/posts/2016-Jupyter-Spark-Brunel/</loc>
-  <lastmod>2017-06-16T06:56:00Z</lastmod>
+  <lastmod>2017-07-14T06:59:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/posts/2016-Jupyter-Spark/</loc>
-  <lastmod>2017-06-16T06:56:00Z</lastmod>
+  <lastmod>2017-07-14T06:59:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/posts/2016-OSX-Pyspark-with-Jupyter/</loc>
@@ -139,50 +139,54 @@
  </url>
  <url>
   <loc>https://comafire.github.io/posts/2016-python-tf-bc-lr/</loc>
-  <lastmod>2017-06-16T06:56:00Z</lastmod>
+  <lastmod>2017-07-14T06:59:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/posts/2016-python-tf-cnn-mnist/</loc>
-  <lastmod>2017-06-16T06:56:00Z</lastmod>
+  <lastmod>2017-07-14T06:59:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/posts/2016-python-tf-dnn-mnist-with-vscope/</loc>
-  <lastmod>2017-06-16T06:56:00Z</lastmod>
+  <lastmod>2017-07-14T06:59:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/posts/2016-python-tf-dnn-mnist/</loc>
-  <lastmod>2017-06-16T06:56:00Z</lastmod>
+  <lastmod>2017-07-14T06:59:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/posts/2016-python-tf-mc-lr/</loc>
-  <lastmod>2017-06-16T06:56:00Z</lastmod>
+  <lastmod>2017-07-14T06:59:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/posts/2016-python-tf-mnist/</loc>
-  <lastmod>2017-06-16T06:56:00Z</lastmod>
+  <lastmod>2017-07-14T06:59:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/posts/2016-python-tf-mv-lr/</loc>
-  <lastmod>2017-06-16T06:56:00Z</lastmod>
+  <lastmod>2017-07-14T06:59:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/posts/2016-python-tf-sv-lr/</loc>
-  <lastmod>2017-06-16T06:56:00Z</lastmod>
+  <lastmod>2017-07-14T06:59:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/posts/2017-Jupyter-From-Dev-To-Blogging2/</loc>
-  <lastmod>2017-06-16T06:56:00Z</lastmod>
+  <lastmod>2017-07-14T06:59:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/posts/2017-mnist-dataset-tsne/</loc>
   <lastmod>2017-07-14T06:56:00Z</lastmod>
  </url>
  <url>
+  <loc>https://comafire.github.io/posts/2017-nvidia-docker-CUDA_ERROR_UNKNOWN/</loc>
+  <lastmod>2017-07-14T06:59:00Z</lastmod>
+ </url>
+ <url>
   <loc>https://comafire.github.io/posts/2017-python-tf-rnn-iap/</loc>
-  <lastmod>2017-06-16T05:49:00Z</lastmod>
+  <lastmod>2017-07-14T06:59:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/posts/about-me/</loc>
-  <lastmod>2017-02-12T13:30:00Z</lastmod>
+  <lastmod>2017-07-14T06:59:00Z</lastmod>
  </url>
 </urlset>

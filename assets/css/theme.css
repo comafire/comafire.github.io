@@ -84,7 +84,7 @@ body {
 	float: left;
 }
 
-.posttranslations h3, .translationslist h3 {
+.posttranslations h3 {
 	display: inline;
 	font-size: 1em;
 }
@@ -93,7 +93,7 @@ body {
 	font-size: 2em;
 }
 
-.posttranslations h3:last-child, .translationslist h3:last-child {
+.posttranslations h3:last-child {
 	display: none;
 }
 
@@ -120,8 +120,7 @@ body {
 }
 .metadata p:before,
 .postpromonav .tags li:before,
-.postlist .listdate:after,
-.translationslist p:before {
+.postlist .listdate:after {
 	content: " — ";
 }
 .postlist li {
@@ -154,8 +153,7 @@ body {
 }
 
 .metadata p:first-of-type:before,
-.postpromonav .tags li:first-of-type:before,
-.translationslist p:first-of-type:before {
+.postpromonav .tags li:first-of-type:before {
 	content: "";
 }
 .postpromonav .pager {
@@ -195,8 +193,7 @@ body {
     cursor: not-allowed;
 }
 
-.metadata p,
-.translationslist p {
+.metadata p {
 	display: inline;
 }
 

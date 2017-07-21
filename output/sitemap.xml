@@ -23,7 +23,7 @@
  </url>
  <url>
   <loc>https://comafire.github.io/archive.html</loc>
-  <lastmod>2017-07-14T06:59:00Z</lastmod>
+  <lastmod>2017-07-21T06:10:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/categories/</loc>
@@ -55,7 +55,7 @@
  </url>
  <url>
   <loc>https://comafire.github.io/index-6.html</loc>
-  <lastmod>2017-07-14T06:59:00Z</lastmod>
+  <lastmod>2017-07-21T06:10:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/listings/</loc>
@@ -184,6 +184,10 @@
  <url>
   <loc>https://comafire.github.io/posts/2017-python-tf-rnn-iap/</loc>
   <lastmod>2017-07-14T06:59:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://comafire.github.io/posts/2017-spark-submit-repository-error/</loc>
+  <lastmod>2017-07-21T06:10:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/posts/about-me/</loc>

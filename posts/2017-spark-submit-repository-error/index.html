@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html prefix="
+og: http://ogp.me/ns#
+article: http://ogp.me/ns/article#
+" lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>2017-spark-submit-repository-error | comafire</title>
+<link href="../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="../../rss.xml">
+<link rel="canonical" href="https://comafire.github.io/posts/2017-spark-submit-repository-error/">
+<!--[if lt IE 9]><script src="/assets/js/html5.js"></script><![endif]--><meta name="author" content="comafire">
+<meta property="og:site_name" content="comafire">
+<meta property="og:title" content="2017-spark-submit-repository-error">
+<meta property="og:url" content="https://comafire.github.io/posts/2017-spark-submit-repository-error/">
+<meta property="og:description" content="가끔 새로 설정한 클러스터에서 spark submit 시에 아래와 같은 에러를 만날때가 있습니다.
+
+:: problems summary ::
+:::: WARNINGS
+        module not found: org.restlet.jee#org.restlet;2.3.0
+
+    ==== local-m2-cache: tried
+
+      file:/ho">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2017-07-15T00:00:00+09:00">
+</head>
+<body>
+    <section class="social"><ul>
+<li><a href="../../index.html" title="Home"><i class="icon-home"></i></a></li>
+            <li><a href="../../archive.html" title="Archives"><i class="icon-folder-open-alt"></i></a></li>
+            <li><a href="../../categories/index.html" title="Tags"><i class="icon-tags"></i></a></li>
+            <li><a href="../../rss.xml" title="RSS"><i class="icon-rss"></i></a></li>
+            <li><a href="../../galleries/index.html" title="Galleries"><i class="icon-camera"></i></a></li>
+            <li><a href="../about-me/index.html" title="About me"><i class="icon-user"></i></a></li>
+            <li><a href="https://github.com/comafire" title="My Github"><i class="icon-github"></i></a></li>
+
+        </ul></section><section class="page-content"><div class="content" rel="main">
+    <div class="post">
+        <h1 class="p-name entry-title" itemprop="headline name">2017-spark-submit-repository-error</h1>
+
+        <div class="meta">
+            <div class="authordate">
+                <time class="timeago" datetime="2017-07-15T00:00:00+09:00">2017-07-15 00:00</time>
+            
+                      |  
+        <a href="index.ipynb" id="sourcelink">Source</a>
+
+            </div>
+            
+        </div>
+        <div class="body">
+            <div tabindex="-1" id="notebook" class="border-box-sizing">
+    <div class="container" id="notebook-container">
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>가끔 새로 설정한 클러스터에서 spark submit 시에 아래와 같은 에러를 만날때가 있습니다.</p>
+
+<pre><code>:: problems summary ::
+:::: WARNINGS
+        module not found: org.restlet.jee#org.restlet;2.3.0
+
+    ==== local-m2-cache: tried
+
+      file:/home/bdpuser/.m2/repository/org/restlet/jee/org.restlet/2.3.0/org.restlet-2.3.0.pom
+
+      -- artifact org.restlet.jee#org.restlet;2.3.0!org.restlet.jar:
+
+      file:/home/bdpuser/.m2/repository/org/restlet/jee/org.restlet/2.3.0/org.restlet-2.3.0.jar</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>이 문제는 해당 jar 의 maven 레퍼지 토리를 찾지 못해 일어나는 현상입니다.</p>
+<p>이럴때는 당황하지 말고 spark-submit시에 repositories 옵션을 이용해 레퍼지토리 설정을 하게 되면 해결 가능합니다.</p>
+<div class="highlight"><pre><span></span>spark-shell --num-executors <span class="m">5</span> --executor-cores <span class="m">2</span> --packages com.databricks:spark-csv_2.10:1.4.0,com.databricks:spark-avro_2.10:2.0.1,com.lucidworks.spark:spark-solr:2.0.1 --repositories http://maven.restlet.org --jars jars/sqljdbc4.jar
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span> 
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+    </div>
+  </div>
+
+        </div>
+                <ul class="pager hidden-print">
+<li class="previous">
+                <a href="../2017-mnist-dataset-tsne/" rel="prev" title="2017-mnist-dataset-tsne">Previous post</a>
+            </li>
+        </ul>
+<div id="disqus_thread"></div>
+        <script>
+        var disqus_shortname ="comafire",
+            disqus_url="https://comafire.github.io/posts/2017-spark-submit-repository-error/",
+        disqus_title="2017-spark-submit-repository-error",
+        disqus_identifier="cache/posts/2017-spark-submit-repository-error.html",
+        disqus_config = function () {
+            this.language = "en";
+        };
+        (function() {
+            var dsq = document.createElement('script'); dsq.async = true;
+            dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+    <a href="https://disqus.com" class="dsq-brlink" rel="nofollow">Comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+    </div>
+                     <footer id="footer"><p>Contents © 2017         <a href="mailto:comafire@gmail.com">comafire</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         </p>
+            
+        </footer>
+</div>
+    </section><script src="../../assets/js/all-nocdn.js" type="text/javascript"></script><script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"> </script><script type="text/x-mathjax-config">
+    MathJax.Hub.Config({tex2jax: {inlineMath: [['$latex ','$'], ['\\(','\\)']]}});
+    </script><script type="text/javascript">
+            $(function(){
+                $('.timeago').timeago();
+            });
+        </script>
+</body>
+</html>

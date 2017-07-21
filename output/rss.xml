@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>comafire</title><link>https://comafire.github.io/</link><description>comafire's lab</description><atom:link href="https://comafire.github.io/rss.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><lastBuildDate>Fri, 21 Jul 2017 06:10:18 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>2017-spark-submit-repository-error</title><link>https://comafire.github.io/posts/2017-spark-submit-repository-error/</link><dc:creator>comafire</dc:creator><description>&lt;div tabindex="-1" id="notebook" class="border-box-sizing"&gt;
+<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>comafire</title><link>https://comafire.github.io/</link><description>comafire's lab</description><atom:link href="https://comafire.github.io/rss.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><lastBuildDate>Fri, 21 Jul 2017 06:14:28 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>2017-spark-submit-repository-error</title><link>https://comafire.github.io/posts/2017-spark-submit-repository-error/</link><dc:creator>comafire</dc:creator><description>&lt;div tabindex="-1" id="notebook" class="border-box-sizing"&gt;
     &lt;div class="container" id="notebook-container"&gt;
 
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;
@@ -15,11 +15,11 @@
 
     ==== local-m2-cache: tried
 
-      file:/home/bdpuser/.m2/repository/org/restlet/jee/org.restlet/2.3.0/org.restlet-2.3.0.pom
+      file:/home/comafire/.m2/repository/org/restlet/jee/org.restlet/2.3.0/org.restlet-2.3.0.pom
 
       -- artifact org.restlet.jee#org.restlet;2.3.0!org.restlet.jar:
 
-      file:/home/bdpuser/.m2/repository/org/restlet/jee/org.restlet/2.3.0/org.restlet-2.3.0.jar&lt;/code&gt;&lt;/pre&gt;
+      file:/home/comafire/.m2/repository/org/restlet/jee/org.restlet/2.3.0/org.restlet-2.3.0.jar&lt;/code&gt;&lt;/pre&gt;
 
 &lt;/div&gt;
 &lt;/div&gt;

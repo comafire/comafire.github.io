@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html prefix="
+og: http://ogp.me/ns#
+article: http://ogp.me/ns/article#
+" lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>2017-git-using-ssh-key-auth | comafire</title>
+<link href="../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="../../rss.xml">
+<link rel="canonical" href="https://comafire.github.io/posts/2017-git-using-ssh-key-auth/">
+<!--[if lt IE 9]><script src="/assets/js/html5.js"></script><![endif]--><meta name="author" content="comafire">
+<meta property="og:site_name" content="comafire">
+<meta property="og:title" content="2017-git-using-ssh-key-auth">
+<meta property="og:url" content="https://comafire.github.io/posts/2017-git-using-ssh-key-auth/">
+<meta property="og:description" content="보통 프로젝트를 진행할때, 소스 버전 컨트롤을 위해서 git을 많이 사용합니다. git을 로컬에서 사용하기 보다는 github 또는 gitlab을 주로 이용하게 되는데요.
+github 및 gitlab 사용시 인증은 간편하게 http 인증을 많이 사용했었는데요.
+프로젝트가 많아짐에 따라 commit 할때마다 비번을 넣어야 하는 불편함과 한 컴퓨터에서 gitl">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2017-07-15T00:00:00+09:00">
+</head>
+<body>
+    <section class="social"><ul>
+<li><a href="../../index.html" title="Home"><i class="icon-home"></i></a></li>
+            <li><a href="../../archive.html" title="Archives"><i class="icon-folder-open-alt"></i></a></li>
+            <li><a href="../../categories/index.html" title="Tags"><i class="icon-tags"></i></a></li>
+            <li><a href="../../rss.xml" title="RSS"><i class="icon-rss"></i></a></li>
+            <li><a href="../../galleries/index.html" title="Galleries"><i class="icon-camera"></i></a></li>
+            <li><a href="../about-me/index.html" title="About me"><i class="icon-user"></i></a></li>
+            <li><a href="https://github.com/comafire" title="My Github"><i class="icon-github"></i></a></li>
+
+        </ul></section><section class="page-content"><div class="content" rel="main">
+    <div class="post">
+        <h1 class="p-name entry-title" itemprop="headline name">2017-git-using-ssh-key-auth</h1>
+
+        <div class="meta">
+            <div class="authordate">
+                <time class="timeago" datetime="2017-07-15T00:00:00+09:00">2017-07-15 00:00</time>
+            
+                      |  
+        <a href="index.ipynb" id="sourcelink">Source</a>
+
+            </div>
+            
+        </div>
+        <div class="body">
+            <div tabindex="-1" id="notebook" class="border-box-sizing">
+    <div class="container" id="notebook-container">
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>보통 프로젝트를 진행할때, 소스 버전 컨트롤을 위해서 git을 많이 사용합니다. git을 로컬에서 사용하기 보다는 github 또는 gitlab을 주로 이용하게 되는데요.</p>
+<p>github 및 gitlab 사용시 인증은 간편하게 http 인증을 많이 사용했었는데요.</p>
+<p>프로젝트가 많아짐에 따라 commit 할때마다 비번을 넣어야 하는 불편함과 한 컴퓨터에서 gitlab, github의 여러 계정이 혼재 할 경우 http 인증이 동작하지 않아 다른 방법을 찾다가 SSH Key를 이용한 인증 방법을 사용하면 해결이 가능하다는 것을 알게 되었습니다.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>먼저 sshkey-gen 명령을 통해서 각 git 계정 마다 사용할 키를 생성해줍니다.
+A계정은 개인 소스 저장소용이고, B계정은 회사 소스 저장소용이라고 하겠습니다.</p>
+<div class="highlight"><pre><span></span>ssh-keygen -t rsa -b <span class="m">4096</span> -C <span class="s2">"A@private.com"</span>
+Generating public/private rsa key pair.
+Enter file in which to save the key <span class="o">(</span>~/.ssh/id_rsa<span class="o">)</span>: private_id_rsa
+
+ssh-keygen -t rsa -b <span class="m">4096</span> -C <span class="s2">"B@company.com"</span>
+Generating public/private rsa key pair.
+Enter file in which to save the key <span class="o">(</span>~/.ssh/id_rsa<span class="o">)</span>: company_id_rsa
+</pre></div>
+<p>키를 생성하게 되면 각각 개인키와 공개키가 생성되게 됩니다.</p>
+<ul>
+<li>개인키: private_id_rsa, company_id_rsa</li>
+<li>공개키: private_id_rsa.pub, company_id_rsa.pub</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>이제 생성된 공개키를 각 사이트 계정의 SSH Key 등록하는 곳에 등록해 주면 됩니다.</p>
+<p>SSH Key를 등록하는 방법은 아래 링크를 참조하세요.</p>
+<ul>
+<li>Github: <a href="https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account/">https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account/</a>
+</li>
+<li>Gitlab: <a href="https://about.gitlab.com/2014/03/04/add-ssh-key-screencast/">https://about.gitlab.com/2014/03/04/add-ssh-key-screencast/</a> </li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>이제 SSH를 이용한 접속시 자동으로 해당 키를 사용할 수 있도록 설정을 해줘야 합니다.</p>
+<p>계정의 .ssh 디렉토리에 개인키워 공개키를 복사합니다.</p>
+<p>그리고 ~/.ssh/config 파일을 생성해서 아래와 같이 설정해 주면 계정 사용시 키 파일을 다르게 사용할 수 있습니다.</p>
+<div class="highlight"><pre><span></span>Host github.com
+    User A@private.com
+    IdentityFile ~/.ssh/private_id_rsa
+Host gitlab.com
+    User B@company.com
+    IdentityFile ~/.ssh/company_id_rsa
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span> 
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+    </div>
+  </div>
+
+        </div>
+                <ul class="pager hidden-print">
+<li class="previous">
+                <a href="../2017-spark-submit-repository-error/" rel="prev" title="2017-spark-submit-repository-error">Previous post</a>
+            </li>
+        </ul>
+<div id="disqus_thread"></div>
+        <script>
+        var disqus_shortname ="comafire",
+            disqus_url="https://comafire.github.io/posts/2017-git-using-ssh-key-auth/",
+        disqus_title="2017-git-using-ssh-key-auth",
+        disqus_identifier="cache/posts/2017-git-using-ssh-key-auth.html",
+        disqus_config = function () {
+            this.language = "en";
+        };
+        (function() {
+            var dsq = document.createElement('script'); dsq.async = true;
+            dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+    <a href="https://disqus.com" class="dsq-brlink" rel="nofollow">Comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+    </div>
+                     <footer id="footer"><p>Contents © 2017         <a href="mailto:comafire@gmail.com">comafire</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         </p>
+            
+        </footer>
+</div>
+    </section><script src="../../assets/js/all-nocdn.js" type="text/javascript"></script><script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"> </script><script type="text/x-mathjax-config">
+    MathJax.Hub.Config({tex2jax: {inlineMath: [['$latex ','$'], ['\\(','\\)']]}});
+    </script><script type="text/javascript">
+            $(function(){
+                $('.timeago').timeago();
+            });
+        </script>
+</body>
+</html>

@@ -63,19 +63,23 @@ article: http://ogp.me/ns/article#
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>먼저 sshkey-gen 명령을 통해서 각 git 계정 마다 사용할 키를 생성해줍니다.
-A계정은 개인 소스 저장소용이고, B계정은 회사 소스 저장소용이라고 하겠습니다.</p>
-<div class="highlight"><pre><span></span>ssh-keygen -t rsa -b <span class="m">4096</span> -C <span class="s2">"A@private.com"</span>
+A계정은 개인 소스 저장소용이고, B계정은 B회사 소스 저장소용, C계정은 C회사 소스 저자용이라고 하겠습니다.</p>
+<div class="highlight"><pre><span></span>ssh-keygen -t rsa -b <span class="m">4096</span> -C <span class="s2">"A@A.com"</span>
 Generating public/private rsa key pair.
-Enter file in which to save the key <span class="o">(</span>~/.ssh/id_rsa<span class="o">)</span>: private_id_rsa
+Enter file in which to save the key <span class="o">(</span>~/.ssh/id_rsa<span class="o">)</span>: a_id_rsa
 
-ssh-keygen -t rsa -b <span class="m">4096</span> -C <span class="s2">"B@company.com"</span>
+ssh-keygen -t rsa -b <span class="m">4096</span> -C <span class="s2">"B@B.com"</span>
 Generating public/private rsa key pair.
-Enter file in which to save the key <span class="o">(</span>~/.ssh/id_rsa<span class="o">)</span>: company_id_rsa
+Enter file in which to save the key <span class="o">(</span>~/.ssh/id_rsa<span class="o">)</span>: b_id_rsa
+
+ssh-keygen -t rsa -b <span class="m">4096</span> -C <span class="s2">"C@C.com"</span>
+Generating public/private rsa key pair.
+Enter file in which to save the key <span class="o">(</span>~/.ssh/id_rsa<span class="o">)</span>: c_id_rsa
 </pre></div>
 <p>키를 생성하게 되면 각각 개인키와 공개키가 생성되게 됩니다.</p>
 <ul>
-<li>개인키: private_id_rsa, company_id_rsa</li>
-<li>공개키: private_id_rsa.pub, company_id_rsa.pub</li>
+<li>개인키: a_id_rsa, b_id_rsa, c_id_rsa</li>
+<li>공개키: a_id_rsa.pub, b_id_rsa.pub, c_id_rsa.pub</li>
 </ul>
 </div>
 </div>
@@ -85,10 +89,12 @@ Enter file in which to save the key <span class="o">(</span>~/.ssh/id_rsa<span c
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<p>계정의 .ssh 디렉토리에 개인키와 공개키를 복사합니다.</p>
 <p>이제 생성된 개인키를 SSH 에 등록해 줍니다.</p>
-
-<pre><code>ssh-add ~/.ssh/private_id_rsa
-ssh-add ~/.ssh/company_id_rsa</code></pre>
+<div class="highlight"><pre><span></span>ssh-add ~/.ssh/a_id_rsa
+ssh-add ~/.ssh/b_id_rsa
+ssh-add ~/.ssh/c_id_rsa
+</pre></div>
 <p>등록된 키는 ssh-add -l 명령어로 확인이 가능합니다.</p>
 
 </div>
@@ -115,35 +121,41 @@ ssh-add ~/.ssh/company_id_rsa</code></pre>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>이제 SSH를 이용한 접속시 자동으로 해당 키를 사용할 수 있도록 설정을 해줘야 합니다.</p>
-<p>계정의 .ssh 디렉토리에 개인키와 공개키를 복사합니다.</p>
-<p>그리고 ~/.ssh/config 파일을 생성해서 아래와 같이 설정해 주면 git 사용시 각 계정 마다 다른 키 파일을 이용하여 암호를 넣지 않고 편리하게 사용 할 수 있습니다.</p>
-<div class="highlight"><pre><span></span>Host A.gitlab.com
-        HostName gitlab.com
-        User A@private.com
+<p>~/.ssh/config 파일을 생성해서 아래와 같이 설정해 줍니다.</p>
+<div class="highlight"><pre><span></span>Host A.github.com
+        HostName github.com
+        User A
         PreferredAuthentications publickey
-        IdentityFile ~/.ssh/private_id_rsa
+        IdentityFile ~/.ssh/a_id_rsa
 Host B.gitlab.com
         HostName gitlab.com
-        User B@company.com
+        User B
         PreferredAuthentications publickey
-        IdentityFile ~/.ssh/company_id_rsa
+        IdentityFile ~/.ssh/b_id_rsa
+Host C.gitlab.com
+        HostName gitlab.com
+        User C
+        PreferredAuthentications publickey
+        IdentityFile ~/.ssh/c_id_rsa
 </pre></div>
 
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
 <div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span> 
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>이제 git 레포지토리로 이동하여 git config에 .git/config파일에 Host부분을 ~/.ssh/config 에 설정한 Host와 일치 시켜 줍니다.</p>
+<div class="highlight"><pre><span></span><span class="o">[</span>remote <span class="s2">"origin"</span><span class="o">]</span>
+        <span class="nv">url</span> <span class="o">=</span> git@A.github.com:comafire/test.git
+        <span class="nv">fetch</span> <span class="o">=</span> +refs/heads/*:refs/remotes/origin/*
 </pre></div>
+<p>이제 git 사용시 각 계정 마다 다른 키 파일을 이용하여 암호를 넣지 않고 편리하게 사용 할 수 있습니다.</p>
 
 </div>
 </div>
-</div>
-
 </div>
     </div>
   </div>

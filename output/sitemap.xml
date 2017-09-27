@@ -7,7 +7,7 @@
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <url>
   <loc>https://comafire.github.io/</loc>
-  <lastmod>2017-07-14T06:59:00Z</lastmod>
+  <lastmod>2017-09-27T08:59:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/2015/</loc>
@@ -23,7 +23,7 @@
  </url>
  <url>
   <loc>https://comafire.github.io/archive.html</loc>
-  <lastmod>2017-07-26T09:14:00Z</lastmod>
+  <lastmod>2017-09-27T08:59:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/categories/</loc>
@@ -55,7 +55,11 @@
  </url>
  <url>
   <loc>https://comafire.github.io/index-6.html</loc>
-  <lastmod>2017-07-26T09:14:00Z</lastmod>
+  <lastmod>2017-09-27T08:59:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://comafire.github.io/index-7.html</loc>
+  <lastmod>2017-09-27T08:59:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/listings/</loc>
@@ -184,6 +188,14 @@
  <url>
   <loc>https://comafire.github.io/posts/2017-nvidia-docker-CUDA_ERROR_UNKNOWN/</loc>
   <lastmod>2017-07-14T06:59:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://comafire.github.io/posts/2017-python-hello/</loc>
+  <lastmod>2017-09-27T08:59:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://comafire.github.io/posts/2017-python-jupyter-notebook-tips/</loc>
+  <lastmod>2017-09-27T08:59:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/posts/2017-python-tf-rnn-iap/</loc>

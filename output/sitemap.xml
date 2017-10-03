@@ -23,7 +23,7 @@
  </url>
  <url>
   <loc>https://comafire.github.io/archive.html</loc>
-  <lastmod>2017-09-27T08:59:00Z</lastmod>
+  <lastmod>2017-10-03T09:56:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/categories/</loc>
@@ -59,7 +59,7 @@
  </url>
  <url>
   <loc>https://comafire.github.io/index-7.html</loc>
-  <lastmod>2017-09-27T08:59:00Z</lastmod>
+  <lastmod>2017-10-03T09:56:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/listings/</loc>
@@ -192,6 +192,14 @@
  <url>
   <loc>https://comafire.github.io/posts/2017-python-hello/</loc>
   <lastmod>2017-09-27T08:59:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://comafire.github.io/posts/2017-python-jupyter-kernel-gateway-for-rest-api/</loc>
+  <lastmod>2017-10-03T09:56:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://comafire.github.io/posts/2017-python-jupyter-kernel-gateway-module/</loc>
+  <lastmod>2017-10-03T09:56:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/posts/2017-python-jupyter-notebook-tips/</loc>

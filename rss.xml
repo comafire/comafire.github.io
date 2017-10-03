@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>comafire</title><link>https://comafire.github.io/</link><description>comafire's lab</description><atom:link href="https://comafire.github.io/rss.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><lastBuildDate>Tue, 03 Oct 2017 10:01:28 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>2017-python-jupyter-kernel-gateway-for-rest-api</title><link>https://comafire.github.io/posts/2017-python-jupyter-kernel-gateway-for-rest-api/</link><dc:creator>comafire</dc:creator><description>&lt;div tabindex="-1" id="notebook" class="border-box-sizing"&gt;
+<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>comafire</title><link>https://comafire.github.io/</link><description>comafire's lab</description><atom:link href="https://comafire.github.io/rss.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><lastBuildDate>Tue, 03 Oct 2017 10:10:04 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>2017-python-jupyter-kernel-gateway-for-rest-api</title><link>https://comafire.github.io/posts/2017-python-jupyter-kernel-gateway-for-rest-api/</link><dc:creator>comafire</dc:creator><description>&lt;div tabindex="-1" id="notebook" class="border-box-sizing"&gt;
     &lt;div class="container" id="notebook-container"&gt;
 
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
@@ -78,13 +78,19 @@
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h2 id="README"&gt;README&lt;a class="anchor-link" href="https://comafire.github.io/posts/2017-python-jupyter-kernel-gateway-for-rest-api/#README"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;데이터 분석을 할때에는 주로 jupyter에서 python를 많이 사용합니다. 머신 사양이 좋다면 pyspark을 이용하여 데이터 전처리시 편하게 대용량 램과 멀티코어를 활용할 수도 있고, python에 있는 많은 편리한 유틸과 머신러닝 라이브러리도 생산성을 배가 시켜 줍니다. 게다가 간단한 PoC를 위한 개발을 하면서 문서화 및 발표자료까지 한번에 만들수 있다는 매력도 있습니다.&lt;/p&gt;
-&lt;p&gt;하지만, PoC 할때 가끔 FrontEnd 단과 연계가 필요해서 정제 분석한 데이터 기반으로 간단하게 Restful API를 작성해 줘야 할 경우가 종종 있는데, 이럴때는 jupyter가 생산성에 별 도움을 주지 못합니다. 이때 마다 다시 로컬 IDE를 사용하거나, 개발은 jupyter에서 실행은 nbconvert를 이용해 .py 로 변환해 사용하는 불편함을 감수해야 했습니다.&lt;/p&gt;
-&lt;p&gt;그렇지만, jupyter의 kernel_gateway 모듈을 사용한다면, 이 문제를 극복 할 수 있습니다. kernel_gateway 모듈은 jupyter 노트북 상에서 바로 Restful API에 대해 개발과 테스트가 가능하도록 도움을 줍니다.&lt;/p&gt;
-&lt;p&gt;&lt;a href="https://github.com/jupyter/kernel_gateway"&gt;https://github.com/jupyter/kernel_gateway&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;설치는 간단히 pip 를 이용해 가능합니다.&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;&lt;p&gt;
+하지만, PoC 할때 가끔 FrontEnd 단과 연계가 필요해서 정제 분석한 데이터 기반으로 간단하게 Restful API를 작성해 줘야 할 경우가 종종 있는데, 이럴때는 jupyter가 생산성에 별 도움을 주지 못합니다. 이때 마다 다시 로컬 IDE를 사용하거나, 개발은 jupyter에서 실행은 nbconvert를 이용해 .py 로 변환해 사용하는 불편함을 감수해야 했습니다.&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;&lt;p&gt;
+그렇지만, jupyter의 kernel_gateway 모듈을 사용한다면, 이 문제를 극복 할 수 있습니다. kernel_gateway 모듈은 jupyter 노트북 상에서 바로 Restful API에 대해 개발과 테스트가 가능하도록 도움을 줍니다.&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;&lt;p&gt;
+&lt;a href="https://github.com/jupyter/kernel_gateway"&gt;https://github.com/jupyter/kernel_gateway&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;&lt;p&gt;
+설치는 간단히 pip 를 이용해 가능합니다.&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;&lt;p&gt;&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&amp;gt; pip install jupyter_kernel_gateway
 &lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;설치가 끝났다면 이제 kernel_gateway 모듈을 사용해 보겠습니다.&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;&lt;p&gt;
+설치가 끝났다면 이제 kernel_gateway 모듈을 사용해 보겠습니다.&lt;/p&gt;
 
 &lt;/div&gt;
 &lt;/div&gt;
@@ -95,9 +101,12 @@
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h2 id="Module"&gt;Module&lt;a class="anchor-link" href="https://comafire.github.io/posts/2017-python-jupyter-kernel-gateway-for-rest-api/#Module"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;현재 kernel_gateway 모듈은 하나의 jupyter 파일(.ipynb)만 Server로 띄울수 있습니다. 간단한 PoC의 경우 한 파일안에 모든 구현을 담는게 가능하지만, 코드의 가독성을 위해서라도 모듈로 분리하는 것이 좋습니다. jupyter에서는 다른 파일을 로드할 수 있는 %run 매직 키워드를 제공합니다.&lt;/p&gt;
-&lt;p&gt;%run 매직 키워드는 해당 파일의 실행을 전제 하기 때문에 모듈안에 클래스를 만들어서 해당 클래스를 통해 모듈화를 진행합니다.&lt;/p&gt;
-&lt;p&gt;2017-python-jupyter-kernel-gateway-module.ipynb 파일안의 Restful API 수행시 필요한 클래스를 로드합니다.&lt;/p&gt;
-&lt;p&gt;파일의 내용은 아래와 같습니다. 해당 파일은 사이트내에서 파일이름으로 찾아서 보실 수도 있습니다.&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;&lt;p&gt;
+%run 매직 키워드는 해당 파일의 실행을 전제 하기 때문에 모듈안에 클래스를 만들어서 해당 클래스를 통해 모듈화를 진행합니다.&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;&lt;p&gt;
+2017-python-jupyter-kernel-gateway-module.ipynb 파일안의 Restful API 수행시 필요한 클래스를 로드합니다.&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;&lt;p&gt;
+파일의 내용은 아래와 같습니다. 해당 파일은 사이트내에서 파일이름으로 찾아서 보실 수도 있습니다.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;IPython.core.interactiveshell&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;InteractiveShell&lt;/span&gt;
 &lt;span class="n"&gt;InteractiveShell&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ast_node_interactivity&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;"all"&lt;/span&gt;
 
@@ -221,11 +230,16 @@
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h3 id="POST-/store/:user_id"&gt;POST /store/:user_id&lt;a class="anchor-link" href="https://comafire.github.io/posts/2017-python-jupyter-kernel-gateway-for-rest-api/#POST-/store/:user_id"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;kernel_gateway 에 handler를 호출하기 위한 코드가 이미 구현되어 있기 때문에 독립된 셀안에 handler 만 작성해 주면 됩니다.&lt;/p&gt;
-&lt;p&gt;REQUEST 에 개발시 테스트를 위한 요청 파라미터를 작성합니다. 개발시에는 서버 없이도 jupyter 안에서 해당 함수에 대해 REQUEST 요청을 Mock형태로 바로 테스트 해볼 수 있기 때문에 아주 편리합니다.&lt;/p&gt;
-&lt;p&gt;handler 코드는 독립된 셀에 "# [POST/GET/PUT/DELETE] /url" 형식으로 주석을 작성하면 해당 셀이 kernel_gateway 모듈에서 handler 로 간주됩니다.&lt;/p&gt;
-&lt;p&gt;개발 후 kernel_gateway를 통해 서버를 띄우게 되면 사용자 요청시 사용자 요청 파라미터는 REQUEST에 자동으로 파싱되어 들어가고 해당 handler 셀이 수행됩니다.&lt;/p&gt;
-&lt;p&gt;리턴 값은 print를 통해 출력된 값이 자동으로 사용자 응답으로 전송되게 됩니다.&lt;/p&gt;
-&lt;p&gt;이제 개발 테스트를 위한 REQUEST를 만들고, jupyter 내에서 handler를 통해 POST 작업을 수행해 보겠습니다.&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;&lt;p&gt;
+REQUEST 에 개발시 테스트를 위한 요청 파라미터를 작성합니다. 개발시에는 서버 없이도 jupyter 안에서 해당 함수에 대해 REQUEST 요청을 Mock형태로 바로 테스트 해볼 수 있기 때문에 아주 편리합니다.&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;&lt;p&gt;
+handler 코드는 독립된 셀에 "# [POST/GET/PUT/DELETE] /url" 형식으로 주석을 작성하면 해당 셀이 kernel_gateway 모듈에서 handler 로 간주됩니다.&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;&lt;p&gt;
+개발 후 kernel_gateway를 통해 서버를 띄우게 되면 사용자 요청시 사용자 요청 파라미터는 REQUEST에 자동으로 파싱되어 들어가고 해당 handler 셀이 수행됩니다.&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;&lt;p&gt;
+리턴 값은 print를 통해 출력된 값이 자동으로 사용자 응답으로 전송되게 됩니다.&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;&lt;p&gt;
+이제 개발 테스트를 위한 REQUEST를 만들고, jupyter 내에서 handler를 통해 POST 작업을 수행해 보겠습니다.&lt;/p&gt;
 
 &lt;/div&gt;
 &lt;/div&gt;
@@ -341,10 +355,14 @@
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;p&gt;이제 Restful API 작성이 끝났습니다.&lt;/p&gt;
-&lt;p&gt;개발을 점진 적으로 진행한다고 하였을때, 개발을 진행하면서 새로운 Restful API함수를 모듈 클래스에 추가하고 테스트하는 순서를 반복하게 됩니다. 하지만, %run 에 로드된 모듈은 변경시 자동으로 로드되지 않기 때문에 위 아래를 왔다 갔다 하면서 해당 셀을 다시 수행하는 불편함은 존재합니다.&lt;/p&gt;
-&lt;p&gt;그래서 이경우 저는 빠르게 해당 위치를 찾기 위해 jupyter extension 으로 Markdown 셀의 제목에 대해서 자동으로 Table of Content를 생성해주는 toc2 확장을 사용합니다.&lt;/p&gt;
-&lt;p&gt;&lt;a href="https://github.com/ipython-contrib/jupyter_contrib_nbextensions/tree/master/src/jupyter_contrib_nbextensions/nbextensions/toc2"&gt;https://github.com/ipython-contrib/jupyter_contrib_nbextensions/tree/master/src/jupyter_contrib_nbextensions/nbextensions/toc2&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;해당 확장을 사용할 경우 위해서 작성했던 Markdown 창의 제목으로 빠르게 찾아 갈수 있기때문에 스크롤의 압박에서 벗어날 수 있습니다.&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;&lt;p&gt;
+개발을 점진 적으로 진행한다고 하였을때, 개발을 진행하면서 새로운 Restful API함수를 모듈 클래스에 추가하고 테스트하는 순서를 반복하게 됩니다. 하지만, %run 에 로드된 모듈은 변경시 자동으로 로드되지 않기 때문에 위 아래를 왔다 갔다 하면서 해당 셀을 다시 수행하는 불편함은 존재합니다.&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;&lt;p&gt;
+그래서 이경우 저는 빠르게 해당 위치를 찾기 위해 jupyter extension 으로 Markdown 셀의 제목에 대해서 자동으로 Table of Content를 생성해주는 toc2 확장을 사용합니다.&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;&lt;p&gt;
+&lt;a href="https://github.com/ipython-contrib/jupyter_contrib_nbextensions/tree/master/src/jupyter_contrib_nbextensions/nbextensions/toc2"&gt;https://github.com/ipython-contrib/jupyter_contrib_nbextensions/tree/master/src/jupyter_contrib_nbextensions/nbextensions/toc2&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;&lt;p&gt;
+해당 확장을 사용할 경우 위해서 작성했던 Markdown 창의 제목으로 빠르게 찾아 갈수 있기때문에 스크롤의 압박에서 벗어날 수 있습니다.&lt;/p&gt;
 
 &lt;/div&gt;
 &lt;/div&gt;
@@ -355,14 +373,18 @@
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h2 id="Test"&gt;Test&lt;a class="anchor-link" href="https://comafire.github.io/posts/2017-python-jupyter-kernel-gateway-for-rest-api/#Test"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;이제 현재까지 작성한 파일을 kernel_gateway 모듈을 이용하여 Restful API 서버로 띄운 후에 request 모듈을 이용하여 실 테스트를 진행해 봅니다.&lt;/p&gt;
-&lt;p&gt;jupyter에서 Terminal 창을 열고 아래 명령으로 수행해 봅니다.&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;&lt;p&gt;
+jupyter에서 Terminal 창을 열고 아래 명령으로 수행해 봅니다.&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;&lt;p&gt;&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;jupyter kernelgateway \
 --KernelGatewayApp.ip=0.0.0.0 \
 --KernelGatewayApp.port=8088 \
 --KernelGatewayApp.api=notebook-http \
 --KernelGatewayApp.seed_uri=/root/volume/workspace/2017-python-jupyter-kernel-gateway-for-rest-api.ipynb&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;서버가 제대로 수행되었다면 아래와 같은 로그가 보입니다.&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;&lt;p&gt;
+서버가 제대로 수행되었다면 아래와 같은 로그가 보입니다.&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;&lt;p&gt;&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;[KernelGatewayApp] Kernel started: 4d43a978-11ec-4801-b156-a5e234a82e91
 [KernelGatewayApp] Registering resource: /store/(?P&amp;lt;user_id&amp;gt;[^\/]+), methods: ([u'POST', u'GET'])
@@ -486,7 +508,7 @@
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;p&gt;지금 까지 jupyter 상에서 kernel_gateway 모듈을 통해서 편리하게 Restful API 서버를 개발하는 법에 대해서 설명드렸습니다.&lt;/p&gt;
+&lt;p&gt;지금 까지 jupyter 상에서 kernel_gateway 모듈을 통해서 편리하게 Restful API 서버를 개발하는 법에 대해서 알아봤습니다.&lt;/p&gt;
 
 &lt;/div&gt;
 &lt;/div&gt;

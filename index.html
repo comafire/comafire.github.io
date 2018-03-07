@@ -29,6 +29,239 @@ article: http://ogp.me/ns/article#
 
         </ul></section><section class="page-content"><div class="content" rel="main">
         <div class="post">
+            <h1 class="title"><a href="posts/2018-bitcoin-core-basic/">2018-bitcoin-core-basic</a></h1>
+            <div class="meta">
+                <div class="authordate">
+                    <time class="timeago" datetime="2018-03-03T00:00:00+09:00">2018-03-03 00:00</time>
+</div>
+                <div class="stats">
+                                <a href="posts/2018-bitcoin-core-basic/#disqus_thread" data-disqus-identifier="cache/posts/2018-bitcoin-core-basic.html">Comments</a>
+
+
+                </div>
+            
+            </div>
+            <div class="body">
+                <div tabindex="-1" id="notebook" class="border-box-sizing">
+    <div class="container" id="notebook-container">
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Bitcoin에 대한 구조를 알아보기 위해 일단 Bitcoin을 설치해보고 간단하게 거래 테스트를 해보았습니다.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Bitcoin-설치">Bitcoin 설치<a class="anchor-link" href="posts/2018-bitcoin-core-basic/#Bitcoin-%EC%84%A4%EC%B9%98">¶</a>
+</h2>
+<p>운영체제: Ubuntu 16.04 LTS</p>
+<p>Github 에서 bitcoin 소스를 다운로드 받습니다.</p>
+
+<pre><code>git clone https://github.com/bitcoin/bitcoin.git</code></pre>
+<p>bitcoin 의존성 패키지 목록 소스의 docs/dependencies.md 파일 또는 아래 링크를 참조하세요</p>
+<p><a href="https://github.com/bitcoin/bitcoin/blob/master/doc/dependencies.md">https://github.com/bitcoin/bitcoin/blob/master/doc/dependencies.md</a></p>
+<p>의존성 패키지 설치를 설치합니다.</p>
+<p>gcc 빌드 툴 및 python3</p>
+
+<pre><code>sudo apt-get update
+sudo apt-get install -y build-essential bsdmainutils autoconf automake autotools-dev pkg-config libtool python3</code></pre>
+<p>openssl, boost, event, miniupnpc, zmq 라이브러리</p>
+
+<pre><code>sudo apt-get install -y libssl-dev libboost-all-dev libevent-dev libminiupnpc-dev libzmq3-dev</code></pre>
+<p>db4.8 (Ubuntu는 기본 5.1 버전을 사용하기 때문에 4.8 버전으로 다시 설치)</p>
+
+<pre><code>sudo apt-get install -y software-properties-common
+sudo add-apt-repository ppa:bitcoin/bitcoin
+sudo apt-get update
+sudo apt-get install -y libdb4.8-dev libdb4.8++-dev</code></pre>
+<p>GUI 를 위한 QT5 설치</p>
+
+<pre><code>sudo apt-get install -y libqt5gui5 libqt5core5a libqt5dbus5 qttools5-dev qttools5-dev-tools libprotobuf-dev protobuf-compiler
+sudo apt-get install -y libqrencode-dev</code></pre>
+<p>bitcoin 컴파일</p>
+
+<pre><code>cd bitcoin
+./autogen.sh
+./configure
+make</code></pre>
+<p>문제 없이 컴파일이 완료되었으면 아래 명령으로 설치를 완료합니다.</p>
+
+<pre><code>sudo make install</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Bitcoin-Core-실행">Bitcoin Core 실행<a class="anchor-link" href="posts/2018-bitcoin-core-basic/#Bitcoin-Core-%EC%8B%A4%ED%96%89">¶</a>
+</h2>
+<p>비트코인을 실제 네트워크 상에서 돌리기보다는 동작 방식을 익히기 위해 테스트로 사용합니다.</p>
+<ul>
+<li>Testnet: 인터넷 상의 테스트 네트워크</li>
+<li>Regtest: 로컬 네트워크상의 테스트 네트워크</li>
+</ul>
+<p>Testnet 은 인터넷 상에 공개된 테스트 네트워크여서 이미 대량의 블록 체인이 존재하기 때문에 초기 기동시 모든 데이터를 다운로드 받는데 시간이 걸리므로 간단한 테스트용으로는 Regtest 가 적당합니다.</p>
+<p>게다가 Bitcoin Core 에서는 0.13 버전 이후로 테스트넷 이외에서 마이닝 하는 기능을 빼버렸기 때문에 굳이 모든 데이터를 다운로드 받을 필요가 없습니다.</p>
+<p>사용을 위한 모든 정보는 틀별히 설정하지 않았다면 계정의 .bitcoin 디렉안에 있습니다.</p>
+<p>아래와 같이 daemon 형식으로 띄워 줍니다.</p>
+
+<pre><code>bitcoind -regtest -daemon</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Bitcoin-거래-테스트">Bitcoin 거래 테스트<a class="anchor-link" href="posts/2018-bitcoin-core-basic/#Bitcoin-%EA%B1%B0%EB%9E%98-%ED%85%8C%EC%8A%A4%ED%8A%B8">¶</a>
+</h2>
+<p>송금 테스트를 하기 위해서 테스트용 비트코인을 생성해 봅니다. 블록을 생성(채굴)한 보상으로 비트코인을 받을 수 있으며, 채굴자는 보상 후 100블록 이후에 송금이 가능하기 때문에 101개의 블록을 생성해 봅니다.</p>
+
+<pre><code>bitcoin-cli -regtest generate 101
+[
+  "05f8a8ea539fc9d51538e45dc501543da9ead2b7321c6224bfff053b74247ef8",
+  "4a2a7cdd7fa6948f33b1507de7ba03501b9f352833d3690c54f95e1a5b4c1b75",
+  ...
+  "6a5af93afbedee8b88660cadde8b041077e73a79598b60f0e30bf60090a8baa5",
+  "5dc2356eb4381c3d10341cbab83d767dd91ab527d7d394b9a5b4b7fc293b9803"
+]
+
+bitcoin-cli -regtest getblockcount
+101</code></pre>
+<p>채굴자의 잔고를 확인해봅니다. 50 비트코인이 생성된 것을 확인할 수 있습니다.</p>
+
+<pre><code>bitcoin-cli -regtest getbalance
+50.00000000</code></pre>
+<p>이제 이 비트코인을 송금 받을 거래에 사용할 계좌를 생성하고 잔고를 확인해봅니다.</p>
+
+<pre><code>bitcoin-cli -regtest getnewaddress comafire
+2Mzy66ig8SwcC7UdQVrzYHtRDxZgBoxdq3G
+
+bitcoin-cli -regtest getbalance comafire
+0.00000000</code></pre>
+<p>채굴자에게서 비트코인을 받아봅니다. 송금시에는 계좌 주소가 필요합니다. 송금을 하면 송장번호라 할수 있는 트랜잭션 인덱스가 출력되고 이를 확인해 볼수 있습니다. 아직 송금이 완료되지는 않은 상태라 미완료 인덱스를 볼수 있도록 listunspent 명령에 0 값을 넣어 확인합니다.</p>
+
+<pre><code>bitcoin-cli -regtest sendtoaddress 2Mzy66ig8SwcC7UdQVrzYHtRDxZgBoxdq3G 5
+ddc39e2c235a0357d27005602ecc83143b01caf51976c7c2a4a3abcf474744f7
+
+bitcoin-cli -regtest listunspent 0
+[
+  {
+    "txid": "ddc39e2c235a0357d27005602ecc83143b01caf51976c7c2a4a3abcf474744f7",
+    "vout": 0,
+    "address": "2Mzy66ig8SwcC7UdQVrzYHtRDxZgBoxdq3G",
+    "account": "comafire",
+    "redeemScript": "0014da2f417e870b024d832839a790282a9185e40f4d",
+    "scriptPubKey": "a91454b3c3f3c71578881eaaa0b540ad7710babd917287",
+    "amount": 5.00000000,
+    "confirmations": 0,
+    "spendable": true,
+    "solvable": true,
+    "safe": true
+  },
+  {
+    "txid": "ddc39e2c235a0357d27005602ecc83143b01caf51976c7c2a4a3abcf474744f7",
+    "vout": 1,
+    "address": "2MwhGAo4Y5BBEPnt9mJBpFjNZRDGBRfYN7x",
+    "redeemScript": "0014a88a6ade15594dc14b92fb985398378d79bace28",
+    "scriptPubKey": "a91430cd23915145b69463dde98b080f43b10e2e37ea87",
+    "amount": 44.99996240,
+    "confirmations": 0,
+    "spendable": true,
+    "solvable": true,
+    "safe": true
+  }
+]</code></pre>
+<p>송금은 완료 되지 않았지만, 수수료는 이미 떼어져 있네요.</p>
+<p>이제 채굴을 통해서 미완료 트랙잰션을 완료하고 계좌 잔고를 확인해봅니다.</p>
+
+<pre><code>bitcoin-cli -regtest generate 1
+[
+  "623f16c369a64e3b14da59aa1a901d9b28b6d25d875219ae62d714acb266894f"
+]
+
+bitcoin-cli -regtest listunspent
+
+bitcoin-cli -regtest getbalance comafire
+5.00000000</code></pre>
+<p>5 비트코인이 입금된 것을 확인해 볼수 있습니다.</p>
+<p>이제 기록상에서도 송금된 내역을 확인해 볼 수 있습니다.</p>
+
+<pre><code>bitcoin-cli -regtest listunspent
+[
+  {
+    "txid": "fbd7979b39d018d235fc61cc9d895b6bed6aa385fc15db11a5f006f18d59d1ef",
+    "vout": 0,
+    "address": "miV8mJqKPBtRSVdyhKPMpy6CQsy7omodJK",
+    "scriptPubKey": "2102cf0d8f1c775ef3697128eea2c8a18082f10498306cd9d032f96c3f50736bfa29ac",
+    "amount": 50.00000000,
+    "confirmations": 101,
+    "spendable": true,
+    "solvable": true,
+    "safe": true
+  },
+  {
+    "txid": "ddc39e2c235a0357d27005602ecc83143b01caf51976c7c2a4a3abcf474744f7",
+    "vout": 0,
+    "address": "2Mzy66ig8SwcC7UdQVrzYHtRDxZgBoxdq3G",
+    "account": "comafire",
+    "redeemScript": "0014da2f417e870b024d832839a790282a9185e40f4d",
+    "scriptPubKey": "a91454b3c3f3c71578881eaaa0b540ad7710babd917287",
+    "amount": 5.00000000,
+    "confirmations": 1,
+    "spendable": true,
+    "solvable": true,
+    "safe": true
+  },
+  {
+    "txid": "ddc39e2c235a0357d27005602ecc83143b01caf51976c7c2a4a3abcf474744f7",
+    "vout": 1,
+    "address": "2MwhGAo4Y5BBEPnt9mJBpFjNZRDGBRfYN7x",
+    "redeemScript": "0014a88a6ade15594dc14b92fb985398378d79bace28",
+    "scriptPubKey": "a91430cd23915145b69463dde98b080f43b10e2e37ea87",
+    "amount": 44.99996240,
+    "confirmations": 1,
+    "spendable": true,
+    "solvable": true,
+    "safe": true
+  }
+]</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span> 
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+    </div>
+  </div>
+
+            </div>
+        </div>
+        <div class="post">
             <h1 class="title"><a href="posts/2017-python-jupyter-kernel-gateway-for-rest-api/">2017-python-jupyter-kernel-gateway-for-rest-api</a></h1>
             <div class="meta">
                 <div class="authordate">
@@ -1587,145 +1820,11 @@ Automagic is ON, % prefix IS NOT needed for line magics.</pre>
 
             </div>
         </div>
-        <div class="post">
-            <h1 class="title"><a href="posts/2017-git-using-ssh-key-auth/">2017-git-using-ssh-key-auth</a></h1>
-            <div class="meta">
-                <div class="authordate">
-                    <time class="timeago" datetime="2017-07-15T00:00:00+09:00">2017-07-15 00:00</time>
-</div>
-                <div class="stats">
-                                <a href="posts/2017-git-using-ssh-key-auth/#disqus_thread" data-disqus-identifier="cache/posts/2017-git-using-ssh-key-auth.html">Comments</a>
-
-
-                </div>
-            
-            </div>
-            <div class="body">
-                <div tabindex="-1" id="notebook" class="border-box-sizing">
-    <div class="container" id="notebook-container">
-
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>보통 프로젝트를 진행할때, 소스 버전 컨트롤을 위해서 git을 많이 사용합니다. git을 로컬에서 사용하기 보다는 github 또는 gitlab을 주로 이용하게 되는데요.</p>
-<p>github 및 gitlab 사용시 인증은 간편하게 http 인증을 많이 사용했었는데요.</p>
-<p>프로젝트가 많아짐에 따라 commit 할때마다 비번을 넣어야 하는 불편함과 한 컴퓨터에서 gitlab, github내에 여러 계정이 혼재 할 경우 http 인증이 동작하지 않아 다른 방법을 찾다가 SSH Key를 이용한 인증 방법을 사용하면 해결이 가능하다는 것을 알게 되었습니다.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>먼저 sshkey-gen 명령을 통해서 각 git 계정 마다 사용할 키를 생성해줍니다.
-A계정은 개인 소스 저장소용이고, B계정은 B회사 소스 저장소용, C계정은 C회사 소스 저자용이라고 하겠습니다.</p>
-<div class="highlight"><pre><span></span>ssh-keygen -t rsa -b <span class="m">4096</span> -C <span class="s2">"A@A.com"</span>
-Generating public/private rsa key pair.
-Enter file in which to save the key <span class="o">(</span>~/.ssh/id_rsa<span class="o">)</span>: a_id_rsa
-
-ssh-keygen -t rsa -b <span class="m">4096</span> -C <span class="s2">"B@B.com"</span>
-Generating public/private rsa key pair.
-Enter file in which to save the key <span class="o">(</span>~/.ssh/id_rsa<span class="o">)</span>: b_id_rsa
-
-ssh-keygen -t rsa -b <span class="m">4096</span> -C <span class="s2">"C@C.com"</span>
-Generating public/private rsa key pair.
-Enter file in which to save the key <span class="o">(</span>~/.ssh/id_rsa<span class="o">)</span>: c_id_rsa
-</pre></div>
-<p>키를 생성하게 되면 각각 개인키와 공개키가 생성되게 됩니다.</p>
-<ul>
-<li>개인키: a_id_rsa, b_id_rsa, c_id_rsa</li>
-<li>공개키: a_id_rsa.pub, b_id_rsa.pub, c_id_rsa.pub</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>계정의 .ssh 디렉토리에 개인키와 공개키를 복사합니다.</p>
-<p>이제 생성된 개인키를 SSH 에 등록해 줍니다.</p>
-<div class="highlight"><pre><span></span>ssh-add ~/.ssh/a_id_rsa
-ssh-add ~/.ssh/b_id_rsa
-ssh-add ~/.ssh/c_id_rsa
-</pre></div>
-<p>등록된 키는 ssh-add -l 명령어로 확인이 가능합니다.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>이제 생성된 공개키를 각 사이트 계정의 SSH Key 등록하는 곳에 등록해 주면 됩니다.</p>
-<p>SSH Key를 등록하는 방법은 아래 링크를 참조하세요.</p>
-<ul>
-<li>Github: <a href="https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account/">https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account/</a>
-</li>
-<li>Gitlab: <a href="https://about.gitlab.com/2014/03/04/add-ssh-key-screencast/">https://about.gitlab.com/2014/03/04/add-ssh-key-screencast/</a> </li>
-</ul>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>이제 SSH를 이용한 접속시 자동으로 해당 키를 사용할 수 있도록 설정을 해줘야 합니다.</p>
-<p>~/.ssh/config 파일을 생성해서 아래와 같이 설정해 줍니다.</p>
-<div class="highlight"><pre><span></span>Host A.github.com
-        HostName github.com
-        User A
-        PreferredAuthentications publickey
-        IdentityFile ~/.ssh/a_id_rsa
-Host B.gitlab.com
-        HostName gitlab.com
-        User B
-        PreferredAuthentications publickey
-        IdentityFile ~/.ssh/b_id_rsa
-Host C.gitlab.com
-        HostName gitlab.com
-        User C
-        PreferredAuthentications publickey
-        IdentityFile ~/.ssh/c_id_rsa
-</pre></div>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>이제 git 레포지토리로 이동하여 git config에 .git/config파일에 Host부분을 ~/.ssh/config 에 설정한 Host와 일치 시켜 줍니다.</p>
-<div class="highlight"><pre><span></span><span class="o">[</span>remote <span class="s2">"origin"</span><span class="o">]</span>
-        <span class="nv">url</span> <span class="o">=</span> git@A.github.com:comafire/test.git
-        <span class="nv">fetch</span> <span class="o">=</span> +refs/heads/*:refs/remotes/origin/*
-</pre></div>
-<p>이제 git 사용시 각 계정 마다 다른 키 파일을 이용하여 암호를 넣지 않고 편리하게 사용 할 수 있습니다.</p>
-
-</div>
-</div>
-</div>
-    </div>
-  </div>
-
-            </div>
-        </div>
             <nav class="postindexpager"><ul class="pager">
 <li class="next">
                 <a href="index-7.html" rel="next">Older posts</a>
             </li>
-        </ul></nav><script>var disqus_shortname="comafire";(function(){var a=document.createElement("script");a.async=true;a.src="https://"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script><footer id="footer"><p>Contents © 2017         <a href="mailto:comafire@gmail.com">comafire</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         </p>
+        </ul></nav><script>var disqus_shortname="comafire";(function(){var a=document.createElement("script");a.async=true;a.src="https://"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script><footer id="footer"><p>Contents © 2018         <a href="mailto:comafire@gmail.com">comafire</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         </p>
             
         </footer>
 </div>

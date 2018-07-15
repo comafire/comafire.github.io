@@ -29,6 +29,70 @@ article: http://ogp.me/ns/article#
 
         </ul></section><section class="page-content"><div class="content" rel="main">
         <div class="post">
+            <h1 class="title"><a href="posts/2018-st-kilda-pier/">2018-st-kilda-pier</a></h1>
+            <div class="meta">
+                <div class="authordate">
+                    <time class="timeago" datetime="2018-07-01T00:00:00+09:00">2018-07-01 00:00</time>
+</div>
+                <div class="stats">
+                                <a href="posts/2018-st-kilda-pier/#disqus_thread" data-disqus-identifier="cache/posts/2018-st-kilda-pier.html">Comments</a>
+
+
+                </div>
+            
+            </div>
+            <div class="body">
+                <div tabindex="-1" id="notebook" class="border-box-sizing">
+    <div class="container" id="notebook-container">
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Docker-Cluster-based-Data-Science-Platform-for-Big-Data">Docker Cluster based Data Science Platform for Big Data<a class="anchor-link" href="posts/2018-st-kilda-pier/#Docker-Cluster-based-Data-Science-Platform-for-Big-Data">¶</a>
+</h2>
+<p>데이터 사이언스를 하면서 그동안 필요한 많은 도구들을 설치하고 설정하는 작업을 진행해 오다가, 개인적으로 시작때 마다 하는 삽질의 양을 줄이기 위해 사용해보고 좋은 도구들은 Docker 에 넣어서 정형화 하는 작업들을 해왔습니다.</p>
+<p>많은 상용 플랫폼들이 존재하지만, 개인적인 중/소규모 데이터 사이언스 프로젝트를 진행하는데, 클라우드에 분석 클러스터를 올려놓고 쓰기에는 비용이 부담스러운 면이 없지 않아 있습니다.</p>
+<p>그래서, <strong>St. Kilda Pier</strong>(리틀 펭귄이 서식하는 호주 멜버른의 작은 부두, 이하 SKP)라는 이름으로 데이터 사이언스 전반에 필요한 좋은 도구들을 좀 편하게 설치하고 사용할 수 있도록, 부족하지만 그동안 작업했었던 결과들을 정리해서 오픈합니다. 아직은 사용자 친화적이지 않은 명령어 기반이지만, 공감하시는 분들의 참여와 잉여시간을 지속적으로 투자하다보면 더욱 좋아지리라 생각합니다.</p>
+<ul>
+<li>st-kilda-pier: <a href="https://github.com/comafire/st-kilda-pier">https://github.com/comafire/st-kilda-pier</a>
+</li>
+<li>notebooks-skp: <a href="https://github.com/comafire/notebooks-skp">https://github.com/comafire/notebooks-skp</a>
+</li>
+</ul>
+<p>저장소는 2군데로 나뉘어져 있습니다. 하나는 SKP 프로젝트를 위한 저장소이고, 하나는 SKP 활용성 검증을 위한 SKP 위에서 데이터 사이언스를 진행해보는 프로젝트을 위한 저장소입니다.</p>
+<p>현재 st-kilda-pier 에서 제공되는 도구들은 아래와 같습니다.</p>
+<ul>
+<li>Jupyter<ul>
+<li>Jupyter Kernel: Python2/3, Scala, R, Julia, Go</li>
+<li>Jupyter Kernel Gateway</li>
+<li>Machine Learning<ul>
+<li>Python2/3 Lib: tensorflow CPU/GPU, pytorch CPU/GPU, keras, pandas, scikit-learn, .. etc</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Spark</li>
+<li>Airflow</li>
+<li>Portainer</li>
+<li>Kafka</li>
+<li>Zookeeper</li>
+<li>Nginx</li>
+<li>Flask</li>
+</ul>
+<p>현재 notebooks-skp 에서는 SKP 상에서 mnist 데이터 셋을 기반으로 가상의 데이터 사이언스 프로젝트를 만들어 데이터 수집/처리/분석/제공 까지의 진행 단계를 볼수 있는 예제 성격의 프로젝트가 처음으로 올려져있습니다.</p>
+<p>앞으로 SKP 관련된 이야기들은 SKP를 포함한 제목으로 지속적으로 이곳에 블로깅될 예정입니다.</p>
+
+</div>
+</div>
+</div>
+    </div>
+  </div>
+
+            </div>
+        </div>
+        <div class="post">
             <h1 class="title"><a href="posts/2018-pyspark-python-version-mismatch/">2018-pyspark-python-version-mismatch</a></h1>
             <div class="meta">
                 <div class="authordate">
@@ -1010,44 +1074,9 @@ jupyter에서 Terminal 창을 열고 아래 명령으로 수행해 봅니다.</p
 
             </div>
         </div>
-        <div class="post">
-            <h1 class="title"><a href="posts/2017-python-hello/">2017-python-hello</a></h1>
-            <div class="meta">
-                <div class="authordate">
-                    <time class="timeago" datetime="2017-08-12T00:00:00+09:00">2017-08-12 00:00</time>
-</div>
-                <div class="stats">
-                                <a href="posts/2017-python-hello/#disqus_thread" data-disqus-identifier="cache/posts/2017-python-hello.html">Comments</a>
-
-
-                </div>
-            
-            </div>
-            <div class="body">
-                <div tabindex="-1" id="notebook" class="border-box-sizing">
-    <div class="container" id="notebook-container">
-
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [1]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="s2">"hello"</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-    </div>
-  </div>
-
-            </div>
-        </div>
             <nav class="postindexpager"><ul class="pager">
 <li class="next">
-                <a href="index-7.html" rel="next">Older posts</a>
+                <a href="index-8.html" rel="next">Older posts</a>
             </li>
         </ul></nav><script>var disqus_shortname="comafire";(function(){var a=document.createElement("script");a.async=true;a.src="https://"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script><footer id="footer"><p>Contents © 2018         <a href="mailto:comafire@gmail.com">comafire</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         </p>
             

@@ -27,7 +27,7 @@
  </url>
  <url>
   <loc>https://comafire.github.io/archive.html</loc>
-  <lastmod>2018-07-15T08:26:00Z</lastmod>
+  <lastmod>2018-07-22T06:14:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/categories/</loc>
@@ -35,7 +35,7 @@
  </url>
  <url>
   <loc>https://comafire.github.io/galleries/</loc>
-  <lastmod>2018-07-15T08:26:00Z</lastmod>
+  <lastmod>2018-07-22T06:14:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/galleries/.ipynb_checkpoints/</loc>
@@ -71,7 +71,7 @@
  </url>
  <url>
   <loc>https://comafire.github.io/index-8.html</loc>
-  <lastmod>2018-07-15T08:26:00Z</lastmod>
+  <lastmod>2018-07-22T06:14:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/posts/2015-Docker-Proxy-Certificates-Ubuntu/</loc>
@@ -226,8 +226,20 @@
   <lastmod>2018-03-07T09:23:00Z</lastmod>
  </url>
  <url>
+  <loc>https://comafire.github.io/posts/2018-convert-letsencrypt-pem-to-pfx/</loc>
+  <lastmod>2018-07-22T06:14:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://comafire.github.io/posts/2018-notebooks-skp/</loc>
+  <lastmod>2018-07-22T06:14:00Z</lastmod>
+ </url>
+ <url>
   <loc>https://comafire.github.io/posts/2018-pyspark-python-version-mismatch/</loc>
   <lastmod>2018-06-04T19:59:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://comafire.github.io/posts/2018-skp-mnist/</loc>
+  <lastmod>2018-07-22T06:14:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/posts/2018-st-kilda-pier/</loc>

@@ -177,7 +177,7 @@ THEME_CONFIG = {
         # Show the first (remaining) two featured posts in small boxes.
         'featured_small': True,
         # Show featured posts on mobile.
-        'featured_on_mobile': True,
+        'featured_on_mobile': False,
         # Show image in `featured_large` on mobile.
         # `featured_small` displays them only on desktop.
         'featured_large_image_on_mobile': True,

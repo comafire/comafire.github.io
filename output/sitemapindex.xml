@@ -6,19 +6,15 @@
     xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <sitemap>
-  <loc>https://comafire.github.io/galleries/.ipynb_checkpoints/rss.xml</loc>
-  <lastmod>2018-07-15T08:26:00Z</lastmod>
- </sitemap>
- <sitemap>
   <loc>https://comafire.github.io/galleries/rss.xml</loc>
-  <lastmod>2018-07-22T06:14:00Z</lastmod>
+  <lastmod>2019-02-09T11:44:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://comafire.github.io/rss.xml</loc>
-  <lastmod>2018-07-22T06:14:00Z</lastmod>
+  <lastmod>2019-02-09T11:44:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://comafire.github.io/sitemap.xml</loc>
-  <lastmod>2018-07-22T06:14:00Z</lastmod>
+  <lastmod>2019-02-09T11:44:00Z</lastmod>
  </sitemap>
 </sitemapindex>

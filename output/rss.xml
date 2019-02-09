@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title>comafire</title><link>https://comafire.github.io/</link><description>comafire's lab</description><atom:link href="https://comafire.github.io/rss.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><lastBuildDate>Sun, 22 Jul 2018 06:14:04 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>2018-convert-letsencrypt-pem-to-pfx</title><link>https://comafire.github.io/posts/2018-convert-letsencrypt-pem-to-pfx/</link><dc:creator>comafire</dc:creator><description>&lt;div tabindex="-1" id="notebook" class="border-box-sizing"&gt;
-    &lt;div class="container" id="notebook-container"&gt;
-
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
+<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Comafire's Lab</title><link>https://comafire.github.io/</link><description>Comafire's Lab</description><atom:link href="https://comafire.github.io/rss.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><copyright>Contents © 2019 &lt;a href="mailto:comafire@gmail.com"&gt;comafire&lt;/a&gt; </copyright><lastBuildDate>Sat, 09 Feb 2019 11:44:30 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>2018-convert-letsencrypt-pem-to-pfx</title><link>https://comafire.github.io/posts/2018-convert-letsencrypt-pem-to-pfx/</link><dc:creator>comafire</dc:creator><description>&lt;div&gt;&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;p&gt;웹 서버 브라우저와의 안전한 통신을 위해 HTTPS를 사용하기 위해서는 SSL 인증서가 필요합니다.&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://letsencrypt.org"&gt;https://letsencrypt.org&lt;/a&gt; 을 이용하면, 개인용이나, 개발용으로 싱글 DNS에 대해서 SSL 인증서를 발급받는 것을 무료로 진행할 수 있습니다.&lt;/p&gt;
@@ -58,14 +54,20 @@ IMPORTANT NOTES:
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-</description><guid>https://comafire.github.io/posts/2018-convert-letsencrypt-pem-to-pfx/</guid><pubDate>Sat, 21 Jul 2018 15:00:00 GMT</pubDate></item><item><title>2018-skp-mnist</title><link>https://comafire.github.io/posts/2018-skp-mnist/</link><dc:creator>comafire</dc:creator><description>&lt;div tabindex="-1" id="notebook" class="border-box-sizing"&gt;
-    &lt;div class="container" id="notebook-container"&gt;
-
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [ ]:&lt;/div&gt;
 &lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt; 
+&lt;/pre&gt;&lt;/div&gt;
+
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;&lt;/div&gt;</description><guid>https://comafire.github.io/posts/2018-convert-letsencrypt-pem-to-pfx/</guid><pubDate>Sat, 21 Jul 2018 15:00:00 GMT</pubDate></item><item><title>2018-skp-mnist</title><link>https://comafire.github.io/posts/2018-skp-mnist/</link><dc:creator>comafire</dc:creator><description>&lt;div&gt;&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h2 id="README"&gt;README&lt;a class="anchor-link" href="https://comafire.github.io/posts/2018-skp-mnist/#README"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;MNIST 데이터 셋을 우편 번호 손글씨 인식이라는 가상 프로젝트의 데이터 셋으로 가정하여 SKP 상에서 간단한 Data Science 프로젝트를 진행해 봅니다.&lt;/p&gt;
 &lt;ul&gt;
@@ -86,8 +88,7 @@ IMPORTANT NOTES:
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h2 id="Business-Understanding"&gt;Business Understanding&lt;a class="anchor-link" href="https://comafire.github.io/posts/2018-skp-mnist/#Business-Understanding"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;비지니스의 이해를 통해 풀어야 할 문제에 대한 정의와 프로젝트의 목표 및 결과를 설정.&lt;/p&gt;
 &lt;h3 id="Business-Problem"&gt;Business Problem&lt;a class="anchor-link" href="https://comafire.github.io/posts/2018-skp-mnist/#Business-Problem"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;우편물 분류에 우편 번호를 현재는 사람을 통해서 분류하고 있어 시간과 비용이 많이 들고 있음.&lt;/p&gt;
@@ -108,8 +109,7 @@ IMPORTANT NOTES:
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h2 id="Analytic-Approach"&gt;Analytic Approach&lt;a class="anchor-link" href="https://comafire.github.io/posts/2018-skp-mnist/#Analytic-Approach"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;통계, 머신러닝 기술을 이용하여 프로젝트 결과를 위한 접근방법 정의.&lt;/p&gt;
 &lt;p&gt;주저인 손 글씨 사진을 0~9 숫자로 판별하는 Classification 문제임.&lt;/p&gt;
@@ -123,8 +123,7 @@ IMPORTANT NOTES:
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h2 id="Data-Requirements"&gt;Data Requirements&lt;a class="anchor-link" href="https://comafire.github.io/posts/2018-skp-mnist/#Data-Requirements"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;데이터 모델링에 사용될 알고리즘에 따라 필요한 데이터의 요구 사항정의.&lt;/p&gt;
 &lt;p&gt;손 글씨 분류를 위해 0~9 각 클래스에 대한 램덤 샘플링된 5천개 이상의 데이터가 필요할 것으로 예상됨.&lt;/p&gt;
@@ -133,8 +132,7 @@ IMPORTANT NOTES:
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h2 id="Data-Collection"&gt;Data Collection&lt;a class="anchor-link" href="https://comafire.github.io/posts/2018-skp-mnist/#Data-Collection"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;데이터 모델링에 사용될 데이터 Raw Data 수집 방법 정의.&lt;/p&gt;
 &lt;p&gt;자동 우편 분류 프로젝트에서 AWS 상에 램덤 샘플 데이터를 제공(이라고 가정하고, Keras 에서 제공하는 인터페이스를 사용).&lt;/p&gt;
@@ -150,8 +148,7 @@ IMPORTANT NOTES:
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h2 id="Data-Understanding"&gt;Data Understanding&lt;a class="anchor-link" href="https://comafire.github.io/posts/2018-skp-mnist/#Data-Understanding"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;제공된 데이터에 대한 통계적, 시각적 방법을 통해 초기 데이터를 이해.&lt;/p&gt;
 &lt;p&gt;이를 토대로 다른 분석 프로세스의 방향과 추가 필요 사항들에 대한 영향을 줌.&lt;/p&gt;
@@ -168,8 +165,7 @@ IMPORTANT NOTES:
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h2 id="Data-Preparation"&gt;Data Preparation&lt;a class="anchor-link" href="https://comafire.github.io/posts/2018-skp-mnist/#Data-Preparation"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Data Collection 을 통해 수집된 Raw Data 를 각 모델에서 필요한 입력 데이터 형태에 맞게 변형.&lt;/p&gt;
 &lt;p&gt;EDA를 통해 얻은 데이터 정보와 Analytic Approach를 통해 생각한 모델링 방식에서 합의가 이루어 졌으면 각 모델에 필요한 데이터 입력을 만듭니다.&lt;/p&gt;
@@ -187,8 +183,7 @@ IMPORTANT NOTES:
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h2 id="Data-Modeling"&gt;Data Modeling&lt;a class="anchor-link" href="https://comafire.github.io/posts/2018-skp-mnist/#Data-Modeling"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Data Preparation 을 통해 제공된 훈련용 입력 데이터를 이용해 데이터 모델 훈련.&lt;/p&gt;
 &lt;p&gt;Baseline Model용 Data Modeling&lt;/p&gt;
@@ -205,8 +200,7 @@ IMPORTANT NOTES:
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h2 id="Model-Evaluation"&gt;Model Evaluation&lt;a class="anchor-link" href="https://comafire.github.io/posts/2018-skp-mnist/#Model-Evaluation"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Data Modeling 을 통해 훈련된 모델을 이용해 테스트 데이터에 대한 모델 성능을 평가.&lt;/p&gt;
 &lt;p&gt;Evaluate Data Model&lt;/p&gt;
@@ -218,8 +212,7 @@ IMPORTANT NOTES:
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h2 id="Build-Data-Product"&gt;Build Data Product&lt;a class="anchor-link" href="https://comafire.github.io/posts/2018-skp-mnist/#Build-Data-Product"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;최종 선택된 데이터 모델을 이용하여 Data Product 을 구축.&lt;/p&gt;
 &lt;p&gt;소스 디렉토리 구조&lt;/p&gt;
@@ -305,7 +298,7 @@ IMPORTANT NOTES:
 &lt;span class="n"&gt;Image&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'../galleries/2018-skp-mnist-001.png'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;width&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;1024&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
-&lt;/div&gt;
+    &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
@@ -315,7 +308,7 @@ IMPORTANT NOTES:
 
 &lt;div class="output_area"&gt;
 
-&lt;div class="prompt output_prompt"&gt;Out[1]:&lt;/div&gt;
+    &lt;div class="prompt output_prompt"&gt;Out[1]:&lt;/div&gt;
 
 
 
@@ -331,22 +324,27 @@ IMPORTANT NOTES:
 
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h2 id="Feedback"&gt;Feedback&lt;a class="anchor-link" href="https://comafire.github.io/posts/2018-skp-mnist/#Feedback"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Data Product 사용자들의 Feedback 을 받아 전체 프로세스를 순환하면서 발전 시킴.&lt;/p&gt;
 
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-</description><guid>https://comafire.github.io/posts/2018-skp-mnist/</guid><pubDate>Sat, 21 Jul 2018 15:00:00 GMT</pubDate></item><item><title>2018-notebooks-skp</title><link>https://comafire.github.io/posts/2018-notebooks-skp/</link><dc:creator>comafire</dc:creator><description>&lt;div tabindex="-1" id="notebook" class="border-box-sizing"&gt;
-    &lt;div class="container" id="notebook-container"&gt;
-
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [ ]:&lt;/div&gt;
 &lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt; 
+&lt;/pre&gt;&lt;/div&gt;
+
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;&lt;/div&gt;</description><guid>https://comafire.github.io/posts/2018-skp-mnist/</guid><pubDate>Sat, 21 Jul 2018 15:00:00 GMT</pubDate></item><item><title>2018-notebooks-skp</title><link>https://comafire.github.io/posts/2018-notebooks-skp/</link><dc:creator>comafire</dc:creator><description>&lt;div&gt;&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h2 id="Data-Product-Projects"&gt;Data Product Projects&lt;a class="anchor-link" href="https://comafire.github.io/posts/2018-notebooks-skp/#Data-Product-Projects"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;notebooks-skp 는 St. Kilda Pier 상에서 오픈된 데이터 셋을 이용하여 다양한 데이터 사이언스 프로젝트를 진행할 예정입니다.&lt;/p&gt;
 &lt;p&gt;SKP 위에서 Data Collection 부터 Data Product 빌드까지 진행해 보면서, 데이터 사이언스 전반의 스킬들을 이해하고 적용하는 역활을 수행할 것입니다.&lt;/p&gt;
@@ -365,8 +363,7 @@ IMPORTANT NOTES:
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h2 id="Directory-Structure"&gt;Directory Structure&lt;a class="anchor-link" href="https://comafire.github.io/posts/2018-notebooks-skp/#Directory-Structure"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;notebooks-skp에서 사용하는 프로젝트 템플릿 디렉토리 구조는 아래와 같습니다.&lt;/p&gt;
 &lt;pre&gt;
@@ -383,8 +380,7 @@ IMPORTANT NOTES:
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h2 id="Data-Science-Methodology"&gt;Data Science Methodology&lt;a class="anchor-link" href="https://comafire.github.io/posts/2018-notebooks-skp/#Data-Science-Methodology"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Data Product를 위한 데이터 사시언스 프로젝트를 진행할때, 구조적으로 진행하기 위해서 각 팀마다 자신의 팀들에게 맞는 프로세스를 정의하고 사용하게 됩니다. 여기서는 KDD 에서 제시하였던 프로세스를 약간 수정해서 사용합니다.&lt;/p&gt;
 
@@ -401,7 +397,7 @@ IMPORTANT NOTES:
 &lt;span class="n"&gt;Image&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'../galleries/2018-notebooks-skp-001.png'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;width&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;1024&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
-&lt;/div&gt;
+    &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
@@ -411,7 +407,7 @@ IMPORTANT NOTES:
 
 &lt;div class="output_area"&gt;
 
-&lt;div class="prompt output_prompt"&gt;Out[1]:&lt;/div&gt;
+    &lt;div class="prompt output_prompt"&gt;Out[1]:&lt;/div&gt;
 
 
 
@@ -427,8 +423,7 @@ IMPORTANT NOTES:
 
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;ul&gt;
 &lt;li&gt;Business Understanding&lt;ul&gt;
@@ -476,14 +471,20 @@ IMPORTANT NOTES:
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-</description><guid>https://comafire.github.io/posts/2018-notebooks-skp/</guid><pubDate>Sat, 14 Jul 2018 15:00:00 GMT</pubDate></item><item><title>2018-st-kilda-pier</title><link>https://comafire.github.io/posts/2018-st-kilda-pier/</link><dc:creator>comafire</dc:creator><description>&lt;div tabindex="-1" id="notebook" class="border-box-sizing"&gt;
-    &lt;div class="container" id="notebook-container"&gt;
-
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [ ]:&lt;/div&gt;
 &lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt; 
+&lt;/pre&gt;&lt;/div&gt;
+
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;&lt;/div&gt;</description><guid>https://comafire.github.io/posts/2018-notebooks-skp/</guid><pubDate>Sat, 14 Jul 2018 15:00:00 GMT</pubDate></item><item><title>2018-st-kilda-pier</title><link>https://comafire.github.io/posts/2018-st-kilda-pier/</link><dc:creator>comafire</dc:creator><description>&lt;div&gt;&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h2 id="Docker-Cluster-based-Data-Science-Platform-for-Big-Data"&gt;Docker Cluster based Data Science Platform for Big Data&lt;a class="anchor-link" href="https://comafire.github.io/posts/2018-st-kilda-pier/#Docker-Cluster-based-Data-Science-Platform-for-Big-Data"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;데이터 사이언스를 하면서 그동안 필요한 많은 도구들을 설치하고 설정하는 작업을 진행해 오다가, 개인적으로 시작때 마다 하는 삽질의 양을 줄이기 위해 사용해보고 좋은 도구들은 Docker 에 넣어서 정형화 하는 작업들을 해왔습니다.&lt;/p&gt;
 &lt;p&gt;많은 상용 플랫폼들이 존재하지만, 개인적인 중/소규모 데이터 사이언스 프로젝트를 진행하는데, 클라우드에 분석 클러스터를 올려놓고 쓰기에는 비용이 부담스러운 면이 없지 않아 있습니다.&lt;/p&gt;
@@ -507,7 +508,7 @@ IMPORTANT NOTES:
 &lt;span class="n"&gt;Image&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'../galleries/2018-st-kilda-pier-001.png'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;width&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;1024&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
-&lt;/div&gt;
+    &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
@@ -517,7 +518,7 @@ IMPORTANT NOTES:
 
 &lt;div class="output_area"&gt;
 
-&lt;div class="prompt output_prompt"&gt;Out[1]:&lt;/div&gt;
+    &lt;div class="prompt output_prompt"&gt;Out[1]:&lt;/div&gt;
 
 
 
@@ -533,8 +534,7 @@ IMPORTANT NOTES:
 
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;p&gt;저장소는 2군데로 나뉘어져 있습니다. 하나는 SKP 프로젝트를 위한 저장소이고, 하나는 SKP 활용성 검증을 위한 SKP 위에서 데이터 사이언스를 진행해보는 프로젝트을 위한 저장소입니다.&lt;/p&gt;
 &lt;p&gt;현재 st-kilda-pier 에서 제공되는 도구들은 아래와 같습니다.&lt;/p&gt;
@@ -562,14 +562,20 @@ IMPORTANT NOTES:
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-</description><guid>https://comafire.github.io/posts/2018-st-kilda-pier/</guid><pubDate>Sat, 30 Jun 2018 15:00:00 GMT</pubDate></item><item><title>2018-pyspark-python-version-mismatch</title><link>https://comafire.github.io/posts/2018-pyspark-python-version-mismatch/</link><dc:creator>comafire</dc:creator><description>&lt;div tabindex="-1" id="notebook" class="border-box-sizing"&gt;
-    &lt;div class="container" id="notebook-container"&gt;
-
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [ ]:&lt;/div&gt;
 &lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt; 
+&lt;/pre&gt;&lt;/div&gt;
+
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;&lt;/div&gt;</description><guid>https://comafire.github.io/posts/2018-st-kilda-pier/</guid><pubDate>Sat, 30 Jun 2018 15:00:00 GMT</pubDate></item><item><title>2018-pyspark-python-version-mismatch</title><link>https://comafire.github.io/posts/2018-pyspark-python-version-mismatch/</link><dc:creator>comafire</dc:creator><description>&lt;div&gt;&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;p&gt;Jupyter Python3 Kernel 을 이용해서 Pyspark으로 Spark Cluster를 통해 Job 을 수행 할때, 아래와 같이 Driver 와 Worker 들간에 Python 버전 충돌이 일어 날 때가 있습니다.&lt;/p&gt;
 
@@ -589,14 +595,20 @@ spark = spark.getOrCreate()&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-</description><guid>https://comafire.github.io/posts/2018-pyspark-python-version-mismatch/</guid><pubDate>Fri, 25 May 2018 15:00:00 GMT</pubDate></item><item><title>2018-bitcoin-core-basic</title><link>https://comafire.github.io/posts/2018-bitcoin-core-basic/</link><dc:creator>comafire</dc:creator><description>&lt;div tabindex="-1" id="notebook" class="border-box-sizing"&gt;
-    &lt;div class="container" id="notebook-container"&gt;
-
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [ ]:&lt;/div&gt;
 &lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt; 
+&lt;/pre&gt;&lt;/div&gt;
+
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;&lt;/div&gt;</description><guid>https://comafire.github.io/posts/2018-pyspark-python-version-mismatch/</guid><pubDate>Fri, 25 May 2018 15:00:00 GMT</pubDate></item><item><title>2018-bitcoin-core-basic</title><link>https://comafire.github.io/posts/2018-bitcoin-core-basic/</link><dc:creator>comafire</dc:creator><description>&lt;div&gt;&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;p&gt;Bitcoin에 대한 구조를 알아보기 위해 일단 Bitcoin을 설치해보고 간단하게 거래 테스트를 해보았습니다.&lt;/p&gt;
 
@@ -604,8 +616,7 @@ spark = spark.getOrCreate()&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h2 id="Bitcoin-설치"&gt;Bitcoin 설치&lt;a class="anchor-link" href="https://comafire.github.io/posts/2018-bitcoin-core-basic/#Bitcoin-%EC%84%A4%EC%B9%98"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;운영체제: Ubuntu 16.04 LTS&lt;/p&gt;
 &lt;p&gt;Github 에서 bitcoin 소스를 다운로드 받습니다.&lt;/p&gt;
@@ -645,8 +656,7 @@ make&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h2 id="Bitcoin-Core-실행"&gt;Bitcoin Core 실행&lt;a class="anchor-link" href="https://comafire.github.io/posts/2018-bitcoin-core-basic/#Bitcoin-Core-%EC%8B%A4%ED%96%89"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;비트코인을 실제 네트워크 상에서 돌리기보다는 동작 방식을 익히기 위해 테스트로 사용합니다.&lt;/p&gt;
 &lt;ul&gt;
@@ -664,8 +674,7 @@ make&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h2 id="Bitcoin-거래-테스트"&gt;Bitcoin 거래 테스트&lt;a class="anchor-link" href="https://comafire.github.io/posts/2018-bitcoin-core-basic/#Bitcoin-%EA%B1%B0%EB%9E%98-%ED%85%8C%EC%8A%A4%ED%8A%B8"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;송금 테스트를 하기 위해서 테스트용 비트코인을 생성해 봅니다. 블록을 생성(채굴)한 보상으로 비트코인을 받을 수 있으며, 채굴자는 보상 후 100블록 이후에 송금이 가능하기 때문에 101개의 블록을 생성해 봅니다.&lt;/p&gt;
 
@@ -782,12 +791,19 @@ bitcoin-cli -regtest getbalance comafire
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-</description><guid>https://comafire.github.io/posts/2018-bitcoin-core-basic/</guid><pubDate>Fri, 02 Mar 2018 15:00:00 GMT</pubDate></item><item><title>2017-python-jupyter-kernel-gateway-for-rest-api</title><link>https://comafire.github.io/posts/2017-python-jupyter-kernel-gateway-for-rest-api/</link><dc:creator>comafire</dc:creator><description>&lt;div tabindex="-1" id="notebook" class="border-box-sizing"&gt;
-    &lt;div class="container" id="notebook-container"&gt;
-
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [ ]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+    &lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt; 
+&lt;/pre&gt;&lt;/div&gt;
+
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;&lt;/div&gt;</description><guid>https://comafire.github.io/posts/2018-bitcoin-core-basic/</guid><pubDate>Fri, 02 Mar 2018 15:00:00 GMT</pubDate></item><item><title>2017-python-jupyter-kernel-gateway-for-rest-api</title><link>https://comafire.github.io/posts/2017-python-jupyter-kernel-gateway-for-rest-api/</link><dc:creator>comafire</dc:creator><description>&lt;div&gt;&lt;div class="cell border-box-sizing code_cell rendered"&gt;
 &lt;div class="input"&gt;
 &lt;div class="prompt input_prompt"&gt;In [1]:&lt;/div&gt;
 &lt;div class="inner_cell"&gt;
@@ -810,7 +826,7 @@ bitcoin-cli -regtest getbalance comafire
 &lt;span class="n"&gt;pd&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;set_option&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'display.max_colwidth'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
-&lt;/div&gt;
+    &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
@@ -819,7 +835,9 @@ bitcoin-cli -regtest getbalance comafire
 
 
 &lt;div class="output_area"&gt;
-&lt;div class="prompt"&gt;&lt;/div&gt;
+
+    &lt;div class="prompt"&gt;&lt;/div&gt;
+
 
 
 &lt;div class="output_html rendered_html output_subarea "&gt;
@@ -852,15 +870,13 @@ bitcoin-cli -regtest getbalance comafire
     &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;json&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;dumps&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;indent&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;sort_keys&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="bp"&gt;True&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
-&lt;/div&gt;
+    &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
 &lt;/div&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h2 id="README"&gt;README&lt;a class="anchor-link" href="https://comafire.github.io/posts/2017-python-jupyter-kernel-gateway-for-rest-api/#README"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;데이터 분석을 할때에는 주로 jupyter에서 python를 많이 사용합니다. 머신 사양이 좋다면 pyspark을 이용하여 데이터 전처리시 편하게 대용량 램과 멀티코어를 활용할 수도 있고, python에 있는 많은 편리한 유틸과 머신러닝 라이브러리도 생산성을 배가 시켜 줍니다. 게다가 간단한 PoC를 위한 개발을 하면서 문서화 및 발표자료까지 한번에 만들수 있다는 매력도 있습니다.&lt;/p&gt;
 &lt;p&gt;&lt;/p&gt;&lt;p&gt;
@@ -880,10 +896,8 @@ bitcoin-cli -regtest getbalance comafire
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h2 id="Module"&gt;Module&lt;a class="anchor-link" href="https://comafire.github.io/posts/2017-python-jupyter-kernel-gateway-for-rest-api/#Module"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;현재 kernel_gateway 모듈은 하나의 jupyter 파일(.ipynb)만 Server로 띄울수 있습니다. 간단한 PoC의 경우 한 파일안에 모든 구현을 담는게 가능하지만, 코드의 가독성을 위해서라도 모듈로 분리하는 것이 좋습니다. jupyter에서는 다른 파일을 로드할 수 있는 %run 매직 키워드를 제공합니다.&lt;/p&gt;
 &lt;p&gt;&lt;/p&gt;&lt;p&gt;
@@ -964,7 +978,7 @@ bitcoin-cli -regtest getbalance comafire
 &lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="k"&gt;run&lt;/span&gt; ./2017-python-jupyter-kernel-gateway-module.ipynb
 &lt;/pre&gt;&lt;/div&gt;
 
-&lt;/div&gt;
+    &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
@@ -973,7 +987,9 @@ bitcoin-cli -regtest getbalance comafire
 
 
 &lt;div class="output_area"&gt;
-&lt;div class="prompt"&gt;&lt;/div&gt;
+
+    &lt;div class="prompt"&gt;&lt;/div&gt;
+
 
 
 &lt;div class="output_html rendered_html output_subarea "&gt;
@@ -986,10 +1002,8 @@ bitcoin-cli -regtest getbalance comafire
 &lt;/div&gt;
 
 &lt;/div&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h2 id="Store"&gt;Store&lt;a class="anchor-link" href="https://comafire.github.io/posts/2017-python-jupyter-kernel-gateway-for-rest-api/#Store"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Restful API를 위해 모듈안에 예제로 만들어 놓은 Store 클래스를 생성합니다.&lt;/p&gt;
 
@@ -1004,15 +1018,13 @@ bitcoin-cli -regtest getbalance comafire
 &lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;store&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Store&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
-&lt;/div&gt;
+    &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
 &lt;/div&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h3 id="POST-/store/:user_id"&gt;POST /store/:user_id&lt;a class="anchor-link" href="https://comafire.github.io/posts/2017-python-jupyter-kernel-gateway-for-rest-api/#POST-/store/:user_id"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;kernel_gateway 에 handler를 호출하기 위한 코드가 이미 구현되어 있기 때문에 독립된 셀안에 handler 만 작성해 주면 됩니다.&lt;/p&gt;
 &lt;p&gt;&lt;/p&gt;&lt;p&gt;
@@ -1040,7 +1052,7 @@ handler 코드는 독립된 셀에 "# [POST/GET/PUT/DELETE] /url" 형식으로 �
 &lt;span class="p"&gt;})&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
-&lt;/div&gt;
+    &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
@@ -1056,7 +1068,7 @@ handler 코드는 독립된 셀에 "# [POST/GET/PUT/DELETE] /url" 형식으로 �
 &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;res&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
-&lt;/div&gt;
+    &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
@@ -1065,7 +1077,9 @@ handler 코드는 독립된 셀에 "# [POST/GET/PUT/DELETE] /url" 형식으로 �
 
 
 &lt;div class="output_area"&gt;
-&lt;div class="prompt"&gt;&lt;/div&gt;
+
+    &lt;div class="prompt"&gt;&lt;/div&gt;
+
 
 &lt;div class="output_subarea output_stream output_stdout output_text"&gt;
 &lt;pre&gt;{"status": "SUCCESS", "name": "user1 store"}
@@ -1077,10 +1091,8 @@ handler 코드는 독립된 셀에 "# [POST/GET/PUT/DELETE] /url" 형식으로 �
 &lt;/div&gt;
 
 &lt;/div&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h3 id="GET-/store/:user_id"&gt;GET /store/:user_id&lt;a class="anchor-link" href="https://comafire.github.io/posts/2017-python-jupyter-kernel-gateway-for-rest-api/#GET-/store/:user_id"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;이제 저장한 store를 GET 를 통해 가져오는 handler를 수행해 보겠습니다.&lt;/p&gt;
 
@@ -1097,7 +1109,7 @@ handler 코드는 독립된 셀에 "# [POST/GET/PUT/DELETE] /url" 형식으로 �
 &lt;span class="p"&gt;})&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
-&lt;/div&gt;
+    &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
@@ -1113,7 +1125,7 @@ handler 코드는 독립된 셀에 "# [POST/GET/PUT/DELETE] /url" 형식으로 �
 &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;res&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
-&lt;/div&gt;
+    &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
@@ -1122,7 +1134,9 @@ handler 코드는 독립된 셀에 "# [POST/GET/PUT/DELETE] /url" 형식으로 �
 
 
 &lt;div class="output_area"&gt;
-&lt;div class="prompt"&gt;&lt;/div&gt;
+
+    &lt;div class="prompt"&gt;&lt;/div&gt;
+
 
 &lt;div class="output_subarea output_stream output_stdout output_text"&gt;
 &lt;pre&gt;{"status": "SUCCESS", "name": "user1 store"}
@@ -1134,10 +1148,8 @@ handler 코드는 독립된 셀에 "# [POST/GET/PUT/DELETE] /url" 형식으로 �
 &lt;/div&gt;
 
 &lt;/div&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;p&gt;이제 Restful API 작성이 끝났습니다.&lt;/p&gt;
 &lt;p&gt;&lt;/p&gt;&lt;p&gt;
@@ -1152,10 +1164,8 @@ handler 코드는 독립된 셀에 "# [POST/GET/PUT/DELETE] /url" 형식으로 �
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h2 id="Test"&gt;Test&lt;a class="anchor-link" href="https://comafire.github.io/posts/2017-python-jupyter-kernel-gateway-for-rest-api/#Test"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;이제 현재까지 작성한 파일을 kernel_gateway 모듈을 이용하여 Restful API 서버로 띄운 후에 request 모듈을 이용하여 실 테스트를 진행해 봅니다.&lt;/p&gt;
 &lt;p&gt;&lt;/p&gt;&lt;p&gt;
@@ -1179,10 +1189,8 @@ jupyter에서 Terminal 창을 열고 아래 명령으로 수행해 봅니다.&lt
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h3 id="EndPoint"&gt;EndPoint&lt;a class="anchor-link" href="https://comafire.github.io/posts/2017-python-jupyter-kernel-gateway-for-rest-api/#EndPoint"&gt;¶&lt;/a&gt;&lt;/h3&gt;
 &lt;/div&gt;
@@ -1196,15 +1204,13 @@ jupyter에서 Terminal 창을 열고 아래 명령으로 수행해 봅니다.&lt
 &lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;URL&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;'http://127.0.0.1:8088'&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
-&lt;/div&gt;
+    &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
 &lt;/div&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h3 id="POST-/store/:user_id"&gt;POST /store/:user_id&lt;a class="anchor-link" href="https://comafire.github.io/posts/2017-python-jupyter-kernel-gateway-for-rest-api/#POST-/store/:user_id"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;POST 메서드에 대해 서버에 실제 요청을 보내서 테스트해봅니다.&lt;/p&gt;
 
@@ -1225,7 +1231,7 @@ jupyter에서 Terminal 창을 열고 아래 명령으로 수행해 봅니다.&lt
     &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;res&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;json&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
-&lt;/div&gt;
+    &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
@@ -1234,7 +1240,9 @@ jupyter에서 Terminal 창을 열고 아래 명령으로 수행해 봅니다.&lt
 
 
 &lt;div class="output_area"&gt;
-&lt;div class="prompt"&gt;&lt;/div&gt;
+
+    &lt;div class="prompt"&gt;&lt;/div&gt;
+
 
 &lt;div class="output_subarea output_stream output_stdout output_text"&gt;
 &lt;pre&gt;{u'status': u'SUCCESS', u'name': u'user2 store'}
@@ -1246,10 +1254,8 @@ jupyter에서 Terminal 창을 열고 아래 명령으로 수행해 봅니다.&lt
 &lt;/div&gt;
 
 &lt;/div&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h3 id="GET-/store/:user_id"&gt;GET /store/:user_id&lt;a class="anchor-link" href="https://comafire.github.io/posts/2017-python-jupyter-kernel-gateway-for-rest-api/#GET-/store/:user_id"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;GET 메서드에 대해 서버에 실제 요청을 보내서 테스트해봅니다.&lt;/p&gt;
 
@@ -1267,7 +1273,7 @@ jupyter에서 Terminal 창을 열고 아래 명령으로 수행해 봅니다.&lt
     &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;res&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;json&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
-&lt;/div&gt;
+    &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
@@ -1276,7 +1282,9 @@ jupyter에서 Terminal 창을 열고 아래 명령으로 수행해 봅니다.&lt
 
 
 &lt;div class="output_area"&gt;
-&lt;div class="prompt"&gt;&lt;/div&gt;
+
+    &lt;div class="prompt"&gt;&lt;/div&gt;
+
 
 &lt;div class="output_subarea output_stream output_stdout output_text"&gt;
 &lt;pre&gt;{u'status': u'SUCCESS', u'name': u'user2 store'}
@@ -1288,22 +1296,14 @@ jupyter에서 Terminal 창을 열고 아래 명령으로 수행해 봅니다.&lt
 &lt;/div&gt;
 
 &lt;/div&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;p&gt;지금 까지 jupyter 상에서 kernel_gateway 모듈을 통해서 편리하게 Restful API 서버를 개발하는 법에 대해서 알아봤습니다.&lt;/p&gt;
 
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;/div&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-</description><guid>https://comafire.github.io/posts/2017-python-jupyter-kernel-gateway-for-rest-api/</guid><pubDate>Fri, 15 Sep 2017 15:00:00 GMT</pubDate></item><item><title>2017-python-jupyter-kernel-gateway-module</title><link>https://comafire.github.io/posts/2017-python-jupyter-kernel-gateway-module/</link><dc:creator>comafire</dc:creator><description>&lt;div tabindex="-1" id="notebook" class="border-box-sizing"&gt;
-    &lt;div class="container" id="notebook-container"&gt;
-
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;/div&gt;&lt;/div&gt;</description><guid>https://comafire.github.io/posts/2017-python-jupyter-kernel-gateway-for-rest-api/</guid><pubDate>Fri, 15 Sep 2017 15:00:00 GMT</pubDate></item><item><title>2017-python-jupyter-kernel-gateway-module</title><link>https://comafire.github.io/posts/2017-python-jupyter-kernel-gateway-module/</link><dc:creator>comafire</dc:creator><description>&lt;div&gt;&lt;div class="cell border-box-sizing code_cell rendered"&gt;
 &lt;div class="input"&gt;
 &lt;div class="prompt input_prompt"&gt;In [1]:&lt;/div&gt;
 &lt;div class="inner_cell"&gt;
@@ -1326,7 +1326,7 @@ jupyter에서 Terminal 창을 열고 아래 명령으로 수행해 봅니다.&lt
 &lt;span class="n"&gt;pd&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;set_option&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'display.max_colwidth'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
-&lt;/div&gt;
+    &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
@@ -1335,7 +1335,9 @@ jupyter에서 Terminal 창을 열고 아래 명령으로 수행해 봅니다.&lt
 
 
 &lt;div class="output_area"&gt;
-&lt;div class="prompt"&gt;&lt;/div&gt;
+
+    &lt;div class="prompt"&gt;&lt;/div&gt;
+
 
 
 &lt;div class="output_html rendered_html output_subarea "&gt;
@@ -1365,7 +1367,7 @@ jupyter에서 Terminal 창을 열고 아래 명령으로 수행해 봅니다.&lt
 &lt;span class="n"&gt;log&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;setLevel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;logging&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;INFO&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
-&lt;/div&gt;
+    &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
@@ -1408,17 +1410,11 @@ jupyter에서 Terminal 창을 열고 아래 명령으로 수행해 봅니다.&lt
         &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;json&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;dumps&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;res&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
     &lt;/div&gt;
-  &lt;/div&gt;
-</description><guid>https://comafire.github.io/posts/2017-python-jupyter-kernel-gateway-module/</guid><pubDate>Fri, 15 Sep 2017 15:00:00 GMT</pubDate></item><item><title>2017-python-hello</title><link>https://comafire.github.io/posts/2017-python-hello/</link><dc:creator>comafire</dc:creator><description>&lt;div tabindex="-1" id="notebook" class="border-box-sizing"&gt;
-    &lt;div class="container" id="notebook-container"&gt;
+&lt;/div&gt;
+&lt;/div&gt;
 
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;/div&gt;&lt;/div&gt;</description><guid>https://comafire.github.io/posts/2017-python-jupyter-kernel-gateway-module/</guid><pubDate>Fri, 15 Sep 2017 15:00:00 GMT</pubDate></item><item><title>2017-python-hello</title><link>https://comafire.github.io/posts/2017-python-hello/</link><dc:creator>comafire</dc:creator><description>&lt;div class="cell border-box-sizing code_cell rendered"&gt;
 &lt;div class="input"&gt;
 &lt;div class="prompt input_prompt"&gt;In [1]:&lt;/div&gt;
 &lt;div class="inner_cell"&gt;
@@ -1426,20 +1422,12 @@ jupyter에서 Terminal 창을 열고 아래 명령으로 수행해 봅니다.&lt
 &lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"hello"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;
     &lt;/div&gt;
-  &lt;/div&gt;
-</description><guid>https://comafire.github.io/posts/2017-python-hello/</guid><pubDate>Fri, 11 Aug 2017 15:00:00 GMT</pubDate></item><item><title>2017-python-jupyter-notebook-tips</title><link>https://comafire.github.io/posts/2017-python-jupyter-notebook-tips/</link><dc:creator>comafire</dc:creator><description>&lt;div tabindex="-1" id="notebook" class="border-box-sizing"&gt;
-    &lt;div class="container" id="notebook-container"&gt;
-
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;
-&lt;div class="inner_cell"&gt;
+&lt;/div&gt;
+
+&lt;/div&gt;</description><guid>https://comafire.github.io/posts/2017-python-hello/</guid><pubDate>Fri, 11 Aug 2017 15:00:00 GMT</pubDate></item><item><title>2017-python-jupyter-notebook-tips</title><link>https://comafire.github.io/posts/2017-python-jupyter-notebook-tips/</link><dc:creator>comafire</dc:creator><description>&lt;div&gt;&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;p&gt;Jupyter Notebook 에서 Python을 이용해서 데이터를 분석할때 유용했던 팁들을 모아서 업데이트 중입니다.&lt;/p&gt;
 &lt;p&gt;글 상으로 감이 안오시는 부분은 한번씩 따라서 실행해 보시면 어떤 부분이 변경되는지 쉽게 아실 겁니다.&lt;/p&gt;
@@ -1447,10 +1435,8 @@ jupyter에서 Terminal 창을 열고 아래 명령으로 수행해 봅니다.&lt
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h3 id="numpy-프린트시-소수점-갯수-지정"&gt;numpy 프린트시 소수점 갯수 지정&lt;a class="anchor-link" href="https://comafire.github.io/posts/2017-python-jupyter-notebook-tips/#numpy-%ED%94%84%EB%A6%B0%ED%8A%B8%EC%8B%9C-%EC%86%8C%EC%88%98%EC%A0%90-%EA%B0%AF%EC%88%98-%EC%A7%80%EC%A0%95"&gt;¶&lt;/a&gt;&lt;/h3&gt;
 &lt;/div&gt;
@@ -1468,7 +1454,7 @@ jupyter에서 Terminal 창을 열고 아래 명령으로 수행해 봅니다.&lt
 &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;array&lt;/span&gt;&lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="mf"&gt;0.1234567&lt;/span&gt;&lt;span class="p"&gt;]))&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
-&lt;/div&gt;
+    &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
@@ -1477,7 +1463,9 @@ jupyter에서 Terminal 창을 열고 아래 명령으로 수행해 봅니다.&lt
 
 
 &lt;div class="output_area"&gt;
-&lt;div class="prompt"&gt;&lt;/div&gt;
+
+    &lt;div class="prompt"&gt;&lt;/div&gt;
+
 
 &lt;div class="output_subarea output_stream output_stdout output_text"&gt;
 &lt;pre&gt;[ 0.1235]
@@ -1489,10 +1477,8 @@ jupyter에서 Terminal 창을 열고 아래 명령으로 수행해 봅니다.&lt
 &lt;/div&gt;
 
 &lt;/div&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h3 id="pandas-의-DataFrame-Full-Display"&gt;pandas 의 DataFrame Full Display&lt;a class="anchor-link" href="https://comafire.github.io/posts/2017-python-jupyter-notebook-tips/#pandas-%EC%9D%98-DataFrame-Full-Display"&gt;¶&lt;/a&gt;&lt;/h3&gt;
 &lt;/div&gt;
@@ -1512,7 +1498,7 @@ jupyter에서 Terminal 창을 열고 아래 명령으로 수행해 봅니다.&lt
 &lt;span class="n"&gt;df&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;head&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
-&lt;/div&gt;
+    &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
@@ -1521,7 +1507,9 @@ jupyter에서 Terminal 창을 열고 아래 명령으로 수행해 봅니다.&lt
 
 
 &lt;div class="output_area"&gt;
-&lt;div class="prompt output_prompt"&gt;Out[2]:&lt;/div&gt;
+
+    &lt;div class="prompt output_prompt"&gt;Out[2]:&lt;/div&gt;
+
 
 
 &lt;div class="output_html rendered_html output_subarea output_execute_result"&gt;
@@ -1617,7 +1605,7 @@ jupyter에서 Terminal 창을 열고 아래 명령으로 수행해 봅니다.&lt
 &lt;span class="n"&gt;df&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;head&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
-&lt;/div&gt;
+    &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
@@ -1626,7 +1614,9 @@ jupyter에서 Terminal 창을 열고 아래 명령으로 수행해 봅니다.&lt
 
 
 &lt;div class="output_area"&gt;
-&lt;div class="prompt output_prompt"&gt;Out[3]:&lt;/div&gt;
+
+    &lt;div class="prompt output_prompt"&gt;Out[3]:&lt;/div&gt;
+
 
 
 &lt;div class="output_html rendered_html output_subarea output_execute_result"&gt;
@@ -1802,10 +1792,8 @@ jupyter에서 Terminal 창을 열고 아래 명령으로 수행해 봅니다.&lt
 &lt;/div&gt;
 
 &lt;/div&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h3 id="실행한-모든-결과-한-결과창에-표시하기"&gt;실행한 모든 결과 한 결과창에 표시하기&lt;a class="anchor-link" href="https://comafire.github.io/posts/2017-python-jupyter-notebook-tips/#%EC%8B%A4%ED%96%89%ED%95%9C-%EB%AA%A8%EB%93%A0-%EA%B2%B0%EA%B3%BC-%ED%95%9C-%EA%B2%B0%EA%B3%BC%EC%B0%BD%EC%97%90-%ED%91%9C%EC%8B%9C%ED%95%98%EA%B8%B0"&gt;¶&lt;/a&gt;&lt;/h3&gt;
 &lt;/div&gt;
@@ -1823,7 +1811,7 @@ jupyter에서 Terminal 창을 열고 아래 명령으로 수행해 봅니다.&lt
 &lt;span class="n"&gt;df&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;tail&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
-&lt;/div&gt;
+    &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
@@ -1832,7 +1820,9 @@ jupyter에서 Terminal 창을 열고 아래 명령으로 수행해 봅니다.&lt
 
 
 &lt;div class="output_area"&gt;
-&lt;div class="prompt output_prompt"&gt;Out[4]:&lt;/div&gt;
+
+    &lt;div class="prompt output_prompt"&gt;Out[4]:&lt;/div&gt;
+
 
 
 &lt;div class="output_html rendered_html output_subarea output_execute_result"&gt;
@@ -1904,10 +1894,8 @@ jupyter에서 Terminal 창을 열고 아래 명령으로 수행해 봅니다.&lt
 &lt;/div&gt;
 
 &lt;/div&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h3 id="브라우저-width-전체-사용하기"&gt;브라우저 width 전체 사용하기&lt;a class="anchor-link" href="https://comafire.github.io/posts/2017-python-jupyter-notebook-tips/#%EB%B8%8C%EB%9D%BC%EC%9A%B0%EC%A0%80-width-%EC%A0%84%EC%B2%B4-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0"&gt;¶&lt;/a&gt;&lt;/h3&gt;
 &lt;/div&gt;
@@ -1922,7 +1910,7 @@ jupyter에서 Terminal 창을 열고 아래 명령으로 수행해 봅니다.&lt
 &lt;span class="n"&gt;display&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;HTML&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"&amp;lt;style&amp;gt;.container { width:100% !important; }&amp;lt;/style&amp;gt;"&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
-&lt;/div&gt;
+    &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
@@ -1931,7 +1919,9 @@ jupyter에서 Terminal 창을 열고 아래 명령으로 수행해 봅니다.&lt
 
 
 &lt;div class="output_area"&gt;
-&lt;div class="prompt"&gt;&lt;/div&gt;
+
+    &lt;div class="prompt"&gt;&lt;/div&gt;
+
 
 
 &lt;div class="output_html rendered_html output_subarea "&gt;
@@ -1944,10 +1934,8 @@ jupyter에서 Terminal 창을 열고 아래 명령으로 수행해 봅니다.&lt
 &lt;/div&gt;
 
 &lt;/div&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h3 id="matplotlib-그래프를-결과창에-출력"&gt;matplotlib 그래프를 결과창에 출력&lt;a class="anchor-link" href="https://comafire.github.io/posts/2017-python-jupyter-notebook-tips/#matplotlib-%EA%B7%B8%EB%9E%98%ED%94%84%EB%A5%BC-%EA%B2%B0%EA%B3%BC%EC%B0%BD%EC%97%90-%EC%B6%9C%EB%A0%A5"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;matplotlib를 사용하여 만들어진 다른 유용한 그래프 라이브러리를 사용시에도 필요합니다.&lt;/p&gt;
 &lt;ul&gt;
@@ -1972,7 +1960,7 @@ jupyter에서 Terminal 창을 열고 아래 명령으로 수행해 봅니다.&lt
 &lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;plot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;df&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt; &lt;span class="c1"&gt;# 출력시 ; 를 사용하면 결과창에 그래프만 출력&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
-&lt;/div&gt;
+    &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
@@ -1981,7 +1969,9 @@ jupyter에서 Terminal 창을 열고 아래 명령으로 수행해 봅니다.&lt
 
 
 &lt;div class="output_area"&gt;
-&lt;div class="prompt"&gt;&lt;/div&gt;
+
+    &lt;div class="prompt"&gt;&lt;/div&gt;
+
 
 
 
@@ -1995,10 +1985,8 @@ jupyter에서 Terminal 창을 열고 아래 명령으로 수행해 봅니다.&lt
 &lt;/div&gt;
 
 &lt;/div&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h3 id="단축키"&gt;단축키&lt;a class="anchor-link" href="https://comafire.github.io/posts/2017-python-jupyter-notebook-tips/#%EB%8B%A8%EC%B6%95%ED%82%A4"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;Esc: 명령 모드로 전환&lt;ul&gt;
@@ -2021,10 +2009,8 @@ jupyter에서 Terminal 창을 열고 아래 명령으로 수행해 봅니다.&lt
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h3 id="매직키"&gt;매직키&lt;a class="anchor-link" href="https://comafire.github.io/posts/2017-python-jupyter-notebook-tips/#%EB%A7%A4%EC%A7%81%ED%82%A4"&gt;¶&lt;/a&gt;&lt;/h3&gt;
 &lt;/div&gt;
@@ -2039,7 +2025,7 @@ jupyter에서 Terminal 창을 열고 아래 명령으로 수행해 봅니다.&lt
 &lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="k"&gt;lsmagic&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
-&lt;/div&gt;
+    &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
@@ -2048,7 +2034,9 @@ jupyter에서 Terminal 창을 열고 아래 명령으로 수행해 봅니다.&lt
 
 
 &lt;div class="output_area"&gt;
-&lt;div class="prompt output_prompt"&gt;Out[7]:&lt;/div&gt;
+
+    &lt;div class="prompt output_prompt"&gt;Out[7]:&lt;/div&gt;
+
 
 
 
@@ -2078,7 +2066,7 @@ Automagic is ON, % prefix IS NOT needed for line magics.&lt;/pre&gt;
 &lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="k"&gt;env&lt;/span&gt; 
 &lt;/pre&gt;&lt;/div&gt;
 
-&lt;/div&gt;
+    &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
@@ -2087,7 +2075,9 @@ Automagic is ON, % prefix IS NOT needed for line magics.&lt;/pre&gt;
 
 
 &lt;div class="output_area"&gt;
-&lt;div class="prompt"&gt;&lt;/div&gt;
+
+    &lt;div class="prompt"&gt;&lt;/div&gt;
+
 
 &lt;div class="output_subarea output_stream output_stdout output_text"&gt;
 &lt;pre&gt;env: TEST="True"
@@ -2096,7 +2086,9 @@ Automagic is ON, % prefix IS NOT needed for line magics.&lt;/pre&gt;
 &lt;/div&gt;
 
 &lt;div class="output_area"&gt;
-&lt;div class="prompt output_prompt"&gt;Out[8]:&lt;/div&gt;
+
+    &lt;div class="prompt output_prompt"&gt;Out[8]:&lt;/div&gt;
+
 
 
 
@@ -2141,7 +2133,7 @@ Automagic is ON, % prefix IS NOT needed for line magics.&lt;/pre&gt;
 &lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="k"&gt;run&lt;/span&gt; ./2017-python-hello.ipynb
 &lt;/pre&gt;&lt;/div&gt;
 
-&lt;/div&gt;
+    &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
@@ -2150,7 +2142,9 @@ Automagic is ON, % prefix IS NOT needed for line magics.&lt;/pre&gt;
 
 
 &lt;div class="output_area"&gt;
-&lt;div class="prompt"&gt;&lt;/div&gt;
+
+    &lt;div class="prompt"&gt;&lt;/div&gt;
+
 
 &lt;div class="output_subarea output_stream output_stdout output_text"&gt;
 &lt;pre&gt;hello
@@ -2171,7 +2165,7 @@ Automagic is ON, % prefix IS NOT needed for line magics.&lt;/pre&gt;
 &lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="k"&gt;timeit&lt;/span&gt; np.random.normal(size=100)
 &lt;/pre&gt;&lt;/div&gt;
 
-&lt;/div&gt;
+    &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
@@ -2180,7 +2174,9 @@ Automagic is ON, % prefix IS NOT needed for line magics.&lt;/pre&gt;
 
 
 &lt;div class="output_area"&gt;
-&lt;div class="prompt"&gt;&lt;/div&gt;
+
+    &lt;div class="prompt"&gt;&lt;/div&gt;
+
 
 &lt;div class="output_subarea output_stream output_stdout output_text"&gt;
 &lt;pre&gt;The slowest run took 30.13 times longer than the fastest. This could mean that an intermediate result is being cached.
@@ -2202,7 +2198,7 @@ Automagic is ON, % prefix IS NOT needed for line magics.&lt;/pre&gt;
 &lt;span class="o"&gt;!&lt;/span&gt;date
 &lt;/pre&gt;&lt;/div&gt;
 
-&lt;/div&gt;
+    &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
@@ -2211,7 +2207,9 @@ Automagic is ON, % prefix IS NOT needed for line magics.&lt;/pre&gt;
 
 
 &lt;div class="output_area"&gt;
-&lt;div class="prompt"&gt;&lt;/div&gt;
+
+    &lt;div class="prompt"&gt;&lt;/div&gt;
+
 
 &lt;div class="output_subarea output_stream output_stdout output_text"&gt;
 &lt;pre&gt;Wed Sep 27 08:37:36 UTC 2017
@@ -2223,16 +2221,11 @@ Automagic is ON, % prefix IS NOT needed for line magics.&lt;/pre&gt;
 &lt;/div&gt;
 
 &lt;/div&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;p&gt;계속 추가 중입니다..&lt;/p&gt;
 
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;/div&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-</description><guid>https://comafire.github.io/posts/2017-python-jupyter-notebook-tips/</guid><pubDate>Fri, 11 Aug 2017 15:00:00 GMT</pubDate></item></channel></rss>
+&lt;/div&gt;&lt;/div&gt;</description><guid>https://comafire.github.io/posts/2017-python-jupyter-notebook-tips/</guid><pubDate>Fri, 11 Aug 2017 15:00:00 GMT</pubDate></item></channel></rss>

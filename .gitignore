@@ -96,3 +96,5 @@ ENV/
 **/models/
 **/logs/
 **/tmp/
+
+**/.DS_Store

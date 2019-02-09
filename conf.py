@@ -1177,13 +1177,14 @@ MARKDOWN_EXTENSIONS = ['markdown.extensions.fenced_code', 'markdown.extensions.c
 SEARCH_FORM = """
 <!-- Google custom search -->
 <form method="get" action="https://www.google.com/search" class="navbar-form navbar-right" role="search">
-<div class="form-group">
-<input type="text" name="q" class="form-control" placeholder="Search">
-<button type="submit" class="btn btn-primary">
-	<span class="glyphicon glyphicon-search">Go</span>
-</button>
-<input type="hidden" name="sitesearch" value="%s">
+<div class="input-group">
+  <input type="text" class="form-control" placeholder="Search">
+  <div class="input-group-append">
+    <button class="btn btn-primary" type="submit">Go</button>
+  </div>
+  <input type="hidden" name="sitesearch" value="%s">  
 </div>
+
 </form>
 <!-- End of custom search -->
 """ % SITE_URL

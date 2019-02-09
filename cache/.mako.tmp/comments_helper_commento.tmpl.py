@@ -5,12 +5,12 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1549714955.1347132
+_modified_time = 1549720477.8835993
 _enable_loop = True
-_template_filename = '/Users/comafire/Projects/comafire/macbookpro/nikola/lib/python3.7/site-packages/nikola/data/themes/base/templates/comments_helper_commento.tmpl'
+_template_filename = '/usr/local/lib/python3.5/dist-packages/nikola/data/themes/base/templates/comments_helper_commento.tmpl'
 _template_uri = 'comments_helper_commento.tmpl'
 _source_encoding = 'utf-8'
-_exports = ['comment_form', 'comment_link', 'comment_link_script']
+_exports = ['comment_link', 'comment_form', 'comment_link_script']
 
 
 def render_body(context,**pageargs):
@@ -26,21 +26,21 @@ def render_body(context,**pageargs):
         context.caller_stack._pop_frame()
 
 
-def render_comment_form(context,url,title,identifier):
-    __M_caller = context.caller_stack._push_frame()
-    try:
-        __M_writer = context.writer()
-        __M_writer('\n    <div id="commento"></div>\n')
-        return ''
-    finally:
-        context.caller_stack._pop_frame()
-
-
 def render_comment_link(context,link,identifier):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_writer = context.writer()
         __M_writer('\n')
+        return ''
+    finally:
+        context.caller_stack._pop_frame()
+
+
+def render_comment_form(context,url,title,identifier):
+    __M_caller = context.caller_stack._push_frame()
+    try:
+        __M_writer = context.writer()
+        __M_writer('\n    <div id="commento"></div>\n')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -63,6 +63,6 @@ def render_comment_link_script(context):
 
 """
 __M_BEGIN_METADATA
-{"filename": "/Users/comafire/Projects/comafire/macbookpro/nikola/lib/python3.7/site-packages/nikola/data/themes/base/templates/comments_helper_commento.tmpl", "uri": "comments_helper_commento.tmpl", "source_encoding": "utf-8", "line_map": {"16": 0, "21": 4, "22": 7, "23": 19, "29": 2, "33": 2, "39": 6, "43": 6, "49": 10, "54": 10, "55": 11, "56": 11, "57": 15, "58": 15, "64": 58}}
+{"filename": "/usr/local/lib/python3.5/dist-packages/nikola/data/themes/base/templates/comments_helper_commento.tmpl", "line_map": {"64": 58, "33": 6, "54": 10, "39": 2, "57": 15, "43": 2, "16": 0, "49": 10, "21": 4, "22": 7, "23": 19, "56": 11, "55": 11, "58": 15, "29": 6}, "uri": "comments_helper_commento.tmpl", "source_encoding": "utf-8"}
 __M_END_METADATA
 """

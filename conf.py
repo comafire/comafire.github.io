@@ -159,7 +159,7 @@ NAVIGATION_ALT_LINKS = {
 }
 
 # Name of the theme to use.
-THEME = "bootblog4"
+THEME = "bootstrap4"
 
 # Primary color of your theme. This will be used to customize your theme.
 # Must be a HEX value.
@@ -177,7 +177,7 @@ THEME_CONFIG = {
         # Show the first (remaining) two featured posts in small boxes.
         'featured_small': True,
         # Show featured posts on mobile.
-        'featured_on_mobile': False,
+        'featured_on_mobile': True,
         # Show image in `featured_large` on mobile.
         # `featured_small` displays them only on desktop.
         'featured_large_image_on_mobile': True,

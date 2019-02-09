@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# " lang="en">
+<html prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article#
+" lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="description" content="Comafire's Lab">
@@ -8,7 +9,6 @@
 <link href="../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
 <link href="../assets/css/ipython.min.css" rel="stylesheet" type="text/css">
 <link href="../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
-<link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900" rel="stylesheet">
 <meta name="theme-color" content="#5670d4">
 <meta name="generator" content="Nikola (getnikola.com)">
 <link rel="alternate" type="application/rss+xml" title="RSS" href="../rss.xml">
@@ -31,41 +31,22 @@
 <body>
 <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
 
-<!-- Header and menu bar -->
-<div class="container">
-      <header class="blog-header py-3"><div class="row nbb-header align-items-center">
-          <div class="col-md-3 col-xs-2 col-sm-2" style="width: auto;">
-            <button class="navbar-toggler navbar-light bg-light nbb-navbar-toggler" type="button" data-toggle="collapse" data-target=".bs-nav-collapsible" aria-controls="bs-navbar" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse bs-nav-collapsible bootblog4-search-form-holder">
-                
-<!-- Google custom search -->
-<form method="get" action="https://www.google.com/search" class="navbar-form navbar-right" role="search">
-<div class="form-group">
-<input type="text" name="q" class="form-control" placeholder="Search">
-</div>
-<button type="submit" class="btn btn-primary">
-	<span class="glyphicon glyphicon-search">Go</span>
-</button>
-<input type="hidden" name="sitesearch" value="https://comafire.github.io/">
-</form>
-<!-- End of custom search -->
+<!-- Menubar -->
 
-            </div>
-        </div>
-          <div class="col-md-6 col-xs-10 col-sm-10 bootblog4-brand" style="width: auto;">
-            <a class="navbar-brand blog-header-logo text-dark" href="https://comafire.github.io/">
+<nav class="navbar navbar-expand-md static-top mb-4
+navbar-dark bg-dark
+"><div class="container">
+<!-- This keeps the margins nice -->
+        <a class="navbar-brand" href="https://comafire.github.io/">
 
             <span id="blog-title">Comafire's Lab</span>
         </a>
-          </div>
-            <div class="col-md-3 justify-content-end align-items-center bs-nav-collapsible collapse flex-collapse bootblog4-right-nav">
-            <nav class="navbar navbar-light bg-white"><ul class="navbar-nav bootblog4-right-nav"></ul></nav>
-</div>
-    </div>
-</header><nav class="navbar navbar-expand-md navbar-light bg-white static-top"><div class="collapse navbar-collapse bs-nav-collapsible" id="bs-navbar">
-            <ul class="navbar-nav nav-fill d-flex w-100">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="bs-navbar">
+            <ul class="navbar-nav mr-auto">
 <li class="nav-item">
 <a href="../index.html" class="nav-link">Home</a>
             </li>
@@ -91,40 +72,52 @@
                 
             </li>
 </ul>
+<!-- Google custom search --><form method="get" action="https://www.google.com/search" class="navbar-form navbar-right" role="search">
+<div class="form-group">
+<input type="text" name="q" class="form-control" placeholder="Search">
+</div>
+<button type="submit" class="btn btn-primary">
+	<span class="glyphicon glyphicon-search">Go</span>
+</button>
+<input type="hidden" name="sitesearch" value="https://comafire.github.io/">
+</form>
+<!-- End of custom search -->
+
+
+            <ul class="navbar-nav navbar-right"></ul>
 </div>
 <!-- /.navbar-collapse -->
-</nav>
-</div>
-
-<div class="container" id="content" role="main">
+    </div>
+<!-- /.container -->
+</nav><!-- End of Menubar --><div class="container" id="content" role="main">
     <div class="body-content">
         <!--Body content-->
         
         
-    
-        
 
     
-        
-    <div class="postindex">
-            <article class="h-entry post-text" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title"><a href="2016-python-tf-mc-lr/" class="u-url">TensorFlow로 다중 로지스틱 분석 해보기</a></h1>
-                <div class="metadata">
-                    <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
-                        comafire
-                    </span></p>
+
+
+    
+<div class="postindex">
+    <article class="h-entry post-text" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title"><a href="2016-python-tf-mc-lr/" class="u-url">TensorFlow로 다중 로지스틱 분석 해보기</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                comafire
+            </span></p>
             <p class="dateline">
             <a href="2016-python-tf-mc-lr/" rel="bookmark">
             <time class="published dt-published" datetime="2016-01-01T00:00:00+09:00" itemprop="datePublished" title="2016-01-01 00:00">2016-01-01 00:00</time></a>
             </p>
-                        <p class="commentline">
+                <p class="commentline">
         
     <a href="2016-python-tf-mc-lr/#disqus_thread" data-disqus-identifier="cache/posts/2016-python-tf-mc-lr.html">Comments</a>
 
 
-                </p>
+        </p>
 </div>
-            </header><div class="p-summary entry-summary">
-                    <div>
+    </header><div class="p-summary entry-summary">
+    <div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -385,25 +378,25 @@ Weight: [[ 30.54532051   6.04274845 -35.08542633]
 
 </div>
 </div>
-                </div>
-            </article><article class="h-entry post-text" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title"><a href="2016-python-tf-mv-lr/" class="u-url">TensorFlow로 다중 선형 회귀분석 해보기</a></h1>
-                <div class="metadata">
-                    <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
-                        comafire
-                    </span></p>
+    </div>
+    </article><article class="h-entry post-text" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title"><a href="2016-python-tf-mv-lr/" class="u-url">TensorFlow로 다중 선형 회귀분석 해보기</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                comafire
+            </span></p>
             <p class="dateline">
             <a href="2016-python-tf-mv-lr/" rel="bookmark">
             <time class="published dt-published" datetime="2016-01-01T00:00:00+09:00" itemprop="datePublished" title="2016-01-01 00:00">2016-01-01 00:00</time></a>
             </p>
-                        <p class="commentline">
+                <p class="commentline">
         
     <a href="2016-python-tf-mv-lr/#disqus_thread" data-disqus-identifier="cache/posts/2016-python-tf-mv-lr.html">Comments</a>
 
 
-                </p>
+        </p>
 </div>
-            </header><div class="p-summary entry-summary">
-                    <div class="cell border-box-sizing text_cell rendered">
+    </header><div class="p-summary entry-summary">
+    <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
@@ -413,25 +406,25 @@ Weight: [[ 30.54532051   6.04274845 -35.08542633]
 </div>
 </div>
 </div>
-                </div>
-            </article><article class="h-entry post-text" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title"><a href="2016-python-tf-bc-lr/" class="u-url">TensorFlow로 단순 로지스틱 분석 해보기</a></h1>
-                <div class="metadata">
-                    <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
-                        comafire
-                    </span></p>
+    </div>
+    </article><article class="h-entry post-text" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title"><a href="2016-python-tf-bc-lr/" class="u-url">TensorFlow로 단순 로지스틱 분석 해보기</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                comafire
+            </span></p>
             <p class="dateline">
             <a href="2016-python-tf-bc-lr/" rel="bookmark">
             <time class="published dt-published" datetime="2016-01-01T00:00:00+09:00" itemprop="datePublished" title="2016-01-01 00:00">2016-01-01 00:00</time></a>
             </p>
-                        <p class="commentline">
+                <p class="commentline">
         
     <a href="2016-python-tf-bc-lr/#disqus_thread" data-disqus-identifier="cache/posts/2016-python-tf-bc-lr.html">Comments</a>
 
 
-                </p>
+        </p>
 </div>
-            </header><div class="p-summary entry-summary">
-                    <div class="cell border-box-sizing text_cell rendered">
+    </header><div class="p-summary entry-summary">
+    <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
@@ -441,25 +434,25 @@ Weight: [[ 30.54532051   6.04274845 -35.08542633]
 </div>
 </div>
 </div>
-                </div>
-            </article><article class="h-entry post-text" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title"><a href="2016-python-tf-sv-lr/" class="u-url">TensorFlow로 단순 회귀분석 해보기</a></h1>
-                <div class="metadata">
-                    <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
-                        comafire
-                    </span></p>
+    </div>
+    </article><article class="h-entry post-text" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title"><a href="2016-python-tf-sv-lr/" class="u-url">TensorFlow로 단순 회귀분석 해보기</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                comafire
+            </span></p>
             <p class="dateline">
             <a href="2016-python-tf-sv-lr/" rel="bookmark">
             <time class="published dt-published" datetime="2016-01-01T00:00:00+09:00" itemprop="datePublished" title="2016-01-01 00:00">2016-01-01 00:00</time></a>
             </p>
-                        <p class="commentline">
+                <p class="commentline">
         
     <a href="2016-python-tf-sv-lr/#disqus_thread" data-disqus-identifier="cache/posts/2016-python-tf-sv-lr.html">Comments</a>
 
 
-                </p>
+        </p>
 </div>
-            </header><div class="p-summary entry-summary">
-                    <div class="cell border-box-sizing text_cell rendered">
+    </header><div class="p-summary entry-summary">
+    <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
@@ -474,25 +467,25 @@ Weight: [[ 30.54532051   6.04274845 -35.08542633]
 </div>
 </div>
 </div>
-                </div>
-            </article><article class="h-entry post-text" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title"><a href="2016-python-tf-mnist/" class="u-url">TensorFlow로 손글씨 분류해보기</a></h1>
-                <div class="metadata">
-                    <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
-                        comafire
-                    </span></p>
+    </div>
+    </article><article class="h-entry post-text" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title"><a href="2016-python-tf-mnist/" class="u-url">TensorFlow로 손글씨 분류해보기</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                comafire
+            </span></p>
             <p class="dateline">
             <a href="2016-python-tf-mnist/" rel="bookmark">
             <time class="published dt-published" datetime="2016-01-01T00:00:00+09:00" itemprop="datePublished" title="2016-01-01 00:00">2016-01-01 00:00</time></a>
             </p>
-                        <p class="commentline">
+                <p class="commentline">
         
     <a href="2016-python-tf-mnist/#disqus_thread" data-disqus-identifier="cache/posts/2016-python-tf-mnist.html">Comments</a>
 
 
-                </p>
+        </p>
 </div>
-            </header><div class="p-summary entry-summary">
-                    <div class="cell border-box-sizing text_cell rendered">
+    </header><div class="p-summary entry-summary">
+    <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
@@ -503,25 +496,25 @@ Weight: [[ 30.54532051   6.04274845 -35.08542633]
 </div>
 </div>
 </div>
-                </div>
-            </article><article class="h-entry post-text" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title"><a href="2016-python-tf-cnn-mnist/" class="u-url">TensorFlow에서 CNN으로 Mnist분류해보기</a></h1>
-                <div class="metadata">
-                    <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
-                        comafire
-                    </span></p>
+    </div>
+    </article><article class="h-entry post-text" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title"><a href="2016-python-tf-cnn-mnist/" class="u-url">TensorFlow에서 CNN으로 Mnist분류해보기</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                comafire
+            </span></p>
             <p class="dateline">
             <a href="2016-python-tf-cnn-mnist/" rel="bookmark">
             <time class="published dt-published" datetime="2016-01-01T00:00:00+09:00" itemprop="datePublished" title="2016-01-01 00:00">2016-01-01 00:00</time></a>
             </p>
-                        <p class="commentline">
+                <p class="commentline">
         
     <a href="2016-python-tf-cnn-mnist/#disqus_thread" data-disqus-identifier="cache/posts/2016-python-tf-cnn-mnist.html">Comments</a>
 
 
-                </p>
+        </p>
 </div>
-            </header><div class="p-summary entry-summary">
-                    <div class="cell border-box-sizing text_cell rendered">
+    </header><div class="p-summary entry-summary">
+    <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
@@ -534,25 +527,25 @@ Weight: [[ 30.54532051   6.04274845 -35.08542633]
 </div>
 </div>
 </div>
-                </div>
-            </article><article class="h-entry post-text" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title"><a href="2016-python-tf-dnn-mnist/" class="u-url">TensorFlow에서 DNN으로 Mnist 분류해보기</a></h1>
-                <div class="metadata">
-                    <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
-                        comafire
-                    </span></p>
+    </div>
+    </article><article class="h-entry post-text" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title"><a href="2016-python-tf-dnn-mnist/" class="u-url">TensorFlow에서 DNN으로 Mnist 분류해보기</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                comafire
+            </span></p>
             <p class="dateline">
             <a href="2016-python-tf-dnn-mnist/" rel="bookmark">
             <time class="published dt-published" datetime="2016-01-01T00:00:00+09:00" itemprop="datePublished" title="2016-01-01 00:00">2016-01-01 00:00</time></a>
             </p>
-                        <p class="commentline">
+                <p class="commentline">
         
     <a href="2016-python-tf-dnn-mnist/#disqus_thread" data-disqus-identifier="cache/posts/2016-python-tf-dnn-mnist.html">Comments</a>
 
 
-                </p>
+        </p>
 </div>
-            </header><div class="p-summary entry-summary">
-                    <div class="cell border-box-sizing text_cell rendered">
+    </header><div class="p-summary entry-summary">
+    <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
@@ -563,25 +556,25 @@ Weight: [[ 30.54532051   6.04274845 -35.08542633]
 </div>
 </div>
 </div>
-                </div>
-            </article><article class="h-entry post-text" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title"><a href="2016-OSX-Pyspark-with-Jupyter/" class="u-url">맥에서 Jupyter 노트북으로 PySpark 사용하기</a></h1>
-                <div class="metadata">
-                    <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
-                        comafire
-                    </span></p>
+    </div>
+    </article><article class="h-entry post-text" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title"><a href="2016-OSX-Pyspark-with-Jupyter/" class="u-url">맥에서 Jupyter 노트북으로 PySpark 사용하기</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                comafire
+            </span></p>
             <p class="dateline">
             <a href="2016-OSX-Pyspark-with-Jupyter/" rel="bookmark">
             <time class="published dt-published" datetime="2016-01-01T00:00:00+09:00" itemprop="datePublished" title="2016-01-01 00:00">2016-01-01 00:00</time></a>
             </p>
-                        <p class="commentline">
+                <p class="commentline">
         
     <a href="2016-OSX-Pyspark-with-Jupyter/#disqus_thread" data-disqus-identifier="cache/posts/2016-OSX-Pyspark-with-Jupyter.html">Comments</a>
 
 
-                </p>
+        </p>
 </div>
-            </header><div class="p-summary entry-summary">
-                    <div class="cell border-box-sizing text_cell rendered">
+    </header><div class="p-summary entry-summary">
+    <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
@@ -594,25 +587,25 @@ Weight: [[ 30.54532051   6.04274845 -35.08542633]
 </div>
 </div>
 </div>
-                </div>
-            </article><article class="h-entry post-text" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title"><a href="2015-Docker-Proxy-Certificates-Ubuntu/" class="u-url">2015-Docker-Proxy-Certificates-Ubuntu</a></h1>
-                <div class="metadata">
-                    <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
-                        comafire
-                    </span></p>
+    </div>
+    </article><article class="h-entry post-text" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title"><a href="2015-Docker-Proxy-Certificates-Ubuntu/" class="u-url">2015-Docker-Proxy-Certificates-Ubuntu</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                comafire
+            </span></p>
             <p class="dateline">
             <a href="2015-Docker-Proxy-Certificates-Ubuntu/" rel="bookmark">
             <time class="published dt-published" datetime="2015-01-01T00:00:00+09:00" itemprop="datePublished" title="2015-01-01 00:00">2015-01-01 00:00</time></a>
             </p>
-                        <p class="commentline">
+                <p class="commentline">
         
     <a href="2015-Docker-Proxy-Certificates-Ubuntu/#disqus_thread" data-disqus-identifier="cache/posts/2015-Docker-Proxy-Certificates-Ubuntu.html">Comments</a>
 
 
-                </p>
+        </p>
 </div>
-            </header><div class="p-summary entry-summary">
-                    <div class="cell border-box-sizing text_cell rendered">
+    </header><div class="p-summary entry-summary">
+    <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
@@ -640,25 +633,25 @@ export https_proxy="https://&lt;proxy_ip&gt;:&lt;proxy_port&gt;"
 </div>
 </div>
 </div>
-                </div>
-            </article><article class="h-entry post-text" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title"><a href="2015-Julia/" class="u-url">2015-Julia</a></h1>
-                <div class="metadata">
-                    <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
-                        comafire
-                    </span></p>
+    </div>
+    </article><article class="h-entry post-text" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title"><a href="2015-Julia/" class="u-url">2015-Julia</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                comafire
+            </span></p>
             <p class="dateline">
             <a href="2015-Julia/" rel="bookmark">
             <time class="published dt-published" datetime="2015-01-01T00:00:00+09:00" itemprop="datePublished" title="2015-01-01 00:00">2015-01-01 00:00</time></a>
             </p>
-                        <p class="commentline">
+                <p class="commentline">
         
     <a href="2015-Julia/#disqus_thread" data-disqus-identifier="cache/posts/2015-Julia.html">Comments</a>
 
 
-                </p>
+        </p>
 </div>
-            </header><div class="p-summary entry-summary">
-                    <div class="cell border-box-sizing text_cell rendered">
+    </header><div class="p-summary entry-summary">
+    <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
@@ -735,10 +728,10 @@ julia&gt;</code></pre>
 </div>
 </div>
 </div>
-                </div>
-            </article>
+    </div>
+    </article>
 </div>
-    
+
         <ul class="pager postindexpager clearfix">
 <li class="previous"><a href="index-3.html" rel="prev">Newer posts</a></li>
             <li class="next"><a href="index-1.html" rel="next">Older posts</a></li>

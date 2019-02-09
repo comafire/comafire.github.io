@@ -159,7 +159,7 @@ NAVIGATION_ALT_LINKS = {
 }
 
 # Name of the theme to use.
-THEME = "bootstrap4"
+THEME = "bootblog4"
 
 # Primary color of your theme. This will be used to customize your theme.
 # Must be a HEX value.
@@ -1178,8 +1178,8 @@ SEARCH_FORM = """
 <!-- Google custom search -->
 <form method="get" action="https://www.google.com/search" class="navbar-form navbar-right" role="search">
 <div class="input-group">
-  <input type="hidden" name="sitesearch" value="%s">  
   <input type="text" class="form-control" placeholder="Search">
+  <input type="hidden" name="sitesearch" value="%s">    
   <div class="input-group-append">
     <button class="btn btn-primary" type="submit">Go</button>
   </div>

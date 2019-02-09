@@ -5,7 +5,7 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1549736482.6586826
+_modified_time = 1549736634.2668374
 _enable_loop = True
 _template_filename = '/usr/local/lib/python3.5/dist-packages/nikola/data/themes/base/templates/story.tmpl'
 _template_uri = 'story.tmpl'
@@ -20,8 +20,8 @@ def _mako_get_namespace(context, name):
         _mako_generate_namespaces(context)
         return context.namespaces[(__name__, name)]
 def _mako_generate_namespaces(context):
-    ns = runtime.TemplateNamespace('helper', context._clean_inheritance_tokens(), templateuri='post_helper.tmpl', callables=None,  calling_uri=_template_uri)
-    context.namespaces[(__name__, 'helper')] = ns
+    ns = runtime.TemplateNamespace('pheader', context._clean_inheritance_tokens(), templateuri='post_header.tmpl', callables=None,  calling_uri=_template_uri)
+    context.namespaces[(__name__, 'pheader')] = ns
 
     ns = runtime.TemplateNamespace('comments', context._clean_inheritance_tokens(), templateuri='comments_helper.tmpl', callables=None,  calling_uri=_template_uri)
     context.namespaces[(__name__, 'comments')] = ns
@@ -29,8 +29,8 @@ def _mako_generate_namespaces(context):
     ns = runtime.TemplateNamespace('math', context._clean_inheritance_tokens(), templateuri='math_helper.tmpl', callables=None,  calling_uri=_template_uri)
     context.namespaces[(__name__, 'math')] = ns
 
-    ns = runtime.TemplateNamespace('pheader', context._clean_inheritance_tokens(), templateuri='post_header.tmpl', callables=None,  calling_uri=_template_uri)
-    context.namespaces[(__name__, 'pheader')] = ns
+    ns = runtime.TemplateNamespace('helper', context._clean_inheritance_tokens(), templateuri='post_helper.tmpl', callables=None,  calling_uri=_template_uri)
+    context.namespaces[(__name__, 'helper')] = ns
 
 def _mako_inherit(template, context):
     _mako_generate_namespaces(context)
@@ -39,15 +39,15 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
-        enable_comments = context.get('enable_comments', UNDEFINED)
-        post = context.get('post', UNDEFINED)
-        messages = context.get('messages', UNDEFINED)
-        site_has_comments = context.get('site_has_comments', UNDEFINED)
+        pheader = _mako_get_namespace(context, 'pheader')
         comments = _mako_get_namespace(context, 'comments')
+        math = _mako_get_namespace(context, 'math')
+        post = context.get('post', UNDEFINED)
+        enable_comments = context.get('enable_comments', UNDEFINED)
+        messages = context.get('messages', UNDEFINED)
         def content():
             return render_content(context._locals(__M_locals))
-        math = _mako_get_namespace(context, 'math')
-        pheader = _mako_get_namespace(context, 'pheader')
+        site_has_comments = context.get('site_has_comments', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\n')
         __M_writer('\n')
@@ -67,15 +67,15 @@ def render_body(context,**pageargs):
 def render_content(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
-        enable_comments = context.get('enable_comments', UNDEFINED)
-        post = context.get('post', UNDEFINED)
-        messages = context.get('messages', UNDEFINED)
-        site_has_comments = context.get('site_has_comments', UNDEFINED)
+        pheader = _mako_get_namespace(context, 'pheader')
         comments = _mako_get_namespace(context, 'comments')
+        math = _mako_get_namespace(context, 'math')
+        post = context.get('post', UNDEFINED)
+        enable_comments = context.get('enable_comments', UNDEFINED)
+        messages = context.get('messages', UNDEFINED)
         def content():
             return render_content(context)
-        math = _mako_get_namespace(context, 'math')
-        pheader = _mako_get_namespace(context, 'pheader')
+        site_has_comments = context.get('site_has_comments', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\n<article class="post-')
         __M_writer(str(post.meta('type')))
@@ -102,6 +102,6 @@ def render_content(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"filename": "/usr/local/lib/python3.5/dist-packages/nikola/data/themes/base/templates/story.tmpl", "uri": "story.tmpl", "source_encoding": "utf-8", "line_map": {"96": 23, "67": 8, "23": 2, "80": 8, "81": 9, "82": 9, "83": 11, "84": 11, "85": 12, "86": 12, "87": 15, "88": 15, "89": 17, "26": 4, "91": 19, "92": 19, "29": 5, "94": 20, "95": 23, "32": 3, "97": 23, "90": 18, "38": 0, "103": 97, "93": 20, "52": 2, "53": 3, "54": 4, "55": 5, "56": 6, "61": 25}}
+{"source_encoding": "utf-8", "line_map": {"96": 23, "67": 8, "23": 3, "80": 8, "81": 9, "82": 9, "83": 11, "84": 11, "85": 12, "86": 12, "87": 15, "88": 15, "89": 17, "26": 4, "91": 19, "92": 19, "29": 5, "94": 20, "95": 23, "32": 2, "97": 23, "90": 18, "38": 0, "103": 97, "93": 20, "52": 2, "53": 3, "54": 4, "55": 5, "56": 6, "61": 25}, "uri": "story.tmpl", "filename": "/usr/local/lib/python3.5/dist-packages/nikola/data/themes/base/templates/story.tmpl"}
 __M_END_METADATA
 """

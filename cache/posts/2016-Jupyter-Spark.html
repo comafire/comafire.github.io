@@ -5,6 +5,8 @@
 <p>이전 글에서 Jupyter를 설치하고 Pelican을 이용하여 블로깅에 사용할수 있는 방법에 대해알아봤습니다.
 <a href="https://comafire.github.io/posts/2016-Jupyter-From-Dev-To-Blogging">Jupyter-From-Dev-To-Blogging</a></p>
 <p>이제 Jupyter 에서 로컬 노트북상에 Apache Spark을 사용할 수 있도록 연동해 보도록 하겠습니다.</p>
+<!-- TEASER_END -->
+
 <h3 id="Apache-Spark">Apache Spark<a class="anchor-link" href="#Apache-Spark">&#182;</a></h3><p>Spark으로 무엇을 해보려면 클러스터가 있어야 한다는 선입견에 빠지기 쉽습니다만, 요즘 보편화 되어 있는 멀티 코어 노트북의 장점을 복잡한 멀티코어, 멀티스레드 프로그래밍 없이 적극 활용가능하다는 측면에서 클러스터가 아닌 로컬 노트북상에서도 충분한 활용성이 있습니다.</p>
 <p>먼저, Java 가 설치되어 있는지 확인합니다.</p>
 <div class="highlight"><pre><span></span>&gt; which java

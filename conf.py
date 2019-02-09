@@ -1153,17 +1153,6 @@ INDEX_DISPLAY_POST_COUNT = 5
 # Default is no search form.
 # (translatable)
 SEARCH_FORM = """
-<script>
-  (function() {
-    var cx = '005893470698364930017:aji7qchnxfs';
-    var gcse = document.createElement('script');
-    gcse.type = 'text/javascript';
-    gcse.async = true;
-    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
-    var s = document.getElementsByTagName('script')[0];
-    s.parentNode.insertBefore(gcse, s);
-  })();
-</script>
 <gcse:search></gcse:search>
 """
 #
@@ -1235,6 +1224,18 @@ EXTRA_HEAD_DATA = """
   gtag('js', new Date());
 
   gtag('config', 'UA-81648003-1');
+</script>
+
+<script>
+  (function() {
+    var cx = '005893470698364930017:aji7qchnxfs';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
 </script>
 """
 # Google Analytics or whatever else you use. Added to the bottom of <body>

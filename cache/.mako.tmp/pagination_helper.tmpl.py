@@ -5,7 +5,7 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1549712893.254573
+_modified_time = 1549713164.285656
 _enable_loop = True
 _template_filename = '/Users/comafire/Projects/comafire/macbookpro/nikola/lib/python3.7/site-packages/nikola/data/themes/bootstrap4/templates/pagination_helper.tmpl'
 _template_uri = 'pagination_helper.tmpl'
@@ -29,8 +29,8 @@ def render_page_navigation(context,current_page,page_links,prevlink,nextlink,pre
     try:
         len = context.get('len', UNDEFINED)
         abs = context.get('abs', UNDEFINED)
-        messages = context.get('messages', UNDEFINED)
         enumerate = context.get('enumerate', UNDEFINED)
+        messages = context.get('messages', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\n<nav aria-label="Page navigation">\n  <ul class="pagination">\n')
         if prev_next_links_reversed:

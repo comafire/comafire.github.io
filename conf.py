@@ -139,7 +139,7 @@ NAVIGATION_LINKS = {
         ('/index.html', 'Home'),
         ((
             ('/pages/st-kilda-pier', 'St. Kilda Pier'),
-            ('/pages/notebooks-skp', 'Notebooks for St. Kilda Pier'),                        
+            ('/pages/notebooks-skp', 'Notebooks for St. Kilda Pier'),
         ), 'Pages'),
         ((
             ('/posts', 'Posts'),
@@ -1205,6 +1205,15 @@ SEARCH_FORM = """
 # before </head>
 # (translatable)
 EXTRA_HEAD_DATA = """
+<!-- Google Adsense -->
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({
+          google_ad_client: "ca-pub-0670106451680512",
+          enable_page_level_ads: true
+     });
+</script>
+
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-81648003-1"></script>
 <script>
@@ -1219,13 +1228,6 @@ EXTRA_HEAD_DATA = """
 # in the default template (base.tmpl).
 # (translatable)
 BODY_END = """
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({
-          google_ad_client: "ca-pub-0670106451680512",
-          enable_page_level_ads: true
-     });
-</script>
 """
 
 # The possibility to extract metadata from the filename by using a

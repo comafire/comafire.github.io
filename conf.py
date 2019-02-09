@@ -1179,11 +1179,11 @@ SEARCH_FORM = """
 <form method="get" action="https://www.google.com/search" class="navbar-form navbar-right" role="search">
 <div class="form-group">
 <input type="text" name="q" class="form-control" placeholder="Search">
-</div>
 <button type="submit" class="btn btn-primary">
 	<span class="glyphicon glyphicon-search">Go</span>
 </button>
 <input type="hidden" name="sitesearch" value="%s">
+</div>
 </form>
 <!-- End of custom search -->
 """ % SITE_URL

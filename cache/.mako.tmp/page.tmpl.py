@@ -5,7 +5,7 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1549735714.4338875
+_modified_time = 1549735845.9405906
 _enable_loop = True
 _template_filename = '/usr/local/lib/python3.5/dist-packages/nikola/data/themes/base/templates/page.tmpl'
 _template_uri = 'page.tmpl'
@@ -37,6 +37,6 @@ def render_body(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"line_map": {"32": 1, "27": 0, "38": 32}, "filename": "/usr/local/lib/python3.5/dist-packages/nikola/data/themes/base/templates/page.tmpl", "source_encoding": "utf-8", "uri": "page.tmpl"}
+{"uri": "page.tmpl", "source_encoding": "utf-8", "filename": "/usr/local/lib/python3.5/dist-packages/nikola/data/themes/base/templates/page.tmpl", "line_map": {"32": 1, "27": 0, "38": 32}}
 __M_END_METADATA
 """

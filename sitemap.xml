@@ -27,7 +27,7 @@
  </url>
  <url>
   <loc>https://comafire.github.io/archive.html</loc>
-  <lastmod>2019-02-09T18:38:00Z</lastmod>
+  <lastmod>2019-02-11T16:02:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/categories/</loc>
@@ -39,7 +39,11 @@
  </url>
  <url>
   <loc>https://comafire.github.io/pages/</loc>
-  <lastmod>2019-02-09T16:36:00Z</lastmod>
+  <lastmod>2019-02-11T15:59:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://comafire.github.io/pages/data-science-cookbook/</loc>
+  <lastmod>2019-02-11T15:59:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/pages/notebooks-skp-mnist/</loc>
@@ -231,18 +235,18 @@
  </url>
  <url>
   <loc>https://comafire.github.io/posts/index-1.html</loc>
-  <lastmod>2019-02-09T18:38:00Z</lastmod>
+  <lastmod>2019-02-11T16:02:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/posts/index-2.html</loc>
-  <lastmod>2019-02-09T18:38:00Z</lastmod>
+  <lastmod>2019-02-11T16:02:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/posts/index-3.html</loc>
-  <lastmod>2019-02-09T18:38:00Z</lastmod>
+  <lastmod>2019-02-11T16:02:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/posts/index-4.html</loc>
-  <lastmod>2019-02-09T18:38:00Z</lastmod>
+  <lastmod>2019-02-11T16:02:00Z</lastmod>
  </url>
 </urlset>

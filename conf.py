@@ -140,6 +140,7 @@ NAVIGATION_LINKS = {
         ((
             ('/pages/st-kilda-pier', 'St. Kilda Pier'),
             ('/pages/notebooks-skp', 'Notebooks for St. Kilda Pier'),
+            ('/pages/data-science-cookbook', 'Data Science Cookbook')            
         ), 'Pages'),
         ((
             ('/posts', 'Posts'),
@@ -983,7 +984,7 @@ COMMENT_SYSTEM_ID = "comafire"
 #          will not be generated for that directory.
 # PAGE_INDEX = False
 # Enable comments on pages (i.e. not posts)?
-# COMMENTS_IN_PAGES = False
+COMMENTS_IN_PAGES = True
 # Enable comments on picture gallery pages?
 # COMMENTS_IN_GALLERIES = False
 

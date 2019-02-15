@@ -5,7 +5,7 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1550273161.3994355
+_modified_time = 1550273529.4048395
 _enable_loop = True
 _template_filename = '/usr/local/lib/python3.5/dist-packages/nikola/data/themes/bootstrap4/templates/listing.tmpl'
 _template_uri = 'listing.tmpl'
@@ -30,17 +30,17 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
+        show_sourcelink = context.get('show_sourcelink', UNDEFINED)
+        title = context.get('title', UNDEFINED)
         def content():
             return render_content(context._locals(__M_locals))
-        title = context.get('title', UNDEFINED)
-        messages = context.get('messages', UNDEFINED)
-        crumbs = context.get('crumbs', UNDEFINED)
         ui = _mako_get_namespace(context, 'ui')
-        show_sourcelink = context.get('show_sourcelink', UNDEFINED)
-        folders = context.get('folders', UNDEFINED)
         code = context.get('code', UNDEFINED)
+        folders = context.get('folders', UNDEFINED)
+        crumbs = context.get('crumbs', UNDEFINED)
         def sourcelink():
             return render_sourcelink(context._locals(__M_locals))
+        messages = context.get('messages', UNDEFINED)
         files = context.get('files', UNDEFINED)
         source_link = context.get('source_link', UNDEFINED)
         __M_writer = context.writer()
@@ -64,14 +64,14 @@ def render_body(context,**pageargs):
 def render_content(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
+        title = context.get('title', UNDEFINED)
         def content():
             return render_content(context)
-        title = context.get('title', UNDEFINED)
-        messages = context.get('messages', UNDEFINED)
-        crumbs = context.get('crumbs', UNDEFINED)
         ui = _mako_get_namespace(context, 'ui')
-        folders = context.get('folders', UNDEFINED)
         code = context.get('code', UNDEFINED)
+        folders = context.get('folders', UNDEFINED)
+        crumbs = context.get('crumbs', UNDEFINED)
+        messages = context.get('messages', UNDEFINED)
         files = context.get('files', UNDEFINED)
         source_link = context.get('source_link', UNDEFINED)
         __M_writer = context.writer()
@@ -114,11 +114,11 @@ def render_content(context,**pageargs):
 def render_sourcelink(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
+        show_sourcelink = context.get('show_sourcelink', UNDEFINED)
         def sourcelink():
             return render_sourcelink(context)
-        show_sourcelink = context.get('show_sourcelink', UNDEFINED)
-        source_link = context.get('source_link', UNDEFINED)
         ui = _mako_get_namespace(context, 'ui')
+        source_link = context.get('source_link', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\n')
         if source_link and show_sourcelink:
@@ -132,6 +132,6 @@ def render_sourcelink(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"line_map": {"133": 127, "23": 3, "29": 0, "47": 2, "48": 3, "53": 24, "58": 30, "64": 4, "78": 4, "79": 5, "80": 5, "81": 6, "82": 7, "83": 8, "84": 9, "85": 9, "86": 9, "87": 9, "88": 9, "89": 11, "90": 12, "91": 12, "92": 12, "93": 12, "94": 12, "95": 14, "96": 16, "97": 17, "98": 17, "99": 17, "100": 18, "101": 19, "102": 19, "103": 19, "104": 19, "105": 19, "106": 21, "107": 22, "108": 22, "114": 26, "123": 26, "124": 27, "125": 28, "126": 28, "127": 28}, "uri": "listing.tmpl", "filename": "/usr/local/lib/python3.5/dist-packages/nikola/data/themes/bootstrap4/templates/listing.tmpl", "source_encoding": "utf-8"}
+{"source_encoding": "utf-8", "filename": "/usr/local/lib/python3.5/dist-packages/nikola/data/themes/bootstrap4/templates/listing.tmpl", "uri": "listing.tmpl", "line_map": {"133": 127, "23": 3, "29": 0, "47": 2, "48": 3, "53": 24, "58": 30, "64": 4, "78": 4, "79": 5, "80": 5, "81": 6, "82": 7, "83": 8, "84": 9, "85": 9, "86": 9, "87": 9, "88": 9, "89": 11, "90": 12, "91": 12, "92": 12, "93": 12, "94": 12, "95": 14, "96": 16, "97": 17, "98": 17, "99": 17, "100": 18, "101": 19, "102": 19, "103": 19, "104": 19, "105": 19, "106": 21, "107": 22, "108": 22, "114": 26, "123": 26, "124": 27, "125": 28, "126": 28, "127": 28}}
 __M_END_METADATA
 """

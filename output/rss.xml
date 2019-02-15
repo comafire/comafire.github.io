@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Comafire's Lab</title><link>https://comafire.github.io/</link><description>Comafire's Lab</description><atom:link href="https://comafire.github.io/rss.xml" type="application/rss+xml" rel="self"></atom:link><language>en</language><copyright>Contents © 2019 &lt;a href="mailto:comafire@gmail.com"&gt;comafire&lt;/a&gt; </copyright><lastBuildDate>Sat, 09 Feb 2019 16:59:01 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Let's Encrypt SSL 인증서 Azure 에 적용하기</title><link>https://comafire.github.io/posts/2018-convert-letsencrypt-pem-to-pfx/</link><dc:creator>comafire</dc:creator><description>&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0"><channel><title>Comafire's Lab</title><link>https://comafire.github.io/</link><description>Comafire's Lab</description><atom:link href="https://comafire.github.io/rss.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><copyright>Contents © 2019 &lt;a href="mailto:comafire@gmail.com"&gt;comafire&lt;/a&gt; </copyright><lastBuildDate>Fri, 15 Feb 2019 17:08:15 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>데이터셋 관리자 Quilt</title><link>https://comafire.github.io/posts/2019-quilt-dataset-manager/</link><dc:creator>comafire</dc:creator><description>&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h2 id="Quilt-Dataset-Manager"&gt;Quilt Dataset Manager&lt;a class="anchor-link" href="https://comafire.github.io/posts/2019-quilt-dataset-manager/#Quilt-Dataset-Manager"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Quilt는 데이터 사이언스 프로젝트 수행시 Python Code를 이용하여 편리하게 데이터 셋을 체계적으로 관리하고 공유할 수 있도록 만들어진 도구 입니다. 게다가 데이터 셋을 공개 패키지로 만들면 무료로 사용가능합니다.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://quiltdata.com/"&gt;https://quiltdata.com/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;홈페이지 상에는 빠르고, 재사용 가능하다는 등 다양한 장점이 있다고 설명하지만, 제일 큰 장점은 누군가 데이터 셋을 공개 패키지화해서 Quilt에 올려 놓았다면, 일일이 웹을 통해 찾아서 다운로드하는 복잡한 코드를 작성할 필요없이 간편하게 사용이 가능하다는 점입니다.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://comafire.github.io/posts/2019-quilt-dataset-manager/"&gt;Read more…&lt;/a&gt; (1 min remaining to read)&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;</description><guid>https://comafire.github.io/posts/2019-quilt-dataset-manager/</guid><pubDate>Fri, 15 Feb 2019 15:00:00 GMT</pubDate></item><item><title>Let's Encrypt SSL 인증서 Azure 에 적용하기</title><link>https://comafire.github.io/posts/2018-convert-letsencrypt-pem-to-pfx/</link><dc:creator>comafire</dc:creator><description>&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;p&gt;웹 서버 브라우저와의 안전한 통신을 위해 HTTPS를 사용하기 위해서는 SSL 인증서가 필요합니다.&lt;/p&gt;
@@ -116,9 +122,4 @@ spark = spark.getOrCreate()&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 
-&lt;/div&gt;</description><guid>https://comafire.github.io/posts/2017-python-hello/</guid><pubDate>Fri, 11 Aug 2017 15:00:00 GMT</pubDate></item><item><title>Jupyter 노트북 팁</title><link>https://comafire.github.io/posts/2017-python-jupyter-notebook-tips/</link><dc:creator>comafire</dc:creator><description>&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;&lt;div class="inner_cell"&gt;
-&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;p&gt;Jupyter Notebook 에서 Python을 이용해서 데이터를 분석할때 유용했던 팁들을 모아서 업데이트 중입니다.&lt;/p&gt;
-&lt;p&gt;글 상으로 감이 안오시는 부분은 한번씩 따라서 실행해 보시면 어떤 부분이 변경되는지 쉽게 아실 겁니다.&lt;/p&gt;
-&lt;p&gt;&lt;a href="https://comafire.github.io/posts/2017-python-jupyter-notebook-tips/"&gt;Read more…&lt;/a&gt; (4 min remaining to read)&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;</description><guid>https://comafire.github.io/posts/2017-python-jupyter-notebook-tips/</guid><pubDate>Fri, 11 Aug 2017 15:00:00 GMT</pubDate></item></channel></rss>
+&lt;/div&gt;</description><guid>https://comafire.github.io/posts/2017-python-hello/</guid><pubDate>Fri, 11 Aug 2017 15:00:00 GMT</pubDate></item></channel></rss>

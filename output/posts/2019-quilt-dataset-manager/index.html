@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article#
+" lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>데이터셋 관리자 Quilt | Comafire's Lab</title>
+<link href="../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/ipython.min.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
+<meta name="theme-color" content="#5670d4">
+<meta name="generator" content="Nikola (getnikola.com)">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="../../rss.xml">
+<link rel="canonical" href="https://comafire.github.io/posts/2019-quilt-dataset-manager/">
+<!--[if lt IE 9]><script src="../../assets/js/html5.js"></script><![endif]--><!-- Google Adsense --><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>
+     (adsbygoogle = window.adsbygoogle || []).push({
+          google_ad_client: "ca-pub-0670106451680512",
+          enable_page_level_ads: true
+     });
+</script><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-81648003-1"></script><script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-81648003-1');
+</script><meta name="author" content="comafire">
+<link rel="prev" href="../2018-convert-letsencrypt-pem-to-pfx/" title="Let's Encrypt SSL 인증서 Azure 에 적용하기" type="text/html">
+<meta property="og:site_name" content="Comafire's Lab">
+<meta property="og:title" content="데이터셋 관리자 Quilt">
+<meta property="og:url" content="https://comafire.github.io/posts/2019-quilt-dataset-manager/">
+<meta property="og:description" content="Quilt Dataset Manager¶Quilt는 데이터 사이언스 프로젝트 수행시 Python Code를 이용하여 편리하게 데이터 셋을 체계적으로 관리하고 공유할 수 있도록 만들어진 도구 입니다. 게다가 데이터 셋을 공개 패키지로 만들면 무료로 사용가능합니다.
+https://quiltdata.com/
+홈페이지 상에는 빠르고, 재사용 가능하다는 등 다양한 ">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2019-02-16T00:00:00+09:00">
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+<!-- Menubar -->
+
+<nav class="navbar navbar-expand-md static-top mb-4
+navbar-dark bg-dark
+"><div class="container">
+<!-- This keeps the margins nice -->
+        <a class="navbar-brand" href="https://comafire.github.io/">
+
+            <span id="blog-title">Comafire's Lab</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="bs-navbar">
+            <ul class="navbar-nav mr-auto">
+<li class="nav-item">
+<a href="../../index.html" class="nav-link">Home</a>
+            </li>
+<li class="nav-item dropdown">
+<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pages</a>
+            <div class="dropdown-menu">
+                    <a href="../../pages/st-kilda-pier" class="dropdown-item">St. Kilda Pier</a>
+                    <a href="../../pages/notebooks-skp" class="dropdown-item">Notebooks for St. Kilda Pier</a>
+                    <a href="../../pages/data-science-cookbook" class="dropdown-item">Data Science Cookbook</a>
+            </div>
+            </li>
+<li class="nav-item dropdown">
+<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Posts</a>
+            <div class="dropdown-menu">
+                    <a href="../../posts" class="dropdown-item">Posts</a>
+                    <a href="../../archive.html" class="dropdown-item">Archive</a>
+                    <a href="../../categories/" class="dropdown-item">Tag</a>
+                    <a href="../../rss.xml" class="dropdown-item">RSS</a>
+            </div>
+                </li>
+<li class="nav-item">
+<a href="https://github.com/comafire" class="nav-link">GitHub</a>
+
+                
+            </li>
+</ul>
+<!-- Google custom search --><form method="get" action="https://www.google.com/search" class="navbar-form navbar-right" role="search">
+<div class="input-group">
+  <input type="text" name="q" class="form-control" placeholder="Search"><input type="hidden" name="sitesearch" value="https://comafire.github.io/"><div class="input-group-append">
+    <button class="btn btn-primary" type="submit">Go</button>
+  </div>
+</div>
+
+</form>
+<!-- End of custom search -->
+
+
+            <ul class="navbar-nav navbar-right">
+<li class="nav-item">
+    <a href="index.ipynb" id="sourcelink" class="nav-link">Source</a>
+    </li>
+
+
+                
+            </ul>
+</div>
+<!-- /.navbar-collapse -->
+    </div>
+<!-- /.container -->
+</nav><!-- End of Menubar --><div class="container" id="content" role="main">
+    <div class="body-content">
+        <!--Body content-->
+        
+        
+<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">데이터셋 관리자 Quilt</a></h1>
+
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                    comafire
+            </span></p>
+            <p class="dateline">
+            <a href="." rel="bookmark">
+            <time class="published dt-published" datetime="2019-02-16T00:00:00+09:00" itemprop="datePublished" title="2019-02-16 00:00">2019-02-16 00:00</time></a>
+            </p>
+                <p class="commentline">
+        
+    <a href="#disqus_thread" data-disqus-identifier="cache/posts/2019-quilt-dataset-manager.html">Comments</a>
+
+
+            
+        </p>
+<p class="sourceline"><a href="index.ipynb" class="sourcelink">Source</a></p>
+
+        </div>
+        
+
+    </header><div class="e-content entry-content" itemprop="articleBody text">
+    <div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Quilt-Dataset-Manager">Quilt Dataset Manager<a class="anchor-link" href="#Quilt-Dataset-Manager">¶</a>
+</h2>
+<p>Quilt는 데이터 사이언스 프로젝트 수행시 Python Code를 이용하여 편리하게 데이터 셋을 체계적으로 관리하고 공유할 수 있도록 만들어진 도구 입니다. 게다가 데이터 셋을 공개 패키지로 만들면 무료로 사용가능합니다.</p>
+<p><a href="https://quiltdata.com/">https://quiltdata.com/</a></p>
+<p>홈페이지 상에는 빠르고, 재사용 가능하다는 등 다양한 장점이 있다고 설명하지만, 제일 큰 장점은 누군가 데이터 셋을 공개 패키지화해서 Quilt에 올려 놓았다면, 일일이 웹을 통해 찾아서 다운로드하는 복잡한 코드를 작성할 필요없이 간편하게 사용이 가능하다는 점입니다.</p>
+<!-- TEASER_END -->
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="설치">설치<a class="anchor-link" href="#%EC%84%A4%EC%B9%98">¶</a>
+</h3>
+<p>pip를 통해 간단하게 설치가 가능합니다.</p>
+
+<pre><code>&gt; pip install quilt</code></pre>
+<h3 id="데이터-셋-불러오기">데이터 셋 불러오기<a class="anchor-link" href="#%EB%8D%B0%EC%9D%B4%ED%84%B0-%EC%85%8B-%EB%B6%88%EB%9F%AC%EC%98%A4%EA%B8%B0">¶</a>
+</h3>
+<p>공개 패키지로 등록 되어 있는 예제 데이터로 많이 사용하는 UCI 머신러닝 데이터 셋 중 wine 데이터 셋을 로드해 보겠습니다.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [1]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">quilt</span>
+<span class="n">quilt</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s2">"uciml"</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>examples/uciml_iris
+examples/uciml_wine
+uciml/abalone
+uciml/adult
+uciml/bank
+uciml/breast_cancer_wisconsin
+uciml/car
+uciml/forestfires
+uciml/heart_disease
+uciml/iris
+uciml/poker_hand
+uciml/wine
+uciml/wine_quality
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [2]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">quilt</span>
+<span class="n">quilt</span><span class="o">.</span><span class="n">install</span><span class="p">(</span><span class="s2">"uciml/wine"</span><span class="p">,</span> <span class="n">force</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">quilt</span><span class="o">.</span><span class="n">ls</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Downloading package metadata...
+Fragments already downloaded
+/root/.local/share/QuiltCli/quilt_packages
+uciml/wine                     latest               78c5634a22890d215213a7246a55974b5e282480ff6491d5a7dc69fbe57029a5
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [3]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">quilt.data.uciml</span> <span class="k">import</span> <span class="n">wine</span>
+
+<span class="n">df_wine</span> <span class="o">=</span> <span class="n">wine</span><span class="o">.</span><span class="n">tables</span><span class="o">.</span><span class="n">wine</span><span class="p">()</span>
+<span class="n">df_wine</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[3]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead><tr style="text-align: right;">
+<th></th>
+      <th>Alcohol</th>
+      <th>Malic acid</th>
+      <th>Ash</th>
+      <th>Alcalinity of ash</th>
+      <th>Magnesium</th>
+      <th>Total phenols</th>
+      <th>Flavanoids</th>
+      <th>Nonflavanoid phenols</th>
+      <th>Proanthocyanins</th>
+      <th>Color intensity</th>
+      <th>Hue</th>
+      <th>OD280/OD315 of diluted wines</th>
+      <th>Proline</th>
+    </tr></thead>
+<tbody>
+<tr>
+<th>1</th>
+      <td>14.23</td>
+      <td>1.71</td>
+      <td>2.43</td>
+      <td>15.6</td>
+      <td>127</td>
+      <td>2.80</td>
+      <td>3.06</td>
+      <td>0.28</td>
+      <td>2.29</td>
+      <td>5.64</td>
+      <td>1.04</td>
+      <td>3.92</td>
+      <td>1065</td>
+    </tr>
+<tr>
+<th>1</th>
+      <td>13.20</td>
+      <td>1.78</td>
+      <td>2.14</td>
+      <td>11.2</td>
+      <td>100</td>
+      <td>2.65</td>
+      <td>2.76</td>
+      <td>0.26</td>
+      <td>1.28</td>
+      <td>4.38</td>
+      <td>1.05</td>
+      <td>3.40</td>
+      <td>1050</td>
+    </tr>
+<tr>
+<th>1</th>
+      <td>13.16</td>
+      <td>2.36</td>
+      <td>2.67</td>
+      <td>18.6</td>
+      <td>101</td>
+      <td>2.80</td>
+      <td>3.24</td>
+      <td>0.30</td>
+      <td>2.81</td>
+      <td>5.68</td>
+      <td>1.03</td>
+      <td>3.17</td>
+      <td>1185</td>
+    </tr>
+<tr>
+<th>1</th>
+      <td>14.37</td>
+      <td>1.95</td>
+      <td>2.50</td>
+      <td>16.8</td>
+      <td>113</td>
+      <td>3.85</td>
+      <td>3.49</td>
+      <td>0.24</td>
+      <td>2.18</td>
+      <td>7.80</td>
+      <td>0.86</td>
+      <td>3.45</td>
+      <td>1480</td>
+    </tr>
+<tr>
+<th>1</th>
+      <td>13.24</td>
+      <td>2.59</td>
+      <td>2.87</td>
+      <td>21.0</td>
+      <td>118</td>
+      <td>2.80</td>
+      <td>2.69</td>
+      <td>0.39</td>
+      <td>1.82</td>
+      <td>4.32</td>
+      <td>1.04</td>
+      <td>2.93</td>
+      <td>735</td>
+    </tr>
+</tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [4]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">quilt</span><span class="o">.</span><span class="n">rm</span><span class="p">(</span><span class="s2">"uciml/wine"</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Removed: b0b11f401da13abd783a48c6cba0853b5a628c2eb4ed6812196d0f1aa1c5bf2e
+Removed: 6be6b1203f3d51df0b553a70e57b8a723cd405683958204f96d23d7cd6aea659
+Removed: d0cfdf9e97162db6656d6cd1907fedc365148818d3a8c4fdf9b7efb5a2cbeb4c
+Removed: f1b84f2ef845e0bdebf13e14fa7a213e56de4f1baa40c5974dbd1ee51c5ae710
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="상세-예제">상세 예제<a class="anchor-link" href="#%EC%83%81%EC%84%B8-%EC%98%88%EC%A0%9C">¶</a>
+</h3>
+<p>Quilt 를 통해서 데이터를 관리하는 상세 예제는 아래 Quilt Git Hub 예제를 참조하시면 됩니다.</p>
+<p><a href="https://github.com/quiltdata/examples/blob/master/Examples.ipynb">https://github.com/quiltdata/examples/blob/master/Examples.ipynb</a></p>
+
+</div>
+</div>
+</div>
+</div>
+    </div>
+    <aside class="postpromonav"><nav><ul class="pager hidden-print">
+<li class="previous">
+                <a href="../2018-convert-letsencrypt-pem-to-pfx/" rel="prev" title="Let's Encrypt SSL 인증서 Azure 에 적용하기">Previous post</a>
+            </li>
+        </ul></nav></aside><section class="comments hidden-print"><h2>Comments</h2>
+        
+        
+        <div id="disqus_thread"></div>
+        <script>
+        var disqus_shortname ="comafire",
+            disqus_url="https://comafire.github.io/posts/2019-quilt-dataset-manager/",
+        disqus_title="\ub370\uc774\ud130\uc14b \uad00\ub9ac\uc790 Quilt",
+        disqus_identifier="cache/posts/2019-quilt-dataset-manager.html",
+        disqus_config = function () {
+            this.language = "en";
+        };
+        (function() {
+            var dsq = document.createElement('script'); dsq.async = true;
+            dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+    <a href="https://disqus.com" class="dsq-brlink" rel="nofollow">Comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+        </section><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha256-SDRP1VVYu+tgAGKhddBSl5+ezofHKZeI+OzxakbIe/Y=" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
+        MathJax.Hub.Config({tex2jax: {inlineMath: [['$latex ','$'], ['\\(','\\)']]}});
+        </script></article><script>var disqus_shortname="comafire";(function(){var a=document.createElement("script");a.async=true;a.src="https://"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script><!--End of body content--><footer id="footer">
+            Contents © 2019         <a href="mailto:comafire@gmail.com">comafire</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
+            
+        </footer>
+</div>
+</div>
+
+
+        <script src="../../assets/js/all-nocdn.js"></script><!-- fancy dates --><script>
+    moment.locale("en");
+    fancydates(0, "YYYY-MM-DD HH:mm");
+    </script><!-- end fancy dates --><script>
+    baguetteBox.run('div#content', {
+        ignoreClass: 'islink',
+        captions: function(element) {
+            return element.getElementsByTagName('img')[0].alt;
+    }});
+    </script>
+</body>
+</html>

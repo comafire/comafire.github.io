@@ -7,7 +7,7 @@
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <url>
   <loc>https://comafire.github.io/</loc>
-  <lastmod>2019-02-09T13:48:00Z</lastmod>
+  <lastmod>2019-02-15T17:08:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/2015/</loc>
@@ -26,8 +26,12 @@
   <lastmod>2019-02-09T13:48:00Z</lastmod>
  </url>
  <url>
+  <loc>https://comafire.github.io/2019/</loc>
+  <lastmod>2019-02-15T17:08:00Z</lastmod>
+ </url>
+ <url>
   <loc>https://comafire.github.io/archive.html</loc>
-  <lastmod>2019-02-11T16:28:00Z</lastmod>
+  <lastmod>2019-02-15T17:08:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/categories/</loc>
@@ -39,15 +43,19 @@
  </url>
  <url>
   <loc>https://comafire.github.io/pages/</loc>
-  <lastmod>2019-02-11T15:59:00Z</lastmod>
+  <lastmod>2019-02-15T17:03:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://comafire.github.io/pages/data-preparation-data-description/</loc>
+  <lastmod>2019-02-15T17:03:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://comafire.github.io/pages/data-preparation-descriptive-statistics/</loc>
+  <lastmod>2019-02-15T17:03:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/pages/data-science-cookbook/</loc>
   <lastmod>2019-02-11T15:59:00Z</lastmod>
- </url>
- <url>
-  <loc>https://comafire.github.io/pages/notebooks-skp-mnist/</loc>
-  <lastmod>2019-02-09T13:48:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/pages/notebooks-skp/</loc>
@@ -59,7 +67,7 @@
  </url>
  <url>
   <loc>https://comafire.github.io/posts/</loc>
-  <lastmod>2019-02-09T16:57:00Z</lastmod>
+  <lastmod>2019-02-15T17:03:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/posts/2015-Docker-Proxy-Certificates-Ubuntu/</loc>
@@ -234,19 +242,23 @@
   <lastmod>2019-02-09T13:48:00Z</lastmod>
  </url>
  <url>
+  <loc>https://comafire.github.io/posts/2019-quilt-dataset-manager/</loc>
+  <lastmod>2019-02-15T17:08:00Z</lastmod>
+ </url>
+ <url>
   <loc>https://comafire.github.io/posts/index-1.html</loc>
-  <lastmod>2019-02-11T16:28:00Z</lastmod>
+  <lastmod>2019-02-15T17:08:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/posts/index-2.html</loc>
-  <lastmod>2019-02-11T16:28:00Z</lastmod>
+  <lastmod>2019-02-15T17:08:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/posts/index-3.html</loc>
-  <lastmod>2019-02-11T16:28:00Z</lastmod>
+  <lastmod>2019-02-15T17:08:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/posts/index-4.html</loc>
-  <lastmod>2019-02-11T16:28:00Z</lastmod>
+  <lastmod>2019-02-15T17:08:00Z</lastmod>
  </url>
 </urlset>

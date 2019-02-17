@@ -38,6 +38,7 @@ In [1]:
 
     
 import quilt
+
 quilt.install("uciml/iris", force=True)
 
 
@@ -56,9 +57,9 @@ quilt.install("uciml/iris", force=True)
 
 
 Downloading package metadata...
-Fragments already downloade'>
+Fragments already download'>
 <meta property="og:type" content="article">
-<meta property="article:published_time" content="2019-02-16T02:06:03+09:00">
+<meta property="article:published_time" content="2019-02-17T23:13:30+09:00">
 </head>
 <body>
 <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
@@ -157,6 +158,7 @@ navbar-dark bg-dark
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">quilt</span>
+
 <span class="n">quilt</span><span class="o">.</span><span class="n">install</span><span class="p">(</span><span class="s2">"uciml/iris"</span><span class="p">,</span> <span class="n">force</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 
@@ -206,7 +208,32 @@ Fragments already downloaded
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="데이터-컬럼-정보">데이터 컬럼 정보<a class="anchor-link" href="#%EB%8D%B0%EC%9D%B4%ED%84%B0-%EC%BB%AC%EB%9F%BC-%EC%A0%95%EB%B3%B4">¶</a>
 </h3>
-<p>데이터 컬럼의 도메인적 특성 과 코드를 통한 데이터 컬럼의 외관을 파악합니다.</p>
+<p>데이터 분석을 위한 데이터의 도메인적 특성과 코드를 통한 데이터 컬럼의 형태을 파악합니다. 풀고자 하는 문제의 정의 및 데이터 형태와 범주에 따라서 데이터 분석 방법이 달라집니다.</p>
+<ul>
+<li>
+<p>변수 형태 (Variable Type)</p>
+<ul>
+<li>독립변수(Independent Variable): 종속 변수에 영향을 주는 변수 (입력변수) </li>
+<li>종속변수(Dependent Variable): 독립변수의 인과관계에따라 변하는 변수 (타겟 변수)</li>
+</ul>
+</li>
+<li>
+<p>변수 범주 (Variable Category)</p>
+<ul>
+<li>범주형 변수</li>
+<li>이산형 변수</li>
+<li>연속형 변수</li>
+</ul>
+</li>
+<li>
+<p>데이터 형태 (Data Type)</p>
+<ul>
+<li>문자형 변수</li>
+<li>숫자형 변수</li>
+</ul>
+</li>
+</ul>
+<p>아래는 예제 데이터인 IRIS 데이터 셋에 대한 UCI 홈페이지상의 데이터 설명입니다.</p>
 <p><a href="https://archive.ics.uci.edu/ml/datasets/iris">https://archive.ics.uci.edu/ml/datasets/iris</a></p>
 <p>Data Set Information:</p>
 <p>This is perhaps the best known database to be found in the pattern recognition literature. Fisher's paper is a classic in the field and is referenced frequently to this day. (See Duda &amp; Hart, for example.) The data set contains 3 classes of 50 instances each, where each class refers to a type of iris plant. One class is linearly separable from the other 2; the latter are NOT linearly separable from each other.</p>
@@ -224,12 +251,14 @@ Fragments already downloaded
 -- Iris Versicolour 
 -- Iris Virginica</li>
 </ol>
+<p>데이터 컬럼의 정보를 확인해 봄으로써, 1 ~ 4 까지의 데이터 컬럼은 독립변수로써 숫자 연속형 변수이고, 5 데이터 컬럼은 종속변수로써 문자 범주형 변수임을 알 수 있습니다.</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [4]:</div>
+<div class="prompt input_prompt">In [3]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 데이터 컬럼 정보</span>
@@ -270,7 +299,7 @@ memory usage: 7.0+ KB
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [5]:</div>
+<div class="prompt input_prompt">In [4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 데이터 누락 정보</span>
@@ -287,7 +316,7 @@ memory usage: 7.0+ KB
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[5]:</div>
+    <div class="prompt output_prompt">Out[4]:</div>
 
 
 
@@ -309,11 +338,48 @@ dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
+<div class="prompt input_prompt">In [5]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 범주형 데이터 도수 분포표(Frequency Table)</span>
+<span class="n">df_iris</span><span class="p">[</span><span class="s1">'class'</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[5]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>Iris-setosa        50
+Iris-virginica     50
+Iris-versicolor    50
+Name: class, dtype: int64</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
 <div class="prompt input_prompt">In [6]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 범주형 데이터 카운트</span>
-<span class="n">df_iris</span><span class="p">[</span><span class="s1">'class'</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 범주형 데이터 비율</span>
+<span class="n">df_iris</span><span class="p">[</span><span class="s1">'class'</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="n">normalize</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -332,46 +398,9 @@ dtype: int64</pre>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>Iris-virginica     50
-Iris-versicolor    50
-Iris-setosa        50
-Name: class, dtype: int64</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [7]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 범주형 데이터 비율</span>
-<span class="n">df_iris</span><span class="p">[</span><span class="s1">'class'</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="n">normalize</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[7]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>Iris-virginica     0.333333
+<pre>Iris-setosa        0.333333
+Iris-virginica     0.333333
 Iris-versicolor    0.333333
-Iris-setosa        0.333333
 Name: class, dtype: float64</pre>
 </div>
 
@@ -383,7 +412,7 @@ Name: class, dtype: float64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [8]:</div>
+<div class="prompt input_prompt">In [7]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 데이터 샘플</span>
@@ -400,7 +429,7 @@ Name: class, dtype: float64</pre>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[8]:</div>
+    <div class="prompt output_prompt">Out[7]:</div>
 
 
 

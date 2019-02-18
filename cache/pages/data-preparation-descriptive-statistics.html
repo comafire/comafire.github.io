@@ -422,7 +422,7 @@ Name: class, dtype: float64</pre>
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="&#51060;&#48320;&#47049;-&#48516;&#49437;(Bi-variate-Analysis)">&#51060;&#48320;&#47049; &#48516;&#49437;(Bi-variate Analysis)<a class="anchor-link" href="#&#51060;&#48320;&#47049;-&#48516;&#49437;(Bi-variate-Analysis)">&#182;</a></h2><p><strong>두개의 연속형 변수(Continuous Variable)</strong></p>
-<p>데이터의 두 컬럼간의 상관관계를 구해봄으로써, 두개의 컬럼이 서로 어떤 방향성을 가지는지 확인해봅니다.</p>
+<p>데이터의 두 컬럼간의 상관관계(Correlation)를 구해봄으로써, 두개의 컬럼이 서로 어떤 방향성을 가지는지 확인해봅니다.</p>
 <ul>
 <li>양의 상관관계 (Positive Correlation)<ul>
 <li>상관 관계 결과가 양수 값으로, 두 데이터가 서로 같은 방향성을 가짐 (예, 하나의 데이터가 증가할때, 다른 데이터도 증가)</li>
@@ -589,7 +589,7 @@ Name: class, dtype: float64</pre>
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>두개의 범주형 변수(Categorical Variable)</strong></p>
-<p>도수 분포표(Frequncy Table)</p>
+<p>범주형 변수의 경우는 도수 분포표(Frequncy Table) Two-way Table을 통해 두 변수간 갯수의 비율을 비교해 볼수 있으며, 카이 제곱 검정 (Chi-Square Test)를 통해 연속형 변수에서 상관관계를 통해 차원 축소를 하였던 것 처럼 차원 축소를 할 수 있습니다.</p>
 
 </div>
 </div>
@@ -845,7 +845,7 @@ Fragments already downloaded
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Chi-Square Test</strong></p>
+<p>Chi-Square Test</p>
 <p>카이제곱 검정을 통해 독립변수와 종속변수간에 연관성을 체크합니다. 이 또한 독립변수와 종속변수가 독립이라면 해당 독립변수는 분석에서 제외 시켜 차원을 축소할 수 있게 됩니다.</p>
 <p>카이제곱 검정에서는 p-value &gt; 0.05 이면 두 변수가 독립입니다.</p>
 

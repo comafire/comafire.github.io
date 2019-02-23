@@ -31,7 +31,7 @@
  </url>
  <url>
   <loc>https://comafire.github.io/archive.html</loc>
-  <lastmod>2019-02-18T15:03:00Z</lastmod>
+  <lastmod>2019-02-23T18:31:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/categories/</loc>
@@ -43,7 +43,7 @@
  </url>
  <url>
   <loc>https://comafire.github.io/pages/</loc>
-  <lastmod>2019-02-15T17:12:00Z</lastmod>
+  <lastmod>2019-02-23T18:30:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/pages/data-preparation-data-description/</loc>
@@ -52,6 +52,10 @@
  <url>
   <loc>https://comafire.github.io/pages/data-preparation-descriptive-statistics/</loc>
   <lastmod>2019-02-15T17:12:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://comafire.github.io/pages/data-preparation-feature-selection/</loc>
+  <lastmod>2019-02-23T18:30:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/pages/data-science-cookbook/</loc>
@@ -247,18 +251,18 @@
  </url>
  <url>
   <loc>https://comafire.github.io/posts/index-1.html</loc>
-  <lastmod>2019-02-18T15:03:00Z</lastmod>
+  <lastmod>2019-02-23T18:31:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/posts/index-2.html</loc>
-  <lastmod>2019-02-18T15:03:00Z</lastmod>
+  <lastmod>2019-02-23T18:31:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/posts/index-3.html</loc>
-  <lastmod>2019-02-18T15:03:00Z</lastmod>
+  <lastmod>2019-02-23T18:31:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/posts/index-4.html</loc>
-  <lastmod>2019-02-18T15:03:00Z</lastmod>
+  <lastmod>2019-02-23T18:31:00Z</lastmod>
  </url>
 </urlset>

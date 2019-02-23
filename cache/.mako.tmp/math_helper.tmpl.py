@@ -5,12 +5,12 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1550946706.942755
+_modified_time = 1550949141.6842892
 _enable_loop = True
 _template_filename = '/usr/local/lib/python3.5/dist-packages/nikola/data/themes/base/templates/math_helper.tmpl'
 _template_uri = 'math_helper.tmpl'
 _source_encoding = 'utf-8'
-_exports = ['math_scripts_ifpost', 'math_scripts', 'math_scripts_ifposts', 'math_styles_ifpost', 'math_styles_ifposts', 'math_styles']
+_exports = ['math_styles_ifpost', 'math_scripts_ifposts', 'math_styles_ifposts', 'math_scripts', 'math_scripts_ifpost', 'math_styles']
 
 
 def render_body(context,**pageargs):
@@ -29,16 +29,50 @@ def render_body(context,**pageargs):
         context.caller_stack._pop_frame()
 
 
-def render_math_scripts_ifpost(context,post):
+def render_math_styles_ifpost(context,post):
     __M_caller = context.caller_stack._push_frame()
     try:
-        def math_scripts():
-            return render_math_scripts(context)
+        def math_styles():
+            return render_math_styles(context)
         __M_writer = context.writer()
         __M_writer('\n')
         if post.has_math:
             __M_writer('        ')
+            __M_writer(str(math_styles()))
+            __M_writer('\n')
+        return ''
+    finally:
+        context.caller_stack._pop_frame()
+
+
+def render_math_scripts_ifposts(context,posts):
+    __M_caller = context.caller_stack._push_frame()
+    try:
+        def math_scripts():
+            return render_math_scripts(context)
+        any = context.get('any', UNDEFINED)
+        __M_writer = context.writer()
+        __M_writer('\n')
+        if any(post.has_math for post in posts):
+            __M_writer('        ')
             __M_writer(str(math_scripts()))
+            __M_writer('\n')
+        return ''
+    finally:
+        context.caller_stack._pop_frame()
+
+
+def render_math_styles_ifposts(context,posts):
+    __M_caller = context.caller_stack._push_frame()
+    try:
+        any = context.get('any', UNDEFINED)
+        def math_styles():
+            return render_math_styles(context)
+        __M_writer = context.writer()
+        __M_writer('\n')
+        if any(post.has_math for post in posts):
+            __M_writer('        ')
+            __M_writer(str(math_styles()))
             __M_writer('\n')
         return ''
     finally:
@@ -49,8 +83,8 @@ def render_math_scripts(context):
     __M_caller = context.caller_stack._push_frame()
     try:
         katex_auto_render = context.get('katex_auto_render', UNDEFINED)
-        mathjax_config = context.get('mathjax_config', UNDEFINED)
         use_katex = context.get('use_katex', UNDEFINED)
+        mathjax_config = context.get('mathjax_config', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\n')
         if use_katex:
@@ -74,50 +108,16 @@ def render_math_scripts(context):
         context.caller_stack._pop_frame()
 
 
-def render_math_scripts_ifposts(context,posts):
+def render_math_scripts_ifpost(context,post):
     __M_caller = context.caller_stack._push_frame()
     try:
         def math_scripts():
             return render_math_scripts(context)
-        any = context.get('any', UNDEFINED)
-        __M_writer = context.writer()
-        __M_writer('\n')
-        if any(post.has_math for post in posts):
-            __M_writer('        ')
-            __M_writer(str(math_scripts()))
-            __M_writer('\n')
-        return ''
-    finally:
-        context.caller_stack._pop_frame()
-
-
-def render_math_styles_ifpost(context,post):
-    __M_caller = context.caller_stack._push_frame()
-    try:
-        def math_styles():
-            return render_math_styles(context)
         __M_writer = context.writer()
         __M_writer('\n')
         if post.has_math:
             __M_writer('        ')
-            __M_writer(str(math_styles()))
-            __M_writer('\n')
-        return ''
-    finally:
-        context.caller_stack._pop_frame()
-
-
-def render_math_styles_ifposts(context,posts):
-    __M_caller = context.caller_stack._push_frame()
-    try:
-        def math_styles():
-            return render_math_styles(context)
-        any = context.get('any', UNDEFINED)
-        __M_writer = context.writer()
-        __M_writer('\n')
-        if any(post.has_math for post in posts):
-            __M_writer('        ')
-            __M_writer(str(math_styles()))
+            __M_writer(str(math_scripts()))
             __M_writer('\n')
         return ''
     finally:
@@ -139,6 +139,6 @@ def render_math_styles(context):
 
 """
 __M_BEGIN_METADATA
-{"uri": "math_helper.tmpl", "line_map": {"132": 41, "133": 42, "134": 43, "140": 134, "16": 0, "21": 39, "22": 45, "23": 51, "24": 57, "25": 63, "26": 69, "32": 47, "38": 47, "39": 48, "40": 49, "41": 49, "42": 49, "48": 2, "55": 2, "56": 3, "57": 4, "58": 6, "59": 7, "60": 10, "61": 10, "62": 14, "63": 15, "64": 28, "65": 30, "66": 31, "67": 32, "68": 32, "69": 32, "70": 33, "71": 34, "77": 53, "84": 53, "85": 54, "86": 55, "87": 55, "88": 55, "94": 59, "100": 59, "101": 60, "102": 61, "103": 61, "104": 61, "110": 65, "117": 65, "118": 66, "119": 67, "120": 67, "121": 67, "127": 41}, "source_encoding": "utf-8", "filename": "/usr/local/lib/python3.5/dist-packages/nikola/data/themes/base/templates/math_helper.tmpl"}
+{"uri": "math_helper.tmpl", "source_encoding": "utf-8", "filename": "/usr/local/lib/python3.5/dist-packages/nikola/data/themes/base/templates/math_helper.tmpl", "line_map": {"132": 41, "133": 42, "134": 43, "140": 134, "16": 0, "21": 39, "22": 45, "23": 51, "24": 57, "25": 63, "26": 69, "32": 59, "38": 59, "39": 60, "40": 61, "41": 61, "42": 61, "48": 53, "55": 53, "56": 54, "57": 55, "58": 55, "59": 55, "65": 65, "72": 65, "73": 66, "74": 67, "75": 67, "76": 67, "82": 2, "89": 2, "90": 3, "91": 4, "92": 6, "93": 7, "94": 10, "95": 10, "96": 14, "97": 15, "98": 28, "99": 30, "100": 31, "101": 32, "102": 32, "103": 32, "104": 33, "105": 34, "111": 47, "117": 47, "118": 48, "119": 49, "120": 49, "121": 49, "127": 41}}
 __M_END_METADATA
 """

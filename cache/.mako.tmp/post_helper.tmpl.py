@@ -5,12 +5,12 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1550949510.3833737
+_modified_time = 1550986631.388658
 _enable_loop = True
 _template_filename = '/usr/local/lib/python3.5/dist-packages/nikola/data/themes/base/templates/post_helper.tmpl'
 _template_uri = 'post_helper.tmpl'
 _source_encoding = 'utf-8'
-_exports = ['html_pager', 'meta_translations', 'html_tags', 'mathjax_script', 'twitter_card_information', 'open_graph_metadata']
+_exports = ['open_graph_metadata', 'meta_translations', 'html_pager', 'html_tags', 'mathjax_script', 'twitter_card_information']
 
 
 def _mako_get_namespace(context, name):
@@ -35,6 +35,71 @@ def render_body(context,**pageargs):
         __M_writer('\n\n')
         __M_writer('\n\n')
         __M_writer('\n')
+        return ''
+    finally:
+        context.caller_stack._pop_frame()
+
+
+def render_open_graph_metadata(context,post):
+    __M_caller = context.caller_stack._push_frame()
+    try:
+        permalink = context.get('permalink', UNDEFINED)
+        url_replacer = context.get('url_replacer', UNDEFINED)
+        abs_link = context.get('abs_link', UNDEFINED)
+        blog_title = context.get('blog_title', UNDEFINED)
+        lang = context.get('lang', UNDEFINED)
+        __M_writer = context.writer()
+        __M_writer('\n<meta property="og:site_name" content="')
+        __M_writer(filters.html_escape(str(blog_title)))
+        __M_writer('">\n<meta property="og:title" content="')
+        __M_writer(filters.html_escape(str(post.title()[:70])))
+        __M_writer('">\n<meta property="og:url" content="')
+        __M_writer(str(abs_link(permalink)))
+        __M_writer('">\n')
+        if post.description():
+            __M_writer('    <meta property="og:description" content="')
+            __M_writer(filters.html_escape(str(post.description()[:200])))
+            __M_writer('">\n')
+        else:
+            __M_writer('    <meta property="og:description" content="')
+            __M_writer(filters.html_escape(str(post.text(strip_html=True)[:200])))
+            __M_writer('">\n')
+        if post.previewimage:
+            __M_writer('    <meta property="og:image" content="')
+            __M_writer(str(url_replacer(permalink, post.previewimage, lang, 'absolute')))
+            __M_writer('">\n')
+        __M_writer('<meta property="og:type" content="article">\n')
+        if post.date.isoformat():
+            __M_writer('    <meta property="article:published_time" content="')
+            __M_writer(str(post.formatted_date('webiso')))
+            __M_writer('">\n')
+        if post.tags:
+            for tag in post.tags:
+                __M_writer('       <meta property="article:tag" content="')
+                __M_writer(filters.html_escape(str(tag)))
+                __M_writer('">\n')
+        return ''
+    finally:
+        context.caller_stack._pop_frame()
+
+
+def render_meta_translations(context,post):
+    __M_caller = context.caller_stack._push_frame()
+    try:
+        len = context.get('len', UNDEFINED)
+        translations = context.get('translations', UNDEFINED)
+        sorted = context.get('sorted', UNDEFINED)
+        lang = context.get('lang', UNDEFINED)
+        __M_writer = context.writer()
+        __M_writer('\n')
+        if len(translations) > 1:
+            for langname in sorted(translations):
+                if langname != lang and ((not post.skip_untranslated) or post.is_translation_available(langname)):
+                    __M_writer('                <link rel="alternate" hreflang="')
+                    __M_writer(str(langname))
+                    __M_writer('" href="')
+                    __M_writer(str(post.permalink(langname)))
+                    __M_writer('">\n')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -70,33 +135,11 @@ def render_html_pager(context,post):
         context.caller_stack._pop_frame()
 
 
-def render_meta_translations(context,post):
-    __M_caller = context.caller_stack._push_frame()
-    try:
-        sorted = context.get('sorted', UNDEFINED)
-        len = context.get('len', UNDEFINED)
-        lang = context.get('lang', UNDEFINED)
-        translations = context.get('translations', UNDEFINED)
-        __M_writer = context.writer()
-        __M_writer('\n')
-        if len(translations) > 1:
-            for langname in sorted(translations):
-                if langname != lang and ((not post.skip_untranslated) or post.is_translation_available(langname)):
-                    __M_writer('                <link rel="alternate" hreflang="')
-                    __M_writer(str(langname))
-                    __M_writer('" href="')
-                    __M_writer(str(post.permalink(langname)))
-                    __M_writer('">\n')
-        return ''
-    finally:
-        context.caller_stack._pop_frame()
-
-
 def render_html_tags(context,post):
     __M_caller = context.caller_stack._push_frame()
     try:
-        hidden_tags = context.get('hidden_tags', UNDEFINED)
         _link = context.get('_link', UNDEFINED)
+        hidden_tags = context.get('hidden_tags', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\n')
         if post.tags:
@@ -158,51 +201,8 @@ def render_twitter_card_information(context,post):
         context.caller_stack._pop_frame()
 
 
-def render_open_graph_metadata(context,post):
-    __M_caller = context.caller_stack._push_frame()
-    try:
-        abs_link = context.get('abs_link', UNDEFINED)
-        permalink = context.get('permalink', UNDEFINED)
-        blog_title = context.get('blog_title', UNDEFINED)
-        url_replacer = context.get('url_replacer', UNDEFINED)
-        lang = context.get('lang', UNDEFINED)
-        __M_writer = context.writer()
-        __M_writer('\n<meta property="og:site_name" content="')
-        __M_writer(filters.html_escape(str(blog_title)))
-        __M_writer('">\n<meta property="og:title" content="')
-        __M_writer(filters.html_escape(str(post.title()[:70])))
-        __M_writer('">\n<meta property="og:url" content="')
-        __M_writer(str(abs_link(permalink)))
-        __M_writer('">\n')
-        if post.description():
-            __M_writer('    <meta property="og:description" content="')
-            __M_writer(filters.html_escape(str(post.description()[:200])))
-            __M_writer('">\n')
-        else:
-            __M_writer('    <meta property="og:description" content="')
-            __M_writer(filters.html_escape(str(post.text(strip_html=True)[:200])))
-            __M_writer('">\n')
-        if post.previewimage:
-            __M_writer('    <meta property="og:image" content="')
-            __M_writer(str(url_replacer(permalink, post.previewimage, lang, 'absolute')))
-            __M_writer('">\n')
-        __M_writer('<meta property="og:type" content="article">\n')
-        if post.date.isoformat():
-            __M_writer('    <meta property="article:published_time" content="')
-            __M_writer(str(post.formatted_date('webiso')))
-            __M_writer('">\n')
-        if post.tags:
-            for tag in post.tags:
-                __M_writer('       <meta property="article:tag" content="')
-                __M_writer(filters.html_escape(str(tag)))
-                __M_writer('">\n')
-        return ''
-    finally:
-        context.caller_stack._pop_frame()
-
-
 """
 __M_BEGIN_METADATA
-{"uri": "post_helper.tmpl", "line_map": {"23": 2, "26": 0, "31": 2, "32": 12, "33": 24, "34": 41, "35": 68, "36": 84, "37": 89, "43": 26, "48": 26, "49": 27, "50": 28, "51": 29, "52": 30, "53": 31, "54": 31, "55": 31, "56": 31, "57": 31, "58": 31, "59": 34, "60": 35, "61": 36, "62": 36, "63": 36, "64": 36, "65": 36, "66": 36, "67": 39, "73": 4, "81": 4, "82": 5, "83": 6, "84": 7, "85": 8, "86": 8, "87": 8, "88": 8, "89": 8, "95": 14, "101": 14, "102": 15, "103": 16, "104": 17, "105": 18, "106": 19, "107": 19, "108": 19, "109": 19, "110": 19, "111": 22, "117": 87, "122": 87, "123": 88, "124": 88, "130": 70, "135": 70, "136": 71, "137": 72, "138": 72, "139": 72, "140": 73, "141": 74, "142": 74, "143": 74, "144": 75, "145": 76, "146": 76, "147": 76, "148": 78, "149": 79, "150": 79, "151": 79, "152": 80, "153": 81, "154": 81, "155": 81, "161": 43, "170": 43, "171": 44, "172": 44, "173": 45, "174": 45, "175": 46, "176": 46, "177": 47, "178": 48, "179": 48, "180": 48, "181": 49, "182": 50, "183": 50, "184": 50, "185": 52, "186": 53, "187": 53, "188": 53, "189": 55, "190": 60, "191": 61, "192": 61, "193": 61, "194": 63, "195": 64, "196": 65, "197": 65, "198": 65, "204": 198}, "source_encoding": "utf-8", "filename": "/usr/local/lib/python3.5/dist-packages/nikola/data/themes/base/templates/post_helper.tmpl"}
+{"filename": "/usr/local/lib/python3.5/dist-packages/nikola/data/themes/base/templates/post_helper.tmpl", "source_encoding": "utf-8", "line_map": {"23": 2, "26": 0, "31": 2, "32": 12, "33": 24, "34": 41, "35": 68, "36": 84, "37": 89, "43": 43, "52": 43, "53": 44, "54": 44, "55": 45, "56": 45, "57": 46, "58": 46, "59": 47, "60": 48, "61": 48, "62": 48, "63": 49, "64": 50, "65": 50, "66": 50, "67": 52, "68": 53, "69": 53, "70": 53, "71": 55, "72": 60, "73": 61, "74": 61, "75": 61, "76": 63, "77": 64, "78": 65, "79": 65, "80": 65, "86": 4, "94": 4, "95": 5, "96": 6, "97": 7, "98": 8, "99": 8, "100": 8, "101": 8, "102": 8, "108": 26, "113": 26, "114": 27, "115": 28, "116": 29, "117": 30, "118": 31, "119": 31, "120": 31, "121": 31, "122": 31, "123": 31, "124": 34, "125": 35, "126": 36, "127": 36, "128": 36, "129": 36, "130": 36, "131": 36, "132": 39, "138": 14, "144": 14, "145": 15, "146": 16, "147": 17, "148": 18, "149": 19, "150": 19, "151": 19, "152": 19, "153": 19, "154": 22, "160": 87, "165": 87, "166": 88, "167": 88, "173": 70, "178": 70, "179": 71, "180": 72, "181": 72, "182": 72, "183": 73, "184": 74, "185": 74, "186": 74, "187": 75, "188": 76, "189": 76, "190": 76, "191": 78, "192": 79, "193": 79, "194": 79, "195": 80, "196": 81, "197": 81, "198": 81, "204": 198}, "uri": "post_helper.tmpl"}
 __M_END_METADATA
 """

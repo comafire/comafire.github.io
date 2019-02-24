@@ -4,14 +4,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Data Science Cookbook | Comafire's Lab</title>
+<title>Feature Extraction | Comafire's Lab</title>
 <link href="../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
 <link href="../../assets/css/ipython.min.css" rel="stylesheet" type="text/css">
 <link href="../../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
 <meta name="theme-color" content="#5670d4">
 <meta name="generator" content="Nikola (getnikola.com)">
 <link rel="alternate" type="application/rss+xml" title="RSS" href="../../rss.xml">
-<link rel="canonical" href="https://comafire.github.io/pages/data-science-cookbook/">
+<link rel="canonical" href="https://comafire.github.io/pages/data-preparation-feature-extraction/">
 <!--[if lt IE 9]><script src="../../assets/js/html5.js"></script><![endif]--><!-- Google Adsense --><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>
      (adsbygoogle = window.adsbygoogle || []).push({
           google_ad_client: "ca-pub-0670106451680512",
@@ -25,24 +25,12 @@
   gtag('config', 'UA-81648003-1');
 </script><meta name="author" content="comafire">
 <meta property="og:site_name" content="Comafire's Lab">
-<meta property="og:title" content="Data Science Cookbook">
-<meta property="og:url" content="https://comafire.github.io/pages/data-science-cookbook/">
-<meta property="og:description" content="Data Science Cookbook¶데이터 사이언스관련 주요 예제들을 공유하는 공간입니다.
-
-Data Collection
-Web Crawling
-
-
-
-
-Data Preparation (EDA)
-Data Description(데이터 서술)
-Missing Value  
-Descriptive Statistics(기술적 통계)
-Outlier  
-Feature ">
+<meta property="og:title" content="Feature Extraction">
+<meta property="og:url" content="https://comafire.github.io/pages/data-preparation-feature-extraction/">
+<meta property="og:description" content="Feature Extraction¶Feature Extraction은 주어진 고차원 데이터 분석 시에 모델링에 사용할 변수를 추출하는 방법입니다. Feature Selection과 다른 점은 존재하는 변수 중에서 중요한 변수들을 선택하여 차원을 축소하는 것이 아니라, 저차원으로 맵핑한 새로운 변수를 통해 차원을 줄인다는 것입니다.
+Principal Comp">
 <meta property="og:type" content="article">
-<meta property="article:published_time" content="2019-02-10T00:00:00+09:00">
+<meta property="article:published_time" content="2019-02-24T00:00:00+09:00">
 </head>
 <body>
 <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
@@ -117,56 +105,86 @@ navbar-dark bg-dark
         <!--Body content-->
         
         
-<article class="post-text storypage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">Data Science Cookbook</a></h1>
+<article class="post-text storypage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">Feature Extraction</a></h1>
 
         
 
     </header><div class="e-content entry-content" itemprop="articleBody text">
-    <div class="cell border-box-sizing text_cell rendered">
+    <div>
+<div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Data-Science-Cookbook">Data Science Cookbook<a class="anchor-link" href="#Data-Science-Cookbook">¶</a>
+<h2 id="Feature-Extraction">Feature Extraction<a class="anchor-link" href="#Feature-Extraction">¶</a>
 </h2>
-<p>데이터 사이언스관련 주요 예제들을 공유하는 공간입니다.</p>
-<ul>
-<li>Data Collection<ul>
-<li>Web Crawling</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li>Data Preparation (EDA)<ul>
-<li><a href="https://comafire.github.io/pages/data-preparation-data-description">Data Description(데이터 서술)</a></li>
-<li>Missing Value  </li>
-<li><a href="https://comafire.github.io/pages/data-preparation-descriptive-statistics">Descriptive Statistics(기술적 통계)</a></li>
-<li>Outlier  </li>
-<li><a href="https://comafire.github.io/pages/data-preparation-feature-selection">Feature Selection(특징선택)</a></li>
-<li><a href="https://comafire.github.io/pages/data-preparation-feature-extraction">Feature Extraction(특징추출)</a></li>
-</ul>
-</li>
-</ul>
-<ul>
-<li>Model<ul>
-<li>Supervised Learning<ul>
-<li>Regression</li>
-<li>Classificaion</li>
-</ul>
-</li>
-<li>Unsupervised Learning<ul>
-<li>Clustering</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li>Evaluation<ul>
-<li>RMSE(Root Mean Squared Error)</li>
-</ul>
-</li>
-</ul>
+<p>Feature Extraction은 주어진 고차원 데이터 분석 시에 모델링에 사용할 변수를 추출하는 방법입니다. Feature Selection과 다른 점은 존재하는 변수 중에서 중요한 변수들을 선택하여 차원을 축소하는 것이 아니라, 저차원으로 맵핑한 새로운 변수를 통해 차원을 줄인다는 것입니다.</p>
+<h3 id="Principal-Component-Analysis(주성분-분석)을-통한-변수-제거">Principal Component Analysis(주성분 분석)을 통한 변수 제거<a class="anchor-link" href="#Principal-Component-Analysis(%EC%A3%BC%EC%84%B1%EB%B6%84-%EB%B6%84%EC%84%9D)%EC%9D%84-%ED%86%B5%ED%95%9C-%EB%B3%80%EC%88%98-%EC%A0%9C%EA%B1%B0">¶</a>
+</h3>
+<p>PCA 는 고차원 데이터의 Variance 는 최대한 보존하면서 서로 직교하는 새 축을 찾아 데이터를 이 축상에 맵핑하여 새로운 저차원 변수를 만들어 차원 축소를 합니다.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [3]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">float_format</span> <span class="o">=</span> <span class="s1">'</span><span class="si">{:.15f}</span><span class="s1">'</span><span class="o">.</span><span class="n">format</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="k">import</span> <span class="n">load_boston</span>
+<span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="k">import</span> <span class="n">PCA</span>
+
+<span class="n">np_x</span><span class="p">,</span> <span class="n">np_y</span> <span class="o">=</span> <span class="n">load_boston</span><span class="p">(</span><span class="n">return_X_y</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"np_x.shape=</span><span class="si">{}</span><span class="s2">, np_y.shape=</span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np_x</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">np_y</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
+
+<span class="n">pca</span> <span class="o">=</span> <span class="n">PCA</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">pca</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">np_x</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">pca</span><span class="o">.</span><span class="n">explained_variance_ratio_</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pca</span><span class="o">.</span><span class="n">singular_values_</span><span class="p">)</span>
+
+<span class="n">np_x_extracted</span> <span class="o">=</span> <span class="n">pca</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">np_x</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"np_x_extracted.shape=</span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np_x_extracted</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>np_x.shape=(506, 13), np_y.shape=(506,)
+[0.80582318 0.16305197]
+[3949.60823205 1776.63071036]
+np_x_extracted.shape=(506, 2)
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+
+</div>
 </div>
 </div>
 </div>
@@ -177,9 +195,9 @@ navbar-dark bg-dark
         <div id="disqus_thread"></div>
         <script>
         var disqus_shortname ="comafire",
-            disqus_url="https://comafire.github.io/pages/data-science-cookbook/",
-        disqus_title="Data Science Cookbook",
-        disqus_identifier="cache/pages/data-science-cookbook.html",
+            disqus_url="https://comafire.github.io/pages/data-preparation-feature-extraction/",
+        disqus_title="Feature Extraction",
+        disqus_identifier="cache/pages/data-preparation-feature-extraction.html",
         disqus_config = function () {
             this.language = "en";
         };

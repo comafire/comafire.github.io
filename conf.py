@@ -140,7 +140,8 @@ NAVIGATION_LINKS = {
         ((
             ('/pages/st-kilda-pier', 'St. Kilda Pier'),
             ('/pages/notebooks-skp', 'Notebooks for St. Kilda Pier'),
-            ('/pages/data-science-cookbook', 'Data Science Cookbook')            
+            ('/pages/data-science-cookbook', 'Data Science Cookbook'),            
+            ('/pages/data-engineering-cookbook', 'Data Engineering Cookbook')                        
         ), 'Pages'),
         ((
             ('/posts', 'Posts'),

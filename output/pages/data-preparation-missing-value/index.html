@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article#
+" lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Missing Value | Comafire's Lab</title>
+<link href="../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/ipython.min.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
+<meta name="theme-color" content="#5670d4">
+<meta name="generator" content="Nikola (getnikola.com)">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="../../rss.xml">
+<link rel="canonical" href="https://comafire.github.io/pages/data-preparation-missing-value/">
+<!--[if lt IE 9]><script src="../../assets/js/html5.js"></script><![endif]--><!-- Google Adsense --><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>
+     (adsbygoogle = window.adsbygoogle || []).push({
+          google_ad_client: "ca-pub-0670106451680512",
+          enable_page_level_ads: true
+     });
+</script><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-81648003-1"></script><script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-81648003-1');
+</script><meta name="author" content="comafire">
+<meta property="og:site_name" content="Comafire's Lab">
+<meta property="og:title" content="Missing Value">
+<meta property="og:url" content="https://comafire.github.io/pages/data-preparation-missing-value/">
+<meta property="og:description" content="Missing Value¶데이터를 수집해서 처리하다보면 결측치를 만나게 됩니다. 결측치가 포함된 모델은 성능에 안 좋은 영향을 미칠 수 있기 때문에 전처리시에 처리하게 됩니다. 보통은 프로젝트내 도메인 전문가의 조언대로 처리되지만, 없을 경우는 결측치의 원인과 종류에 따라 그 처리 방법을 각기 달리 해서 처리합니다.
+Missing Value의 종류¶Miss">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2019-03-01T00:00:00+09:00">
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+<!-- Menubar -->
+
+<nav class="navbar navbar-expand-md static-top mb-4
+navbar-dark bg-dark
+"><div class="container">
+<!-- This keeps the margins nice -->
+        <a class="navbar-brand" href="https://comafire.github.io/">
+
+            <span id="blog-title">Comafire's Lab</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="bs-navbar">
+            <ul class="navbar-nav mr-auto">
+<li class="nav-item">
+<a href="../../index.html" class="nav-link">Home</a>
+            </li>
+<li class="nav-item dropdown">
+<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pages</a>
+            <div class="dropdown-menu">
+                    <a href="../st-kilda-pier" class="dropdown-item">St. Kilda Pier</a>
+                    <a href="../notebooks-skp" class="dropdown-item">Notebooks for St. Kilda Pier</a>
+                    <a href="../data-science-cookbook" class="dropdown-item">Data Science Cookbook</a>
+                    <a href="../data-engineering-cookbook" class="dropdown-item">Data Engineering Cookbook</a>
+            </div>
+            </li>
+<li class="nav-item dropdown">
+<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Posts</a>
+            <div class="dropdown-menu">
+                    <a href="../../posts" class="dropdown-item">Posts</a>
+                    <a href="../../archive.html" class="dropdown-item">Archive</a>
+                    <a href="../../categories/" class="dropdown-item">Tag</a>
+                    <a href="../../rss.xml" class="dropdown-item">RSS</a>
+            </div>
+                </li>
+<li class="nav-item">
+<a href="https://github.com/comafire" class="nav-link">GitHub</a>
+
+                
+            </li>
+</ul>
+<!-- Google custom search --><form method="get" action="https://www.google.com/search" class="navbar-form navbar-right" role="search">
+<div class="input-group">
+  <input type="text" name="q" class="form-control" placeholder="Search"><input type="hidden" name="sitesearch" value="https://comafire.github.io/"><div class="input-group-append">
+    <button class="btn btn-primary" type="submit">Go</button>
+  </div>
+</div>
+
+</form>
+<!-- End of custom search -->
+
+
+            <ul class="navbar-nav navbar-right">
+<li class="nav-item">
+    <a href="index.ipynb" id="sourcelink" class="nav-link">Source</a>
+    </li>
+
+
+                
+            </ul>
+</div>
+<!-- /.navbar-collapse -->
+    </div>
+<!-- /.container -->
+</nav><!-- End of Menubar --><div class="container" id="content" role="main">
+    <div class="body-content">
+        <!--Body content-->
+        
+        
+<article class="post-text storypage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">Missing Value</a></h1>
+
+        
+
+    </header><div class="e-content entry-content" itemprop="articleBody text">
+    <div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Missing-Value">Missing Value<a class="anchor-link" href="#Missing-Value">¶</a>
+</h2>
+<p>데이터를 수집해서 처리하다보면 결측치를 만나게 됩니다. 결측치가 포함된 모델은 성능에 안 좋은 영향을 미칠 수 있기 때문에 전처리시에 처리하게 됩니다. 보통은 프로젝트내 도메인 전문가의 조언대로 처리되지만, 없을 경우는 결측치의 원인과 종류에 따라 그 처리 방법을 각기 달리 해서 처리합니다.</p>
+<h3 id="Missing-Value의-종류">Missing Value의 종류<a class="anchor-link" href="#Missing-Value%EC%9D%98-%EC%A2%85%EB%A5%98">¶</a>
+</h3>
+<p>Missing Completely at Random (MCAR)</p>
+<ul>
+<li>완전하게 랜덤으로 결측치가 나타나는 경우입니다.</li>
+<li>완전하게 랜덤으로 나타난다면, 데이터가 큰 경우 랜덤 샘플링을 통해 완전한 데이터를 만들수 있게 됩니다.</li>
+</ul>
+<p>Missing at Random (MAR)</p>
+<ul>
+<li>결측치가 특정 변수와 관련되어 일어나지만 그 변수의 값과는 관계가 없는 경우입니다.</li>
+<li>예: 결측치가 발견되었는데, 데이터 수집 과정에서 설문 응답자가 다음 페이지가 있는지 모르고 응답을 종료한 경우 </li>
+</ul>
+<p>Missing not at Random (MNAR)</p>
+<ul>
+<li>결측치의 값과 결측 이유가 관련이 있는 경우입니다. </li>
+<li>예: 결측치가 발견되었는데, 데이터 수집 과정에서 설문 응답자가 해당 수집 변수에 대해 응답을 꺼려하여 응답하지 않은 경우</li>
+</ul>
+<h3 id="Missing-Value-처리-방법">Missing Value 처리 방법<a class="anchor-link" href="#Missing-Value-%EC%B2%98%EB%A6%AC-%EB%B0%A9%EB%B2%95">¶</a>
+</h3>
+<p>Deletion</p>
+<ul>
+<li>Listwise Deletion: 결측치가 발생된 행 전체 삭제</li>
+<li>Pairwise Deletion: </li>
+<li>Deleting Columns: 결측치가 발생된 열 전체 삭제</li>
+</ul>
+<p>Imputation</p>
+<ul>
+<li>Record Data<ul>
+<li>Categorical Data</li>
+<li>Continuous Data</li>
+</ul>
+</li>
+<li>Sequence Data<ul>
+<li>No Trend, No Seasonality</li>
+<li>Trend, No Seasonality</li>
+<li>Trend, Seasionality</li>
+</ul>
+</li>
+</ul>
+<h3 id="Missing-Value-처리-기준">Missing Value 처리 기준<a class="anchor-link" href="#Missing-Value-%EC%B2%98%EB%A6%AC-%EA%B8%B0%EC%A4%80">¶</a>
+</h3>
+<p>'Multivariate Data Analysis' Pearson Education 책에서는 아래 방법을 추천하고 있습니다.</p>
+<ul>
+<li>결측치 비율 10% 이하: 어떤 Imputation 방법도 상관 없음</li>
+<li>결측치 비율 10% ~ 20%: MCAR일 경우 Replace, Regression 방법 추천, MAR 일 경우 모델기반 방법 추천</li>
+<li>결측치 비율 20% 이상: MCAR일 경우 Regression 방법 추천, MAR 일 경우 모델기반 방법 추천</li>
+</ul>
+<p>추가적으로 결측치 비율 10% 이하이고, 데이터가 빅데이터인 경우는 Deletion 방법도 고려해 볼 수 있습니다.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [1]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># TBD..</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+    </div>
+        <section class="comments"><h2>Comments</h2>
+        
+        
+        <div id="disqus_thread"></div>
+        <script>
+        var disqus_shortname ="comafire",
+            disqus_url="https://comafire.github.io/pages/data-preparation-missing-value/",
+        disqus_title="Missing Value",
+        disqus_identifier="cache/pages/data-preparation-missing-value.html",
+        disqus_config = function () {
+            this.language = "en";
+        };
+        (function() {
+            var dsq = document.createElement('script'); dsq.async = true;
+            dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+    <a href="https://disqus.com" class="dsq-brlink" rel="nofollow">Comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+        </section><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha256-SDRP1VVYu+tgAGKhddBSl5+ezofHKZeI+OzxakbIe/Y=" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
+        MathJax.Hub.Config({tex2jax: {inlineMath: [['$latex ','$'], ['\\(','\\)']]}});
+        </script></article><!--End of body content--><footer id="footer">
+            Contents © 2019         <a href="mailto:comafire@gmail.com">comafire</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
+            
+        </footer>
+</div>
+</div>
+
+
+        <script src="../../assets/js/all-nocdn.js"></script><!-- fancy dates --><script>
+    moment.locale("en");
+    fancydates(0, "YYYY-MM-DD HH:mm");
+    </script><!-- end fancy dates --><script>
+    baguetteBox.run('div#content', {
+        ignoreClass: 'islink',
+        captions: function(element) {
+            return element.getElementsByTagName('img')[0].alt;
+    }});
+    </script>
+</body>
+</html>

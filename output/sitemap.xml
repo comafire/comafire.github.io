@@ -31,7 +31,7 @@
  </url>
  <url>
   <loc>https://comafire.github.io/archive.html</loc>
-  <lastmod>2019-02-24T06:43:00Z</lastmod>
+  <lastmod>2019-03-01T07:19:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/categories/</loc>
@@ -43,7 +43,11 @@
  </url>
  <url>
   <loc>https://comafire.github.io/pages/</loc>
-  <lastmod>2019-02-24T06:43:00Z</lastmod>
+  <lastmod>2019-03-01T07:19:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://comafire.github.io/pages/data-engineering-cookbook/</loc>
+  <lastmod>2019-03-01T07:19:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/pages/data-preparation-data-description/</loc>
@@ -62,12 +66,20 @@
   <lastmod>2019-02-23T18:30:00Z</lastmod>
  </url>
  <url>
+  <loc>https://comafire.github.io/pages/data-preparation-missing-value/</loc>
+  <lastmod>2019-03-01T07:19:00Z</lastmod>
+ </url>
+ <url>
   <loc>https://comafire.github.io/pages/data-science-cookbook/</loc>
   <lastmod>2019-02-15T17:12:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/pages/notebooks-skp/</loc>
   <lastmod>2019-02-15T17:12:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://comafire.github.io/pages/pandas-10mins/</loc>
+  <lastmod>2019-03-01T07:19:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/pages/st-kilda-pier/</loc>
@@ -255,18 +267,18 @@
  </url>
  <url>
   <loc>https://comafire.github.io/posts/index-1.html</loc>
-  <lastmod>2019-02-24T06:43:00Z</lastmod>
+  <lastmod>2019-03-01T07:19:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/posts/index-2.html</loc>
-  <lastmod>2019-02-24T06:43:00Z</lastmod>
+  <lastmod>2019-03-01T07:19:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/posts/index-3.html</loc>
-  <lastmod>2019-02-24T06:43:00Z</lastmod>
+  <lastmod>2019-03-01T07:19:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/posts/index-4.html</loc>
-  <lastmod>2019-02-24T06:43:00Z</lastmod>
+  <lastmod>2019-03-01T07:19:00Z</lastmod>
  </url>
 </urlset>

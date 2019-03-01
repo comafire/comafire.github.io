@@ -1,0 +1,66 @@
+
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Missing-Value">Missing Value<a class="anchor-link" href="#Missing-Value">&#182;</a></h1><p>데이터를 수집해서 처리하다보면 결측치를 만나게 됩니다. 결측치가 포함된 모델은 성능에 안 좋은 영향을 미칠 수 있기 때문에 전처리시에 처리하게 됩니다. 보통은 프로젝트내 도메인 전문가의 조언대로 처리되지만, 없을 경우는 결측치의 원인과 종류에 따라 그 처리 방법을 각기 달리 해서 처리합니다.</p>
+<h2 id="Missing-Value&#51032;-&#51333;&#47448;">Missing Value&#51032; &#51333;&#47448;<a class="anchor-link" href="#Missing-Value&#51032;-&#51333;&#47448;">&#182;</a></h2><p>Missing Completely at Random (MCAR)</p>
+<ul>
+<li>완전하게 랜덤으로 결측치가 나타나는 경우입니다.</li>
+<li>완전하게 랜덤으로 나타난다면, 데이터가 큰 경우 랜덤 샘플링을 통해 완전한 데이터를 만들수 있게 됩니다.</li>
+</ul>
+<p>Missing at Random (MAR)</p>
+<ul>
+<li>결측치가 특정 변수와 관련되어 일어나지만 그 변수의 값과는 관계가 없는 경우입니다.</li>
+<li>예: 결측치가 발견되었는데, 데이터 수집 과정에서 설문 응답자가 다음 페이지가 있는지 모르고 응답을 종료한 경우 </li>
+</ul>
+<p>Missing not at Random (MNAR)</p>
+<ul>
+<li>결측치의 값과 결측 이유가 관련이 있는 경우입니다. </li>
+<li>예: 결측치가 발견되었는데, 데이터 수집 과정에서 설문 응답자가 해당 수집 변수에 대해 응답을 꺼려하여 응답하지 않은 경우</li>
+</ul>
+<h2 id="Missing-Value-&#52376;&#47532;-&#48169;&#48277;">Missing Value &#52376;&#47532; &#48169;&#48277;<a class="anchor-link" href="#Missing-Value-&#52376;&#47532;-&#48169;&#48277;">&#182;</a></h2><p>Deletion</p>
+<ul>
+<li>Listwise Deletion: 결측치가 발생된 행 전체 삭제</li>
+<li>Pairwise Deletion: </li>
+<li>Deleting Columns: 결측치가 발생된 열 전체 삭제</li>
+</ul>
+<p>Imputation</p>
+<ul>
+<li>Record Data<ul>
+<li>Categorical Data</li>
+<li>Continuous Data</li>
+</ul>
+</li>
+<li>Sequence Data<ul>
+<li>No Trend, No Seasonality</li>
+<li>Trend, No Seasonality</li>
+<li>Trend, Seasionality</li>
+</ul>
+</li>
+</ul>
+<h2 id="Missing-Value-&#52376;&#47532;-&#44592;&#51456;">Missing Value &#52376;&#47532; &#44592;&#51456;<a class="anchor-link" href="#Missing-Value-&#52376;&#47532;-&#44592;&#51456;">&#182;</a></h2><p>'Multivariate Data Analysis' Pearson Education 책에서는 아래 방법을 추천하고 있습니다.</p>
+<ul>
+<li>결측치 비율 10% 이하: 어떤 Imputation 방법도 상관 없음</li>
+<li>결측치 비율 10% ~ 20%: MCAR일 경우 Replace, Regression 방법 추천, MAR 일 경우 모델기반 방법 추천</li>
+<li>결측치 비율 20% 이상: MCAR일 경우 Regression 방법 추천, MAR 일 경우 모델기반 방법 추천</li>
+</ul>
+<p>추가적으로 결측치 비율 10% 이하이고, 데이터가 빅데이터인 경우는 Deletion 방법도 고려해 볼 수 있습니다.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># TBD..</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+ 
+

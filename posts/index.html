@@ -314,10 +314,11 @@ navbar-dark bg-dark
 <p>Jupyter Python3 Kernel 을 이용해서 Pyspark으로 Spark Cluster를 통해 Job 을 수행 할때, 아래와 같이 Driver 와 Worker 들간에 Python 버전 충돌이 일어 날 때가 있습니다.</p>
 
 <pre><code>Exception: Python in worker has different version 2.7 than that in driver 3.5, PySpark cannot run with different minor versions.Please check environment variables PYSPARK_PYTHON and PYSPARK_DRIVER_PYTHON are correctly set.</code></pre>
-<p>이때는 아래와 같이 PYSPARK_PYTHON 환경 변수를 명시적으로 설정하여 해결할 수 있습니다.</p>
+<p>이때는 아래와 같이 두 환경 변수를 명시적으로 설정하여 해결할 수 있습니다.</p>
 
 <pre><code>import os
 os.environ["PYSPARK_PYTHON"]="/usr/bin/python3"
+os.environ["PYSPARK_DRIVER_PYTHON"]="/usr/bin/python3"
 
 spark = SparkSession.builder.master("spark://spark-skp-master:7077").appName("pysprk")
 spark = spark.config("spark.cores.max", "48")
@@ -495,10 +496,7 @@ spark = spark.getOrCreate()</code></pre>
 </div>
 
 
-        <script src="../assets/js/all-nocdn.js"></script><!-- fancy dates --><script>
-    moment.locale("en");
-    fancydates(0, "YYYY-MM-DD HH:mm");
-    </script><!-- end fancy dates --><script>
+        <script src="../assets/js/all-nocdn.js"></script><script>
     baguetteBox.run('div#content', {
         ignoreClass: 'islink',
         captions: function(element) {

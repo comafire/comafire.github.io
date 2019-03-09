@@ -31,7 +31,7 @@
  </url>
  <url>
   <loc>https://comafire.github.io/archive.html</loc>
-  <lastmod>2019-03-08T15:31:00Z</lastmod>
+  <lastmod>2019-03-09T03:59:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/categories/</loc>
@@ -91,7 +91,7 @@
  </url>
  <url>
   <loc>https://comafire.github.io/posts/</loc>
-  <lastmod>2019-02-15T17:12:00Z</lastmod>
+  <lastmod>2019-03-09T03:59:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/posts/2015-Docker-Proxy-Certificates-Ubuntu/</loc>
@@ -266,6 +266,10 @@
   <lastmod>2019-02-15T17:12:00Z</lastmod>
  </url>
  <url>
+  <loc>https://comafire.github.io/posts/2019-jupyter-cell-clear-outputs/</loc>
+  <lastmod>2019-03-09T03:59:00Z</lastmod>
+ </url>
+ <url>
   <loc>https://comafire.github.io/posts/2019-quilt-dataset-manager/</loc>
   <lastmod>2019-02-15T17:12:00Z</lastmod>
  </url>
@@ -283,6 +287,6 @@
  </url>
  <url>
   <loc>https://comafire.github.io/posts/index-4.html</loc>
-  <lastmod>2019-03-08T15:31:00Z</lastmod>
+  <lastmod>2019-03-09T03:59:00Z</lastmod>
  </url>
 </urlset>

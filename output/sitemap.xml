@@ -43,7 +43,7 @@
  </url>
  <url>
   <loc>https://comafire.github.io/pages/</loc>
-  <lastmod>2019-03-08T15:31:00Z</lastmod>
+  <lastmod>2019-03-12T07:23:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/pages/data-engineering-cookbook/</loc>
@@ -72,6 +72,10 @@
  <url>
   <loc>https://comafire.github.io/pages/data-science-cookbook/</loc>
   <lastmod>2019-02-15T17:12:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://comafire.github.io/pages/keras-10mins/</loc>
+  <lastmod>2019-03-12T07:23:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/pages/notebooks-skp/</loc>

@@ -31,7 +31,7 @@
  </url>
  <url>
   <loc>https://comafire.github.io/archive.html</loc>
-  <lastmod>2019-03-09T03:59:00Z</lastmod>
+  <lastmod>2019-03-29T12:15:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/categories/</loc>
@@ -43,7 +43,7 @@
  </url>
  <url>
   <loc>https://comafire.github.io/pages/</loc>
-  <lastmod>2019-03-12T07:23:00Z</lastmod>
+  <lastmod>2019-03-29T12:15:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/pages/data-engineering-cookbook/</loc>
@@ -68,6 +68,10 @@
  <url>
   <loc>https://comafire.github.io/pages/data-preparation-missing-value/</loc>
   <lastmod>2019-03-01T07:19:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://comafire.github.io/pages/data-preparation-outlier/</loc>
+  <lastmod>2019-03-29T12:15:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/pages/data-science-cookbook/</loc>
@@ -95,7 +99,7 @@
  </url>
  <url>
   <loc>https://comafire.github.io/posts/</loc>
-  <lastmod>2019-03-09T03:59:00Z</lastmod>
+  <lastmod>2019-03-29T12:15:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/posts/2015-Docker-Proxy-Certificates-Ubuntu/</loc>
@@ -274,6 +278,10 @@
   <lastmod>2019-03-09T03:59:00Z</lastmod>
  </url>
  <url>
+  <loc>https://comafire.github.io/posts/2019-jupyter-nbconvert-execute/</loc>
+  <lastmod>2019-03-29T12:15:00Z</lastmod>
+ </url>
+ <url>
   <loc>https://comafire.github.io/posts/2019-quilt-dataset-manager/</loc>
   <lastmod>2019-02-15T17:12:00Z</lastmod>
  </url>
@@ -291,6 +299,6 @@
  </url>
  <url>
   <loc>https://comafire.github.io/posts/index-4.html</loc>
-  <lastmod>2019-03-09T03:59:00Z</lastmod>
+  <lastmod>2019-03-29T12:15:00Z</lastmod>
  </url>
 </urlset>

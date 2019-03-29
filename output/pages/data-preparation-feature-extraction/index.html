@@ -123,7 +123,12 @@ navbar-dark bg-dark
 <h3 id="Principal-Component-Analysis(주성분-분석)을-통한-변수-제거">Principal Component Analysis(주성분 분석)을 통한 변수 제거<a class="anchor-link" href="#Principal-Component-Analysis(%EC%A3%BC%EC%84%B1%EB%B6%84-%EB%B6%84%EC%84%9D)%EC%9D%84-%ED%86%B5%ED%95%9C-%EB%B3%80%EC%88%98-%EC%A0%9C%EA%B1%B0">¶</a>
 </h3>
 <p>PCA 는 고차원 데이터의 Variance 는 최대한 보존하면서 서로 직교하는 새 축을 찾아 데이터를 이 축상에 맵핑하여 새로운 저차원 변수를 만들어 차원 축소를 합니다.</p>
-
+<p>만약 데이터에 이상치가 많이 포함되어 있다고 판단되면 whiten = True 로 놓는 것이 모델 성능 향상에 도움이 될 수 있습니다.</p>
+<p><strong>whiten : bool, optional (default False)</strong></p>
+<ul>
+<li>When True (False by default) the components_ vectors are multiplied by the square root of n_samples and then divided by the singular values to ensure uncorrelated outputs with unit component-wise variances.</li>
+<li>Whitening will remove some information from the transformed signal (the relative variance scales of the components) but can sometime improve the predictive accuracy of the downstream estimators by making their data respect some hard-wired assumptions.</li>
+</ul>
 </div>
 </div>
 </div>
@@ -144,6 +149,7 @@ navbar-dark bg-dark
 <span class="nb">print</span><span class="p">(</span><span class="s2">"np_x.shape=</span><span class="si">{}</span><span class="s2">, np_y.shape=</span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np_x</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">np_y</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
 
 <span class="n">pca</span> <span class="o">=</span> <span class="n">PCA</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
 <span class="n">pca</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">np_x</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">pca</span><span class="o">.</span><span class="n">explained_variance_ratio_</span><span class="p">)</span>
@@ -178,15 +184,6 @@ np_x_extracted.shape=(506, 2)
 </div>
 </div>
 
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-
-</div>
-</div>
 </div>
 </div>
     </div>

@@ -5,7 +5,7 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1553882823.0251224
+_modified_time = 1553885010.4237967
 _enable_loop = True
 _template_filename = '/usr/local/lib/python3.5/dist-packages/nikola/data/themes/bootstrap4/templates/index_helper.tmpl'
 _template_uri = 'index_helper.tmpl'
@@ -27,9 +27,9 @@ def render_body(context,**pageargs):
 def render_html_pager(context):
     __M_caller = context.caller_stack._push_frame()
     try:
-        prevlink = context.get('prevlink', UNDEFINED)
-        messages = context.get('messages', UNDEFINED)
         nextlink = context.get('nextlink', UNDEFINED)
+        messages = context.get('messages', UNDEFINED)
+        prevlink = context.get('prevlink', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\n')
         if prevlink or nextlink:
@@ -54,6 +54,6 @@ def render_html_pager(context):
 
 """
 __M_BEGIN_METADATA
-{"filename": "/usr/local/lib/python3.5/dist-packages/nikola/data/themes/bootstrap4/templates/index_helper.tmpl", "line_map": {"48": 9, "34": 2, "35": 3, "36": 4, "37": 5, "38": 6, "39": 6, "40": 6, "41": 6, "42": 6, "43": 8, "44": 9, "45": 9, "46": 9, "47": 9, "16": 0, "49": 11, "21": 13, "55": 49, "27": 2}, "uri": "index_helper.tmpl", "source_encoding": "utf-8"}
+{"source_encoding": "utf-8", "uri": "index_helper.tmpl", "filename": "/usr/local/lib/python3.5/dist-packages/nikola/data/themes/bootstrap4/templates/index_helper.tmpl", "line_map": {"48": 9, "34": 2, "35": 3, "36": 4, "37": 5, "38": 6, "39": 6, "40": 6, "41": 6, "42": 6, "43": 8, "44": 9, "45": 9, "46": 9, "47": 9, "16": 0, "49": 11, "21": 13, "55": 49, "27": 2}}
 __M_END_METADATA
 """

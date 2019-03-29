@@ -5,12 +5,12 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1553882822.9267008
+_modified_time = 1553885010.3155382
 _enable_loop = True
 _template_filename = '/usr/local/lib/python3.5/dist-packages/nikola/data/themes/base/templates/comments_helper_isso.tmpl'
 _template_uri = 'comments_helper_isso.tmpl'
 _source_encoding = 'utf-8'
-_exports = ['comment_form', 'comment_link_script', 'comment_link']
+_exports = ['comment_link_script', 'comment_form', 'comment_link']
 
 
 def render_body(context,**pageargs):
@@ -21,6 +21,27 @@ def render_body(context,**pageargs):
         __M_writer('\n\n')
         __M_writer('\n\n\n')
         __M_writer('\n')
+        return ''
+    finally:
+        context.caller_stack._pop_frame()
+
+
+def render_comment_link_script(context):
+    __M_caller = context.caller_stack._push_frame()
+    try:
+        lang = context.get('lang', UNDEFINED)
+        pagekind = context.get('pagekind', UNDEFINED)
+        comment_system_id = context.get('comment_system_id', UNDEFINED)
+        __M_writer = context.writer()
+        __M_writer('\n')
+        if comment_system_id and 'index' in pagekind:
+            __M_writer('        <script src="')
+            __M_writer(str(comment_system_id))
+            __M_writer('js/count.min.js" data-isso="')
+            __M_writer(str(comment_system_id))
+            __M_writer('" data-isso-lang="')
+            __M_writer(str(lang))
+            __M_writer('"></script>\n')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -57,27 +78,6 @@ def render_comment_form(context,url,title,identifier):
         context.caller_stack._pop_frame()
 
 
-def render_comment_link_script(context):
-    __M_caller = context.caller_stack._push_frame()
-    try:
-        lang = context.get('lang', UNDEFINED)
-        pagekind = context.get('pagekind', UNDEFINED)
-        comment_system_id = context.get('comment_system_id', UNDEFINED)
-        __M_writer = context.writer()
-        __M_writer('\n')
-        if comment_system_id and 'index' in pagekind:
-            __M_writer('        <script src="')
-            __M_writer(str(comment_system_id))
-            __M_writer('js/count.min.js" data-isso="')
-            __M_writer(str(comment_system_id))
-            __M_writer('" data-isso-lang="')
-            __M_writer(str(lang))
-            __M_writer('"></script>\n')
-        return ''
-    finally:
-        context.caller_stack._pop_frame()
-
-
 def render_comment_link(context,link,identifier):
     __M_caller = context.caller_stack._push_frame()
     try:
@@ -95,6 +95,6 @@ def render_comment_link(context,link,identifier):
 
 """
 __M_BEGIN_METADATA
-{"filename": "/usr/local/lib/python3.5/dist-packages/nikola/data/themes/base/templates/comments_helper_isso.tmpl", "line_map": {"67": 22, "68": 23, "69": 24, "70": 24, "71": 24, "72": 24, "73": 24, "74": 24, "75": 24, "16": 0, "81": 15, "21": 13, "22": 19, "23": 26, "88": 17, "89": 17, "90": 17, "86": 15, "29": 2, "96": 90, "36": 2, "37": 3, "38": 4, "39": 4, "40": 4, "41": 5, "42": 5, "43": 5, "44": 5, "45": 5, "46": 5, "47": 6, "48": 7, "49": 8, "50": 8, "51": 8, "52": 8, "53": 8, "54": 11, "87": 16, "60": 22}, "uri": "comments_helper_isso.tmpl", "source_encoding": "utf-8"}
+{"source_encoding": "utf-8", "uri": "comments_helper_isso.tmpl", "filename": "/usr/local/lib/python3.5/dist-packages/nikola/data/themes/base/templates/comments_helper_isso.tmpl", "line_map": {"64": 5, "65": 5, "66": 5, "67": 5, "68": 6, "69": 7, "70": 8, "71": 8, "72": 8, "73": 8, "74": 8, "75": 11, "16": 0, "81": 15, "21": 13, "22": 19, "23": 26, "88": 17, "89": 17, "90": 17, "86": 15, "29": 22, "96": 90, "87": 16, "36": 22, "37": 23, "38": 24, "39": 24, "40": 24, "41": 24, "42": 24, "43": 24, "44": 24, "50": 2, "57": 2, "58": 3, "59": 4, "60": 4, "61": 4, "62": 5, "63": 5}}
 __M_END_METADATA
 """

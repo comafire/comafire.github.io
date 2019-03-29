@@ -5,7 +5,7 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1553882822.8892348
+_modified_time = 1553885010.2767713
 _enable_loop = True
 _template_filename = '/usr/local/lib/python3.5/dist-packages/nikola/data/themes/bootstrap4/templates/ui_helper.tmpl'
 _template_uri = 'ui_helper.tmpl'
@@ -68,6 +68,6 @@ def render_breadcrumbs(context,crumbs):
 
 """
 __M_BEGIN_METADATA
-{"filename": "/usr/local/lib/python3.5/dist-packages/nikola/data/themes/bootstrap4/templates/ui_helper.tmpl", "line_map": {"69": 63, "16": 0, "21": 18, "22": 24, "28": 20, "33": 20, "34": 22, "35": 22, "36": 22, "37": 22, "43": 2, "48": 2, "49": 3, "50": 4, "51": 6, "52": 7, "53": 8, "54": 9, "55": 9, "56": 9, "57": 10, "58": 11, "59": 11, "60": 11, "61": 11, "62": 11, "63": 15}, "uri": "ui_helper.tmpl", "source_encoding": "utf-8"}
+{"source_encoding": "utf-8", "uri": "ui_helper.tmpl", "filename": "/usr/local/lib/python3.5/dist-packages/nikola/data/themes/bootstrap4/templates/ui_helper.tmpl", "line_map": {"69": 63, "16": 0, "21": 18, "22": 24, "28": 20, "33": 20, "34": 22, "35": 22, "36": 22, "37": 22, "43": 2, "48": 2, "49": 3, "50": 4, "51": 6, "52": 7, "53": 8, "54": 9, "55": 9, "56": 9, "57": 10, "58": 11, "59": 11, "60": 11, "61": 11, "62": 11, "63": 15}}
 __M_END_METADATA
 """

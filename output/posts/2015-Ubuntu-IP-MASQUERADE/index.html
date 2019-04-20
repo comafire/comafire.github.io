@@ -12,24 +12,14 @@
 <meta name="generator" content="Nikola (getnikola.com)">
 <link rel="alternate" type="application/rss+xml" title="RSS" href="../../rss.xml">
 <link rel="canonical" href="https://comafire.github.io/posts/2015-Ubuntu-IP-MASQUERADE/">
-<!--[if lt IE 9]><script src="../../assets/js/html5.js"></script><![endif]--><!-- Google Adsense --><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>
-     (adsbygoogle = window.adsbygoogle || []).push({
-          google_ad_client: "ca-pub-0670106451680512",
-          enable_page_level_ads: true
-     });
-</script><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-81648003-1"></script><script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+<!--[if lt IE 9]><script src="../../assets/js/html5.js"></script><![endif]-->
+</head>
+<body>
+<p>
 
-  gtag('config', 'UA-81648003-1');
-</script><meta name="author" content="comafire">
-<link rel="prev" href="../2015-Ubuntu-Install-Cuda-Toolkit/" title="2015-Ubuntu-Install-Cuda-Toolkit" type="text/html">
-<link rel="next" href="../2015-Torch/" title="2015-Torch" type="text/html">
-<meta property="og:site_name" content="Comafire's Lab">
-<meta property="og:title" content="2015-Ubuntu-IP-MASQUERADE">
-<meta property="og:url" content="https://comafire.github.io/posts/2015-Ubuntu-IP-MASQUERADE/">
-<meta property="og:description" content="간단하게 실험용 Cluster를 구축 할때 아래와 같이 Master 서버가 Slave 서버가 외부 네트워크와 통신할 수 있도록 IP 공유기 역할을 해야 할때 IP MASQUERADE를 이용하는 방법입니다.
+    
+... (possibly other links here too, for instance, Font Awesome) ...
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css"><meta name="author" content="comafire"><link rel="prev" href="../2015-Ubuntu-Install-Cuda-Toolkit/" title="2015-Ubuntu-Install-Cuda-Toolkit" type="text/html"><link rel="next" href="../2015-Torch/" title="2015-Torch" type="text/html"><meta property="og:site_name" content="Comafire's Lab"><meta property="og:title" content="2015-Ubuntu-IP-MASQUERADE"><meta property="og:url" content="https://comafire.github.io/posts/2015-Ubuntu-IP-MASQUERADE/"><meta property="og:description" content="간단하게 실험용 Cluster를 구축 할때 아래와 같이 Master 서버가 Slave 서버가 외부 네트워크와 통신할 수 있도록 IP 공유기 역할을 해야 할때 IP MASQUERADE를 이용하는 방법입니다.
 
 Internet &lt;--&gt; Master &lt;--&gt; 스위치허브 &lt;---&gt; Slave1,2,3 ...
 
@@ -39,11 +29,7 @@ Internet &lt;--&gt; Master &lt;--&gt; 스위치허브 &lt;---&gt; Slave1,2,3 ...
 
 
 
-Master 서버¶interface 설정¶M">
-<meta property="og:type" content="article">
-<meta property="article:published_time" content="2015-01-01T00:00:00+09:00">
-</head>
-<body>
+Master 서버¶interface 설정¶M"><meta property="og:type" content="article"><meta property="article:published_time" content="2015-01-01T00:00:00+09:00"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous"></p>
 <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
 
 <!-- Menubar -->
@@ -292,9 +278,18 @@ PING www.google.co.kr (58.123.220.104) 56(84) bytes of data.
     <a href="https://disqus.com" class="dsq-brlink" rel="nofollow">Comments powered by <span class="logo-disqus">Disqus</span></a>
 
 
-        </section><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha256-SDRP1VVYu+tgAGKhddBSl5+ezofHKZeI+OzxakbIe/Y=" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
-        MathJax.Hub.Config({tex2jax: {inlineMath: [['$latex ','$'], ['\\(','\\)']]}});
-        </script></article><script>var disqus_shortname="comafire";(function(){var a=document.createElement("script");a.async=true;a.src="https://"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script><!--End of body content--><footer id="footer">
+        </section><script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js" integrity="sha384-/y1Nn9+QQAipbNQWU65krzJralCnuOasHncUFXGkdwntGeSvQicrYkiUBwsgUqc1" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js" integrity="sha256-ExtbCSBuYA7kq1Pz362ibde9nnsHYPt6JxuxYeZbU+c=" crossorigin="anonymous"></script><script>
+                renderMathInElement(document.body,
+                    {
+                        delimiters: [
+                            {left: "$$", right: "$$", display: true},
+                            {left: "\\[", right: "\\]", display: true},
+                            {left: "\\begin{equation*}", right: "\\end{equation*}", display: true},
+                            {left: "\\(", right: "\\)", display: false}
+                        ]
+                    }
+                );
+            </script></article><script>var disqus_shortname="comafire";(function(){var a=document.createElement("script");a.async=true;a.src="https://"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script><!--End of body content--><footer id="footer">
             Contents © 2019         <a href="mailto:comafire@gmail.com">comafire</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
             
         </footer>

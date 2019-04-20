@@ -1437,3 +1437,9 @@ LATEX_FORMULA_SCALE = 1.25
 # The engine determines the TeX engine used. Must be one of "latex", "luatex" and "xetex".
 # Note that "luatex" does not support pstricks formulae.
 LATEX_FORMULA_ENGINE = "latex"
+
+EXTRA_HEAD_DATA = """
+... (possibly other links here too, for instance, Font Awesome) ...
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css">
+"""
+USE_KATEX = True

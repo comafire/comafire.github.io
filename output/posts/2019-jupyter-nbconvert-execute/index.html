@@ -12,28 +12,15 @@
 <meta name="generator" content="Nikola (getnikola.com)">
 <link rel="alternate" type="application/rss+xml" title="RSS" href="../../rss.xml">
 <link rel="canonical" href="https://comafire.github.io/posts/2019-jupyter-nbconvert-execute/">
-<!--[if lt IE 9]><script src="../../assets/js/html5.js"></script><![endif]--><!-- Google Adsense --><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>
-     (adsbygoogle = window.adsbygoogle || []).push({
-          google_ad_client: "ca-pub-0670106451680512",
-          enable_page_level_ads: true
-     });
-</script><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-81648003-1"></script><script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-81648003-1');
-</script><meta name="author" content="comafire">
-<link rel="prev" href="../2019-jupyter-cell-clear-outputs/" title="Jupyter 노트북 셀을 API를 통해 반복적으로 지우기" type="text/html">
-<meta property="og:site_name" content="Comafire's Lab">
-<meta property="og:title" content="Jupyter Notebook을 Shell 에서 수행하기">
-<meta property="og:url" content="https://comafire.github.io/posts/2019-jupyter-nbconvert-execute/">
-<meta property="og:description" content="Jupyter 에서 Notebook 을 Shell 상에서 수행하기¶Jupyter를 서버에 설치해 놓고 사용하다보면 트레이닝 중 일때 갑자기 자리를 옮겨야 할 때가 생기면 중간에 멈추고 다시 트레이닝 해야 할때가 종종 있습니다. 이럴때는 Jupyter의 Terminal 상에서 바로 nbconvert를 통해서 Notebook을 끊김 없이 수행할 수 있습니다.
-">
-<meta property="og:type" content="article">
-<meta property="article:published_time" content="2019-03-16T00:00:00+09:00">
+<!--[if lt IE 9]><script src="../../assets/js/html5.js"></script><![endif]-->
 </head>
 <body>
+<p>
+
+    
+... (possibly other links here too, for instance, Font Awesome) ...
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css"><meta name="author" content="comafire"><link rel="prev" href="../2019-jupyter-cell-clear-outputs/" title="Jupyter 노트북 셀을 API를 통해 반복적으로 지우기" type="text/html"><meta property="og:site_name" content="Comafire's Lab"><meta property="og:title" content="Jupyter Notebook을 Shell 에서 수행하기"><meta property="og:url" content="https://comafire.github.io/posts/2019-jupyter-nbconvert-execute/"><meta property="og:description" content="Jupyter 에서 Notebook 을 Shell 상에서 수행하기¶Jupyter를 서버에 설치해 놓고 사용하다보면 트레이닝 중 일때 갑자기 자리를 옮겨야 할 때가 생기면 중간에 멈추고 다시 트레이닝 해야 할때가 종종 있습니다. 이럴때는 Jupyter의 Terminal 상에서 바로 nbconvert를 통해서 Notebook을 끊김 없이 수행할 수 있습니다.
+"><meta property="og:type" content="article"><meta property="article:published_time" content="2019-03-16T00:00:00+09:00"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous"></p>
 <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
 
 <!-- Menubar -->
@@ -275,9 +262,18 @@ print(c)</code></pre>
     <a href="https://disqus.com" class="dsq-brlink" rel="nofollow">Comments powered by <span class="logo-disqus">Disqus</span></a>
 
 
-        </section><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha256-SDRP1VVYu+tgAGKhddBSl5+ezofHKZeI+OzxakbIe/Y=" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
-        MathJax.Hub.Config({tex2jax: {inlineMath: [['$latex ','$'], ['\\(','\\)']]}});
-        </script></article><script>var disqus_shortname="comafire";(function(){var a=document.createElement("script");a.async=true;a.src="https://"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script><!--End of body content--><footer id="footer">
+        </section><script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js" integrity="sha384-/y1Nn9+QQAipbNQWU65krzJralCnuOasHncUFXGkdwntGeSvQicrYkiUBwsgUqc1" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js" integrity="sha256-ExtbCSBuYA7kq1Pz362ibde9nnsHYPt6JxuxYeZbU+c=" crossorigin="anonymous"></script><script>
+                renderMathInElement(document.body,
+                    {
+                        delimiters: [
+                            {left: "$$", right: "$$", display: true},
+                            {left: "\\[", right: "\\]", display: true},
+                            {left: "\\begin{equation*}", right: "\\end{equation*}", display: true},
+                            {left: "\\(", right: "\\)", display: false}
+                        ]
+                    }
+                );
+            </script></article><script>var disqus_shortname="comafire";(function(){var a=document.createElement("script");a.async=true;a.src="https://"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script><!--End of body content--><footer id="footer">
             Contents © 2019         <a href="mailto:comafire@gmail.com">comafire</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
             
         </footer>

@@ -1,0 +1,574 @@
+
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Linear-Regression">Linear Regression<a class="anchor-link" href="#Linear-Regression">&#182;</a></h1><p><a href="https://en.wikipedia.org/wiki/Linear_regression">https://en.wikipedia.org/wiki/Linear_regression</a></p>
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Linear_regression.svg/440px-Linear_regression.svg.png" alt="Linear Regression"></p>
+<p>독립변수와 종속변수간의 선형 상관 관계를 모델링하는 방법입니다.</p>
+<p><strong><em>Simple Linear Regression(단순 선형 회귀)</em></strong></p>
+<p>독립변수가 1개인 경우</p>
+<p>$y = \alpha + \beta x$</p>
+<p><strong><em>Multiple Linear Regression(다중 선형 회귀)</em></strong></p>
+<p>독립변수가 여러개인 경우</p>
+<p>$y = \alpha + \beta x{_1} + \gamma x{_2}$</p>
+<p>학습을 통해 x 값과 y 값 쌍을 가장 잘 설명할 수 있는 파라미터를 찾습니다.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Ordinary-Least-Squares">Ordinary Least Squares<a class="anchor-link" href="#Ordinary-Least-Squares">&#182;</a></h2><p>Linear Regression 의 해를 구하기 위한 다양한 모델 추정 기법 중에 최소 제곱법을 이용합니다. 일반적인 간단한 선형 회귀 방법으로 정규화 (Regularized) 선형 회귀 모델에 비해 과적합(Overfit) 되기 쉽습니다.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="k">import</span> <span class="n">linear_model</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="k">import</span> <span class="n">datasets</span>
+
+<span class="c1"># 데이터</span>
+<span class="n">n_samples</span> <span class="o">=</span> <span class="mi">1000</span>
+<span class="n">np_data_xs</span><span class="p">,</span> <span class="n">np_data_ys</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">make_regression</span><span class="p">(</span>
+    <span class="n">n_samples</span><span class="o">=</span><span class="n">n_samples</span><span class="p">,</span> <span class="c1"># 데이터 수</span>
+    <span class="n">n_features</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="c1"># X feature 수</span>
+    <span class="n">bias</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="c1"># Y 절편</span>
+    <span class="n">noise</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="c1"># X 변수들에 더해지는 잡음의 표준 편차</span>
+    <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># 난수 발생용 Seed 값</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;data shape: np_data_xs=</span><span class="si">{}</span><span class="s2">, np_data_ys=</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np_data_xs</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">np_data_ys</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
+<span class="n">idx</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">n_samples</span> <span class="o">*</span> <span class="mf">0.7</span><span class="p">)</span>
+<span class="n">np_train_xs</span> <span class="o">=</span> <span class="n">np_data_xs</span><span class="p">[:</span><span class="n">idx</span><span class="p">]</span>
+<span class="n">np_train_ys</span> <span class="o">=</span> <span class="n">np_data_ys</span><span class="p">[:</span><span class="n">idx</span><span class="p">]</span>
+<span class="n">np_test_xs</span> <span class="o">=</span> <span class="n">np_data_xs</span><span class="p">[</span><span class="n">idx</span><span class="p">:]</span>
+<span class="n">np_test_ys</span> <span class="o">=</span> <span class="n">np_data_ys</span><span class="p">[</span><span class="n">idx</span><span class="p">:]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;train shape: np_train_xs=</span><span class="si">{}</span><span class="s2">, np_train_ys=</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np_train_xs</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">np_train_ys</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
+
+<span class="c1"># 학습</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">linear_model</span><span class="o">.</span><span class="n">LinearRegression</span><span class="p">()</span>
+<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">np_train_xs</span><span class="p">,</span> <span class="n">np_train_ys</span><span class="p">)</span>
+
+<span class="c1"># 평가</span>
+<span class="n">np_pred_y</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">np_test_xs</span><span class="p">)</span>
+
+<span class="c1"># 선형 회귀 모델링을 통해 얻은 coefficient, intercept 입니다.</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;coefficient=</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">coef_</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;intercept=</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">intercept_</span><span class="p">))</span>
+
+<span class="c1"># 평가: 테스트 데이터에 대해서 R2 값을 구합니다. R2 는 1.0 에 가까울 수록 선형 회귀 모델이 데이터를 잘 설명하고 있다는 것입니다.</span>
+<span class="n">r_square</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">np_test_xs</span><span class="p">,</span> <span class="n">np_test_ys</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;r_square=</span><span class="si">{:.5f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">r_square</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>data shape: np_data_xs=(1000, 2), np_data_ys=(1000,)
+train shape: np_train_xs=(700, 2), np_train_ys=(700,)
+coefficient=[41.08543529 40.06037847]
+intercept=0.9872295727386355
+r_square=0.99998
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Lasso-Regression">Lasso Regression<a class="anchor-link" href="#Lasso-Regression">&#182;</a></h2><p>선형회귀에서 L1 정규화(Regularization)을 추가하여 과적합을 방지하는 모델입니다.</p>
+<p>정규화는 회귀를 통해서 구하고자 하는 가중치 값에 페널티를 주어 0에 가깝게 만들어 불필요한 변수의 영향을 최소화 시키는 방법입니다.</p>
+<p>L1 정규화는 페널티로 가중치 합만큼을 주게되며, 이는 일정 값 이하의 영향력을 가진 변수가 제거되는 효과를 내게 되어(변수 선택의 효과) 과적합을 방지합니다. 따라서, 무의미한 변수가 많이 포함된 희소(Sparse)한 데이터 셋에 적합한 모델입니다.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="k">import</span> <span class="n">linear_model</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="k">import</span> <span class="n">datasets</span>
+
+<span class="c1"># 데이터</span>
+<span class="n">n_samples</span> <span class="o">=</span> <span class="mi">1000</span>
+<span class="n">np_data_xs</span><span class="p">,</span> <span class="n">np_data_ys</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">make_regression</span><span class="p">(</span>
+    <span class="n">n_samples</span><span class="o">=</span><span class="n">n_samples</span><span class="p">,</span> 
+    <span class="n">n_features</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> 
+    <span class="n">bias</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> 
+    <span class="n">noise</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> 
+    <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> 
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;data shape: np_data_xs=</span><span class="si">{}</span><span class="s2">, np_data_ys=</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np_data_xs</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">np_data_ys</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
+<span class="n">idx</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">n_samples</span> <span class="o">*</span> <span class="mf">0.7</span><span class="p">)</span>
+<span class="n">np_train_xs</span> <span class="o">=</span> <span class="n">np_data_xs</span><span class="p">[:</span><span class="n">idx</span><span class="p">]</span>
+<span class="n">np_train_ys</span> <span class="o">=</span> <span class="n">np_data_ys</span><span class="p">[:</span><span class="n">idx</span><span class="p">]</span>
+<span class="n">np_test_xs</span> <span class="o">=</span> <span class="n">np_data_xs</span><span class="p">[</span><span class="n">idx</span><span class="p">:]</span>
+<span class="n">np_test_ys</span> <span class="o">=</span> <span class="n">np_data_ys</span><span class="p">[</span><span class="n">idx</span><span class="p">:]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;train shape: np_train_xs=</span><span class="si">{}</span><span class="s2">, np_train_ys=</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np_train_xs</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">np_train_ys</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
+
+<span class="c1"># 학습</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">linear_model</span><span class="o">.</span><span class="n">Lasso</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.01</span><span class="p">)</span> <span class="c1"># alpha 값는 Regularization의 강도를 나타냅니다. </span>
+<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">np_train_xs</span><span class="p">,</span> <span class="n">np_train_ys</span><span class="p">)</span>
+
+<span class="c1"># 평가</span>
+<span class="n">np_pred_y</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">np_test_xs</span><span class="p">)</span>
+
+<span class="c1"># 선형 회귀 모델링을 통해 얻은 coefficient, intercept 입니다.</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;coefficient=</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">coef_</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;intercept=</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">intercept_</span><span class="p">))</span>
+
+<span class="c1"># 테스트 데이터에 대해서 R2 값을 구합니다. R2 는 1.0 에 가까울 수록 선형 회귀 모델이 데이터를 잘 설명하고 있다는 것입니다.</span>
+<span class="n">r_square</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">np_test_xs</span><span class="p">,</span> <span class="n">np_test_ys</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;r_square=</span><span class="si">{:.5f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">r_square</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>data shape: np_data_xs=(1000, 2), np_data_ys=(1000,)
+train shape: np_train_xs=(700, 2), np_train_ys=(700,)
+coefficient=[41.07479659 40.04975992]
+intercept=0.9871343470225851
+r_square=0.99998
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Ridge-Regression">Ridge Regression<a class="anchor-link" href="#Ridge-Regression">&#182;</a></h2><p>선형회귀에서 L2 정규화(Regularization)을 추가하여 과적합을 방지하는 모델입니다.</p>
+<p>L2 정규화는 페널티로 가중치의 제곱값의 합만큼을 주게되며, 이는 가중치가 클수록 페널티를 더 많이 받게 되므로 특이점(Outlier)에 의해 학습의 영향을 덜 받도록 하는 효과를 가지게 되어 과적합을 방지합니다.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="k">import</span> <span class="n">linear_model</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="k">import</span> <span class="n">datasets</span>
+
+<span class="c1"># 데이터</span>
+<span class="n">n_samples</span> <span class="o">=</span> <span class="mi">1000</span>
+<span class="n">np_data_xs</span><span class="p">,</span> <span class="n">np_data_ys</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">make_regression</span><span class="p">(</span>
+    <span class="n">n_samples</span><span class="o">=</span><span class="n">n_samples</span><span class="p">,</span> 
+    <span class="n">n_features</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> 
+    <span class="n">bias</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>
+    <span class="n">noise</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span>
+    <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;data shape: np_data_xs=</span><span class="si">{}</span><span class="s2">, np_data_ys=</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np_data_xs</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">np_data_ys</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
+<span class="n">idx</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">n_samples</span> <span class="o">*</span> <span class="mf">0.7</span><span class="p">)</span>
+<span class="n">np_train_xs</span> <span class="o">=</span> <span class="n">np_data_xs</span><span class="p">[:</span><span class="n">idx</span><span class="p">]</span>
+<span class="n">np_train_ys</span> <span class="o">=</span> <span class="n">np_data_ys</span><span class="p">[:</span><span class="n">idx</span><span class="p">]</span>
+<span class="n">np_test_xs</span> <span class="o">=</span> <span class="n">np_data_xs</span><span class="p">[</span><span class="n">idx</span><span class="p">:]</span>
+<span class="n">np_test_ys</span> <span class="o">=</span> <span class="n">np_data_ys</span><span class="p">[</span><span class="n">idx</span><span class="p">:]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;train shape: np_train_xs=</span><span class="si">{}</span><span class="s2">, np_train_ys=</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np_train_xs</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">np_train_ys</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
+
+<span class="c1"># 학습</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">linear_model</span><span class="o">.</span><span class="n">Ridge</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.01</span><span class="p">)</span> <span class="c1"># alpha 값는 Regularization의 강도를 나타냅니다. </span>
+<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">np_train_xs</span><span class="p">,</span> <span class="n">np_train_ys</span><span class="p">)</span>
+
+<span class="c1"># 평가</span>
+<span class="n">np_pred_y</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">np_test_xs</span><span class="p">)</span>
+
+<span class="c1"># 선형 회귀 모델링을 통해 얻은 coefficient, intercept 입니다.</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;coefficient=</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">coef_</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;intercept=</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">intercept_</span><span class="p">))</span>
+
+<span class="c1"># 테스트 데이터에 대해서 R2 값을 구합니다. R2 는 1.0 에 가까울 수록 선형 회귀 모델이 데이터를 잘 설명하고 있다는 것입니다.</span>
+<span class="n">r_square</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">np_test_xs</span><span class="p">,</span> <span class="n">np_test_ys</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;r_square=</span><span class="si">{:.5f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">r_square</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>data shape: np_data_xs=(1000, 2), np_data_ys=(1000,)
+train shape: np_train_xs=(700, 2), np_train_ys=(700,)
+coefficient=[41.08481154 40.05977026]
+intercept=0.987224134548606
+r_square=0.99998
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Elastic-Net-Regression">Elastic Net Regression<a class="anchor-link" href="#Elastic-Net-Regression">&#182;</a></h2><p>선형 회귀에서 L1, L2 정규화를 추가하여 과적합을 방지하는 모델입니다.</p>
+<p>L1, L2 정규화의 비율을 l1_ratio 파라미터를 이용하여 조정합니다. l1_ratio 값이 1.0 이면 이는 Lasso Regression 0 이면 Ridge Regression과 같게 됩니다. Elastic Net는 특히 고차원 데이터 셋에서 좋은 성능을 나타냅니다.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="k">import</span> <span class="n">linear_model</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="k">import</span> <span class="n">datasets</span>
+
+<span class="c1"># 데이터</span>
+<span class="n">n_samples</span> <span class="o">=</span> <span class="mi">10000</span>
+<span class="n">np_data_xs</span><span class="p">,</span> <span class="n">np_data_ys</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">make_regression</span><span class="p">(</span>
+    <span class="n">n_samples</span><span class="o">=</span><span class="n">n_samples</span><span class="p">,</span>
+    <span class="n">n_features</span><span class="o">=</span><span class="mi">2000</span><span class="p">,</span>
+    <span class="n">bias</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>
+    <span class="n">noise</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span>
+    <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;data shape: np_data_xs=</span><span class="si">{}</span><span class="s2">, np_data_ys=</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np_data_xs</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">np_data_ys</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
+<span class="n">idx</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">n_samples</span> <span class="o">*</span> <span class="mf">0.7</span><span class="p">)</span>
+<span class="n">np_train_xs</span> <span class="o">=</span> <span class="n">np_data_xs</span><span class="p">[:</span><span class="n">idx</span><span class="p">]</span>
+<span class="n">np_train_ys</span> <span class="o">=</span> <span class="n">np_data_ys</span><span class="p">[:</span><span class="n">idx</span><span class="p">]</span>
+<span class="n">np_test_xs</span> <span class="o">=</span> <span class="n">np_data_xs</span><span class="p">[</span><span class="n">idx</span><span class="p">:]</span>
+<span class="n">np_test_ys</span> <span class="o">=</span> <span class="n">np_data_ys</span><span class="p">[</span><span class="n">idx</span><span class="p">:]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;train shape: np_train_xs=</span><span class="si">{}</span><span class="s2">, np_train_ys=</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np_train_xs</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">np_train_ys</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
+
+<span class="c1"># 평가</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">linear_model</span><span class="o">.</span><span class="n">ElasticNet</span><span class="p">(</span><span class="n">l1_ratio</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">np_train_xs</span><span class="p">,</span> <span class="n">np_train_ys</span><span class="p">)</span>
+
+<span class="c1"># 선형 회귀 모델링을 통해 얻은 coefficient, intercept 입니다.</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;coefficient=</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">coef_</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;intercept=</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">intercept_</span><span class="p">))</span>
+
+<span class="c1"># 테스트 데이터에 대해서 R2 값을 구합니다. R2 는 1.0 에 가까울 수록 선형 회귀 모델이 데이터를 잘 설명하고 있다는 것입니다.</span>
+<span class="n">r_square</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">np_test_xs</span><span class="p">,</span> <span class="n">np_test_ys</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;r_square=</span><span class="si">{:.5f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">r_square</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>data shape: np_data_xs=(10000, 2000), np_data_ys=(10000,)
+train shape: np_train_xs=(7000, 2000), np_train_ys=(7000,)
+coefficient=[-0.56303544 -0.          0.01597477 ... -0.16211986 -0.28907251
+  0.        ]
+intercept=2.149760365529389
+r_square=0.86535
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Polynomial-regression">Polynomial regression<a class="anchor-link" href="#Polynomial-regression">&#182;</a></h1><p>실생활 데이터들은 선형 보다는 비선형 형태를 띄고 있는 경우가 많습니다. 이럴 경우 선형 모델로는 원하는 성능을 얻을 수 없습니다. 이때는 비선형 데이터를 고차원 함수를 통해 새로운 공간에 맵핑하여 선형 회귀를 이용하는 방법이 많이 쓰입니다.</p>
+<p>PolynomialFeatures 함수는 주어인 degree 를 이용하여 입력된 데이터를 새로운 차원으로 맵핑한 결과를 돌려 줍니다.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn</span> <span class="k">import</span> <span class="n">preprocessing</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+
+<span class="n">poly</span> <span class="o">=</span> <span class="n">preprocessing</span><span class="o">.</span><span class="n">PolynomialFeatures</span><span class="p">(</span><span class="n">degree</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">new_X</span> <span class="o">=</span> <span class="n">poly</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">new_X</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[[0 1]
+ [2 3]
+ [4 5]]
+[[ 1.  0.  1.  0.  0.  1.]
+ [ 1.  2.  3.  4.  6.  9.]
+ [ 1.  4.  5. 16. 20. 25.]]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>이는 $[x_1, x_2]$ 변수를 $[1, x_1, x_2, x_1^2, x_1 x_2, x_2^2]$ 2차원 공간으로 맵핑한 전처리 결과입니다. 전처리 후에는 다양한 선형 회귀 함수들을 이용하여 모델을 만드는 것이 가능합니다.</p>
+<p>경우에 따라서 고차원 맵핑이 아닌 교차 특징(intersaction features)만 $[1, x_1, x_2, x_1 x_2]$ 필요한 경우는 interaction_only=True 를 사용할 수 있습니다. 예를 들면 XOR 문제를 이 방식으로 선형 회귀를 통해 풀수 있게 됩니다.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn</span> <span class="k">import</span> <span class="n">linear_model</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="k">import</span> <span class="n">preprocessing</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]])</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">^</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+
+<span class="n">X</span> <span class="o">=</span> <span class="n">preprocessing</span><span class="o">.</span><span class="n">PolynomialFeatures</span><span class="p">(</span><span class="n">interaction_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="n">clf</span> <span class="o">=</span> <span class="n">linear_model</span><span class="o">.</span><span class="n">Perceptron</span><span class="p">(</span><span class="n">fit_intercept</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+
+<span class="n">clf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">clf</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[0 1 1 0]
+[[1 0 0 0]
+ [1 0 1 0]
+ [1 1 0 0]
+ [1 1 1 1]]
+1.0
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="k">import</span> <span class="n">preprocessing</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="k">import</span> <span class="n">linear_model</span>
+
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">n_samples</span> <span class="o">=</span> <span class="mi">200</span>
+<span class="n">np_data_xs</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">-</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">n_samples</span><span class="p">)</span>
+<span class="n">np_data_ys</span> <span class="o">=</span> <span class="n">np_data_xs</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="n">np_data_xs</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">np_data_xs</span> <span class="o">**</span> <span class="mi">3</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">n_samples</span><span class="p">)</span>
+<span class="n">np_data_xs</span> <span class="o">=</span> <span class="n">np_data_xs</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">np_data_ys</span> <span class="o">=</span> <span class="n">np_data_ys</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;data shape: np_data_xs=</span><span class="si">{}</span><span class="s2">, np_data_ys=</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np_data_xs</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">np_data_ys</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
+<span class="n">idx</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">n_samples</span> <span class="o">*</span> <span class="mf">0.7</span><span class="p">)</span>
+<span class="n">np_train_xs</span> <span class="o">=</span> <span class="n">np_data_xs</span><span class="p">[:</span><span class="n">idx</span><span class="p">]</span>
+<span class="n">np_train_ys</span> <span class="o">=</span> <span class="n">np_data_ys</span><span class="p">[:</span><span class="n">idx</span><span class="p">]</span>
+<span class="n">np_test_xs</span> <span class="o">=</span> <span class="n">np_data_xs</span><span class="p">[</span><span class="n">idx</span><span class="p">:]</span>
+<span class="n">np_test_ys</span> <span class="o">=</span> <span class="n">np_data_ys</span><span class="p">[</span><span class="n">idx</span><span class="p">:]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;train shape: np_train_xs=</span><span class="si">{}</span><span class="s2">, np_train_ys=</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np_train_xs</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">np_train_ys</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">np_train_xs</span><span class="p">,</span> <span class="n">np_train_ys</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">np_test_xs</span><span class="p">,</span> <span class="n">np_test_ys</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;g&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># PolynomialFeature 로 변환</span>
+<span class="n">poly</span> <span class="o">=</span> <span class="n">preprocessing</span><span class="o">.</span><span class="n">PolynomialFeatures</span><span class="p">(</span><span class="n">degree</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">np_train_poly_xs</span> <span class="o">=</span> <span class="n">poly</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">np_train_xs</span><span class="p">)</span>
+<span class="n">np_test_poly_xs</span> <span class="o">=</span> <span class="n">poly</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">np_test_xs</span><span class="p">)</span>
+
+<span class="c1"># 학습</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">linear_model</span><span class="o">.</span><span class="n">LinearRegression</span><span class="p">()</span>
+<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">np_train_poly_xs</span><span class="p">,</span> <span class="n">np_train_ys</span><span class="p">)</span>
+
+<span class="c1"># 평가</span>
+<span class="n">np_pred_ys</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">np_test_poly_xs</span><span class="p">)</span>
+
+<span class="n">r_square</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">np_test_poly_xs</span><span class="p">,</span> <span class="n">np_test_ys</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;r_square=</span><span class="si">{:.5f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">r_square</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">np_test_xs</span><span class="p">,</span> <span class="n">np_test_ys</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;g&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">np_test_xs</span><span class="p">,</span> <span class="n">np_pred_ys</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>data shape: np_data_xs=(200, 1), np_data_ys=(200,)
+train shape: np_train_xs=(140, 1), np_train_ys=(140,)
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,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
+"
+>
+</div>
+
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>r_square=0.99490
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,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
+"
+>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+ 
+

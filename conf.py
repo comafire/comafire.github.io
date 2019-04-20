@@ -140,8 +140,8 @@ NAVIGATION_LINKS = {
         ((
             ('/pages/st-kilda-pier', 'St. Kilda Pier'),
             ('/pages/notebooks-skp', 'Notebooks for St. Kilda Pier'),
-            ('/pages/data-science-cookbook', 'Data Science Cookbook'),            
-            ('/pages/data-engineering-cookbook', 'Data Engineering Cookbook')                        
+            ('/pages/data-science-cookbook', 'Data Science Cookbook'),
+            ('/pages/data-engineering-cookbook', 'Data Engineering Cookbook')
         ), 'Pages'),
         ((
             ('/posts', 'Posts'),
@@ -1181,7 +1181,7 @@ SEARCH_FORM = """
 <form method="get" action="https://www.google.com/search" class="navbar-form navbar-right" role="search">
 <div class="input-group">
   <input type="text" name="q" class="form-control" placeholder="Search">
-  <input type="hidden" name="sitesearch" value="%s">    
+  <input type="hidden" name="sitesearch" value="%s">
   <div class="input-group-append">
     <button class="btn btn-primary" type="submit">Go</button>
   </div>
@@ -1376,3 +1376,64 @@ GLOBAL_CONTEXT = {}
 # GLOBAL_CONTEXT as parameter when the template is about to be
 # rendered
 GLOBAL_CONTEXT_FILLER = []
+
+# The folder relative to OUTPUT_FOLDER in which the rendered formulae are stored.
+# Defaults to /formula/.
+LATEX_FORMULA_FOLDER = "formula"
+
+# Whether to store the rendered formulae as images or to insert them with data URIs.
+# Warning: data URIs can seriously blow up the generated HTML, especially if you
+# use may formulae or repeatingly the same one!
+LATEX_FORMULA_AS_DATAURI = False
+
+# The output format used for the images. Possible values:
+#   * "png" for PNG images with transparency;
+#   * "svg" for SVG vector graphics;
+#   * "svgz" for SVG vector graphics compressed with gzip.
+# Note that depending on your web server's configuration, you might experience
+# problems with .svgz files as the web server might treat them similar to .svg.gz
+# files and deliver them claiming that they are .svg files.
+LATEX_FORMULA_OUTPUT_FORMAT = 'png'
+
+# Allows to include packages and define things in the preamble of the .tex files
+# used to render the formulae. When generating a temporary .tex file, the plugin
+# looks for the contents of the following keys:
+#   * "": will always be included;
+#   * "tikz": will be included when formula_type is ("tikzpicture", ...);
+#   * "pstricks": will be included when formula_type is ("pstricks", ...);
+#   * "xy": will be included if the formula contains "\xymatrix";
+#   * "pdflatex": will be included if the .tex file is processed by pdflatex
+#     to convert it to a .pdf file;
+#   * "latex": will be included if the .tex file is processed by latex to convert
+#     it to a .dvi file.
+# The default is {}, which means no preamble additions. The following example
+# shows how to define some macros for all formulae:
+LATEX_FORMULA_ADDITIONAL_PREAMBLE = {
+    "": r"""
+\usepackage{amssymb}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}"""
+}
+
+# Determines how the formulae are rendered. Possibilities:
+#  - "latex_formula_image_renderer": renders formulae as graphics and includes them.
+#  - "latex_formula_mathjax": inserts MathJax code.
+LATEX_FORMULA_RENDERER = "latex_formula_image_renderer"
+
+# When "latex_formula_image_renderer" is selected as the formula renderer,
+# the formulae colors and scale can be set here:
+#
+# The color must be given as an RGB triple with components in range [0, 1].
+# Here, (0, 0, 0) is black and (1, 1, 1) is white.
+LATEX_FORMULA_COLOR = (0., 0., 0.)
+#
+# The formula scale determines the effective size of the formulae.
+# Check what looks good with your theme's main font.
+LATEX_FORMULA_SCALE = 1.25
+#
+# The engine determines the TeX engine used. Must be one of "latex", "luatex" and "xetex".
+# Note that "luatex" does not support pstricks formulae.
+LATEX_FORMULA_ENGINE = "latex"

@@ -1376,9 +1376,3 @@ GLOBAL_CONTEXT = {}
 # GLOBAL_CONTEXT as parameter when the template is about to be
 # rendered
 GLOBAL_CONTEXT_FILLER = []
-
-# EXTRA_HEAD_DATA = """
-# ... (possibly other links here too, for instance, Font Awesome) ...
-# <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css">
-# """
-# USE_KATEX = True

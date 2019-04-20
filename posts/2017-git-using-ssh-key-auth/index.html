@@ -12,16 +12,30 @@
 <meta name="generator" content="Nikola (getnikola.com)">
 <link rel="alternate" type="application/rss+xml" title="RSS" href="../../rss.xml">
 <link rel="canonical" href="https://comafire.github.io/posts/2017-git-using-ssh-key-auth/">
-<!--[if lt IE 9]><script src="../../assets/js/html5.js"></script><![endif]-->
+<!--[if lt IE 9]><script src="../../assets/js/html5.js"></script><![endif]--><!-- Google Adsense --><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>
+     (adsbygoogle = window.adsbygoogle || []).push({
+          google_ad_client: "ca-pub-0670106451680512",
+          enable_page_level_ads: true
+     });
+</script><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-81648003-1"></script><script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-81648003-1');
+</script><meta name="author" content="comafire">
+<link rel="prev" href="../2017-spark-submit-repository-error/" title="Spark Submit 저장소 오류" type="text/html">
+<link rel="next" href="../2017-python-jupyter-notebook-tips/" title="Jupyter 노트북 팁" type="text/html">
+<meta property="og:site_name" content="Comafire's Lab">
+<meta property="og:title" content="Git에서 SSH Key를 이용한 멀티 계정 인증">
+<meta property="og:url" content="https://comafire.github.io/posts/2017-git-using-ssh-key-auth/">
+<meta property="og:description" content="보통 프로젝트를 진행할때, 소스 버전 컨트롤을 위해서 git을 많이 사용합니다. git을 로컬에서 사용하기 보다는 github 또는 gitlab을 주로 이용하게 되는데요.
+github 및 gitlab 사용시 인증은 간편하게 http 인증을 많이 사용했었는데요.
+프로젝트가 많아짐에 따라 commit 할때마다 비번을 넣어야 하는 불편함과 한 컴퓨터에서 gitl">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2017-07-15T00:00:00+09:00">
 </head>
 <body>
-<p>
-
-    
-... (possibly other links here too, for instance, Font Awesome) ...
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css"><meta name="author" content="comafire"><link rel="prev" href="../2017-spark-submit-repository-error/" title="Spark Submit 저장소 오류" type="text/html"><link rel="next" href="../2017-python-jupyter-notebook-tips/" title="Jupyter 노트북 팁" type="text/html"><meta property="og:site_name" content="Comafire's Lab"><meta property="og:title" content="Git에서 SSH Key를 이용한 멀티 계정 인증"><meta property="og:url" content="https://comafire.github.io/posts/2017-git-using-ssh-key-auth/"><meta property="og:description" content="보통 프로젝트를 진행할때, 소스 버전 컨트롤을 위해서 git을 많이 사용합니다. git을 로컬에서 사용하기 보다는 github 또는 gitlab을 주로 이용하게 되는데요.
-github 및 gitlab 사용시 인증은 간편하게 http 인증을 많이 사용했었는데요.
-프로젝트가 많아짐에 따라 commit 할때마다 비번을 넣어야 하는 불편함과 한 컴퓨터에서 gitl"><meta property="og:type" content="article"><meta property="article:published_time" content="2017-07-15T00:00:00+09:00"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous"></p>
 <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
 
 <!-- Menubar -->
@@ -262,18 +276,9 @@ Host C.gitlab.com
     <a href="https://disqus.com" class="dsq-brlink" rel="nofollow">Comments powered by <span class="logo-disqus">Disqus</span></a>
 
 
-        </section><script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js" integrity="sha384-/y1Nn9+QQAipbNQWU65krzJralCnuOasHncUFXGkdwntGeSvQicrYkiUBwsgUqc1" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js" integrity="sha256-ExtbCSBuYA7kq1Pz362ibde9nnsHYPt6JxuxYeZbU+c=" crossorigin="anonymous"></script><script>
-                renderMathInElement(document.body,
-                    {
-                        delimiters: [
-                            {left: "$$", right: "$$", display: true},
-                            {left: "\\[", right: "\\]", display: true},
-                            {left: "\\begin{equation*}", right: "\\end{equation*}", display: true},
-                            {left: "\\(", right: "\\)", display: false}
-                        ]
-                    }
-                );
-            </script></article><script>var disqus_shortname="comafire";(function(){var a=document.createElement("script");a.async=true;a.src="https://"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script><!--End of body content--><footer id="footer">
+        </section><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha256-SDRP1VVYu+tgAGKhddBSl5+ezofHKZeI+OzxakbIe/Y=" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
+        MathJax.Hub.Config({tex2jax: {inlineMath: [['$latex ','$'], ['\\(','\\)']]}});
+        </script></article><script>var disqus_shortname="comafire";(function(){var a=document.createElement("script");a.async=true;a.src="https://"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script><!--End of body content--><footer id="footer">
             Contents © 2019         <a href="mailto:comafire@gmail.com">comafire</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
             
         </footer>

@@ -12,14 +12,24 @@
 <meta name="generator" content="Nikola (getnikola.com)">
 <link rel="alternate" type="application/rss+xml" title="RSS" href="../../rss.xml">
 <link rel="canonical" href="https://comafire.github.io/posts/2016-python-tf-dnn-mnist-with-vscope/">
-<!--[if lt IE 9]><script src="../../assets/js/html5.js"></script><![endif]-->
-</head>
-<body>
-<p>
+<!--[if lt IE 9]><script src="../../assets/js/html5.js"></script><![endif]--><!-- Google Adsense --><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>
+     (adsbygoogle = window.adsbygoogle || []).push({
+          google_ad_client: "ca-pub-0670106451680512",
+          enable_page_level_ads: true
+     });
+</script><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-81648003-1"></script><script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-    
-... (possibly other links here too, for instance, Font Awesome) ...
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css"><meta name="author" content="comafire"><link rel="prev" href="../2016-python-tf-dnn-mnist/" title="TensorFlow에서 DNN으로 Mnist 분류해보기" type="text/html"><link rel="next" href="../2016-python-tf-cnn-mnist/" title="TensorFlow에서 CNN으로 Mnist분류해보기" type="text/html"><meta property="og:site_name" content="Comafire's Lab"><meta property="og:title" content="TensorFlow 에서 vscope 이용해보기"><meta property="og:url" content="https://comafire.github.io/posts/2016-python-tf-dnn-mnist-with-vscope/"><meta property="og:description" content="Tensorflow의 변수 생성에 함수를 이용하기 위해 변수 범위를 한정하는 방법을 알아봅니다.
+  gtag('config', 'UA-81648003-1');
+</script><meta name="author" content="comafire">
+<link rel="prev" href="../2016-python-tf-dnn-mnist/" title="TensorFlow에서 DNN으로 Mnist 분류해보기" type="text/html">
+<link rel="next" href="../2016-python-tf-cnn-mnist/" title="TensorFlow에서 CNN으로 Mnist분류해보기" type="text/html">
+<meta property="og:site_name" content="Comafire's Lab">
+<meta property="og:title" content="TensorFlow 에서 vscope 이용해보기">
+<meta property="og:url" content="https://comafire.github.io/posts/2016-python-tf-dnn-mnist-with-vscope/">
+<meta property="og:description" content="Tensorflow의 변수 생성에 함수를 이용하기 위해 변수 범위를 한정하는 방법을 알아봅니다.
 Tensorflow에서 DNN으로 Mnist 데이터셋 분류하기에서 DNN의 설정 부분을 variable_scope() 를 써서 함수화 해보도록 하겠습니다.
 
 
@@ -31,7 +41,11 @@ In [1]:
 
     
 import matplotlib.pyplot as plt
-import "><meta property="og:type" content="article"><meta property="article:published_time" content="2016-01-01T00:00:00+09:00"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous"></p>
+import ">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2016-01-01T00:00:00+09:00">
+</head>
+<body>
 <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
 
 <!-- Menubar -->
@@ -432,18 +446,9 @@ epoch: 9, test acc: 0.9812
     <a href="https://disqus.com" class="dsq-brlink" rel="nofollow">Comments powered by <span class="logo-disqus">Disqus</span></a>
 
 
-        </section><script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js" integrity="sha384-/y1Nn9+QQAipbNQWU65krzJralCnuOasHncUFXGkdwntGeSvQicrYkiUBwsgUqc1" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js" integrity="sha256-ExtbCSBuYA7kq1Pz362ibde9nnsHYPt6JxuxYeZbU+c=" crossorigin="anonymous"></script><script>
-                renderMathInElement(document.body,
-                    {
-                        delimiters: [
-                            {left: "$$", right: "$$", display: true},
-                            {left: "\\[", right: "\\]", display: true},
-                            {left: "\\begin{equation*}", right: "\\end{equation*}", display: true},
-                            {left: "\\(", right: "\\)", display: false}
-                        ]
-                    }
-                );
-            </script></article><script>var disqus_shortname="comafire";(function(){var a=document.createElement("script");a.async=true;a.src="https://"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script><!--End of body content--><footer id="footer">
+        </section><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha256-SDRP1VVYu+tgAGKhddBSl5+ezofHKZeI+OzxakbIe/Y=" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
+        MathJax.Hub.Config({tex2jax: {inlineMath: [['$latex ','$'], ['\\(','\\)']]}});
+        </script></article><script>var disqus_shortname="comafire";(function(){var a=document.createElement("script");a.async=true;a.src="https://"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script><!--End of body content--><footer id="footer">
             Contents © 2019         <a href="mailto:comafire@gmail.com">comafire</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
             
         </footer>

@@ -5,12 +5,12 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1555775648.4081943
+_modified_time = 1555821164.7025156
 _enable_loop = True
 _template_filename = '/usr/local/lib/python3.5/dist-packages/nikola/data/themes/bootstrap4/templates/ui_helper.tmpl'
 _template_uri = 'ui_helper.tmpl'
 _source_encoding = 'utf-8'
-_exports = ['breadcrumbs', 'show_sourcelink']
+_exports = ['show_sourcelink', 'breadcrumbs']
 
 
 def render_body(context,**pageargs):
@@ -20,6 +20,21 @@ def render_body(context,**pageargs):
         __M_writer = context.writer()
         __M_writer('\n\n')
         __M_writer('\n')
+        return ''
+    finally:
+        context.caller_stack._pop_frame()
+
+
+def render_show_sourcelink(context,sourcelink_href):
+    __M_caller = context.caller_stack._push_frame()
+    try:
+        messages = context.get('messages', UNDEFINED)
+        __M_writer = context.writer()
+        __M_writer('\n    <li class="nav-item">\n    <a href="')
+        __M_writer(str(sourcelink_href))
+        __M_writer('" id="sourcelink" class="nav-link">')
+        __M_writer(str(messages("Source")))
+        __M_writer('</a>\n    </li>\n')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -51,23 +66,8 @@ def render_breadcrumbs(context,crumbs):
         context.caller_stack._pop_frame()
 
 
-def render_show_sourcelink(context,sourcelink_href):
-    __M_caller = context.caller_stack._push_frame()
-    try:
-        messages = context.get('messages', UNDEFINED)
-        __M_writer = context.writer()
-        __M_writer('\n    <li class="nav-item">\n    <a href="')
-        __M_writer(str(sourcelink_href))
-        __M_writer('" id="sourcelink" class="nav-link">')
-        __M_writer(str(messages("Source")))
-        __M_writer('</a>\n    </li>\n')
-        return ''
-    finally:
-        context.caller_stack._pop_frame()
-
-
 """
 __M_BEGIN_METADATA
-{"filename": "/usr/local/lib/python3.5/dist-packages/nikola/data/themes/bootstrap4/templates/ui_helper.tmpl", "source_encoding": "utf-8", "uri": "ui_helper.tmpl", "line_map": {"69": 63, "16": 0, "21": 18, "22": 24, "28": 2, "33": 2, "34": 3, "35": 4, "36": 6, "37": 7, "38": 8, "39": 9, "40": 9, "41": 9, "42": 10, "43": 11, "44": 11, "45": 11, "46": 11, "47": 11, "48": 15, "54": 20, "59": 20, "60": 22, "61": 22, "62": 22, "63": 22}}
+{"line_map": {"69": 63, "16": 0, "21": 18, "22": 24, "28": 20, "33": 20, "34": 22, "35": 22, "36": 22, "37": 22, "43": 2, "48": 2, "49": 3, "50": 4, "51": 6, "52": 7, "53": 8, "54": 9, "55": 9, "56": 9, "57": 10, "58": 11, "59": 11, "60": 11, "61": 11, "62": 11, "63": 15}, "filename": "/usr/local/lib/python3.5/dist-packages/nikola/data/themes/bootstrap4/templates/ui_helper.tmpl", "uri": "ui_helper.tmpl", "source_encoding": "utf-8"}
 __M_END_METADATA
 """

@@ -4,14 +4,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Data Science Cookbook | Comafire's Lab</title>
+<title>Clustering | Comafire's Lab</title>
 <link href="../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
 <link href="../../assets/css/ipython.min.css" rel="stylesheet" type="text/css">
 <link href="../../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
 <meta name="theme-color" content="#5670d4">
 <meta name="generator" content="Nikola (getnikola.com)">
 <link rel="alternate" type="application/rss+xml" title="RSS" href="../../rss.xml">
-<link rel="canonical" href="https://comafire.github.io/pages/data-science-cookbook/">
+<link rel="canonical" href="https://comafire.github.io/pages/model-clustering/">
 <!--[if lt IE 9]><script src="../../assets/js/html5.js"></script><![endif]--><!-- Google Adsense --><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>
      (adsbygoogle = window.adsbygoogle || []).push({
           google_ad_client: "ca-pub-0670106451680512",
@@ -25,17 +25,30 @@
   gtag('config', 'UA-81648003-1');
 </script><meta name="author" content="comafire">
 <meta property="og:site_name" content="Comafire's Lab">
-<meta property="og:title" content="Data Science Cookbook">
-<meta property="og:url" content="https://comafire.github.io/pages/data-science-cookbook/">
-<meta property="og:description" content="Data Science Cookbook¶데이터 사이언스관련 주요 예제들을 공유하는 공간입니다.
+<meta property="og:title" content="Clustering">
+<meta property="og:url" content="https://comafire.github.io/pages/model-clustering/">
+<meta property="og:description" content="Clustering¶
 
-Data Preparation (EDA(탐색적 자료 분석, Exploratory Data Analysis))
-Data Description(데이터 서술)
-Missing Value(결측치)  
-Descriptive Statistics(기술적 통계)
-Outlier(">
+
+
+
+
+In [ ]:
+
+    
+ 
+
+
+    
+
+
+
+
+
+
+In [ ]:">
 <meta property="og:type" content="article">
-<meta property="article:published_time" content="2019-02-10T00:00:00+09:00">
+<meta property="article:published_time" content="2019-04-20T00:00:00+09:00">
 </head>
 <body>
 <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
@@ -111,87 +124,47 @@ navbar-dark bg-dark
         <!--Body content-->
         
         
-<article class="post-text storypage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">Data Science Cookbook</a></h1>
+<article class="post-text storypage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">Clustering</a></h1>
 
         
 
     </header><div class="e-content entry-content" itemprop="articleBody text">
-    <div class="cell border-box-sizing text_cell rendered">
+    <div>
+<div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Data-Science-Cookbook">Data Science Cookbook<a class="anchor-link" href="#Data-Science-Cookbook">¶</a>
+<h2 id="Clustering">Clustering<a class="anchor-link" href="#Clustering">¶</a>
 </h2>
-<p>데이터 사이언스관련 주요 예제들을 공유하는 공간입니다.</p>
-<ul>
-<li>Data Preparation (EDA(탐색적 자료 분석, Exploratory Data Analysis))<ul>
-<li><a href="https://comafire.github.io/pages/data-preparation-data-description">Data Description(데이터 서술)</a></li>
-<li>
-<a href="https://comafire.github.io/pages/data-preparation-missing-value">Missing Value(결측치)</a>  </li>
-<li><a href="https://comafire.github.io/pages/data-preparation-descriptive-statistics">Descriptive Statistics(기술적 통계)</a></li>
-<li><a href="https://comafire.github.io/pages/data-preparation-outlier">Outlier(이상치)</a></li>
-<li><a href="https://comafire.github.io/pages/data-preparation-feature-selection">Feature Selection(특징선택)</a></li>
-<li><a href="https://comafire.github.io/pages/data-preparation-feature-extraction">Feature Extraction(특징추출)</a></li>
-<li><a href="https://comafire.github.io/pages/data-preparation-feature-transformation">Feature Transformation(특징변환)</a></li>
-<li><a href="https://comafire.github.io/pages/data-preparation-imbalanced-class">Imbalanced Class(불균형 클래스)</a></li>
-</ul>
-</li>
-</ul>
-<ul>
-<li>
-<p>Model</p>
-<ul>
-<li>
-<p>Record Data</p>
-<ul>
-<li>Supervised Learning(지도학습)<ul>
-<li><a href="https://comafire.github.io/pages/model-regression">Regression(회귀)</a></li>
-<li><a href="https://comafire.github.io/pages/model-classification">Classification(분류)</a></li>
-</ul>
-</li>
-<li>Unsupervised Learning<ul>
-<li><a href="https://comafire.github.io/pages/model-clustering">Clustering(군집)</a></li>
-<li>Anomaly Detection      </li>
-</ul>
-</li>
-<li>Recommendation</li>
-</ul>
-</li>
-<li>
-<p>Graph-based Data</p>
-</li>
-<li>Ordered Data</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li>Evaluation<ul>
-<li>Classification<ul>
-<li>Confusion Matrix (Precision, Recall, F-Score) </li>
-</ul>
-</li>
-<li>Regression<ul>
-<li>RMSE(Root Mean Squared Error)</li>
-<li>R-Square</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li>주요 라이브러리<ul>
-<li>DeepLearning<ul>
-<li>Keras<ul>
-<li><a href="https://comafire.github.io/pages/keras-10mins">Keras 10분만에 흝어보기</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
 </div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
 </div>
 </div>
     </div>
@@ -201,9 +174,9 @@ navbar-dark bg-dark
         <div id="disqus_thread"></div>
         <script>
         var disqus_shortname ="comafire",
-            disqus_url="https://comafire.github.io/pages/data-science-cookbook/",
-        disqus_title="Data Science Cookbook",
-        disqus_identifier="cache/pages/data-science-cookbook.html",
+            disqus_url="https://comafire.github.io/pages/model-clustering/",
+        disqus_title="Clustering",
+        disqus_identifier="cache/pages/model-clustering.html",
         disqus_config = function () {
             this.language = "en";
         };

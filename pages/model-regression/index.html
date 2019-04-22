@@ -149,7 +149,38 @@ $$<p>학습을 통해 x 값과 y 값 쌍을 가장 잘 설명할 수 있는 파�
 <h3 id="Ordinary-Least-Squares">Ordinary Least Squares<a class="anchor-link" href="#Ordinary-Least-Squares">¶</a>
 </h3>
 <p>Linear Regression 의 해를 구하기 위한 다양한 모델 추정 기법 중에 최소 제곱법을 이용합니다. 일반적인 간단한 선형 회귀 방법으로 정규화 (Regularized) 선형 회귀 모델에 비해 과적합(Overfit) 되기 쉽습니다.</p>
-
+<h3 id="Lasso-Regression">Lasso Regression<a class="anchor-link" href="#Lasso-Regression">¶</a>
+</h3>
+<p>선형회귀에서 L1 정규화(Regularization)을 추가하여 과적합을 방지하는 모델입니다.</p>
+<p>정규화는 회귀를 통해서 구하고자 하는 가중치 값에 페널티를 주어 0에 가깝게 만들어 불필요한 변수의 영향을 최소화 시키는 방법입니다.</p>
+<p>L1 정규화는 페널티로 가중치 합만큼을 주게되며, 이는 일정 값 이하의 영향력을 가진 변수가 제거되는 효과를 내게 되어(변수 선택의 효과) 과적합을 방지합니다. 따라서, 무의미한 변수가 많이 포함된 희소(Sparse)한 데이터 셋에 적합한 모델입니다.</p>
+<h3 id="Ridge-Regression">Ridge Regression<a class="anchor-link" href="#Ridge-Regression">¶</a>
+</h3>
+<p>선형회귀에서 L2 정규화(Regularization)을 추가하여 과적합을 방지하는 모델입니다.</p>
+<p>L2 정규화는 페널티로 가중치의 제곱값의 합만큼을 주게되며, 이는 가중치가 클수록 페널티를 더 많이 받게 되므로 특이점(Outlier)에 의해 학습의 영향을 덜 받도록 하는 효과를 가지게 되어 과적합을 방지합니다.</p>
+<h3 id="Elastic-Net-Regression">Elastic Net Regression<a class="anchor-link" href="#Elastic-Net-Regression">¶</a>
+</h3>
+<p>선형 회귀에서 L1, L2 정규화를 추가하여 과적합을 방지하는 모델입니다.</p>
+<p>L1, L2 정규화의 비율을 l1_ratio 파라미터를 이용하여 조정합니다. l1_ratio 값이 1.0 이면 이는 Lasso Regression 0 이면 Ridge Regression과 같게 됩니다. Elastic Net는 특히 고차원 데이터 셋에서 좋은 성능을 나타냅니다.</p>
+<h3 id="SGDRegression">SGDRegression<a class="anchor-link" href="#SGDRegression">¶</a>
+</h3>
+<p>SGDRegression 은 Stochastic Gradient Descent 방식을 통해 대해 대용량 데이터(샘플이 10000개 이상)에 대한 Linear 모델의 효율적인 최적화 학습을 제공합니다.</p>
+<p>SGDRegression 은 loss 함수 및 penalty 설정에 따라 다른 Linear 모델이 수행됩니다.</p>
+<p>loss</p>
+<ul>
+<li>loss="squared_loss": Ordinary least squares,</li>
+<li>loss="huber": Huber loss for robust regression,</li>
+<li>loss="epsilon_insensitive": linear Support Vector Regression.</li>
+</ul>
+<p>penalty</p>
+<ul>
+<li>‘l2’, ‘l1’, or ‘elasticnet’</li>
+<li>The penalty (aka regularization term) to be used. Defaults to ‘l2’ which is the standard regularizer for linear SVM models. ‘l1’ and ‘elasticnet’ might bring sparsity to the model (feature selection) not achievable with ‘l2’.</li>
+</ul>
+<p>l1_ratio</p>
+<ul>
+<li>The Elastic Net mixing parameter, with 0 &lt;= l1_ratio &lt;= 1. l1_ratio=0 corresponds to L2 penalty, l1_ratio=1 to L1. Defaults to 0.15.</li>
+</ul>
 </div>
 </div>
 </div>
@@ -184,20 +215,27 @@ $$<p>학습을 통해 x 값과 y 값 쌍을 가장 잘 설명할 수 있는 파�
 <span class="nb">print</span><span class="p">(</span><span class="s2">"train shape: np_train_xs=</span><span class="si">{}</span><span class="s2">, np_train_ys=</span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np_train_xs</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">np_train_ys</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
 
 <span class="c1"># 학습</span>
-<span class="n">model</span> <span class="o">=</span> <span class="n">linear_model</span><span class="o">.</span><span class="n">LinearRegression</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"model=</span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">model</span><span class="p">))</span>
-<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">np_train_xs</span><span class="p">,</span> <span class="n">np_train_ys</span><span class="p">)</span>
+<span class="n">models</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">linear_model</span><span class="o">.</span><span class="n">LinearRegression</span><span class="p">(),</span>
+    <span class="n">linear_model</span><span class="o">.</span><span class="n">Lasso</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.01</span><span class="p">),</span> <span class="c1"># alpha 값는 Regularization의 강도를 나타냅니다.</span>
+    <span class="n">linear_model</span><span class="o">.</span><span class="n">Ridge</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.01</span><span class="p">),</span> <span class="c1"># alpha 값는 Regularization의 강도를 나타냅니다. </span>
+    <span class="n">linear_model</span><span class="o">.</span><span class="n">ElasticNet</span><span class="p">(</span><span class="n">l1_ratio</span><span class="o">=</span><span class="mf">0.5</span><span class="p">),</span>
+    <span class="n">linear_model</span><span class="o">.</span><span class="n">SGDRegressor</span><span class="p">()</span>
+<span class="p">]</span>
+<span class="k">for</span> <span class="n">model</span> <span class="ow">in</span> <span class="n">models</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">model=</span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">model</span><span class="p">))</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">np_train_xs</span><span class="p">,</span> <span class="n">np_train_ys</span><span class="p">)</span>
 
-<span class="c1"># 평가</span>
-<span class="n">np_pred_ys</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">np_test_xs</span><span class="p">)</span>
+    <span class="c1"># 평가</span>
+    <span class="n">np_pred_ys</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">np_test_xs</span><span class="p">)</span>
 
-<span class="c1"># 선형 회귀 모델링을 통해 얻은 coefficient, intercept 입니다.</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"coefficient=</span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">coef_</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"intercept=</span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">intercept_</span><span class="p">))</span>
+    <span class="c1"># 선형 회귀 모델링을 통해 얻은 coefficient, intercept 입니다.</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"coefficient=</span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">coef_</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"intercept=</span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">intercept_</span><span class="p">))</span>
 
-<span class="c1"># 평가: 테스트 데이터에 대해서 R2 값을 구합니다. R2 는 1.0 에 가까울 수록 선형 회귀 모델이 데이터를 잘 설명하고 있다는 것입니다.</span>
-<span class="n">r_square</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">np_test_xs</span><span class="p">,</span> <span class="n">np_test_ys</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"r_square=</span><span class="si">{:.5f}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">r_square</span><span class="p">))</span>
+    <span class="c1"># 평가: 테스트 데이터에 대해서 R2 값을 구합니다. R2 는 1.0 에 가까울 수록 선형 회귀 모델이 데이터를 잘 설명하고 있다는 것입니다.</span>
+    <span class="n">r_square</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">np_test_xs</span><span class="p">,</span> <span class="n">np_test_ys</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"r_square=</span><span class="si">{:.5f}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">r_square</span><span class="p">))</span>
 </pre></div>
 
     </div>
@@ -216,390 +254,42 @@ $$<p>학습을 통해 x 값과 y 값 쌍을 가장 잘 설명할 수 있는 파�
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>data shape: np_data_xs=(1000, 2), np_data_ys=(1000,)
 train shape: np_train_xs=(700, 2), np_train_ys=(700,)
+
 model=LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
          normalize=False)
 coefficient=[41.08543529 40.06037847]
 intercept=0.9872295727386355
 r_square=0.99998
-</pre>
-</div>
-</div>
 
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Lasso-Regression">Lasso Regression<a class="anchor-link" href="#Lasso-Regression">¶</a>
-</h3>
-<p>선형회귀에서 L1 정규화(Regularization)을 추가하여 과적합을 방지하는 모델입니다.</p>
-<p>정규화는 회귀를 통해서 구하고자 하는 가중치 값에 페널티를 주어 0에 가깝게 만들어 불필요한 변수의 영향을 최소화 시키는 방법입니다.</p>
-<p>L1 정규화는 페널티로 가중치 합만큼을 주게되며, 이는 일정 값 이하의 영향력을 가진 변수가 제거되는 효과를 내게 되어(변수 선택의 효과) 과적합을 방지합니다. 따라서, 무의미한 변수가 많이 포함된 희소(Sparse)한 데이터 셋에 적합한 모델입니다.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [2]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">warnings</span>
-<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">"ignore"</span><span class="p">)</span>
-
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">sklearn</span> <span class="k">import</span> <span class="n">linear_model</span>
-<span class="kn">from</span> <span class="nn">sklearn</span> <span class="k">import</span> <span class="n">datasets</span>
-
-<span class="c1"># 데이터</span>
-<span class="n">n_samples</span> <span class="o">=</span> <span class="mi">1000</span>
-<span class="n">np_data_xs</span><span class="p">,</span> <span class="n">np_data_ys</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">make_regression</span><span class="p">(</span>
-    <span class="n">n_samples</span><span class="o">=</span><span class="n">n_samples</span><span class="p">,</span> 
-    <span class="n">n_features</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> 
-    <span class="n">bias</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> 
-    <span class="n">noise</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> 
-    <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> 
-<span class="nb">print</span><span class="p">(</span><span class="s2">"data shape: np_data_xs=</span><span class="si">{}</span><span class="s2">, np_data_ys=</span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np_data_xs</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">np_data_ys</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
-<span class="n">idx</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">n_samples</span> <span class="o">*</span> <span class="mf">0.7</span><span class="p">)</span>
-<span class="n">np_train_xs</span> <span class="o">=</span> <span class="n">np_data_xs</span><span class="p">[:</span><span class="n">idx</span><span class="p">]</span>
-<span class="n">np_train_ys</span> <span class="o">=</span> <span class="n">np_data_ys</span><span class="p">[:</span><span class="n">idx</span><span class="p">]</span>
-<span class="n">np_test_xs</span> <span class="o">=</span> <span class="n">np_data_xs</span><span class="p">[</span><span class="n">idx</span><span class="p">:]</span>
-<span class="n">np_test_ys</span> <span class="o">=</span> <span class="n">np_data_ys</span><span class="p">[</span><span class="n">idx</span><span class="p">:]</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"train shape: np_train_xs=</span><span class="si">{}</span><span class="s2">, np_train_ys=</span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np_train_xs</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">np_train_ys</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
-
-<span class="c1"># 학습</span>
-<span class="n">model</span> <span class="o">=</span> <span class="n">linear_model</span><span class="o">.</span><span class="n">Lasso</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.01</span><span class="p">)</span> <span class="c1"># alpha 값는 Regularization의 강도를 나타냅니다. </span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"model=</span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">model</span><span class="p">))</span>
-<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">np_train_xs</span><span class="p">,</span> <span class="n">np_train_ys</span><span class="p">)</span>
-
-<span class="c1"># 평가</span>
-<span class="n">np_pred_ys</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">np_test_xs</span><span class="p">)</span>
-
-<span class="c1"># 선형 회귀 모델링을 통해 얻은 coefficient, intercept 입니다.</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"coefficient=</span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">coef_</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"intercept=</span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">intercept_</span><span class="p">))</span>
-
-<span class="c1"># 테스트 데이터에 대해서 R2 값을 구합니다. R2 는 1.0 에 가까울 수록 선형 회귀 모델이 데이터를 잘 설명하고 있다는 것입니다.</span>
-<span class="n">r_square</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">np_test_xs</span><span class="p">,</span> <span class="n">np_test_ys</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"r_square=</span><span class="si">{:.5f}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">r_square</span><span class="p">))</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>data shape: np_data_xs=(1000, 2), np_data_ys=(1000,)
-train shape: np_train_xs=(700, 2), np_train_ys=(700,)
 model=Lasso(alpha=0.01, copy_X=True, fit_intercept=True, max_iter=1000,
    normalize=False, positive=False, precompute=False, random_state=None,
    selection='cyclic', tol=0.0001, warm_start=False)
 coefficient=[41.07479659 40.04975992]
 intercept=0.9871343470225851
 r_square=0.99998
-</pre>
-</div>
-</div>
 
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Ridge-Regression">Ridge Regression<a class="anchor-link" href="#Ridge-Regression">¶</a>
-</h3>
-<p>선형회귀에서 L2 정규화(Regularization)을 추가하여 과적합을 방지하는 모델입니다.</p>
-<p>L2 정규화는 페널티로 가중치의 제곱값의 합만큼을 주게되며, 이는 가중치가 클수록 페널티를 더 많이 받게 되므로 특이점(Outlier)에 의해 학습의 영향을 덜 받도록 하는 효과를 가지게 되어 과적합을 방지합니다.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [3]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">warnings</span>
-<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">"ignore"</span><span class="p">)</span>
-
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">sklearn</span> <span class="k">import</span> <span class="n">linear_model</span>
-<span class="kn">from</span> <span class="nn">sklearn</span> <span class="k">import</span> <span class="n">datasets</span>
-
-<span class="c1"># 데이터</span>
-<span class="n">n_samples</span> <span class="o">=</span> <span class="mi">1000</span>
-<span class="n">np_data_xs</span><span class="p">,</span> <span class="n">np_data_ys</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">make_regression</span><span class="p">(</span>
-    <span class="n">n_samples</span><span class="o">=</span><span class="n">n_samples</span><span class="p">,</span> 
-    <span class="n">n_features</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> 
-    <span class="n">bias</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>
-    <span class="n">noise</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span>
-    <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"data shape: np_data_xs=</span><span class="si">{}</span><span class="s2">, np_data_ys=</span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np_data_xs</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">np_data_ys</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
-<span class="n">idx</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">n_samples</span> <span class="o">*</span> <span class="mf">0.7</span><span class="p">)</span>
-<span class="n">np_train_xs</span> <span class="o">=</span> <span class="n">np_data_xs</span><span class="p">[:</span><span class="n">idx</span><span class="p">]</span>
-<span class="n">np_train_ys</span> <span class="o">=</span> <span class="n">np_data_ys</span><span class="p">[:</span><span class="n">idx</span><span class="p">]</span>
-<span class="n">np_test_xs</span> <span class="o">=</span> <span class="n">np_data_xs</span><span class="p">[</span><span class="n">idx</span><span class="p">:]</span>
-<span class="n">np_test_ys</span> <span class="o">=</span> <span class="n">np_data_ys</span><span class="p">[</span><span class="n">idx</span><span class="p">:]</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"train shape: np_train_xs=</span><span class="si">{}</span><span class="s2">, np_train_ys=</span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np_train_xs</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">np_train_ys</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
-
-<span class="c1"># 학습</span>
-<span class="n">model</span> <span class="o">=</span> <span class="n">linear_model</span><span class="o">.</span><span class="n">Ridge</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.01</span><span class="p">)</span> <span class="c1"># alpha 값는 Regularization의 강도를 나타냅니다. </span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"model=</span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">model</span><span class="p">))</span>
-<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">np_train_xs</span><span class="p">,</span> <span class="n">np_train_ys</span><span class="p">)</span>
-
-<span class="c1"># 평가</span>
-<span class="n">np_pred_ys</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">np_test_xs</span><span class="p">)</span>
-
-<span class="c1"># 선형 회귀 모델링을 통해 얻은 coefficient, intercept 입니다.</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"coefficient=</span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">coef_</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"intercept=</span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">intercept_</span><span class="p">))</span>
-
-<span class="c1"># 테스트 데이터에 대해서 R2 값을 구합니다. R2 는 1.0 에 가까울 수록 선형 회귀 모델이 데이터를 잘 설명하고 있다는 것입니다.</span>
-<span class="n">r_square</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">np_test_xs</span><span class="p">,</span> <span class="n">np_test_ys</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"r_square=</span><span class="si">{:.5f}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">r_square</span><span class="p">))</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>data shape: np_data_xs=(1000, 2), np_data_ys=(1000,)
-train shape: np_train_xs=(700, 2), np_train_ys=(700,)
 model=Ridge(alpha=0.01, copy_X=True, fit_intercept=True, max_iter=None,
    normalize=False, random_state=None, solver='auto', tol=0.001)
 coefficient=[41.08481154 40.05977026]
 intercept=0.987224134548606
 r_square=0.99998
-</pre>
-</div>
-</div>
 
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Elastic-Net-Regression">Elastic Net Regression<a class="anchor-link" href="#Elastic-Net-Regression">¶</a>
-</h3>
-<p>선형 회귀에서 L1, L2 정규화를 추가하여 과적합을 방지하는 모델입니다.</p>
-<p>L1, L2 정규화의 비율을 l1_ratio 파라미터를 이용하여 조정합니다. l1_ratio 값이 1.0 이면 이는 Lasso Regression 0 이면 Ridge Regression과 같게 됩니다. Elastic Net는 특히 고차원 데이터 셋에서 좋은 성능을 나타냅니다.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [4]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">warnings</span>
-<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">"ignore"</span><span class="p">)</span>
-
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">sklearn</span> <span class="k">import</span> <span class="n">linear_model</span>
-<span class="kn">from</span> <span class="nn">sklearn</span> <span class="k">import</span> <span class="n">datasets</span>
-
-<span class="c1"># 데이터</span>
-<span class="n">n_samples</span> <span class="o">=</span> <span class="mi">1000</span>
-<span class="n">np_data_xs</span><span class="p">,</span> <span class="n">np_data_ys</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">make_regression</span><span class="p">(</span>
-    <span class="n">n_samples</span><span class="o">=</span><span class="n">n_samples</span><span class="p">,</span>
-    <span class="n">n_features</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
-    <span class="n">bias</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>
-    <span class="n">noise</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span>
-    <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"data shape: np_data_xs=</span><span class="si">{}</span><span class="s2">, np_data_ys=</span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np_data_xs</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">np_data_ys</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
-<span class="n">idx</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">n_samples</span> <span class="o">*</span> <span class="mf">0.7</span><span class="p">)</span>
-<span class="n">np_train_xs</span> <span class="o">=</span> <span class="n">np_data_xs</span><span class="p">[:</span><span class="n">idx</span><span class="p">]</span>
-<span class="n">np_train_ys</span> <span class="o">=</span> <span class="n">np_data_ys</span><span class="p">[:</span><span class="n">idx</span><span class="p">]</span>
-<span class="n">np_test_xs</span> <span class="o">=</span> <span class="n">np_data_xs</span><span class="p">[</span><span class="n">idx</span><span class="p">:]</span>
-<span class="n">np_test_ys</span> <span class="o">=</span> <span class="n">np_data_ys</span><span class="p">[</span><span class="n">idx</span><span class="p">:]</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"train shape: np_train_xs=</span><span class="si">{}</span><span class="s2">, np_train_ys=</span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np_train_xs</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">np_train_ys</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
-
-<span class="c1"># 학습</span>
-<span class="n">model</span> <span class="o">=</span> <span class="n">linear_model</span><span class="o">.</span><span class="n">ElasticNet</span><span class="p">(</span><span class="n">l1_ratio</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"model=</span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">model</span><span class="p">))</span>
-<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">np_train_xs</span><span class="p">,</span> <span class="n">np_train_ys</span><span class="p">)</span>
-
-<span class="c1"># 평가</span>
-<span class="n">np_pred_ys</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">np_test_xs</span><span class="p">)</span>
-
-<span class="c1"># 선형 회귀 모델링을 통해 얻은 coefficient, intercept 입니다.</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"coefficient=</span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">coef_</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"intercept=</span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">intercept_</span><span class="p">))</span>
-
-<span class="c1"># 테스트 데이터에 대해서 R2 값을 구합니다. R2 는 1.0 에 가까울 수록 선형 회귀 모델이 데이터를 잘 설명하고 있다는 것입니다.</span>
-<span class="n">r_square</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">np_test_xs</span><span class="p">,</span> <span class="n">np_test_ys</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"r_square=</span><span class="si">{:.5f}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">r_square</span><span class="p">))</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>data shape: np_data_xs=(1000, 10), np_data_ys=(1000,)
-train shape: np_train_xs=(700, 10), np_train_ys=(700,)
 model=ElasticNet(alpha=1.0, copy_X=True, fit_intercept=True, l1_ratio=0.5,
       max_iter=1000, normalize=False, positive=False, precompute=False,
       random_state=None, selection='cyclic', tol=0.0001, warm_start=False)
-coefficient=[27.92429814 20.84768443  6.62672407 44.91852118 33.10673835  7.57968473
- 40.33744567  7.9208229  41.45165197 24.19069226]
-intercept=-1.5545670552689916
-r_square=0.85444
-</pre>
-</div>
-</div>
+coefficient=[26.4820448  25.81270434]
+intercept=0.8598273486830703
+r_square=0.87316
 
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="SGDRegression">SGDRegression<a class="anchor-link" href="#SGDRegression">¶</a>
-</h3>
-<p>SGDRegression 은 Stochastic Gradient Descent 방식을 통해 대해 대용량 데이터(샘플이 10000개 이상)에 대한 Linear 모델의 효율적인 최적화 학습을 제공합니다.</p>
-<p>SGDRegression 은 loss 함수 및 penalty 설정에 따라 다른 Linear 모델이 수행됩니다.</p>
-<p>loss</p>
-<ul>
-<li>loss="squared_loss": Ordinary least squares,</li>
-<li>loss="huber": Huber loss for robust regression,</li>
-<li>loss="epsilon_insensitive": linear Support Vector Regression.</li>
-</ul>
-<p>penalty</p>
-<ul>
-<li>‘l2’, ‘l1’, or ‘elasticnet’</li>
-<li>The penalty (aka regularization term) to be used. Defaults to ‘l2’ which is the standard regularizer for linear SVM models. ‘l1’ and ‘elasticnet’ might bring sparsity to the model (feature selection) not achievable with ‘l2’.</li>
-</ul>
-<p>l1_ratio</p>
-<ul>
-<li>The Elastic Net mixing parameter, with 0 &lt;= l1_ratio &lt;= 1. l1_ratio=0 corresponds to L2 penalty, l1_ratio=1 to L1. Defaults to 0.15.</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [5]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">warnings</span>
-<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">"ignore"</span><span class="p">)</span>
-
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">sklearn</span> <span class="k">import</span> <span class="n">linear_model</span>
-<span class="kn">from</span> <span class="nn">sklearn</span> <span class="k">import</span> <span class="n">datasets</span>
-
-<span class="c1"># 데이터</span>
-<span class="n">n_samples</span> <span class="o">=</span> <span class="mi">10000</span>
-<span class="n">np_data_xs</span><span class="p">,</span> <span class="n">np_data_ys</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">make_regression</span><span class="p">(</span>
-    <span class="n">n_samples</span><span class="o">=</span><span class="n">n_samples</span><span class="p">,</span>
-    <span class="n">n_features</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
-    <span class="n">bias</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>
-    <span class="n">noise</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span>
-    <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"data shape: np_data_xs=</span><span class="si">{}</span><span class="s2">, np_data_ys=</span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np_data_xs</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">np_data_ys</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
-<span class="n">idx</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">n_samples</span> <span class="o">*</span> <span class="mf">0.7</span><span class="p">)</span>
-<span class="n">np_train_xs</span> <span class="o">=</span> <span class="n">np_data_xs</span><span class="p">[:</span><span class="n">idx</span><span class="p">]</span>
-<span class="n">np_train_ys</span> <span class="o">=</span> <span class="n">np_data_ys</span><span class="p">[:</span><span class="n">idx</span><span class="p">]</span>
-<span class="n">np_test_xs</span> <span class="o">=</span> <span class="n">np_data_xs</span><span class="p">[</span><span class="n">idx</span><span class="p">:]</span>
-<span class="n">np_test_ys</span> <span class="o">=</span> <span class="n">np_data_ys</span><span class="p">[</span><span class="n">idx</span><span class="p">:]</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"train shape: np_train_xs=</span><span class="si">{}</span><span class="s2">, np_train_ys=</span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np_train_xs</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">np_train_ys</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
-
-<span class="c1"># 학습</span>
-<span class="n">model</span> <span class="o">=</span> <span class="n">linear_model</span><span class="o">.</span><span class="n">SGDRegressor</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"model=</span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">model</span><span class="p">))</span>
-<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">np_train_xs</span><span class="p">,</span> <span class="n">np_train_ys</span><span class="p">)</span>
-
-<span class="c1"># 평가</span>
-<span class="n">np_pred_ys</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">np_test_xs</span><span class="p">)</span>
-
-<span class="c1"># 선형 회귀 모델링을 통해 얻은 coefficient, intercept 입니다.</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"coefficient=</span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">coef_</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"intercept=</span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">intercept_</span><span class="p">))</span>
-
-<span class="c1"># 테스트 데이터에 대해서 R2 값을 구합니다. R2 는 1.0 에 가까울 수록 선형 회귀 모델이 데이터를 잘 설명하고 있다는 것입니다.</span>
-<span class="n">r_square</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">np_test_xs</span><span class="p">,</span> <span class="n">np_test_ys</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"r_square=</span><span class="si">{:.5f}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">r_square</span><span class="p">))</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>data shape: np_data_xs=(10000, 10), np_data_ys=(10000,)
-train shape: np_train_xs=(7000, 10), np_train_ys=(7000,)
 model=SGDRegressor(alpha=0.0001, average=False, early_stopping=False, epsilon=0.1,
        eta0=0.01, fit_intercept=True, l1_ratio=0.15,
        learning_rate='invscaling', loss='squared_loss', max_iter=None,
        n_iter=None, n_iter_no_change=5, penalty='l2', power_t=0.25,
        random_state=None, shuffle=True, tol=None, validation_fraction=0.1,
        verbose=0, warm_start=False)
-coefficient=[19.89654963 91.15062854 39.04732131 19.59463337 22.74934211 79.1470833
- 22.95978869 14.42839768 85.96111608  8.78357421]
-intercept=[1.00324728]
-r_square=1.00000
+coefficient=[40.94448267 39.92554523]
+intercept=[0.97783718]
+r_square=0.99996
 </pre>
 </div>
 </div>
@@ -623,7 +313,7 @@ r_square=1.00000
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [6]:</div>
+<div class="prompt input_prompt">In [2]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn</span> <span class="k">import</span> <span class="n">preprocessing</span>
@@ -683,7 +373,7 @@ $$[1, x_1, x_2, x_1 x_2]$$<p></p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [7]:</div>
+<div class="prompt input_prompt">In [3]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn</span> <span class="k">import</span> <span class="n">linear_model</span>
@@ -732,7 +422,7 @@ $$[1, x_1, x_2, x_1 x_2]$$<p></p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [8]:</div>
+<div class="prompt input_prompt">In [4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline

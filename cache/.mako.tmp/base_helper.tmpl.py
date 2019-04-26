@@ -5,12 +5,12 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1555941910.164019
+_modified_time = 1556303858.4249918
 _enable_loop = True
 _template_filename = '/usr/local/lib/python3.5/dist-packages/nikola/data/themes/bootstrap4/templates/base_helper.tmpl'
 _template_uri = 'base_helper.tmpl'
 _source_encoding = 'utf-8'
-_exports = ['html_stylesheets', 'late_load_js', 'html_translations', 'html_headstart', 'html_navigation_links', 'html_feedlinks', 'html_navigation_links_entries']
+_exports = ['html_stylesheets', 'late_load_js', 'html_translations', 'html_navigation_links', 'html_headstart', 'html_feedlinks', 'html_navigation_links_entries']
 
 
 def render_body(context,**pageargs):
@@ -94,12 +94,12 @@ def render_late_load_js(context):
 def render_html_translations(context):
     __M_caller = context.caller_stack._push_frame()
     try:
-        lang = context.get('lang', UNDEFINED)
-        abs_link = context.get('abs_link', UNDEFINED)
-        messages = context.get('messages', UNDEFINED)
-        translations = context.get('translations', UNDEFINED)
-        _link = context.get('_link', UNDEFINED)
         sorted = context.get('sorted', UNDEFINED)
+        abs_link = context.get('abs_link', UNDEFINED)
+        lang = context.get('lang', UNDEFINED)
+        translations = context.get('translations', UNDEFINED)
+        messages = context.get('messages', UNDEFINED)
+        _link = context.get('_link', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\n')
         for langname in sorted(translations):
@@ -116,32 +116,47 @@ def render_html_translations(context):
         context.caller_stack._pop_frame()
 
 
+def render_html_navigation_links(context):
+    __M_caller = context.caller_stack._push_frame()
+    try:
+        navigation_links = context.get('navigation_links', UNDEFINED)
+        def html_navigation_links_entries(navigation_links_source):
+            return render_html_navigation_links_entries(context,navigation_links_source)
+        __M_writer = context.writer()
+        __M_writer('\n    ')
+        __M_writer(str(html_navigation_links_entries(navigation_links)))
+        __M_writer('\n')
+        return ''
+    finally:
+        context.caller_stack._pop_frame()
+
+
 def render_html_headstart(context):
     __M_caller = context.caller_stack._push_frame()
     try:
-        nextlink = context.get('nextlink', UNDEFINED)
-        comment_system = context.get('comment_system', UNDEFINED)
-        favicons = context.get('favicons', UNDEFINED)
-        blog_title = context.get('blog_title', UNDEFINED)
-        permalink = context.get('permalink', UNDEFINED)
         url_type = context.get('url_type', UNDEFINED)
+        favicons = context.get('favicons', UNDEFINED)
+        comment_system = context.get('comment_system', UNDEFINED)
+        title = context.get('title', UNDEFINED)
+        theme_color = context.get('theme_color', UNDEFINED)
+        use_cdn = context.get('use_cdn', UNDEFINED)
+        def html_feedlinks():
+            return render_html_feedlinks(context)
+        blog_title = context.get('blog_title', UNDEFINED)
+        nextlink = context.get('nextlink', UNDEFINED)
         description = context.get('description', UNDEFINED)
+        abs_link = context.get('abs_link', UNDEFINED)
+        prevlink = context.get('prevlink', UNDEFINED)
+        meta_generator_tag = context.get('meta_generator_tag', UNDEFINED)
+        lang = context.get('lang', UNDEFINED)
+        permalink = context.get('permalink', UNDEFINED)
         mathjax_config = context.get('mathjax_config', UNDEFINED)
         url_replacer = context.get('url_replacer', UNDEFINED)
-        lang = context.get('lang', UNDEFINED)
-        title = context.get('title', UNDEFINED)
-        abs_link = context.get('abs_link', UNDEFINED)
-        is_rtl = context.get('is_rtl', UNDEFINED)
         extra_head_data = context.get('extra_head_data', UNDEFINED)
         def html_stylesheets():
             return render_html_stylesheets(context)
-        prevlink = context.get('prevlink', UNDEFINED)
-        use_cdn = context.get('use_cdn', UNDEFINED)
+        is_rtl = context.get('is_rtl', UNDEFINED)
         comment_system_id = context.get('comment_system_id', UNDEFINED)
-        meta_generator_tag = context.get('meta_generator_tag', UNDEFINED)
-        theme_color = context.get('theme_color', UNDEFINED)
-        def html_feedlinks():
-            return render_html_feedlinks(context)
         __M_writer = context.writer()
         __M_writer('\n<!DOCTYPE html>\n<html\n')
         __M_writer("prefix='")
@@ -221,31 +236,16 @@ def render_html_headstart(context):
         context.caller_stack._pop_frame()
 
 
-def render_html_navigation_links(context):
-    __M_caller = context.caller_stack._push_frame()
-    try:
-        navigation_links = context.get('navigation_links', UNDEFINED)
-        def html_navigation_links_entries(navigation_links_source):
-            return render_html_navigation_links_entries(context,navigation_links_source)
-        __M_writer = context.writer()
-        __M_writer('\n    ')
-        __M_writer(str(html_navigation_links_entries(navigation_links)))
-        __M_writer('\n')
-        return ''
-    finally:
-        context.caller_stack._pop_frame()
-
-
 def render_html_feedlinks(context):
     __M_caller = context.caller_stack._push_frame()
     try:
-        rss_link = context.get('rss_link', UNDEFINED)
         generate_atom = context.get('generate_atom', UNDEFINED)
+        sorted = context.get('sorted', UNDEFINED)
         generate_rss = context.get('generate_rss', UNDEFINED)
         len = context.get('len', UNDEFINED)
         translations = context.get('translations', UNDEFINED)
         _link = context.get('_link', UNDEFINED)
-        sorted = context.get('sorted', UNDEFINED)
+        rss_link = context.get('rss_link', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\n')
         if rss_link:
@@ -285,11 +285,11 @@ def render_html_navigation_links_entries(context,navigation_links_source):
     __M_caller = context.caller_stack._push_frame()
     try:
         isinstance = context.get('isinstance', UNDEFINED)
+        permalink = context.get('permalink', UNDEFINED)
         lang = context.get('lang', UNDEFINED)
         tuple = context.get('tuple', UNDEFINED)
-        messages = context.get('messages', UNDEFINED)
         rel_link = context.get('rel_link', UNDEFINED)
-        permalink = context.get('permalink', UNDEFINED)
+        messages = context.get('messages', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\n')
         for url, text in navigation_links_source[lang]:
@@ -335,6 +335,6 @@ def render_html_navigation_links_entries(context,navigation_links_source):
 
 """
 __M_BEGIN_METADATA
-{"uri": "base_helper.tmpl", "filename": "/usr/local/lib/python3.5/dist-packages/nikola/data/themes/bootstrap4/templates/base_helper.tmpl", "line_map": {"16": 0, "21": 62, "22": 94, "23": 122, "24": 126, "25": 149, "26": 172, "27": 180, "33": 97, "41": 97, "42": 98, "43": 99, "44": 102, "45": 103, "46": 104, "47": 105, "48": 106, "49": 107, "50": 108, "51": 111, "52": 114, "53": 115, "54": 118, "55": 119, "61": 64, "69": 64, "70": 65, "71": 66, "72": 71, "73": 72, "74": 73, "75": 74, "76": 75, "77": 76, "78": 77, "79": 83, "80": 84, "81": 85, "82": 86, "83": 87, "84": 89, "85": 90, "86": 93, "87": 93, "88": 93, "94": 174, "104": 174, "105": 175, "106": 176, "107": 177, "108": 177, "109": 177, "110": 177, "111": 177, "112": 177, "113": 177, "119": 2, "146": 2, "147": 6, "148": 7, "149": 8, "150": 9, "151": 11, "152": 12, "153": 13, "154": 16, "155": 16, "156": 16, "157": 19, "158": 20, "159": 20, "160": 20, "161": 22, "162": 23, "163": 24, "164": 24, "165": 24, "166": 25, "167": 26, "168": 26, "169": 26, "170": 26, "171": 26, "172": 28, "173": 29, "174": 29, "175": 30, "176": 30, "177": 31, "178": 32, "179": 34, "180": 34, "181": 34, "182": 35, "183": 35, "184": 37, "185": 38, "186": 39, "187": 39, "188": 39, "189": 39, "190": 39, "191": 39, "192": 39, "193": 42, "194": 43, "195": 44, "196": 44, "197": 44, "198": 46, "199": 47, "200": 48, "201": 48, "202": 48, "203": 50, "204": 51, "205": 51, "206": 51, "207": 53, "208": 54, "209": 54, "210": 55, "211": 56, "212": 57, "213": 58, "214": 58, "215": 58, "216": 60, "217": 61, "218": 61, "224": 124, "231": 124, "232": 125, "233": 125, "239": 151, "250": 151, "251": 152, "252": 153, "253": 153, "254": 153, "255": 154, "256": 155, "257": 156, "258": 157, "259": 157, "260": 157, "261": 157, "262": 157, "263": 159, "264": 160, "265": 160, "266": 160, "267": 163, "268": 164, "269": 165, "270": 166, "271": 166, "272": 166, "273": 166, "274": 166, "275": 168, "276": 169, "277": 169, "278": 169, "284": 128, "294": 128, "295": 129, "296": 130, "297": 131, "298": 131, "299": 131, "300": 133, "301": 134, "302": 135, "303": 135, "304": 135, "305": 135, "306": 135, "307": 135, "308": 135, "309": 136, "310": 137, "311": 137, "312": 137, "313": 137, "314": 137, "315": 140, "316": 141, "317": 142, "318": 143, "319": 143, "320": 143, "321": 143, "322": 143, "323": 143, "324": 143, "325": 144, "326": 145, "327": 145, "328": 145, "329": 145, "330": 145, "336": 330}, "source_encoding": "utf-8"}
+{"filename": "/usr/local/lib/python3.5/dist-packages/nikola/data/themes/bootstrap4/templates/base_helper.tmpl", "uri": "base_helper.tmpl", "line_map": {"16": 0, "21": 62, "22": 94, "23": 122, "24": 126, "25": 149, "26": 172, "27": 180, "33": 97, "41": 97, "42": 98, "43": 99, "44": 102, "45": 103, "46": 104, "47": 105, "48": 106, "49": 107, "50": 108, "51": 111, "52": 114, "53": 115, "54": 118, "55": 119, "61": 64, "69": 64, "70": 65, "71": 66, "72": 71, "73": 72, "74": 73, "75": 74, "76": 75, "77": 76, "78": 77, "79": 83, "80": 84, "81": 85, "82": 86, "83": 87, "84": 89, "85": 90, "86": 93, "87": 93, "88": 93, "94": 174, "104": 174, "105": 175, "106": 176, "107": 177, "108": 177, "109": 177, "110": 177, "111": 177, "112": 177, "113": 177, "119": 124, "126": 124, "127": 125, "128": 125, "134": 2, "161": 2, "162": 6, "163": 7, "164": 8, "165": 9, "166": 11, "167": 12, "168": 13, "169": 16, "170": 16, "171": 16, "172": 19, "173": 20, "174": 20, "175": 20, "176": 22, "177": 23, "178": 24, "179": 24, "180": 24, "181": 25, "182": 26, "183": 26, "184": 26, "185": 26, "186": 26, "187": 28, "188": 29, "189": 29, "190": 30, "191": 30, "192": 31, "193": 32, "194": 34, "195": 34, "196": 34, "197": 35, "198": 35, "199": 37, "200": 38, "201": 39, "202": 39, "203": 39, "204": 39, "205": 39, "206": 39, "207": 39, "208": 42, "209": 43, "210": 44, "211": 44, "212": 44, "213": 46, "214": 47, "215": 48, "216": 48, "217": 48, "218": 50, "219": 51, "220": 51, "221": 51, "222": 53, "223": 54, "224": 54, "225": 55, "226": 56, "227": 57, "228": 58, "229": 58, "230": 58, "231": 60, "232": 61, "233": 61, "239": 151, "250": 151, "251": 152, "252": 153, "253": 153, "254": 153, "255": 154, "256": 155, "257": 156, "258": 157, "259": 157, "260": 157, "261": 157, "262": 157, "263": 159, "264": 160, "265": 160, "266": 160, "267": 163, "268": 164, "269": 165, "270": 166, "271": 166, "272": 166, "273": 166, "274": 166, "275": 168, "276": 169, "277": 169, "278": 169, "284": 128, "294": 128, "295": 129, "296": 130, "297": 131, "298": 131, "299": 131, "300": 133, "301": 134, "302": 135, "303": 135, "304": 135, "305": 135, "306": 135, "307": 135, "308": 135, "309": 136, "310": 137, "311": 137, "312": 137, "313": 137, "314": 137, "315": 140, "316": 141, "317": 142, "318": 143, "319": 143, "320": 143, "321": 143, "322": 143, "323": 143, "324": 143, "325": 144, "326": 145, "327": 145, "328": 145, "329": 145, "330": 145, "336": 330}, "source_encoding": "utf-8"}
 __M_END_METADATA
 """

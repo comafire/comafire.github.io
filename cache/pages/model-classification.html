@@ -225,7 +225,7 @@ training score : 0.976 (ovr)
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Stochastic-Gradient-Descent">Stochastic Gradient Descent<a class="anchor-link" href="#Stochastic-Gradient-Descent">&#182;</a></h1><p>Stochastic Gradient Descent (SGD) 은 convex 형태의 loss 함수를 통한 최적화 문제에 매우 효율적인 접근방법입니다. SGD는 큰 규모이면서 희소한 형태의 데이터(예로, 10^5 이상의 Feature를 가진 10^5 개 이상의 학습 데이터)에서도 좋은 성과를 나타냅니다.</p>
+<h1 id="SGD(Stochastic-Gradient-Descent)-Classification">SGD(Stochastic Gradient Descent) Classification<a class="anchor-link" href="#SGD(Stochastic-Gradient-Descent)-Classification">&#182;</a></h1><p>Stochastic Gradient Descent (SGD) 은 convex 형태의 loss 함수를 통한 최적화 문제에 매우 효율적인 접근방법입니다. SGD는 큰 규모이면서 희소한 형태의 데이터(예로, 10^5 이상의 Feature를 가진 10^5 개 이상의 학습 데이터)에서도 좋은 성과를 나타냅니다.</p>
 <p>장점:</p>
 <ul>
 <li>효율적이며, 구현이 쉬움</li>
@@ -268,10 +268,10 @@ training score : 0.976 (ovr)
 <span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
 
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">sklearn</span> <span class="k">import</span> <span class="n">linear_model</span>
-<span class="kn">from</span> <span class="nn">sklearn</span> <span class="k">import</span> <span class="n">datasets</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="k">import</span> <span class="n">datasets</span><span class="p">,</span> <span class="n">model_selection</span><span class="p">,</span> <span class="n">linear_model</span><span class="p">,</span> <span class="n">metrics</span>
 
 <span class="c1"># 데이터</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">n_samples</span> <span class="o">=</span> <span class="mi">100000</span>
 <span class="n">np_data_xs</span><span class="p">,</span> <span class="n">np_data_ys</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">make_classification</span><span class="p">(</span>
     <span class="n">n_samples</span><span class="o">=</span><span class="n">n_samples</span><span class="p">,</span> <span class="c1"># 데이터 수</span>
@@ -280,28 +280,35 @@ training score : 0.976 (ovr)
     <span class="n">n_classes</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="c1"># Y class 수</span>
     <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># 난수 발생용 Seed 값</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;data shape: np_data_xs=</span><span class="si">{}</span><span class="s2">, np_data_ys=</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np_data_xs</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">np_data_ys</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
-<span class="n">idx</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">n_samples</span> <span class="o">*</span> <span class="mf">0.7</span><span class="p">)</span>
-<span class="n">np_train_xs</span> <span class="o">=</span> <span class="n">np_data_xs</span><span class="p">[:</span><span class="n">idx</span><span class="p">]</span>
-<span class="n">np_train_ys</span> <span class="o">=</span> <span class="n">np_data_ys</span><span class="p">[:</span><span class="n">idx</span><span class="p">]</span>
-<span class="n">np_test_xs</span> <span class="o">=</span> <span class="n">np_data_xs</span><span class="p">[</span><span class="n">idx</span><span class="p">:]</span>
-<span class="n">np_test_ys</span> <span class="o">=</span> <span class="n">np_data_ys</span><span class="p">[</span><span class="n">idx</span><span class="p">:]</span>
+<span class="n">np_train_xs</span><span class="p">,</span> <span class="n">np_test_xs</span><span class="p">,</span> <span class="n">np_train_ys</span><span class="p">,</span> <span class="n">np_test_ys</span> <span class="o">=</span> <span class="n">model_selection</span><span class="o">.</span><span class="n">train_test_split</span><span class="p">(</span>
+    <span class="n">np_data_xs</span><span class="p">,</span> <span class="n">np_data_ys</span><span class="p">,</span> 
+    <span class="n">test_size</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;train shape: np_train_xs=</span><span class="si">{}</span><span class="s2">, np_train_ys=</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np_train_xs</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">np_train_ys</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;test shape: np_test_xs=</span><span class="si">{}</span><span class="s2">, np_test_ys=</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np_test_xs</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">np_test_ys</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
 
-<span class="c1"># 학습</span>
-<span class="n">model</span> <span class="o">=</span> <span class="n">linear_model</span><span class="o">.</span><span class="n">SGDClassifier</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;model=</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">model</span><span class="p">))</span>
-<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">np_train_xs</span><span class="p">,</span> <span class="n">np_train_ys</span><span class="p">)</span>
+<span class="c1"># 모델</span>
+<span class="n">models</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">linear_model</span><span class="o">.</span><span class="n">SGDClassifier</span><span class="p">()</span>
+<span class="p">]</span>
 
-<span class="c1"># 평가</span>
-<span class="n">np_pred_ys</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">np_test_xs</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">model</span> <span class="ow">in</span> <span class="n">models</span><span class="p">:</span>
+    <span class="c1"># 학습</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;model=</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">model</span><span class="p">))</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">np_train_xs</span><span class="p">,</span> <span class="n">np_train_ys</span><span class="p">)</span>
 
-<span class="c1"># 선형 회귀 모델링을 통해 얻은 coefficient, intercept 입니다.</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;coefficient=</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">coef_</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;intercept=</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">intercept_</span><span class="p">))</span>
+    <span class="c1"># 평가</span>
+    <span class="n">np_pred_ys</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">np_test_xs</span><span class="p">)</span>
 
-<span class="c1"># 평가: 테스트 데이터에 대해서 Mean Accuracy 값을 구합니다.</span>
-<span class="n">mean_acc</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">np_test_xs</span><span class="p">,</span> <span class="n">np_test_ys</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;mean_acc=</span><span class="si">{:.5f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">mean_acc</span><span class="p">))</span>
+    <span class="c1"># 선형 회귀 모델링을 통해 얻은 coefficient, intercept 입니다.</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;coefficient=</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">coef_</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;intercept=</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">intercept_</span><span class="p">))</span>
+
+    <span class="c1"># 평가: 테스트 데이터에 대해서 Accuracy 값을 구합니다.</span>
+    <span class="n">acc</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">np_test_ys</span><span class="p">,</span> <span class="n">np_pred_ys</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;acc=</span><span class="si">{:.5f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">acc</span><span class="p">))</span>
+
+    <span class="n">cr</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">classification_report</span><span class="p">(</span><span class="n">np_test_ys</span><span class="p">,</span> <span class="n">np_pred_ys</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;classification_report</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">cr</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -320,23 +327,32 @@ training score : 0.976 (ovr)
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>data shape: np_data_xs=(100000, 10), np_data_ys=(100000,)
 train shape: np_train_xs=(70000, 10), np_train_ys=(70000,)
+test shape: np_test_xs=(30000, 10), np_test_ys=(30000,)
 model=SGDClassifier(alpha=0.0001, average=False, class_weight=None,
        early_stopping=False, epsilon=0.1, eta0=0.0, fit_intercept=True,
        l1_ratio=0.15, learning_rate=&#39;optimal&#39;, loss=&#39;hinge&#39;, max_iter=None,
        n_iter=None, n_iter_no_change=5, n_jobs=None, penalty=&#39;l2&#39;,
        power_t=0.5, random_state=None, shuffle=True, tol=None,
        validation_fraction=0.1, verbose=0, warm_start=False)
-coefficient=[[ 1.05031855e+00 -1.03821458e-02 -1.86872548e-01 -5.96716355e-04
-   5.80738801e-01 -3.16654091e-01  3.46463976e-02  9.74924531e-02
-   1.09385730e-01 -4.49848558e-01]
- [-1.03475468e+00 -1.61469600e-02  8.54220984e-01  2.63782903e-01
-   3.85943513e-02  2.00170772e-01 -1.88934802e-01 -4.43768277e-02
-   1.72873950e-01 -1.61477863e-01]
- [ 7.64277739e-01  2.32352281e-01 -1.12220224e+00  2.31563776e-01
-  -4.74492602e-01 -3.58988971e-02  1.32853530e-01  8.21798730e-03
-  -1.65749180e-02  5.73492075e-01]]
-intercept=[-1.2761341  -1.58686061 -1.44446001]
-mean_acc=0.78340
+coefficient=[[ 0.86574911 -0.35596145 -0.20190227  0.1375304   0.45958955  0.06000423
+  -0.06038292  0.26419997 -0.2317192  -0.17356518]
+ [-1.19738988 -0.14076485  0.96455876  0.07127453  0.00822414  0.06779517
+   0.11478303 -0.16507975 -0.10597724 -0.25717476]
+ [ 0.28599846  0.20450951 -0.95752513  0.0636483  -0.68330475 -0.05369482
+  -0.14439814 -0.15918971  0.2032468   0.60044455]]
+intercept=[-1.12265416 -1.34042843 -1.26664501]
+acc=0.78687
+classification_report
+               precision    recall  f1-score   support
+
+           0       0.81      0.67      0.73     10004
+           1       0.68      0.82      0.74     10004
+           2       0.90      0.87      0.88      9992
+
+   micro avg       0.79      0.79      0.79     30000
+   macro avg       0.80      0.79      0.79     30000
+weighted avg       0.80      0.79      0.79     30000
+
 </pre>
 </div>
 </div>
@@ -348,16 +364,23 @@ mean_acc=0.78340
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="SVM-(Support-Vector-Machine)">SVM (Support Vector Machine)<a class="anchor-link" href="#SVM-(Support-Vector-Machine)">&#182;</a></h1><p>SVM은 기계 학습에서 가장 우수한 솔루션 중 하나로 학습시 Kernel 함수를 이용하여 선형, 비선형 데이터 세트 및 분류와 회귀 문제 모두에 적용할 수 있습니다. 고차원 데이터에 대해 효과적이고, 데이터의 수가 차원의 수보다 작더라도 Kernel 함수 및 Regularization를 이용해 수행이 가능합니다.</p>
-<p>RBF Kernel 함수는 SVM Kernel 함수들 중에 선형 비선형 데이터 모두에서 성능이 좋아 일반적인 많이 사용됩니다.</p>
+<h1 id="SVM(Support-Vector-Machine)-Classification">SVM(Support Vector Machine) Classification<a class="anchor-link" href="#SVM(Support-Vector-Machine)-Classification">&#182;</a></h1><p>Support Vector Machine은 머신러닝 분야에서 우수한 알고리즘 중에 하나로 데이터 형태에 맞는 Kernel 함수 및 Regularization를 선택하여 적용함으로써, 선형/비선형 데이터셋 및 분류/회귀 문제 모두에 사용할수 있습니다.</p>
 <p><img src="https://scikit-learn.org/stable/_images/sphx_glr_plot_iris_0012.png" alt="SVM"></p>
+<p>RBF Kernel 함수는 SVM Kernel 함수들 중에 선형 비선형 데이터 모두에서 성능이 좋아 일반적인 많이 사용됩니다.</p>
+<p>주요 파라미터</p>
+<ul>
+<li>C: 값이 클수록, Class내에 오류를 허용 하지 않음</li>
+<li>Gamma: 값이 클수록, 결정경계 (Decision Boundary) 가 정교해짐</li>
+</ul>
+<p><img src="https://t1.daumcdn.net/cfile/tistory/996CB13359EB266A0F" alt="C, gamma"></p>
+<p>두 파마리터 모두 값이 클수록 학습용 데이터에 대한 분류 결정 경계는 명확해지지만 과적합(Overfitting) 가능성이 커지게 됩니다.</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
@@ -366,10 +389,10 @@ mean_acc=0.78340
 <span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
 
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">sklearn</span> <span class="k">import</span> <span class="n">svm</span>
-<span class="kn">from</span> <span class="nn">sklearn</span> <span class="k">import</span> <span class="n">datasets</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="k">import</span> <span class="n">datasets</span><span class="p">,</span> <span class="n">model_selection</span><span class="p">,</span> <span class="n">svm</span><span class="p">,</span> <span class="n">metrics</span>
 
 <span class="c1"># 데이터</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">n_samples</span> <span class="o">=</span> <span class="mi">10000</span>
 <span class="n">np_data_xs</span><span class="p">,</span> <span class="n">np_data_ys</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">make_classification</span><span class="p">(</span>
     <span class="n">n_samples</span><span class="o">=</span><span class="n">n_samples</span><span class="p">,</span> <span class="c1"># 데이터 수</span>
@@ -378,24 +401,30 @@ mean_acc=0.78340
     <span class="n">n_classes</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="c1"># Y class 수</span>
     <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># 난수 발생용 Seed 값</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;data shape: np_data_xs=</span><span class="si">{}</span><span class="s2">, np_data_ys=</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np_data_xs</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">np_data_ys</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
-<span class="n">idx</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">n_samples</span> <span class="o">*</span> <span class="mf">0.7</span><span class="p">)</span>
-<span class="n">np_train_xs</span> <span class="o">=</span> <span class="n">np_data_xs</span><span class="p">[:</span><span class="n">idx</span><span class="p">]</span>
-<span class="n">np_train_ys</span> <span class="o">=</span> <span class="n">np_data_ys</span><span class="p">[:</span><span class="n">idx</span><span class="p">]</span>
-<span class="n">np_test_xs</span> <span class="o">=</span> <span class="n">np_data_xs</span><span class="p">[</span><span class="n">idx</span><span class="p">:]</span>
-<span class="n">np_test_ys</span> <span class="o">=</span> <span class="n">np_data_ys</span><span class="p">[</span><span class="n">idx</span><span class="p">:]</span>
+<span class="n">np_train_xs</span><span class="p">,</span> <span class="n">np_test_xs</span><span class="p">,</span> <span class="n">np_train_ys</span><span class="p">,</span> <span class="n">np_test_ys</span> <span class="o">=</span> <span class="n">model_selection</span><span class="o">.</span><span class="n">train_test_split</span><span class="p">(</span>
+    <span class="n">np_data_xs</span><span class="p">,</span> <span class="n">np_data_ys</span><span class="p">,</span> 
+    <span class="n">test_size</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;train shape: np_train_xs=</span><span class="si">{}</span><span class="s2">, np_train_ys=</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np_train_xs</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">np_train_ys</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;test shape: np_test_xs=</span><span class="si">{}</span><span class="s2">, np_test_ys=</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np_test_xs</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">np_test_ys</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
 
-<span class="c1"># 학습</span>
-<span class="n">model</span> <span class="o">=</span> <span class="n">svm</span><span class="o">.</span><span class="n">SVC</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="s1">&#39;rbf&#39;</span><span class="p">,</span> <span class="n">decision_function_shape</span><span class="o">=</span><span class="s1">&#39;multinomial&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;model=</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">model</span><span class="p">))</span>
-<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">np_train_xs</span><span class="p">,</span> <span class="n">np_train_ys</span><span class="p">)</span>
+<span class="c1"># 모델</span>
+<span class="n">model</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">svm</span><span class="o">.</span><span class="n">SVC</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="s1">&#39;rbf&#39;</span><span class="p">,</span> <span class="n">decision_function_shape</span><span class="o">=</span><span class="s1">&#39;multinomial&#39;</span><span class="p">)</span>
+<span class="p">]</span>
 
-<span class="c1"># 평가</span>
-<span class="n">np_pred_ys</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">np_test_xs</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">model</span> <span class="ow">in</span> <span class="n">models</span><span class="p">:</span>
+    <span class="c1"># 학습</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;model=</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">model</span><span class="p">))</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">np_train_xs</span><span class="p">,</span> <span class="n">np_train_ys</span><span class="p">)</span>
 
-<span class="c1"># 테스트 데이터에 대해서 Mean Accuracy 값을 구합니다.</span>
-<span class="n">mean_acc</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">np_test_xs</span><span class="p">,</span> <span class="n">np_test_ys</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;mean_acc=</span><span class="si">{:.5f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">mean_acc</span><span class="p">))</span>
+    <span class="c1"># 평가</span>
+    <span class="n">np_pred_ys</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">np_test_xs</span><span class="p">)</span>
+
+    <span class="n">acc</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">np_test_ys</span><span class="p">,</span> <span class="n">np_pred_ys</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;acc=</span><span class="si">{:.5f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">acc</span><span class="p">))</span>
+
+    <span class="n">cr</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">classification_report</span><span class="p">(</span><span class="n">np_test_ys</span><span class="p">,</span> <span class="n">np_pred_ys</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;classification_report</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">cr</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -414,11 +443,25 @@ mean_acc=0.78340
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>data shape: np_data_xs=(10000, 10), np_data_ys=(10000,)
 train shape: np_train_xs=(7000, 10), np_train_ys=(7000,)
-model=SVC(C=1.0, cache_size=200, class_weight=None, coef0=0.0,
-  decision_function_shape=&#39;multinomial&#39;, degree=3, gamma=&#39;auto_deprecated&#39;,
-  kernel=&#39;rbf&#39;, max_iter=-1, probability=False, random_state=None,
-  shrinking=True, tol=0.001, verbose=False)
-mean_acc=0.92833
+test shape: np_test_xs=(3000, 10), np_test_ys=(3000,)
+model=SGDClassifier(alpha=0.0001, average=False, class_weight=None,
+       early_stopping=False, epsilon=0.1, eta0=0.0, fit_intercept=True,
+       l1_ratio=0.15, learning_rate=&#39;optimal&#39;, loss=&#39;hinge&#39;, max_iter=None,
+       n_iter=None, n_iter_no_change=5, n_jobs=None, penalty=&#39;l2&#39;,
+       power_t=0.5, random_state=None, shuffle=True, tol=None,
+       validation_fraction=0.1, verbose=0, warm_start=False)
+acc=0.86733
+classification_report
+               precision    recall  f1-score   support
+
+           0       0.84      0.87      0.85      1021
+           1       0.91      0.84      0.87      1011
+           2       0.86      0.89      0.88       968
+
+   micro avg       0.87      0.87      0.87      3000
+   macro avg       0.87      0.87      0.87      3000
+weighted avg       0.87      0.87      0.87      3000
+
 </pre>
 </div>
 </div>
@@ -430,7 +473,7 @@ mean_acc=0.92833
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Ensemble-methods">Ensemble methods<a class="anchor-link" href="#Ensemble-methods">&#182;</a></h1><p>앙상블 기법은 모델의 예측 성능을 높이기 위해 여러 개의 기본 모델들의 결과를 조합하여 사용하는 방식입니다.</p>
+<h1 id="Ensemble-Classification">Ensemble Classification<a class="anchor-link" href="#Ensemble-Classification">&#182;</a></h1><p>앙상블 기법은 모델의 예측 성능을 높이기 위해 여러 개의 기본 모델들의 결과를 조합하여 사용하는 방식입니다. 선형/비선형 데이터셋 및 분류/회귀 문제 모두에 사용할수 있습니다.</p>
 <ul>
 <li><p>Bagging methods: 데이터를 복원 랜덤 샘플링하여 각각 독립적인 모델을 학습 시킨 후, 각 모델이 예측 한 값의 평균(Average, 연속형 변수) 또는 다수 투표(Majority Voting, 범주형 변수)방식을 이용하여 예측하는 방식</p>
 <ul>
@@ -458,7 +501,7 @@ mean_acc=0.92833
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
@@ -467,10 +510,11 @@ mean_acc=0.92833
 <span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
 
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">sklearn</span> <span class="k">import</span> <span class="n">ensemble</span>
-<span class="kn">from</span> <span class="nn">sklearn</span> <span class="k">import</span> <span class="n">datasets</span>
+<span class="kn">import</span> <span class="nn">xgboost</span> <span class="k">as</span> <span class="nn">xgb</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="k">import</span> <span class="n">datasets</span><span class="p">,</span> <span class="n">model_selection</span><span class="p">,</span> <span class="n">ensemble</span><span class="p">,</span> <span class="n">metrics</span>
 
 <span class="c1"># 데이터</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">n_samples</span> <span class="o">=</span> <span class="mi">10000</span>
 <span class="n">np_data_xs</span><span class="p">,</span> <span class="n">np_data_ys</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">make_classification</span><span class="p">(</span>
     <span class="n">n_samples</span><span class="o">=</span><span class="n">n_samples</span><span class="p">,</span> <span class="c1"># 데이터 수</span>
@@ -479,30 +523,34 @@ mean_acc=0.92833
     <span class="n">n_classes</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="c1"># Y class 수</span>
     <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># 난수 발생용 Seed 값</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;data shape: np_data_xs=</span><span class="si">{}</span><span class="s2">, np_data_ys=</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np_data_xs</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">np_data_ys</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
-<span class="n">idx</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">n_samples</span> <span class="o">*</span> <span class="mf">0.7</span><span class="p">)</span>
-<span class="n">np_train_xs</span> <span class="o">=</span> <span class="n">np_data_xs</span><span class="p">[:</span><span class="n">idx</span><span class="p">]</span>
-<span class="n">np_train_ys</span> <span class="o">=</span> <span class="n">np_data_ys</span><span class="p">[:</span><span class="n">idx</span><span class="p">]</span>
-<span class="n">np_test_xs</span> <span class="o">=</span> <span class="n">np_data_xs</span><span class="p">[</span><span class="n">idx</span><span class="p">:]</span>
-<span class="n">np_test_ys</span> <span class="o">=</span> <span class="n">np_data_ys</span><span class="p">[</span><span class="n">idx</span><span class="p">:]</span>
+<span class="n">np_train_xs</span><span class="p">,</span> <span class="n">np_test_xs</span><span class="p">,</span> <span class="n">np_train_ys</span><span class="p">,</span> <span class="n">np_test_ys</span> <span class="o">=</span> <span class="n">model_selection</span><span class="o">.</span><span class="n">train_test_split</span><span class="p">(</span>
+    <span class="n">np_data_xs</span><span class="p">,</span> <span class="n">np_data_ys</span><span class="p">,</span> 
+    <span class="n">test_size</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;train shape: np_train_xs=</span><span class="si">{}</span><span class="s2">, np_train_ys=</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np_train_xs</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">np_train_ys</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;test shape: np_test_xs=</span><span class="si">{}</span><span class="s2">, np_test_ys=</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np_test_xs</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">np_test_ys</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
 
-<span class="c1"># 학습</span>
+<span class="c1"># 모델</span>
 <span class="n">models</span> <span class="o">=</span> <span class="p">[</span>
     <span class="n">ensemble</span><span class="o">.</span><span class="n">BaggingClassifier</span><span class="p">(),</span>
     <span class="n">ensemble</span><span class="o">.</span><span class="n">RandomForestClassifier</span><span class="p">(),</span>
     <span class="n">ensemble</span><span class="o">.</span><span class="n">AdaBoostClassifier</span><span class="p">(),</span>
-    <span class="n">ensemble</span><span class="o">.</span><span class="n">GradientBoostingClassifier</span><span class="p">()</span>
+    <span class="n">ensemble</span><span class="o">.</span><span class="n">GradientBoostingClassifier</span><span class="p">(),</span>
+    <span class="n">xgb</span><span class="o">.</span><span class="n">XGBClassifier</span><span class="p">()</span>
 <span class="p">]</span>
+
 <span class="k">for</span> <span class="n">model</span> <span class="ow">in</span> <span class="n">models</span><span class="p">:</span>
+    <span class="c1"># 학습</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">model=</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">model</span><span class="p">))</span>
     <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">np_train_xs</span><span class="p">,</span> <span class="n">np_train_ys</span><span class="p">)</span>
 
     <span class="c1"># 평가</span>
     <span class="n">np_pred_ys</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">np_test_xs</span><span class="p">)</span>
 
-    <span class="c1"># 테스트 데이터에 대해서 Mean Accuracy 값을 구합니다.</span>
-    <span class="n">mean_acc</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">np_test_xs</span><span class="p">,</span> <span class="n">np_test_ys</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;mean_acc=</span><span class="si">{:.5f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">mean_acc</span><span class="p">))</span>
+    <span class="n">acc</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">np_test_ys</span><span class="p">,</span> <span class="n">np_pred_ys</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;acc=</span><span class="si">{:.5f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">acc</span><span class="p">))</span>
+
+    <span class="n">cr</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">classification_report</span><span class="p">(</span><span class="n">np_test_ys</span><span class="p">,</span> <span class="n">np_pred_ys</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;classification_report</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">cr</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -521,12 +569,24 @@ mean_acc=0.92833
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>data shape: np_data_xs=(10000, 10), np_data_ys=(10000,)
 train shape: np_train_xs=(7000, 10), np_train_ys=(7000,)
+test shape: np_test_xs=(3000, 10), np_test_ys=(3000,)
 
 model=BaggingClassifier(base_estimator=None, bootstrap=True,
          bootstrap_features=False, max_features=1.0, max_samples=1.0,
          n_estimators=10, n_jobs=None, oob_score=False, random_state=None,
          verbose=0, warm_start=False)
-mean_acc=0.93833
+acc=0.93700
+classification_report
+               precision    recall  f1-score   support
+
+           0       0.93      0.91      0.92      1021
+           1       0.93      0.93      0.93      1011
+           2       0.95      0.98      0.97       968
+
+   micro avg       0.94      0.94      0.94      3000
+   macro avg       0.94      0.94      0.94      3000
+weighted avg       0.94      0.94      0.94      3000
+
 
 model=RandomForestClassifier(bootstrap=True, class_weight=None, criterion=&#39;gini&#39;,
             max_depth=None, max_features=&#39;auto&#39;, max_leaf_nodes=None,
@@ -535,11 +595,33 @@ model=RandomForestClassifier(bootstrap=True, class_weight=None, criterion=&#39;g
             min_weight_fraction_leaf=0.0, n_estimators=&#39;warn&#39;, n_jobs=None,
             oob_score=False, random_state=None, verbose=0,
             warm_start=False)
-mean_acc=0.94100
+acc=0.93700
+classification_report
+               precision    recall  f1-score   support
+
+           0       0.92      0.92      0.92      1021
+           1       0.94      0.92      0.93      1011
+           2       0.96      0.97      0.96       968
+
+   micro avg       0.94      0.94      0.94      3000
+   macro avg       0.94      0.94      0.94      3000
+weighted avg       0.94      0.94      0.94      3000
+
 
 model=AdaBoostClassifier(algorithm=&#39;SAMME.R&#39;, base_estimator=None,
           learning_rate=1.0, n_estimators=50, random_state=None)
-mean_acc=0.88767
+acc=0.87333
+classification_report
+               precision    recall  f1-score   support
+
+           0       0.81      0.88      0.84      1021
+           1       0.91      0.80      0.85      1011
+           2       0.92      0.94      0.93       968
+
+   micro avg       0.87      0.87      0.87      3000
+   macro avg       0.88      0.87      0.87      3000
+weighted avg       0.88      0.87      0.87      3000
+
 
 model=GradientBoostingClassifier(criterion=&#39;friedman_mse&#39;, init=None,
               learning_rate=0.1, loss=&#39;deviance&#39;, max_depth=3,
@@ -550,7 +632,217 @@ model=GradientBoostingClassifier(criterion=&#39;friedman_mse&#39;, init=None,
               n_iter_no_change=None, presort=&#39;auto&#39;, random_state=None,
               subsample=1.0, tol=0.0001, validation_fraction=0.1,
               verbose=0, warm_start=False)
-mean_acc=0.94233
+acc=0.93667
+classification_report
+               precision    recall  f1-score   support
+
+           0       0.93      0.91      0.92      1021
+           1       0.93      0.92      0.93      1011
+           2       0.95      0.98      0.96       968
+
+   micro avg       0.94      0.94      0.94      3000
+   macro avg       0.94      0.94      0.94      3000
+weighted avg       0.94      0.94      0.94      3000
+
+
+model=XGBClassifier(base_score=0.5, booster=&#39;gbtree&#39;, colsample_bylevel=1,
+       colsample_bytree=1, gamma=0, learning_rate=0.1, max_delta_step=0,
+       max_depth=3, min_child_weight=1, missing=None, n_estimators=100,
+       n_jobs=1, nthread=None, objective=&#39;binary:logistic&#39;, random_state=0,
+       reg_alpha=0, reg_lambda=1, scale_pos_weight=1, seed=None,
+       silent=True, subsample=1)
+acc=0.93367
+classification_report
+               precision    recall  f1-score   support
+
+           0       0.93      0.91      0.92      1021
+           1       0.93      0.92      0.93      1011
+           2       0.94      0.98      0.96       968
+
+   micro avg       0.93      0.93      0.93      3000
+   macro avg       0.93      0.93      0.93      3000
+weighted avg       0.93      0.93      0.93      3000
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Deep-Neural-Network">Deep Neural Network<a class="anchor-link" href="#Deep-Neural-Network">&#182;</a></h1><p>DNN 은 Logistic Regression 모델을 깊게 쌓아서, 선형/비선형 데이터셋 및 분류/회귀 문제 모두에 사용할수 있습니다. 하지만, DNN은 최적화를 위한 학습시간이 오래 걸리기때문에 정말 고차원 모델이 필요하고 데이터의 양이 많은 경우를 제외하고는 다른 전통적인 알고리즘 시도 후, 시도 하는 것을 추천합니다.</p>
+<p>Hidden Layer내의 노드 갯수와 Hidden Layer 의 층수 사이의 표현력 관계는 아래 그림에서 볼수 있습니다.</p>
+<p>Hidden Layer내의 노드 갯수가 많아지면 저차원의 다양한 결정 경계를 그릴 수 있습니다.
+<img src="https://cdn-images-1.medium.com/max/1600/1*RT-R9WeLjR_mn1irANbWfA.png" alt="Hidden Unit Effect">
+<img src="https://cdn-images-1.medium.com/max/1600/1*vtWZRVA0vIm6XR-LLoz0aQ.png" alt="Hidden Unit Effect"></p>
+<p>Hidden Layer의 층 수가 깊어지면 저차원으로는 표현할 수 없는 저차원을 조합한 고차원의 다양한 결정 경계를 그릴 수 있게 됩니다. 
+<img src="https://cdn-images-1.medium.com/max/1600/1*mqTfsRjBrdjY2FsEuqqpaA.png" alt="Hidden Layer Effect">
+<img src="https://cdn-images-1.medium.com/max/1600/1*eAw564GuxOlRMySM93dw7A.png" alt="Hidden Layer Effect"></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="k">import</span> <span class="n">datasets</span><span class="p">,</span> <span class="n">preprocessing</span><span class="p">,</span> <span class="n">model_selection</span><span class="p">,</span> <span class="n">metrics</span>
+<span class="kn">from</span> <span class="nn">keras</span> <span class="k">import</span> <span class="n">models</span><span class="p">,</span> <span class="n">layers</span><span class="p">,</span> <span class="n">optimizers</span><span class="p">,</span> <span class="n">utils</span>
+
+<span class="c1"># 데이터</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">n_samples</span> <span class="o">=</span> <span class="mi">10000</span>
+<span class="n">n_features</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">n_class</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">np_data_xs</span><span class="p">,</span> <span class="n">np_data_ys</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">make_classification</span><span class="p">(</span>
+    <span class="n">n_samples</span><span class="o">=</span><span class="n">n_samples</span><span class="p">,</span> <span class="c1"># 데이터 수</span>
+    <span class="n">n_features</span><span class="o">=</span><span class="n">n_features</span><span class="p">,</span> <span class="c1"># X feature 수</span>
+    <span class="n">n_informative</span><span class="o">=</span><span class="n">n_class</span><span class="p">,</span>
+    <span class="n">n_classes</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="c1"># Y class 수</span>
+    <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># 난수 발생용 Seed 값</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;data shape: np_data_xs=</span><span class="si">{}</span><span class="s2">, np_data_ys=</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np_data_xs</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">np_data_ys</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
+<span class="n">np_train_xs</span><span class="p">,</span> <span class="n">np_test_xs</span><span class="p">,</span> <span class="n">np_train_ys</span><span class="p">,</span> <span class="n">np_test_ys</span> <span class="o">=</span> <span class="n">model_selection</span><span class="o">.</span><span class="n">train_test_split</span><span class="p">(</span>
+    <span class="n">np_data_xs</span><span class="p">,</span> <span class="n">np_data_ys</span><span class="p">,</span> 
+    <span class="n">test_size</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;train shape: np_train_xs=</span><span class="si">{}</span><span class="s2">, np_train_ys=</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np_train_xs</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">np_train_ys</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;test shape: np_test_xs=</span><span class="si">{}</span><span class="s2">, np_test_ys=</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np_test_xs</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">np_test_ys</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
+
+<span class="c1"># 전처리</span>
+<span class="n">scaler_xs</span> <span class="o">=</span> <span class="n">preprocessing</span><span class="o">.</span><span class="n">StandardScaler</span><span class="p">()</span>
+<span class="n">np_train_scale_xs</span> <span class="o">=</span> <span class="n">scaler_xs</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">np_train_xs</span><span class="p">)</span>
+<span class="n">np_test_scale_xs</span> <span class="o">=</span> <span class="n">scaler_xs</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">np_test_xs</span><span class="p">)</span>
+
+<span class="n">np_train_onehot_ys</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">np_utils</span><span class="o">.</span><span class="n">to_categorical</span><span class="p">(</span><span class="n">np_train_ys</span><span class="p">,</span> <span class="n">n_class</span><span class="p">)</span>
+<span class="n">np_test_onehot_ys</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">np_utils</span><span class="o">.</span><span class="n">to_categorical</span><span class="p">(</span><span class="n">np_test_ys</span><span class="p">,</span> <span class="n">n_class</span><span class="p">)</span>
+
+<span class="c1"># 모델</span>
+<span class="k">class</span> <span class="nc">DnnClassifier</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Sequential</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n_i</span><span class="p">,</span> <span class="n">n_hs</span><span class="p">,</span> <span class="n">n_o</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="n">n_i</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">,</span> <span class="n">input_shape</span><span class="o">=</span><span class="p">(</span><span class="n">n_i</span><span class="p">,)))</span>
+        <span class="k">for</span> <span class="n">l</span><span class="p">,</span> <span class="n">n_h</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">n_hs</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="n">n_h</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="n">n_o</span><span class="p">,</span> <span class="n">activation</span> <span class="o">=</span> <span class="s1">&#39;softmax&#39;</span><span class="p">))</span>
+        <span class="n">sgd</span> <span class="o">=</span> <span class="n">optimizers</span><span class="o">.</span><span class="n">SGD</span><span class="p">(</span><span class="n">lr</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">decay</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">,</span> <span class="n">momentum</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span> <span class="n">nesterov</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="n">sgd</span><span class="p">,</span> <span class="n">loss</span><span class="o">=</span><span class="s1">&#39;categorical_crossentropy&#39;</span><span class="p">,</span> <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;accuracy&#39;</span><span class="p">])</span>
+
+<span class="n">models</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">DnnClassifier</span><span class="p">(</span><span class="n">n_i</span> <span class="o">=</span> <span class="n">n_features</span><span class="p">,</span> <span class="n">n_hs</span> <span class="o">=</span> <span class="p">[</span><span class="mi">16</span><span class="p">,</span> <span class="mi">16</span><span class="p">],</span> <span class="n">n_o</span> <span class="o">=</span> <span class="n">n_class</span><span class="p">)</span>
+<span class="p">]</span>
+
+<span class="k">for</span> <span class="n">model</span> <span class="ow">in</span> <span class="n">models</span><span class="p">:</span>
+    <span class="c1"># 학습</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">model&quot;</span><span class="p">)</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+    <span class="n">history</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">np_train_scale_xs</span><span class="p">,</span> <span class="n">np_train_onehot_ys</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">history</span><span class="o">.</span><span class="n">history</span><span class="p">[</span><span class="s1">&#39;loss&#39;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;loss&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">history</span><span class="o">.</span><span class="n">history</span><span class="p">[</span><span class="s1">&#39;acc&#39;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;acc&#39;</span><span class="p">)</span>    
+    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>    
+
+    <span class="c1"># 평가</span>
+    <span class="n">np_pred_ys</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict_classes</span><span class="p">(</span><span class="n">np_test_scale_xs</span><span class="p">)</span>
+
+    <span class="n">acc</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">np_test_ys</span><span class="p">,</span> <span class="n">np_pred_ys</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;acc=</span><span class="si">{:.5f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">acc</span><span class="p">))</span>
+
+    <span class="n">cr</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">classification_report</span><span class="p">(</span><span class="n">np_test_ys</span><span class="p">,</span> <span class="n">np_pred_ys</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;classification_report</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">cr</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>Using TensorFlow backend.
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>data shape: np_data_xs=(10000, 10), np_data_ys=(10000,)
+train shape: np_train_xs=(7000, 10), np_train_ys=(7000,)
+test shape: np_test_xs=(3000, 10), np_test_ys=(3000,)
+
+model
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+dense_1 (Dense)              (None, 10)                110       
+_________________________________________________________________
+dense_2 (Dense)              (None, 16)                176       
+_________________________________________________________________
+dense_3 (Dense)              (None, 16)                272       
+_________________________________________________________________
+dense_4 (Dense)              (None, 3)                 51        
+=================================================================
+Total params: 609
+Trainable params: 609
+Non-trainable params: 0
+_________________________________________________________________
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,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
+"
+>
+</div>
+
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>acc=0.93467
+classification_report
+               precision    recall  f1-score   support
+
+           0       0.94      0.90      0.92      1021
+           1       0.92      0.93      0.93      1011
+           2       0.94      0.98      0.96       968
+
+   micro avg       0.93      0.93      0.93      3000
+   macro avg       0.93      0.94      0.93      3000
+weighted avg       0.93      0.93      0.93      3000
+
 </pre>
 </div>
 </div>

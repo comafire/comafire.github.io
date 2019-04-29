@@ -43,7 +43,7 @@
  </url>
  <url>
   <loc>https://comafire.github.io/pages/</loc>
-  <lastmod>2019-04-29T12:55:00Z</lastmod>
+  <lastmod>2019-04-29T13:12:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/pages/data-engineering-cookbook/</loc>
@@ -98,8 +98,16 @@
   <lastmod>2019-04-22T14:05:00Z</lastmod>
  </url>
  <url>
+  <loc>https://comafire.github.io/pages/model-dnn-classification/</loc>
+  <lastmod>2019-04-29T13:12:00Z</lastmod>
+ </url>
+ <url>
   <loc>https://comafire.github.io/pages/model-dnn-regression/</loc>
   <lastmod>2019-04-29T12:55:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://comafire.github.io/pages/model-ensemble-classification/</loc>
+  <lastmod>2019-04-29T13:12:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/pages/model-ensemble-regression/</loc>
@@ -110,12 +118,20 @@
   <lastmod>2019-04-29T12:55:00Z</lastmod>
  </url>
  <url>
+  <loc>https://comafire.github.io/pages/model-logistic-regression/</loc>
+  <lastmod>2019-04-29T13:12:00Z</lastmod>
+ </url>
+ <url>
   <loc>https://comafire.github.io/pages/model-polynomial-regression/</loc>
   <lastmod>2019-04-29T12:55:00Z</lastmod>
  </url>
  <url>
-  <loc>https://comafire.github.io/pages/model-regression/</loc>
-  <lastmod>2019-04-20T15:52:00Z</lastmod>
+  <loc>https://comafire.github.io/pages/model-sgd-classification/</loc>
+  <lastmod>2019-04-29T13:12:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://comafire.github.io/pages/model-svm-classification/</loc>
+  <lastmod>2019-04-29T13:12:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/pages/model-svm-regression/</loc>

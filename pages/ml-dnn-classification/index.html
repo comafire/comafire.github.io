@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article#
+" lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Machine Learning - DNN Classification | Comafire's Lab</title>
+<link href="../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/ipython.min.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
+<meta name="theme-color" content="#5670d4">
+<meta name="generator" content="Nikola (getnikola.com)">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="../../rss.xml">
+<link rel="canonical" href="https://comafire.github.io/pages/ml-dnn-classification/">
+<!--[if lt IE 9]><script src="../../assets/js/html5.js"></script><![endif]--><!-- Google Adsense --><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>
+     (adsbygoogle = window.adsbygoogle || []).push({
+          google_ad_client: "ca-pub-0670106451680512",
+          enable_page_level_ads: true
+     });
+</script><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-81648003-1"></script><script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-81648003-1');
+</script><meta name="author" content="comafire">
+<meta property="og:site_name" content="Comafire's Lab">
+<meta property="og:title" content="Machine Learning - DNN Classification">
+<meta property="og:url" content="https://comafire.github.io/pages/ml-dnn-classification/">
+<meta property="og:description" content="Deep Neural Network¶DNN 은 Logistic Regression 모델을 깊게 쌓아서, 선형/비선형 데이터셋 및 분류/회귀 문제 모두에 사용할수 있습니다. 하지만, DNN은 최적화를 위한 학습시간이 오래 걸리기때문에 정말 고차원 모델이 필요하고 데이터의 양이 많은 경우를 제외하고는 다른 전통적인 알고리즘 시도 후, 시도 하는 것을 추천합니다">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2019-04-06T00:00:00+09:00">
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+<!-- Menubar -->
+
+<nav class="navbar navbar-expand-md static-top mb-4
+navbar-dark bg-dark
+"><div class="container">
+<!-- This keeps the margins nice -->
+        <a class="navbar-brand" href="https://comafire.github.io/">
+
+            <span id="blog-title">Comafire's Lab</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="bs-navbar">
+            <ul class="navbar-nav mr-auto">
+<li class="nav-item">
+<a href="../../index.html" class="nav-link">Home</a>
+            </li>
+<li class="nav-item dropdown">
+<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pages</a>
+            <div class="dropdown-menu">
+                    <a href="../data-technology-platform" class="dropdown-item">Data Technology Platform</a>
+                    <a href="../data-science-data-engineering" class="dropdown-item">Data Science - Data Engineering</a>
+                    <a href="../data-science-machine-learning" class="dropdown-item">Data Science - Machine Learning</a>
+                    <a href="../data-science-statistics" class="dropdown-item">Data Science - Statistics</a>
+                    <a href="../data-technology-project" class="dropdown-item">Data Technology Project</a>
+            </div>
+            </li>
+<li class="nav-item dropdown">
+<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Posts</a>
+            <div class="dropdown-menu">
+                    <a href="../../posts" class="dropdown-item">Posts</a>
+                    <a href="../../archive.html" class="dropdown-item">Archive</a>
+                    <a href="../../categories/" class="dropdown-item">Tag</a>
+                    <a href="../../rss.xml" class="dropdown-item">RSS</a>
+            </div>
+                </li>
+<li class="nav-item">
+<a href="https://github.com/comafire" class="nav-link">GitHub</a>
+
+                
+            </li>
+</ul>
+<!-- Google custom search --><form method="get" action="https://www.google.com/search" class="navbar-form navbar-right" role="search">
+<div class="input-group">
+  <input type="text" name="q" class="form-control" placeholder="Search"><input type="hidden" name="sitesearch" value="https://comafire.github.io/"><div class="input-group-append">
+    <button class="btn btn-primary" type="submit">Go</button>
+  </div>
+</div>
+
+</form>
+<!-- End of custom search -->
+
+
+            <ul class="navbar-nav navbar-right">
+<li class="nav-item">
+    <a href="index.ipynb" id="sourcelink" class="nav-link">Source</a>
+    </li>
+
+
+                
+            </ul>
+</div>
+<!-- /.navbar-collapse -->
+    </div>
+<!-- /.container -->
+</nav><!-- End of Menubar --><div class="container" id="content" role="main">
+    <div class="body-content">
+        <!--Body content-->
+        
+        
+<article class="post-text storypage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">Machine Learning - DNN Classification</a></h1>
+
+        
+
+    </header><div class="e-content entry-content" itemprop="articleBody text">
+    <div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Deep-Neural-Network">Deep Neural Network<a class="anchor-link" href="#Deep-Neural-Network">¶</a>
+</h2>
+<p>DNN 은 Logistic Regression 모델을 깊게 쌓아서, 선형/비선형 데이터셋 및 분류/회귀 문제 모두에 사용할수 있습니다. 하지만, DNN은 최적화를 위한 학습시간이 오래 걸리기때문에 정말 고차원 모델이 필요하고 데이터의 양이 많은 경우를 제외하고는 다른 전통적인 알고리즘 시도 후, 시도 하는 것을 추천합니다.</p>
+<p>Hidden Layer내의 노드 갯수와 Hidden Layer 의 층수 사이의 표현력 관계는 아래 그림에서 볼수 있습니다.</p>
+<p>Hidden Layer내의 노드 갯수가 많아지면 저차원의 다양한 결정 경계를 그릴 수 있습니다.
+<img src="https://cdn-images-1.medium.com/max/1600/1*RT-R9WeLjR_mn1irANbWfA.png" alt="Hidden Unit Effect"><img src="https://cdn-images-1.medium.com/max/1600/1*vtWZRVA0vIm6XR-LLoz0aQ.png" alt="Hidden Unit Effect"></p>
+<p>Hidden Layer의 층 수가 깊어지면 저차원으로는 표현할 수 없는 저차원을 조합한 고차원의 다양한 결정 경계를 그릴 수 있게 됩니다. 
+<img src="https://cdn-images-1.medium.com/max/1600/1*mqTfsRjBrdjY2FsEuqqpaA.png" alt="Hidden Layer Effect"><img src="https://cdn-images-1.medium.com/max/1600/1*eAw564GuxOlRMySM93dw7A.png" alt="Hidden Layer Effect"></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [1]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">"ignore"</span><span class="p">)</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="k">import</span> <span class="n">datasets</span><span class="p">,</span> <span class="n">preprocessing</span><span class="p">,</span> <span class="n">model_selection</span><span class="p">,</span> <span class="n">metrics</span>
+<span class="kn">from</span> <span class="nn">keras</span> <span class="k">import</span> <span class="n">models</span><span class="p">,</span> <span class="n">layers</span><span class="p">,</span> <span class="n">optimizers</span><span class="p">,</span> <span class="n">utils</span>
+
+<span class="c1"># 데이터</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">n_samples</span> <span class="o">=</span> <span class="mi">10000</span>
+<span class="n">n_features</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">n_class</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">np_data_xs</span><span class="p">,</span> <span class="n">np_data_ys</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">make_classification</span><span class="p">(</span>
+    <span class="n">n_samples</span><span class="o">=</span><span class="n">n_samples</span><span class="p">,</span> <span class="c1"># 데이터 수</span>
+    <span class="n">n_features</span><span class="o">=</span><span class="n">n_features</span><span class="p">,</span> <span class="c1"># X feature 수</span>
+    <span class="n">n_informative</span><span class="o">=</span><span class="n">n_class</span><span class="p">,</span>
+    <span class="n">n_classes</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="c1"># Y class 수</span>
+    <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># 난수 발생용 Seed 값</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"data shape: np_data_xs=</span><span class="si">{}</span><span class="s2">, np_data_ys=</span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np_data_xs</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">np_data_ys</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
+<span class="n">np_train_xs</span><span class="p">,</span> <span class="n">np_test_xs</span><span class="p">,</span> <span class="n">np_train_ys</span><span class="p">,</span> <span class="n">np_test_ys</span> <span class="o">=</span> <span class="n">model_selection</span><span class="o">.</span><span class="n">train_test_split</span><span class="p">(</span>
+    <span class="n">np_data_xs</span><span class="p">,</span> <span class="n">np_data_ys</span><span class="p">,</span> 
+    <span class="n">test_size</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"train shape: np_train_xs=</span><span class="si">{}</span><span class="s2">, np_train_ys=</span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np_train_xs</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">np_train_ys</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"test shape: np_test_xs=</span><span class="si">{}</span><span class="s2">, np_test_ys=</span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np_test_xs</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">np_test_ys</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
+
+<span class="c1"># 전처리</span>
+<span class="n">scaler_xs</span> <span class="o">=</span> <span class="n">preprocessing</span><span class="o">.</span><span class="n">StandardScaler</span><span class="p">()</span>
+<span class="n">np_train_scale_xs</span> <span class="o">=</span> <span class="n">scaler_xs</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">np_train_xs</span><span class="p">)</span>
+<span class="n">np_test_scale_xs</span> <span class="o">=</span> <span class="n">scaler_xs</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">np_test_xs</span><span class="p">)</span>
+
+<span class="n">np_train_onehot_ys</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">np_utils</span><span class="o">.</span><span class="n">to_categorical</span><span class="p">(</span><span class="n">np_train_ys</span><span class="p">,</span> <span class="n">n_class</span><span class="p">)</span>
+<span class="n">np_test_onehot_ys</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">np_utils</span><span class="o">.</span><span class="n">to_categorical</span><span class="p">(</span><span class="n">np_test_ys</span><span class="p">,</span> <span class="n">n_class</span><span class="p">)</span>
+
+<span class="c1"># 모델</span>
+<span class="k">class</span> <span class="nc">DnnClassifier</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Sequential</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n_i</span><span class="p">,</span> <span class="n">n_hs</span><span class="p">,</span> <span class="n">n_o</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="n">n_i</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">'relu'</span><span class="p">,</span> <span class="n">input_shape</span><span class="o">=</span><span class="p">(</span><span class="n">n_i</span><span class="p">,)))</span>
+        <span class="k">for</span> <span class="n">l</span><span class="p">,</span> <span class="n">n_h</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">n_hs</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="n">n_h</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">'relu'</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="n">n_o</span><span class="p">,</span> <span class="n">activation</span> <span class="o">=</span> <span class="s1">'softmax'</span><span class="p">))</span>
+        <span class="n">sgd</span> <span class="o">=</span> <span class="n">optimizers</span><span class="o">.</span><span class="n">SGD</span><span class="p">(</span><span class="n">lr</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">decay</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">,</span> <span class="n">momentum</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span> <span class="n">nesterov</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="n">sgd</span><span class="p">,</span> <span class="n">loss</span><span class="o">=</span><span class="s1">'categorical_crossentropy'</span><span class="p">,</span> <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s1">'accuracy'</span><span class="p">])</span>
+
+<span class="n">models</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">DnnClassifier</span><span class="p">(</span><span class="n">n_i</span> <span class="o">=</span> <span class="n">n_features</span><span class="p">,</span> <span class="n">n_hs</span> <span class="o">=</span> <span class="p">[</span><span class="mi">16</span><span class="p">,</span> <span class="mi">16</span><span class="p">],</span> <span class="n">n_o</span> <span class="o">=</span> <span class="n">n_class</span><span class="p">)</span>
+<span class="p">]</span>
+
+<span class="k">for</span> <span class="n">model</span> <span class="ow">in</span> <span class="n">models</span><span class="p">:</span>
+    <span class="c1"># 학습</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">model"</span><span class="p">)</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+    <span class="n">history</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">np_train_scale_xs</span><span class="p">,</span> <span class="n">np_train_onehot_ys</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">history</span><span class="o">.</span><span class="n">history</span><span class="p">[</span><span class="s1">'loss'</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">'loss'</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">history</span><span class="o">.</span><span class="n">history</span><span class="p">[</span><span class="s1">'acc'</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">'acc'</span><span class="p">)</span>    
+    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>    
+
+    <span class="c1"># 평가</span>
+    <span class="n">np_pred_ys</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict_classes</span><span class="p">(</span><span class="n">np_test_scale_xs</span><span class="p">)</span>
+
+    <span class="n">acc</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">np_test_ys</span><span class="p">,</span> <span class="n">np_pred_ys</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"acc=</span><span class="si">{:.5f}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">acc</span><span class="p">))</span>
+
+    <span class="n">cr</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">classification_report</span><span class="p">(</span><span class="n">np_test_ys</span><span class="p">,</span> <span class="n">np_pred_ys</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"classification_report</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span> <span class="n">cr</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>Using TensorFlow backend.
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>data shape: np_data_xs=(10000, 10), np_data_ys=(10000,)
+train shape: np_train_xs=(7000, 10), np_train_ys=(7000,)
+test shape: np_test_xs=(3000, 10), np_test_ys=(3000,)
+
+model
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+dense_1 (Dense)              (None, 10)                110       
+_________________________________________________________________
+dense_2 (Dense)              (None, 16)                176       
+_________________________________________________________________
+dense_3 (Dense)              (None, 16)                272       
+_________________________________________________________________
+dense_4 (Dense)              (None, 3)                 51        
+=================================================================
+Total params: 609
+Trainable params: 609
+Non-trainable params: 0
+_________________________________________________________________
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,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">
+</div>
+
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>acc=0.93667
+classification_report
+               precision    recall  f1-score   support
+
+           0       0.93      0.91      0.92      1021
+           1       0.94      0.93      0.93      1011
+           2       0.95      0.98      0.96       968
+
+   micro avg       0.94      0.94      0.94      3000
+   macro avg       0.94      0.94      0.94      3000
+weighted avg       0.94      0.94      0.94      3000
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+    </div>
+        <section class="comments"><h2>Comments</h2>
+        
+        
+        <div id="disqus_thread"></div>
+        <script>
+        var disqus_shortname ="comafire",
+            disqus_url="https://comafire.github.io/pages/ml-dnn-classification/",
+        disqus_title="Machine Learning - DNN Classification",
+        disqus_identifier="cache/pages/ml-dnn-classification.html",
+        disqus_config = function () {
+            this.language = "en";
+        };
+        (function() {
+            var dsq = document.createElement('script'); dsq.async = true;
+            dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+    <a href="https://disqus.com" class="dsq-brlink" rel="nofollow">Comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+        </section><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha256-SDRP1VVYu+tgAGKhddBSl5+ezofHKZeI+OzxakbIe/Y=" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
+        MathJax.Hub.Config({tex2jax: {inlineMath: [['$latex ','$'], ['\\(','\\)']]}});
+        </script></article><!--End of body content--><footer id="footer">
+            Contents © 2019         <a href="mailto:comafire@gmail.com">comafire</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
+            
+        </footer>
+</div>
+</div>
+
+
+        <script src="../../assets/js/all-nocdn.js"></script><script>
+    baguetteBox.run('div#content', {
+        ignoreClass: 'islink',
+        captions: function(element) {
+            return element.getElementsByTagName('img')[0].alt;
+    }});
+    </script>
+</body>
+</html>

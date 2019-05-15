@@ -31,7 +31,7 @@
  </url>
  <url>
   <loc>https://comafire.github.io/archive.html</loc>
-  <lastmod>2019-04-20T15:51:00Z</lastmod>
+  <lastmod>2019-05-15T13:01:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/categories/</loc>
@@ -43,7 +43,7 @@
  </url>
  <url>
   <loc>https://comafire.github.io/pages/</loc>
-  <lastmod>2019-05-03T15:02:00Z</lastmod>
+  <lastmod>2019-05-15T13:01:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/pages/data-engineering-cookbook/</loc>
@@ -86,8 +86,128 @@
   <lastmod>2019-04-20T15:52:00Z</lastmod>
  </url>
  <url>
+  <loc>https://comafire.github.io/pages/data-science-data-engineering/</loc>
+  <lastmod>2019-05-15T13:01:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://comafire.github.io/pages/data-science-machine-learning/</loc>
+  <lastmod>2019-05-15T13:01:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://comafire.github.io/pages/data-science-statistics/</loc>
+  <lastmod>2019-05-15T13:01:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://comafire.github.io/pages/data-technology-platform/</loc>
+  <lastmod>2019-05-15T13:01:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://comafire.github.io/pages/data-technology-project/</loc>
+  <lastmod>2019-05-15T13:01:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://comafire.github.io/pages/de-pandas-10mins/</loc>
+  <lastmod>2019-05-15T13:01:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://comafire.github.io/pages/de-spark-dataframe-10mins/</loc>
+  <lastmod>2019-05-15T13:01:00Z</lastmod>
+ </url>
+ <url>
   <loc>https://comafire.github.io/pages/keras-10mins/</loc>
   <lastmod>2019-04-20T15:52:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://comafire.github.io/pages/ml-collaborative-filtering/</loc>
+  <lastmod>2019-05-15T13:01:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://comafire.github.io/pages/ml-data-description/</loc>
+  <lastmod>2019-05-15T13:01:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://comafire.github.io/pages/ml-descriptive-statistics/</loc>
+  <lastmod>2019-05-15T13:01:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://comafire.github.io/pages/ml-dnn-classification/</loc>
+  <lastmod>2019-05-15T13:01:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://comafire.github.io/pages/ml-dnn-regression/</loc>
+  <lastmod>2019-05-15T13:01:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://comafire.github.io/pages/ml-ensemble-classification/</loc>
+  <lastmod>2019-05-15T13:01:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://comafire.github.io/pages/ml-ensemble-regression/</loc>
+  <lastmod>2019-05-15T13:01:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://comafire.github.io/pages/ml-feature-extraction/</loc>
+  <lastmod>2019-05-15T13:01:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://comafire.github.io/pages/ml-feature-selection/</loc>
+  <lastmod>2019-05-15T13:01:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://comafire.github.io/pages/ml-feature-transformation/</loc>
+  <lastmod>2019-05-15T13:01:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://comafire.github.io/pages/ml-imbalanced-class/</loc>
+  <lastmod>2019-05-15T13:01:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://comafire.github.io/pages/ml-keras-10mins/</loc>
+  <lastmod>2019-05-15T13:01:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://comafire.github.io/pages/ml-kmeans/</loc>
+  <lastmod>2019-05-15T13:01:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://comafire.github.io/pages/ml-linear-regression/</loc>
+  <lastmod>2019-05-15T13:01:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://comafire.github.io/pages/ml-logistic-regression/</loc>
+  <lastmod>2019-05-15T13:01:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://comafire.github.io/pages/ml-mean-shift/</loc>
+  <lastmod>2019-05-15T13:01:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://comafire.github.io/pages/ml-missing-value/</loc>
+  <lastmod>2019-05-15T13:01:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://comafire.github.io/pages/ml-outlier/</loc>
+  <lastmod>2019-05-15T13:01:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://comafire.github.io/pages/ml-polynomial-regression/</loc>
+  <lastmod>2019-05-15T13:01:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://comafire.github.io/pages/ml-sgd-classification/</loc>
+  <lastmod>2019-05-15T13:01:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://comafire.github.io/pages/ml-spectral-clustering/</loc>
+  <lastmod>2019-05-15T13:01:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://comafire.github.io/pages/ml-svm-classification/</loc>
+  <lastmod>2019-05-15T13:01:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://comafire.github.io/pages/ml-svm-regression/</loc>
+  <lastmod>2019-05-15T13:01:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/pages/model-clustering/</loc>
@@ -146,12 +266,44 @@
   <lastmod>2019-04-20T15:52:00Z</lastmod>
  </url>
  <url>
+  <loc>https://comafire.github.io/pages/platform-amazon-web-service/</loc>
+  <lastmod>2019-05-15T13:01:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://comafire.github.io/pages/platform-azure-cloud/</loc>
+  <lastmod>2019-05-15T13:01:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://comafire.github.io/pages/platform-google-cloud-platform/</loc>
+  <lastmod>2019-05-15T13:01:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://comafire.github.io/pages/platform-st-kilda-pier/</loc>
+  <lastmod>2019-05-15T13:01:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://comafire.github.io/pages/project-notebooks-skp/</loc>
+  <lastmod>2019-05-15T13:01:00Z</lastmod>
+ </url>
+ <url>
   <loc>https://comafire.github.io/pages/spark-dataframe-10mins/</loc>
   <lastmod>2019-04-20T15:52:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/pages/st-kilda-pier/</loc>
   <lastmod>2019-04-20T15:52:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://comafire.github.io/pages/statistics-normality-test/</loc>
+  <lastmod>2019-05-15T13:01:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://comafire.github.io/pages/statistics-parallel-algorithm/</loc>
+  <lastmod>2019-05-15T13:01:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://comafire.github.io/pages/statistics-parametric-method/</loc>
+  <lastmod>2019-05-15T13:01:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/posts/</loc>
@@ -343,18 +495,18 @@
  </url>
  <url>
   <loc>https://comafire.github.io/posts/index-1.html</loc>
-  <lastmod>2019-04-20T15:52:00Z</lastmod>
+  <lastmod>2019-05-15T13:01:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/posts/index-2.html</loc>
-  <lastmod>2019-04-20T15:52:00Z</lastmod>
+  <lastmod>2019-05-15T13:01:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/posts/index-3.html</loc>
-  <lastmod>2019-04-20T15:52:00Z</lastmod>
+  <lastmod>2019-05-15T13:01:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/posts/index-4.html</loc>
-  <lastmod>2019-04-20T15:52:00Z</lastmod>
+  <lastmod>2019-05-15T13:01:00Z</lastmod>
  </url>
 </urlset>

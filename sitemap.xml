@@ -46,46 +46,6 @@
   <lastmod>2019-05-15T13:01:00Z</lastmod>
  </url>
  <url>
-  <loc>https://comafire.github.io/pages/data-engineering-cookbook/</loc>
-  <lastmod>2019-04-20T15:52:00Z</lastmod>
- </url>
- <url>
-  <loc>https://comafire.github.io/pages/data-preparation-data-description/</loc>
-  <lastmod>2019-04-20T15:52:00Z</lastmod>
- </url>
- <url>
-  <loc>https://comafire.github.io/pages/data-preparation-descriptive-statistics/</loc>
-  <lastmod>2019-04-20T15:52:00Z</lastmod>
- </url>
- <url>
-  <loc>https://comafire.github.io/pages/data-preparation-feature-extraction/</loc>
-  <lastmod>2019-04-20T15:52:00Z</lastmod>
- </url>
- <url>
-  <loc>https://comafire.github.io/pages/data-preparation-feature-selection/</loc>
-  <lastmod>2019-04-20T15:52:00Z</lastmod>
- </url>
- <url>
-  <loc>https://comafire.github.io/pages/data-preparation-feature-transformation/</loc>
-  <lastmod>2019-04-20T15:52:00Z</lastmod>
- </url>
- <url>
-  <loc>https://comafire.github.io/pages/data-preparation-imbalanced-class/</loc>
-  <lastmod>2019-04-22T14:05:00Z</lastmod>
- </url>
- <url>
-  <loc>https://comafire.github.io/pages/data-preparation-missing-value/</loc>
-  <lastmod>2019-04-20T15:52:00Z</lastmod>
- </url>
- <url>
-  <loc>https://comafire.github.io/pages/data-preparation-outlier/</loc>
-  <lastmod>2019-04-20T15:52:00Z</lastmod>
- </url>
- <url>
-  <loc>https://comafire.github.io/pages/data-science-cookbook/</loc>
-  <lastmod>2019-04-20T15:52:00Z</lastmod>
- </url>
- <url>
   <loc>https://comafire.github.io/pages/data-science-data-engineering/</loc>
   <lastmod>2019-05-15T13:01:00Z</lastmod>
  </url>
@@ -112,10 +72,6 @@
  <url>
   <loc>https://comafire.github.io/pages/de-spark-dataframe-10mins/</loc>
   <lastmod>2019-05-15T13:01:00Z</lastmod>
- </url>
- <url>
-  <loc>https://comafire.github.io/pages/keras-10mins/</loc>
-  <lastmod>2019-04-20T15:52:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/pages/ml-collaborative-filtering/</loc>
@@ -210,62 +166,6 @@
   <lastmod>2019-05-15T13:01:00Z</lastmod>
  </url>
  <url>
-  <loc>https://comafire.github.io/pages/model-clustering/</loc>
-  <lastmod>2019-04-22T14:05:00Z</lastmod>
- </url>
- <url>
-  <loc>https://comafire.github.io/pages/model-collaborative-filtering/</loc>
-  <lastmod>2019-05-03T15:02:00Z</lastmod>
- </url>
- <url>
-  <loc>https://comafire.github.io/pages/model-dnn-classification/</loc>
-  <lastmod>2019-04-29T13:12:00Z</lastmod>
- </url>
- <url>
-  <loc>https://comafire.github.io/pages/model-dnn-regression/</loc>
-  <lastmod>2019-04-29T12:55:00Z</lastmod>
- </url>
- <url>
-  <loc>https://comafire.github.io/pages/model-ensemble-classification/</loc>
-  <lastmod>2019-04-29T13:12:00Z</lastmod>
- </url>
- <url>
-  <loc>https://comafire.github.io/pages/model-ensemble-regression/</loc>
-  <lastmod>2019-04-29T12:55:00Z</lastmod>
- </url>
- <url>
-  <loc>https://comafire.github.io/pages/model-linear-regression/</loc>
-  <lastmod>2019-04-29T12:55:00Z</lastmod>
- </url>
- <url>
-  <loc>https://comafire.github.io/pages/model-logistic-regression/</loc>
-  <lastmod>2019-04-29T13:12:00Z</lastmod>
- </url>
- <url>
-  <loc>https://comafire.github.io/pages/model-polynomial-regression/</loc>
-  <lastmod>2019-04-29T12:55:00Z</lastmod>
- </url>
- <url>
-  <loc>https://comafire.github.io/pages/model-sgd-classification/</loc>
-  <lastmod>2019-04-29T13:12:00Z</lastmod>
- </url>
- <url>
-  <loc>https://comafire.github.io/pages/model-svm-classification/</loc>
-  <lastmod>2019-04-29T13:12:00Z</lastmod>
- </url>
- <url>
-  <loc>https://comafire.github.io/pages/model-svm-regression/</loc>
-  <lastmod>2019-04-29T12:55:00Z</lastmod>
- </url>
- <url>
-  <loc>https://comafire.github.io/pages/notebooks-skp/</loc>
-  <lastmod>2019-04-20T15:52:00Z</lastmod>
- </url>
- <url>
-  <loc>https://comafire.github.io/pages/pandas-10mins/</loc>
-  <lastmod>2019-04-20T15:52:00Z</lastmod>
- </url>
- <url>
   <loc>https://comafire.github.io/pages/platform-amazon-web-service/</loc>
   <lastmod>2019-05-15T13:01:00Z</lastmod>
  </url>
@@ -284,14 +184,6 @@
  <url>
   <loc>https://comafire.github.io/pages/project-notebooks-skp/</loc>
   <lastmod>2019-05-15T13:01:00Z</lastmod>
- </url>
- <url>
-  <loc>https://comafire.github.io/pages/spark-dataframe-10mins/</loc>
-  <lastmod>2019-04-20T15:52:00Z</lastmod>
- </url>
- <url>
-  <loc>https://comafire.github.io/pages/st-kilda-pier/</loc>
-  <lastmod>2019-04-20T15:52:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/pages/statistics-normality-test/</loc>

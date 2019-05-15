@@ -1,5 +1,5 @@
 .. title: Data Technology Lab
-.. slug: old_index
+.. slug: index
 .. date: 2019-02-09 16:49:10 UTC+09:00
 .. tags:
 .. category:
@@ -8,8 +8,8 @@
 .. type: text
 
 **Data Technology: IT + Data Science**
- IT(Information Technology)를 통해서 수집/저장되는
- 수많은 데이터를 분석하여 데이터의 가치 및 혁신의 기회를 발견하는 과학적 방법론(Data Science)
+  IT(Information Technology)를 통해서 수집/저장되는
+  수많은 데이터를 분석하여 데이터의 가치 및 혁신의 기회를 발견하는 과학적 방법론(Data Science)
 
 데이터가 더욱 중요한 세상이 되면서, 데이터를 처음부터 끝까지 다루고 분석하는 능력은 점점 더 중요해지고,
 수많은 공여자들의 기여로 기술이 빠르게 발전함에 따라 한사람이 커버할 수 있는 DT의 영역 또한 점점 더 확장되어 가고 있습니다.

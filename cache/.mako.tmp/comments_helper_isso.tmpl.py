@@ -5,12 +5,12 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1557936834.4346602
+_modified_time = 1557937184.4254358
 _enable_loop = True
 _template_filename = '/usr/local/lib/python3.5/dist-packages/nikola/data/themes/base/templates/comments_helper_isso.tmpl'
 _template_uri = 'comments_helper_isso.tmpl'
 _source_encoding = 'utf-8'
-_exports = ['comment_link', 'comment_form', 'comment_link_script']
+_exports = ['comment_link_script', 'comment_form', 'comment_link']
 
 
 def render_body(context,**pageargs):
@@ -26,16 +26,22 @@ def render_body(context,**pageargs):
         context.caller_stack._pop_frame()
 
 
-def render_comment_link(context,link,identifier):
+def render_comment_link_script(context):
     __M_caller = context.caller_stack._push_frame()
     try:
         comment_system_id = context.get('comment_system_id', UNDEFINED)
+        pagekind = context.get('pagekind', UNDEFINED)
+        lang = context.get('lang', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\n')
-        if comment_system_id:
-            __M_writer('        <a href="')
-            __M_writer(str(link))
-            __M_writer('#isso-thread">Comments</a>\n')
+        if comment_system_id and 'index' in pagekind:
+            __M_writer('        <script src="')
+            __M_writer(str(comment_system_id))
+            __M_writer('js/count.min.js" data-isso="')
+            __M_writer(str(comment_system_id))
+            __M_writer('" data-isso-lang="')
+            __M_writer(str(lang))
+            __M_writer('"></script>\n')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -72,22 +78,16 @@ def render_comment_form(context,url,title,identifier):
         context.caller_stack._pop_frame()
 
 
-def render_comment_link_script(context):
+def render_comment_link(context,link,identifier):
     __M_caller = context.caller_stack._push_frame()
     try:
         comment_system_id = context.get('comment_system_id', UNDEFINED)
-        lang = context.get('lang', UNDEFINED)
-        pagekind = context.get('pagekind', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\n')
-        if comment_system_id and 'index' in pagekind:
-            __M_writer('        <script src="')
-            __M_writer(str(comment_system_id))
-            __M_writer('js/count.min.js" data-isso="')
-            __M_writer(str(comment_system_id))
-            __M_writer('" data-isso-lang="')
-            __M_writer(str(lang))
-            __M_writer('"></script>\n')
+        if comment_system_id:
+            __M_writer('        <a href="')
+            __M_writer(str(link))
+            __M_writer('#isso-thread">Comments</a>\n')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -95,6 +95,6 @@ def render_comment_link_script(context):
 
 """
 __M_BEGIN_METADATA
-{"line_map": {"64": 8, "65": 8, "66": 8, "67": 8, "68": 8, "69": 11, "75": 22, "16": 0, "82": 22, "83": 23, "84": 24, "21": 13, "22": 19, "23": 26, "88": 24, "89": 24, "90": 24, "86": 24, "29": 15, "96": 90, "34": 15, "35": 16, "36": 17, "37": 17, "38": 17, "44": 2, "85": 24, "87": 24, "51": 2, "52": 3, "53": 4, "54": 4, "55": 4, "56": 5, "57": 5, "58": 5, "59": 5, "60": 5, "61": 5, "62": 6, "63": 7}, "filename": "/usr/local/lib/python3.5/dist-packages/nikola/data/themes/base/templates/comments_helper_isso.tmpl", "uri": "comments_helper_isso.tmpl", "source_encoding": "utf-8"}
+{"filename": "/usr/local/lib/python3.5/dist-packages/nikola/data/themes/base/templates/comments_helper_isso.tmpl", "uri": "comments_helper_isso.tmpl", "line_map": {"64": 5, "65": 5, "66": 5, "67": 5, "68": 6, "69": 7, "70": 8, "71": 8, "72": 8, "73": 8, "74": 8, "75": 11, "16": 0, "81": 15, "21": 13, "22": 19, "23": 26, "88": 17, "89": 17, "90": 17, "86": 15, "29": 22, "96": 90, "87": 16, "36": 22, "37": 23, "38": 24, "39": 24, "40": 24, "41": 24, "42": 24, "43": 24, "44": 24, "50": 2, "57": 2, "58": 3, "59": 4, "60": 4, "61": 4, "62": 5, "63": 5}, "source_encoding": "utf-8"}
 __M_END_METADATA
 """

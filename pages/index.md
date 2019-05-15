@@ -1,7 +1,3 @@
-title: Data Technology Lab
-slug: index
-date: 2019-02-09 16:49:10 UTC+09:00
-
 **Data Technology: IT + Data Science**
 
   IT(Information Technology)를 통해서 수집/저장되는 수많은 데이터를 분석하여 데이터의 가치 및 혁신의 기회를 발견하는 과학적 방법론(Data Science)
@@ -12,8 +8,7 @@ date: 2019-02-09 16:49:10 UTC+09:00
 
 comafire's Lab 에서는 Data Technology에 대한 수많은 공여자들의 기여 기술들을 개인적으로 소개하고 공유합니다.
 
-Pages
-===================
+## Pages
 
 * [Data Technology Platform](/pages/data-technology-platform/)
   * Data Technology 를 위한 Cloud 및 On Premise 형태의 개발환경 및 Platform 기술들을 소개합니다.
@@ -27,20 +22,19 @@ Pages
   * Data Technology 프로젝트들을 소개합니다.
 
 
-Posts
-====================
-* `Posts </posts/>`_
- * 다양하고 잡다한 이야기들을 포스팅합니다.
-* `Archive </archive.html>`_
- * 년도별 포스팅 모음입니다.
-* `Tags </categories/>`_
- * 포스팅 Tag 모음입니다.
-* `RSS </rss.xml>`_
- * 포스팅 RSS feed 입니다.
+## Posts
+
+* [Posts](/posts/)
+  * 다양하고 잡다한 이야기들을 포스팅합니다.
+* [Archive](/archive.html)
+  * 년도별 포스팅 모음입니다.
+* [Tags](/categories/)
+  * 포스팅 Tag 모음입니다.
+* [RSS](/rss.xml)
+  * 포스팅 RSS feed 입니다.
 
 
-Github
-=====================
+## Github
 
-* `Github </https://github.com/comafire>`_
- * comafire's Lab 의 공개된 소스들을 살펴보실수 있습니다.
+* [Github](/https://github.com/comafire)
+  * comafire's Lab 의 공개된 소스들을 살펴보실수 있습니다.

@@ -1,5 +1,5 @@
 .. title: Data Technology Lab
-.. slug: index
+.. slug: old_index
 .. date: 2019-02-09 16:49:10 UTC+09:00
 .. tags:
 .. category:
@@ -21,31 +21,31 @@ Pages
 ===================
 
 * `Data Technology Platform </pages/data-technology-platform/>`_
- * Data Technology 를 위한 Cloud 및 On Premise 형태의 개발환경 및 Platform 기술들을 소개합니다.
+  * Data Technology 를 위한 Cloud 및 On Premise 형태의 개발환경 및 Platform 기술들을 소개합니다.
 * `Data Science - Data Engineering </pages/data-science-data-engineering/>`_
- * 데이터를 수집하고 전처리하는 기술들을 소개합니다.
+  * 데이터를 수집하고 전처리하는 기술들을 소개합니다.
 * `Data Science - Machine Learning </pages/data-science-machine-learning/>`_
- * 머신러닝 기법으로 데이터의 모델을 생성하는 기술들을 소개합니다.
+  * 머신러닝 기법으로 데이터의 모델을 생성하는 기술들을 소개합니다.
 * `Data Science - Statistics </pages/data-science-machine-learning/>`_
- * 통계적 기법으로 데이터를 분석하는 기술들을 소개합니다.
+  * 통계적 기법으로 데이터를 분석하는 기술들을 소개합니다.
 * `Data Technology Project </pages/data-science-project/>`_
- * Data Technology 프로젝트들을 소개합니다.
+  * Data Technology 프로젝트들을 소개합니다.
 
 
 Posts
 ====================
 * `Posts </posts/>`_
- * 다양하고 잡다한 이야기들을 포스팅합니다.
+  * 다양하고 잡다한 이야기들을 포스팅합니다.
 * `Archive </archive.html>`_
- * 년도별 포스팅 모음입니다.
+  * 년도별 포스팅 모음입니다.
 * `Tags </categories/>`_
- * 포스팅 Tag 모음입니다.
+  * 포스팅 Tag 모음입니다.
 * `RSS </rss.xml>`_
- * 포스팅 RSS feed 입니다.
+  * 포스팅 RSS feed 입니다.
 
 
 Github
 =====================
 
 * `Github </https://github.com/comafire>`_
- * comafire's Lab 의 공개된 소스들을 살펴보실수 있습니다.
+  * comafire's Lab 의 공개된 소스들을 살펴보실수 있습니다.

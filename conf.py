@@ -138,10 +138,11 @@ NAVIGATION_LINKS = {
     DEFAULT_LANG: (
         ('/index.html', 'Home'),
         ((
-            ('/pages/st-kilda-pier', 'St. Kilda Pier'),
-            ('/pages/notebooks-skp', 'Notebooks for St. Kilda Pier'),
-            ('/pages/data-science-cookbook', 'Data Science Cookbook'),
-            ('/pages/data-engineering-cookbook', 'Data Engineering Cookbook')
+            ('/pages/data-technology-platform', 'Data Technology Platform'),            
+            ('/pages/data-science-data-engineering', 'Data Science - Data Engineering'),            
+            ('/pages/data-science-machine-learning', 'Data Science - Machine Learning'),
+            ('/pages/data-science-statistics', 'Data Science - Statistics'),            
+            ('/pages/data-technology-project', 'Data Technology Project')                        
         ), 'Pages'),
         ((
             ('/posts', 'Posts'),

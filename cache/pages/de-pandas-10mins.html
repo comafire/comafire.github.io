@@ -1,0 +1,1632 @@
+
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Pandas">Pandas<a class="anchor-link" href="#Pandas">&#182;</a></h1><p>참조: <a href="https://pandas.pydata.org/pandas-docs/stable/getting_started/10min.html">https://pandas.pydata.org/pandas-docs/stable/getting_started/10min.html</a></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;pandas ver=</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">__version__</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;numpy ver=</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">__version__</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Series,-DataFrame">Series, DataFrame<a class="anchor-link" href="#Series,-DataFrame">&#182;</a></h1><ul>
+<li>Series: 1차원 데이터(리스트 형태)를 표현하는 구조</li>
+<li>DataFrame: 2차원 데이터(테이블 형태)를 표현하는 구조</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Series</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">8</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+
+<span class="c1"># DataFrame by Numpy Array</span>
+<span class="n">index</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="s1">&#39;20130101&#39;</span><span class="p">,</span> <span class="n">periods</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">index</span><span class="p">)</span>
+
+<span class="n">columns</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="s1">&#39;ABCD&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">columns</span><span class="p">)</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">index</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">columns</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+
+<span class="c1"># DataFrome by Dictonary</span>
+<span class="n">df2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+  <span class="s1">&#39;A&#39;</span><span class="p">:</span> <span class="mf">1.</span><span class="p">,</span>
+  <span class="s1">&#39;B&#39;</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s1">&#39;20130102&#39;</span><span class="p">),</span>
+  <span class="s1">&#39;C&#39;</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">)),</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;float32&#39;</span><span class="p">),</span>
+  <span class="s1">&#39;D&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">3</span><span class="p">]</span> <span class="o">*</span> <span class="mi">4</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;int32&#39;</span><span class="p">),</span>
+  <span class="s1">&#39;E&#39;</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">Categorical</span><span class="p">([</span><span class="s2">&quot;test&quot;</span><span class="p">,</span> <span class="s2">&quot;train&quot;</span><span class="p">,</span> <span class="s2">&quot;test&quot;</span><span class="p">,</span> <span class="s2">&quot;train&quot;</span><span class="p">]),</span>
+  <span class="s1">&#39;F&#39;</span><span class="p">:</span> <span class="s1">&#39;foo&#39;</span>
+<span class="p">})</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df2</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>0    1.0
+1    3.0
+2    5.0
+3    NaN
+4    6.0
+5    8.0
+dtype: float64
+DatetimeIndex([&#39;2013-01-01&#39;, &#39;2013-01-02&#39;, &#39;2013-01-03&#39;, &#39;2013-01-04&#39;,
+               &#39;2013-01-05&#39;, &#39;2013-01-06&#39;],
+              dtype=&#39;datetime64[ns]&#39;, freq=&#39;D&#39;)
+[&#39;A&#39;, &#39;B&#39;, &#39;C&#39;, &#39;D&#39;]
+[[-0.24875324 -0.74637377 -1.8905423  -2.83093815]
+ [-0.84161378  0.7467383  -1.42163788 -0.51535809]
+ [-0.56275031 -1.98035779 -0.78772683  2.37222896]
+ [-1.0211662  -0.91041359 -1.09541084  0.41318597]
+ [ 0.9608215   0.51908166 -1.70831879 -1.15418108]
+ [-0.42120775  0.29764625 -0.06090697 -0.27875479]]
+                   A         B         C         D
+2013-01-01 -0.248753 -0.746374 -1.890542 -2.830938
+2013-01-02 -0.841614  0.746738 -1.421638 -0.515358
+2013-01-03 -0.562750 -1.980358 -0.787727  2.372229
+2013-01-04 -1.021166 -0.910414 -1.095411  0.413186
+2013-01-05  0.960822  0.519082 -1.708319 -1.154181
+2013-01-06 -0.421208  0.297646 -0.060907 -0.278755
+     A          B    C  D      E    F
+0  1.0 2013-01-02  1.0  3   test  foo
+1  1.0 2013-01-02  1.0  3  train  foo
+2  1.0 2013-01-02  1.0  3   test  foo
+3  1.0 2013-01-02  1.0  3  train  foo
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="CSV-Read/Write">CSV Read/Write<a class="anchor-link" href="#CSV-Read/Write">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># CSV</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+  <span class="s1">&#39;A&#39;</span><span class="p">:</span> <span class="mf">1.</span><span class="p">,</span>
+  <span class="s1">&#39;B&#39;</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s1">&#39;20130102&#39;</span><span class="p">),</span>
+  <span class="s1">&#39;C&#39;</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">)),</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;float32&#39;</span><span class="p">),</span>
+  <span class="s1">&#39;D&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">3</span><span class="p">]</span> <span class="o">*</span> <span class="mi">4</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;int32&#39;</span><span class="p">),</span>
+  <span class="s1">&#39;E&#39;</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">Categorical</span><span class="p">([</span><span class="s2">&quot;test&quot;</span><span class="p">,</span> <span class="s2">&quot;train&quot;</span><span class="p">,</span> <span class="s2">&quot;test&quot;</span><span class="p">,</span> <span class="s2">&quot;train&quot;</span><span class="p">]),</span>
+  <span class="s1">&#39;F&#39;</span><span class="p">:</span> <span class="s1">&#39;foo&#39;</span>
+<span class="p">})</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="n">path_csv</span> <span class="o">=</span> <span class="s2">&quot;/tmp/foo.csv&quot;</span>
+<span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">path_csv</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">path_csv</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>     A          B    C  D      E    F
+0  1.0 2013-01-02  1.0  3   test  foo
+1  1.0 2013-01-02  1.0  3  train  foo
+2  1.0 2013-01-02  1.0  3   test  foo
+3  1.0 2013-01-02  1.0  3  train  foo
+     A           B    C  D      E    F
+0  1.0  2013-01-02  1.0  3   test  foo
+1  1.0  2013-01-02  1.0  3  train  foo
+2  1.0  2013-01-02  1.0  3   test  foo
+3  1.0  2013-01-02  1.0  3  train  foo
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="JSON-Read/Write">JSON Read/Write<a class="anchor-link" href="#JSON-Read/Write">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">]],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;row 1&#39;</span><span class="p">,</span> <span class="s1">&#39;row 2&#39;</span><span class="p">],</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;col 1&#39;</span><span class="p">,</span> <span class="s1">&#39;col 2&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+
+<span class="n">path_json</span> <span class="o">=</span> <span class="s2">&quot;/tmp/foo.json&quot;</span>
+<span class="c1"># &#39;{&quot;row 1&quot;:{&quot;col 1&quot;:&quot;a&quot;,&quot;col 2&quot;:&quot;b&quot;},&quot;row 2&quot;:{&quot;col 1&quot;:&quot;c&quot;,&quot;col 2&quot;:&quot;d&quot;}}&#39;</span>
+<span class="c1">#df.to_json(path_json, orient=&#39;index&#39;)</span>
+<span class="c1"># &#39;[{&quot;col 1&quot;:&quot;a&quot;,&quot;col 2&quot;:&quot;b&quot;},{&quot;col 1&quot;:&quot;c&quot;,&quot;col 2&quot;:&quot;d&quot;}]&#39;</span>
+<span class="n">df</span><span class="o">.</span><span class="n">to_json</span><span class="p">(</span><span class="n">path_json</span><span class="p">,</span> <span class="n">orient</span><span class="o">=</span><span class="s1">&#39;records&#39;</span><span class="p">)</span>
+
+<span class="c1">#df = pd.read_json(path_json, orient=&#39;index&#39;)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_json</span><span class="p">(</span><span class="n">path_json</span><span class="p">,</span> <span class="n">orient</span><span class="o">=</span><span class="s1">&#39;records&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>      col 1 col 2
+row 1     a     b
+row 2     c     d
+  col 1 col 2
+0     a     b
+1     c     d
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="DataFrame-&#51221;&#48372;&#48372;&#44592;">DataFrame &#51221;&#48372;&#48372;&#44592;<a class="anchor-link" href="#DataFrame-&#51221;&#48372;&#48372;&#44592;">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">index</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">columns</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+
+<span class="c1"># DataFrame 컬럼 정보</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df2</span><span class="o">.</span><span class="n">dtypes</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df2</span><span class="o">.</span><span class="n">info</span><span class="p">())</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>                   A         B         C         D
+2013-01-01 -0.248753 -0.746374 -1.890542 -2.830938
+2013-01-02 -0.841614  0.746738 -1.421638 -0.515358
+2013-01-03 -0.562750 -1.980358 -0.787727  2.372229
+2013-01-04 -1.021166 -0.910414 -1.095411  0.413186
+2013-01-05  0.960822  0.519082 -1.708319 -1.154181
+2013-01-06 -0.421208  0.297646 -0.060907 -0.278755
+A           float64
+B    datetime64[ns]
+C           float32
+D             int32
+E          category
+F            object
+dtype: object
+&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+Int64Index: 4 entries, 0 to 3
+Data columns (total 6 columns):
+A    4 non-null float64
+B    4 non-null datetime64[ns]
+C    4 non-null float32
+D    4 non-null int32
+E    4 non-null category
+F    4 non-null object
+dtypes: category(1), datetime64[ns](1), float32(1), float64(1), int32(1), object(1)
+memory usage: 260.0+ bytes
+None
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 데이터 살펴보기</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">tail</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
+
+<span class="c1"># DataFrame 요소 살펴보기</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">values</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>                   A         B         C         D
+2013-01-01 -0.248753 -0.746374 -1.890542 -2.830938
+2013-01-02 -0.841614  0.746738 -1.421638 -0.515358
+2013-01-03 -0.562750 -1.980358 -0.787727  2.372229
+2013-01-04 -1.021166 -0.910414 -1.095411  0.413186
+2013-01-05  0.960822  0.519082 -1.708319 -1.154181
+                   A         B         C         D
+2013-01-04 -1.021166 -0.910414 -1.095411  0.413186
+2013-01-05  0.960822  0.519082 -1.708319 -1.154181
+2013-01-06 -0.421208  0.297646 -0.060907 -0.278755
+DatetimeIndex([&#39;2013-01-01&#39;, &#39;2013-01-02&#39;, &#39;2013-01-03&#39;, &#39;2013-01-04&#39;,
+               &#39;2013-01-05&#39;, &#39;2013-01-06&#39;],
+              dtype=&#39;datetime64[ns]&#39;, freq=&#39;D&#39;)
+Index([&#39;A&#39;, &#39;B&#39;, &#39;C&#39;, &#39;D&#39;], dtype=&#39;object&#39;)
+[[-0.24875324 -0.74637377 -1.8905423  -2.83093815]
+ [-0.84161378  0.7467383  -1.42163788 -0.51535809]
+ [-0.56275031 -1.98035779 -0.78772683  2.37222896]
+ [-1.0211662  -0.91041359 -1.09541084  0.41318597]
+ [ 0.9608215   0.51908166 -1.70831879 -1.15418108]
+ [-0.42120775  0.29764625 -0.06090697 -0.27875479]]
+&lt;class &#39;numpy.ndarray&#39;&gt;
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="DataFrame-&#51312;&#51089;&#54616;&#44592;">DataFrame &#51312;&#51089;&#54616;&#44592;<a class="anchor-link" href="#DataFrame-&#51312;&#51089;&#54616;&#44592;">&#182;</a></h1><h2 id="Selection">Selection<a class="anchor-link" href="#Selection">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 행 슬라이싱</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">])</span>
+
+<span class="c1"># 열 선택</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+
+<span class="c1"># 열 다중선택</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">[[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>                   A         B         C         D
+2013-01-01 -0.248753 -0.746374 -1.890542 -2.830938
+2013-01-02 -0.841614  0.746738 -1.421638 -0.515358
+2013-01-01   -0.248753
+2013-01-02   -0.841614
+2013-01-03   -0.562750
+2013-01-04   -1.021166
+2013-01-05    0.960822
+Freq: D, Name: A, dtype: float64
+                   A         B
+2013-01-01 -0.248753 -0.746374
+2013-01-02 -0.841614  0.746738
+2013-01-03 -0.562750 -1.980358
+2013-01-04 -1.021166 -0.910414
+2013-01-05  0.960822  0.519082
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Label 을 이용한 선택 .loc()</span>
+
+<span class="c1"># 셀 선택</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;2013-01-01&#39;</span><span class="p">,</span> <span class="s1">&#39;A&#39;</span><span class="p">])</span>
+
+<span class="c1"># 행 선택</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;2013-01-01&#39;</span><span class="p">])</span>
+
+<span class="c1"># 행 슬라이싱</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;2013-01-01&#39;</span><span class="p">:</span><span class="s1">&#39;2013-01-03&#39;</span><span class="p">])</span>
+
+<span class="c1"># 열 선택</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s1">&#39;A&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+
+<span class="c1"># 열 다중 선택</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+
+<span class="c1"># 행, 열 다중 선택</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;2013-01-01&#39;</span><span class="p">:</span><span class="s1">&#39;2013-01-03&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">]])</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>-0.248753240478704
+A   -0.248753
+B   -0.746374
+C   -1.890542
+D   -2.830938
+Name: 2013-01-01 00:00:00, dtype: float64
+                   A         B         C         D
+2013-01-01 -0.248753 -0.746374 -1.890542 -2.830938
+2013-01-02 -0.841614  0.746738 -1.421638 -0.515358
+2013-01-03 -0.562750 -1.980358 -0.787727  2.372229
+2013-01-01   -0.248753
+2013-01-02   -0.841614
+2013-01-03   -0.562750
+2013-01-04   -1.021166
+2013-01-05    0.960822
+Freq: D, Name: A, dtype: float64
+                   A         B
+2013-01-01 -0.248753 -0.746374
+2013-01-02 -0.841614  0.746738
+2013-01-03 -0.562750 -1.980358
+2013-01-04 -1.021166 -0.910414
+2013-01-05  0.960822  0.519082
+                   A         B
+2013-01-01 -0.248753 -0.746374
+2013-01-02 -0.841614  0.746738
+2013-01-03 -0.562750 -1.980358
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Position을 이용한 선택 .iloc()</span>
+
+<span class="c1"># 셀 선택</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+
+<span class="c1"># 행 선택</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+<span class="c1"># 행 슬라이싱</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">])</span>
+
+<span class="c1"># 열 선택</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+
+<span class="c1"># 열 다중 선택</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+
+<span class="c1"># 행, 열 다중 선택</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]])</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>-0.248753240478704
+A   -0.248753
+B   -0.746374
+C   -1.890542
+D   -2.830938
+Name: 2013-01-01 00:00:00, dtype: float64
+                   A         B         C         D
+2013-01-01 -0.248753 -0.746374 -1.890542 -2.830938
+2013-01-02 -0.841614  0.746738 -1.421638 -0.515358
+2013-01-03 -0.562750 -1.980358 -0.787727  2.372229
+2013-01-01   -0.248753
+2013-01-02   -0.841614
+2013-01-03   -0.562750
+2013-01-04   -1.021166
+2013-01-05    0.960822
+Freq: D, Name: A, dtype: float64
+                   A         B
+2013-01-01 -0.248753 -0.746374
+2013-01-02 -0.841614  0.746738
+2013-01-03 -0.562750 -1.980358
+2013-01-04 -1.021166 -0.910414
+2013-01-05  0.960822  0.519082
+                   A         B
+2013-01-01 -0.248753 -0.746374
+2013-01-02 -0.841614  0.746738
+2013-01-03 -0.562750 -1.980358
+                   A         B
+2013-01-02 -0.841614  0.746738
+2013-01-04 -1.021166 -0.910414
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 조건을 이용한 선택</span>
+
+<span class="c1"># 열 단위</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">])</span>
+
+<span class="c1"># DataFrame 단위</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">df</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">])</span>
+
+<span class="c1"># Boolean 리스트를 이용</span>
+<span class="n">df2</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">df2</span><span class="p">[</span><span class="s1">&#39;E&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;one&#39;</span><span class="p">,</span> <span class="s1">&#39;one&#39;</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">,</span> <span class="s1">&#39;three&#39;</span><span class="p">,</span> <span class="s1">&#39;four&#39;</span><span class="p">,</span> <span class="s1">&#39;three&#39;</span><span class="p">]</span>
+<span class="n">index</span> <span class="o">=</span> <span class="n">df2</span><span class="p">[</span><span class="s1">&#39;E&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="s1">&#39;two&#39;</span><span class="p">,</span><span class="s1">&#39;four&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">index</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df2</span><span class="p">[</span><span class="n">df2</span><span class="p">[</span><span class="s1">&#39;E&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="s1">&#39;two&#39;</span><span class="p">,</span><span class="s1">&#39;four&#39;</span><span class="p">])])</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>                   A         B         C         D
+2013-01-05  0.960822  0.519082 -1.708319 -1.154181
+                   A         B   C         D
+2013-01-01       NaN       NaN NaN       NaN
+2013-01-02       NaN  0.746738 NaN       NaN
+2013-01-03       NaN       NaN NaN  2.372229
+2013-01-04       NaN       NaN NaN  0.413186
+2013-01-05  0.960822  0.519082 NaN       NaN
+2013-01-06       NaN  0.297646 NaN       NaN
+2013-01-01    False
+2013-01-02    False
+2013-01-03     True
+2013-01-04    False
+2013-01-05     True
+2013-01-06    False
+Freq: D, Name: E, dtype: bool
+                   A         B         C         D     E
+2013-01-03 -0.562750 -1.980358 -0.787727  2.372229   two
+2013-01-05  0.960822  0.519082 -1.708319 -1.154181  four
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Setting">Setting<a class="anchor-link" href="#Setting">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 값 설정</span>
+<span class="n">s1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="s1">&#39;20130102&#39;</span><span class="p">,</span> <span class="n">periods</span><span class="o">=</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;F&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">s1</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;G&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">s1</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+
+<span class="c1"># 컬럼 삭제 </span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;G&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+
+<span class="c1"># Label에 의한 값 설정</span>
+<span class="n">df</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="s1">&#39;2013-01-02&#39;</span><span class="p">,</span> <span class="s1">&#39;F&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+
+
+<span class="c1"># Position에 의한 값 설정</span>
+<span class="n">df</span><span class="o">.</span><span class="n">iat</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+
+<span class="c1"># 배열을 이용한 값 설정</span>
+<span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">1</span><span class="p">:,</span> <span class="s1">&#39;F&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">5</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+
+<span class="c1"># 조건을 통한 값 설정</span>
+<span class="n">df2</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">df2</span><span class="p">[</span><span class="n">df2</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="n">df2</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df2</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>                   A         B         C         D    F    G
+2013-01-01 -0.248753 -0.746374 -1.890542 -2.830938  NaN  NaN
+2013-01-02 -0.841614  0.746738 -1.421638 -0.515358  1.0  1.0
+2013-01-03 -0.562750 -1.980358 -0.787727  2.372229  2.0  2.0
+2013-01-04 -1.021166 -0.910414 -1.095411  0.413186  3.0  3.0
+2013-01-05  0.960822  0.519082 -1.708319 -1.154181  4.0  4.0
+2013-01-06 -0.421208  0.297646 -0.060907 -0.278755  5.0  5.0
+                   A         B         C         D    F
+2013-01-01 -0.248753 -0.746374 -1.890542 -2.830938  NaN
+2013-01-02 -0.841614  0.746738 -1.421638 -0.515358  1.0
+2013-01-03 -0.562750 -1.980358 -0.787727  2.372229  2.0
+2013-01-04 -1.021166 -0.910414 -1.095411  0.413186  3.0
+2013-01-05  0.960822  0.519082 -1.708319 -1.154181  4.0
+2013-01-06 -0.421208  0.297646 -0.060907 -0.278755  5.0
+                   A         B         C         D    F
+2013-01-01 -0.248753 -0.746374 -1.890542 -2.830938  NaN
+2013-01-02 -0.841614  0.746738 -1.421638 -0.515358  0.0
+2013-01-03 -0.562750 -1.980358 -0.787727  2.372229  1.0
+2013-01-04 -1.021166 -0.910414 -1.095411  0.413186  3.0
+2013-01-05  0.960822  0.519082 -1.708319 -1.154181  4.0
+2013-01-06 -0.421208  0.297646 -0.060907 -0.278755  5.0
+                   A         B         C         D    F
+2013-01-01 -0.248753 -0.746374 -1.890542 -2.830938  NaN
+2013-01-02 -0.841614  0.746738 -1.421638 -0.515358  5.0
+2013-01-03 -0.562750 -1.980358 -0.787727  2.372229  5.0
+2013-01-04 -1.021166 -0.910414 -1.095411  0.413186  5.0
+2013-01-05  0.960822  0.519082 -1.708319 -1.154181  5.0
+2013-01-06 -0.421208  0.297646 -0.060907 -0.278755  5.0
+                   A         B         C         D    F
+2013-01-01 -0.248753 -0.746374 -1.890542 -2.830938  NaN
+2013-01-02 -0.841614 -0.746738 -1.421638 -0.515358 -5.0
+2013-01-03 -0.562750 -1.980358 -0.787727 -2.372229 -5.0
+2013-01-04 -1.021166 -0.910414 -1.095411 -0.413186 -5.0
+2013-01-05 -0.960822 -0.519082 -1.708319 -1.154181 -5.0
+2013-01-06 -0.421208 -0.297646 -0.060907 -0.278755 -5.0
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Missing-Value">Missing Value<a class="anchor-link" href="#Missing-Value">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">index</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="s1">&#39;20130101&#39;</span><span class="p">,</span> <span class="n">periods</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+<span class="n">df1</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">reindex</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="n">index</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">4</span><span class="p">],</span> <span class="n">columns</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span> <span class="o">+</span> <span class="p">[</span><span class="s1">&#39;E&#39;</span><span class="p">])</span>
+<span class="n">df1</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">index</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span><span class="n">index</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="s1">&#39;E&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df1</span><span class="p">)</span>
+
+<span class="c1"># 결측치 제거하기</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df1</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">how</span><span class="o">=</span><span class="s1">&#39;any&#39;</span><span class="p">))</span>
+
+<span class="c1"># 결측치 채워넣기</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df1</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="mi">5</span><span class="p">))</span>
+
+<span class="c1"># 결측치 위치보기</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df1</span><span class="o">.</span><span class="n">isnull</span><span class="p">())</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>                   A         B         C         D    F    E
+2013-01-01 -0.248753 -0.746374 -1.890542 -2.830938  NaN  1.0
+2013-01-02 -0.841614  0.746738 -1.421638 -0.515358  5.0  1.0
+2013-01-03 -0.562750 -1.980358 -0.787727  2.372229  5.0  NaN
+2013-01-04 -1.021166 -0.910414 -1.095411  0.413186  5.0  NaN
+                   A         B         C         D    F    E
+2013-01-02 -0.841614  0.746738 -1.421638 -0.515358  5.0  1.0
+                   A         B         C         D    F    E
+2013-01-01 -0.248753 -0.746374 -1.890542 -2.830938  5.0  1.0
+2013-01-02 -0.841614  0.746738 -1.421638 -0.515358  5.0  1.0
+2013-01-03 -0.562750 -1.980358 -0.787727  2.372229  5.0  5.0
+2013-01-04 -1.021166 -0.910414 -1.095411  0.413186  5.0  5.0
+                A      B      C      D      F      E
+2013-01-01  False  False  False  False   True  False
+2013-01-02  False  False  False  False  False  False
+2013-01-03  False  False  False  False  False   True
+2013-01-04  False  False  False  False  False   True
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Operation">Operation<a class="anchor-link" href="#Operation">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># DataFrame 통계확인</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">describe</span><span class="p">())</span>
+
+<span class="c1"># 열 별 통계</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+
+<span class="c1"># 행 별 통계</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+
+<span class="c1"># DataFrame 연산</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">8</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="n">index</span><span class="p">)</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="s1">&#39;index&#39;</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>              A         B         C         D    F
+count  6.000000  6.000000  6.000000  6.000000  5.0
+mean  -0.355778 -0.345613 -1.160757 -0.332303  5.0
+std    0.702963  1.049448  0.671351  1.721934  0.0
+min   -1.021166 -1.980358 -1.890542 -2.830938  5.0
+25%   -0.771898 -0.869404 -1.636649 -0.994475  5.0
+50%   -0.491979 -0.224364 -1.258524 -0.397056  5.0
+75%   -0.291867  0.463723 -0.864648  0.240201  5.0
+max    0.960822  0.746738 -0.060907  2.372229  5.0
+A   -0.355778
+B   -0.345613
+C   -1.160757
+D   -0.332303
+F    5.000000
+dtype: float64
+2013-01-01   -1.429152
+2013-01-02    0.593626
+2013-01-03    0.808279
+2013-01-04    0.477239
+2013-01-05    0.723481
+2013-01-06    0.907355
+Freq: D, dtype: float64
+2013-01-01    NaN
+2013-01-02    NaN
+2013-01-03    1.0
+2013-01-04    3.0
+2013-01-05    5.0
+2013-01-06    NaN
+Freq: D, dtype: float64
+                   A         B         C         D    F
+2013-01-01       NaN       NaN       NaN       NaN  NaN
+2013-01-02       NaN       NaN       NaN       NaN  NaN
+2013-01-03 -1.562750 -2.980358 -1.787727  1.372229  4.0
+2013-01-04 -4.021166 -3.910414 -4.095411 -2.586814  2.0
+2013-01-05 -4.039178 -4.480918 -6.708319 -6.154181  0.0
+2013-01-06       NaN       NaN       NaN       NaN  NaN
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># DataFrame Transpose(전치, 열과행치환)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>   2013-01-01  2013-01-02  2013-01-03  2013-01-04  2013-01-05  2013-01-06
+A   -0.248753   -0.841614   -0.562750   -1.021166    0.960822   -0.421208
+B   -0.746374    0.746738   -1.980358   -0.910414    0.519082    0.297646
+C   -1.890542   -1.421638   -0.787727   -1.095411   -1.708319   -0.060907
+D   -2.830938   -0.515358    2.372229    0.413186   -1.154181   -0.278755
+F         NaN    5.000000    5.000000    5.000000    5.000000    5.000000
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 축별로 정렬</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">sort_index</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+
+<span class="c1"># 값별로 정렬</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;B&#39;</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>              F         D         C         B         A
+2013-01-01  NaN -2.830938 -1.890542 -0.746374 -0.248753
+2013-01-02  5.0 -0.515358 -1.421638  0.746738 -0.841614
+2013-01-03  5.0  2.372229 -0.787727 -1.980358 -0.562750
+2013-01-04  5.0  0.413186 -1.095411 -0.910414 -1.021166
+2013-01-05  5.0 -1.154181 -1.708319  0.519082  0.960822
+2013-01-06  5.0 -0.278755 -0.060907  0.297646 -0.421208
+                   A         B         C         D    F
+2013-01-03 -0.562750 -1.980358 -0.787727  2.372229  5.0
+2013-01-04 -1.021166 -0.910414 -1.095411  0.413186  5.0
+2013-01-01 -0.248753 -0.746374 -1.890542 -2.830938  NaN
+2013-01-06 -0.421208  0.297646 -0.060907 -0.278755  5.0
+2013-01-05  0.960822  0.519082 -1.708319 -1.154181  5.0
+2013-01-02 -0.841614  0.746738 -1.421638 -0.515358  5.0
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># apply: 데이터에 함수 적용</span>
+
+<span class="c1"># 열별 적용</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">-</span> <span class="n">x</span><span class="o">.</span><span class="n">min</span><span class="p">()))</span>
+
+<span class="c1"># 행별 적용</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">-</span> <span class="n">x</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>                   A         B         C         D     F
+2013-01-01 -0.248753 -0.746374 -1.890542 -2.830938   NaN
+2013-01-02 -1.090367  0.000365 -3.312180 -3.346296   5.0
+2013-01-03 -1.653117 -1.979993 -4.099907 -0.974067  10.0
+2013-01-04 -2.674284 -2.890407 -5.195318 -0.560881  15.0
+2013-01-05 -1.713462 -2.371325 -6.903637 -1.715062  20.0
+2013-01-06 -2.134670 -2.073679 -6.964544 -1.993817  25.0
+A    1.981988
+B    2.727096
+C    1.829635
+D    5.203167
+F    0.000000
+dtype: float64
+                   A         B         C         D         F
+2013-01-01 -0.248753 -0.995127 -2.885669 -5.716607       NaN
+2013-01-02 -0.841614 -0.094875 -1.516513 -2.031871  2.968129
+2013-01-03 -0.562750 -2.543108 -3.330835 -0.958606  4.041394
+2013-01-04 -1.021166 -1.931580 -3.026991 -2.613805  2.386195
+2013-01-05  0.960822  1.479903 -0.228416 -1.382597  3.617403
+2013-01-06 -0.421208 -0.123562 -0.184468 -0.463223  4.536777
+2013-01-01    2.582185
+2013-01-02    6.421638
+2013-01-03    6.980358
+2013-01-04    6.095411
+2013-01-05    6.708319
+2013-01-06    5.421208
+Freq: D, dtype: float64
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Histogramming: 데이터 값 세기</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">value_counts</span><span class="p">())</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>0    6
+1    6
+2    6
+3    1
+4    1
+5    6
+6    6
+7    4
+8    6
+9    4
+dtype: int64
+6    6
+4    2
+1    2
+dtype: int64
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 문자열 함수</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;Aaba&#39;</span><span class="p">,</span> <span class="s1">&#39;Baca&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="s1">&#39;CABA&#39;</span><span class="p">,</span> <span class="s1">&#39;dog&#39;</span><span class="p">,</span> <span class="s1">&#39;cat&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>0       a
+1       b
+2       c
+3    aaba
+4    baca
+5     NaN
+6    caba
+7     dog
+8     cat
+dtype: object
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Merge">Merge<a class="anchor-link" href="#Merge">&#182;</a></h2><p>상세 참조자료: <a href="https://pandas.pydata.org/pandas-docs/stable/user_guide/merging.html">https://pandas.pydata.org/pandas-docs/stable/user_guide/merging.html</a></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Concat: 단순히 두 DataFrame을 연결만 하기 때문에 의도한 결과와 같은지 확인이 필요합니다.</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">df</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+
+<span class="c1"># 행 기반 연결</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">],</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+
+<span class="c1"># 열 기반 연결</span>
+<span class="n">b</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="n">b</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>          0         1         2
+0 -0.825634 -1.295592 -2.054984
+1  0.798575 -1.324423 -0.050040
+          0         1         2
+3 -1.688734 -0.229391 -0.468013
+4 -1.310736  0.913415  1.382516
+          0         1         2
+0 -0.825634 -1.295592 -2.054984
+1  0.798575 -1.324423 -0.050040
+3 -1.688734 -0.229391 -0.468013
+4 -1.310736  0.913415  1.382516
+          0         1         2
+0 -0.825634 -1.295592 -2.054984
+1  0.798575 -1.324423 -0.050040
+2 -1.688734 -0.229391 -0.468013
+3 -1.310736  0.913415  1.382516
+          0         1         2         3         4         5
+0 -0.825634 -1.295592 -2.054984 -1.688734 -0.229391 -0.468013
+1  0.798575 -1.324423 -0.050040 -1.310736  0.913415  1.382516
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[20]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Append: 행 기반 concat 과 같습니다.</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+
+<span class="n">s</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>          A         B         C
+0  0.081917 -1.950212  2.411885
+1  0.105589  0.168567 -0.053157
+2 -0.784855 -0.088158  0.295081
+          A         B         C
+0  0.081917 -1.950212  2.411885
+1  0.105589  0.168567 -0.053157
+2 -0.784855 -0.088158  0.295081
+3  0.105589  0.168567 -0.053157
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[21]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Join: SQL 에서 지원하는 방식과 유사</span>
+<span class="n">left</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;key&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="s1">&#39;bar&#39;</span><span class="p">],</span> <span class="s1">&#39;lval&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]})</span>
+<span class="n">right</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;key&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="s1">&#39;bar&#39;</span><span class="p">],</span> <span class="s1">&#39;rval&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]})</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">left</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">right</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span> <span class="s1">&#39;key&#39;</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>   key  lval
+0  foo     1
+1  bar     2
+   key  rval
+0  foo     4
+1  bar     5
+   key  lval  rval
+0  foo     1     4
+1  bar     2     5
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[22]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># GroupBy: SQL 에서 지원되는 방식과 유사</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+  <span class="s1">&#39;A&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="s1">&#39;bar&#39;</span><span class="p">],</span>
+  <span class="s1">&#39;B&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="s1">&#39;one&#39;</span><span class="p">,</span> <span class="s1">&#39;one&#39;</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">,</span> <span class="s1">&#39;three&#39;</span><span class="p">],</span>
+  <span class="s1">&#39;C&#39;</span> <span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">4</span><span class="p">),</span>
+  <span class="s1">&#39;D&#39;</span> <span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="p">})</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;A&#39;</span><span class="p">,</span><span class="s1">&#39;B&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>     A      B         C         D
+0  foo    one -1.273316 -0.198317
+1  bar    one  2.053831  1.109291
+2  foo    two  0.480657 -0.367713
+3  bar  three -1.263757 -1.559587
+            C         D
+A                      
+bar  0.790074 -0.450296
+foo -0.792659 -0.566030
+                  C         D
+A   B                        
+bar one    2.053831  1.109291
+    three -1.263757 -1.559587
+foo one   -1.273316 -0.198317
+    two    0.480657 -0.367713
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Reshaping">Reshaping<a class="anchor-link" href="#Reshaping">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[23]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Stack</span>
+<span class="n">index</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">MultiIndex</span><span class="o">.</span><span class="n">from_tuples</span><span class="p">([(</span><span class="s1">&#39;one&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;one&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">),</span>
+                                   <span class="p">(</span><span class="s1">&#39;two&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;two&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">)])</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">),</span> <span class="n">index</span><span class="o">=</span><span class="n">index</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">unstack</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">stack</span><span class="p">())</span>
+
+<span class="c1"># Pivot</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;A&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="s1">&#39;one&#39;</span><span class="p">,</span> <span class="s1">&#39;one&#39;</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">,</span> <span class="s1">&#39;three&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">3</span><span class="p">,</span>
+                   <span class="s1">&#39;B&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">4</span><span class="p">,</span>
+                   <span class="s1">&#39;C&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="s1">&#39;bar&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">2</span><span class="p">,</span>
+                   <span class="s1">&#39;D&#39;</span> <span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">12</span><span class="p">),</span>
+                   <span class="s1">&#39;E&#39;</span> <span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">12</span><span class="p">)})</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="s1">&#39;D&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">],</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;C&#39;</span><span class="p">]))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>one  a    1.0
+     b    2.0
+two  a    3.0
+     b    4.0
+dtype: float64
+       a    b
+one  1.0  2.0
+two  3.0  4.0
+one  a    1.0
+     b    2.0
+two  a    3.0
+     b    4.0
+dtype: float64
+        A  B    C         D         E
+0     one  A  foo -0.675779 -0.063768
+1     one  B  foo -1.013232 -0.714525
+2     two  C  foo  0.375405 -1.900144
+3   three  A  bar -1.745550 -0.627609
+4     one  B  bar -0.782500 -1.501190
+5     one  C  bar -0.428608  0.362804
+6     two  A  foo -0.260621  0.178342
+7   three  B  foo -0.410908  0.884395
+8     one  C  foo -0.655849 -0.633740
+9     one  A  bar  1.275894 -1.099731
+10    two  B  bar -1.441008 -0.370465
+11  three  C  bar  0.028793 -0.169769
+C             bar       foo
+A     B                    
+one   A  1.275894 -0.675779
+      B -0.782500 -1.013232
+      C -0.428608 -0.655849
+three A -1.745550       NaN
+      B       NaN -0.410908
+      C  0.028793       NaN
+two   A       NaN -0.260621
+      B -1.441008       NaN
+      C       NaN  0.375405
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Time-Series">Time Series<a class="anchor-link" href="#Time-Series">&#182;</a></h2><p>Time Series 데이터를 다룰 때 필요한 편리한 기능을 제공합니다.</p>
+<p>상세참조자료: <a href="https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html">https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html</a></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[24]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">datetime</span>
+
+<span class="c1"># 다양한 방법으로 DatetimeIndex 생성</span>
+<span class="n">dti</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">([</span><span class="s1">&#39;1/1/2018&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">datetime64</span><span class="p">(</span><span class="s1">&#39;2018-01-01&#39;</span><span class="p">),</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2018</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">dti</span><span class="p">)</span>
+
+<span class="n">dti</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="s1">&#39;2018-01-01&#39;</span><span class="p">,</span> <span class="n">periods</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="s1">&#39;H&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">dti</span><span class="p">)</span>
+
+<span class="c1"># DateTimeIndex 로 변환</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="s1">&#39;Jul 31, 2009&#39;</span><span class="p">,</span> <span class="s1">&#39;2010-01-10&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">])))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">([</span><span class="s1">&#39;2005/11/23&#39;</span><span class="p">,</span> <span class="s1">&#39;2010.12.31&#39;</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">([</span><span class="mi">1349720105</span><span class="p">,</span> <span class="mi">1349806505</span><span class="p">],</span> <span class="n">unit</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">))</span> <span class="c1"># Epoch Timestamp Sec</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">([</span><span class="mi">1349720105100</span><span class="p">,</span> <span class="mi">1349720105200</span><span class="p">],</span> <span class="n">unit</span><span class="o">=</span><span class="s1">&#39;ms&#39;</span><span class="p">))</span> <span class="c1"># Epoch Timestamp Millisec</span>
+
+<span class="c1"># DateTimeIndex 로 변환시 에러 처리</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">([</span><span class="s1">&#39;2009/07/31&#39;</span><span class="p">,</span> <span class="s1">&#39;asd&#39;</span><span class="p">],</span> <span class="n">errors</span><span class="o">=</span><span class="s1">&#39;raise&#39;</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;ERROR: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">([</span><span class="s1">&#39;2009/07/31&#39;</span><span class="p">,</span> <span class="s1">&#39;asd&#39;</span><span class="p">],</span> <span class="n">errors</span><span class="o">=</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+  
+<span class="c1"># Timezone 설정</span>
+<span class="n">dti</span> <span class="o">=</span> <span class="n">dti</span><span class="o">.</span><span class="n">tz_localize</span><span class="p">(</span><span class="s1">&#39;UTC&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">dti</span><span class="p">)</span>
+
+<span class="c1"># Timezone 변경</span>
+<span class="n">dti</span> <span class="o">=</span> <span class="n">dti</span><span class="o">.</span><span class="n">tz_convert</span><span class="p">(</span><span class="s1">&#39;Asia/Seoul&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">dti</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>DatetimeIndex([&#39;2018-01-01&#39;, &#39;2018-01-01&#39;, &#39;2018-01-01&#39;], dtype=&#39;datetime64[ns]&#39;, freq=None)
+DatetimeIndex([&#39;2018-01-01 00:00:00&#39;, &#39;2018-01-01 01:00:00&#39;], dtype=&#39;datetime64[ns]&#39;, freq=&#39;H&#39;)
+0   2009-07-31
+1   2010-01-10
+2          NaT
+dtype: datetime64[ns]
+DatetimeIndex([&#39;2005-11-23&#39;, &#39;2010-12-31&#39;], dtype=&#39;datetime64[ns]&#39;, freq=None)
+DatetimeIndex([&#39;2012-10-08 18:15:05&#39;, &#39;2012-10-09 18:15:05&#39;], dtype=&#39;datetime64[ns]&#39;, freq=None)
+DatetimeIndex([&#39;2012-10-08 18:15:05.100000&#39;, &#39;2012-10-08 18:15:05.200000&#39;], dtype=&#39;datetime64[ns]&#39;, freq=None)
+ERROR: (&#39;Unknown string format:&#39;, &#39;asd&#39;)
+DatetimeIndex([&#39;2018-01-01 00:00:00+00:00&#39;, &#39;2018-01-01 01:00:00+00:00&#39;], dtype=&#39;datetime64[ns, UTC]&#39;, freq=&#39;H&#39;)
+DatetimeIndex([&#39;2018-01-01 09:00:00+09:00&#39;, &#39;2018-01-01 10:00:00+09:00&#39;], dtype=&#39;datetime64[ns, Asia/Seoul]&#39;, freq=&#39;H&#39;)
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[25]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 시간단위 샘플링</span>
+<span class="n">idx</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="s1">&#39;2018-01-01&#39;</span><span class="p">,</span> <span class="n">periods</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="s1">&#39;D&#39;</span><span class="p">)</span>
+<span class="n">ts</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">idx</span><span class="p">)),</span> <span class="n">index</span><span class="o">=</span><span class="n">idx</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ts</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ts</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">&#39;8H&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ts</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">&#39;2D&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>2018-01-01    0
+2018-01-02    1
+2018-01-03    2
+2018-01-04    3
+2018-01-05    4
+Freq: D, dtype: int64
+2018-01-01 00:00:00    0.0
+2018-01-01 08:00:00    NaN
+2018-01-01 16:00:00    NaN
+2018-01-02 00:00:00    1.0
+2018-01-02 08:00:00    NaN
+2018-01-02 16:00:00    NaN
+2018-01-03 00:00:00    2.0
+2018-01-03 08:00:00    NaN
+2018-01-03 16:00:00    NaN
+2018-01-04 00:00:00    3.0
+2018-01-04 08:00:00    NaN
+2018-01-04 16:00:00    NaN
+2018-01-05 00:00:00    4.0
+Freq: 8H, dtype: float64
+2018-01-01    0.5
+2018-01-03    2.5
+2018-01-05    4.0
+Freq: 2D, dtype: float64
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[26]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">## Version 0.24.1 이상</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">pd</span><span class="o">.</span><span class="n">__version__</span> <span class="o">&gt;=</span> <span class="s2">&quot;0.24.1&quot;</span><span class="p">:</span>
+    <span class="c1"># 시간 계산</span>
+    <span class="n">friday</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s1">&#39;2018-01-05&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">friday</span><span class="o">.</span><span class="n">day_name</span><span class="p">())</span>
+
+    <span class="c1"># Add 1 day</span>
+    <span class="n">saturday</span> <span class="o">=</span> <span class="n">friday</span> <span class="o">+</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timedelta</span><span class="p">(</span><span class="s1">&#39;1 day&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">saturday</span><span class="o">.</span><span class="n">day_name</span><span class="p">())</span>
+
+    <span class="c1"># Add 1 business day (Friday --&gt; Monday)</span>
+    <span class="n">monday</span> <span class="o">=</span> <span class="n">friday</span> <span class="o">+</span> <span class="n">pd</span><span class="o">.</span><span class="n">offsets</span><span class="o">.</span><span class="n">BDay</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">monday</span><span class="o">.</span><span class="n">day_name</span><span class="p">())</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>0.24.1
+Friday
+Saturday
+Monday
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[37]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+ 
+

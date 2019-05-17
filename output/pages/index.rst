@@ -22,7 +22,7 @@ Pages
 * `Data Technology Platform </pages/data-technology-platform/>`_: Data Technology 를 위한 Cloud 및 On Premise 형태의 개발환경 및 Platform 기술들을 소개합니다.
 * `Data Science - Data Engineering </pages/data-science-data-engineering/>`_: 데이터를 수집하고 전처리하는 기술들을 소개합니다.
 * `Data Science - Machine Learning </pages/data-science-machine-learning/>`_: 머신러닝 기법으로 데이터의 모델을 생성하는 기술들을 소개합니다.
-* `Data Science - Statistics </pages/data-science-statistics-learning/>`_: 통계적 기법으로 데이터를 분석하는 기술들을 소개합니다.
+* `Data Science - Statistics </pages/data-science-statistics/>`_: 통계적 기법으로 데이터를 분석하는 기술들을 소개합니다.
 * `Data Technology Project </pages/data-technology-project/>`_: Data Technology 프로젝트들을 소개합니다.
 
 

@@ -43,7 +43,7 @@
  </url>
  <url>
   <loc>https://comafire.github.io/pages/</loc>
-  <lastmod>2019-05-15T16:13:00Z</lastmod>
+  <lastmod>2019-05-17T19:13:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/pages/data-science-data-engineering/</loc>
@@ -142,6 +142,10 @@
   <lastmod>2019-05-15T13:01:00Z</lastmod>
  </url>
  <url>
+  <loc>https://comafire.github.io/pages/ml-model-persistence/</loc>
+  <lastmod>2019-05-17T19:13:00Z</lastmod>
+ </url>
+ <url>
   <loc>https://comafire.github.io/pages/ml-outlier/</loc>
   <lastmod>2019-05-15T13:01:00Z</lastmod>
  </url>
@@ -158,16 +162,16 @@
   <lastmod>2019-05-15T13:01:00Z</lastmod>
  </url>
  <url>
+  <loc>https://comafire.github.io/pages/ml-split-train-test/</loc>
+  <lastmod>2019-05-17T19:13:00Z</lastmod>
+ </url>
+ <url>
   <loc>https://comafire.github.io/pages/ml-svm-classification/</loc>
   <lastmod>2019-05-15T13:01:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/pages/ml-svm-regression/</loc>
   <lastmod>2019-05-15T13:01:00Z</lastmod>
- </url>
- <url>
-  <loc>https://comafire.github.io/pages/old_index/</loc>
-  <lastmod>2019-05-15T16:13:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/pages/platform-amazon-web-service/</loc>

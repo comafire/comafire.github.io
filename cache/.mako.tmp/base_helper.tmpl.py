@@ -5,12 +5,12 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1557937731.4496922
+_modified_time = 1558120424.5239525
 _enable_loop = True
 _template_filename = '/usr/local/lib/python3.5/dist-packages/nikola/data/themes/bootstrap4/templates/base_helper.tmpl'
 _template_uri = 'base_helper.tmpl'
 _source_encoding = 'utf-8'
-_exports = ['html_feedlinks', 'html_stylesheets', 'late_load_js', 'html_navigation_links', 'html_headstart', 'html_navigation_links_entries', 'html_translations']
+_exports = ['late_load_js', 'html_feedlinks', 'html_translations', 'html_stylesheets', 'html_headstart', 'html_navigation_links_entries', 'html_navigation_links']
 
 
 def render_body(context,**pageargs):
@@ -30,16 +30,49 @@ def render_body(context,**pageargs):
         context.caller_stack._pop_frame()
 
 
+def render_late_load_js(context):
+    __M_caller = context.caller_stack._push_frame()
+    try:
+        date_fanciness = context.get('date_fanciness', UNDEFINED)
+        use_bundles = context.get('use_bundles', UNDEFINED)
+        social_buttons_code = context.get('social_buttons_code', UNDEFINED)
+        use_cdn = context.get('use_cdn', UNDEFINED)
+        __M_writer = context.writer()
+        __M_writer('\n')
+        if use_cdn:
+            __M_writer('        <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>\n        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha256-ZvOgfh+ptkpoa2Y4HkRY28ir89u/+VRyDE7sB7hEEcI=" crossorigin="anonymous"></script>\n        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>\n        <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.0/baguetteBox.min.js" integrity="sha256-yQGjQhFs3LtyiN5hhr3k9s9TWZOh/RzCkD3gwwCKlkg=" crossorigin="anonymous"></script>\n')
+        if use_bundles and use_cdn:
+            __M_writer('        <script src="/assets/js/all.js"></script>\n')
+        elif use_bundles:
+            __M_writer('        <script src="/assets/js/all-nocdn.js"></script>\n')
+        else:
+            if not use_cdn:
+                __M_writer('            <script src="/assets/js/jquery.min.js"></script>\n            <script src="/assets/js/popper.min.js"></script>\n            <script src="/assets/js/bootstrap.min.js"></script>\n            <script src="/assets/js/baguetteBox.min.js"></script>\n')
+        if date_fanciness != 0:
+            if use_cdn:
+                __M_writer('            <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment-with-locales.min.js" integrity="sha256-AdQN98MVZs44Eq2yTwtoKufhnU+uZ7v2kXnD5vqzZVo=" crossorigin="anonymous"></script>\n')
+            else:
+                __M_writer('            <script src="/assets/js/moment-with-locales.min.js"></script>\n')
+            if not use_bundles:
+                __M_writer('            <script src="/assets/js/fancydates.min.js"></script>\n')
+        __M_writer('    ')
+        __M_writer(str(social_buttons_code))
+        __M_writer('\n')
+        return ''
+    finally:
+        context.caller_stack._pop_frame()
+
+
 def render_html_feedlinks(context):
     __M_caller = context.caller_stack._push_frame()
     try:
         sorted = context.get('sorted', UNDEFINED)
-        generate_rss = context.get('generate_rss', UNDEFINED)
-        translations = context.get('translations', UNDEFINED)
         rss_link = context.get('rss_link', UNDEFINED)
-        len = context.get('len', UNDEFINED)
-        _link = context.get('_link', UNDEFINED)
         generate_atom = context.get('generate_atom', UNDEFINED)
+        translations = context.get('translations', UNDEFINED)
+        generate_rss = context.get('generate_rss', UNDEFINED)
+        _link = context.get('_link', UNDEFINED)
+        len = context.get('len', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\n')
         if rss_link:
@@ -75,13 +108,38 @@ def render_html_feedlinks(context):
         context.caller_stack._pop_frame()
 
 
+def render_html_translations(context):
+    __M_caller = context.caller_stack._push_frame()
+    try:
+        sorted = context.get('sorted', UNDEFINED)
+        messages = context.get('messages', UNDEFINED)
+        translations = context.get('translations', UNDEFINED)
+        _link = context.get('_link', UNDEFINED)
+        lang = context.get('lang', UNDEFINED)
+        abs_link = context.get('abs_link', UNDEFINED)
+        __M_writer = context.writer()
+        __M_writer('\n')
+        for langname in sorted(translations):
+            if langname != lang:
+                __M_writer('            <li class="nav-item"><a href="')
+                __M_writer(str(abs_link(_link("root", None, langname))))
+                __M_writer('" rel="alternate" hreflang="')
+                __M_writer(str(langname))
+                __M_writer('" class="nav-link">')
+                __M_writer(str(messages("LANGUAGE", langname)))
+                __M_writer('</a></li>\n')
+        return ''
+    finally:
+        context.caller_stack._pop_frame()
+
+
 def render_html_stylesheets(context):
     __M_caller = context.caller_stack._push_frame()
     try:
-        needs_ipython_css = context.get('needs_ipython_css', UNDEFINED)
-        use_cdn = context.get('use_cdn', UNDEFINED)
-        use_bundles = context.get('use_bundles', UNDEFINED)
         has_custom_css = context.get('has_custom_css', UNDEFINED)
+        use_bundles = context.get('use_bundles', UNDEFINED)
+        use_cdn = context.get('use_cdn', UNDEFINED)
+        needs_ipython_css = context.get('needs_ipython_css', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\n')
         if use_cdn:
@@ -103,80 +161,32 @@ def render_html_stylesheets(context):
         context.caller_stack._pop_frame()
 
 
-def render_late_load_js(context):
-    __M_caller = context.caller_stack._push_frame()
-    try:
-        use_cdn = context.get('use_cdn', UNDEFINED)
-        social_buttons_code = context.get('social_buttons_code', UNDEFINED)
-        date_fanciness = context.get('date_fanciness', UNDEFINED)
-        use_bundles = context.get('use_bundles', UNDEFINED)
-        __M_writer = context.writer()
-        __M_writer('\n')
-        if use_cdn:
-            __M_writer('        <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>\n        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha256-ZvOgfh+ptkpoa2Y4HkRY28ir89u/+VRyDE7sB7hEEcI=" crossorigin="anonymous"></script>\n        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>\n        <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.0/baguetteBox.min.js" integrity="sha256-yQGjQhFs3LtyiN5hhr3k9s9TWZOh/RzCkD3gwwCKlkg=" crossorigin="anonymous"></script>\n')
-        if use_bundles and use_cdn:
-            __M_writer('        <script src="/assets/js/all.js"></script>\n')
-        elif use_bundles:
-            __M_writer('        <script src="/assets/js/all-nocdn.js"></script>\n')
-        else:
-            if not use_cdn:
-                __M_writer('            <script src="/assets/js/jquery.min.js"></script>\n            <script src="/assets/js/popper.min.js"></script>\n            <script src="/assets/js/bootstrap.min.js"></script>\n            <script src="/assets/js/baguetteBox.min.js"></script>\n')
-        if date_fanciness != 0:
-            if use_cdn:
-                __M_writer('            <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment-with-locales.min.js" integrity="sha256-AdQN98MVZs44Eq2yTwtoKufhnU+uZ7v2kXnD5vqzZVo=" crossorigin="anonymous"></script>\n')
-            else:
-                __M_writer('            <script src="/assets/js/moment-with-locales.min.js"></script>\n')
-            if not use_bundles:
-                __M_writer('            <script src="/assets/js/fancydates.min.js"></script>\n')
-        __M_writer('    ')
-        __M_writer(str(social_buttons_code))
-        __M_writer('\n')
-        return ''
-    finally:
-        context.caller_stack._pop_frame()
-
-
-def render_html_navigation_links(context):
-    __M_caller = context.caller_stack._push_frame()
-    try:
-        def html_navigation_links_entries(navigation_links_source):
-            return render_html_navigation_links_entries(context,navigation_links_source)
-        navigation_links = context.get('navigation_links', UNDEFINED)
-        __M_writer = context.writer()
-        __M_writer('\n    ')
-        __M_writer(str(html_navigation_links_entries(navigation_links)))
-        __M_writer('\n')
-        return ''
-    finally:
-        context.caller_stack._pop_frame()
-
-
 def render_html_headstart(context):
     __M_caller = context.caller_stack._push_frame()
     try:
-        abs_link = context.get('abs_link', UNDEFINED)
-        mathjax_config = context.get('mathjax_config', UNDEFINED)
-        extra_head_data = context.get('extra_head_data', UNDEFINED)
+        blog_title = context.get('blog_title', UNDEFINED)
         description = context.get('description', UNDEFINED)
-        nextlink = context.get('nextlink', UNDEFINED)
-        url_type = context.get('url_type', UNDEFINED)
-        def html_stylesheets():
-            return render_html_stylesheets(context)
-        use_cdn = context.get('use_cdn', UNDEFINED)
-        prevlink = context.get('prevlink', UNDEFINED)
-        meta_generator_tag = context.get('meta_generator_tag', UNDEFINED)
-        permalink = context.get('permalink', UNDEFINED)
+        comment_system = context.get('comment_system', UNDEFINED)
         def html_feedlinks():
             return render_html_feedlinks(context)
-        comment_system = context.get('comment_system', UNDEFINED)
-        blog_title = context.get('blog_title', UNDEFINED)
-        title = context.get('title', UNDEFINED)
-        url_replacer = context.get('url_replacer', UNDEFINED)
+        nextlink = context.get('nextlink', UNDEFINED)
+        mathjax_config = context.get('mathjax_config', UNDEFINED)
         favicons = context.get('favicons', UNDEFINED)
+        permalink = context.get('permalink', UNDEFINED)
+        use_cdn = context.get('use_cdn', UNDEFINED)
+        url_replacer = context.get('url_replacer', UNDEFINED)
+        title = context.get('title', UNDEFINED)
+        def html_stylesheets():
+            return render_html_stylesheets(context)
+        is_rtl = context.get('is_rtl', UNDEFINED)
         comment_system_id = context.get('comment_system_id', UNDEFINED)
+        meta_generator_tag = context.get('meta_generator_tag', UNDEFINED)
+        url_type = context.get('url_type', UNDEFINED)
+        extra_head_data = context.get('extra_head_data', UNDEFINED)
+        prevlink = context.get('prevlink', UNDEFINED)
         theme_color = context.get('theme_color', UNDEFINED)
         lang = context.get('lang', UNDEFINED)
-        is_rtl = context.get('is_rtl', UNDEFINED)
+        abs_link = context.get('abs_link', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\n<!DOCTYPE html>\n<html\n')
         __M_writer("prefix='")
@@ -259,12 +269,12 @@ def render_html_headstart(context):
 def render_html_navigation_links_entries(context,navigation_links_source):
     __M_caller = context.caller_stack._push_frame()
     try:
-        lang = context.get('lang', UNDEFINED)
+        isinstance = context.get('isinstance', UNDEFINED)
         rel_link = context.get('rel_link', UNDEFINED)
         tuple = context.get('tuple', UNDEFINED)
-        messages = context.get('messages', UNDEFINED)
-        isinstance = context.get('isinstance', UNDEFINED)
         permalink = context.get('permalink', UNDEFINED)
+        messages = context.get('messages', UNDEFINED)
+        lang = context.get('lang', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\n')
         for url, text in navigation_links_source[lang]:
@@ -308,26 +318,16 @@ def render_html_navigation_links_entries(context,navigation_links_source):
         context.caller_stack._pop_frame()
 
 
-def render_html_translations(context):
+def render_html_navigation_links(context):
     __M_caller = context.caller_stack._push_frame()
     try:
-        sorted = context.get('sorted', UNDEFINED)
-        abs_link = context.get('abs_link', UNDEFINED)
-        translations = context.get('translations', UNDEFINED)
-        _link = context.get('_link', UNDEFINED)
-        messages = context.get('messages', UNDEFINED)
-        lang = context.get('lang', UNDEFINED)
+        def html_navigation_links_entries(navigation_links_source):
+            return render_html_navigation_links_entries(context,navigation_links_source)
+        navigation_links = context.get('navigation_links', UNDEFINED)
         __M_writer = context.writer()
+        __M_writer('\n    ')
+        __M_writer(str(html_navigation_links_entries(navigation_links)))
         __M_writer('\n')
-        for langname in sorted(translations):
-            if langname != lang:
-                __M_writer('            <li class="nav-item"><a href="')
-                __M_writer(str(abs_link(_link("root", None, langname))))
-                __M_writer('" rel="alternate" hreflang="')
-                __M_writer(str(langname))
-                __M_writer('" class="nav-link">')
-                __M_writer(str(messages("LANGUAGE", langname)))
-                __M_writer('</a></li>\n')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -335,6 +335,6 @@ def render_html_translations(context):
 
 """
 __M_BEGIN_METADATA
-{"uri": "base_helper.tmpl", "line_map": {"16": 0, "21": 62, "22": 94, "23": 122, "24": 126, "25": 149, "26": 172, "27": 180, "33": 151, "44": 151, "45": 152, "46": 153, "47": 153, "48": 153, "49": 154, "50": 155, "51": 156, "52": 157, "53": 157, "54": 157, "55": 157, "56": 157, "57": 159, "58": 160, "59": 160, "60": 160, "61": 163, "62": 164, "63": 165, "64": 166, "65": 166, "66": 166, "67": 166, "68": 166, "69": 168, "70": 169, "71": 169, "72": 169, "78": 97, "86": 97, "87": 98, "88": 99, "89": 102, "90": 103, "91": 104, "92": 105, "93": 106, "94": 107, "95": 108, "96": 111, "97": 114, "98": 115, "99": 118, "100": 119, "106": 64, "114": 64, "115": 65, "116": 66, "117": 71, "118": 72, "119": 73, "120": 74, "121": 75, "122": 76, "123": 77, "124": 83, "125": 84, "126": 85, "127": 86, "128": 87, "129": 89, "130": 90, "131": 93, "132": 93, "133": 93, "139": 124, "146": 124, "147": 125, "148": 125, "154": 2, "181": 2, "182": 6, "183": 7, "184": 8, "185": 9, "186": 11, "187": 12, "188": 13, "189": 16, "190": 16, "191": 16, "192": 19, "193": 20, "194": 20, "195": 20, "196": 22, "197": 23, "198": 24, "199": 24, "200": 24, "201": 25, "202": 26, "203": 26, "204": 26, "205": 26, "206": 26, "207": 28, "208": 29, "209": 29, "210": 30, "211": 30, "212": 31, "213": 32, "214": 34, "215": 34, "216": 34, "217": 35, "218": 35, "219": 37, "220": 38, "221": 39, "222": 39, "223": 39, "224": 39, "225": 39, "226": 39, "227": 39, "228": 42, "229": 43, "230": 44, "231": 44, "232": 44, "233": 46, "234": 47, "235": 48, "236": 48, "237": 48, "238": 50, "239": 51, "240": 51, "241": 51, "242": 53, "243": 54, "244": 54, "245": 55, "246": 56, "247": 57, "248": 58, "249": 58, "250": 58, "251": 60, "252": 61, "253": 61, "259": 128, "269": 128, "270": 129, "271": 130, "272": 131, "273": 131, "274": 131, "275": 133, "276": 134, "277": 135, "278": 135, "279": 135, "280": 135, "281": 135, "282": 135, "283": 135, "284": 136, "285": 137, "286": 137, "287": 137, "288": 137, "289": 137, "290": 140, "291": 141, "292": 142, "293": 143, "294": 143, "295": 143, "296": 143, "297": 143, "298": 143, "299": 143, "300": 144, "301": 145, "302": 145, "303": 145, "304": 145, "305": 145, "311": 174, "321": 174, "322": 175, "323": 176, "324": 177, "325": 177, "326": 177, "327": 177, "328": 177, "329": 177, "330": 177, "336": 330}, "source_encoding": "utf-8", "filename": "/usr/local/lib/python3.5/dist-packages/nikola/data/themes/bootstrap4/templates/base_helper.tmpl"}
+{"source_encoding": "utf-8", "filename": "/usr/local/lib/python3.5/dist-packages/nikola/data/themes/bootstrap4/templates/base_helper.tmpl", "line_map": {"16": 0, "21": 62, "22": 94, "23": 122, "24": 126, "25": 149, "26": 172, "27": 180, "33": 64, "41": 64, "42": 65, "43": 66, "44": 71, "45": 72, "46": 73, "47": 74, "48": 75, "49": 76, "50": 77, "51": 83, "52": 84, "53": 85, "54": 86, "55": 87, "56": 89, "57": 90, "58": 93, "59": 93, "60": 93, "66": 151, "77": 151, "78": 152, "79": 153, "80": 153, "81": 153, "82": 154, "83": 155, "84": 156, "85": 157, "86": 157, "87": 157, "88": 157, "89": 157, "90": 159, "91": 160, "92": 160, "93": 160, "94": 163, "95": 164, "96": 165, "97": 166, "98": 166, "99": 166, "100": 166, "101": 166, "102": 168, "103": 169, "104": 169, "105": 169, "111": 174, "121": 174, "122": 175, "123": 176, "124": 177, "125": 177, "126": 177, "127": 177, "128": 177, "129": 177, "130": 177, "136": 97, "144": 97, "145": 98, "146": 99, "147": 102, "148": 103, "149": 104, "150": 105, "151": 106, "152": 107, "153": 108, "154": 111, "155": 114, "156": 115, "157": 118, "158": 119, "164": 2, "191": 2, "192": 6, "193": 7, "194": 8, "195": 9, "196": 11, "197": 12, "198": 13, "199": 16, "200": 16, "201": 16, "202": 19, "203": 20, "204": 20, "205": 20, "206": 22, "207": 23, "208": 24, "209": 24, "210": 24, "211": 25, "212": 26, "213": 26, "214": 26, "215": 26, "216": 26, "217": 28, "218": 29, "219": 29, "220": 30, "221": 30, "222": 31, "223": 32, "224": 34, "225": 34, "226": 34, "227": 35, "228": 35, "229": 37, "230": 38, "231": 39, "232": 39, "233": 39, "234": 39, "235": 39, "236": 39, "237": 39, "238": 42, "239": 43, "240": 44, "241": 44, "242": 44, "243": 46, "244": 47, "245": 48, "246": 48, "247": 48, "248": 50, "249": 51, "250": 51, "251": 51, "252": 53, "253": 54, "254": 54, "255": 55, "256": 56, "257": 57, "258": 58, "259": 58, "260": 58, "261": 60, "262": 61, "263": 61, "269": 128, "279": 128, "280": 129, "281": 130, "282": 131, "283": 131, "284": 131, "285": 133, "286": 134, "287": 135, "288": 135, "289": 135, "290": 135, "291": 135, "292": 135, "293": 135, "294": 136, "295": 137, "296": 137, "297": 137, "298": 137, "299": 137, "300": 140, "301": 141, "302": 142, "303": 143, "304": 143, "305": 143, "306": 143, "307": 143, "308": 143, "309": 143, "310": 144, "311": 145, "312": 145, "313": 145, "314": 145, "315": 145, "321": 124, "328": 124, "329": 125, "330": 125, "336": 330}, "uri": "base_helper.tmpl"}
 __M_END_METADATA
 """

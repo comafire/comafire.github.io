@@ -5,7 +5,7 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1558120659.090237
+_modified_time = 1558124455.803252
 _enable_loop = True
 _template_filename = '/usr/local/lib/python3.5/dist-packages/nikola/data/themes/base/templates/comments_helper_commento.tmpl'
 _template_uri = 'comments_helper_commento.tmpl'
@@ -61,6 +61,6 @@ def render_comment_link_script(context):
 
 """
 __M_BEGIN_METADATA
-{"uri": "comments_helper_commento.tmpl", "source_encoding": "utf-8", "filename": "/usr/local/lib/python3.5/dist-packages/nikola/data/themes/base/templates/comments_helper_commento.tmpl", "line_map": {"33": 8, "39": 2, "44": 2, "45": 5, "46": 5, "16": 0, "52": 11, "21": 6, "22": 9, "23": 12, "56": 11, "29": 8, "62": 56}}
+{"filename": "/usr/local/lib/python3.5/dist-packages/nikola/data/themes/base/templates/comments_helper_commento.tmpl", "uri": "comments_helper_commento.tmpl", "line_map": {"33": 8, "39": 2, "44": 2, "45": 5, "46": 5, "16": 0, "52": 11, "21": 6, "22": 9, "23": 12, "56": 11, "29": 8, "62": 56}, "source_encoding": "utf-8"}
 __M_END_METADATA
 """

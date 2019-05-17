@@ -5,7 +5,7 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1558120659.265692
+_modified_time = 1558124456.2339602
 _enable_loop = True
 _template_filename = '/usr/local/lib/python3.5/dist-packages/nikola/data/themes/bootstrap4/templates/ui_helper.tmpl'
 _template_uri = 'ui_helper.tmpl'
@@ -68,6 +68,6 @@ def render_show_sourcelink(context,sourcelink_href):
 
 """
 __M_BEGIN_METADATA
-{"uri": "ui_helper.tmpl", "source_encoding": "utf-8", "filename": "/usr/local/lib/python3.5/dist-packages/nikola/data/themes/bootstrap4/templates/ui_helper.tmpl", "line_map": {"69": 63, "16": 0, "21": 18, "22": 24, "28": 2, "33": 2, "34": 3, "35": 4, "36": 6, "37": 7, "38": 8, "39": 9, "40": 9, "41": 9, "42": 10, "43": 11, "44": 11, "45": 11, "46": 11, "47": 11, "48": 15, "54": 20, "59": 20, "60": 22, "61": 22, "62": 22, "63": 22}}
+{"filename": "/usr/local/lib/python3.5/dist-packages/nikola/data/themes/bootstrap4/templates/ui_helper.tmpl", "uri": "ui_helper.tmpl", "line_map": {"69": 63, "16": 0, "21": 18, "22": 24, "28": 2, "33": 2, "34": 3, "35": 4, "36": 6, "37": 7, "38": 8, "39": 9, "40": 9, "41": 9, "42": 10, "43": 11, "44": 11, "45": 11, "46": 11, "47": 11, "48": 15, "54": 20, "59": 20, "60": 22, "61": 22, "62": 22, "63": 22}, "source_encoding": "utf-8"}
 __M_END_METADATA
 """

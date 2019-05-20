@@ -43,7 +43,7 @@
  </url>
  <url>
   <loc>https://comafire.github.io/pages/</loc>
-  <lastmod>2019-05-17T19:13:00Z</lastmod>
+  <lastmod>2019-05-20T16:08:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/pages/data-science-data-engineering/</loc>
@@ -180,6 +180,10 @@
  <url>
   <loc>https://comafire.github.io/pages/platform-azure-cloud/</loc>
   <lastmod>2019-05-15T13:01:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://comafire.github.io/pages/platform-data-lake/</loc>
+  <lastmod>2019-05-20T16:08:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/pages/platform-google-cloud-platform/</loc>

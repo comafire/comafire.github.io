@@ -1,0 +1,1625 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article#
+" lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Data Engineering - Apache Spark Dataframe 복잡한 데이터 포맷 다루기 | Comafire's Lab</title>
+<link href="../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/ipython.min.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
+<meta name="theme-color" content="#5670d4">
+<meta name="generator" content="Nikola (getnikola.com)">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="../../rss.xml">
+<link rel="canonical" href="https://comafire.github.io/pages/de-spark-dataframe-complex-data-format/">
+<!--[if lt IE 9]><script src="../../assets/js/html5.js"></script><![endif]--><!-- Google Adsense --><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>
+     (adsbygoogle = window.adsbygoogle || []).push({
+          google_ad_client: "ca-pub-0670106451680512",
+          enable_page_level_ads: true
+     });
+</script><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-81648003-1"></script><script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-81648003-1');
+</script><meta name="author" content="comafire">
+<meta property="og:site_name" content="Comafire's Lab">
+<meta property="og:title" content="Data Engineering - Apache Spark Dataframe 복잡한 데이터 포맷 다루기">
+<meta property="og:url" content="https://comafire.github.io/pages/de-spark-dataframe-complex-data-format/">
+<meta property="og:description" content="Spark DataFrame 에서 복잡한 데이터 포맷 다루기¶참조
+
+Working with Complex Data Formats with Structured Streaming in Apache Spark 2.1
+
+
+
+
+
+
+
+In [1]:
+
+    
+import os
+from pyspark.sql import SparkSession
+
+# Python Vers">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2019-05-25T00:00:00+09:00">
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+<!-- Menubar -->
+
+<nav class="navbar navbar-expand-md static-top mb-4
+navbar-dark bg-dark
+"><div class="container">
+<!-- This keeps the margins nice -->
+        <a class="navbar-brand" href="https://comafire.github.io/">
+
+            <span id="blog-title">Comafire's Lab</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="bs-navbar">
+            <ul class="navbar-nav mr-auto">
+<li class="nav-item">
+<a href="../../index.html" class="nav-link">Home</a>
+            </li>
+<li class="nav-item dropdown">
+<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pages</a>
+            <div class="dropdown-menu">
+                    <a href="../data-technology-platform" class="dropdown-item">Data Technology Platform</a>
+                    <a href="../data-science-data-engineering" class="dropdown-item">Data Science - Data Engineering</a>
+                    <a href="../data-science-machine-learning" class="dropdown-item">Data Science - Machine Learning</a>
+                    <a href="../data-science-statistics" class="dropdown-item">Data Science - Statistics</a>
+                    <a href="../data-technology-project" class="dropdown-item">Data Technology Project</a>
+            </div>
+            </li>
+<li class="nav-item dropdown">
+<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Posts</a>
+            <div class="dropdown-menu">
+                    <a href="../../posts" class="dropdown-item">Posts</a>
+                    <a href="../../archive.html" class="dropdown-item">Archive</a>
+                    <a href="../../categories/" class="dropdown-item">Tag</a>
+                    <a href="../../rss.xml" class="dropdown-item">RSS</a>
+            </div>
+                </li>
+<li class="nav-item">
+<a href="https://github.com/comafire" class="nav-link">GitHub</a>
+
+                
+            </li>
+</ul>
+<!-- Google custom search --><form method="get" action="https://www.google.com/search" class="navbar-form navbar-right" role="search">
+<div class="input-group">
+  <input type="text" name="q" class="form-control" placeholder="Search"><input type="hidden" name="sitesearch" value="https://comafire.github.io/"><div class="input-group-append">
+    <button class="btn btn-primary" type="submit">Go</button>
+  </div>
+</div>
+
+</form>
+<!-- End of custom search -->
+
+
+            <ul class="navbar-nav navbar-right">
+<li class="nav-item">
+    <a href="index.ipynb" id="sourcelink" class="nav-link">Source</a>
+    </li>
+
+
+                
+            </ul>
+</div>
+<!-- /.navbar-collapse -->
+    </div>
+<!-- /.container -->
+</nav><!-- End of Menubar --><div class="container" id="content" role="main">
+    <div class="body-content">
+        <!--Body content-->
+        
+        
+<article class="post-text storypage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">Data Engineering - Apache Spark Dataframe 복잡한 데이터 포맷 다루기</a></h1>
+
+        
+
+    </header><div class="e-content entry-content" itemprop="articleBody text">
+    <div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Spark-DataFrame-에서-복잡한-데이터-포맷-다루기">Spark DataFrame 에서 복잡한 데이터 포맷 다루기<a class="anchor-link" href="#Spark-DataFrame-%EC%97%90%EC%84%9C-%EB%B3%B5%EC%9E%A1%ED%95%9C-%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%8F%AC%EB%A7%B7-%EB%8B%A4%EB%A3%A8%EA%B8%B0">¶</a>
+</h2>
+<p>참조</p>
+<ul>
+<li><a href="https://databricks.com/blog/2017/02/23/working-complex-data-formats-structured-streaming-apache-spark-2-1.html">Working with Complex Data Formats with Structured Streaming in Apache Spark 2.1</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [1]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">pyspark.sql</span> <span class="k">import</span> <span class="n">SparkSession</span>
+
+<span class="c1"># Python Version Mismatch Error 일 경우, os.environ 으로 직접 설정 후 실행</span>
+<span class="c1"># Exception: Python in worker has different version 2.7 than that in driver 3.5, </span>
+<span class="c1"># PySpark cannot run with different minor versions.Please check environment variables </span>
+<span class="c1"># PYSPARK_PYTHON and PYSPARK_DRIVER_PYTHON are correctly set.</span>
+
+<span class="c1"># os.environ["PYSPARK_PYTHON"] = "/usr/bin/python3"</span>
+<span class="c1"># os.environ["PYSPARK_DRIVER_PYTHON"] = "/usr/bin/python3"</span>
+
+<span class="n">spark_home</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'SPARK_HOME'</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">spark_home</span><span class="p">)</span>
+
+<span class="n">spark</span> <span class="o">=</span> <span class="n">SparkSession</span><span class="o">.</span><span class="n">builder</span><span class="o">.</span><span class="n">master</span><span class="p">(</span><span class="s2">"local[*]"</span><span class="p">)</span><span class="o">.</span><span class="n">appName</span><span class="p">(</span><span class="s2">"spark"</span><span class="p">)</span>
+<span class="n">spark</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">config</span><span class="p">(</span><span class="s2">"spark.driver.memory"</span><span class="p">,</span> <span class="s2">"4g"</span><span class="p">)</span>
+<span class="n">spark</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">config</span><span class="p">(</span><span class="s2">"spark.executor.memory"</span><span class="p">,</span> <span class="s2">"4g"</span><span class="p">)</span>
+<span class="n">spark</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">config</span><span class="p">(</span><span class="s2">"spark.python.worker.memory"</span><span class="p">,</span> <span class="s2">"4g"</span><span class="p">)</span>
+<span class="n">spark</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">getOrCreate</span><span class="p">()</span>
+
+<span class="n">sc</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">sparkContext</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>/usr/local/spark-2.4.1
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="DataFrame-Complex-Data-Type">DataFrame Complex Data Type<a class="anchor-link" href="#DataFrame-Complex-Data-Type">¶</a>
+</h3>
+<p>웹에서 시작된 JSON 포맷은 현재 인기있는 Raw Data Format 으로 자리잡았습니다. 따라서, Spark을 통해서 데이터 엔지니어링을 할때 많이 다루게 되는 포맷이 JSON 포맷입니다. 여기서는 JSON 에서 대표적으로 사용되는 Complex Data Format을 다루는 방법에 대해서 알아보겠습니다.</p>
+<p><img src="https://databricks.com/wp-content/uploads/2017/02/various-data-types.png" alt="complex data format"></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [2]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># import pyspark class</span>
+<span class="kn">from</span> <span class="nn">pyspark.sql</span> <span class="k">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">pyspark.sql</span> <span class="k">import</span> <span class="n">functions</span> <span class="k">as</span> <span class="n">f</span>
+<span class="kn">from</span> <span class="nn">pyspark.sql</span> <span class="k">import</span> <span class="n">types</span> <span class="k">as</span> <span class="n">t</span>
+
+<span class="n">json_str_struct</span> <span class="o">=</span> <span class="s2">"""</span>
+<span class="s2">{</span>
+<span class="s2">  "a_struct": {</span>
+<span class="s2">     "field_1": 1,</span>
+<span class="s2">     "field_2": "b",</span>
+<span class="s2">     "field_3": {</span>
+<span class="s2">         "key_1": 1,</span>
+<span class="s2">         "key_2": 2,</span>
+<span class="s2">         "key_3": 3</span>
+<span class="s2">     }</span>
+<span class="s2">  }</span>
+<span class="s2">}</span>
+<span class="s2">"""</span>
+
+<span class="n">rdd_struct</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">parallelize</span><span class="p">([</span><span class="n">json_str_struct</span><span class="p">])</span>
+<span class="n">df_struct</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">read</span><span class="o">.</span><span class="n">json</span><span class="p">(</span><span class="n">rdd_struct</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">df_struct</span><span class="o">.</span><span class="n">printSchema</span><span class="p">()))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>root
+ |-- a_struct: struct (nullable = true)
+ |    |-- field_1: long (nullable = true)
+ |    |-- field_2: string (nullable = true)
+ |    |-- field_3: struct (nullable = true)
+ |    |    |-- key_1: long (nullable = true)
+ |    |    |-- key_2: long (nullable = true)
+ |    |    |-- key_3: long (nullable = true)
+
+None
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [3]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># json string 은 기본적으로 struct type 으로 parsing 되기 때문에 map type 으로 받으려면 schema 를 지정해줘야 합니다.</span>
+<span class="n">schema_map</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">StructType</span><span class="p">([</span>
+    <span class="n">t</span><span class="o">.</span><span class="n">StructField</span><span class="p">(</span><span class="s2">"a_map"</span><span class="p">,</span> <span class="n">t</span><span class="o">.</span><span class="n">MapType</span><span class="p">(</span><span class="n">t</span><span class="o">.</span><span class="n">StringType</span><span class="p">(),</span> <span class="n">t</span><span class="o">.</span><span class="n">LongType</span><span class="p">()),</span> <span class="kc">False</span><span class="p">)</span>
+<span class="p">])</span>
+
+<span class="n">json_str_map</span> <span class="o">=</span> <span class="s2">"""</span>
+<span class="s2">{</span>
+<span class="s2">  "a_map": {</span>
+<span class="s2">     "key_1": 1,</span>
+<span class="s2">     "key_2": 2,</span>
+<span class="s2">     "key_3": 3</span>
+<span class="s2">  }</span>
+<span class="s2">}</span>
+<span class="s2">"""</span>
+
+<span class="n">rdd_map</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">parallelize</span><span class="p">([</span><span class="n">json_str_map</span><span class="p">])</span>
+<span class="n">df_map</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">read</span><span class="o">.</span><span class="n">json</span><span class="p">(</span><span class="n">rdd_map</span><span class="p">,</span> <span class="n">schema_map</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">df_map</span><span class="o">.</span><span class="n">printSchema</span><span class="p">()))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>root
+ |-- a_map: map (nullable = false)
+ |    |-- key: string
+ |    |-- value: long (valueContainsNull = true)
+
+None
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [4]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">json_str_array</span> <span class="o">=</span> <span class="s2">"""</span>
+<span class="s2">{</span>
+<span class="s2">  "an_array": [</span>
+<span class="s2">      "Allice", </span>
+<span class="s2">      "Bob", </span>
+<span class="s2">      "Chris"</span>
+<span class="s2">  ]</span>
+<span class="s2">}</span>
+<span class="s2">"""</span>
+
+<span class="n">rdd_array</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">parallelize</span><span class="p">([</span><span class="n">json_str_array</span><span class="p">])</span>
+<span class="n">df_array</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">read</span><span class="o">.</span><span class="n">json</span><span class="p">(</span><span class="n">rdd_array</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">df_array</span><span class="o">.</span><span class="n">printSchema</span><span class="p">()))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>root
+ |-- an_array: array (nullable = true)
+ |    |-- element: string (containsNull = true)
+
+None
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Seleting-from-nested-columns">Seleting from nested columns<a class="anchor-link" href="#Seleting-from-nested-columns">¶</a>
+</h3>
+<p>struct 와 map 의 nested column 접근시에는 '.' 문자를 사용합니다.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [5]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">json_str</span> <span class="o">=</span> <span class="s2">"""</span>
+<span class="s2">{</span>
+<span class="s2">  "a": {</span>
+<span class="s2">     "b": 1</span>
+<span class="s2">  }</span>
+<span class="s2">}</span>
+<span class="s2">"""</span>
+
+<span class="n">rdd</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">parallelize</span><span class="p">([</span><span class="n">json_str</span><span class="p">])</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">read</span><span class="o">.</span><span class="n">json</span><span class="p">(</span><span class="n">rdd</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">createOrReplaceTempView</span><span class="p">(</span><span class="s2">"view"</span><span class="p">)</span>
+
+<span class="n">df_res</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s2">"a.b"</span><span class="p">)</span>
+<span class="n">df_res</span><span class="o">.</span><span class="n">printSchema</span><span class="p">()</span>
+<span class="n">df_res</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="n">df_res</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="s2">"select a.b from view"</span><span class="p">)</span>
+<span class="n">df_res</span><span class="o">.</span><span class="n">printSchema</span><span class="p">()</span>
+<span class="n">df_res</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>root
+ |-- b: long (nullable = true)
+
++---+
+|  b|
++---+
+|  1|
++---+
+
+root
+ |-- b: long (nullable = true)
+
++---+
+|  b|
++---+
+|  1|
++---+
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Flattening-structs">Flattening structs<a class="anchor-link" href="#Flattening-structs">¶</a>
+</h3>
+<p>struct 에서 모든 서브 필드를 가져오고 싶으면 '*' 문자를 사용하면 됩니다.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [6]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">json_str</span> <span class="o">=</span> <span class="s2">"""</span>
+<span class="s2">{</span>
+<span class="s2">  "a": {</span>
+<span class="s2">     "b": 1,</span>
+<span class="s2">     "c": 2</span>
+<span class="s2">  }</span>
+<span class="s2">}</span>
+<span class="s2">"""</span>
+
+<span class="n">rdd</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">parallelize</span><span class="p">([</span><span class="n">json_str</span><span class="p">])</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">read</span><span class="o">.</span><span class="n">json</span><span class="p">(</span><span class="n">rdd</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">createOrReplaceTempView</span><span class="p">(</span><span class="s2">"view"</span><span class="p">)</span>
+
+<span class="n">df_res</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s2">"a.*"</span><span class="p">)</span>
+<span class="n">df_res</span><span class="o">.</span><span class="n">printSchema</span><span class="p">()</span>
+<span class="n">df_res</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="n">df_res</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="s2">"select a.* from view"</span><span class="p">)</span>
+<span class="n">df_res</span><span class="o">.</span><span class="n">printSchema</span><span class="p">()</span>
+<span class="n">df_res</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>root
+ |-- b: long (nullable = true)
+ |-- c: long (nullable = true)
+
++---+---+
+|  b|  c|
++---+---+
+|  1|  2|
++---+---+
+
+root
+ |-- b: long (nullable = true)
+ |-- c: long (nullable = true)
+
++---+---+
+|  b|  c|
++---+---+
+|  1|  2|
++---+---+
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Nesting-Columns">Nesting Columns<a class="anchor-link" href="#Nesting-Columns">¶</a>
+</h3>
+<p>struct 함수를 이용하면 새로운 struct 생성이 가능합니다.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [7]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">json_str</span> <span class="o">=</span> <span class="s2">"""</span>
+<span class="s2">{</span>
+<span class="s2">  "a": 1,</span>
+<span class="s2">  "b": 2,</span>
+<span class="s2">  "c": 3</span>
+<span class="s2">}</span>
+<span class="s2">"""</span>
+
+<span class="n">rdd</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">parallelize</span><span class="p">([</span><span class="n">json_str</span><span class="p">])</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">read</span><span class="o">.</span><span class="n">json</span><span class="p">(</span><span class="n">rdd</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">createOrReplaceTempView</span><span class="p">(</span><span class="s2">"view"</span><span class="p">)</span>
+
+<span class="n">df_res</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">struct</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"a"</span><span class="p">)</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s2">"y"</span><span class="p">))</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s2">"x"</span><span class="p">))</span>
+<span class="n">df_res</span><span class="o">.</span><span class="n">printSchema</span><span class="p">()</span>
+<span class="n">df_res</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="n">df_res</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="s1">'select named_struct("y", a) as x from view'</span><span class="p">)</span>
+<span class="n">df_res</span><span class="o">.</span><span class="n">printSchema</span><span class="p">()</span>
+<span class="n">df_res</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>root
+ |-- x: struct (nullable = false)
+ |    |-- y: long (nullable = true)
+
++---+
+|  x|
++---+
+|[1]|
++---+
+
+root
+ |-- x: struct (nullable = false)
+ |    |-- y: long (nullable = true)
+
++---+
+|  x|
++---+
+|[1]|
++---+
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Nesting-all-columns">Nesting all columns<a class="anchor-link" href="#Nesting-all-columns">¶</a>
+</h3>
+<p>모든 서브필드를 struct로 만들고 싶으면 '*' 문자를 사용하면 됩니다.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [8]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">json_str</span> <span class="o">=</span> <span class="s2">"""</span>
+<span class="s2">{</span>
+<span class="s2">  "a": 1,</span>
+<span class="s2">  "b": 2</span>
+<span class="s2">}</span>
+<span class="s2">"""</span>
+
+<span class="n">rdd</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">parallelize</span><span class="p">([</span><span class="n">json_str</span><span class="p">])</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">read</span><span class="o">.</span><span class="n">json</span><span class="p">(</span><span class="n">rdd</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">createOrReplaceTempView</span><span class="p">(</span><span class="s2">"view"</span><span class="p">)</span>
+
+<span class="n">df_res</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">struct</span><span class="p">(</span><span class="s2">"*"</span><span class="p">)</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s2">"x"</span><span class="p">))</span>
+<span class="n">df_res</span><span class="o">.</span><span class="n">printSchema</span><span class="p">()</span>
+<span class="n">df_res</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="n">df_res</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="s1">'select struct(*) as x from view'</span><span class="p">)</span>
+<span class="n">df_res</span><span class="o">.</span><span class="n">printSchema</span><span class="p">()</span>
+<span class="n">df_res</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>root
+ |-- x: struct (nullable = false)
+ |    |-- a: long (nullable = true)
+ |    |-- b: long (nullable = true)
+
++------+
+|     x|
++------+
+|[1, 2]|
++------+
+
+root
+ |-- x: struct (nullable = false)
+ |    |-- a: long (nullable = true)
+ |    |-- b: long (nullable = true)
+
++------+
+|     x|
++------+
+|[1, 2]|
++------+
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Selecting-a-single-array-or-map-element">Selecting a single array or map element<a class="anchor-link" href="#Selecting-a-single-array-or-map-element">¶</a>
+</h3>
+<p>getItem 함수를 이용하면 array, map 에서 element 를 가져올 수 있습니다.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [9]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">json_str</span> <span class="o">=</span> <span class="s2">"""</span>
+<span class="s2">{</span>
+<span class="s2">  "a": [1, 2]</span>
+<span class="s2">}</span>
+<span class="s2">"""</span>
+
+<span class="n">rdd</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">parallelize</span><span class="p">([</span><span class="n">json_str</span><span class="p">])</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">read</span><span class="o">.</span><span class="n">json</span><span class="p">(</span><span class="n">rdd</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">createOrReplaceTempView</span><span class="p">(</span><span class="s2">"view"</span><span class="p">)</span>
+
+<span class="n">df_res</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"a"</span><span class="p">)</span><span class="o">.</span><span class="n">getItem</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s2">"x"</span><span class="p">))</span>
+<span class="n">df_res</span><span class="o">.</span><span class="n">printSchema</span><span class="p">()</span>
+<span class="n">df_res</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="n">df_res</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="s1">'select a[0] as x from view'</span><span class="p">)</span>
+<span class="n">df_res</span><span class="o">.</span><span class="n">printSchema</span><span class="p">()</span>
+<span class="n">df_res</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>root
+ |-- x: long (nullable = true)
+
++---+
+|  x|
++---+
+|  1|
++---+
+
+root
+ |-- x: long (nullable = true)
+
++---+
+|  x|
++---+
+|  1|
++---+
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [10]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">json_str</span> <span class="o">=</span> <span class="s2">"""</span>
+<span class="s2">{</span>
+<span class="s2">  "a": {</span>
+<span class="s2">    "b": 1</span>
+<span class="s2">  }</span>
+<span class="s2">}</span>
+<span class="s2">"""</span>
+
+<span class="n">rdd</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">parallelize</span><span class="p">([</span><span class="n">json_str</span><span class="p">])</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">read</span><span class="o">.</span><span class="n">json</span><span class="p">(</span><span class="n">rdd</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">createOrReplaceTempView</span><span class="p">(</span><span class="s2">"view"</span><span class="p">)</span>
+
+<span class="n">df_res</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"a"</span><span class="p">)</span><span class="o">.</span><span class="n">getItem</span><span class="p">(</span><span class="s2">"b"</span><span class="p">)</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s2">"x"</span><span class="p">))</span>
+<span class="n">df_res</span><span class="o">.</span><span class="n">printSchema</span><span class="p">()</span>
+<span class="n">df_res</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="n">df_res</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="s2">"select a['b'] as x from view"</span><span class="p">)</span>
+<span class="n">df_res</span><span class="o">.</span><span class="n">printSchema</span><span class="p">()</span>
+<span class="n">df_res</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>root
+ |-- x: long (nullable = true)
+
++---+
+|  x|
++---+
+|  1|
++---+
+
+root
+ |-- x: long (nullable = true)
+
++---+
+|  x|
++---+
+|  1|
++---+
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Creating-a-row-for-each-array-or-map-element">Creating a row for each array or map element<a class="anchor-link" href="#Creating-a-row-for-each-array-or-map-element">¶</a>
+</h3>
+<p>explode함수를 이용하여 array 나 map 의 key-value 를 위한 새로운 row를 생성할 수 있습니다.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [11]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">json_str</span> <span class="o">=</span> <span class="s2">"""</span>
+<span class="s2">{</span>
+<span class="s2">  "a": [1, 2]</span>
+<span class="s2">}</span>
+<span class="s2">"""</span>
+
+<span class="n">rdd</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">parallelize</span><span class="p">([</span><span class="n">json_str</span><span class="p">])</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">read</span><span class="o">.</span><span class="n">json</span><span class="p">(</span><span class="n">rdd</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">createOrReplaceTempView</span><span class="p">(</span><span class="s2">"view"</span><span class="p">)</span>
+
+<span class="n">df_res</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">explode</span><span class="p">(</span><span class="s2">"a"</span><span class="p">)</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s2">"x"</span><span class="p">))</span>
+<span class="n">df_res</span><span class="o">.</span><span class="n">printSchema</span><span class="p">()</span>
+<span class="n">df_res</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="n">df_res</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="s2">"select explode(a) as x from view"</span><span class="p">)</span>
+<span class="n">df_res</span><span class="o">.</span><span class="n">printSchema</span><span class="p">()</span>
+<span class="n">df_res</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>root
+ |-- x: long (nullable = true)
+
++---+
+|  x|
++---+
+|  1|
+|  2|
++---+
+
+root
+ |-- x: long (nullable = true)
+
++---+
+|  x|
++---+
+|  1|
+|  2|
++---+
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [12]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">json_str</span> <span class="o">=</span> <span class="s2">"""</span>
+<span class="s2">{</span>
+<span class="s2">  "a": {</span>
+<span class="s2">    "b": 1,</span>
+<span class="s2">    "c": 2</span>
+<span class="s2">  }</span>
+<span class="s2">}</span>
+<span class="s2">"""</span>
+<span class="n">schema</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">StructType</span><span class="p">([</span>
+    <span class="n">t</span><span class="o">.</span><span class="n">StructField</span><span class="p">(</span><span class="s2">"a"</span><span class="p">,</span> <span class="n">t</span><span class="o">.</span><span class="n">MapType</span><span class="p">(</span><span class="n">t</span><span class="o">.</span><span class="n">StringType</span><span class="p">(),</span> <span class="n">t</span><span class="o">.</span><span class="n">LongType</span><span class="p">()),</span> <span class="kc">False</span><span class="p">)</span>
+<span class="p">])</span>
+
+<span class="n">rdd</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">parallelize</span><span class="p">([</span><span class="n">json_str</span><span class="p">])</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">read</span><span class="o">.</span><span class="n">json</span><span class="p">(</span><span class="n">rdd</span><span class="p">,</span> <span class="n">schema</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">createOrReplaceTempView</span><span class="p">(</span><span class="s2">"view"</span><span class="p">)</span>
+
+<span class="n">df_res</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">explode</span><span class="p">(</span><span class="s2">"a"</span><span class="p">)</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s2">"x"</span><span class="p">,</span> <span class="s2">"y"</span><span class="p">))</span>
+<span class="n">df_res</span><span class="o">.</span><span class="n">printSchema</span><span class="p">()</span>
+<span class="n">df_res</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="n">df_res</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="s2">"select explode(a) as (x, y) from view"</span><span class="p">)</span>
+<span class="n">df_res</span><span class="o">.</span><span class="n">printSchema</span><span class="p">()</span>
+<span class="n">df_res</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>root
+ |-- x: string (nullable = false)
+ |-- y: long (nullable = true)
+
++---+---+
+|  x|  y|
++---+---+
+|  b|  1|
+|  c|  2|
++---+---+
+
+root
+ |-- x: string (nullable = false)
+ |-- y: long (nullable = true)
+
++---+---+
+|  x|  y|
++---+---+
+|  b|  1|
+|  c|  2|
++---+---+
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Collecting-multiple-rows-into-an-array">Collecting multiple rows into an array<a class="anchor-link" href="#Collecting-multiple-rows-into-an-array">¶</a>
+</h3>
+<p>collect_list, collect_set 함수는 array 에 여러 row (또는 연산된 row)를 넣을 수 있습니다.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [13]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">json_str</span> <span class="o">=</span> <span class="s2">"""</span>
+<span class="s2">[{ "x": 1 }, { "x": 2 }]</span>
+<span class="s2">"""</span>
+
+<span class="n">rdd</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">parallelize</span><span class="p">([</span><span class="n">json_str</span><span class="p">])</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">read</span><span class="o">.</span><span class="n">json</span><span class="p">(</span><span class="n">rdd</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">createOrReplaceTempView</span><span class="p">(</span><span class="s2">"view"</span><span class="p">)</span>
+
+<span class="n">df_res</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">collect_list</span><span class="p">(</span><span class="s2">"x"</span><span class="p">)</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s2">"x"</span><span class="p">))</span>
+<span class="n">df_res</span><span class="o">.</span><span class="n">printSchema</span><span class="p">()</span>
+<span class="n">df_res</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="n">df_res</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="s2">"select collect_list(x) as x from view"</span><span class="p">)</span>
+<span class="n">df_res</span><span class="o">.</span><span class="n">printSchema</span><span class="p">()</span>
+<span class="n">df_res</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>root
+ |-- x: array (nullable = true)
+ |    |-- element: long (containsNull = true)
+
++------+
+|     x|
++------+
+|[1, 2]|
++------+
+
+root
+ |-- x: array (nullable = true)
+ |    |-- element: long (containsNull = true)
+
++------+
+|     x|
++------+
+|[1, 2]|
++------+
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [14]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">json_str</span> <span class="o">=</span> <span class="s2">"""</span>
+<span class="s2">[{ "x": 1, "y": "a" }, { "x": 2, "y": "b" }]</span>
+<span class="s2">"""</span>
+
+<span class="n">rdd</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">parallelize</span><span class="p">([</span><span class="n">json_str</span><span class="p">])</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">read</span><span class="o">.</span><span class="n">json</span><span class="p">(</span><span class="n">rdd</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">createOrReplaceTempView</span><span class="p">(</span><span class="s2">"view"</span><span class="p">)</span>
+
+<span class="n">df_res</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupBy</span><span class="p">(</span><span class="s2">"y"</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">collect_list</span><span class="p">(</span><span class="s2">"x"</span><span class="p">)</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s2">"x"</span><span class="p">))</span>
+<span class="n">df_res</span><span class="o">.</span><span class="n">printSchema</span><span class="p">()</span>
+<span class="n">df_res</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="n">df_res</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="s2">"select y, collect_list(x) as x from view group by y"</span><span class="p">)</span>
+<span class="n">df_res</span><span class="o">.</span><span class="n">printSchema</span><span class="p">()</span>
+<span class="n">df_res</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>root
+ |-- y: string (nullable = true)
+ |-- x: array (nullable = true)
+ |    |-- element: long (containsNull = true)
+
++---+---+
+|  y|  x|
++---+---+
+|  b|[2]|
+|  a|[1]|
++---+---+
+
+root
+ |-- y: string (nullable = true)
+ |-- x: array (nullable = true)
+ |    |-- element: long (containsNull = true)
+
++---+---+
+|  y|  x|
++---+---+
+|  b|[2]|
+|  a|[1]|
++---+---+
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Selecting-one-field-from-each-item-in-an-array">Selecting one field from each item in an array<a class="anchor-link" href="#Selecting-one-field-from-each-item-in-an-array">¶</a>
+</h3>
+<p>array 에서 '.' 문자를 사용하면 값을 array 형태로 돌려주게 됩니다.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [15]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">json_str</span> <span class="o">=</span> <span class="s2">"""</span>
+<span class="s2">{</span>
+<span class="s2">  "a": [</span>
+<span class="s2">    {"b": 1},</span>
+<span class="s2">    {"b": 2}</span>
+<span class="s2">  ]</span>
+<span class="s2">}</span>
+<span class="s2">"""</span>
+
+<span class="n">rdd</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">parallelize</span><span class="p">([</span><span class="n">json_str</span><span class="p">])</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">read</span><span class="o">.</span><span class="n">json</span><span class="p">(</span><span class="n">rdd</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">createOrReplaceTempView</span><span class="p">(</span><span class="s2">"view"</span><span class="p">)</span>
+
+<span class="n">df_res</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">col</span><span class="p">(</span><span class="s2">"a.b"</span><span class="p">))</span>
+<span class="n">df_res</span><span class="o">.</span><span class="n">printSchema</span><span class="p">()</span>
+<span class="n">df_res</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="n">df_res</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="s2">"select a.b from view"</span><span class="p">)</span>
+<span class="n">df_res</span><span class="o">.</span><span class="n">printSchema</span><span class="p">()</span>
+<span class="n">df_res</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>root
+ |-- b: array (nullable = true)
+ |    |-- element: long (containsNull = true)
+
++------+
+|     b|
++------+
+|[1, 2]|
++------+
+
+root
+ |-- b: array (nullable = true)
+ |    |-- element: long (containsNull = true)
+
++------+
+|     b|
++------+
+|[1, 2]|
++------+
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Power-of-to_json()-and-from_json()">Power of to_json() and from_json()<a class="anchor-link" href="#Power-of-to_json()-and-from_json()">¶</a>
+</h2>
+<p>DataFrame 내에 컬럼에 대해 to_json 및 from_json 함수로 JSON 포맷 데이터에 대해 encode/decode 를 편리하게 할 수 있습니다.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Encode-a-struct-as-json">Encode a struct as json<a class="anchor-link" href="#Encode-a-struct-as-json">¶</a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [16]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">json_str</span> <span class="o">=</span> <span class="s2">"""</span>
+<span class="s2">{</span>
+<span class="s2">  "a": {</span>
+<span class="s2">    "b": 1</span>
+<span class="s2">  }</span>
+<span class="s2">}</span>
+<span class="s2">"""</span>
+
+<span class="n">rdd</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">parallelize</span><span class="p">([</span><span class="n">json_str</span><span class="p">])</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">read</span><span class="o">.</span><span class="n">json</span><span class="p">(</span><span class="n">rdd</span><span class="p">)</span>
+
+<span class="c1"># encdoe json_str</span>
+<span class="n">df_res</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">to_json</span><span class="p">(</span><span class="s2">"a"</span><span class="p">)</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s2">"a"</span><span class="p">))</span>
+<span class="n">df_res</span><span class="o">.</span><span class="n">printSchema</span><span class="p">()</span>
+<span class="n">df_res</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>root
+ |-- a: string (nullable = true)
+
++-------+
+|      a|
++-------+
+|{"b":1}|
++-------+
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Decode-json-column-as-a-struct">Decode json column as a struct<a class="anchor-link" href="#Decode-json-column-as-a-struct">¶</a>
+</h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [17]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">json_str</span> <span class="o">=</span> <span class="s2">"""{</span><span class="se">\"</span><span class="s2">b</span><span class="se">\"</span><span class="s2">:1}"}"""</span>
+
+<span class="n">rdd</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">parallelize</span><span class="p">([</span><span class="n">json_str</span><span class="p">])</span>
+<span class="n">row_rdd</span> <span class="o">=</span> <span class="n">rdd</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">Row</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="n">schema</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">StructType</span><span class="p">()</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">"a"</span><span class="p">,</span> <span class="n">t</span><span class="o">.</span><span class="n">StringType</span><span class="p">())</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">createDataFrame</span><span class="p">(</span><span class="n">row_rdd</span><span class="p">,</span> <span class="n">schema</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="n">schema</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">StructType</span><span class="p">()</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">"b"</span><span class="p">,</span> <span class="n">t</span><span class="o">.</span><span class="n">IntegerType</span><span class="p">())</span>
+<span class="n">df_res</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">from_json</span><span class="p">(</span><span class="s2">"a"</span><span class="p">,</span> <span class="n">schema</span><span class="p">)</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s2">"c"</span><span class="p">))</span>
+<span class="n">df_res</span><span class="o">.</span><span class="n">printSchema</span><span class="p">()</span>
+<span class="n">df_res</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>+---------+
+|        a|
++---------+
+|{"b":1}"}|
++---------+
+
+root
+ |-- c: struct (nullable = true)
+ |    |-- b: integer (nullable = true)
+
++---+
+|  c|
++---+
+|[1]|
++---+
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [18]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">json_str</span> <span class="o">=</span> <span class="s2">"""{</span><span class="se">\"</span><span class="s2">b</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">x</span><span class="se">\"</span><span class="s2">:1,</span><span class="se">\"</span><span class="s2">y</span><span class="se">\"</span><span class="s2">:{</span><span class="se">\"</span><span class="s2">z</span><span class="se">\"</span><span class="s2">:2}}}"""</span>
+
+<span class="n">rdd</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">parallelize</span><span class="p">([</span><span class="n">json_str</span><span class="p">])</span>
+<span class="n">row_rdd</span> <span class="o">=</span> <span class="n">rdd</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">Row</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="n">schema</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">StructType</span><span class="p">()</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">"a"</span><span class="p">,</span> <span class="n">t</span><span class="o">.</span><span class="n">StringType</span><span class="p">())</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">createDataFrame</span><span class="p">(</span><span class="n">row_rdd</span><span class="p">,</span> <span class="n">schema</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+
+<span class="n">schema</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">StructType</span><span class="p">()</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">"b"</span><span class="p">,</span> <span class="n">t</span><span class="o">.</span><span class="n">StructType</span><span class="p">()</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">"x"</span><span class="p">,</span> <span class="n">t</span><span class="o">.</span><span class="n">IntegerType</span><span class="p">())</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">"y"</span><span class="p">,</span> <span class="n">t</span><span class="o">.</span><span class="n">StringType</span><span class="p">()))</span>
+<span class="n">df_res</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">from_json</span><span class="p">(</span><span class="s2">"a"</span><span class="p">,</span> <span class="n">schema</span><span class="p">)</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s2">"c"</span><span class="p">))</span>
+<span class="n">df_res</span><span class="o">.</span><span class="n">printSchema</span><span class="p">()</span>
+<span class="n">df_res</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>+-------------------------+
+|a                        |
++-------------------------+
+|{"b":{"x":1,"y":{"z":2}}}|
++-------------------------+
+
+root
+ |-- c: struct (nullable = true)
+ |    |-- b: struct (nullable = true)
+ |    |    |-- x: integer (nullable = true)
+ |    |    |-- y: string (nullable = true)
+
++--------------+
+|             c|
++--------------+
+|[[1, {"z":2}]]|
++--------------+
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Parse-a-set-of-fields-from-a-column-containing-JSON">Parse a set of fields from a column containing JSON<a class="anchor-link" href="#Parse-a-set-of-fields-from-a-column-containing-JSON">¶</a>
+</h3>
+<p>JSON Value 의 String 형태가 JSON 포맷이라면 json_tuple 함수를 통해 바로 파싱후 필드 값을 가져오는 것도 가능합니다.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [19]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">json_str</span> <span class="o">=</span> <span class="s2">"""{</span><span class="se">\"</span><span class="s2">b</span><span class="se">\"</span><span class="s2">:1}"""</span>
+
+<span class="n">rdd</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">parallelize</span><span class="p">([</span><span class="n">json_str</span><span class="p">])</span>
+<span class="n">row_rdd</span> <span class="o">=</span> <span class="n">rdd</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">Row</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="n">schema</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">StructType</span><span class="p">()</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">"a"</span><span class="p">,</span> <span class="n">t</span><span class="o">.</span><span class="n">StringType</span><span class="p">())</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">createDataFrame</span><span class="p">(</span><span class="n">row_rdd</span><span class="p">,</span> <span class="n">schema</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">createOrReplaceTempView</span><span class="p">(</span><span class="s2">"view"</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+
+<span class="n">df_res</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">json_tuple</span><span class="p">(</span><span class="s2">"a"</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">)</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s2">"c"</span><span class="p">))</span>
+<span class="n">df_res</span><span class="o">.</span><span class="n">printSchema</span><span class="p">()</span>
+<span class="n">df_res</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="n">df_res</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="s1">'select json_tuple(a, "b") as c from view'</span><span class="p">)</span>
+<span class="n">df_res</span><span class="o">.</span><span class="n">printSchema</span><span class="p">()</span>
+<span class="n">df_res</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>+-------+
+|a      |
++-------+
+|{"b":1}|
++-------+
+
+root
+ |-- c: string (nullable = true)
+
++---+
+|  c|
++---+
+|  1|
++---+
+
+root
+ |-- c: string (nullable = true)
+
++---+
+|  c|
++---+
+|  1|
++---+
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Parse-a-well-formed-string-column">Parse a well-formed string column<a class="anchor-link" href="#Parse-a-well-formed-string-column">¶</a>
+</h3>
+<p>JSON 의 String Type Value 에서 regrexp_extract 를 이용하여 원하는 문자를 추출할 수 있습니다.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [20]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">json_str</span> <span class="o">=</span> <span class="s2">"""</span>
+<span class="s2">[{ "a": "x: 1" }, { "a": "y: 2" }]</span>
+<span class="s2">"""</span>
+
+<span class="n">rdd</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">parallelize</span><span class="p">([</span><span class="n">json_str</span><span class="p">])</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">read</span><span class="o">.</span><span class="n">json</span><span class="p">(</span><span class="n">rdd</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">createOrReplaceTempView</span><span class="p">(</span><span class="s2">"view"</span><span class="p">)</span>
+
+<span class="n">df_res</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">regexp_extract</span><span class="p">(</span><span class="s2">"a"</span><span class="p">,</span> <span class="s2">"([a-z]):"</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">alias</span><span class="p">(</span><span class="s2">"c"</span><span class="p">))</span>
+<span class="n">df_res</span><span class="o">.</span><span class="n">printSchema</span><span class="p">()</span>
+<span class="n">df_res</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="n">df_res</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="s1">'select regexp_extract(a, "([a-z]):", 1) as c from view'</span><span class="p">)</span>
+<span class="n">df_res</span><span class="o">.</span><span class="n">printSchema</span><span class="p">()</span>
+<span class="n">df_res</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>root
+ |-- c: string (nullable = true)
+
++---+
+|  c|
++---+
+|  x|
+|  y|
++---+
+
+root
+ |-- c: string (nullable = true)
+
++---+
+|  c|
++---+
+|  x|
+|  y|
++---+
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [21]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">spark</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+    </div>
+        <section class="comments"><h2>Comments</h2>
+        
+        
+        <div id="disqus_thread"></div>
+        <script>
+        var disqus_shortname ="comafire",
+            disqus_url="https://comafire.github.io/pages/de-spark-dataframe-complex-data-format/",
+        disqus_title="Data Engineering - Apache Spark Dataframe \ubcf5\uc7a1\ud55c \ub370\uc774\ud130 \ud3ec\ub9f7 \ub2e4\ub8e8\uae30",
+        disqus_identifier="cache/pages/de-spark-dataframe-complex-data-format.html",
+        disqus_config = function () {
+            this.language = "en";
+        };
+        (function() {
+            var dsq = document.createElement('script'); dsq.async = true;
+            dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+    <a href="https://disqus.com" class="dsq-brlink" rel="nofollow">Comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+        </section><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha256-SDRP1VVYu+tgAGKhddBSl5+ezofHKZeI+OzxakbIe/Y=" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
+        MathJax.Hub.Config({tex2jax: {inlineMath: [['$latex ','$'], ['\\(','\\)']]}});
+        </script></article><!--End of body content--><footer id="footer">
+            Contents © 2019         <a href="mailto:comafire@gmail.com">comafire</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
+            
+        </footer>
+</div>
+</div>
+
+
+        <script src="../../assets/js/all-nocdn.js"></script><script>
+    baguetteBox.run('div#content', {
+        ignoreClass: 'islink',
+        captions: function(element) {
+            return element.getElementsByTagName('img')[0].alt;
+    }});
+    </script>
+</body>
+</html>

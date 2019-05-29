@@ -4,14 +4,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Data Science - Data Engineering | Comafire's Lab</title>
+<title>Machine Learning - Evaluation - Clustering | Comafire's Lab</title>
 <link href="../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
 <link href="../../assets/css/ipython.min.css" rel="stylesheet" type="text/css">
 <link href="../../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
 <meta name="theme-color" content="#5670d4">
 <meta name="generator" content="Nikola (getnikola.com)">
 <link rel="alternate" type="application/rss+xml" title="RSS" href="../../rss.xml">
-<link rel="canonical" href="https://comafire.github.io/pages/data-science-data-engineering/">
+<link rel="canonical" href="https://comafire.github.io/pages/ml-eval-clustering/">
 <!--[if lt IE 9]><script src="../../assets/js/html5.js"></script><![endif]--><!-- Google Adsense --><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>
      (adsbygoogle = window.adsbygoogle || []).push({
           google_ad_client: "ca-pub-0670106451680512",
@@ -25,31 +25,18 @@
   gtag('config', 'UA-81648003-1');
 </script><meta name="author" content="comafire">
 <meta property="og:site_name" content="Comafire's Lab">
-<meta property="og:title" content="Data Science - Data Engineering">
-<meta property="og:url" content="https://comafire.github.io/pages/data-science-data-engineering/">
-<meta property="og:description" content="Data Science - Data Engineering¶데이터 엔지니어링관련 주요 예제들을 공유하는 공간입니다.
-
-Data Ingestion
-Web Crawling
-
-
-
-
-Data Processing
-
-Data Pipeline
-
-
-
-주요 라이브러리
-Pandas
-Pandas 10분만에 흝어보기
-
-
-Apache Spark 
-Spark Dataframe 10분">
+<meta property="og:title" content="Machine Learning - Evaluation - Clustering">
+<meta property="og:url" content="https://comafire.github.io/pages/ml-eval-clustering/">
+<meta property="og:description" content="Evaluation¶Clustering¶
+Adjusted Rand index
+Mutual Information based scores
+Homogeneity, completeness and V-measure
+Fowlkes-Mallows scores
+Silhouette Coefficient
+Calinski-Harabasz Index
+Davies-Bouldin ">
 <meta property="og:type" content="article">
-<meta property="article:published_time" content="2019-03-01T00:00:00+09:00">
+<meta property="article:published_time" content="2019-05-25T00:00:00+09:00">
 </head>
 <body>
 <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
@@ -126,48 +113,46 @@ navbar-dark bg-dark
         <!--Body content-->
         
         
-<article class="post-text storypage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">Data Science - Data Engineering</a></h1>
+<article class="post-text storypage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">Machine Learning - Evaluation - Clustering</a></h1>
 
         
 
     </header><div class="e-content entry-content" itemprop="articleBody text">
-    <div class="cell border-box-sizing text_cell rendered">
+    <div>
+<div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Data-Science---Data-Engineering">Data Science - Data Engineering<a class="anchor-link" href="#Data-Science---Data-Engineering">¶</a>
+<h2 id="Evaluation">Evaluation<a class="anchor-link" href="#Evaluation">¶</a>
 </h2>
-<p>데이터 엔지니어링관련 주요 예제들을 공유하는 공간입니다.</p>
+<h3 id="Clustering">Clustering<a class="anchor-link" href="#Clustering">¶</a>
+</h3>
 <ul>
-<li>Data Ingestion<ul>
-<li>Web Crawling</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li>
-<p>Data Processing</p>
-</li>
-<li>
-<p>Data Pipeline</p>
-</li>
-</ul>
-<ul>
-<li>주요 라이브러리<ul>
-<li>Pandas<ul>
-<li><a href="https://comafire.github.io/pages/de-pandas-10mins">Pandas 10분만에 흝어보기</a></li>
-</ul>
-</li>
-<li>Apache Spark <ul>
-<li><a href="https://comafire.github.io/pages/de-spark-dataframe-10mins">Spark Dataframe 10분만에 흝어보기</a></li>
-<li><a href="https://comafire.github.io/pages/de-spark-dataframe-complex-data-format">Spark Dataframe 복잡한 데이터 포맷 다루기</a></li>
-</ul>
-</li>
-</ul>
-</li>
+<li>Adjusted Rand index</li>
+<li>Mutual Information based scores</li>
+<li>Homogeneity, completeness and V-measure</li>
+<li>Fowlkes-Mallows scores</li>
+<li>Silhouette Coefficient</li>
+<li>Calinski-Harabasz Index</li>
+<li>Davies-Bouldin Index</li>
+<li>Contingency Matrix</li>
 </ul>
 </div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
 </div>
 </div>
     </div>
@@ -177,9 +162,9 @@ navbar-dark bg-dark
         <div id="disqus_thread"></div>
         <script>
         var disqus_shortname ="comafire",
-            disqus_url="https://comafire.github.io/pages/data-science-data-engineering/",
-        disqus_title="Data Science - Data Engineering",
-        disqus_identifier="cache/pages/data-science-data-engineering.html",
+            disqus_url="https://comafire.github.io/pages/ml-eval-clustering/",
+        disqus_title="Machine Learning - Evaluation - Clustering",
+        disqus_identifier="cache/pages/ml-eval-clustering.html",
         disqus_config = function () {
             this.language = "en";
         };

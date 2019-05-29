@@ -43,7 +43,7 @@
  </url>
  <url>
   <loc>https://comafire.github.io/pages/</loc>
-  <lastmod>2019-05-20T16:08:00Z</lastmod>
+  <lastmod>2019-05-29T16:38:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/pages/data-science-data-engineering/</loc>
@@ -74,6 +74,14 @@
   <lastmod>2019-05-15T13:01:00Z</lastmod>
  </url>
  <url>
+  <loc>https://comafire.github.io/pages/de-spark-dataframe-complex-data-format/</loc>
+  <lastmod>2019-05-29T16:38:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://comafire.github.io/pages/ml-anomaly-detection/</loc>
+  <lastmod>2019-05-29T16:38:00Z</lastmod>
+ </url>
+ <url>
   <loc>https://comafire.github.io/pages/ml-collaborative-filtering/</loc>
   <lastmod>2019-05-15T13:01:00Z</lastmod>
  </url>
@@ -100,6 +108,18 @@
  <url>
   <loc>https://comafire.github.io/pages/ml-ensemble-regression/</loc>
   <lastmod>2019-05-15T13:01:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://comafire.github.io/pages/ml-eval-classification/</loc>
+  <lastmod>2019-05-29T16:38:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://comafire.github.io/pages/ml-eval-clustering/</loc>
+  <lastmod>2019-05-29T16:38:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://comafire.github.io/pages/ml-eval-regression/</loc>
+  <lastmod>2019-05-29T16:38:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/pages/ml-feature-extraction/</loc>

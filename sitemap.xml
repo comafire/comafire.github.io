@@ -43,7 +43,7 @@
  </url>
  <url>
   <loc>https://comafire.github.io/pages/</loc>
-  <lastmod>2019-05-29T16:38:00Z</lastmod>
+  <lastmod>2019-06-01T05:17:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/pages/data-science-data-engineering/</loc>
@@ -164,6 +164,14 @@
  <url>
   <loc>https://comafire.github.io/pages/ml-model-persistence/</loc>
   <lastmod>2019-05-17T19:13:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://comafire.github.io/pages/ml-nearest-neighbor-classification/</loc>
+  <lastmod>2019-06-01T05:17:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://comafire.github.io/pages/ml-nearest-neighbor-regression/</loc>
+  <lastmod>2019-06-01T05:17:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/pages/ml-outlier/</loc>

@@ -203,10 +203,10 @@ test shape: np_test_xs=(300, 1), np_test_ys=(300,)
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>
-model=BaggingRegressor(base_estimator=None, bootstrap=True,
-         bootstrap_features=False, max_features=1.0, max_samples=1.0,
-         n_estimators=10, n_jobs=None, oob_score=False, random_state=None,
-         verbose=0, warm_start=False)
+model=BaggingRegressor(base_estimator=None, bootstrap=True, bootstrap_features=False,
+                 max_features=1.0, max_samples=1.0, n_estimators=10,
+                 n_jobs=None, oob_score=False, random_state=None, verbose=0,
+                 warm_start=False)
 r_square=0.99760
 </pre>
 </div>
@@ -235,11 +235,12 @@ r_square=0.99760
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>
 model=RandomForestRegressor(bootstrap=True, criterion=&#39;mse&#39;, max_depth=None,
-           max_features=&#39;auto&#39;, max_leaf_nodes=None,
-           min_impurity_decrease=0.0, min_impurity_split=None,
-           min_samples_leaf=1, min_samples_split=2,
-           min_weight_fraction_leaf=0.0, n_estimators=&#39;warn&#39;, n_jobs=None,
-           oob_score=False, random_state=None, verbose=0, warm_start=False)
+                      max_features=&#39;auto&#39;, max_leaf_nodes=None,
+                      min_impurity_decrease=0.0, min_impurity_split=None,
+                      min_samples_leaf=1, min_samples_split=2,
+                      min_weight_fraction_leaf=0.0, n_estimators=&#39;warn&#39;,
+                      n_jobs=None, oob_score=False, random_state=None,
+                      verbose=0, warm_start=False)
 r_square=0.99722
 </pre>
 </div>
@@ -268,7 +269,7 @@ r_square=0.99722
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>
 model=AdaBoostRegressor(base_estimator=None, learning_rate=1.0, loss=&#39;linear&#39;,
-         n_estimators=50, random_state=None)
+                  n_estimators=50, random_state=None)
 r_square=0.97410
 </pre>
 </div>
@@ -297,13 +298,14 @@ r_square=0.97410
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>
 model=GradientBoostingRegressor(alpha=0.9, criterion=&#39;friedman_mse&#39;, init=None,
-             learning_rate=0.1, loss=&#39;ls&#39;, max_depth=3, max_features=None,
-             max_leaf_nodes=None, min_impurity_decrease=0.0,
-             min_impurity_split=None, min_samples_leaf=1,
-             min_samples_split=2, min_weight_fraction_leaf=0.0,
-             n_estimators=100, n_iter_no_change=None, presort=&#39;auto&#39;,
-             random_state=None, subsample=1.0, tol=0.0001,
-             validation_fraction=0.1, verbose=0, warm_start=False)
+                          learning_rate=0.1, loss=&#39;ls&#39;, max_depth=3,
+                          max_features=None, max_leaf_nodes=None,
+                          min_impurity_decrease=0.0, min_impurity_split=None,
+                          min_samples_leaf=1, min_samples_split=2,
+                          min_weight_fraction_leaf=0.0, n_estimators=100,
+                          n_iter_no_change=None, presort=&#39;auto&#39;,
+                          random_state=None, subsample=1.0, tol=0.0001,
+                          validation_fraction=0.1, verbose=0, warm_start=False)
 r_square=0.99818
 </pre>
 </div>
@@ -332,12 +334,12 @@ r_square=0.99818
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>
 model=XGBRegressor(base_score=0.5, booster=&#39;gbtree&#39;, colsample_bylevel=1,
-       colsample_bytree=1, gamma=0, importance_type=&#39;gain&#39;,
-       learning_rate=0.1, max_delta_step=0, max_depth=3,
-       min_child_weight=1, missing=None, n_estimators=100, n_jobs=1,
-       nthread=None, objective=&#39;reg:linear&#39;, random_state=0, reg_alpha=0,
-       reg_lambda=1, scale_pos_weight=1, seed=None, silent=True,
-       subsample=1)
+             colsample_bytree=1, gamma=0, importance_type=&#39;gain&#39;,
+             learning_rate=0.1, max_delta_step=0, max_depth=3,
+             min_child_weight=1, missing=None, n_estimators=100, n_jobs=1,
+             nthread=None, objective=&#39;reg:linear&#39;, random_state=0, reg_alpha=0,
+             reg_lambda=1, scale_pos_weight=1, seed=None, silent=True,
+             subsample=1)
 r_square=0.99797
 </pre>
 </div>

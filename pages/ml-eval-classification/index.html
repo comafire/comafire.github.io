@@ -365,7 +365,7 @@ Normalized confusion matrix
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [10]:</div>
+<div class="prompt input_prompt">In [3]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="k">import</span> <span class="n">balanced_accuracy_score</span><span class="p">,</span> <span class="n">classification_report</span>
@@ -417,15 +417,169 @@ weighted avg       0.67      0.67      0.67         6
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Classification-report">Classification report<a class="anchor-link" href="#Classification-report">¶</a>
+</h4>
+<p>Classification Report 에서는 Classification의 주요 성능 지표에 대한 결과를 테이블 형태로 출력해줍니다.</p>
+
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
+<div class="prompt input_prompt">In [4]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="k">import</span> <span class="n">classification_report</span>
+
+<span class="n">y_true</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+<span class="n">target_names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'class 0'</span><span class="p">,</span> <span class="s1">'class 1'</span><span class="p">,</span> <span class="s1">'class 2'</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">target_names</span><span class="o">=</span><span class="n">target_names</span><span class="p">))</span>
 </pre></div>
 
     </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>              precision    recall  f1-score   support
+
+     class 0       0.67      1.00      0.80         2
+     class 1       0.00      0.00      0.00         1
+     class 2       1.00      0.50      0.67         2
+
+    accuracy                           0.60         5
+   macro avg       0.56      0.50      0.49         5
+weighted avg       0.67      0.60      0.59         5
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h5 id="Precision,-recall-and-F-measures">Precision, recall and F-measures<a class="anchor-link" href="#Precision,-recall-and-F-measures">¶</a>
+</h5>
+<p>Binary Classification 에서 Precision, Recall, F-Measure 를 계산하기 위해 tp, fp, fn, tn 을 정의합니다.</p>
+<table>
+<thead><tr>
+<th style="text-align:center">Predicted/Actual</th>
+<th style="text-align:center">Actual Positive</th>
+<th style="text-align:center">Actual Negative</th>
+</tr></thead>
+<tbody>
+<tr>
+<td style="text-align:center">Predicted Positive</td>
+<td style="text-align:center">tp (true positive)</td>
+<td style="text-align:center">fp (false positive)</td>
+</tr>
+<tr>
+<td style="text-align:center">Predicted Negative</td>
+<td style="text-align:center">fn (false negative)</td>
+<td style="text-align:center">tn (true negative)</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>tp (true positive): Positive로 예측한 것이 True인 경우 (실제도 Positive 인 경우)</li>
+<li>tn (true negative): Negative로 예측한 것이 True인 경우 (실제도 Negative 인 경우)</li>
+<li>fp (false positive): Positive로 예측한 것이 False인 경우 (실제는 Negative 인 경우) </li>
+<li>fn (false negative): Negative로 예측한 것이 False인 경우 (실제는 Positive 인 경우)</li>
+</ul>
+<p>Multi-Class Classification 에서는 One vs the Rest 방식으로 각 Class 의 지표를 계산합니다.</p>
+<h6 id="Precision">Precision<a class="anchor-link" href="#Precision">¶</a>
+</h6>
+<p>Positive로 예측한 것중에 실제 Positive 인 경우의 비율입니다.</p>
+$$
+\text{precision} = \frac{tp}{tp + fp}
+$$<h6 id="Recall">Recall<a class="anchor-link" href="#Recall">¶</a>
+</h6>
+<p>실제 Positive 인 경우 중 Positive 로 예측한 것이 True 인 경우의 비율입니다.</p>
+$$
+\text{recall} = \frac{tp}{tp + fn}
+$$<h6 id="F-measures">F-measures<a class="anchor-link" href="#F-measures">¶</a>
+</h6>
+<p>Precision과 Recall의 가중 조화 평균으로 모델의 성능을 평가합니다. 데이터에 따라 모델의 성능이 Precision이 더욱 중요한 케이스도 있고, Recall이 더욱 중요한 케이스도 있습니다. F-measure 에서는 F-beta 함수의 beta 값을 이용하여 각 케이스에 따라 Precision 과 Recall 의 중요도에 가중치를 적용하여 전체적 성능을 평가할 수 있습니다.</p>
+$$
+F_\beta = (1 + \beta^2) \frac{\text{precision} \times \text{recall}}{\beta^2 \text{precision} + \text{recall}}
+$$<ul>
+<li>beta = 1: Precision과 Recall 의 중요도가 같음</li>
+<li>beta = 2: Recall 이 Precision 보다 중요</li>
+<li>beta = 0.5: Precision 이 Recall 보다 중요  </li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [5]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn</span> <span class="k">import</span> <span class="n">metrics</span>
+
+<span class="n">y_pred</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+<span class="n">y_true</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+
+<span class="n">precision</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">precision_score</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"precision=</span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">precision</span><span class="p">))</span>
+<span class="n">recall</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">recall_score</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"recall=</span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">recall</span><span class="p">))</span>
+<span class="n">f1_score</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">f1_score</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>  
+<span class="nb">print</span><span class="p">(</span><span class="s2">"f1_score=</span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">f1_score</span><span class="p">))</span>
+<span class="n">f05_score</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">fbeta_score</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">beta</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>  
+<span class="nb">print</span><span class="p">(</span><span class="s2">"f0.5_score=</span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">f05_score</span><span class="p">))</span>
+<span class="n">f1_score</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">fbeta_score</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">beta</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>  
+<span class="nb">print</span><span class="p">(</span><span class="s2">"f1_score=</span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">f1_score</span><span class="p">))</span>
+<span class="n">f2_score</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">fbeta_score</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">beta</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span> 
+<span class="nb">print</span><span class="p">(</span><span class="s2">"f2_score=</span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">precision</span><span class="p">,</span> <span class="n">recall</span><span class="p">,</span> <span class="n">f1_score</span><span class="p">,))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>precision=1.0
+recall=0.5
+f1_score=0.6666666666666666
+f0.5_score=0.8333333333333334
+f1_score=0.6666666666666666
+f2_score=1.0
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 

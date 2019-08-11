@@ -31,7 +31,7 @@
  </url>
  <url>
   <loc>https://comafire.github.io/archive.html</loc>
-  <lastmod>2019-05-15T13:01:00Z</lastmod>
+  <lastmod>2019-08-11T08:52:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/categories/</loc>
@@ -43,7 +43,7 @@
  </url>
  <url>
   <loc>https://comafire.github.io/pages/</loc>
-  <lastmod>2019-07-04T12:28:00Z</lastmod>
+  <lastmod>2019-08-11T08:52:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/pages/data-science-data-engineering/</loc>
@@ -216,6 +216,22 @@
  <url>
   <loc>https://comafire.github.io/pages/platform-google-cloud-platform/</loc>
   <lastmod>2019-05-15T13:01:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://comafire.github.io/pages/platform-hadoop/</loc>
+  <lastmod>2019-08-11T08:52:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://comafire.github.io/pages/platform-hive/</loc>
+  <lastmod>2019-08-11T08:52:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://comafire.github.io/pages/platform-jupyter/</loc>
+  <lastmod>2019-08-11T08:52:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://comafire.github.io/pages/platform-spark/</loc>
+  <lastmod>2019-08-11T08:53:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/pages/platform-st-kilda-pier/</loc>
@@ -431,18 +447,18 @@
  </url>
  <url>
   <loc>https://comafire.github.io/posts/index-1.html</loc>
-  <lastmod>2019-05-15T13:01:00Z</lastmod>
+  <lastmod>2019-08-11T08:52:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/posts/index-2.html</loc>
-  <lastmod>2019-05-15T13:01:00Z</lastmod>
+  <lastmod>2019-08-11T08:52:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/posts/index-3.html</loc>
-  <lastmod>2019-05-15T13:01:00Z</lastmod>
+  <lastmod>2019-08-11T08:52:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/posts/index-4.html</loc>
-  <lastmod>2019-05-15T13:01:00Z</lastmod>
+  <lastmod>2019-08-11T08:52:00Z</lastmod>
  </url>
 </urlset>

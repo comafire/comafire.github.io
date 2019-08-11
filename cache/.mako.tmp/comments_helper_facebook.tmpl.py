@@ -5,12 +5,12 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1562243294.9550185
+_modified_time = 1565513634.9360695
 _enable_loop = True
-_template_filename = '/usr/local/lib/python3.5/dist-packages/nikola/data/themes/base/templates/comments_helper_facebook.tmpl'
+_template_filename = '/usr/local/lib/python3.6/dist-packages/nikola/data/themes/base/templates/comments_helper_facebook.tmpl'
 _template_uri = 'comments_helper_facebook.tmpl'
 _source_encoding = 'utf-8'
-_exports = ['comment_form', 'comment_link_script', 'comment_link']
+_exports = ['comment_form', 'comment_link', 'comment_link_script']
 
 
 def render_body(context,**pageargs):
@@ -41,6 +41,18 @@ def render_comment_form(context,url,title,identifier):
         context.caller_stack._pop_frame()
 
 
+def render_comment_link(context,link,identifier):
+    __M_caller = context.caller_stack._push_frame()
+    try:
+        __M_writer = context.writer()
+        __M_writer('\n<span class="fb-comments-count" data-url="')
+        __M_writer(str(link))
+        __M_writer('">\n')
+        return ''
+    finally:
+        context.caller_stack._pop_frame()
+
+
 def render_comment_link_script(context):
     __M_caller = context.caller_stack._push_frame()
     try:
@@ -54,20 +66,8 @@ def render_comment_link_script(context):
         context.caller_stack._pop_frame()
 
 
-def render_comment_link(context,link,identifier):
-    __M_caller = context.caller_stack._push_frame()
-    try:
-        __M_writer = context.writer()
-        __M_writer('\n<span class="fb-comments-count" data-url="')
-        __M_writer(str(link))
-        __M_writer('">\n')
-        return ''
-    finally:
-        context.caller_stack._pop_frame()
-
-
 """
 __M_BEGIN_METADATA
-{"line_map": {"34": 2, "35": 8, "36": 8, "37": 25, "38": 25, "44": 32, "61": 28, "16": 0, "49": 32, "50": 46, "51": 46, "69": 63, "21": 26, "22": 30, "23": 62, "57": 28, "29": 2, "62": 29, "63": 29}, "uri": "comments_helper_facebook.tmpl", "source_encoding": "utf-8", "filename": "/usr/local/lib/python3.5/dist-packages/nikola/data/themes/base/templates/comments_helper_facebook.tmpl"}
+{"filename": "/usr/local/lib/python3.6/dist-packages/nikola/data/themes/base/templates/comments_helper_facebook.tmpl", "uri": "comments_helper_facebook.tmpl", "source_encoding": "utf-8", "line_map": {"16": 0, "21": 26, "22": 30, "23": 62, "29": 2, "34": 2, "35": 8, "36": 8, "37": 25, "38": 25, "44": 28, "48": 28, "49": 29, "50": 29, "56": 32, "61": 32, "62": 46, "63": 46, "69": 63}}
 __M_END_METADATA
 """

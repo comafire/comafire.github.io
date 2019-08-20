@@ -475,6 +475,9 @@ only showing top 3 rows
 <span class="n">df</span><span class="o">.</span><span class="n">write</span><span class="o">.</span><span class="n">mode</span><span class="p">(</span><span class="s1">'overwrite'</span><span class="p">)</span><span class="o">.</span><span class="n">parquet</span><span class="p">(</span><span class="n">path_explode</span><span class="p">)</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">read</span><span class="o">.</span><span class="n">parquet</span><span class="p">(</span><span class="n">path_explode</span><span class="p">)</span>
 <span class="n">df</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="c1"># explode를 사용할 때, explode 대상이 되는 값이 빈 리스트([])라면, 해당 Row 는 제거됩니다. </span>
+<span class="c1"># 만약 Row 는 유지하고 값만 null 로 처리하려면 Spark 2.2+ 부터 지원하는 explode_outer 함수를 사용하면 됩니다.</span>
 </pre></div>
 
     </div>

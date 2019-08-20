@@ -101,41 +101,7 @@ navbar-dark bg-dark
 
     
 <div class="postindex">
-    <article class="h-entry post-text" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title"><a href="2015-Many-Files-Directory-Remove-Linux/" class="u-url">2015-Many-Files-Directory-Remove-Linux</a></h1>
-        <div class="metadata">
-            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
-                comafire
-            </span></p>
-            <p class="dateline">
-            <a href="2015-Many-Files-Directory-Remove-Linux/" rel="bookmark">
-            <time class="published dt-published" datetime="2015-01-01T00:00:00+09:00" itemprop="datePublished" title="2015-01-01 00:00">2015-01-01 00:00</time></a>
-            </p>
-                <p class="commentline">
-        
-    <a href="2015-Many-Files-Directory-Remove-Linux/#disqus_thread" data-disqus-identifier="cache/posts/2015-Many-Files-Directory-Remove-Linux.html">Comments</a>
-
-
-        </p>
-</div>
-    </header><div class="p-summary entry-summary">
-    <div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>프로그래밍을 할때 실수로 디렉토리내에 많은 파일을 생성하게 하는 실수를 할 경우 해당 디렉토리가 rm -rf 명령으로 지워지지 않는 경우가 있습니다.</p>
-<p>이럴 때는 아래와 같은 명령으로 삭제가 가능합니다.</p>
-
-<pre><code>&gt; ls -1 -f | xargs rm</code></pre>
-<p>신기하게도 ls 명령도 먹통이던 디렉토리에서 위 명령은 신속하게 파일을 지워줍니다.
-비결은 옵션에 있습니다. ls 명령은 내부에서 sort를 기본으로 하는데 파일이 많을 경우 이 작업에 많은 시간을 소요하게 됩니다.
-이 sort 옵션을 끄게 되면 신속하게 파일이름을 가져와서 xargs 를 통해 rm 명령을 수행해 파일을 지울수 있게 됩니다.</p>
-
-</div>
-</div>
-</div>
-    </div>
-    </article><article class="h-entry post-text" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title"><a href="2015-OSX-Install-Scientific-Python/" class="u-url">2015-OSX-Install-Scientific-Python</a></h1>
+    <article class="h-entry post-text" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title"><a href="2015-OSX-Install-Scientific-Python/" class="u-url">2015-OSX-Install-Scientific-Python</a></h1>
         <div class="metadata">
             <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
                 comafire
@@ -997,6 +963,63 @@ nameserver 8.8.8.8</code></pre>
 <pre><code>&gt; sudo service resolvconf retart</code></pre>
 
 </div>
+</div>
+</div>
+    </div>
+    </article><article class="h-entry post-text" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title"><a href="2014-Dump-Running-Process-Core/" class="u-url">실행되고 있는 프로세스의 Core 뜨기</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                comafire
+            </span></p>
+            <p class="dateline">
+            <a href="2014-Dump-Running-Process-Core/" rel="bookmark">
+            <time class="published dt-published" datetime="2014-04-01T00:00:00+09:00" itemprop="datePublished" title="2014-04-01 00:00">2014-04-01 00:00</time></a>
+            </p>
+                <p class="commentline">
+        
+    <a href="2014-Dump-Running-Process-Core/#disqus_thread" data-disqus-identifier="cache/posts/2014-Dump-Running-Process-Core.html">Comments</a>
+
+
+        </p>
+</div>
+    </header><div class="p-summary entry-summary">
+    <div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>실행되고 있는 프로세스의 core 파일을 얻어오는 명령입니다.</p>
+<p>core가 떠지는 동안 프로세스는 잠시 멈추었다가 수행됩니다.</p>
+<p>사용 예는 아래와 같습니다.</p>
+<div class="highlight"><pre><span></span>dev@MP1:/home2/dev:11 % ps -ef <span class="p">|</span> grep ogw
+  dev  <span class="m">9306</span>     <span class="m">1</span>  <span class="m">0</span>    4월 <span class="m">1</span> ?        <span class="m">0</span>:00 ogw
+
+dev@MP1:/home2/dev:2 % gcore -p <span class="m">9306</span>
+gcore: core.9306 dumped
+
+dev@MP1:/home2/dev:5 % gdb ~/bin/ogw ./core.9306
+<span class="o">(</span>gdb<span class="o">)</span> bt
+<span class="c1">#0  0x7f51e590 in _poll () from /lib/libc.so.1</span>
+<span class="c1">#1  0x7f5dd25c in poll () from /lib/libthread.so.1</span>
+<span class="c1">#2  0x00015cec in main () at main.c:37</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
 </div>
 </div>
     </div>

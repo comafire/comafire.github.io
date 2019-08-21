@@ -35,7 +35,7 @@
  </url>
  <url>
   <loc>https://comafire.github.io/archive.html</loc>
-  <lastmod>2019-08-20T15:38:00Z</lastmod>
+  <lastmod>2019-08-21T14:25:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/categories/</loc>
@@ -263,11 +263,15 @@
  </url>
  <url>
   <loc>https://comafire.github.io/posts/</loc>
-  <lastmod>2019-08-20T15:38:00Z</lastmod>
+  <lastmod>2019-08-21T14:25:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/posts/2014-Dump-Running-Process-Core/</loc>
   <lastmod>2019-08-20T14:58:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://comafire.github.io/posts/2014-tar-backup/</loc>
+  <lastmod>2019-08-21T14:25:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/posts/2015-Docker-Proxy-Certificates-Ubuntu/</loc>
@@ -459,18 +463,18 @@
  </url>
  <url>
   <loc>https://comafire.github.io/posts/index-1.html</loc>
-  <lastmod>2019-08-20T14:58:00Z</lastmod>
+  <lastmod>2019-08-21T14:25:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/posts/index-2.html</loc>
-  <lastmod>2019-08-20T14:58:00Z</lastmod>
+  <lastmod>2019-08-21T14:25:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/posts/index-3.html</loc>
-  <lastmod>2019-08-20T14:58:00Z</lastmod>
+  <lastmod>2019-08-21T14:25:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/posts/index-4.html</loc>
-  <lastmod>2019-08-20T15:38:00Z</lastmod>
+  <lastmod>2019-08-21T14:25:00Z</lastmod>
  </url>
 </urlset>

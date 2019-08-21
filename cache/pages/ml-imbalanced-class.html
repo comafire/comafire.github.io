@@ -2,8 +2,8 @@
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Imbalanced-Class">Imbalanced Class<a class="anchor-link" href="#Imbalanced-Class">&#182;</a></h1><p>데이터 준비 과정인 EDA(Exploratory Data Analysis) 에서 분석에 맞는 데이터를 만들기 위해 많은 기법들을 통해 데이터를 정제합니다. 지도 학습을 통해 Classification 을 위한 데이터 준비 과정에서 일반적으로 발생하는 문제 중에 하나는 예측하고자 하는 Class 에 해당하는 데이터 수의 불균형을 들 수 있습니다.</p>
-<p>예를 들어 공장에서 불량품을 분류하는 문제에 대한 모델을 만들 경우, 불량율이 1% 라고 한다면 양품과 불량품 Class 내의 데이터 비율은 99:1 로 불균형을 이루게 됩니다. 이는 모델 학습 및 평가에 많은 영향을 주게 됩니다. 모델이 학습 후 모든 예측을 양품으로 하더라도 단순히 정확도는 99% 가 되기 때문입니다. 물론 이 부분을 평가하는 다른 함수들이 존재하긴 하지만, 학습을 통해 좋은 모델을 얻기 위해서라도 Class내의 데이터 불균형 문제는 해결하는 것이 좋습니다.</p>
+<h1 id="Imbalanced-Class">Imbalanced Class<a class="anchor-link" href="#Imbalanced-Class">&#182;</a></h1><p>데이터 준비 과정인 EDA(Exploratory Data Analysis) 에서는 분석에 맞는 데이터를 만들기 위해 많은 기법들을 통해 데이터를 정제합니다. 지도 학습을 통해 Classification 을 위한 데이터 준비 과정에서 일반적으로 발생하는 문제 중에 하나는 예측하고자 하는 Class 에 해당하는 데이터 수의 불균형을 들 수 있습니다.</p>
+<p>예를 들어 공장에서 불량품을 분류하는 문제에 대한 모델을 만들 경우, 불량율이 1% 라고 한다면 양품과 불량품 Class 내의 데이터 비율은 99:1 로 불균형을 이루게 됩니다. 이는 모델 학습 및 평가에 많은 영향을 주게 됩니다. 학습 후 모델이 모든 예측을 양품으로 하더라도 단순히 정확도는 99% 가 되기 때문입니다. 물론 이 부분을 평가하는 다른 함수들이 존재하긴 하지만, 학습을 통해 좋은 모델을 얻기 위해서라도 Class내의 데이터 불균형 문제는 해결하는 것이 좋습니다.</p>
 <p>Package: <a href="https://imbalanced-learn.readthedocs.io/en/stable/index.html">https://imbalanced-learn.readthedocs.io/en/stable/index.html</a></p>
 <h2 id="Over-sampling-&amp;-Under-sampling">Over-sampling &amp; Under-sampling<a class="anchor-link" href="#Over-sampling-&amp;-Under-sampling">&#182;</a></h2><p>Over-sampling 은 Class 내의 데이터 비율이 낮은 데이터를 여러 방법으로 샘플링하여 높은쪽 비율로 맞추는 방법이고, Under-sampling 은 Class 내의 데이터 비율이 높은 데이터를 여러 방법으로 샘플링하여 낮은쪽 비율로 맞추는 방법입니다.</p>
 <p><img src="https://github.com/wmlba/innovate2019/raw/6a012a1e310f16ee1811cd7d316d11f247b8f6a7/resampling.png" alt="Over-sampling Under-sampling"></p>

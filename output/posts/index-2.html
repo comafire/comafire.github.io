@@ -102,35 +102,7 @@ navbar-dark bg-dark
 
     
 <div class="postindex">
-    <article class="h-entry post-text" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title"><a href="2016-python-tf-mv-lr/" class="u-url">TensorFlow로 다중 선형 회귀분석 해보기</a></h1>
-        <div class="metadata">
-            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
-                comafire
-            </span></p>
-            <p class="dateline">
-            <a href="2016-python-tf-mv-lr/" rel="bookmark">
-            <time class="published dt-published" datetime="2016-01-01T00:00:00+09:00" itemprop="datePublished" title="2015-01-01 00:00">2015-01-01 00:00</time></a>
-            </p>
-                <p class="commentline">
-        
-    <a href="2016-python-tf-mv-lr/#disqus_thread" data-disqus-identifier="cache/posts/2016-python-tf-mv-lr.html">Comments</a>
-
-
-        </p>
-</div>
-    </header><div class="p-summary entry-summary">
-    <div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>tensorflow를 이용하여 multi variable linear regression 문제를 풀어봅니다.</p>
-<p class="more"><a href="2016-python-tf-mv-lr/">Read more…</a></p>
-</div>
-</div>
-</div>
-    </div>
-    </article><article class="h-entry post-text" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title"><a href="2016-python-tf-bc-lr/" class="u-url">TensorFlow로 단순 로지스틱 분석 해보기</a></h1>
+    <article class="h-entry post-text" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title"><a href="2016-python-tf-bc-lr/" class="u-url">TensorFlow로 단순 로지스틱 분석 해보기</a></h1>
         <div class="metadata">
             <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
                 comafire
@@ -481,6 +453,124 @@ julia&gt;</code></pre>
 <p>신기하게도 ls 명령도 먹통이던 디렉토리에서 위 명령은 신속하게 파일을 지워줍니다.
 비결은 옵션에 있습니다. ls 명령은 내부에서 sort를 기본으로 하는데 파일이 많을 경우 이 작업에 많은 시간을 소요하게 됩니다.
 이 sort 옵션을 끄게 되면 신속하게 파일이름을 가져와서 xargs 를 통해 rm 명령을 수행해 파일을 지울수 있게 됩니다.</p>
+
+</div>
+</div>
+</div>
+    </div>
+    </article><article class="h-entry post-text" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title"><a href="2015-OSX-Install-Scientific-Python/" class="u-url">2015-OSX-Install-Scientific-Python</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                comafire
+            </span></p>
+            <p class="dateline">
+            <a href="2015-OSX-Install-Scientific-Python/" rel="bookmark">
+            <time class="published dt-published" datetime="2015-01-01T00:00:00+09:00" itemprop="datePublished" title="2015-01-01 00:00">2015-01-01 00:00</time></a>
+            </p>
+                <p class="commentline">
+        
+    <a href="2015-OSX-Install-Scientific-Python/#disqus_thread" data-disqus-identifier="cache/posts/2015-OSX-Install-Scientific-Python.html">Comments</a>
+
+
+        </p>
+</div>
+    </header><div class="p-summary entry-summary">
+    <div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>OSX에 Data Scientific을 위한 Python 설치 스크립트 메모</p>
+<p>참조: <a href="https://joernhees.de/blog/2014/02/25/scientific-python-on-mac-os-x-10-9-with-homebrew/">https://joernhees.de/blog/2014/02/25/scientific-python-on-mac-os-x-10-9-with-homebrew/</a></p>
+<h4 id="Homebrew-설치">Homebrew 설치<a class="anchor-link" href="2015-OSX-Install-Scientific-Python/#Homebrew-%EC%84%A4%EC%B9%98">¶</a>
+</h4>
+<p><a href="http://brew.sh">http://brew.sh</a> 를 방문하여 ruby 스크립트를 복사해서 실행합니다.</p>
+
+<pre><code>ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"</code></pre>
+<h4 id="Scientific-Python-Package-설치">Scientific Python Package 설치<a class="anchor-link" href="2015-OSX-Install-Scientific-Python/#Scientific-Python-Package-%EC%84%A4%EC%B9%98">¶</a>
+</h4>
+<pre><code># set up some taps and update brew
+brew tap homebrew/science # a lot of cool formulae for scientific tools
+brew tap homebrew/python # numpy, scipy, matplotlib, ...
+brew update &amp;&amp; brew upgrade
+
+# install a brewed python
+brew install python
+
+# install PIL, imagemagick, graphviz and other
+# image generating stuff
+brew install libtiff libjpeg webp little-cms2
+pip install Pillow
+brew install imagemagick --with-fftw --with-librsvg --with-x11
+brew install graphviz --with-librsvg --with-x11
+brew install cairo
+brew install py2cairo # this will ask you to download xquartz and install it
+brew install qt pyqt
+
+# install virtualenv, nose (unittests &amp; doctests on steroids)
+pip install virtualenv
+pip install nose
+
+# install numpy and scipy
+# there are two ways to install numpy and scipy now: via pip or via brew.
+# PICK ONE, i prefer pip for proper virtualenv support and more up-to-date versions.
+pip install numpy
+pip install scipy
+# OR:
+# (if you want to run numpy and scipy with openblas also remove comments below:)
+#brew install openblas
+brew install numpy # --with-openblas
+brew install scipy # --with-openblas
+
+# test the numpy &amp; scipy install
+python -c 'import numpy ; numpy.test();'
+python -c 'import scipy ; scipy.test();'
+
+# some cool python libs (if you don't know them, look them up)
+# matplotlib: generate plots
+# pandas: time series stuff
+# nltk: natural language toolkit
+# sympy: symbolic maths in python
+# q: fancy debugging output
+# snakeviz: cool visualization of profiling output (aka what's taking so long?)
+#brew install Caskroom/cask/mactex  # if you want to install matplotlib with tex support and don't have mactex installed already
+brew install matplotlib --with-cairo --with-tex  # cairo: png ps pdf svg filetypes, tex: tex fonts &amp; formula in plots
+pip install pandas
+pip install nltk
+pip install sympy
+pip install q
+pip install snakeviz
+pip install scikit-learn
+
+# ipython with parallel and notebook support
+brew install zmq
+pip install ipython[all]
+
+# html stuff (parsing)
+pip install html5lib cssselect pyquery lxml BeautifulSoup
+
+# webapps / apis (choose what you like)
+pip install Flask Django tornado
+
+# semantic web stuff: rdf &amp; sparql
+pip install rdflib SPARQLWrapper
+
+# graphs (graph metrics, social network analysis, layouting)
+pip install networkx
+
+# maintenance: updating of pip libs
+pip list --outdated  # see Updating section below</code></pre>
+<h4 id="Scientific-Python-Package-업데이트">Scientific Python Package 업데이트<a class="anchor-link" href="2015-OSX-Install-Scientific-Python/#Scientific-Python-Package-%EC%97%85%EB%8D%B0%EC%9D%B4%ED%8A%B8">¶</a>
+</h4>
+<p>설치 후 최신 패키지로 유지하기</p>
+<p>brew update</p>
+
+<pre><code>brew update &amp;&amp; brew outdated &amp;&amp; brew upgrade --all</code></pre>
+<p>pip update</p>
+<p>--outdated 옵션으로 리스트 확인 후에 -U 옵션으로 업그레이드</p>
+
+<pre><code>pip list --outdated
+pip install -U package1 package2 ...</code></pre>
 
 </div>
 </div>

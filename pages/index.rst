@@ -28,6 +28,7 @@ Pages
 
 Posts
 ====================
+
 * `Posts </posts/>`_: 다양하고 잡다한 이야기들을 포스팅합니다.
 * `Archive </archive.html>`_: 년도별 포스팅 모음입니다.
 * `Tags </categories/>`_: 포스팅 Tag 모음입니다.

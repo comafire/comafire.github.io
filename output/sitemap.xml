@@ -43,11 +43,15 @@
  </url>
  <url>
   <loc>https://comafire.github.io/galleries/</loc>
-  <lastmod>2019-04-20T15:52:00Z</lastmod>
+  <lastmod>2019-08-24T14:34:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://comafire.github.io/galleries/.ipynb_checkpoints/</loc>
+  <lastmod>2019-08-24T14:34:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/pages/</loc>
-  <lastmod>2019-08-11T08:52:00Z</lastmod>
+  <lastmod>2019-08-24T14:34:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/pages/data-science-data-engineering/</loc>
@@ -216,6 +220,10 @@
  <url>
   <loc>https://comafire.github.io/pages/platform-data-lake/</loc>
   <lastmod>2019-05-20T16:08:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://comafire.github.io/pages/platform-elk/</loc>
+  <lastmod>2019-08-24T14:34:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/pages/platform-google-cloud-platform/</loc>
@@ -471,7 +479,7 @@
  </url>
  <url>
   <loc>https://comafire.github.io/posts/index-3.html</loc>
-  <lastmod>2019-08-21T14:25:00Z</lastmod>
+  <lastmod>2019-08-24T14:34:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/posts/index-4.html</loc>

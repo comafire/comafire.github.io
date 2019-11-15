@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Comafire's Lab</title><link>https://comafire.github.io/</link><description>Comafire's Lab</description><atom:link href="https://comafire.github.io/rss.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><copyright>Contents © 2019 &lt;a href="mailto:comafire@gmail.com"&gt;comafire&lt;/a&gt; </copyright><lastBuildDate>Sat, 24 Aug 2019 14:34:09 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>iconv로 파일 인코딩 변환</title><link>https://comafire.github.io/posts/2019-iconv/</link><dc:creator>comafire</dc:creator><description>&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Comafire's Lab</title><link>https://comafire.github.io/</link><description>Comafire's Lab</description><atom:link href="https://comafire.github.io/rss.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><copyright>Contents © 2019 &lt;a href="mailto:comafire@gmail.com"&gt;comafire&lt;/a&gt; </copyright><lastBuildDate>Fri, 15 Nov 2019 17:38:23 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>원격서버에서 VSCode 사용하기</title><link>https://comafire.github.io/posts/2019-sshcode/</link><dc:creator>comafire</dc:creator><description>&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h2 id="sshcode"&gt;sshcode&lt;a class="anchor-link" href="https://comafire.github.io/posts/2019-sshcode/#sshcode"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Visual Studio Code 는 MS 에서 오픈소스화한 후, 다양한 운영체제를 지원과 풍부한 extension 때문에 점점 사용 빈도수가 높아지고 있는 앱 중 하나가 되어 가고 있는것 같습니다. 노트북에서도 소스 에디터로 많이 사용하고 있지만, sshcode 로 인해 활용성이 서버로까지 확장되고 있습니다.&lt;/p&gt;
+&lt;p&gt;요즘은 클라우드상에서 명령어를 통해서 작업하는 것보다는 YAML형태의 파일로 상태를 선언해서 사용하는 작업이 많아 서버에서 작업을 해야 할때 소스 에디터가 아쉬운 경우가 많습니다. vi 라는 전통적 툴이 있지만 아주 장황한 YAML 파일을 수정하다 보면 금새 타이핑이 피곤해지기 일 수 입니다.&lt;/p&gt;
+&lt;p&gt;이럴 때, sshcode 라는 툴을 이용하면 서버에서 VSCode를 사용할 수 있게 되어, YAML 파일 작성과 터미널 작업을 한결 수월하게 진행할 수 있게 됩니다.
+&lt;/p&gt;&lt;p&gt;&lt;a href="https://comafire.github.io/posts/2019-sshcode/"&gt;Read more…&lt;/a&gt; (1 min remaining to read)&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;</description><guid>https://comafire.github.io/posts/2019-sshcode/</guid><pubDate>Fri, 15 Nov 2019 15:00:00 GMT</pubDate></item><item><title>도커 이미지를 파일로 쓰고 읽기</title><link>https://comafire.github.io/posts/2019-docker-image-save-load/</link><dc:creator>comafire</dc:creator><description>&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;p&gt;빌드한 도커 이미지를 Registry 없이 다른 노드에서 도커 이미지로 등록해서 사용해야 할 경우 도커 이미지를 파일로 쓰고 읽는 방법입니다.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://comafire.github.io/posts/2019-docker-image-save-load/"&gt;Read more…&lt;/a&gt; (1 min remaining to read)&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;</description><guid>https://comafire.github.io/posts/2019-docker-image-save-load/</guid><pubDate>Sat, 31 Aug 2019 15:00:00 GMT</pubDate></item><item><title>iconv로 파일 인코딩 변환</title><link>https://comafire.github.io/posts/2019-iconv/</link><dc:creator>comafire</dc:creator><description>&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;p&gt;현재는 UTF-8 이 표준이 되었지만, 가끔 오래된 서버들은 아직 EUC-KR을 기본 인코딩으로 사용하는 경우가 많이 있습니다.&lt;/p&gt;
@@ -66,42 +76,4 @@
 &lt;li&gt;st-kilda-pier: &lt;a href="https://github.com/comafire/st-kilda-pier"&gt;https://github.com/comafire/st-kilda-pier&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;notebooks-skp: &lt;a href="https://github.com/comafire/notebooks-skp"&gt;https://github.com/comafire/notebooks-skp&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;a href="https://comafire.github.io/posts/2018-st-kilda-pier/"&gt;Read more…&lt;/a&gt; (1 min remaining to read)&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;</description><guid>https://comafire.github.io/posts/2018-st-kilda-pier/</guid><pubDate>Sat, 30 Jun 2018 15:00:00 GMT</pubDate></item><item><title>Jupyter 에서 PySpark 수행시 Python 버전 충돌날때</title><link>https://comafire.github.io/posts/2018-pyspark-python-version-mismatch/</link><dc:creator>comafire</dc:creator><description>&lt;div&gt;&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;&lt;div class="inner_cell"&gt;
-&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;p&gt;Jupyter Python3 Kernel 을 이용해서 Pyspark으로 Spark Cluster를 통해 Job 을 수행 할때, 아래와 같이 Driver 와 Worker 들간에 Python 버전 충돌이 일어 날 때가 있습니다.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;Exception: Python in worker has different version 2.7 than that in driver 3.5, PySpark cannot run with different minor versions.Please check environment variables PYSPARK_PYTHON and PYSPARK_DRIVER_PYTHON are correctly set.&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;이때는 아래와 같이 두 환경 변수를 명시적으로 설정하여 해결할 수 있습니다.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;import os
-os.environ["PYSPARK_PYTHON"]="/usr/bin/python3"
-os.environ["PYSPARK_DRIVER_PYTHON"]="/usr/bin/python3"
-
-spark = SparkSession.builder.master("spark://spark-skp-master:7077").appName("pysprk")
-spark = spark.config("spark.cores.max", "48")
-spark = spark.config("spark.driver.memory", "32g")
-spark = spark.config("spark.executor.memory", "32g")
-spark = spark.config("spark.python.worker.memory", "32g")
-spark = spark.getOrCreate()&lt;/code&gt;&lt;/pre&gt;
-
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [ ]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-    &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt; 
-&lt;/pre&gt;&lt;/div&gt;
-
-    &lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;/div&gt;&lt;/div&gt;</description><guid>https://comafire.github.io/posts/2018-pyspark-python-version-mismatch/</guid><pubDate>Fri, 25 May 2018 15:00:00 GMT</pubDate></item><item><title>BitCoin 설치</title><link>https://comafire.github.io/posts/2018-bitcoin-core-basic/</link><dc:creator>comafire</dc:creator><description>&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;&lt;div class="inner_cell"&gt;
-&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;p&gt;Bitcoin에 대한 구조를 알아보기 위해 일단 Bitcoin을 설치해보고 간단하게 거래 테스트를 해보았습니다.&lt;/p&gt;
-&lt;p&gt;&lt;a href="https://comafire.github.io/posts/2018-bitcoin-core-basic/"&gt;Read more…&lt;/a&gt; (2 min remaining to read)&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;</description><guid>https://comafire.github.io/posts/2018-bitcoin-core-basic/</guid><pubDate>Fri, 02 Mar 2018 15:00:00 GMT</pubDate></item></channel></rss>
+&lt;p&gt;&lt;a href="https://comafire.github.io/posts/2018-st-kilda-pier/"&gt;Read more…&lt;/a&gt; (1 min remaining to read)&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;</description><guid>https://comafire.github.io/posts/2018-st-kilda-pier/</guid><pubDate>Sat, 30 Jun 2018 15:00:00 GMT</pubDate></item></channel></rss>

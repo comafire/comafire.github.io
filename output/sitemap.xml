@@ -47,7 +47,7 @@
  </url>
  <url>
   <loc>https://comafire.github.io/galleries/</loc>
-  <lastmod>2019-08-24T14:34:00Z</lastmod>
+  <lastmod>2020-02-07T16:59:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/galleries/.ipynb_checkpoints/</loc>
@@ -55,7 +55,7 @@
  </url>
  <url>
   <loc>https://comafire.github.io/pages/</loc>
-  <lastmod>2020-02-07T16:23:00Z</lastmod>
+  <lastmod>2020-02-07T16:59:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/pages/data-science-data-engineering/</loc>
@@ -230,28 +230,16 @@
   <lastmod>2019-08-24T14:34:00Z</lastmod>
  </url>
  <url>
+  <loc>https://comafire.github.io/pages/platform-gce-nested-vm/</loc>
+  <lastmod>2020-02-07T16:59:00Z</lastmod>
+ </url>
+ <url>
   <loc>https://comafire.github.io/pages/platform-google-cloud-platform/</loc>
   <lastmod>2019-05-15T13:01:00Z</lastmod>
  </url>
  <url>
-  <loc>https://comafire.github.io/pages/platform-hadoop/</loc>
-  <lastmod>2019-08-11T08:52:00Z</lastmod>
- </url>
- <url>
-  <loc>https://comafire.github.io/pages/platform-hive/</loc>
-  <lastmod>2019-08-11T08:52:00Z</lastmod>
- </url>
- <url>
-  <loc>https://comafire.github.io/pages/platform-jupyter/</loc>
-  <lastmod>2019-08-11T08:52:00Z</lastmod>
- </url>
- <url>
   <loc>https://comafire.github.io/pages/platform-native-env-for-data-science-on-macos/</loc>
   <lastmod>2020-02-07T16:23:00Z</lastmod>
- </url>
- <url>
-  <loc>https://comafire.github.io/pages/platform-spark/</loc>
-  <lastmod>2019-08-11T08:53:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/pages/platform-st-kilda-pier/</loc>

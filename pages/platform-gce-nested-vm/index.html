@@ -4,14 +4,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Data Technology Platform - Google Cloud Platform | Comafire's Lab</title>
+<title>Google Compute Engine 에서 nested vm 사용하기 | Comafire's Lab</title>
 <link href="../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
 <link href="../../assets/css/ipython.min.css" rel="stylesheet" type="text/css">
 <link href="../../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
 <meta name="theme-color" content="#5670d4">
 <meta name="generator" content="Nikola (getnikola.com)">
 <link rel="alternate" type="application/rss+xml" title="RSS" href="../../rss.xml">
-<link rel="canonical" href="https://comafire.github.io/pages/platform-google-cloud-platform/">
+<link rel="canonical" href="https://comafire.github.io/pages/platform-gce-nested-vm/">
 <!--[if lt IE 9]><script src="../../assets/js/html5.js"></script><![endif]--><!-- Google Adsense --><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>
      (adsbygoogle = window.adsbygoogle || []).push({
           google_ad_client: "ca-pub-0670106451680512",
@@ -25,19 +25,10 @@
   gtag('config', 'UA-81648003-1');
 </script><meta name="author" content="comafire">
 <meta property="og:site_name" content="Comafire's Lab">
-<meta property="og:title" content="Data Technology Platform - Google Cloud Platform">
-<meta property="og:url" content="https://comafire.github.io/pages/platform-google-cloud-platform/">
-<meta property="og:description" content="Google Cloud Platform¶Google Colab¶소개
-
-https://colab.research.google.com/
-
-Cloud DataLab¶소개
-
-https://cloud.google.com/datalab/
-
-AI Platform Notebooks (Beta)¶소개
-
-https://cloud.google.com/ai-platform-no">
+<meta property="og:title" content="Google Compute Engine 에서 nested vm 사용하기">
+<meta property="og:url" content="https://comafire.github.io/pages/platform-gce-nested-vm/">
+<meta property="og:description" content="Google Computer Engine¶고성능의 장비가 필요하지만, 한번에 많은 비용을 투자 할 수 없는 상황이고, 기성 서비스가 아닌 자신만의 개발 환경이 필요하다면 Cloud Virtual Machine 을 이용하는 것도 한가지 방법입니다.
+Cloud VM 요금제 중 약정 또는 선점형 서비스를 통한 할인율은 상당히 높기 때문에 주의 깊게 사용한다면 장">
 <meta property="og:type" content="article">
 <meta property="article:published_time" content="2018-07-01T00:00:00+09:00">
 </head>
@@ -116,7 +107,7 @@ navbar-dark bg-dark
         <!--Body content-->
         
         
-<article class="post-text storypage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">Data Technology Platform - Google Cloud Platform</a></h1>
+<article class="post-text storypage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">Google Compute Engine 에서 nested vm 사용하기</a></h1>
 
         
 
@@ -127,41 +118,13 @@ navbar-dark bg-dark
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Google-Cloud-Platform">Google Cloud Platform<a class="anchor-link" href="#Google-Cloud-Platform">¶</a>
+<h2 id="Google-Computer-Engine">Google Computer Engine<a class="anchor-link" href="#Google-Computer-Engine">¶</a>
 </h2>
-<h3 id="Google-Colab">Google Colab<a class="anchor-link" href="#Google-Colab">¶</a>
-</h3>
-<p>소개</p>
-<ul>
-<li><a href="https://colab.research.google.com/">https://colab.research.google.com/</a></li>
-</ul>
-<h3 id="Cloud-DataLab">Cloud DataLab<a class="anchor-link" href="#Cloud-DataLab">¶</a>
-</h3>
-<p>소개</p>
-<ul>
-<li><a href="https://cloud.google.com/datalab/">https://cloud.google.com/datalab/</a></li>
-</ul>
-<h3 id="AI-Platform-Notebooks-(Beta)">AI Platform Notebooks (Beta)<a class="anchor-link" href="#AI-Platform-Notebooks-(Beta)">¶</a>
-</h3>
-<p>소개</p>
-<ul>
-<li><a href="https://cloud.google.com/ai-platform-notebooks/?hl=ko">https://cloud.google.com/ai-platform-notebooks/?hl=ko</a></li>
-</ul>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Google-Computer-Engine">Google Computer Engine<a class="anchor-link" href="#Google-Computer-Engine">¶</a>
-</h3>
 <p>고성능의 장비가 필요하지만, 한번에 많은 비용을 투자 할 수 없는 상황이고, 기성 서비스가 아닌 자신만의 개발 환경이 필요하다면 Cloud Virtual Machine 을 이용하는 것도 한가지 방법입니다.</p>
 <p>Cloud VM 요금제 중 약정 또는 선점형 서비스를 통한 할인율은 상당히 높기 때문에 주의 깊게 사용한다면 장비 구입보다 좋은 선택이 될 수도 있습니다.</p>
 <p>여기서는 이를 위해 GCP 상에서 필요한 기본적인 셋팅에 대해서 다룹니다.</p>
-<h4 id="중첩-가상화-인스턴스-만들기">중첩 가상화 인스턴스 만들기<a class="anchor-link" href="#%EC%A4%91%EC%B2%A9-%EA%B0%80%EC%83%81%ED%99%94-%EC%9D%B8%EC%8A%A4%ED%84%B4%EC%8A%A4-%EB%A7%8C%EB%93%A4%EA%B8%B0">¶</a>
-</h4>
+<h3 id="중첩-가상화-인스턴스-만들기">중첩 가상화 인스턴스 만들기<a class="anchor-link" href="#%EC%A4%91%EC%B2%A9-%EA%B0%80%EC%83%81%ED%99%94-%EC%9D%B8%EC%8A%A4%ED%84%B4%EC%8A%A4-%EB%A7%8C%EB%93%A4%EA%B8%B0">¶</a>
+</h3>
 <p>중첩 가상화는 Cloud VM 내에서 다시 VM 을 중복해서 생성하여 사용할 수 있는 방식입니다. 멀티 노드 클러스터에 대한 테스트를 위해서 Vagrant 에서 VM 을 생성하는 경우가 많기 때문에 중첩 가상화가 가능한 VM 을 사용합니다. 만약 이런 용도가 아니라면 일반 VM 을 사용하여도 무방합니다.</p>
 <p>참조: <a href="https://cloud.google.com/compute/docs/instances/enable-nested-virtualization-vm-instances#restrictions">https://cloud.google.com/compute/docs/instances/enable-nested-virtualization-vm-instances#restrictions</a></p>
 <p>GCE 에서 VM 중첩 가상화는 아래와 같은 제한 사항을 가집니다.</p>
@@ -178,11 +141,11 @@ navbar-dark bg-dark
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [2]:</div>
+<div class="prompt input_prompt">In [1]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">Image</span>
-<span class="n">Image</span><span class="p">(</span><span class="s1">'../galleries/platform-google-cloud-platform-001.png'</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">512</span><span class="p">)</span>
+<span class="n">Image</span><span class="p">(</span><span class="s1">'../galleries/platform-gce-nested-vm-001.png'</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">512</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -195,7 +158,7 @@ navbar-dark bg-dark
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[2]:</div>
+    <div class="prompt output_prompt">Out[1]:</div>
 
 
 
@@ -227,11 +190,11 @@ navbar-dark bg-dark
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [4]:</div>
+<div class="prompt input_prompt">In [2]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">Image</span>
-<span class="n">Image</span><span class="p">(</span><span class="s1">'../galleries/platform-google-cloud-platform-002.png'</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">512</span><span class="p">)</span>
+<span class="n">Image</span><span class="p">(</span><span class="s1">'../galleries/platform-gce-nested-vm-002.png'</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">512</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -244,7 +207,7 @@ navbar-dark bg-dark
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[4]:</div>
+    <div class="prompt output_prompt">Out[2]:</div>
 
 
 
@@ -261,11 +224,11 @@ navbar-dark bg-dark
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [6]:</div>
+<div class="prompt input_prompt">In [3]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">Image</span>
-<span class="n">Image</span><span class="p">(</span><span class="s1">'../galleries/platform-google-cloud-platform-003.png'</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">512</span><span class="p">)</span>
+<span class="n">Image</span><span class="p">(</span><span class="s1">'../galleries/platform-gce-nested-vm-003.png'</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">512</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -278,7 +241,7 @@ navbar-dark bg-dark
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[6]:</div>
+    <div class="prompt output_prompt">Out[3]:</div>
 
 
 
@@ -333,11 +296,11 @@ sudo systemctl <span class="nb">enable</span> xrdp
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [8]:</div>
+<div class="prompt input_prompt">In [4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">Image</span>
-<span class="n">Image</span><span class="p">(</span><span class="s1">'../galleries/platform-google-cloud-platform-006.png'</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">512</span><span class="p">)</span>
+<span class="n">Image</span><span class="p">(</span><span class="s1">'../galleries/platform-gce-nested-vm-006.png'</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">512</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -350,7 +313,7 @@ sudo systemctl <span class="nb">enable</span> xrdp
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[8]:</div>
+    <div class="prompt output_prompt">Out[4]:</div>
 
 
 
@@ -397,11 +360,11 @@ sudo systemctl <span class="nb">enable</span> xrdp
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [9]:</div>
+<div class="prompt input_prompt">In [5]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">Image</span>
-<span class="n">Image</span><span class="p">(</span><span class="s1">'../galleries/platform-google-cloud-platform-004.png'</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">512</span><span class="p">)</span>
+<span class="n">Image</span><span class="p">(</span><span class="s1">'../galleries/platform-gce-nested-vm-004.png'</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">512</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -414,7 +377,7 @@ sudo systemctl <span class="nb">enable</span> xrdp
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[9]:</div>
+    <div class="prompt output_prompt">Out[5]:</div>
 
 
 
@@ -445,11 +408,11 @@ sudo systemctl <span class="nb">enable</span> xrdp
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [10]:</div>
+<div class="prompt input_prompt">In [6]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="k">import</span> <span class="n">Image</span>
-<span class="n">Image</span><span class="p">(</span><span class="s1">'../galleries/platform-google-cloud-platform-005.png'</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">512</span><span class="p">)</span>
+<span class="n">Image</span><span class="p">(</span><span class="s1">'../galleries/platform-gce-nested-vm-005.png'</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">512</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -462,7 +425,7 @@ sudo systemctl <span class="nb">enable</span> xrdp
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[10]:</div>
+    <div class="prompt output_prompt">Out[6]:</div>
 
 
 
@@ -508,9 +471,9 @@ sudo systemctl <span class="nb">enable</span> xrdp
         <div id="disqus_thread"></div>
         <script>
         var disqus_shortname ="comafire",
-            disqus_url="https://comafire.github.io/pages/platform-google-cloud-platform/",
-        disqus_title="Data Technology Platform - Google Cloud Platform",
-        disqus_identifier="cache/pages/platform-google-cloud-platform.html",
+            disqus_url="https://comafire.github.io/pages/platform-gce-nested-vm/",
+        disqus_title="Google Compute Engine \uc5d0\uc11c nested vm \uc0ac\uc6a9\ud558\uae30",
+        disqus_identifier="cache/pages/platform-gce-nested-vm.html",
         disqus_config = function () {
             this.language = "en";
         };

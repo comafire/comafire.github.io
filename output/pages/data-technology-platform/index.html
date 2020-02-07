@@ -27,8 +27,7 @@
 <meta property="og:site_name" content="Comafire's Lab">
 <meta property="og:title" content="Data Technology Platform">
 <meta property="og:url" content="https://comafire.github.io/pages/data-technology-platform/">
-<meta property="og:description" content="Data Technology Platform¶Data Technology 를 위한 Cloud 및 On Premise 형태의 개발환경 및 Platform 기술들을 소개합니다.
-DT를 수행하기 위해서는 다양한 IT 도구 들에 대해서 학습 및 설치를 해야 합니다. 처음부터 플랫폼을 직접 설치 할 경우 많은 시간이 소비될 수 있기 때문에 처음에는 Cloud 에서 ">
+<meta property="og:description" content="Data Technology Platform¶Data Technology 를 수행하기 위해서는 다양한 IT 도구들이 필요합니다. 따라서, IT 도구들에 대한 특성을 학습하고, 잘 조합하여 사용할 수 있는 능력이 중요합니다. 처음부터 플랫폼들을 처음부터 직접 설치하면서 익힐 경우 많은 시간이 소비될 수 있기 때문에 처음에는 Cloud 에서 DT 에 필요한 다">
 <meta property="og:type" content="article">
 <meta property="article:published_time" content="2018-07-01T00:00:00+09:00">
 </head>
@@ -120,68 +119,168 @@ navbar-dark bg-dark
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Data-Technology-Platform">Data Technology Platform<a class="anchor-link" href="#Data-Technology-Platform">¶</a>
 </h2>
-<p>Data Technology 를 위한 Cloud 및 On Premise 형태의 개발환경 및 Platform 기술들을 소개합니다.</p>
-<p>DT를 수행하기 위해서는 다양한 IT 도구 들에 대해서 학습 및 설치를 해야 합니다. 처음부터 플랫폼을 직접 설치 할 경우 많은 시간이 소비될 수 있기 때문에 처음에는 Cloud 에서 시작하는 것을 권장합니다. 간단히 학습하기에는 충분한 공짜 인스턴스를 제공하는 Cloud 플랫폼이 많이 있습니다.</p>
-<p>하지만, 좀더 고급 분석 및 많은 리소스를 사용해야 한다면 개인적으로는 사용량 단위로 과금하는 Cloud 플랫폼은 아무래도 금액적으로 부담이 될 수 밖에 없습니다. Cloud 플랫폼 및 명령들에 많이 익숙해지셨다면, On Premise 환경을 구축하여 사용하는 것도 고려해 볼만 합니다.</p>
+<p>Data Technology 를 수행하기 위해서는 다양한 IT 도구들이 필요합니다. 따라서, IT 도구들에 대한 특성을 학습하고, 잘 조합하여 사용할 수 있는 능력이 중요합니다. 처음부터 플랫폼들을 처음부터 직접 설치하면서 익힐 경우 많은 시간이 소비될 수 있기 때문에 처음에는 Cloud 에서 DT 에 필요한 다양한 IT 도구들의 사용법을 익히고 필요시 점점 더 낮은 레벨로 영역을 넓여 가는 것을 권장합니다.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Architecture">Architecture<a class="anchor-link" href="#Architecture">¶</a>
 </h3>
 <ul>
 <li><a href="https://comafire.github.io/pages/platform-data-lake">Data Lake</a></li>
+<li><a href="https://eng.uber.com/uber-big-data-platform/">Uber’s Big Data Platform: 100+ Petabytes with Minute Latency</a></li>
 </ul>
+<p>DT 플랫폼은 제공되는 주체에 따라 크게 Cloud, On-premise 로 나누어 볼 수 있습니다.</p>
+<ul>
+<li>Cloud: 플랫폼을 제공하기 위해 인프라 및 기술 스택을 모두 외부 클라우드 벤더의 서비스를 이용</li>
+<li>On-premise: 플랫폼을 제공하기 위해 내부적으로 인프라 및 기술 스택등 직접 모든 것을 해결</li>
+</ul>
+<p>그리고 서비스 제공 레벨에 따라 IaaS, PaaS, SaaS 로 나뉘어 볼 수 있습니다.</p>
+<ul>
+<li>SaaS (Software as a Service): IaaS + PaaS + 개발된 소프트웨어까지 서비스로 제공</li>
+<li>PaaS (Platform as a Service): IaaS + 개발을 위한 플랫폼까지 서비스로 제공 </li>
+<li>IaaS (Infra as a Service): 인프라(서버, 네트워크, 스토리지 등)까지 서비스로 제공</li>
+</ul>
+<p>DT를 비용/시간 효율적으로 수행하기 위해서는 다양한 전략, 아키텍처, 환경을 복합적으로 조합하여 자신의 환경에 최적화하는 것이 필요합니다.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Cloud">Cloud<a class="anchor-link" href="#Cloud">¶</a>
 </h3>
+<h4 id="GCP-(Google-Cloud-Platform)">GCP (Google Cloud Platform)<a class="anchor-link" href="#GCP-(Google-Cloud-Platform)">¶</a>
+</h4>
+<ul>
+<li><a href="https://comafire.github.io/pages/platform-google-cloud-platform">Google Cloud Platform</a></li>
+</ul>
+<h5 id="SaaS">SaaS<a class="anchor-link" href="#SaaS">¶</a>
+</h5>
+<h5 id="PasS">PasS<a class="anchor-link" href="#PasS">¶</a>
+</h5>
+<h5 id="IaaS">IaaS<a class="anchor-link" href="#IaaS">¶</a>
+</h5>
+<h4 id="Azure">Azure<a class="anchor-link" href="#Azure">¶</a>
+</h4>
 <ul>
 <li><a href="https://comafire.github.io/pages/platform-azure-cloud">Microsoft Azure Cloud Platfom</a></li>
-<li><a href="https://comafire.github.io/pages/platform-google-cloud-platform">Google Cloud Platform</a></li>
+</ul>
+<h5 id="SaaS">SaaS<a class="anchor-link" href="#SaaS">¶</a>
+</h5>
+<ul>
+<li>Azure Databricks
+#### PasS
+#### IaaS</li>
+</ul>
+<h4 id="AWS-(Amazon-Web-Service)">AWS (Amazon Web Service)<a class="anchor-link" href="#AWS-(Amazon-Web-Service)">¶</a>
+</h4>
+<ul>
 <li><a href="https://comafire.github.io/pages/platform-amazon-web-service">Amazon Web Service</a></li>
 </ul>
-<h3 id="On-Premise">On Premise<a class="anchor-link" href="#On-Premise">¶</a>
+<h5 id="SaaS">SaaS<a class="anchor-link" href="#SaaS">¶</a>
+</h5>
+<h5 id="PasS">PasS<a class="anchor-link" href="#PasS">¶</a>
+</h5>
+<h5 id="IaaS">IaaS<a class="anchor-link" href="#IaaS">¶</a>
+</h5>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="On-premise">On-premise<a class="anchor-link" href="#On-premise">¶</a>
 </h3>
+<p>모든 환경을 자신의 장비에서 실험해보고 싶다면 과감한 투자가 필요합니다. 가상화 환경을 위해 다수의 VM 을 띄워야 하기에 많은 수의 CPU 코어와 많은 양의 RAM 이 필요하고, 딥러닝을 위헤 GPU 또한 필요합니다. 하지만, 가성비 면에서는 자신의 예산에 맞는 휴대성 좋은 노트북과 클라우드 자원을 활용하는 것을 더욱 추천합니다.</p>
+<h4 id="SaaS">SaaS<a class="anchor-link" href="#SaaS">¶</a>
+</h4>
+<h4 id="PaaS">PaaS<a class="anchor-link" href="#PaaS">¶</a>
+</h4>
+<h5 id="Container-Platform">Container Platform<a class="anchor-link" href="#Container-Platform">¶</a>
+</h5>
+<ul>
+<li>
+<p>Orchestration Platform</p>
+<ul>
+<li>Kubernetes</li>
+<li>Docker based Cluster<ul>
+<li><a href="https://comafire.github.io/pages/platform-st-kilda-pier">St.Kilda Pier(Docker Cluster based Data Science Platform for Big Data)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Docker</p>
+<ul>
+<li><a href="https://jupyter-docker-stacks.readthedocs.io/en/latest/index.html">Jupyter Docker Stacks</a></li>
+<li><a href="https://github.com/comafire/docker-jupyter">Docker Jupyter(Docker based Data Science Jupyter Notebook)</a></li>
+</ul>
+</li>
+</ul>
+<h5 id="Native-Platform">Native Platform<a class="anchor-link" href="#Native-Platform">¶</a>
+</h5>
+<ul>
+<li>Hortenworks Data Platform</li>
+</ul>
+<h4 id="IaaS">IaaS<a class="anchor-link" href="#IaaS">¶</a>
+</h4>
 <ul>
 <li>
 <p>Vagrant &amp; VirtualBox</p>
 <ul>
-<li><a href="https://comafire.github.io/pages/platform-vagrant-virtualbox">Vagrant와 Virtualbox를 이용한 가상 개발환경</a></li>
+<li><a href="https://comafire.github.io/pages/platform-vagrant-virtualbox">Vagrant와 Virtualbox를 이용한 플랫폼 가상화 개발환경</a></li>
 </ul>
 </li>
 <li>
-<p>Docker based Cluster</p>
+<p>Native 개발환경 설정하기</p>
 <ul>
-<li><a href="https://comafire.github.io/pages/platform-st-kilda-pier">St.Kilda Pier(Docker Cluster based Data Science Platform for Big Data)</a></li>
-</ul>
-</li>
-<li>
-<p>Docker based Single</p>
-<ul>
-<li><a href="https://github.com/comafire/docker-jupyter">Docker Jupyter(Docker based Data Science Jupyter Notebook)</a></li>
-<li><a href="https://jupyter-docker-stacks.readthedocs.io/en/latest/index.html">Jupyter Docker Stacks</a></li>
+<li><a href="https://comafire.github.io/pages/platform-native-env-for-data-science-on-macos">macOS에서 Data Science를 위한 Native 개발환경 설정</a></li>
 </ul>
 </li>
 </ul>
-<h3 id="Cheatsheets">Cheatsheets<a class="anchor-link" href="#Cheatsheets">¶</a>
-</h3>
+<h5 id="Hardware">Hardware<a class="anchor-link" href="#Hardware">¶</a>
+</h5>
 <ul>
-<li><a href="https://comafire.github.io/pages/platform-hive">Hadoop</a></li>
-<li>Spark</li>
-<li>Kafka</li>
-<li><a href="https://comafire.github.io/pages/platform-hive">Hive</a></li>
-<li><a href="https://comafire.github.io/pages/platform-jupyter">Jupyter</a></li>
+<li>Lambda Lab (<a href="https://lambdalabs.com/">https://lambdalabs.com/</a>)<ul>
+<li>요즘 딥러닝 노트북을 검색하면 많이 회자되는 회사입니다. 선택할 수 있는 하드웨어 사양은 System76보다 적습니다. A/S 는 단점입니다.</li>
+</ul>
+</li>
+<li>System76 (<a href="https://system76.com/">https://system76.com/</a>)<ul>
+<li>Linux용 기기를 전문으로 제작하는 회사입니다. 고사양 CPU/RAM/GPU(nVidia) 모두 지원하며 Linux와 하드웨어 호환성 걱정은 없지만, A/S는 단점입니다. </li>
+</ul>
+</li>
+<li>Apple - Macbook Pro<ul>
+<li>가격은 비싸지만, 하드웨어 신뢰성 및 개인 활용성이 가장 뛰어난 기기입니다. CTO 버전 사양에서 SSD만 좀 타협해서 구입하면 5년 이상되어도 자기 역활을 톡톡히 해냅니다. </li>
+<li>DT를 하기위한 Docker 환경 및 GPU 환경을 사용하는데 제약이 있기에, iOS 개발자를 위한 다양한 목적의 개발/테스트용 장비로서만 의미가 있습니다. <ul>
+<li>Docker 가 Hyperkit 환경위에서 돌기 때문에 성능 저하 및 가상 GPU를 사용할 수 없습니다.</li>
+<li>GPU 가 AMD 라서 Native 환경에서도 딥러닝을 하기에는 쾌적하지 않습니다, AMD 를 지원하는 딥러닝 툴(<a href="https://www.intel.ai/plaidml/#gs.moswf2)%EB%93%A4%EC%9D%B4">https://www.intel.ai/plaidml/#gs.moswf2)들이</a> 나오고 있긴 합니다.</li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
 <div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
+<div class="text_cell_render border-box-sizing rendered_html">
 
-    </div>
 </div>
 </div>
-
 </div>
 </div>
     </div>
@@ -210,7 +309,7 @@ navbar-dark bg-dark
         </section><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha256-SDRP1VVYu+tgAGKhddBSl5+ezofHKZeI+OzxakbIe/Y=" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
         MathJax.Hub.Config({tex2jax: {inlineMath: [['$latex ','$'], ['\\(','\\)']]}});
         </script></article><!--End of body content--><footer id="footer">
-            Contents © 2019         <a href="mailto:comafire@gmail.com">comafire</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
+            Contents © 2020         <a href="mailto:comafire@gmail.com">comafire</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
             
         </footer>
 </div>

@@ -11,8 +11,9 @@
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Home-brew">Home brew<a class="anchor-link" href="#Home-brew">&#182;</a></h2><p>OSX 에서 편리하게 linux 개발 툴을 사용하기 위해 필수적으로 필요한 패키지 관리자입니다. (<a href="http://brew.sh/index_ko.html">http://brew.sh/index_ko.html</a>)</p>
-<p>설치는 간단합니다. 아래와 같이 스크립트를 수행해 주면 됩니다.</p>
-<div class="highlight"><pre><span></span>&gt; /usr/bin/ruby -e <span class="s2">&quot;</span><span class="k">$(</span>curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install<span class="k">)</span><span class="s2">&quot;</span>
+<p>설치는 간단합니다. 아래와 같이 xcode 개발 툴 설치 후, brew 설치 스크립트를 수행해 주면 됩니다.</p>
+<div class="highlight"><pre><span></span>&gt; xcode-select --install
+&gt; /usr/bin/ruby -e <span class="s2">&quot;</span><span class="k">$(</span>curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install<span class="k">)</span><span class="s2">&quot;</span>
 </pre></div>
 <p>이제 필요한 linux 개발 툴들이 있으면 brew install 명령을 통해 손쉽게 설치할수 있습니다.</p>
 <!-- TEASER_END -->
@@ -94,65 +95,123 @@ Host C.gitlab.com
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="pyenv,-pyenv-virtualenv,-autoenv">pyenv, pyenv-virtualenv, autoenv<a class="anchor-link" href="#pyenv,-pyenv-virtualenv,-autoenv">&#182;</a></h2><p>프로젝트를 진행할때, 파이썬의 특성상 파이썬 자체의 버전과 패키지 버전들에 대한 의존성이 생기게 됩니다. 프로젝트 별로 편리하게 의존성을 관리하기 위해 3가지 툴을 조합하여 사용합니다.</p>
+<h2 id="pyenv,-pyenv-virtualenv,-direnv">pyenv, pyenv-virtualenv, direnv<a class="anchor-link" href="#pyenv,-pyenv-virtualenv,-direnv">&#182;</a></h2><p>프로젝트를 진행할때, 파이썬의 특성상 파이썬 자체의 버전과 패키지 버전들에 대한 의존성이 생기게 됩니다. 프로젝트 별로 편리하게 의존성을 관리하기 위해 3가지 툴을 조합하여 사용합니다.</p>
 <ul>
 <li>pyenv: 로컬에 멀티 버전의 파이썬을 설치/사용, 파이썬 버전에 대한 의존성을 해결</li>
 <li>virtualenv: 로컬에 멀티 파이썬 환경을 설치/사용, 프로젝트별 패키지에 대한 의존성을 해결</li>
-<li>autoenv: 프로젝트 디렉토리에 들어갈때 마다 자동 환경 셋팅, .bash_profile 과 비슷한 역활</li>
+<li>direnv: 프로젝트 디렉토리에 들어갈때 마다 자동 환경 셋팅, .bash_profile 과 비슷한 역활</li>
 </ul>
 <p>3가지 툴을 설치하고 기본 셋팅합니다.</p>
 <div class="highlight"><pre><span></span>&gt; brew update
 &gt; brew install pyenv
 &gt; brew install pyenv-virtualenv
-&gt; brew install autoenv
-&gt; <span class="nb">echo</span> <span class="s1">&#39;eval &quot;$(pyenv init -)&quot;&#39;</span> &gt;&gt; ~/.bash_profile 
-&gt; <span class="nb">echo</span> <span class="s1">&#39;eval &quot;$(pyenv virtualenv-init -)&quot;&#39;</span> &gt;&gt; ~/.bash_profile
-&gt; <span class="nb">echo</span> <span class="s1">&#39;source /usr/local/opt/autoenv/activate.sh&#39;</span> &gt;&gt; ~/.bash_profile
+&gt; brew install direnv
+&gt; <span class="nb">echo</span> <span class="s1">&#39;eval &quot;$(direnv hook zsh)&quot;&#39;</span> &gt;&gt; ~/.zshrc
 </pre></div>
-<p>pyenv를 이용해 파이썬 여러 버전을 설치합니다. 주로 사용하는 2.x 대와 3.x 대의 최신 버전을 설치해 봅니다. 2.x 의 지원종료가 다가오기에 3.x 사용을 추천합니다.</p>
-<div class="highlight"><pre><span></span>&gt; pyenv install <span class="m">2</span>.7.13
-&gt; pyenv install <span class="m">3</span>.6.0
+<p>pyenv를 이용해 파이썬 여러 버전을 설치합니다. 주로 사용하는 2.x 대와 3.x 대의 최신 버전을 설치해 봅니다. 2.x 의 지원종료가 다가오기에 3.x 사용을 추천합니다. apache spark 과의 호완성을 위해 여기서는 3.7.6 버전을 사용합니다. (<a href="https://stackoverflow.com/questions/58700384/how-to-fix-typeerror-an-integer-is-required-got-type-bytes-error-when-tryin">https://stackoverflow.com/questions/58700384/how-to-fix-typeerror-an-integer-is-required-got-type-bytes-error-when-tryin</a>)</p>
+<div class="highlight"><pre><span></span>&gt; pyenv install <span class="m">2</span>.7.16
+&gt; pyenv install <span class="m">3</span>.7.6
 &gt; pyenv versions
 * system <span class="o">(</span><span class="nb">set</span> by /Users/comafire/.pyenv/version<span class="o">)</span>
-  <span class="m">2</span>.7.13
-  <span class="m">3</span>.6.0
+  <span class="m">2</span>.7.16
+  <span class="m">3</span>.7.6
 </pre></div>
 <p>pyenv-virtualenv를 이용해 각 버전의 파이썬 가상환경을 만들어 봅니다.</p>
-<div class="highlight"><pre><span></span>&gt; pyenv virtualenv <span class="m">2</span>.7.13 pyenv-2.7.13
-&gt; pyenv virtualenv <span class="m">3</span>.6.0 pyenv-3.6.0
+<div class="highlight"><pre><span></span>&gt; pyenv virtualenv <span class="m">2</span>.7.16 pyenv-2.7.16
+&gt; pyenv virtualenv <span class="m">3</span>.7.6 macos-jupyter
 &gt; pyenv virtualenvs
   ...
-  pyenv-2.7.13 <span class="o">(</span>created from /Users/comafire/.pyenv/versions/2.7.13<span class="o">)</span>
-  pyenv-3.6.0 <span class="o">(</span>created from /Users/comafire/.pyenv/versions/3.6.0<span class="o">)</span>
+  pyenv-2.7.16 <span class="o">(</span>created from /Users/comafire/.pyenv/versions/2.7.16<span class="o">)</span>
+  macos-jupyter <span class="o">(</span>created from /Users/comafire/.pyenv/versions/3.7.6<span class="o">)</span>
 </pre></div>
-<p>프로젝트를 생성하고 프로젝트의 기본 환경을 자동 셋팅할 수 있도록 autoenv를 사용해 봅니다. autoenv를 이용하면 프로젝트 폴더에 들어갈때 마다 자동으로 프로젝트에 맞는 특정 파이썬 가상환경을 활성화할 수 있습니다. 방법은 간단히 프로젝트의 최상위 디렉토리 아래 .env 파일을 만들고 아래 내용을 적어주면 됩니다.</p>
-<div class="highlight"><pre><span></span>&gt; vi .env
+<p>프로젝트를 생성하고 프로젝트의 기본 환경을 자동 셋팅할 수 있도록 direnv를 사용해 봅니다. direnv를 이용하면 프로젝트 폴더에 들어갈때 마다 자동으로 프로젝트에 맞는 특정 파이썬 가상환경을 활성화할 수 있습니다. 방법은 간단히 프로젝트의 최상위 디렉토리 아래 .envrc 파일을 만들고 아래 필요한 환경설정 내용을 적어주면 됩니다.</p>
+<div class="highlight"><pre><span></span>&gt; vi .envrc
 
-pyenv activate pyenv-3.6.0
-</pre></div>
-<p>해당 작업환경에서 나오고 싶다면 deactivate 명령을 사용하면 됩니다.</p>
-<div class="highlight"><pre><span></span>&gt; pyenv deactivate
-</pre></div>
-<p>git clone을 통해 다운받은 저장소 아래에 .env 파일을 생성하고 해당 디렉토리로 들어가면 pyenv-3.6.0 이 활성화되는 것을 보실 수 있습니다.</p>
-<div class="highlight"><pre><span></span>&gt; <span class="nb">cd</span> comafire.github.io
-<span class="o">(</span>pyenv-3.6.0<span class="o">)</span> &gt;
-</pre></div>
+<span class="nb">eval</span> <span class="s2">&quot;</span><span class="k">$(</span>pyenv init -<span class="k">)</span><span class="s2">&quot;</span>
+<span class="nb">eval</span> <span class="s2">&quot;</span><span class="k">$(</span>pyenv virtualenv-init -<span class="k">)</span><span class="s2">&quot;</span>
+<span class="nb">export</span> <span class="nv">PYENV_VIRTUALENV_DISABLE_PROMPT</span><span class="o">=</span><span class="m">1</span>
 
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
+pyenv activate macos-jupyter
+</pre></div>
+<p>저장 후, 해당 환경을 활성화 하기 위해 아래 명령을 수행해 줍니다.</p>
+<div class="highlight"><pre><span></span>&gt; direnv allow .
+</pre></div>
+<p>이후 부터는 .envrc 가 있는 프로젝트 디렉토리에 들어가면 자동으로 .envrc 내에 있는 환경이 활성화되고, 디렉토리를 벗어나면 자동으로 환경이 해제 됩니다.</p>
+<div class="highlight"><pre><span></span>&gt; <span class="nb">cd</span> macos-jupyter
+direnv: loading ~/macos-jupyter/.envrc
+direnv: <span class="nb">export</span> +PYENV_ACTIVATE_SHELL +PYENV_SHELL +PYENV_VERSION +PYENV_VIRTUALENV_DISABLE_PROMPT +PYENV_VIRTUAL_ENV +VIRTUAL_ENV ~PATH
+
+&gt; <span class="nb">cd</span> ../
+direnv: unloading
 </pre></div>
 
-    </div>
 </div>
 </div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Spark-&amp;-Jupyter">Spark &amp; Jupyter<a class="anchor-link" href="#Spark-&amp;-Jupyter">&#182;</a></h2><p>macOS 에서 Spark 을 설치하여 사용하는 방법은 여러가지가 있지만, 버전 의존성 및 설정의 편리성을 위해 github 저장소에 Spark 및 자주사용하는 Data Science Library 그리고 Jupyter를 띄울수 있도록 템플릿 환경을 저장하여 놓고 사용합니다.</p>
+<div class="highlight"><pre><span></span>&gt; git clone https://github.com/comafire/macos-jupyter.git
+</pre></div>
+<p>macos-jupyter 내부 디렉토리 안에 미리 .envrc 안에 기본 설정이 되어 있으며, 추가적으로 필요한 부분은 수정해서 사용할 수 있습니다.</p>
+<div class="highlight"><pre><span></span>&gt; vi .envrc
 
+<span class="c1"># BASE</span>
+<span class="nb">export</span> <span class="nv">MACOS_JUPYTER</span><span class="o">=</span><span class="nv">$PWD</span>
+
+<span class="c1"># Java</span>
+<span class="nb">export</span> <span class="nv">JAVA_HOME</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$MACOS_JUPYTER</span><span class="s2">/usr/local/openjdk/Contents/Home&quot;</span>
+<span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$JAVA_HOME</span><span class="s2">/bin:</span><span class="nv">$PATH</span><span class="s2">&quot;</span>
+<span class="nb">export</span> <span class="nv">CPPFLAGS</span><span class="o">=</span><span class="s2">&quot;-I</span><span class="nv">$JAVA_HOME</span><span class="s2">/include&quot;</span>
+
+<span class="c1"># Scala</span>
+<span class="nb">export</span> <span class="nv">SCALA_HOME</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$MACOS_JUPYTER</span><span class="s2">/usr/local/scala&quot;</span>
+<span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$SCALA_HOME</span><span class="s2">/bin:</span><span class="nv">$PATH</span><span class="s2">&quot;</span>
+
+<span class="c1"># Python</span>
+<span class="nb">eval</span> <span class="s2">&quot;</span><span class="k">$(</span>pyenv init -<span class="k">)</span><span class="s2">&quot;</span>
+<span class="nb">eval</span> <span class="s2">&quot;</span><span class="k">$(</span>pyenv virtualenv-init -<span class="k">)</span><span class="s2">&quot;</span>
+<span class="nb">export</span> <span class="nv">PYENV_VIRTUALENV_DISABLE_PROMPT</span><span class="o">=</span><span class="m">1</span>
+
+pyenv activate macos-jupyter
+
+<span class="c1"># Spark </span>
+<span class="nb">export</span> <span class="nv">SPARK_HOME</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$MACOS_JUPYTER</span><span class="s2">/usr/local/spark&quot;</span>
+<span class="nb">export</span> <span class="nv">PYSPARK_PYTHON</span><span class="o">=</span><span class="s2">&quot;</span><span class="k">$(</span>which python3<span class="k">)</span><span class="s2">&quot;</span>
+<span class="nb">export</span> <span class="nv">PYSPARK_DRIVER_PYTHON</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$PYSPARK_PYTHON</span><span class="s2">&quot;</span>
+<span class="nb">export</span> <span class="nv">PY4J_VERSION</span><span class="o">=</span><span class="m">0</span>.10.7
+<span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">SPARK_HOME</span><span class="si">}</span><span class="s2">/bin:</span><span class="nv">$PATH</span><span class="s2">&quot;</span>
+<span class="nb">export</span> <span class="nv">PYTHONPATH</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$SPARK_HOME</span><span class="s2">/python/:</span><span class="nv">$PYTHONPATH</span><span class="s2">&quot;</span>
+<span class="nb">export</span> <span class="nv">PYTHONPATH</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$SPARK_HOME</span><span class="s2">/python/lib/py4j-</span><span class="nv">$PY4J_VERSION</span><span class="s2">-src.zip:</span><span class="nv">$PYTHONPATH</span><span class="s2">&quot;</span>
+
+<span class="c1"># Jupyter</span>
+<span class="nb">export</span> <span class="nv">LOCALE</span><span class="o">=</span><span class="s2">&quot;ko_KR.UTF-8&quot;</span>
+
+<span class="c1"># Jupyter</span>
+<span class="nb">export</span> <span class="nv">JUPYTER_PORT</span><span class="o">=</span><span class="s2">&quot;7010&quot;</span> <span class="c1"># Your Jupyter Port</span>
+<span class="nb">export</span> <span class="nv">JUPYTER_PASSWORD</span><span class="o">=</span><span class="s2">&quot;notebooks&quot;</span> <span class="c1"># Your Jupyter Password</span>
+<span class="nb">export</span> <span class="nv">JUPYTER_BASEURL</span><span class="o">=</span><span class="s2">&quot;jupyter&quot;</span> <span class="c1"># Your Jupyter BaseURL, ex) http://localhost:8010/jupyter</span>
+</pre></div>
+<p>이제 필요한 Data Science 라이브러리를 설치합니다. requirements.txt 파일내에 기본 설치 라이브러리가 있으며, 필요시 추가해서 사용하면 됩니다.</p>
+<div class="highlight"><pre><span></span>&gt; brew install cmake
+&gt; pip3 install --upgrade --user pip
+&gt; pip3 install -r etc/pip/requirements.txt
+&gt; python3 -m spylon_kernel install --user
+</pre></div>
+<p>이제 아래 명령으로 jupyter 노트북을 띄우게 되면 macOS 상에서 독립적인 가상 환경내에서 프로젝트 진행이 가능하게 됩니다.</p>
+<div class="highlight"><pre><span></span>&gt; ./bin/run_jupyter.sh
+
+<span class="o">[</span>I <span class="m">16</span>:11:31.013 LabApp<span class="o">]</span> Loading IPython parallel extension
+<span class="o">[</span>I <span class="m">16</span>:11:31.248 LabApp<span class="o">]</span> JupyterLab extension loaded from /Users/comafire/.pyenv/versions/3.7.6/envs/macos-jupyter/lib/python3.7/site-packages/jupyterlab
+<span class="o">[</span>I <span class="m">16</span>:11:31.249 LabApp<span class="o">]</span> JupyterLab application directory is /Users/comafire/.pyenv/versions/3.7.6/envs/macos-jupyter/share/jupyter/lab
+<span class="o">[</span>I <span class="m">16</span>:11:31.251 LabApp<span class="o">]</span> Serving notebooks from <span class="nb">local</span> directory: /Users/comafire/LocalDrive/macos-jupyter
+<span class="o">[</span>I <span class="m">16</span>:11:31.251 LabApp<span class="o">]</span> The Jupyter Notebook is running at:
+<span class="o">[</span>I <span class="m">16</span>:11:31.252 LabApp<span class="o">]</span> http://localhost:7010/jupyter/
+</pre></div>
+
+</div>
+</div>
 </div>
  
 

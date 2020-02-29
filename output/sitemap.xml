@@ -214,14 +214,6 @@
   <lastmod>2019-05-15T13:01:00Z</lastmod>
  </url>
  <url>
-  <loc>https://comafire.github.io/pages/platform-amazon-web-service/</loc>
-  <lastmod>2019-05-15T13:01:00Z</lastmod>
- </url>
- <url>
-  <loc>https://comafire.github.io/pages/platform-azure-cloud/</loc>
-  <lastmod>2019-05-15T13:01:00Z</lastmod>
- </url>
- <url>
   <loc>https://comafire.github.io/pages/platform-data-lake/</loc>
   <lastmod>2019-05-20T16:08:00Z</lastmod>
  </url>
@@ -232,10 +224,6 @@
  <url>
   <loc>https://comafire.github.io/pages/platform-gce-nested-vm/</loc>
   <lastmod>2020-02-07T16:59:00Z</lastmod>
- </url>
- <url>
-  <loc>https://comafire.github.io/pages/platform-google-cloud-platform/</loc>
-  <lastmod>2019-05-15T13:01:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/pages/platform-native-env-for-data-science-on-macos/</loc>

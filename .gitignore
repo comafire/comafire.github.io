@@ -69,14 +69,12 @@ target/
 # IPython Notebook
 .ipynb_checkpoints
 
-# pyenv
-.python-version
-
 # celery beat schedule file
 celerybeat-schedule
 
-# dotenv
-.env
+# direnv
+**/.direnv
+**/.envrc
 
 # virtualenv
 venv/
@@ -89,7 +87,8 @@ ENV/
 .ropeproject
 
 # pyenv settings
-.env
+**/.env
+**/.python-version
 
 # data science
 **/datasets/

@@ -107,6 +107,7 @@ navbar-dark bg-dark
         <!--Body content-->
         
         
+        
 <article class="post-text storypage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">Machine Learning - Split Train and Test</a></h1>
 
         
@@ -143,7 +144,7 @@ navbar-dark bg-dark
 <span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">"ignore"</span><span class="p">)</span>
 
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">sklearn</span> <span class="k">import</span> <span class="n">datasets</span><span class="p">,</span> <span class="n">model_selection</span><span class="p">,</span> <span class="n">linear_model</span><span class="p">,</span> <span class="n">metrics</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">datasets</span><span class="p">,</span> <span class="n">model_selection</span><span class="p">,</span> <span class="n">linear_model</span><span class="p">,</span> <span class="n">metrics</span>
 
 <span class="c1"># 데이터 생성</span>
 <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
@@ -218,7 +219,7 @@ test shape: np_test_xs=(3, 20), np_test_ys=(3,)
 <span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">"ignore"</span><span class="p">)</span>
 
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">sklearn</span> <span class="k">import</span> <span class="n">datasets</span><span class="p">,</span> <span class="n">model_selection</span><span class="p">,</span> <span class="n">linear_model</span><span class="p">,</span> <span class="n">metrics</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">datasets</span><span class="p">,</span> <span class="n">model_selection</span><span class="p">,</span> <span class="n">linear_model</span><span class="p">,</span> <span class="n">metrics</span>
 
 <span class="c1"># 데이터 생성</span>
 <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
@@ -266,7 +267,7 @@ idx_train: [0 1 2 3 4], idx_test: [5 6 7 8 9]
 train shape: np_train_xs=(5, 5), np_train_ys=(5,)
 test shape: np_test_xs=(5, 5), np_test_ys=(5,)
 
-Cross Valid: &lt;sklearn.model_selection._split.RepeatedKFold object at 0x7f718ec4be80&gt;
+Cross Valid: RepeatedKFold(n_repeats=2, n_splits=2, random_state=None)
 idx_train: [0 2 3 7 8], idx_test: [1 4 5 6 9]
 train shape: np_train_xs=(5, 5), np_train_ys=(5,)
 test shape: np_test_xs=(5, 5), np_test_ys=(5,)
@@ -311,7 +312,7 @@ test shape: np_test_xs=(5, 5), np_test_ys=(5,)
 <span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">"ignore"</span><span class="p">)</span>
 
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">sklearn</span> <span class="k">import</span> <span class="n">datasets</span><span class="p">,</span> <span class="n">model_selection</span><span class="p">,</span> <span class="n">linear_model</span><span class="p">,</span> <span class="n">metrics</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">datasets</span><span class="p">,</span> <span class="n">model_selection</span><span class="p">,</span> <span class="n">linear_model</span><span class="p">,</span> <span class="n">metrics</span>
 
 <span class="c1"># 데이터 생성</span>
 <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
@@ -352,26 +353,26 @@ test shape: np_test_xs=(5, 5), np_test_ys=(5,)
 <pre>data shape: np_data_xs=(10, 5), np_data_ys=(10,)
 
 Cross Valid: StratifiedKFold(n_splits=2, random_state=None, shuffle=False)
-idx_train: [6 7 8 9], idx_test: [0 1 2 3 4 5]
-train shape: np_train_xs=(4, 5), np_train_ys=(4,)
-test shape: np_test_xs=(6, 5), np_test_ys=(6,)
-idx_train: [0 1 2 3 4 5], idx_test: [6 7 8 9]
-train shape: np_train_xs=(6, 5), np_train_ys=(6,)
-test shape: np_test_xs=(4, 5), np_test_ys=(4,)
+idx_train: [5 6 7 8 9], idx_test: [0 1 2 3 4]
+train shape: np_train_xs=(5, 5), np_train_ys=(5,)
+test shape: np_test_xs=(5, 5), np_test_ys=(5,)
+idx_train: [0 1 2 3 4], idx_test: [5 6 7 8 9]
+train shape: np_train_xs=(5, 5), np_train_ys=(5,)
+test shape: np_test_xs=(5, 5), np_test_ys=(5,)
 
-Cross Valid: &lt;sklearn.model_selection._split.RepeatedStratifiedKFold object at 0x7f718e2b5358&gt;
-idx_train: [0 3 5 7], idx_test: [1 2 4 6 8 9]
-train shape: np_train_xs=(4, 5), np_train_ys=(4,)
-test shape: np_test_xs=(6, 5), np_test_ys=(6,)
-idx_train: [1 2 4 6 8 9], idx_test: [0 3 5 7]
-train shape: np_train_xs=(6, 5), np_train_ys=(6,)
-test shape: np_test_xs=(4, 5), np_test_ys=(4,)
-idx_train: [3 5 7 9], idx_test: [0 1 2 4 6 8]
-train shape: np_train_xs=(4, 5), np_train_ys=(4,)
-test shape: np_test_xs=(6, 5), np_test_ys=(6,)
-idx_train: [0 1 2 4 6 8], idx_test: [3 5 7 9]
-train shape: np_train_xs=(6, 5), np_train_ys=(6,)
-test shape: np_test_xs=(4, 5), np_test_ys=(4,)
+Cross Valid: RepeatedStratifiedKFold(n_repeats=2, n_splits=2, random_state=None)
+idx_train: [0 3 5 7 8], idx_test: [1 2 4 6 9]
+train shape: np_train_xs=(5, 5), np_train_ys=(5,)
+test shape: np_test_xs=(5, 5), np_test_ys=(5,)
+idx_train: [1 2 4 6 9], idx_test: [0 3 5 7 8]
+train shape: np_train_xs=(5, 5), np_train_ys=(5,)
+test shape: np_test_xs=(5, 5), np_test_ys=(5,)
+idx_train: [3 5 6 7 8], idx_test: [0 1 2 4 9]
+train shape: np_train_xs=(5, 5), np_train_ys=(5,)
+test shape: np_test_xs=(5, 5), np_test_ys=(5,)
+idx_train: [0 1 2 4 9], idx_test: [3 5 6 7 8]
+train shape: np_train_xs=(5, 5), np_train_ys=(5,)
+test shape: np_test_xs=(5, 5), np_test_ys=(5,)
 </pre>
 </div>
 </div>
@@ -404,7 +405,7 @@ test shape: np_test_xs=(4, 5), np_test_ys=(4,)
 <span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">"ignore"</span><span class="p">)</span>
 
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">sklearn</span> <span class="k">import</span> <span class="n">datasets</span><span class="p">,</span> <span class="n">model_selection</span><span class="p">,</span> <span class="n">linear_model</span><span class="p">,</span> <span class="n">metrics</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">datasets</span><span class="p">,</span> <span class="n">model_selection</span><span class="p">,</span> <span class="n">linear_model</span><span class="p">,</span> <span class="n">metrics</span>
 
 <span class="c1"># 데이터 생성</span>
 <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
@@ -477,7 +478,7 @@ test shape: np_test_xs=(3, 5), np_test_ys=(3,)
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [6]:</div>
+<div class="prompt input_prompt">In [5]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
@@ -486,7 +487,7 @@ test shape: np_test_xs=(3, 5), np_test_ys=(3,)
 <span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">"ignore"</span><span class="p">)</span>
 
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">sklearn</span> <span class="k">import</span> <span class="n">datasets</span><span class="p">,</span> <span class="n">model_selection</span><span class="p">,</span> <span class="n">linear_model</span><span class="p">,</span> <span class="n">metrics</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">datasets</span><span class="p">,</span> <span class="n">model_selection</span><span class="p">,</span> <span class="n">linear_model</span><span class="p">,</span> <span class="n">metrics</span>
 
 <span class="c1"># 데이터 생성</span>
 <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
@@ -558,7 +559,7 @@ test shape: np_test_xs=(3, 5), np_test_ys=(3,)
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [7]:</div>
+<div class="prompt input_prompt">In [6]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
@@ -567,7 +568,7 @@ test shape: np_test_xs=(3, 5), np_test_ys=(3,)
 <span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">"ignore"</span><span class="p">)</span>
 
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">sklearn</span> <span class="k">import</span> <span class="n">datasets</span><span class="p">,</span> <span class="n">model_selection</span><span class="p">,</span> <span class="n">linear_model</span><span class="p">,</span> <span class="n">metrics</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">datasets</span><span class="p">,</span> <span class="n">model_selection</span><span class="p">,</span> <span class="n">linear_model</span><span class="p">,</span> <span class="n">metrics</span>
 
 <span class="c1"># 데이터 생성</span>
 <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
@@ -637,7 +638,7 @@ test shape: np_test_xs=(3, 5), np_test_ys=(3,)
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [8]:</div>
+<div class="prompt input_prompt">In [7]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
@@ -646,7 +647,7 @@ test shape: np_test_xs=(3, 5), np_test_ys=(3,)
 <span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">"ignore"</span><span class="p">)</span>
 
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">sklearn</span> <span class="k">import</span> <span class="n">datasets</span><span class="p">,</span> <span class="n">model_selection</span><span class="p">,</span> <span class="n">linear_model</span><span class="p">,</span> <span class="n">metrics</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">datasets</span><span class="p">,</span> <span class="n">model_selection</span><span class="p">,</span> <span class="n">linear_model</span><span class="p">,</span> <span class="n">metrics</span>
 
 <span class="c1"># 데이터 생성</span>
 <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
@@ -705,6 +706,184 @@ test shape: np_test_xs=(3, 5), np_test_ys=(3,)
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Cross-Validation-Score">Cross Validation Score<a class="anchor-link" href="#Cross-Validation-Score">¶</a>
+</h2>
+<p>교차 검증을 위해 데이터 셋을 나누는 함수외에 학습과 평가를 한번에 진행 할 수 있는 함수를 제공합니다. 평가를 위해 제공되는 Scoring 함수는 아래 링크에서 확인 할 수 있습니다.</p>
+<ul>
+<li><a href="https://scikit-learn.org/stable/modules/model_evaluation.html#common-cases-predefined-values">https://scikit-learn.org/stable/modules/model_evaluation.html#common-cases-predefined-values</a></li>
+</ul>
+<p>sklearn.metrics 에서 제공되는 함수들은</p>
+<ul>
+<li>_score 로 끝나는 함수들은 높은 값이 좋은 것입니다.</li>
+<li>_error or _loss 로 끝나는 함수들은 낮은 값이 좋은 것입니다. (make_scorer 사용시 bigger_is_better = False로 설정하세요, 기본 값은 True입니다.)</li>
+</ul>
+<h3 id="Evaluation">Evaluation<a class="anchor-link" href="#Evaluation">¶</a>
+</h3>
+<ul>
+<li><a href="https://comafire.github.io/pages/ml-eval-regression">Regressioin</a></li>
+<li><a href="https://comafire.github.io/pages/ml-eval-classification">Classification</a></li>
+</ul>
+<h3 id="Regression">Regression<a class="anchor-link" href="#Regression">¶</a>
+</h3>
+<p>평가 함수를 사용할 때 주의할 점은 Cross Validation Score는 높은 값이 좋은 것으로 설계되어 있습니다. Regression 의 에러 함수는 평가 함수의 Nagative 값을 넣어주어야 제대로 동작합니다. 그리고, 스코어 값을 다시 에러 함수로 평가할때는 본연의 의미대로 바꾸기 위해 다시 '-' 를 붙여 환원합니다.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [8]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">"ignore"</span><span class="p">)</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">datasets</span><span class="p">,</span> <span class="n">model_selection</span><span class="p">,</span> <span class="n">linear_model</span><span class="p">,</span> <span class="n">metrics</span>
+
+<span class="c1"># 데이터</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">n_samples</span> <span class="o">=</span> <span class="mi">1000</span>
+<span class="n">np_data_xs</span><span class="p">,</span> <span class="n">np_data_ys</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">make_regression</span><span class="p">(</span>
+    <span class="n">n_samples</span><span class="o">=</span><span class="n">n_samples</span><span class="p">,</span> <span class="c1"># 데이터 수</span>
+    <span class="n">n_features</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="c1"># X feature 수</span>
+    <span class="n">bias</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="c1"># Y 절편</span>
+    <span class="n">noise</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="c1"># X 변수들에 더해지는 잡음의 표준 편차</span>
+    <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># 난수 발생용 Seed 값</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"data shape: np_data_xs=</span><span class="si">{}</span><span class="s2">, np_data_ys=</span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np_data_xs</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">np_data_ys</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">np_data_xs</span><span class="p">,</span> <span class="n">np_data_ys</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">'data'</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">'b'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">linear_model</span><span class="o">.</span><span class="n">LinearRegression</span><span class="p">()</span>
+<span class="n">scores</span> <span class="o">=</span> <span class="n">model_selection</span><span class="o">.</span><span class="n">cross_val_score</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">np_data_xs</span><span class="p">,</span> <span class="n">np_data_ys</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="s1">'neg_mean_squared_error'</span><span class="p">)</span>
+<span class="n">rmse_scores</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="o">-</span><span class="n">scores</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"RMSE Scores: </span><span class="si">{}</span><span class="s2">, Mean: </span><span class="si">{}</span><span class="s2">, STD: </span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">rmse_scores</span><span class="p">,</span> <span class="n">rmse_scores</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span> <span class="n">rmse_scores</span><span class="o">.</span><span class="n">std</span><span class="p">()))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>data shape: np_data_xs=(1000, 1), np_data_ys=(1000,)
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,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">
+</div>
+
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>RMSE Scores: [0.26905519 0.31966832 0.30856823 0.30335398 0.28833385], Mean: 0.2977959123991094, STD: 0.017555038647570402
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Classification">Classification<a class="anchor-link" href="#Classification">¶</a>
+</h3>
+<p>멀티 클래스의 경우 f1_score 계산시 학습 데이터를 고려하여 'macro', 'wegithed', 'micro', 'samples' 옵션으로 구할 수 있습니다.(<a href="https://comafire.github.io/pages/ml-eval-classification">Classification</a>)</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [9]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">"ignore"</span><span class="p">)</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">xgboost</span> <span class="k">as</span> <span class="nn">xgb</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">datasets</span><span class="p">,</span> <span class="n">model_selection</span><span class="p">,</span> <span class="n">ensemble</span><span class="p">,</span> <span class="n">metrics</span>
+
+<span class="c1"># 데이터</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">n_samples</span> <span class="o">=</span> <span class="mi">10000</span>
+<span class="n">np_data_xs</span><span class="p">,</span> <span class="n">np_data_ys</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">make_classification</span><span class="p">(</span>
+    <span class="n">n_samples</span><span class="o">=</span><span class="n">n_samples</span><span class="p">,</span> <span class="c1"># 데이터 수</span>
+    <span class="n">n_features</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="c1"># X feature 수</span>
+    <span class="n">n_informative</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+    <span class="n">n_classes</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="c1"># Y class 수</span>
+    <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># 난수 발생용 Seed 값</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"data shape: np_data_xs=</span><span class="si">{}</span><span class="s2">, np_data_ys=</span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np_data_xs</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">np_data_ys</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
+
+<span class="c1"># 모델</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">ensemble</span><span class="o">.</span><span class="n">RandomForestClassifier</span><span class="p">()</span>
+<span class="n">scores</span> <span class="o">=</span> <span class="n">model_selection</span><span class="o">.</span><span class="n">cross_val_score</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">np_data_xs</span><span class="p">,</span> <span class="n">np_data_ys</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="s1">'f1_macro'</span><span class="p">)</span>
+<span class="n">f1_scores</span> <span class="o">=</span> <span class="n">scores</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"F1 Scores: </span><span class="si">{}</span><span class="s2">, Mean: </span><span class="si">{}</span><span class="s2">, STD: </span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">f1_scores</span><span class="p">,</span> <span class="n">f1_scores</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span> <span class="n">f1_scores</span><span class="o">.</span><span class="n">std</span><span class="p">()))</span>
+    
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>data shape: np_data_xs=(10000, 10), np_data_ys=(10000,)
+F1 Scores: [0.95437945 0.94533971 0.94797739 0.9457868  0.94338936], Mean: 0.9473745411748016, STD: 0.0037940848016819236
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In [ ]:</div>
@@ -742,10 +921,11 @@ test shape: np_test_xs=(3, 5), np_test_ys=(3,)
     <a href="https://disqus.com" class="dsq-brlink" rel="nofollow">Comments powered by <span class="logo-disqus">Disqus</span></a>
 
 
-        </section><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha256-SDRP1VVYu+tgAGKhddBSl5+ezofHKZeI+OzxakbIe/Y=" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
+        </section><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha384-3lJUsx1TJHt7BA4udB5KPnDrlkO8T6J6v/op7ui0BbCjvZ9WqV4Xm6DTP6kQ/iBH" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
         MathJax.Hub.Config({tex2jax: {inlineMath: [['$latex ','$'], ['\\(','\\)']]}});
         </script></article><!--End of body content--><footer id="footer">
             Contents © 2020         <a href="mailto:comafire@gmail.com">comafire</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
+            
             
         </footer>
 </div>

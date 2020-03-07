@@ -39,7 +39,7 @@
  </url>
  <url>
   <loc>https://comafire.github.io/archive.html</loc>
-  <lastmod>2020-02-07T16:23:00Z</lastmod>
+  <lastmod>2020-03-05T04:47:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/categories/</loc>
@@ -55,7 +55,7 @@
  </url>
  <url>
   <loc>https://comafire.github.io/pages/</loc>
-  <lastmod>2020-02-07T16:59:00Z</lastmod>
+  <lastmod>2020-03-07T05:37:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/pages/data-science-data-engineering/</loc>
@@ -144,6 +144,10 @@
  <url>
   <loc>https://comafire.github.io/pages/ml-feature-transformation/</loc>
   <lastmod>2019-05-15T13:01:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://comafire.github.io/pages/ml-hyper-parameter-tunning/</loc>
+  <lastmod>2020-03-07T05:37:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/pages/ml-imbalanced-class/</loc>
@@ -255,7 +259,7 @@
  </url>
  <url>
   <loc>https://comafire.github.io/posts/</loc>
-  <lastmod>2020-02-07T16:23:00Z</lastmod>
+  <lastmod>2020-03-05T04:47:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/posts/2014-Dump-Running-Process-Core/</loc>
@@ -466,23 +470,27 @@
   <lastmod>2019-11-15T17:38:00Z</lastmod>
  </url>
  <url>
+  <loc>https://comafire.github.io/posts/2020-docker-build-error-pip/</loc>
+  <lastmod>2020-03-05T04:47:00Z</lastmod>
+ </url>
+ <url>
   <loc>https://comafire.github.io/posts/index-1.html</loc>
-  <lastmod>2020-02-07T16:23:00Z</lastmod>
+  <lastmod>2020-03-05T04:47:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/posts/index-2.html</loc>
-  <lastmod>2020-02-07T16:23:00Z</lastmod>
+  <lastmod>2020-03-05T04:47:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/posts/index-3.html</loc>
-  <lastmod>2020-02-07T16:23:00Z</lastmod>
+  <lastmod>2020-03-05T04:47:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/posts/index-4.html</loc>
-  <lastmod>2020-02-07T16:23:00Z</lastmod>
+  <lastmod>2020-03-05T04:47:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/posts/index-5.html</loc>
-  <lastmod>2020-02-07T16:23:00Z</lastmod>
+  <lastmod>2020-03-05T04:47:00Z</lastmod>
  </url>
 </urlset>

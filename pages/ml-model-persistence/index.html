@@ -118,6 +118,7 @@ navbar-dark bg-dark
         <!--Body content-->
         
         
+        
 <article class="post-text storypage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">Machine Learning - Model Persistence</a></h1>
 
         
@@ -150,7 +151,7 @@ navbar-dark bg-dark
 <span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">"ignore"</span><span class="p">)</span>
 
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">sklearn</span> <span class="k">import</span> <span class="n">datasets</span><span class="p">,</span> <span class="n">model_selection</span><span class="p">,</span> <span class="n">linear_model</span><span class="p">,</span> <span class="n">metrics</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">datasets</span><span class="p">,</span> <span class="n">model_selection</span><span class="p">,</span> <span class="n">linear_model</span><span class="p">,</span> <span class="n">metrics</span>
 <span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">joblib</span>
 
 <span class="c1"># 데이터</span>
@@ -307,7 +308,7 @@ weighted avg       0.81      0.81      0.81     30000
 <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">'new_dense'</span><span class="p">))</span>  <span class="c1"># will not be loaded</span>
 
 <span class="c1"># load weights from first model; will only affect the first layer, dense_1.</span>
-<span class="n">model</span><span class="o">.</span><span class="n">load_weights</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="n">by_name</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">load_weights</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="n">by_name</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 <h4 id="모델에-custom-layers-(or-other-custom-objects)-포함된-경우">모델에 custom layers (or other custom objects) 포함된 경우<a class="anchor-link" href="#%EB%AA%A8%EB%8D%B8%EC%97%90-custom-layers-(or-other-custom-objects)-%ED%8F%AC%ED%95%A8%EB%90%9C-%EA%B2%BD%EC%9A%B0">¶</a>
 </h4>
@@ -340,8 +341,8 @@ weighted avg       0.81      0.81      0.81     30000
 <span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">"ignore"</span><span class="p">)</span>
 
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">sklearn</span> <span class="k">import</span> <span class="n">datasets</span><span class="p">,</span> <span class="n">preprocessing</span><span class="p">,</span> <span class="n">model_selection</span><span class="p">,</span> <span class="n">metrics</span>
-<span class="kn">from</span> <span class="nn">keras</span> <span class="k">import</span> <span class="n">models</span><span class="p">,</span> <span class="n">layers</span><span class="p">,</span> <span class="n">optimizers</span><span class="p">,</span> <span class="n">utils</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">datasets</span><span class="p">,</span> <span class="n">preprocessing</span><span class="p">,</span> <span class="n">model_selection</span><span class="p">,</span> <span class="n">metrics</span>
+<span class="kn">from</span> <span class="nn">keras</span> <span class="kn">import</span> <span class="n">models</span><span class="p">,</span> <span class="n">layers</span><span class="p">,</span> <span class="n">optimizers</span><span class="p">,</span> <span class="n">utils</span>
 
 <span class="c1"># 데이터</span>
 <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
@@ -542,10 +543,11 @@ weighted avg       0.93      0.93      0.93      3000
     <a href="https://disqus.com" class="dsq-brlink" rel="nofollow">Comments powered by <span class="logo-disqus">Disqus</span></a>
 
 
-        </section><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha256-SDRP1VVYu+tgAGKhddBSl5+ezofHKZeI+OzxakbIe/Y=" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
+        </section><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha384-3lJUsx1TJHt7BA4udB5KPnDrlkO8T6J6v/op7ui0BbCjvZ9WqV4Xm6DTP6kQ/iBH" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
         MathJax.Hub.Config({tex2jax: {inlineMath: [['$latex ','$'], ['\\(','\\)']]}});
         </script></article><!--End of body content--><footer id="footer">
             Contents © 2020         <a href="mailto:comafire@gmail.com">comafire</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
+            
             
         </footer>
 </div>

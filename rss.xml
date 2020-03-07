@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Comafire's Lab</title><link>https://comafire.github.io/</link><description>Comafire's Lab</description><atom:link href="https://comafire.github.io/rss.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><copyright>Contents © 2020 &lt;a href="mailto:comafire@gmail.com"&gt;comafire&lt;/a&gt; </copyright><lastBuildDate>Fri, 07 Feb 2020 16:23:30 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>안전하게 디폴트 python 버전 설정하기</title><link>https://comafire.github.io/posts/2019-python-alternatives/</link><dc:creator>comafire</dc:creator><description>&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Comafire's Lab</title><link>https://comafire.github.io/</link><description>Comafire's Lab</description><atom:link href="https://comafire.github.io/rss.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><copyright>Contents © 2020 &lt;a href="mailto:comafire@gmail.com"&gt;comafire&lt;/a&gt; </copyright><lastBuildDate>Thu, 05 Mar 2020 04:47:59 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>도커 이미지 빌드시 pip 137 에러</title><link>https://comafire.github.io/posts/2020-docker-build-error-pip/</link><dc:creator>comafire</dc:creator><description>&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h2 id="도커-이미지-빌드시-pip-137-에러"&gt;도커 이미지 빌드시 pip 137 에러&lt;a class="anchor-link" href="https://comafire.github.io/posts/2020-docker-build-error-pip/#%EB%8F%84%EC%BB%A4-%EC%9D%B4%EB%AF%B8%EC%A7%80-%EB%B9%8C%EB%93%9C%EC%8B%9C-pip-137-%EC%97%90%EB%9F%AC"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;macOS 에서 Docker 이미지 빌드시 pip 로 용량이 큰 python 패키지 인스톨을 하면 아래와 같이 137 에러를 내며 죽는 경우가 있는데, 이는 Docker 빌드를 위해 필요한 메모리가 부족해서 나타나는 현상입니다.
+이럴때는 Docker VM 의 메모리 사이즈를 늘려주시면 됩니다.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;Collecting &lt;span class="nv"&gt;tensorflow&lt;/span&gt;&lt;span class="o"&gt;==&lt;/span&gt;&lt;span class="m"&gt;2&lt;/span&gt;.1.0
+  Downloading tensorflow-2.1.0-cp36-cp36m-manylinux2010_x86_64.whl &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;421&lt;/span&gt;.8 MB&lt;span class="o"&gt;)&lt;/span&gt;
+/bin/sh: line &lt;span class="m"&gt;1&lt;/span&gt;:     &lt;span class="m"&gt;7&lt;/span&gt; 죽었음               pip3 install --cache-dir /tmp/pip3 --timeout &lt;span class="m"&gt;600&lt;/span&gt; &lt;span class="nv"&gt;tensorflow&lt;/span&gt;&lt;span class="o"&gt;==&lt;/span&gt;&lt;span class="nv"&gt;$TENSORFLOW_VER&lt;/span&gt;
+The &lt;span class="nb"&gt;command&lt;/span&gt; &lt;span class="s1"&gt;'/bin/sh -c pip3 install --cache-dir /tmp/pip3 --timeout 600 tensorflow==$TENSORFLOW_VER ; fi'&lt;/span&gt; returned a non-zero code: &lt;span class="m"&gt;137&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;a href="https://comafire.github.io/posts/2020-docker-build-error-pip/"&gt;Read more…&lt;/a&gt; (1 min remaining to read)&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;</description><guid>https://comafire.github.io/posts/2020-docker-build-error-pip/</guid><pubDate>Fri, 28 Feb 2020 15:00:00 GMT</pubDate></item><item><title>안전하게 디폴트 python 버전 설정하기</title><link>https://comafire.github.io/posts/2019-python-alternatives/</link><dc:creator>comafire</dc:creator><description>&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h2 id="안전하게-디폴트-python-버전-설정하기"&gt;안전하게 디폴트 python 버전 설정하기&lt;a class="anchor-link" href="https://comafire.github.io/posts/2019-python-alternatives/#%EC%95%88%EC%A0%84%ED%95%98%EA%B2%8C-%EB%94%94%ED%8F%B4%ED%8A%B8-python-%EB%B2%84%EC%A0%84-%EC%84%A4%EC%A0%95%ED%95%98%EA%B8%B0"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;python2 의 지원 종료가 다가오면서 python3 만 설치하여 사용하는 경우가 많은데, ubuntu 에서 디폴트 python 으로 python3 사용하려면 update-alternatives 명령을 이용합니다.
@@ -55,19 +65,4 @@
 &lt;li&gt;Nginx, VueJS, HTML, CSS를 이용한 Front Web UI 개발&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;이제 Data Science Methodology 에 의해 프로젝트를 진행해봅니다.&lt;/p&gt;
-&lt;p&gt;&lt;a href="https://comafire.github.io/posts/2018-skp-mnist/"&gt;Read more…&lt;/a&gt; (3 min remaining to read)&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;</description><guid>https://comafire.github.io/posts/2018-skp-mnist/</guid><pubDate>Sat, 21 Jul 2018 15:00:00 GMT</pubDate></item><item><title>SKP상에서 데이터 프로덕트 개발</title><link>https://comafire.github.io/posts/2018-notebooks-skp/</link><dc:creator>comafire</dc:creator><description>&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;&lt;div class="inner_cell"&gt;
-&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h2 id="Data-Product-Projects"&gt;Data Product Projects&lt;a class="anchor-link" href="https://comafire.github.io/posts/2018-notebooks-skp/#Data-Product-Projects"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;notebooks-skp 는 St. Kilda Pier 상에서 오픈된 데이터 셋을 이용하여 다양한 데이터 사이언스 프로젝트를 진행할 예정입니다.&lt;/p&gt;
-&lt;p&gt;SKP 위에서 Data Collection 부터 Data Product 빌드까지 진행해 보면서, 데이터 사이언스 전반의 스킬들을 이해하고 적용하는 역활을 수행할 것입니다.&lt;/p&gt;
-&lt;p&gt;St. Kilda Pier 는 빅테이더를 위한 Docker 기반 데이터 사이언스 플랫폼 입니다.&lt;/p&gt;
-&lt;p&gt;전체 소스는 아래 Github 에서 확인할 수 있습니다.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;St.Kilda Pier: &lt;a href="https://github.com/comafire/st-kilda-pier"&gt;https://github.com/comafire/st-kilda-pier&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;notebooks-skp: &lt;a href="https://github.com/comafire/notebooks-skp"&gt;https://github.com/comafire/notebooks-skp&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;처음으로, MNIST 데이터 셋을 이용하는 가상의 프로젝트를 통한 템플릿 성격의 프로젝트가 올라와 있으며, 다양한 데이터 사이언스 프로젝트들이 추가될 예정입니다.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;mnist: &lt;a href="https://github.com/comafire/notebooks-skp/tree/master/mnist"&gt;https://github.com/comafire/notebooks-skp/tree/master/mnist&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;a href="https://comafire.github.io/posts/2018-notebooks-skp/"&gt;Read more…&lt;/a&gt; (1 min remaining to read)&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;</description><guid>https://comafire.github.io/posts/2018-notebooks-skp/</guid><pubDate>Sat, 14 Jul 2018 15:00:00 GMT</pubDate></item></channel></rss>
+&lt;p&gt;&lt;a href="https://comafire.github.io/posts/2018-skp-mnist/"&gt;Read more…&lt;/a&gt; (3 min remaining to read)&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;</description><guid>https://comafire.github.io/posts/2018-skp-mnist/</guid><pubDate>Sat, 21 Jul 2018 15:00:00 GMT</pubDate></item></channel></rss>

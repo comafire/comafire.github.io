@@ -101,6 +101,7 @@ navbar-dark bg-dark
         <!--Body content-->
         
         
+        
     
 <nav class="breadcrumbs"><ul class="breadcrumb">
 <li class="breadcrumb-item"><a href="../">galleries</a></li>
@@ -114,6 +115,7 @@ navbar-dark bg-dark
         <footer id="footer">
             Contents © 2020         <a href="mailto:comafire@gmail.com">comafire</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
             
+            
         </footer>
 </div>
 </div>
@@ -123,7 +125,7 @@ navbar-dark bg-dark
 var jsonContent = [];
 var thumbnailSize = 180;
 renderGallery(jsonContent, thumbnailSize);
-window.addEventListener('resize', renderGallery);
+window.addEventListener('resize', function(){renderGallery(jsonContent, thumbnailSize)});
 </script><script>
     baguetteBox.run('div#content', {
         ignoreClass: 'islink',

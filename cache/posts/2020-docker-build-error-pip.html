@@ -1,0 +1,16 @@
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="&#46020;&#52964;-&#51060;&#48120;&#51648;-&#48716;&#46300;&#49884;-pip-137-&#50640;&#47084;">&#46020;&#52964; &#51060;&#48120;&#51648; &#48716;&#46300;&#49884; pip 137 &#50640;&#47084;<a class="anchor-link" href="#&#46020;&#52964;-&#51060;&#48120;&#51648;-&#48716;&#46300;&#49884;-pip-137-&#50640;&#47084;">&#182;</a></h1><p>macOS 에서 Docker 이미지 빌드시 pip 로 용량이 큰 python 패키지 인스톨을 하면 아래와 같이 137 에러를 내며 죽는 경우가 있는데, 이는 Docker 빌드를 위해 필요한 메모리가 부족해서 나타나는 현상입니다.
+이럴때는 Docker VM 의 메모리 사이즈를 늘려주시면 됩니다.</p>
+<div class="highlight"><pre><span></span>Collecting <span class="nv">tensorflow</span><span class="o">==</span><span class="m">2</span>.1.0
+  Downloading tensorflow-2.1.0-cp36-cp36m-manylinux2010_x86_64.whl <span class="o">(</span><span class="m">421</span>.8 MB<span class="o">)</span>
+/bin/sh: line <span class="m">1</span>:     <span class="m">7</span> 죽었음               pip3 install --cache-dir /tmp/pip3 --timeout <span class="m">600</span> <span class="nv">tensorflow</span><span class="o">==</span><span class="nv">$TENSORFLOW_VER</span>
+The <span class="nb">command</span> <span class="s1">&#39;/bin/sh -c pip3 install --cache-dir /tmp/pip3 --timeout 600 tensorflow==$TENSORFLOW_VER ; fi&#39;</span> returned a non-zero code: <span class="m">137</span>
+</pre></div>
+<!-- TEASER_END -->
+</div>
+</div>
+</div>
+ 
+

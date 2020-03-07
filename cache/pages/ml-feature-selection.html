@@ -1,4 +1,3 @@
-
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -15,7 +14,7 @@
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">sklearn.feature_selection</span> <span class="k">import</span> <span class="n">VarianceThreshold</span>
+<span class="kn">from</span> <span class="nn">sklearn.feature_selection</span> <span class="kn">import</span> <span class="n">VarianceThreshold</span>
 
 <span class="n">np_x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
     <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
@@ -97,7 +96,7 @@
 <div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="k">import</span> <span class="n">load_boston</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">load_boston</span>
 
 load_boston<span class="o">?</span>
 </pre></div>
@@ -192,9 +191,9 @@ Examples
 
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
-<span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="k">import</span> <span class="n">load_boston</span>
-<span class="kn">from</span> <span class="nn">sklearn.feature_selection</span> <span class="k">import</span> <span class="n">SelectKBest</span>
-<span class="kn">from</span> <span class="nn">sklearn.feature_selection</span> <span class="k">import</span> <span class="n">f_regression</span>
+<span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">load_boston</span>
+<span class="kn">from</span> <span class="nn">sklearn.feature_selection</span> <span class="kn">import</span> <span class="n">SelectKBest</span>
+<span class="kn">from</span> <span class="nn">sklearn.feature_selection</span> <span class="kn">import</span> <span class="n">f_regression</span>
 
 <span class="n">np_x</span><span class="p">,</span> <span class="n">np_y</span> <span class="o">=</span> <span class="n">load_boston</span><span class="p">(</span><span class="n">return_X_y</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;np_x.shape=</span><span class="si">{}</span><span class="s2">, np_y.shape=</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np_x</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">np_y</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
@@ -461,7 +460,7 @@ Examples
 <div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="k">import</span> <span class="n">load_wine</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">load_wine</span>
 
 load_wine<span class="o">?</span>
 </pre></div>
@@ -561,9 +560,9 @@ array([0, 1, 2])
 
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
-<span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="k">import</span> <span class="n">load_wine</span>
-<span class="kn">from</span> <span class="nn">sklearn.feature_selection</span> <span class="k">import</span> <span class="n">SelectKBest</span>
-<span class="kn">from</span> <span class="nn">sklearn.feature_selection</span> <span class="k">import</span> <span class="n">f_classif</span>
+<span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">load_wine</span>
+<span class="kn">from</span> <span class="nn">sklearn.feature_selection</span> <span class="kn">import</span> <span class="n">SelectKBest</span>
+<span class="kn">from</span> <span class="nn">sklearn.feature_selection</span> <span class="kn">import</span> <span class="n">f_classif</span>
 
 <span class="n">np_x</span><span class="p">,</span> <span class="n">np_y</span> <span class="o">=</span> <span class="n">load_wine</span><span class="p">(</span><span class="n">return_X_y</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;np_x.shape=</span><span class="si">{}</span><span class="s2">, np_y.shape=</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np_x</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">np_y</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
@@ -835,9 +834,9 @@ array([0, 1, 2])
 
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
-<span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="k">import</span> <span class="n">load_boston</span>
-<span class="kn">from</span> <span class="nn">sklearn.feature_selection</span> <span class="k">import</span> <span class="n">RFE</span>
-<span class="kn">from</span> <span class="nn">sklearn.svm</span> <span class="k">import</span> <span class="n">SVR</span>
+<span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">load_boston</span>
+<span class="kn">from</span> <span class="nn">sklearn.feature_selection</span> <span class="kn">import</span> <span class="n">RFE</span>
+<span class="kn">from</span> <span class="nn">sklearn.svm</span> <span class="kn">import</span> <span class="n">SVR</span>
 
 <span class="n">np_x</span><span class="p">,</span> <span class="n">np_y</span> <span class="o">=</span> <span class="n">load_boston</span><span class="p">(</span><span class="n">return_X_y</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;np_x.shape=</span><span class="si">{}</span><span class="s2">, np_y.shape=</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np_x</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">np_y</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
@@ -1048,9 +1047,9 @@ Wall time: 5.89 s
 
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
-<span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="k">import</span> <span class="n">load_wine</span>
-<span class="kn">from</span> <span class="nn">sklearn.feature_selection</span> <span class="k">import</span> <span class="n">RFE</span>
-<span class="kn">from</span> <span class="nn">sklearn.svm</span> <span class="k">import</span> <span class="n">SVC</span>
+<span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">load_wine</span>
+<span class="kn">from</span> <span class="nn">sklearn.feature_selection</span> <span class="kn">import</span> <span class="n">RFE</span>
+<span class="kn">from</span> <span class="nn">sklearn.svm</span> <span class="kn">import</span> <span class="n">SVC</span>
 
 <span class="n">np_x</span><span class="p">,</span> <span class="n">np_y</span> <span class="o">=</span> <span class="n">load_wine</span><span class="p">(</span><span class="n">return_X_y</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;np_x.shape=</span><span class="si">{}</span><span class="s2">, np_y.shape=</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np_x</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">np_y</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
@@ -1263,9 +1262,9 @@ Wall time: 71.6 ms
 
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
-<span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="k">import</span> <span class="n">load_boston</span>
-<span class="kn">from</span> <span class="nn">sklearn.feature_selection</span> <span class="k">import</span> <span class="n">SelectFromModel</span>
-<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="k">import</span> <span class="n">LassoCV</span>
+<span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">load_boston</span>
+<span class="kn">from</span> <span class="nn">sklearn.feature_selection</span> <span class="kn">import</span> <span class="n">SelectFromModel</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LassoCV</span>
 
 <span class="n">np_x</span><span class="p">,</span> <span class="n">np_y</span> <span class="o">=</span> <span class="n">load_boston</span><span class="p">(</span><span class="n">return_X_y</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;np_x.shape=</span><span class="si">{}</span><span class="s2">, np_y.shape=</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np_x</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">np_y</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
@@ -1322,9 +1321,9 @@ np_x_seleted.shape=(506, 5)
 
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
-<span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="k">import</span> <span class="n">load_wine</span>
-<span class="kn">from</span> <span class="nn">sklearn.feature_selection</span> <span class="k">import</span> <span class="n">SelectFromModel</span>
-<span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="k">import</span> <span class="n">RandomForestClassifier</span>
+<span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">load_wine</span>
+<span class="kn">from</span> <span class="nn">sklearn.feature_selection</span> <span class="kn">import</span> <span class="n">SelectFromModel</span>
+<span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">RandomForestClassifier</span>
 
 <span class="n">np_x</span><span class="p">,</span> <span class="n">np_y</span> <span class="o">=</span> <span class="n">load_wine</span><span class="p">(</span><span class="n">return_X_y</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;np_x.shape=</span><span class="si">{}</span><span class="s2">, np_y.shape=</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np_x</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">np_y</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>

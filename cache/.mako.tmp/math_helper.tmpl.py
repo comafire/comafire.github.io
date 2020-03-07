@@ -5,7 +5,7 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1582963860.1902194
+_modified_time = 1583559634.271678
 _enable_loop = True
 _template_filename = '/usr/local/lib/python3.6/dist-packages/nikola/data/themes/base/templates/math_helper.tmpl'
 _template_uri = 'math_helper.tmpl'
@@ -33,12 +33,12 @@ def render_math_scripts(context):
     __M_caller = context.caller_stack._push_frame()
     try:
         use_katex = context.get('use_katex', UNDEFINED)
-        katex_auto_render = context.get('katex_auto_render', UNDEFINED)
         mathjax_config = context.get('mathjax_config', UNDEFINED)
+        katex_auto_render = context.get('katex_auto_render', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\n')
         if use_katex:
-            __M_writer('        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js" integrity="sha384-/y1Nn9+QQAipbNQWU65krzJralCnuOasHncUFXGkdwntGeSvQicrYkiUBwsgUqc1" crossorigin="anonymous"></script>\n        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js" integrity="sha256-ExtbCSBuYA7kq1Pz362ibde9nnsHYPt6JxuxYeZbU+c=" crossorigin="anonymous"></script>\n')
+            __M_writer('        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.js" integrity="sha384-9Nhn55MVVN0/4OFx7EE5kpFBPsEMZxKTCnA+4fqDmg12eCTqGi6+BB2LjY8brQxJ" crossorigin="anonymous"></script>\n        <script src="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"></script>\n')
             if katex_auto_render:
                 __M_writer('            <script>\n                renderMathInElement(document.body,\n                    {\n                        ')
                 __M_writer(str(katex_auto_render))
@@ -46,7 +46,7 @@ def render_math_scripts(context):
             else:
                 __M_writer('            <script>\n                renderMathInElement(document.body,\n                    {\n                        delimiters: [\n                            {left: "$$", right: "$$", display: true},\n                            {left: "\\\\[", right: "\\\\]", display: true},\n                            {left: "\\\\begin{equation*}", right: "\\\\end{equation*}", display: true},\n                            {left: "\\\\(", right: "\\\\)", display: false}\n                        ]\n                    }\n                );\n            </script>\n')
         else:
-            __M_writer('        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha256-SDRP1VVYu+tgAGKhddBSl5+ezofHKZeI+OzxakbIe/Y=" crossorigin="anonymous"></script>\n')
+            __M_writer('        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha384-3lJUsx1TJHt7BA4udB5KPnDrlkO8T6J6v/op7ui0BbCjvZ9WqV4Xm6DTP6kQ/iBH" crossorigin="anonymous"></script>\n')
             if mathjax_config:
                 __M_writer('        ')
                 __M_writer(str(mathjax_config))
@@ -65,7 +65,7 @@ def render_math_styles(context):
         __M_writer = context.writer()
         __M_writer('\n')
         if use_katex:
-            __M_writer('        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">\n')
+            __M_writer('        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.css" integrity="sha384-yFRtMMDnQtDRO8rLpMIKrtPCD5jdktao2TV19YiZYWMDkUR5GQZR/NOVTdquEx1j" crossorigin="anonymous">\n')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -123,9 +123,9 @@ def render_math_styles_ifpost(context,post):
 def render_math_styles_ifposts(context,posts):
     __M_caller = context.caller_stack._push_frame()
     try:
+        any = context.get('any', UNDEFINED)
         def math_styles():
             return render_math_styles(context)
-        any = context.get('any', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\n')
         if any(post.has_math for post in posts):

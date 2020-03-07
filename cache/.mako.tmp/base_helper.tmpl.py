@@ -5,7 +5,7 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1582963858.3352938
+_modified_time = 1583559633.9749238
 _enable_loop = True
 _template_filename = '/usr/local/lib/python3.6/dist-packages/nikola/data/themes/bootstrap4/templates/base_helper.tmpl'
 _template_uri = 'base_helper.tmpl'
@@ -33,29 +33,29 @@ def render_body(context,**pageargs):
 def render_html_headstart(context):
     __M_caller = context.caller_stack._push_frame()
     try:
-        url_type = context.get('url_type', UNDEFINED)
-        extra_head_data = context.get('extra_head_data', UNDEFINED)
-        prevlink = context.get('prevlink', UNDEFINED)
-        meta_generator_tag = context.get('meta_generator_tag', UNDEFINED)
-        url_replacer = context.get('url_replacer', UNDEFINED)
-        use_cdn = context.get('use_cdn', UNDEFINED)
-        permalink = context.get('permalink', UNDEFINED)
-        description = context.get('description', UNDEFINED)
-        comment_system = context.get('comment_system', UNDEFINED)
-        abs_link = context.get('abs_link', UNDEFINED)
-        title = context.get('title', UNDEFINED)
-        comment_system_id = context.get('comment_system_id', UNDEFINED)
-        lang = context.get('lang', UNDEFINED)
-        mathjax_config = context.get('mathjax_config', UNDEFINED)
-        def html_stylesheets():
-            return render_html_stylesheets(context)
-        favicons = context.get('favicons', UNDEFINED)
-        is_rtl = context.get('is_rtl', UNDEFINED)
-        theme_color = context.get('theme_color', UNDEFINED)
-        nextlink = context.get('nextlink', UNDEFINED)
-        blog_title = context.get('blog_title', UNDEFINED)
         def html_feedlinks():
             return render_html_feedlinks(context)
+        prevlink = context.get('prevlink', UNDEFINED)
+        blog_title = context.get('blog_title', UNDEFINED)
+        favicons = context.get('favicons', UNDEFINED)
+        is_rtl = context.get('is_rtl', UNDEFINED)
+        lang = context.get('lang', UNDEFINED)
+        meta_generator_tag = context.get('meta_generator_tag', UNDEFINED)
+        use_cdn = context.get('use_cdn', UNDEFINED)
+        permalink = context.get('permalink', UNDEFINED)
+        url_type = context.get('url_type', UNDEFINED)
+        comment_system_id = context.get('comment_system_id', UNDEFINED)
+        description = context.get('description', UNDEFINED)
+        url_replacer = context.get('url_replacer', UNDEFINED)
+        extra_head_data = context.get('extra_head_data', UNDEFINED)
+        comment_system = context.get('comment_system', UNDEFINED)
+        theme_color = context.get('theme_color', UNDEFINED)
+        abs_link = context.get('abs_link', UNDEFINED)
+        def html_stylesheets():
+            return render_html_stylesheets(context)
+        mathjax_config = context.get('mathjax_config', UNDEFINED)
+        title = context.get('title', UNDEFINED)
+        nextlink = context.get('nextlink', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\n<!DOCTYPE html>\n<html\n')
         __M_writer("prefix='")
@@ -138,14 +138,14 @@ def render_html_headstart(context):
 def render_late_load_js(context):
     __M_caller = context.caller_stack._push_frame()
     try:
-        use_bundles = context.get('use_bundles', UNDEFINED)
         social_buttons_code = context.get('social_buttons_code', UNDEFINED)
-        use_cdn = context.get('use_cdn', UNDEFINED)
         date_fanciness = context.get('date_fanciness', UNDEFINED)
+        use_bundles = context.get('use_bundles', UNDEFINED)
+        use_cdn = context.get('use_cdn', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\n')
         if use_cdn:
-            __M_writer('        <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>\n        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha256-ZvOgfh+ptkpoa2Y4HkRY28ir89u/+VRyDE7sB7hEEcI=" crossorigin="anonymous"></script>\n        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>\n        <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.0/baguetteBox.min.js" integrity="sha256-yQGjQhFs3LtyiN5hhr3k9s9TWZOh/RzCkD3gwwCKlkg=" crossorigin="anonymous"></script>\n')
+            __M_writer('        <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>\n        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js" integrity="sha256-/ijcOLwFf26xEYAjW75FizKVo5tnTYiQddPZoLUHHZ8=" crossorigin="anonymous"></script>\n        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>\n        <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.0/baguetteBox.min.js" integrity="sha256-yQGjQhFs3LtyiN5hhr3k9s9TWZOh/RzCkD3gwwCKlkg=" crossorigin="anonymous"></script>\n')
         if use_bundles and use_cdn:
             __M_writer('        <script src="/assets/js/all.js"></script>\n')
         elif use_bundles:
@@ -171,14 +171,14 @@ def render_late_load_js(context):
 def render_html_stylesheets(context):
     __M_caller = context.caller_stack._push_frame()
     try:
-        use_bundles = context.get('use_bundles', UNDEFINED)
-        needs_ipython_css = context.get('needs_ipython_css', UNDEFINED)
         has_custom_css = context.get('has_custom_css', UNDEFINED)
+        needs_ipython_css = context.get('needs_ipython_css', UNDEFINED)
+        use_bundles = context.get('use_bundles', UNDEFINED)
         use_cdn = context.get('use_cdn', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\n')
         if use_cdn:
-            __M_writer('        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">\n        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.0/baguetteBox.min.css" integrity="sha256-cKiyvRKpm8RaTdU71Oq2RUVgvfWrdIXjvVdQF2oZ1Y4=" crossorigin="anonymous" />\n')
+            __M_writer('        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">\n        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.0/baguetteBox.min.css" integrity="sha256-cKiyvRKpm8RaTdU71Oq2RUVgvfWrdIXjvVdQF2oZ1Y4=" crossorigin="anonymous">\n')
         if use_bundles and use_cdn:
             __M_writer('        <link href="/assets/css/all.css" rel="stylesheet" type="text/css">\n')
         elif use_bundles:
@@ -214,12 +214,12 @@ def render_html_navigation_links(context):
 def render_html_navigation_links_entries(context,navigation_links_source):
     __M_caller = context.caller_stack._push_frame()
     try:
-        tuple = context.get('tuple', UNDEFINED)
+        rel_link = context.get('rel_link', UNDEFINED)
+        permalink = context.get('permalink', UNDEFINED)
         messages = context.get('messages', UNDEFINED)
         isinstance = context.get('isinstance', UNDEFINED)
         lang = context.get('lang', UNDEFINED)
-        rel_link = context.get('rel_link', UNDEFINED)
-        permalink = context.get('permalink', UNDEFINED)
+        tuple = context.get('tuple', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\n')
         for url, text in navigation_links_source[lang]:
@@ -266,12 +266,12 @@ def render_html_navigation_links_entries(context,navigation_links_source):
 def render_html_feedlinks(context):
     __M_caller = context.caller_stack._push_frame()
     try:
-        _link = context.get('_link', UNDEFINED)
-        generate_atom = context.get('generate_atom', UNDEFINED)
-        len = context.get('len', UNDEFINED)
-        generate_rss = context.get('generate_rss', UNDEFINED)
         translations = context.get('translations', UNDEFINED)
+        _link = context.get('_link', UNDEFINED)
+        len = context.get('len', UNDEFINED)
+        generate_atom = context.get('generate_atom', UNDEFINED)
         sorted = context.get('sorted', UNDEFINED)
+        generate_rss = context.get('generate_rss', UNDEFINED)
         rss_link = context.get('rss_link', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\n')
@@ -311,12 +311,12 @@ def render_html_feedlinks(context):
 def render_html_translations(context):
     __M_caller = context.caller_stack._push_frame()
     try:
-        abs_link = context.get('abs_link', UNDEFINED)
         messages = context.get('messages', UNDEFINED)
-        lang = context.get('lang', UNDEFINED)
-        _link = context.get('_link', UNDEFINED)
         translations = context.get('translations', UNDEFINED)
+        _link = context.get('_link', UNDEFINED)
         sorted = context.get('sorted', UNDEFINED)
+        lang = context.get('lang', UNDEFINED)
+        abs_link = context.get('abs_link', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\n')
         for langname in sorted(translations):

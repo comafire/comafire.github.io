@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article#
+" lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Machine Learning - Hyper Parameter Tunning | Comafire's Lab</title>
+<link href="../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/ipython.min.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
+<meta name="theme-color" content="#5670d4">
+<meta name="generator" content="Nikola (getnikola.com)">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="../../rss.xml">
+<link rel="canonical" href="https://comafire.github.io/pages/ml-hyper-parameter-tunning/">
+<!--[if lt IE 9]><script src="../../assets/js/html5.js"></script><![endif]--><!-- Google Adsense --><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>
+     (adsbygoogle = window.adsbygoogle || []).push({
+          google_ad_client: "ca-pub-0670106451680512",
+          enable_page_level_ads: true
+     });
+</script><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-81648003-1"></script><script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-81648003-1');
+</script><meta name="author" content="comafire">
+<meta property="og:site_name" content="Comafire's Lab">
+<meta property="og:title" content="Machine Learning - Hyper Parameter Tunning">
+<meta property="og:url" content="https://comafire.github.io/pages/ml-hyper-parameter-tunning/">
+<meta property="og:description" content="Hyper Parameter Tunning¶머신러닝 알고리즘을 통해 학습을 진행할 때, 알고리즘의 다양한 파라미터를 통해 데이터에 대한 최적의 모델을 찾는 과정이 필요합니다. 메뉴얼한 방식으로 대략적인 알고리즘의 선택을 할 수는 있지만, 최적의 모델을 선택하기 위해서는 다양한 파라미터 조합을 통한 많은 학습이 필요하게 됩니다. 데이터 수, 피처 수, 파라미">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2020-02-29T00:00:00+09:00">
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+<!-- Menubar -->
+
+<nav class="navbar navbar-expand-md static-top mb-4
+navbar-dark bg-dark
+"><div class="container">
+<!-- This keeps the margins nice -->
+        <a class="navbar-brand" href="https://comafire.github.io/">
+
+            <span id="blog-title">Comafire's Lab</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="bs-navbar">
+            <ul class="navbar-nav mr-auto">
+<li class="nav-item">
+<a href="../../index.html" class="nav-link">Home</a>
+            </li>
+<li class="nav-item dropdown">
+<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pages</a>
+            <div class="dropdown-menu">
+                    <a href="../data-technology-platform" class="dropdown-item">Data Technology Platform</a>
+                    <a href="../data-science-data-engineering" class="dropdown-item">Data Science - Data Engineering</a>
+                    <a href="../data-science-machine-learning" class="dropdown-item">Data Science - Machine Learning</a>
+                    <a href="../data-science-statistics" class="dropdown-item">Data Science - Statistics</a>
+                    <a href="../data-technology-project" class="dropdown-item">Data Technology Project</a>
+            </div>
+            </li>
+<li class="nav-item dropdown">
+<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Posts</a>
+            <div class="dropdown-menu">
+                    <a href="../../posts" class="dropdown-item">Posts</a>
+                    <a href="../../archive.html" class="dropdown-item">Archive</a>
+                    <a href="../../categories/" class="dropdown-item">Tag</a>
+                    <a href="../../rss.xml" class="dropdown-item">RSS</a>
+            </div>
+                </li>
+<li class="nav-item">
+<a href="https://github.com/comafire" class="nav-link">GitHub</a>
+
+                
+            </li>
+</ul>
+<!-- Google custom search --><form method="get" action="https://www.google.com/search" class="navbar-form navbar-right" role="search">
+<div class="input-group">
+  <input type="text" name="q" class="form-control" placeholder="Search"><input type="hidden" name="sitesearch" value="https://comafire.github.io/"><div class="input-group-append">
+    <button class="btn btn-primary" type="submit">Go</button>
+  </div>
+</div>
+
+</form>
+<!-- End of custom search -->
+
+
+            <ul class="navbar-nav navbar-right">
+<li class="nav-item">
+    <a href="index.ipynb" id="sourcelink" class="nav-link">Source</a>
+    </li>
+
+
+                
+            </ul>
+</div>
+<!-- /.navbar-collapse -->
+    </div>
+<!-- /.container -->
+</nav><!-- End of Menubar --><div class="container" id="content" role="main">
+    <div class="body-content">
+        <!--Body content-->
+        
+        
+        
+<article class="post-text storypage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">Machine Learning - Hyper Parameter Tunning</a></h1>
+
+        
+
+    </header><div class="e-content entry-content" itemprop="articleBody text">
+    <div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Hyper-Parameter-Tunning">Hyper Parameter Tunning<a class="anchor-link" href="#Hyper-Parameter-Tunning">¶</a>
+</h2>
+<p>머신러닝 알고리즘을 통해 학습을 진행할 때, 알고리즘의 다양한 파라미터를 통해 데이터에 대한 최적의 모델을 찾는 과정이 필요합니다. 메뉴얼한 방식으로 대략적인 알고리즘의 선택을 할 수는 있지만, 최적의 모델을 선택하기 위해서는 다양한 파라미터 조합을 통한 많은 학습이 필요하게 됩니다. 데이터 수, 피처 수, 파라미터 조합에 따라 최적화 수행 시간은 기하 급수적으로 늘어나게 됩니다.</p>
+<h3 id="Scikit-Learn">Scikit-Learn<a class="anchor-link" href="#Scikit-Learn">¶</a>
+</h3>
+<h4 id="Grid-Search-&amp;-Randomized-Search">Grid Search &amp; Randomized Search<a class="anchor-link" href="#Grid-Search-&amp;-Randomized-Search">¶</a>
+</h4>
+<p>파라미터에 의해서 생성할 수 있는 모든 파라미터의 조합을 생성하여 최적화 파라미터를 찾습니다. 전수를 테스트하는 Grid Search 방식은 Search Space 가 크기 때문에 조금만 파라미터가 커치면 학습해야하는 조합이 늘게 됩니다. 그래서 이보다는 모든 조합을 시도하는 대신 모든 반복에서 각 파라미터에 대해 랜덤 값을 선택하여 학습 조합 수를 줄이는 Randomized Search 방식이 자주 사용됩니다.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [1]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">"ignore"</span><span class="p">)</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">datasets</span><span class="p">,</span> <span class="n">model_selection</span><span class="p">,</span> <span class="n">svm</span><span class="p">,</span> <span class="n">metrics</span>
+<span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">joblib</span>
+
+<span class="c1"># 데이터</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">n_samples</span> <span class="o">=</span> <span class="mi">1000</span>
+<span class="n">np_data_xs</span><span class="p">,</span> <span class="n">np_data_ys</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">make_classification</span><span class="p">(</span>
+    <span class="n">n_samples</span><span class="o">=</span><span class="n">n_samples</span><span class="p">,</span> <span class="c1"># 데이터 수</span>
+    <span class="n">n_features</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="c1"># X feature 수</span>
+    <span class="n">n_informative</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+    <span class="n">n_classes</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="c1"># Y class 수</span>
+    <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># 난수 발생용 Seed 값</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"data shape: np_data_xs=</span><span class="si">{}</span><span class="s2">, np_data_ys=</span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np_data_xs</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">np_data_ys</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
+<span class="n">np_train_xs</span><span class="p">,</span> <span class="n">np_test_xs</span><span class="p">,</span> <span class="n">np_train_ys</span><span class="p">,</span> <span class="n">np_test_ys</span> <span class="o">=</span> <span class="n">model_selection</span><span class="o">.</span><span class="n">train_test_split</span><span class="p">(</span>
+    <span class="n">np_data_xs</span><span class="p">,</span> <span class="n">np_data_ys</span><span class="p">,</span> 
+    <span class="n">test_size</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># Set the parameters by cross-validation</span>
+<span class="n">tuned_parameters</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span><span class="s1">'kernel'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'rbf'</span><span class="p">],</span> <span class="s1">'gamma'</span><span class="p">:</span> <span class="p">[</span><span class="mf">1e-3</span><span class="p">,</span> <span class="mf">1e-4</span><span class="p">],</span> <span class="s1">'C'</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">1000</span><span class="p">]},</span>
+    <span class="p">{</span><span class="s1">'kernel'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'linear'</span><span class="p">],</span> <span class="s1">'C'</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">1000</span><span class="p">]}</span>
+<span class="p">]</span>
+
+<span class="n">scores</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'precision'</span><span class="p">,</span> <span class="s1">'recall'</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">score</span> <span class="ow">in</span> <span class="n">scores</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"# Tuning hyper-parameters for </span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">score</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">()</span>
+
+    <span class="c1">#clf = model_selection.GridSearchCV(svm.SVC(), tuned_parameters, scoring='%s_macro' % score, n_jobs=-1)</span>
+    <span class="n">clf</span> <span class="o">=</span> <span class="n">model_selection</span><span class="o">.</span><span class="n">RandomizedSearchCV</span><span class="p">(</span><span class="n">svm</span><span class="o">.</span><span class="n">SVC</span><span class="p">(),</span> <span class="n">tuned_parameters</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="s1">'</span><span class="si">%s</span><span class="s1">_macro'</span> <span class="o">%</span> <span class="n">score</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+    
+    <span class="n">clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">np_train_xs</span><span class="p">,</span> <span class="n">np_train_ys</span><span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Best parameters set found on development set:"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">clf</span><span class="o">.</span><span class="n">best_params_</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Best estimator set found on development set:"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">clf</span><span class="o">.</span><span class="n">best_estimator_</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">()</span>    
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Grid scores on development set:"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">()</span>
+    <span class="n">means</span> <span class="o">=</span> <span class="n">clf</span><span class="o">.</span><span class="n">cv_results_</span><span class="p">[</span><span class="s1">'mean_test_score'</span><span class="p">]</span>
+    <span class="n">stds</span> <span class="o">=</span> <span class="n">clf</span><span class="o">.</span><span class="n">cv_results_</span><span class="p">[</span><span class="s1">'std_test_score'</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">mean</span><span class="p">,</span> <span class="n">std</span><span class="p">,</span> <span class="n">params</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">means</span><span class="p">,</span> <span class="n">stds</span><span class="p">,</span> <span class="n">clf</span><span class="o">.</span><span class="n">cv_results_</span><span class="p">[</span><span class="s1">'params'</span><span class="p">]):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="si">%0.3f</span><span class="s2"> (+/-</span><span class="si">%0.03f</span><span class="s2">) for </span><span class="si">%r</span><span class="s2">"</span> <span class="o">%</span> <span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">std</span> <span class="o">*</span> <span class="mi">2</span><span class="p">,</span> <span class="n">params</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">()</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Detailed classification report:"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"The model is trained on the full development set."</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"The scores are computed on the full evaluation set."</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">()</span>
+    <span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span> <span class="o">=</span> <span class="n">np_test_ys</span><span class="p">,</span> <span class="n">clf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">np_test_xs</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">metrics</span><span class="o">.</span><span class="n">classification_report</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>data shape: np_data_xs=(1000, 10), np_data_ys=(1000,)
+# Tuning hyper-parameters for precision
+
+Best parameters set found on development set:
+
+{'kernel': 'rbf', 'gamma': 0.001, 'C': 1000}
+
+Best estimator set found on development set:
+
+SVC(C=1000, break_ties=False, cache_size=200, class_weight=None, coef0=0.0,
+    decision_function_shape='ovr', degree=3, gamma=0.001, kernel='rbf',
+    max_iter=-1, probability=False, random_state=None, shrinking=True,
+    tol=0.001, verbose=False)
+
+Grid scores on development set:
+
+0.895 (+/-0.043) for {'kernel': 'rbf', 'gamma': 0.001, 'C': 1000}
+0.880 (+/-0.042) for {'kernel': 'linear', 'C': 1000}
+0.885 (+/-0.055) for {'kernel': 'rbf', 'gamma': 0.001, 'C': 100}
+0.880 (+/-0.042) for {'kernel': 'linear', 'C': 100}
+0.872 (+/-0.076) for {'kernel': 'rbf', 'gamma': 0.001, 'C': 10}
+0.876 (+/-0.049) for {'kernel': 'linear', 'C': 1}
+0.443 (+/-0.043) for {'kernel': 'rbf', 'gamma': 0.0001, 'C': 1}
+0.882 (+/-0.056) for {'kernel': 'rbf', 'gamma': 0.0001, 'C': 1000}
+0.880 (+/-0.046) for {'kernel': 'linear', 'C': 10}
+0.842 (+/-0.072) for {'kernel': 'rbf', 'gamma': 0.0001, 'C': 10}
+
+Detailed classification report:
+
+The model is trained on the full development set.
+The scores are computed on the full evaluation set.
+
+              precision    recall  f1-score   support
+
+           0       0.94      0.92      0.93        88
+           1       0.91      0.84      0.88       114
+           2       0.85      0.95      0.90        98
+
+    accuracy                           0.90       300
+   macro avg       0.90      0.90      0.90       300
+weighted avg       0.90      0.90      0.90       300
+
+
+# Tuning hyper-parameters for recall
+
+Best parameters set found on development set:
+
+{'kernel': 'rbf', 'gamma': 0.001, 'C': 1000}
+
+Best estimator set found on development set:
+
+SVC(C=1000, break_ties=False, cache_size=200, class_weight=None, coef0=0.0,
+    decision_function_shape='ovr', degree=3, gamma=0.001, kernel='rbf',
+    max_iter=-1, probability=False, random_state=None, shrinking=True,
+    tol=0.001, verbose=False)
+
+Grid scores on development set:
+
+0.868 (+/-0.080) for {'kernel': 'rbf', 'gamma': 0.0001, 'C': 100}
+0.870 (+/-0.080) for {'kernel': 'rbf', 'gamma': 0.001, 'C': 10}
+0.837 (+/-0.073) for {'kernel': 'rbf', 'gamma': 0.0001, 'C': 10}
+0.881 (+/-0.063) for {'kernel': 'rbf', 'gamma': 0.001, 'C': 100}
+0.877 (+/-0.047) for {'kernel': 'linear', 'C': 1000}
+0.835 (+/-0.069) for {'kernel': 'rbf', 'gamma': 0.001, 'C': 1}
+0.877 (+/-0.051) for {'kernel': 'linear', 'C': 10}
+0.873 (+/-0.053) for {'kernel': 'linear', 'C': 1}
+0.878 (+/-0.061) for {'kernel': 'rbf', 'gamma': 0.0001, 'C': 1000}
+0.891 (+/-0.048) for {'kernel': 'rbf', 'gamma': 0.001, 'C': 1000}
+
+Detailed classification report:
+
+The model is trained on the full development set.
+The scores are computed on the full evaluation set.
+
+              precision    recall  f1-score   support
+
+           0       0.94      0.92      0.93        88
+           1       0.91      0.84      0.88       114
+           2       0.85      0.95      0.90        98
+
+    accuracy                           0.90       300
+   macro avg       0.90      0.90      0.90       300
+weighted avg       0.90      0.90      0.90       300
+
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+    </div>
+        <section class="comments"><h2>Comments</h2>
+        
+        
+        <div id="disqus_thread"></div>
+        <script>
+        var disqus_shortname ="comafire",
+            disqus_url="https://comafire.github.io/pages/ml-hyper-parameter-tunning/",
+        disqus_title="Machine Learning - Hyper Parameter Tunning",
+        disqus_identifier="cache/pages/ml-hyper-parameter-tunning.html",
+        disqus_config = function () {
+            this.language = "en";
+        };
+        (function() {
+            var dsq = document.createElement('script'); dsq.async = true;
+            dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+    <a href="https://disqus.com" class="dsq-brlink" rel="nofollow">Comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+        </section><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha384-3lJUsx1TJHt7BA4udB5KPnDrlkO8T6J6v/op7ui0BbCjvZ9WqV4Xm6DTP6kQ/iBH" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
+        MathJax.Hub.Config({tex2jax: {inlineMath: [['$latex ','$'], ['\\(','\\)']]}});
+        </script></article><!--End of body content--><footer id="footer">
+            Contents © 2020         <a href="mailto:comafire@gmail.com">comafire</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
+            
+            
+        </footer>
+</div>
+</div>
+
+
+        <script src="../../assets/js/all-nocdn.js"></script><script>
+    baguetteBox.run('div#content', {
+        ignoreClass: 'islink',
+        captions: function(element) {
+            return element.getElementsByTagName('img')[0].alt;
+    }});
+    </script>
+</body>
+</html>

@@ -55,7 +55,7 @@
  </url>
  <url>
   <loc>https://comafire.github.io/pages/</loc>
-  <lastmod>2020-03-07T05:37:00Z</lastmod>
+  <lastmod>2020-03-08T05:48:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/pages/data-science-data-engineering/</loc>
@@ -220,6 +220,10 @@
  <url>
   <loc>https://comafire.github.io/pages/platform-data-lake/</loc>
   <lastmod>2019-05-20T16:08:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://comafire.github.io/pages/platform-docker-jupyter/</loc>
+  <lastmod>2020-03-08T05:48:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/pages/platform-elk/</loc>

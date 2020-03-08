@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article#
+" lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Data Science Platform - Docker Jupyter | Comafire's Lab</title>
+<link href="../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/ipython.min.css" rel="stylesheet" type="text/css">
+<link href="../../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
+<meta name="theme-color" content="#5670d4">
+<meta name="generator" content="Nikola (getnikola.com)">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="../../rss.xml">
+<link rel="canonical" href="https://comafire.github.io/pages/platform-docker-jupyter/">
+<!--[if lt IE 9]><script src="../../assets/js/html5.js"></script><![endif]--><!-- Google Adsense --><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>
+     (adsbygoogle = window.adsbygoogle || []).push({
+          google_ad_client: "ca-pub-0670106451680512",
+          enable_page_level_ads: true
+     });
+</script><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-81648003-1"></script><script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-81648003-1');
+</script><meta name="author" content="comafire">
+<meta property="og:site_name" content="Comafire's Lab">
+<meta property="og:title" content="Data Science Platform - Docker Jupyter">
+<meta property="og:url" content="https://comafire.github.io/pages/platform-docker-jupyter/">
+<meta property="og:description" content="DataScientist 를 위한 Jupyter Docker¶Data Science 에 자주 사용되는 Jupyter 와 Spark, CPU/GPU DeepLearning 및 주요 Library 를 Docker Image 로 제공합니다.
+현재 지원 기능
+
+Jupyter
+Jupyter Kernel: Python3, Scala, R, Julia
+Machine L">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2020-03-07T00:00:00+09:00">
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
+<!-- Menubar -->
+
+<nav class="navbar navbar-expand-md static-top mb-4
+navbar-dark bg-dark
+"><div class="container">
+<!-- This keeps the margins nice -->
+        <a class="navbar-brand" href="https://comafire.github.io/">
+
+            <span id="blog-title">Comafire's Lab</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="bs-navbar">
+            <ul class="navbar-nav mr-auto">
+<li class="nav-item">
+<a href="../../index.html" class="nav-link">Home</a>
+            </li>
+<li class="nav-item dropdown">
+<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pages</a>
+            <div class="dropdown-menu">
+                    <a href="../data-technology-platform" class="dropdown-item">Data Technology Platform</a>
+                    <a href="../data-science-data-engineering" class="dropdown-item">Data Science - Data Engineering</a>
+                    <a href="../data-science-machine-learning" class="dropdown-item">Data Science - Machine Learning</a>
+                    <a href="../data-science-statistics" class="dropdown-item">Data Science - Statistics</a>
+                    <a href="../data-technology-project" class="dropdown-item">Data Technology Project</a>
+            </div>
+            </li>
+<li class="nav-item dropdown">
+<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Posts</a>
+            <div class="dropdown-menu">
+                    <a href="../../posts" class="dropdown-item">Posts</a>
+                    <a href="../../archive.html" class="dropdown-item">Archive</a>
+                    <a href="../../categories/" class="dropdown-item">Tag</a>
+                    <a href="../../rss.xml" class="dropdown-item">RSS</a>
+            </div>
+                </li>
+<li class="nav-item">
+<a href="https://github.com/comafire" class="nav-link">GitHub</a>
+
+                
+            </li>
+</ul>
+<!-- Google custom search --><form method="get" action="https://www.google.com/search" class="navbar-form navbar-right" role="search">
+<div class="input-group">
+  <input type="text" name="q" class="form-control" placeholder="Search"><input type="hidden" name="sitesearch" value="https://comafire.github.io/"><div class="input-group-append">
+    <button class="btn btn-primary" type="submit">Go</button>
+  </div>
+</div>
+
+</form>
+<!-- End of custom search -->
+
+
+            <ul class="navbar-nav navbar-right">
+<li class="nav-item">
+    <a href="index.ipynb" id="sourcelink" class="nav-link">Source</a>
+    </li>
+
+
+                
+            </ul>
+</div>
+<!-- /.navbar-collapse -->
+    </div>
+<!-- /.container -->
+</nav><!-- End of Menubar --><div class="container" id="content" role="main">
+    <div class="body-content">
+        <!--Body content-->
+        
+        
+        
+<article class="post-text storypage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">Data Science Platform - Docker Jupyter</a></h1>
+
+        
+
+    </header><div class="e-content entry-content" itemprop="articleBody text">
+    <div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="DataScientist-를-위한-Jupyter-Docker">DataScientist 를 위한 Jupyter Docker<a class="anchor-link" href="#DataScientist-%EB%A5%BC-%EC%9C%84%ED%95%9C-Jupyter-Docker">¶</a>
+</h2>
+<p>Data Science 에 자주 사용되는 Jupyter 와 Spark, CPU/GPU DeepLearning 및 주요 Library 를 Docker Image 로 제공합니다.</p>
+<p>현재 지원 기능</p>
+<ul>
+<li>Jupyter<ul>
+<li>Jupyter Kernel: Python3, Scala, R, Julia</li>
+<li>Machine Learning<ul>
+<li>Python3 Lib: tensorflow CPU/GPU, pytorch CPU/GPU, keras, pandas, scikit-learn, .. etc</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Apache Spark</li>
+</ul>
+<p>시스템 요구사항</p>
+<ul>
+<li>Ubuntu 18.04 LTS</li>
+<li>Docker</li>
+<li>Nvidia-Docker (for GPU)</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Git-Clone">Git Clone<a class="anchor-link" href="#Git-Clone">¶</a>
+</h3>
+<div class="highlight"><pre><span></span>&gt; git clone https://github.com/comafire/docker-jupyter.git
+</pre></div>
+<h3 id="Install-Docker">Install Docker<a class="anchor-link" href="#Install-Docker">¶</a>
+</h3>
+<p>Docker 공식 설치 문서를 참조하여 설치하시면 됩니다.</p>
+<p><a href="https://docs.docker.com/engine/installation/linux/ubuntu/">https://docs.docker.com/engine/installation/linux/ubuntu/</a></p>
+<p><a href="https://docs.docker.com/engine/installation/linux/linux-postinstall/">https://docs.docker.com/engine/installation/linux/linux-postinstall/</a></p>
+<h3 id="for-Nvidia-GPU">for Nvidia GPU<a class="anchor-link" href="#for-Nvidia-GPU">¶</a>
+</h3>
+<p>Nvidia GPU 가 장착된 머신이라면 아래 Nvidia GPU Driver 와 Nvidia-Docker 설치를 통해서 GPU DeepLarning 라이브러리를 사용하실 수 있습니다.</p>
+<h4 id="Install-Nvidia-GPU-Driver">Install Nvidia GPU Driver<a class="anchor-link" href="#Install-Nvidia-GPU-Driver">¶</a>
+</h4>
+<p>Cuda 및 툴킷 라이브러니는 Nvidia-Docker 를 사용할 것이기에 Driver 만 설치하면 됩니다.</p>
+<p>설치 방법은 아래 링크를 참조하세요.</p>
+<p><a href="https://linuxconfig.org/how-to-install-the-nvidia-drivers-on-ubuntu-18-04-bionic-beaver-linux">https://linuxconfig.org/how-to-install-the-nvidia-drivers-on-ubuntu-18-04-bionic-beaver-linux</a></p>
+<h4 id="Install-Nvidia-Docker">Install Nvidia-Docker<a class="anchor-link" href="#Install-Nvidia-Docker">¶</a>
+</h4>
+<p>Docker 상에서 Nvidia GPU 를 이용하기 위해 Nvidia-Docker 를 사용합니다.</p>
+<p>설치 방법은 아래 공식 설치 문서를 참조하세요.</p>
+<p><a href="https://github.com/NVIDIA/nvidia-docker">https://github.com/NVIDIA/nvidia-docker</a></p>
+<h3 id="Setup">Setup<a class="anchor-link" href="#Setup">¶</a>
+</h3>
+<p>env.sh.template 파일을 env.sh 로 복사하여 설정 변경이 가능합니다.</p>
+<div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+
+<span class="nb">export</span> <span class="nv">HOSTNAME</span><span class="o">=</span><span class="s2">"docker-jupyter"</span> 
+<span class="nb">export</span> <span class="nv">USERNAME</span><span class="o">=</span><span class="k">$(</span>id -un<span class="k">)</span> 
+<span class="nb">export</span> <span class="nv">USERID</span><span class="o">=</span><span class="k">$(</span>id -u <span class="nv">$USERNAME</span><span class="k">)</span>
+<span class="nb">export</span> <span class="nv">LOCALE</span><span class="o">=</span><span class="s2">"ko_KR.UTF-8"</span>
+
+<span class="c1"># Jupyter</span>
+<span class="nb">export</span> <span class="nv">JUPYTER_NAME</span><span class="o">=</span><span class="s2">"jupyter"</span>
+<span class="nb">export</span> <span class="nv">JUPYTER_PORT</span><span class="o">=</span><span class="s2">"8010"</span> <span class="c1"># Your Jupyter Port</span>
+<span class="nb">export</span> <span class="nv">JUPYTER_HOME</span><span class="o">=</span><span class="s2">"</span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span><span class="s2">"</span>
+<span class="nb">export</span> <span class="nv">JUPYTER_MNT</span><span class="o">=</span><span class="s2">"/data"</span> <span class="c1"># Your External Mount</span>
+<span class="nb">export</span> <span class="nv">JUPYTER_PASSWORD</span><span class="o">=</span><span class="s2">"notebooks"</span> <span class="c1"># Your Jupyter Password</span>
+<span class="nb">export</span> <span class="nv">JUPYTER_BASEURL</span><span class="o">=</span><span class="s2">"jupyter"</span> <span class="c1"># Your Jupyter BaseURL, ex) http://localhost:8010/jupyter</span>
+<span class="nb">export</span> <span class="nv">JUPYTER_RESTAPIPORT</span><span class="o">=</span><span class="s2">"8020"</span> <span class="c1"># Your Jupyter Kernel Gateway Port</span>
+<span class="nb">export</span> <span class="nv">JUPYTER_IMAGE</span><span class="o">=</span><span class="s2">"comafire/docker-jupyter"</span>
+<span class="nb">export</span> <span class="nv">JUPYTER_TAG</span><span class="o">=</span><span class="s2">"latest"</span>
+<span class="nb">export</span> <span class="nv">JUPYTER_GPU_IMAGE</span><span class="o">=</span><span class="s2">"comafire/docker-jupyter-gpu"</span>
+<span class="nb">export</span> <span class="nv">JUPYTER_GPU_TAG</span><span class="o">=</span><span class="s2">"latest"</span>
+<span class="nb">export</span> <span class="nv">JUPYTER_GPU</span><span class="o">=</span><span class="s2">"FALSE"</span>
+</pre></div>
+<h3 id="Build-Docker-Image">Build Docker Image<a class="anchor-link" href="#Build-Docker-Image">¶</a>
+</h3>
+<p>./docker_build.sh 명령을 통해 env.sh 에서 설정한 이미지를 빌드합니다.</p>
+<p>Dockerfile 을 제공하므로 커스텀 이미지 빌드도 가능합니다.</p>
+<h3 id="Run">Run<a class="anchor-link" href="#Run">¶</a>
+</h3>
+<p>./docker_run_jupyter.sh 명령으로 Jupyter Docker 이미지를 실행할 수 있습니다.</p>
+<div class="highlight"><pre><span></span>&gt; ./docker_run_jupyter.sh
+&gt; docker ps
+CONTAINER ID        IMAGE                                COMMAND              CREATED             STATUS              PORTS                                            NAMES
+c63e1132d207        comafire/docker-jupyter:latest       <span class="s2">"./run_jupyter.sh"</span>   <span class="m">2</span> seconds ago       Up <span class="m">1</span> second         <span class="m">0</span>.0.0.0:8020-&gt;8088/tcp, <span class="m">0</span>.0.0.0:8010-&gt;8888/tcp   jupyter
+</pre></div>
+<p>이제, 설정한 Jupyter URL 인 <a href="http://localhost:8010/jupyter">http://localhost:8010/jupyter</a> 로 접속하여 Jupyter를 사용할 수 있습니다.</p>
+<h3 id="Install-Extra-Library">Install Extra Library<a class="anchor-link" href="#Install-Extra-Library">¶</a>
+</h3>
+<h4 id="Python">Python<a class="anchor-link" href="#Python">¶</a>
+</h4>
+<p>Jupyter 사용중 추가 외부 라이브러리가 필요하시면 Jupyter 상에서 Terminal 창을 띄우신 후에 pip3 명령을 사용하시면 됩니다.</p>
+<p>Docker 실행시 자동 설치를 원하시면 requirements.txt 파일에 패키지를 추가하시면 됩니다.</p>
+<h3 id="Option---Vagrant">Option - Vagrant<a class="anchor-link" href="#Option---Vagrant">¶</a>
+</h3>
+<p>Linux 에서 Virtual Box Virtual Machine 을 편리하게 관리하기 위한 툴로 Vagrant를 이용합니다.</p>
+<p>docker-jupyter 를 로컬 머신상이 아닌 Virtual Machine 상에서 설치 테스트를 하기 위해 사용합니다.</p>
+<h4 id="Install-Vagrant">Install Vagrant<a class="anchor-link" href="#Install-Vagrant">¶</a>
+</h4>
+<p>Vagrant를 아래 명령으로 설치 합니다. vagrant 의 virtual box disk 사이즈 설정 플러그인 기능을 사용하기 위해 특정 버전의 vagrant 를 설치합니다.</p>
+<div class="highlight"><pre><span></span>wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- <span class="p">|</span> sudo apt-key add -
+wget -q https://www.virtualbox.org/download/oracle_vbox.asc -O- <span class="p">|</span> sudo apt-key add -
+sudo add-apt-repository <span class="s2">"deb [arch=amd64] http://download.virtualbox.org/virtualbox/debian </span><span class="k">$(</span>lsb_release -cs<span class="k">)</span><span class="s2"> contrib"</span>
+sudo apt update
+sudo apt install virtualbox virtualbox-ext-pack
+wget -c https://releases.hashicorp.com/vagrant/2.0.3/vagrant_2.0.3_x86_64.deb -P /tmp
+sudo dpkg -i /tmp/vagrant_2.0.3_x86_64.deb
+vagrant plugin install vagrant-disksize
+</pre></div>
+<h4 id="Vagrantfile">Vagrantfile<a class="anchor-link" href="#Vagrantfile">¶</a>
+</h4>
+<p>Virtual Machine 에서 사용할 네트워크/메모리/디스크 설정은 Vagrantfile 파일에서 자신에 맞게 수정하면 됩니다.</p>
+<p>docker-jupyter 디렉토리는 Virtual box 내에 /home/vagrant/docker-jupyter 와 마운트되게 됩니다.</p>
+<div class="highlight"><pre><span></span>ENV<span class="o">[</span><span class="s2">"LC_ALL"</span><span class="o">]</span> <span class="o">=</span> <span class="s2">"en_US.UTF-8"</span>
+
+Vagrant.configure<span class="o">(</span><span class="s2">"2"</span><span class="o">)</span> <span class="k">do</span> <span class="p">|</span>config<span class="p">|</span>
+
+  config.vm.define <span class="s2">"v01"</span> <span class="k">do</span> <span class="p">|</span>host<span class="p">|</span>
+    host.vm.box <span class="o">=</span> <span class="s2">"ubuntu/xenial64"</span>
+    host.vm.hostname <span class="o">=</span> <span class="s2">"v01"</span>
+    host.vm.network <span class="s2">"public_network"</span>, ip: <span class="s2">"192.168.0.70"</span>
+    <span class="c1">#host.vm.network "private_network", ip: "10.0.1.1"</span>
+    host.vm.provider <span class="s2">"virtualbox"</span> <span class="k">do</span> <span class="p">|</span>vb<span class="p">|</span>
+      vb.gui <span class="o">=</span> <span class="nb">false</span>
+      vb.cpus <span class="o">=</span> <span class="m">2</span>
+      vb.memory <span class="o">=</span> <span class="s2">"4096"</span>
+    end
+    host.disksize.size <span class="o">=</span> <span class="s1">'16GB'</span>
+    host.vm.synced_folder <span class="s2">"./"</span>, <span class="s2">"/home/vagrant/docker-jupyter"</span>, owner: <span class="s2">"vagrant"</span>, group: <span class="s2">"vagrant"</span>
+  end
+
+end
+</pre></div>
+<h4 id="Virtual-Machine-생성-및-접속">Virtual Machine 생성 및 접속<a class="anchor-link" href="#Virtual-Machine-%EC%83%9D%EC%84%B1-%EB%B0%8F-%EC%A0%91%EC%86%8D">¶</a>
+</h4>
+<p>docker-jupyter 디렉토리 내에서 아래 명령어를 통해 Virtual Box 의 Virtual Machine 을 생성하고 접속하여 사용할수 있습니다.</p>
+
+<pre><code>vagrant up
+vagrant ssh v01</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+    </div>
+        <section class="comments"><h2>Comments</h2>
+        
+        
+        <div id="disqus_thread"></div>
+        <script>
+        var disqus_shortname ="comafire",
+            disqus_url="https://comafire.github.io/pages/platform-docker-jupyter/",
+        disqus_title="Data Science Platform - Docker Jupyter",
+        disqus_identifier="cache/pages/platform-docker-jupyter.html",
+        disqus_config = function () {
+            this.language = "en";
+        };
+        (function() {
+            var dsq = document.createElement('script'); dsq.async = true;
+            dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script><noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a>
+</noscript>
+    <a href="https://disqus.com" class="dsq-brlink" rel="nofollow">Comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+        </section><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha384-3lJUsx1TJHt7BA4udB5KPnDrlkO8T6J6v/op7ui0BbCjvZ9WqV4Xm6DTP6kQ/iBH" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
+        MathJax.Hub.Config({tex2jax: {inlineMath: [['$latex ','$'], ['\\(','\\)']]}});
+        </script></article><!--End of body content--><footer id="footer">
+            Contents © 2020         <a href="mailto:comafire@gmail.com">comafire</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
+            
+            
+        </footer>
+</div>
+</div>
+
+
+        <script src="../../assets/js/all-nocdn.js"></script><script>
+    baguetteBox.run('div#content', {
+        ignoreClass: 'islink',
+        captions: function(element) {
+            return element.getElementsByTagName('img')[0].alt;
+    }});
+    </script>
+</body>
+</html>

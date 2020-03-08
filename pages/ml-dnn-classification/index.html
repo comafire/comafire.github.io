@@ -122,10 +122,12 @@ navbar-dark bg-dark
 </h2>
 <p>DNN 은 Logistic Regression 모델을 깊게 쌓아서, 선형/비선형 데이터셋 및 분류/회귀 문제 모두에 사용할수 있습니다. 하지만, DNN은 최적화를 위한 학습시간이 오래 걸리기때문에 정말 고차원 모델이 필요하고 데이터의 양이 많은 경우를 제외하고는 다른 전통적인 알고리즘 시도 후, 시도 하는 것을 추천합니다.</p>
 <p>Hidden Layer내의 노드 갯수와 Hidden Layer 의 층수 사이의 표현력 관계는 아래 그림에서 볼수 있습니다.</p>
-<p>Hidden Layer내의 노드 갯수가 많아지면 저차원의 다양한 결정 경계를 그릴 수 있습니다.
-<img src="https://cdn-images-1.medium.com/max/1600/1*RT-R9WeLjR_mn1irANbWfA.png" alt="Hidden Unit Effect"><img src="https://cdn-images-1.medium.com/max/1600/1*vtWZRVA0vIm6XR-LLoz0aQ.png" alt="Hidden Unit Effect"></p>
-<p>Hidden Layer의 층 수가 깊어지면 저차원으로는 표현할 수 없는 저차원을 조합한 고차원의 다양한 결정 경계를 그릴 수 있게 됩니다. 
-<img src="https://cdn-images-1.medium.com/max/1600/1*mqTfsRjBrdjY2FsEuqqpaA.png" alt="Hidden Layer Effect"><img src="https://cdn-images-1.medium.com/max/1600/1*eAw564GuxOlRMySM93dw7A.png" alt="Hidden Layer Effect"></p>
+<p>Hidden Layer내의 노드 갯수가 많아지면 저차원의 다양한 결정 경계를 그릴 수 있습니다.</p>
+<p><img src="https://cdn-images-1.medium.com/max/1600/1*RT-R9WeLjR_mn1irANbWfA.png" alt="Hidden Unit Effect"></p>
+<p><img src="https://cdn-images-1.medium.com/max/1600/1*vtWZRVA0vIm6XR-LLoz0aQ.png" alt="Hidden Unit Effect"></p>
+<p>Hidden Layer의 층 수가 깊어지면 저차원으로는 표현할 수 없는 저차원을 조합한 고차원의 다양한 결정 경계를 그릴 수 있게 됩니다.</p>
+<p><img src="https://cdn-images-1.medium.com/max/1600/1*mqTfsRjBrdjY2FsEuqqpaA.png" alt="Hidden Layer Effect"></p>
+<p><img src="https://cdn-images-1.medium.com/max/1600/1*eAw564GuxOlRMySM93dw7A.png" alt="Hidden Layer Effect"></p>
 
 </div>
 </div>
@@ -141,8 +143,8 @@ navbar-dark bg-dark
 <span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">"ignore"</span><span class="p">)</span>
 
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">sklearn</span> <span class="k">import</span> <span class="n">datasets</span><span class="p">,</span> <span class="n">preprocessing</span><span class="p">,</span> <span class="n">model_selection</span><span class="p">,</span> <span class="n">metrics</span>
-<span class="kn">from</span> <span class="nn">keras</span> <span class="k">import</span> <span class="n">models</span><span class="p">,</span> <span class="n">layers</span><span class="p">,</span> <span class="n">optimizers</span><span class="p">,</span> <span class="n">utils</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">datasets</span><span class="p">,</span> <span class="n">preprocessing</span><span class="p">,</span> <span class="n">model_selection</span><span class="p">,</span> <span class="n">metrics</span>
+<span class="kn">from</span> <span class="nn">keras</span> <span class="kn">import</span> <span class="n">models</span><span class="p">,</span> <span class="n">layers</span><span class="p">,</span> <span class="n">optimizers</span><span class="p">,</span> <span class="n">utils</span>
 
 <span class="c1"># 데이터</span>
 <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
@@ -172,7 +174,7 @@ navbar-dark bg-dark
 
 <span class="c1"># 모델</span>
 <span class="k">class</span> <span class="nc">DnnClassifier</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Sequential</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n_i</span><span class="p">,</span> <span class="n">n_hs</span><span class="p">,</span> <span class="n">n_o</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n_i</span><span class="p">,</span> <span class="n">n_hs</span><span class="p">,</span> <span class="n">n_o</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="n">n_i</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">'relu'</span><span class="p">,</span> <span class="n">input_shape</span><span class="o">=</span><span class="p">(</span><span class="n">n_i</span><span class="p">,)))</span>
         <span class="k">for</span> <span class="n">l</span><span class="p">,</span> <span class="n">n_h</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">n_hs</span><span class="p">):</span>

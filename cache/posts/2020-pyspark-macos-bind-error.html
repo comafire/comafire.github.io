@@ -1,0 +1,65 @@
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="macOS-&#50640;&#49436;-pyspark-SparkContext-&#49373;&#49457;-&#49884;-java.net.BindException-&#50640;&#47084;">macOS &#50640;&#49436; pyspark SparkContext &#49373;&#49457; &#49884; java.net.BindException &#50640;&#47084;<a class="anchor-link" href="#macOS-&#50640;&#49436;-pyspark-SparkContext-&#49373;&#49457;-&#49884;-java.net.BindException-&#50640;&#47084;">&#182;</a></h1><p>macOS 에서 Jupyter 노트북을 통해 로컬 pyspark 의 SparkContext 생성시 아래와 같이 java.net.BindException 에러가 나는 경우가 있습니다.</p>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">pyspark.sql</span> <span class="kn">import</span> <span class="n">SparkSession</span>
+
+<span class="n">spark_home</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;SPARK_HOME&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+<span class="n">spark</span> <span class="o">=</span> <span class="n">SparkSession</span><span class="o">.</span><span class="n">builder</span><span class="o">.</span><span class="n">master</span><span class="p">(</span><span class="s2">&quot;local[*]&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">appName</span><span class="p">(</span><span class="s2">&quot;spark&quot;</span><span class="p">)</span>
+<span class="n">spark</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">config</span><span class="p">(</span><span class="s2">&quot;spark.driver.memory&quot;</span><span class="p">,</span> <span class="s2">&quot;8g&quot;</span><span class="p">)</span>
+<span class="n">spark</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">config</span><span class="p">(</span><span class="s2">&quot;spark.executor.memory&quot;</span><span class="p">,</span> <span class="s2">&quot;8g&quot;</span><span class="p">)</span>
+<span class="n">spark</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">config</span><span class="p">(</span><span class="s2">&quot;spark.python.worker.memory&quot;</span><span class="p">,</span> <span class="s2">&quot;8g&quot;</span><span class="p">)</span>
+<span class="n">spark</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">getOrCreate</span><span class="p">()</span>
+
+<span class="n">sc</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">sparkContext</span>
+</pre></div>
+<!-- TEASER_END -->
+
+<div class="highlight"><pre><span></span>ERROR SparkContext: Error initializing SparkContext.
+java.net.BindException: Can<span class="s1">&#39;t assign requested address: Service &#39;</span>sparkDriver<span class="s1">&#39; failed after 16 retries (on a random free port)! Consider explicitly setting the appropriate binding address for the service &#39;</span>sparkDriver<span class="err">&#39;</span> <span class="o">(</span><span class="k">for</span> example spark.driver.bindAddress <span class="k">for</span> SparkDriver<span class="o">)</span> to the correct binding address.
+    at java.base/sun.nio.ch.Net.bind0<span class="o">(</span>Native Method<span class="o">)</span>
+    at java.base/sun.nio.ch.Net.bind<span class="o">(</span>Net.java:469<span class="o">)</span>
+    at java.base/sun.nio.ch.Net.bind<span class="o">(</span>Net.java:458<span class="o">)</span>
+    at java.base/sun.nio.ch.ServerSocketChannelImpl.bind<span class="o">(</span>ServerSocketChannelImpl.java:220<span class="o">)</span>
+    at io.netty.channel.socket.nio.NioServerSocketChannel.doBind<span class="o">(</span>NioServerSocketChannel.java:132<span class="o">)</span>
+    at io.netty.channel.AbstractChannel<span class="nv">$AbstractUnsafe</span>.bind<span class="o">(</span>AbstractChannel.java:551<span class="o">)</span>
+    at io.netty.channel.DefaultChannelPipeline<span class="nv">$HeadContext</span>.bind<span class="o">(</span>DefaultChannelPipeline.java:1346<span class="o">)</span>
+    at io.netty.channel.AbstractChannelHandlerContext.invokeBind<span class="o">(</span>AbstractChannelHandlerContext.java:503<span class="o">)</span>
+    at io.netty.channel.AbstractChannelHandlerContext.bind<span class="o">(</span>AbstractChannelHandlerContext.java:488<span class="o">)</span>
+    at io.netty.channel.DefaultChannelPipeline.bind<span class="o">(</span>DefaultChannelPipeline.java:985<span class="o">)</span>
+    at io.netty.channel.AbstractChannel.bind<span class="o">(</span>AbstractChannel.java:247<span class="o">)</span>
+    at io.netty.bootstrap.AbstractBootstrap<span class="nv">$2</span>.run<span class="o">(</span>AbstractBootstrap.java:344<span class="o">)</span>
+    at io.netty.util.concurrent.AbstractEventExecutor.safeExecute<span class="o">(</span>AbstractEventExecutor.java:163<span class="o">)</span>
+    at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks<span class="o">(</span>SingleThreadEventExecutor.java:510<span class="o">)</span>
+    at io.netty.channel.nio.NioEventLoop.run<span class="o">(</span>NioEventLoop.java:518<span class="o">)</span>
+    at io.netty.util.concurrent.SingleThreadEventExecutor<span class="nv">$6</span>.run<span class="o">(</span>SingleThreadEventExecutor.java:1044<span class="o">)</span>
+    at io.netty.util.internal.ThreadExecutorMap<span class="nv">$2</span>.run<span class="o">(</span>ThreadExecutorMap.java:74<span class="o">)</span>
+    at io.netty.util.concurrent.FastThreadLocalRunnable.run<span class="o">(</span>FastThreadLocalRunnable.java:30<span class="o">)</span>
+    at java.base/java.lang.Thread.run<span class="o">(</span>Thread.java:830<span class="o">)</span>
+</pre></div>
+<p>이는 macOS 의 hostname 으로 localhost 를 찾지 못해 일어나는 현상으로 SPARK_LOCAL_IP 라는 환경 변수를 설정해주어 해결할 수 있습니다.</p>
+<p>이를 설정하는 방법은 아래와 같이 python 코드상에서 환경 설정 변수를 지정하는 방법</p>
+<div class="highlight"><pre><span></span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;SPARK_LOCAL_IP&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;127.0.0.1&quot;</span>
+</pre></div>
+<p>shell 의 환경 변수에 설정하는 방법</p>
+<div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">SPARK_LOCAL_IP</span><span class="o">=</span><span class="s2">&quot;127.0.0.1&quot;</span>
+</pre></div>
+<p>또는 spark의 환경 설정 파일인 spark-env.sh 파일에 설정하는 방법이 있습니다.</p>
+<div class="highlight"><pre><span></span>&gt; vi <span class="nv">$SPARK_HOME</span>/conf/spark-env.sh
+
+...
+<span class="c1"># Options read by executors and drivers running inside the cluster</span>
+<span class="c1"># - SPARK_LOCAL_IP, to set the IP address Spark binds to on this node</span>
+<span class="c1"># - SPARK_PUBLIC_DNS, to set the public DNS name of the driver program</span>
+<span class="c1"># - SPARK_LOCAL_DIRS, storage directories to use on this node for shuffle and RDD data</span>
+<span class="c1"># - MESOS_NATIVE_JAVA_LIBRARY, to point to your libmesos.so if you use Mesos</span>
+
+<span class="nv">SPARK_LOCAL_IP</span><span class="o">=</span><span class="s2">&quot;127.0.0.1&quot;</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+ 
+

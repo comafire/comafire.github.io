@@ -162,12 +162,12 @@ navbar-dark bg-dark
 <div class="prompt input_prompt">In [1]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">matplotlib.image</span> <span class="kn">as</span> <span class="nn">img</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">matplotlib.image</span> <span class="k">as</span> <span class="nn">img</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="o">%</span><span class="k">matplotlib</span> inline
 
-<span class="kn">import</span> <span class="nn">tensorflow</span> <span class="kn">as</span> <span class="nn">tf</span>
+<span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
 <span class="kn">from</span> <span class="nn">tensorflow.examples.tutorials.mnist</span> <span class="kn">import</span> <span class="n">input_data</span>
 </pre></div>
 
@@ -183,7 +183,7 @@ navbar-dark bg-dark
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># read_data_sets() 를 통해 간편하게 데이터를 객체형태로 받아올 수 있고</span>
 <span class="c1"># one_hot 옵션을 통해 label 을 one hot 인코딩된 형태로 받아올 수 있습니다.</span>
-<span class="n">mnist</span> <span class="o">=</span> <span class="n">input_data</span><span class="o">.</span><span class="n">read_data_sets</span><span class="p">(</span><span class="s2">"../datasets/MNIST_data/"</span><span class="p">,</span> <span class="n">one_hot</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">mnist</span> <span class="o">=</span> <span class="n">input_data</span><span class="o">.</span><span class="n">read_data_sets</span><span class="p">(</span><span class="s2">"../datasets/MNIST_data/"</span><span class="p">,</span> <span class="n">one_hot</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -219,9 +219,9 @@ Extracting ../datasets/MNIST_data/t10k-labels-idx1-ubyte.gz
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># mnist 데이터 셋은 train, test, validation 3개의 데이터 셋으로 구성되어 있습니다.</span>
 <span class="c1"># num_examples 값을 통해 데이터의 갯수 확인이 가능합니다.</span>
-<span class="k">print</span> <span class="n">mnist</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">num_examples</span>
-<span class="k">print</span> <span class="n">mnist</span><span class="o">.</span><span class="n">test</span><span class="o">.</span><span class="n">num_examples</span>
-<span class="k">print</span> <span class="n">mnist</span><span class="o">.</span><span class="n">validation</span><span class="o">.</span><span class="n">num_examples</span>
+<span class="nb">print</span> <span class="n">mnist</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">num_examples</span>
+<span class="nb">print</span> <span class="n">mnist</span><span class="o">.</span><span class="n">test</span><span class="o">.</span><span class="n">num_examples</span>
+<span class="nb">print</span> <span class="n">mnist</span><span class="o">.</span><span class="n">validation</span><span class="o">.</span><span class="n">num_examples</span>
 </pre></div>
 
     </div>
@@ -256,8 +256,8 @@ Extracting ../datasets/MNIST_data/t10k-labels-idx1-ubyte.gz
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># 데이터는 784(28x28)개의 픽셀을 가지는 이미지와</span>
 <span class="c1"># 10(0~9)개 클래스를 가지는 one hot 인코드된 레이블을 가지고 있습니다.</span>
-<span class="k">print</span> <span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">mnist</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">images</span><span class="p">)</span>
-<span class="k">print</span> <span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">mnist</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">labels</span><span class="p">)</span>
+<span class="nb">print</span> <span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">mnist</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">images</span><span class="p">)</span>
+<span class="nb">print</span> <span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">mnist</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">labels</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -294,7 +294,7 @@ Extracting ../datasets/MNIST_data/t10k-labels-idx1-ubyte.gz
 <span class="n">sample_label</span> <span class="o">=</span> <span class="n">mnist</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">labels</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 
 <span class="c1"># 숫자 7 에 대한 이미지와 레이블을 확인할 수 있습니다.</span>
-<span class="k">print</span> <span class="s2">"label: </span><span class="si">%s</span><span class="s2">(</span><span class="si">%s</span><span class="s2">)"</span> <span class="o">%</span> <span class="p">(</span><span class="n">sample_label</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">sample_label</span><span class="p">))</span>
+<span class="nb">print</span> <span class="s2">"label: </span><span class="si">%s</span><span class="s2">(</span><span class="si">%s</span><span class="s2">)"</span> <span class="o">%</span> <span class="p">(</span><span class="n">sample_label</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">sample_label</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">sample_image</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">28</span><span class="p">,</span> <span class="mi">28</span><span class="p">),</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">'gray'</span><span class="p">)</span>
 </pre></div>
 
@@ -354,8 +354,8 @@ Extracting ../datasets/MNIST_data/t10k-labels-idx1-ubyte.gz
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># 원하는 크기 만큼의 랜덤 샘플된 배치 데이터를 가지고 올수 있습니다.</span>
 <span class="n">batch_images</span><span class="p">,</span> <span class="n">batch_labels</span> <span class="o">=</span> <span class="n">mnist</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">next_batch</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-<span class="k">print</span> <span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">batch_images</span><span class="p">)</span>
-<span class="k">print</span> <span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">batch_labels</span><span class="p">)</span>
+<span class="nb">print</span> <span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">batch_images</span><span class="p">)</span>
+<span class="nb">print</span> <span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">batch_labels</span><span class="p">)</span>
 </pre></div>
 
     </div>

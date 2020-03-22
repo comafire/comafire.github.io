@@ -1,10 +1,9 @@
-
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="K-Means">K-Means<a class="anchor-link" href="#K-Means">&#182;</a></h1><p>K-Means 클러스터링은 초기 값으로 주어진 Centroid의 위치 및 갯수를 통해 가까운 거리의 점들을 클러스터 하고 Centroid 를 다시 계산하는 방식을 거져 Centroid 의 위치가 최적화 될때까지 클러스링을 진행합니다.</p>
 <p><img src="https://dashee87.github.io/images/kmeans.gif" alt="kmeans"></p>
-<p>K-Means 클러스터링 방식은 Circle 형태의 클러스터에서는 잘 작동하는 반면, 아래와 같은 Moon 형식의 데이터에서는 만족할 만한 성과를 내지 못합니다.</p>
+<p>K-Means 클러스터링 방식은 클러스터의 군집, 밀도가 고르고 Circle 형태의 클러스터에서는 잘 작동하는 반면, 아래와 같은 Moon 형식의 데이터에서는 만족할 만한 성과를 내지 못합니다.</p>
 
 </div>
 </div>
@@ -20,7 +19,7 @@
 <span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
 
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">sklearn</span> <span class="k">import</span> <span class="n">datasets</span><span class="p">,</span> <span class="n">model_selection</span><span class="p">,</span> <span class="n">cluster</span><span class="p">,</span> <span class="n">metrics</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">datasets</span><span class="p">,</span> <span class="n">model_selection</span><span class="p">,</span> <span class="n">cluster</span><span class="p">,</span> <span class="n">metrics</span>
 
 <span class="c1"># 데이터</span>
 <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>

@@ -102,7 +102,49 @@ navbar-dark bg-dark
 
     
 <div class="postindex">
-    <article class="h-entry post-text" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title"><a href="2020-docker-build-error-pip/" class="u-url">도커 이미지 빌드시 pip 137 에러</a></h1>
+    <article class="h-entry post-text" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title"><a href="2020-pyspark-macos-bind-error/" class="u-url">macOS 에서 pyspark SparkContext 생성 시 java.net.BindException 에러</a></h1>
+        <div class="metadata">
+            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
+                comafire
+            </span></p>
+            <p class="dateline">
+            <a href="2020-pyspark-macos-bind-error/" rel="bookmark">
+            <time class="published dt-published" datetime="2020-03-14T00:00:00+09:00" itemprop="datePublished" title="2020-03-14 00:00">2020-03-14 00:00</time></a>
+            </p>
+                <p class="commentline">
+        
+    <a href="2020-pyspark-macos-bind-error/#disqus_thread" data-disqus-identifier="cache/posts/2020-pyspark-macos-bind-error.html">Comments</a>
+
+
+        </p>
+</div>
+    </header><div class="p-summary entry-summary">
+    <div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="macOS-에서-pyspark-SparkContext-생성-시-java.net.BindException-에러">macOS 에서 pyspark SparkContext 생성 시 java.net.BindException 에러<a class="anchor-link" href="2020-pyspark-macos-bind-error/#macOS-%EC%97%90%EC%84%9C-pyspark-SparkContext-%EC%83%9D%EC%84%B1-%EC%8B%9C-java.net.BindException-%EC%97%90%EB%9F%AC">¶</a>
+</h2>
+<p>macOS 에서 Jupyter 노트북을 통해 로컬 pyspark 의 SparkContext 생성시 아래와 같이 java.net.BindException 에러가 나는 경우가 있습니다.</p>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">pyspark.sql</span> <span class="kn">import</span> <span class="n">SparkSession</span>
+
+<span class="n">spark_home</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'SPARK_HOME'</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+<span class="n">spark</span> <span class="o">=</span> <span class="n">SparkSession</span><span class="o">.</span><span class="n">builder</span><span class="o">.</span><span class="n">master</span><span class="p">(</span><span class="s2">"local[*]"</span><span class="p">)</span><span class="o">.</span><span class="n">appName</span><span class="p">(</span><span class="s2">"spark"</span><span class="p">)</span>
+<span class="n">spark</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">config</span><span class="p">(</span><span class="s2">"spark.driver.memory"</span><span class="p">,</span> <span class="s2">"8g"</span><span class="p">)</span>
+<span class="n">spark</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">config</span><span class="p">(</span><span class="s2">"spark.executor.memory"</span><span class="p">,</span> <span class="s2">"8g"</span><span class="p">)</span>
+<span class="n">spark</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">config</span><span class="p">(</span><span class="s2">"spark.python.worker.memory"</span><span class="p">,</span> <span class="s2">"8g"</span><span class="p">)</span>
+<span class="n">spark</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">getOrCreate</span><span class="p">()</span>
+
+<span class="n">sc</span> <span class="o">=</span> <span class="n">spark</span><span class="o">.</span><span class="n">sparkContext</span>
+</pre></div>
+<p class="more"><a href="2020-pyspark-macos-bind-error/">Read more…</a></p>
+</div>
+</div>
+</div>
+    </div>
+    </article><article class="h-entry post-text" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title"><a href="2020-docker-build-error-pip/" class="u-url">도커 이미지 빌드시 pip 137 에러</a></h1>
         <div class="metadata">
             <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
                 comafire
@@ -377,50 +419,6 @@ The <span class="nb">command</span> <span class="s1">'/bin/sh -c pip3 install --
 <p><a href="https://letsencrypt.org">https://letsencrypt.org</a> 을 이용하면, 개인용이나, 개발용으로 싱글 DNS에 대해서 SSL 인증서를 발급받는 것을 무료로 진행할 수 있습니다.</p>
 <p>Let's encrypt에서 제공하는 퉁을 이용해 SSL 인증서를 발급 받아보고, pem 확장자의 인증 파일을 SSL 오프로드를 위해 사용한 azure application gateway에서 사용할 pfx 확장자 인증 파일로 변환해 봅니다.</p>
 <p class="more"><a href="2018-convert-letsencrypt-pem-to-pfx/">Read more…</a></p>
-</div>
-</div>
-</div>
-    </div>
-    </article><article class="h-entry post-text" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title"><a href="2018-skp-mnist/" class="u-url">SKP에서 Mnist 데이터 분석해보기</a></h1>
-        <div class="metadata">
-            <p class="byline author vcard"><span class="byline-name fn" itemprop="author">
-                comafire
-            </span></p>
-            <p class="dateline">
-            <a href="2018-skp-mnist/" rel="bookmark">
-            <time class="published dt-published" datetime="2018-07-22T00:00:00+09:00" itemprop="datePublished" title="2018-07-22 00:00">2018-07-22 00:00</time></a>
-            </p>
-                <p class="commentline">
-        
-    <a href="2018-skp-mnist/#disqus_thread" data-disqus-identifier="cache/posts/2018-skp-mnist.html">Comments</a>
-
-
-        </p>
-</div>
-    </header><div class="p-summary entry-summary">
-    <div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="README">README<a class="anchor-link" href="2018-skp-mnist/#README">¶</a>
-</h2>
-<p>MNIST 데이터 셋을 우편 번호 손글씨 인식이라는 가상 프로젝트의 데이터 셋으로 가정하여 SKP 상에서 간단한 Data Science 프로젝트를 진행해 봅니다.</p>
-<ul>
-<li>notebooks-skp/mnist: <a href="https://github.com/comafire/notebooks-skp/tree/master/mnist">https://github.com/comafire/notebooks-skp/tree/master/mnist</a>
-</li>
-</ul>
-<p>이 프로젝트를 통해서 볼 수 있는 내용은 아래와 같습니다.</p>
-<ul>
-<li>Airflow를 통한 Data Pipeline 수행 스켸쥴링</li>
-<li>Jupyter를 통한 Data Pipeline Task 개발</li>
-<li>Keras(Tensorflow backend)를 이용한 Deep Neural Network, Convolution Neural Network 모델링</li>
-<li>Scikit Learn을 이용한 ETL(Extract Load Transform), EDA(Exploratory Data Analysis), Baseline 모델링</li>
-<li>Flask를 이용한 Backend REST API 개발</li>
-<li>Nginx, VueJS, HTML, CSS를 이용한 Front Web UI 개발</li>
-</ul>
-<p>이제 Data Science Methodology 에 의해 프로젝트를 진행해봅니다.</p>
-<p class="more"><a href="2018-skp-mnist/">Read more…</a></p>
 </div>
 </div>
 </div>

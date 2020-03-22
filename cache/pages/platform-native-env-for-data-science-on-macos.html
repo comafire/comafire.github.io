@@ -1,4 +1,3 @@
-
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -108,8 +107,9 @@ Host C.gitlab.com
 &gt; brew install direnv
 &gt; <span class="nb">echo</span> <span class="s1">&#39;eval &quot;$(direnv hook zsh)&quot;&#39;</span> &gt;&gt; ~/.zshrc
 </pre></div>
-<p>pyenv를 이용해 파이썬 여러 버전을 설치합니다. 주로 사용하는 2.x 대와 3.x 대의 최신 버전을 설치해 봅니다. 2.x 의 지원종료가 다가오기에 3.x 사용을 추천합니다. apache spark 과의 호완성을 위해 여기서는 3.7.6 버전을 사용합니다. (<a href="https://stackoverflow.com/questions/58700384/how-to-fix-typeerror-an-integer-is-required-got-type-bytes-error-when-tryin">https://stackoverflow.com/questions/58700384/how-to-fix-typeerror-an-integer-is-required-got-type-bytes-error-when-tryin</a>)</p>
-<div class="highlight"><pre><span></span>&gt; pyenv install <span class="m">2</span>.7.16
+<p>pyenv를 이용해 파이썬 여러 버전을 설치합니다. 파이썬 빌드시 필요한 의존성 패키지와 주로 사용하는 2.x 대와 3.x 대의 최신 버전을 설치해 봅니다. 2.x 의 지원종료가 다가오기에 3.x 사용을 추천합니다. apache spark 과의 호완성을 위해 여기서는 3.7.6 버전을 사용합니다. (<a href="https://stackoverflow.com/questions/58700384/how-to-fix-typeerror-an-integer-is-required-got-type-bytes-error-when-tryin">https://stackoverflow.com/questions/58700384/how-to-fix-typeerror-an-integer-is-required-got-type-bytes-error-when-tryin</a>)</p>
+<div class="highlight"><pre><span></span>&gt; brew install gdbm
+&gt; pyenv install <span class="m">2</span>.7.16
 &gt; pyenv install <span class="m">3</span>.7.6
 &gt; pyenv versions
 * system <span class="o">(</span><span class="nb">set</span> by /Users/comafire/.pyenv/version<span class="o">)</span>
@@ -154,36 +154,37 @@ direnv: unloading
 <h2 id="Spark-&amp;-Jupyter-&amp;-Python-Data-Science-Library">Spark &amp; Jupyter &amp; Python Data Science Library<a class="anchor-link" href="#Spark-&amp;-Jupyter-&amp;-Python-Data-Science-Library">&#182;</a></h2><p>macOS 에서 Spark 을 설치하여 사용하는 방법은 여러가지가 있지만, 버전 의존성 및 설정의 편리성을 위해 github 저장소에 Spark 및 자주사용하는 Data Science Library 그리고 Jupyter를 띄울수 있도록 템플릿 환경을 저장하여 놓고 사용합니다.</p>
 <div class="highlight"><pre><span></span>&gt; git clone https://github.com/comafire/macos-jupyter.git
 </pre></div>
-<p>Spark 을 위한 소스를 다운받아 프로젝트 내부의 usr/local 디렉토리내에 압축을 풀어 줍니다.</p>
+<p>Spark 실행을 의한 의존성 패키지들을 설치 및 다운받아 프로젝트 내부의 usr/local 디렉토리내에 압축을 풀어 줍니다.</p>
 <ul>
-<li>openjdk-13.0.2_osx-x64_bin.tar.gz </li>
-<li>scala-2.12.10.tgz</li>
-<li>spark-2.4.5-bin-hadoop2.7.tgz</li>
+<li>openjdk-8: brew 로 설치 (Spark은 JDK8에 의존성 존재)</li>
+<li>scala-2.12.10.tgz: 다운로드</li>
+<li>spark-2.4.5-bin-hadoop2.7.tgz: 다운로드</li>
 </ul>
-<div class="highlight"><pre><span></span>&gt; mkdir -p usr/local
-&gt; wget https://download.java.net/java/GA/jdk13.0.2/d4173c853231432d94f001e99d882ca7/8/GPL/openjdk-13.0.2_osx-x64_bin.tar.gz
+<div class="highlight"><pre><span></span>&gt; brew tap AdoptOpenJDK/openjdk
+&gt; brew cask install adoptopenjdk8
+&gt; mkdir -p usr
+&gt; <span class="nb">cd</span> usr
 &gt; wget https://downloads.lightbend.com/scala/2.12.10/scala-2.12.10.tgz
 &gt; wget http://mirror.navercorp.com/apache/spark/spark-2.4.5/spark-2.4.5-bin-hadoop2.7.tgz
-&gt; tar -zxvf openjdk-13.0.2_osx-x64_bin.tar.gz
 &gt; tar -zvxf scala-2.12.10.tgz
 &gt; tar -zxvf spark-2.4.5-bin-hadoop2.7.tgz
-&gt; ln -s jdk-13.0.2.jdk openjdk
 &gt; ln -s scala-2.12.10 scala
 &gt; ln -s spark-2.4.5-bin-hadoop2.7 spark
 </pre></div>
-<p>macos-jupyter 내부 디렉토리 안에 미리 .envrc 안에 기본 설정이 되어 있으며, 추가적으로 필요한 부분은 수정해서 사용할 수 있습니다.</p>
-<div class="highlight"><pre><span></span>&gt; vi .envrc
+<p>macos-jupyter 내부 디렉토리 안에 미리 .envrc.template 안에 기본 설정이 되어 있으며, 이를 복사하여 추가적으로 필요한 부분은 수정해서 사용할 수 있습니다.</p>
+<div class="highlight"><pre><span></span>&gt; cp .envrc.template .envrc
+&gt; vi .envrc
 
 <span class="c1"># BASE</span>
 <span class="nb">export</span> <span class="nv">MACOS_JUPYTER</span><span class="o">=</span><span class="nv">$PWD</span>
 
 <span class="c1"># Java</span>
-<span class="nb">export</span> <span class="nv">JAVA_HOME</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$MACOS_JUPYTER</span><span class="s2">/usr/local/openjdk/Contents/Home&quot;</span>
+<span class="nb">export</span> <span class="nv">JAVA_HOME</span><span class="o">=</span><span class="s2">&quot;/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home&quot;</span>
 <span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$JAVA_HOME</span><span class="s2">/bin:</span><span class="nv">$PATH</span><span class="s2">&quot;</span>
 <span class="nb">export</span> <span class="nv">CPPFLAGS</span><span class="o">=</span><span class="s2">&quot;-I</span><span class="nv">$JAVA_HOME</span><span class="s2">/include&quot;</span>
 
 <span class="c1"># Scala</span>
-<span class="nb">export</span> <span class="nv">SCALA_HOME</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$MACOS_JUPYTER</span><span class="s2">/usr/local/scala&quot;</span>
+<span class="nb">export</span> <span class="nv">SCALA_HOME</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$MACOS_JUPYTER</span><span class="s2">/usr/scala&quot;</span>
 <span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$SCALA_HOME</span><span class="s2">/bin:</span><span class="nv">$PATH</span><span class="s2">&quot;</span>
 
 <span class="c1"># Python</span>
@@ -194,7 +195,7 @@ direnv: unloading
 pyenv activate macos-jupyter
 
 <span class="c1"># Spark </span>
-<span class="nb">export</span> <span class="nv">SPARK_HOME</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$MACOS_JUPYTER</span><span class="s2">/usr/local/spark&quot;</span>
+<span class="nb">export</span> <span class="nv">SPARK_HOME</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$MACOS_JUPYTER</span><span class="s2">/usr/spark&quot;</span>
 <span class="nb">export</span> <span class="nv">PYSPARK_PYTHON</span><span class="o">=</span><span class="s2">&quot;</span><span class="k">$(</span>which python3<span class="k">)</span><span class="s2">&quot;</span>
 <span class="nb">export</span> <span class="nv">PYSPARK_DRIVER_PYTHON</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$PYSPARK_PYTHON</span><span class="s2">&quot;</span>
 <span class="nb">export</span> <span class="nv">PY4J_VERSION</span><span class="o">=</span><span class="m">0</span>.10.7

@@ -7,387 +7,395 @@
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <url>
   <loc>https://comafire.github.io/</loc>
-  <lastmod>2020-02-07T16:23:00Z</lastmod>
+  <lastmod>2020-03-18T17:07:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/2014/</loc>
-  <lastmod>2019-08-20T14:58:00Z</lastmod>
+  <lastmod>2020-03-18T14:45:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/2015/</loc>
-  <lastmod>2019-04-20T15:52:00Z</lastmod>
+  <lastmod>2020-03-18T14:45:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/2016/</loc>
-  <lastmod>2019-04-20T15:52:00Z</lastmod>
+  <lastmod>2020-03-18T14:45:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/2017/</loc>
-  <lastmod>2019-04-20T15:52:00Z</lastmod>
+  <lastmod>2020-03-18T14:45:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/2018/</loc>
-  <lastmod>2019-04-20T15:52:00Z</lastmod>
+  <lastmod>2020-03-18T14:45:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/2019/</loc>
-  <lastmod>2019-04-20T15:52:00Z</lastmod>
+  <lastmod>2020-03-18T14:45:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/2020/</loc>
-  <lastmod>2020-02-07T16:23:00Z</lastmod>
+  <lastmod>2020-03-18T14:45:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/archive.html</loc>
-  <lastmod>2020-03-05T04:47:00Z</lastmod>
+  <lastmod>2020-03-21T13:47:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/categories/</loc>
-  <lastmod>2019-04-20T15:51:00Z</lastmod>
+  <lastmod>2020-03-18T14:44:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/galleries/</loc>
-  <lastmod>2020-02-07T16:59:00Z</lastmod>
+  <lastmod>2020-03-18T14:44:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/galleries/.ipynb_checkpoints/</loc>
-  <lastmod>2019-08-24T14:34:00Z</lastmod>
+  <lastmod>2020-03-18T14:44:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/pages/</loc>
-  <lastmod>2020-03-08T05:48:00Z</lastmod>
+  <lastmod>2020-03-18T14:45:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/pages/data-science-data-engineering/</loc>
-  <lastmod>2019-05-15T13:01:00Z</lastmod>
+  <lastmod>2020-03-18T14:45:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/pages/data-science-machine-learning/</loc>
-  <lastmod>2019-05-15T13:01:00Z</lastmod>
+  <lastmod>2020-03-18T14:45:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/pages/data-science-statistics/</loc>
-  <lastmod>2019-05-15T13:01:00Z</lastmod>
+  <lastmod>2020-03-18T14:45:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/pages/data-technology-platform/</loc>
-  <lastmod>2019-05-15T13:01:00Z</lastmod>
+  <lastmod>2020-03-18T14:45:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/pages/data-technology-project/</loc>
-  <lastmod>2019-05-15T13:01:00Z</lastmod>
+  <lastmod>2020-03-18T14:45:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/pages/de-pandas-10mins/</loc>
-  <lastmod>2019-05-15T13:01:00Z</lastmod>
+  <lastmod>2020-03-18T14:45:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/pages/de-spark-dataframe-10mins/</loc>
-  <lastmod>2019-05-15T13:01:00Z</lastmod>
+  <lastmod>2020-03-18T14:45:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/pages/de-spark-dataframe-complex-data-format/</loc>
-  <lastmod>2019-05-29T16:38:00Z</lastmod>
+  <lastmod>2020-03-18T14:45:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/pages/ml-anomaly-detection/</loc>
-  <lastmod>2019-05-29T16:38:00Z</lastmod>
+  <lastmod>2020-03-18T14:45:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/pages/ml-collaborative-filtering/</loc>
-  <lastmod>2019-05-15T13:01:00Z</lastmod>
+  <lastmod>2020-03-18T14:45:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/pages/ml-data-description/</loc>
-  <lastmod>2019-05-15T13:01:00Z</lastmod>
+  <lastmod>2020-03-18T14:45:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/pages/ml-descriptive-statistics/</loc>
-  <lastmod>2019-05-15T13:01:00Z</lastmod>
+  <lastmod>2020-03-18T14:45:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/pages/ml-dnn-classification/</loc>
-  <lastmod>2019-05-15T13:01:00Z</lastmod>
+  <lastmod>2020-03-18T14:45:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/pages/ml-dnn-regression/</loc>
-  <lastmod>2019-05-15T13:01:00Z</lastmod>
+  <lastmod>2020-03-18T14:45:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/pages/ml-ensemble-classification/</loc>
-  <lastmod>2019-05-15T13:01:00Z</lastmod>
+  <lastmod>2020-03-18T14:45:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/pages/ml-ensemble-regression/</loc>
-  <lastmod>2019-05-15T13:01:00Z</lastmod>
+  <lastmod>2020-03-18T14:45:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/pages/ml-eval-classification/</loc>
-  <lastmod>2019-05-29T16:38:00Z</lastmod>
+  <lastmod>2020-03-18T14:45:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/pages/ml-eval-clustering/</loc>
-  <lastmod>2019-05-29T16:38:00Z</lastmod>
+  <lastmod>2020-03-18T14:45:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/pages/ml-eval-regression/</loc>
-  <lastmod>2019-05-29T16:38:00Z</lastmod>
+  <lastmod>2020-03-18T14:45:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/pages/ml-feature-extraction/</loc>
-  <lastmod>2019-05-15T13:01:00Z</lastmod>
+  <lastmod>2020-03-18T14:45:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/pages/ml-feature-selection/</loc>
-  <lastmod>2019-05-15T13:01:00Z</lastmod>
+  <lastmod>2020-03-18T14:45:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/pages/ml-feature-transformation/</loc>
-  <lastmod>2019-05-15T13:01:00Z</lastmod>
+  <lastmod>2020-03-18T14:45:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/pages/ml-hyper-parameter-tunning/</loc>
-  <lastmod>2020-03-07T05:37:00Z</lastmod>
+  <lastmod>2020-03-18T14:45:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/pages/ml-imbalanced-class/</loc>
-  <lastmod>2019-05-15T13:01:00Z</lastmod>
+  <lastmod>2020-03-18T14:45:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/pages/ml-keras-10mins/</loc>
-  <lastmod>2019-05-15T13:01:00Z</lastmod>
+  <lastmod>2020-03-18T14:45:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/pages/ml-kmeans/</loc>
-  <lastmod>2019-05-15T13:01:00Z</lastmod>
+  <lastmod>2020-03-18T14:45:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/pages/ml-linear-regression/</loc>
-  <lastmod>2019-05-15T13:01:00Z</lastmod>
+  <lastmod>2020-03-18T14:45:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/pages/ml-logistic-regression/</loc>
-  <lastmod>2019-05-15T13:01:00Z</lastmod>
+  <lastmod>2020-03-18T14:45:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/pages/ml-mean-shift/</loc>
-  <lastmod>2019-05-15T13:01:00Z</lastmod>
+  <lastmod>2020-03-18T14:45:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/pages/ml-missing-value/</loc>
-  <lastmod>2019-05-15T13:01:00Z</lastmod>
+  <lastmod>2020-03-18T14:45:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/pages/ml-model-persistence/</loc>
-  <lastmod>2019-05-17T19:13:00Z</lastmod>
+  <lastmod>2020-03-18T14:45:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/pages/ml-nearest-neighbor-classification/</loc>
-  <lastmod>2019-06-01T05:17:00Z</lastmod>
+  <lastmod>2020-03-18T14:45:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/pages/ml-nearest-neighbor-regression/</loc>
-  <lastmod>2019-06-01T05:17:00Z</lastmod>
+  <lastmod>2020-03-18T14:45:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/pages/ml-outlier/</loc>
-  <lastmod>2019-05-15T13:01:00Z</lastmod>
+  <lastmod>2020-03-18T14:45:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/pages/ml-polynomial-regression/</loc>
-  <lastmod>2019-05-15T13:01:00Z</lastmod>
+  <lastmod>2020-03-18T14:45:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://comafire.github.io/pages/ml-semi-supervised-learning/</loc>
+  <lastmod>2020-03-18T14:45:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/pages/ml-sgd-classification/</loc>
-  <lastmod>2019-05-15T13:01:00Z</lastmod>
+  <lastmod>2020-03-18T14:45:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://comafire.github.io/pages/ml-sgd-regressor/</loc>
+  <lastmod>2020-03-18T14:45:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/pages/ml-spectral-clustering/</loc>
-  <lastmod>2019-05-15T13:01:00Z</lastmod>
+  <lastmod>2020-03-18T14:45:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/pages/ml-split-train-test/</loc>
-  <lastmod>2019-05-17T19:13:00Z</lastmod>
+  <lastmod>2020-03-18T14:45:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/pages/ml-svm-classification/</loc>
-  <lastmod>2019-05-15T13:01:00Z</lastmod>
+  <lastmod>2020-03-18T14:45:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/pages/ml-svm-regression/</loc>
-  <lastmod>2019-05-15T13:01:00Z</lastmod>
+  <lastmod>2020-03-18T14:45:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/pages/platform-data-lake/</loc>
-  <lastmod>2019-05-20T16:08:00Z</lastmod>
+  <lastmod>2020-03-18T14:45:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/pages/platform-docker-jupyter/</loc>
-  <lastmod>2020-03-08T05:48:00Z</lastmod>
+  <lastmod>2020-03-18T14:45:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/pages/platform-elk/</loc>
-  <lastmod>2019-08-24T14:34:00Z</lastmod>
+  <lastmod>2020-03-18T14:45:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/pages/platform-gce-nested-vm/</loc>
-  <lastmod>2020-02-07T16:59:00Z</lastmod>
+  <lastmod>2020-03-18T14:45:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/pages/platform-native-env-for-data-science-on-macos/</loc>
-  <lastmod>2020-02-07T16:23:00Z</lastmod>
+  <lastmod>2020-03-18T14:45:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/pages/platform-st-kilda-pier/</loc>
-  <lastmod>2019-05-15T13:01:00Z</lastmod>
+  <lastmod>2020-03-18T14:45:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/pages/platform-vagrant-virtualbox/</loc>
-  <lastmod>2019-07-04T12:28:00Z</lastmod>
+  <lastmod>2020-03-18T14:45:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/pages/project-notebooks-skp/</loc>
-  <lastmod>2019-05-15T13:01:00Z</lastmod>
+  <lastmod>2020-03-18T14:45:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/pages/statistics-normality-test/</loc>
-  <lastmod>2019-05-15T13:01:00Z</lastmod>
+  <lastmod>2020-03-18T14:45:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/pages/statistics-parallel-algorithm/</loc>
-  <lastmod>2019-05-15T13:01:00Z</lastmod>
+  <lastmod>2020-03-18T14:45:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/pages/statistics-parametric-method/</loc>
-  <lastmod>2019-05-15T13:01:00Z</lastmod>
+  <lastmod>2020-03-18T14:45:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/posts/</loc>
-  <lastmod>2020-03-05T04:47:00Z</lastmod>
+  <lastmod>2020-03-21T13:47:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/posts/2014-Dump-Running-Process-Core/</loc>
-  <lastmod>2019-08-20T14:58:00Z</lastmod>
+  <lastmod>2020-03-18T14:45:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/posts/2014-tar-backup/</loc>
-  <lastmod>2019-08-21T14:25:00Z</lastmod>
+  <lastmod>2020-03-18T14:45:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/posts/2015-Docker-Proxy-Certificates-Ubuntu/</loc>
-  <lastmod>2019-04-20T15:52:00Z</lastmod>
+  <lastmod>2020-03-18T14:45:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/posts/2015-Julia/</loc>
-  <lastmod>2019-04-20T15:52:00Z</lastmod>
+  <lastmod>2020-03-18T14:45:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/posts/2015-Many-Files-Directory-Remove-Linux/</loc>
-  <lastmod>2019-04-20T15:52:00Z</lastmod>
+  <lastmod>2020-03-18T14:45:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/posts/2015-OSX-Install-Scientific-Python/</loc>
-  <lastmod>2019-04-20T15:52:00Z</lastmod>
+  <lastmod>2020-03-18T14:45:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/posts/2015-Torch-Install/</loc>
-  <lastmod>2019-04-20T15:52:00Z</lastmod>
+  <lastmod>2020-03-18T14:45:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/posts/2015-Torch/</loc>
-  <lastmod>2019-04-20T15:52:00Z</lastmod>
+  <lastmod>2020-03-18T14:45:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/posts/2015-Ubuntu-IP-MASQUERADE/</loc>
-  <lastmod>2019-04-20T15:52:00Z</lastmod>
+  <lastmod>2020-03-18T14:45:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/posts/2015-Ubuntu-Install-Cuda-Toolkit/</loc>
-  <lastmod>2019-04-20T15:52:00Z</lastmod>
+  <lastmod>2020-03-18T14:45:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/posts/2015-Ubuntu-Nvidia-nomodeset/</loc>
-  <lastmod>2019-04-20T15:52:00Z</lastmod>
+  <lastmod>2020-03-18T14:45:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/posts/2015-Ubuntu-SSH-Root-Login/</loc>
-  <lastmod>2019-04-20T15:52:00Z</lastmod>
+  <lastmod>2020-03-18T14:45:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/posts/2015-Ubuntu-Static-IP-Network-Setting/</loc>
-  <lastmod>2019-04-20T15:52:00Z</lastmod>
+  <lastmod>2020-03-18T14:45:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/posts/2015-Ubuntu-fstab/</loc>
-  <lastmod>2019-04-20T15:52:00Z</lastmod>
+  <lastmod>2020-03-18T14:45:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/posts/2016-Julia-Basic/</loc>
-  <lastmod>2019-04-20T15:52:00Z</lastmod>
+  <lastmod>2020-03-18T14:45:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/posts/2016-Julia-Dataframes/</loc>
-  <lastmod>2019-04-20T15:52:00Z</lastmod>
+  <lastmod>2020-03-18T14:45:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/posts/2016-Julia-Package/</loc>
-  <lastmod>2019-04-20T15:52:00Z</lastmod>
+  <lastmod>2020-03-18T14:45:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/posts/2016-Jupyter-From-Dev-To-Blogging/</loc>
-  <lastmod>2019-04-20T15:52:00Z</lastmod>
+  <lastmod>2020-03-18T14:45:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/posts/2016-Jupyter-Spark-Brunel/</loc>
-  <lastmod>2019-04-20T15:52:00Z</lastmod>
+  <lastmod>2020-03-18T14:45:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/posts/2016-Jupyter-Spark/</loc>
-  <lastmod>2019-04-20T15:52:00Z</lastmod>
+  <lastmod>2020-03-18T14:45:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/posts/2016-OSX-Pyspark-with-Jupyter/</loc>
-  <lastmod>2019-04-20T15:52:00Z</lastmod>
+  <lastmod>2020-03-18T14:45:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/posts/2016-python-tf-bc-lr/</loc>
-  <lastmod>2019-04-20T15:52:00Z</lastmod>
+  <lastmod>2020-03-18T14:45:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/posts/2016-python-tf-cnn-mnist/</loc>
-  <lastmod>2019-04-20T15:52:00Z</lastmod>
+  <lastmod>2020-03-18T14:45:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/posts/2016-python-tf-dnn-mnist-with-vscope/</loc>
-  <lastmod>2019-04-20T15:52:00Z</lastmod>
+  <lastmod>2020-03-18T14:45:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/posts/2016-python-tf-dnn-mnist/</loc>
-  <lastmod>2019-04-20T15:52:00Z</lastmod>
+  <lastmod>2020-03-18T14:45:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/posts/2016-python-tf-mc-lr/</loc>
-  <lastmod>2019-04-20T15:52:00Z</lastmod>
+  <lastmod>2020-03-18T14:45:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/posts/2016-python-tf-mnist/</loc>
-  <lastmod>2019-04-20T15:52:00Z</lastmod>
+  <lastmod>2020-03-18T14:45:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/posts/2016-python-tf-mv-lr/</loc>
-  <lastmod>2019-04-20T15:52:00Z</lastmod>
+  <lastmod>2020-03-18T14:45:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/posts/2016-python-tf-sv-lr/</loc>
-  <lastmod>2019-04-20T15:52:00Z</lastmod>
+  <lastmod>2020-03-18T14:45:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/posts/2017-Jupyter-From-Dev-To-Blogging2/</loc>
-  <lastmod>2019-04-20T15:52:00Z</lastmod>
+  <lastmod>2020-03-18T14:45:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/posts/2017-git-using-ssh-key-auth/</loc>
-  <lastmod>2019-04-20T15:52:00Z</lastmod>
+  <lastmod>2020-03-18T14:45:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/posts/2017-mnist-dataset-tsne/</loc>
@@ -395,106 +403,110 @@
  </url>
  <url>
   <loc>https://comafire.github.io/posts/2017-nvidia-docker-CUDA_ERROR_UNKNOWN/</loc>
-  <lastmod>2019-04-20T15:52:00Z</lastmod>
+  <lastmod>2020-03-18T14:45:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/posts/2017-python-hello/</loc>
-  <lastmod>2019-04-20T15:52:00Z</lastmod>
+  <lastmod>2020-03-18T14:45:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/posts/2017-python-jupyter-kernel-gateway-for-rest-api/</loc>
-  <lastmod>2019-04-20T15:52:00Z</lastmod>
+  <lastmod>2020-03-18T14:45:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/posts/2017-python-jupyter-kernel-gateway-module/</loc>
-  <lastmod>2019-04-20T15:52:00Z</lastmod>
+  <lastmod>2020-03-18T14:45:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/posts/2017-python-jupyter-notebook-tips/</loc>
-  <lastmod>2019-04-20T15:52:00Z</lastmod>
+  <lastmod>2020-03-18T14:45:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/posts/2017-python-tf-rnn-iap/</loc>
-  <lastmod>2019-04-20T15:52:00Z</lastmod>
+  <lastmod>2020-03-18T14:45:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/posts/2017-spark-submit-repository-error/</loc>
-  <lastmod>2019-04-20T15:52:00Z</lastmod>
+  <lastmod>2020-03-18T14:45:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/posts/2018-bitcoin-core-basic/</loc>
-  <lastmod>2019-04-20T15:52:00Z</lastmod>
+  <lastmod>2020-03-18T14:45:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/posts/2018-convert-letsencrypt-pem-to-pfx/</loc>
-  <lastmod>2019-04-20T15:52:00Z</lastmod>
+  <lastmod>2020-03-18T14:45:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/posts/2018-notebooks-skp/</loc>
-  <lastmod>2019-04-20T15:52:00Z</lastmod>
+  <lastmod>2020-03-18T14:45:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/posts/2018-pyspark-python-version-mismatch/</loc>
-  <lastmod>2019-04-20T15:52:00Z</lastmod>
+  <lastmod>2020-03-18T14:45:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/posts/2018-skp-mnist/</loc>
-  <lastmod>2019-04-20T15:52:00Z</lastmod>
+  <lastmod>2020-03-18T14:45:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/posts/2018-st-kilda-pier/</loc>
-  <lastmod>2019-04-20T15:52:00Z</lastmod>
+  <lastmod>2020-03-18T14:45:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/posts/2019-docker-image-save-load/</loc>
-  <lastmod>2019-11-15T17:38:00Z</lastmod>
+  <lastmod>2020-03-18T14:45:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/posts/2019-iconv/</loc>
-  <lastmod>2019-08-20T15:38:00Z</lastmod>
+  <lastmod>2020-03-18T14:45:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/posts/2019-jupyter-cell-clear-outputs/</loc>
-  <lastmod>2019-04-20T15:52:00Z</lastmod>
+  <lastmod>2020-03-18T14:45:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/posts/2019-jupyter-nbconvert-execute/</loc>
-  <lastmod>2019-04-20T15:52:00Z</lastmod>
+  <lastmod>2020-03-18T14:45:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/posts/2019-python-alternatives/</loc>
-  <lastmod>2020-02-07T16:23:00Z</lastmod>
+  <lastmod>2020-03-18T14:45:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/posts/2019-quilt-dataset-manager/</loc>
-  <lastmod>2019-04-20T15:52:00Z</lastmod>
+  <lastmod>2020-03-18T14:45:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/posts/2019-sshcode/</loc>
-  <lastmod>2019-11-15T17:38:00Z</lastmod>
+  <lastmod>2020-03-18T14:45:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/posts/2020-docker-build-error-pip/</loc>
-  <lastmod>2020-03-05T04:47:00Z</lastmod>
+  <lastmod>2020-03-18T14:45:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://comafire.github.io/posts/2020-pyspark-macos-bind-error/</loc>
+  <lastmod>2020-03-21T13:47:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/posts/index-1.html</loc>
-  <lastmod>2020-03-05T04:47:00Z</lastmod>
+  <lastmod>2020-03-18T14:45:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/posts/index-2.html</loc>
-  <lastmod>2020-03-05T04:47:00Z</lastmod>
+  <lastmod>2020-03-18T14:45:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/posts/index-3.html</loc>
-  <lastmod>2020-03-05T04:47:00Z</lastmod>
+  <lastmod>2020-03-18T14:45:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/posts/index-4.html</loc>
-  <lastmod>2020-03-05T04:47:00Z</lastmod>
+  <lastmod>2020-03-18T14:45:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/posts/index-5.html</loc>
-  <lastmod>2020-03-05T04:47:00Z</lastmod>
+  <lastmod>2020-03-21T13:47:00Z</lastmod>
  </url>
 </urlset>

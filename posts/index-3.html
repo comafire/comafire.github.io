@@ -227,8 +227,8 @@ navbar-dark bg-dark
 <span class="n">println</span><span class="p">(</span><span class="s">"typemin: "</span><span class="p">,</span> <span class="n">typemin</span><span class="p">(</span><span class="n">a</span><span class="p">),</span> <span class="s">", typemax: "</span><span class="p">,</span> <span class="n">typemax</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
 
 <span class="c"># isa() 로 변수의 타입을 체크할 수 있습니다.</span>
-<span class="n">println</span><span class="p">(</span><span class="s">"isa: </span><span class="si">$</span><span class="p">(</span><span class="n">isa</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="kt">Int64</span><span class="p">))</span><span class="s">"</span><span class="p">)</span>
-<span class="n">println</span><span class="p">(</span><span class="s">"isa: </span><span class="si">$</span><span class="p">(</span><span class="n">isa</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="kt">Int32</span><span class="p">))</span><span class="s">"</span><span class="p">)</span>
+<span class="n">println</span><span class="p">(</span><span class="s">"isa: </span><span class="si">$</span><span class="p">(</span><span class="kp">isa</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="kt">Int64</span><span class="p">))</span><span class="s">"</span><span class="p">)</span>
+<span class="n">println</span><span class="p">(</span><span class="s">"isa: </span><span class="si">$</span><span class="p">(</span><span class="kp">isa</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="kt">Int32</span><span class="p">))</span><span class="s">"</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -1378,7 +1378,7 @@ i: 2, j: 4
 <span class="k">try</span>
     <span class="n">throw</span><span class="p">(</span><span class="kt">UndefVarError</span><span class="p">(</span><span class="o">:</span><span class="n">x</span><span class="p">))</span>
 <span class="k">catch</span> <span class="n">err</span>
-    <span class="k">if</span> <span class="n">isa</span><span class="p">(</span><span class="n">err</span><span class="p">,</span> <span class="kt">UndefVarError</span><span class="p">)</span>
+    <span class="k">if</span> <span class="kp">isa</span><span class="p">(</span><span class="n">err</span><span class="p">,</span> <span class="kt">UndefVarError</span><span class="p">)</span>
         <span class="n">println</span><span class="p">(</span><span class="s">"Error is UndefVarError"</span><span class="p">)</span>
     <span class="k">end</span>
 <span class="k">finally</span>
@@ -3724,7 +3724,7 @@ INFO: No packages to install, update or remove
 <span class="o">%</span><span class="k">matplotlib</span> inline
 
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">mpl_toolkits.mplot3d</span> <span class="k">import</span> <span class="n">Axes3D</span>
+<span class="kn">from</span> <span class="nn">mpl_toolkits.mplot3d</span> <span class="kn">import</span> <span class="n">Axes3D</span>
 
 <span class="c1"># x 변수가 2개이고, y 가 3개의 클래스를 가지는 데이터를 생성합니다.</span>
 <span class="c1"># 행렬 곱만으로 y를 계산하기 위해 x_data의 첫번째 row를 1.0 으로 셋팅합니다.</span>

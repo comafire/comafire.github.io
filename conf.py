@@ -1228,6 +1228,7 @@ EXTRA_HEAD_DATA = """
 
   gtag('config', 'UA-81648003-1');
 </script>
+<meta name="naver-site-verification" content="92ad3daf42c3770f3ecb63db30979a8f35b0b01f" />
 """
 # Google Analytics or whatever else you use. Added to the bottom of <body>
 # in the default template (base.tmpl).

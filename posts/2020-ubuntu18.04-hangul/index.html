@@ -4,14 +4,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>2015-Ubuntu-IP-MASQUERADE | Data Tech Lab</title>
+<title>Ubuntu 18.04 한글 입력 설정 | Data Tech Lab</title>
 <link href="../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
 <link href="../../assets/css/ipython.min.css" rel="stylesheet" type="text/css">
 <link href="../../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
 <meta name="theme-color" content="#5670d4">
 <meta name="generator" content="Nikola (getnikola.com)">
 <link rel="alternate" type="application/rss+xml" title="RSS" href="../../rss.xml">
-<link rel="canonical" href="https://comafire.github.io/posts/2015-Ubuntu-IP-MASQUERADE/">
+<link rel="canonical" href="https://comafire.github.io/posts/2020-ubuntu18.04-hangul/">
 <!--[if lt IE 9]><script src="../../assets/js/html5.js"></script><![endif]--><!-- Google Adsense --><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>
      (adsbygoogle = window.adsbygoogle || []).push({
           google_ad_client: "ca-pub-0670106451680512",
@@ -25,24 +25,19 @@
   gtag('config', 'UA-81648003-1');
 </script><meta name="naver-site-verification" content="92ad3daf42c3770f3ecb63db30979a8f35b0b01f">
 <meta name="author" content="comafire">
-<link rel="prev" href="../2015-Ubuntu-Install-Cuda-Toolkit/" title="2015-Ubuntu-Install-Cuda-Toolkit" type="text/html">
-<link rel="next" href="../2015-Torch/" title="2015-Torch" type="text/html">
+<link rel="prev" href="../2020-pyspark-macos-bind-error/" title="macOS 에서 pyspark SparkContext 생성 시 java.net.BindException 에러" type="text/html">
 <meta property="og:site_name" content="Data Tech Lab">
-<meta property="og:title" content="2015-Ubuntu-IP-MASQUERADE">
-<meta property="og:url" content="https://comafire.github.io/posts/2015-Ubuntu-IP-MASQUERADE/">
-<meta property="og:description" content="간단하게 실험용 Cluster를 구축 할때 아래와 같이 Master 서버가 Slave 서버가 외부 네트워크와 통신할 수 있도록 IP 공유기 역할을 해야 할때 IP MASQUERADE를 이용하는 방법입니다.
-
-Internet &lt;--&gt; Master &lt;--&gt; 스위치허브 &lt;---&gt; Slave1,2,3 ...
+<meta property="og:title" content="Ubuntu 18.04 한글 입력 설정">
+<meta property="og:url" content="https://comafire.github.io/posts/2020-ubuntu18.04-hangul/">
+<meta property="og:description" content="Ubuntu 18.04 한글 입력 설정¶Ubuntu 18.04 Gnome 에서 한글 입력기 설정입니다.
 
 
 
-
-
-
-
-Master 서버¶interface 설정¶M">
+Setting --&gt; Region &amp; Language --&gt; Language Settings --&gt; Manage Installed Language 선택하여 Korean 언어팩 설치
+Reboot 
+Setting --&gt; Region &amp; Language ">
 <meta property="og:type" content="article">
-<meta property="article:published_time" content="2015-01-01T00:00:00+09:00">
+<meta property="article:published_time" content="2020-09-05T00:00:00+09:00">
 </head>
 <body>
 <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
@@ -120,7 +115,7 @@ navbar-dark bg-dark
         
         
         
-<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">2015-Ubuntu-IP-MASQUERADE</a></h1>
+<article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">Ubuntu 18.04 한글 입력 설정</a></h1>
 
         <div class="metadata">
             <p class="byline author vcard p-author h-card"><span class="byline-name fn p-name" itemprop="author">
@@ -128,11 +123,11 @@ navbar-dark bg-dark
             </span></p>
             <p class="dateline">
             <a href="." rel="bookmark">
-            <time class="published dt-published" datetime="2015-01-01T00:00:00+09:00" itemprop="datePublished" title="2015-01-01 00:00">2015-01-01 00:00</time></a>
+            <time class="published dt-published" datetime="2020-09-05T00:00:00+09:00" itemprop="datePublished" title="2020-09-05 00:00">2020-09-05 00:00</time></a>
             </p>
                 <p class="commentline">
         
-    <a href="#disqus_thread" data-disqus-identifier="cache/posts/2015-Ubuntu-IP-MASQUERADE.html">Comments</a>
+    <a href="#disqus_thread" data-disqus-identifier="cache/posts/2020-ubuntu18.04-hangul.html">Comments</a>
 
 
             
@@ -143,135 +138,29 @@ navbar-dark bg-dark
         
 
     </header><div class="e-content entry-content" itemprop="articleBody text">
-    <div>
-<div class="cell border-box-sizing text_cell rendered">
+    <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>간단하게 실험용 Cluster를 구축 할때 아래와 같이 Master 서버가 Slave 서버가 외부 네트워크와 통신할 수 있도록 IP 공유기 역할을 해야 할때 IP MASQUERADE를 이용하는 방법입니다.</p>
+<h2 id="Ubuntu-18.04-한글-입력-설정">Ubuntu 18.04 한글 입력 설정<a class="anchor-link" href="#Ubuntu-18.04-%ED%95%9C%EA%B8%80-%EC%9E%85%EB%A0%A5-%EC%84%A4%EC%A0%95">¶</a>
+</h2>
+<p>Ubuntu 18.04 Gnome 에서 한글 입력기 설정입니다.</p>
+<!-- TEASER_END -->
 
-<pre><code>Internet &lt;--&gt; Master &lt;--&gt; 스위치허브 &lt;---&gt; Slave1,2,3 ...</code></pre>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Master-서버">Master 서버<a class="anchor-link" href="#Master-%EC%84%9C%EB%B2%84">¶</a>
-</h3>
-<h4 id="interface-설정">interface 설정<a class="anchor-link" href="#interface-%EC%84%A4%EC%A0%95">¶</a>
-</h4>
-<p>Master 서버는 랜카드를 2개 가지고 있다고 가정합니다.
-eth0은 외부 네트워크용이고 eth1은 내부 내트워크용 랜카드 입니다.</p>
-
-<pre><code>&gt; sudo vi /etc/network/inetrfaces</code></pre>
-<p>설정 파일을 열어보면 eth0은 보통 인터넷 공유기와 바로 연결되어 있어 dhcp 로 설정되어 있을 것입니다.</p>
-<p>이제 아래와 같이 eth1 랜카드를 내부 네트워크 고정 ip 로 설정합니다.</p>
-
-<pre><code># interfaces(5) file used by ifup(8) and ifdown(8)
-auto lo
-iface lo inet loopback
-
-auto eth0
-iface eth0 inet dhcp
-
-auto eth1
-iface eth1 inet static
-address 192.168.0.1
-netmask 255.255.255.0
-network 192.168.0.0
-broadcast 192.168.10.255
-gateway 192.168.0.1
-dns-nameservers 8.8.8.8</code></pre>
-<p>설정 후 네트워크를 재시작합니다.</p>
-
-<pre><code>&gt; sudo service networking restart</code></pre>
-<h4 id="dns-서버-설정">dns 서버 설정<a class="anchor-link" href="#dns-%EC%84%9C%EB%B2%84-%EC%84%A4%EC%A0%95">¶</a>
-</h4>
-<p>resolvconf 서비스를 통해서 접근할 dns 서버를 설정해 줍니다.</p>
-
-<pre><code>&gt; sudo vi /etc/resolvconf/resolv.conf.d/head</code></pre>
-<p>설정 파일을 열어 아래와 같이 수정합니다.</p>
-
-<pre><code># Dynamic resolv.conf(5) file for glibc resolver(3) generated by resolvconf(8)
-#     DO NOT EDIT THIS FILE BY HAND -- YOUR CHANGES WILL BE OVERWRITTEN
-nameserver 8.8.8.8</code></pre>
-<p>설정 파일 저장 후 resolvconf 서비스를 재시작합니다.</p>
-
-<pre><code>&gt; sudo service resolvconf retart</code></pre>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="iptables-설정">iptables 설정<a class="anchor-link" href="#iptables-%EC%84%A4%EC%A0%95">¶</a>
-</h3>
-<p>이제 Master 서버의 eth1 내부 네트워크를 통해 요청되는 패킷을 eth0 외부 네트워크카드로 전달하도록 해주는 rule 를 iptables 라는 명령어를 통해 등록해 줍니다.</p>
-
-<pre><code>&gt; sudo /sbin/iptables -A FORWARD -o etho -j ACCEPT
-&gt; sudo /sbin/iptables -t nat -A POSTROUTING -o etho -j MASQUERADE</code></pre>
-<p>iptables rule 은 재부팅시에 사라지게 되므로 재부팅 시 마다 자동으로 rule 이 등록 될 수 있도록 /etc/rc.local 파일을 열어 등록해줍니다.</p>
-
-<pre><code>&gt; sudo vi /etc/rc.local</code></pre>
-<p>아래와 같이 명령을 등록해 줍니다.</p>
-
-<pre><code>#!/bin/sh -e
-#
-# rc.local
-#
-# This script is executed at the end of each multiuser runlevel.
-# Make sure that the script will "exit 0" on success or any other
-# value on error.
-#
-# In order to enable or disable this script just change the execution
-# bits.
-#
-# By default this script does nothing.
-
-/sbin/iptables -A FORWARD -o eth0 -j ACCEPT
-/sbin/iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
-
-exit 0</code></pre>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Slave-서버-설정">Slave 서버 설정<a class="anchor-link" href="#Slave-%EC%84%9C%EB%B2%84-%EC%84%A4%EC%A0%95">¶</a>
-</h3>
-<p>Slave 서버의 네트워크 interface 와 dns 서버 설정은  Master 서버의 내부 네트워크 interface 설정하듯이 내부 ip로 설정해주면 됩니다.</p>
-<h3 id="테스트">테스트<a class="anchor-link" href="#%ED%85%8C%EC%8A%A4%ED%8A%B8">¶</a>
-</h3>
-<p>Slave 서버에서 외부 주소로 ping 이 성공하면 성공입니다.</p>
-
-<pre><code>&gt; ping www.google.co.kr
-PING www.google.co.kr (58.123.220.104) 56(84) bytes of data.
-64 bytes from 58.123.220.104: icmp_seq=1 ttl=56 time=0.859 ms
-64 bytes from 58.123.220.104: icmp_seq=2 ttl=56 time=0.961 ms</code></pre>
-
-</div>
+<ul>
+<li>Setting --&gt; Region &amp; Language --&gt; Language Settings --&gt; Manage Installed Language 선택하여 Korean 언어팩 설치</li>
+<li>Reboot </li>
+<li>Setting --&gt; Region &amp; Language --&gt; Language Settings --&gt; Input Sources 에서 + 버튼으로 Korean (Hangul) 추가 / English 는 제거 (남겨두면 Desktop 메뉴바에서 En / Ko 2개의 입력기가 생겨 항상 Ko 가 선택 되었는지 확인해야 해서 불편)</li>
+<li>좌상단 iBusHangulSetup 에서 Keyboard Shortcut 지정 가능</li>
+</ul>
 </div>
 </div>
 </div>
     </div>
     <aside class="postpromonav"><nav><ul class="pager hidden-print">
 <li class="previous">
-                <a href="../2015-Ubuntu-Install-Cuda-Toolkit/" rel="prev" title="2015-Ubuntu-Install-Cuda-Toolkit">Previous post</a>
-            </li>
-            <li class="next">
-                <a href="../2015-Torch/" rel="next" title="2015-Torch">Next post</a>
+                <a href="../2020-pyspark-macos-bind-error/" rel="prev" title="macOS 에서 pyspark SparkContext 생성 시 java.net.BindException 에러">Previous post</a>
             </li>
         </ul></nav></aside><section class="comments hidden-print"><h2>Comments</h2>
         
@@ -279,9 +168,9 @@ PING www.google.co.kr (58.123.220.104) 56(84) bytes of data.
         <div id="disqus_thread"></div>
         <script>
         var disqus_shortname ="comafire",
-            disqus_url="https://comafire.github.io/posts/2015-Ubuntu-IP-MASQUERADE/",
-        disqus_title="2015-Ubuntu-IP-MASQUERADE",
-        disqus_identifier="cache/posts/2015-Ubuntu-IP-MASQUERADE.html",
+            disqus_url="https://comafire.github.io/posts/2020-ubuntu18.04-hangul/",
+        disqus_title="Ubuntu 18.04 \ud55c\uae00 \uc785\ub825 \uc124\uc815",
+        disqus_identifier="cache/posts/2020-ubuntu18.04-hangul.html",
         disqus_config = function () {
             this.language = "en";
         };

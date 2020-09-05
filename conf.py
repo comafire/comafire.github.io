@@ -17,7 +17,7 @@ import time
 
 # Data about this site
 BLOG_AUTHOR = "comafire"  # (translatable)
-BLOG_TITLE = "Comafire's Lab"  # (translatable)
+BLOG_TITLE = "Data Tech Lab"  # (translatable)
 # This is the main URL for your site. It will be used
 # in a prominent link. Don't forget the protocol (http/https)!
 SITE_URL = "https://comafire.github.io/"
@@ -25,7 +25,7 @@ SITE_URL = "https://comafire.github.io/"
 # If not set, defaults to SITE_URL
 # BASE_URL = "https://example.com/"
 BLOG_EMAIL = "comafire@gmail.com"
-BLOG_DESCRIPTION = "Comafire's Lab"  # (translatable)
+BLOG_DESCRIPTION = "Data Tech Lab"  # (translatable)
 
 # Nikola is multilingual!
 #

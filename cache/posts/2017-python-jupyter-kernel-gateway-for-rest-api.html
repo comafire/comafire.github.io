@@ -24,7 +24,7 @@
 <div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.core.interactiveshell</span> <span class="kn">import</span> <span class="n">InteractiveShell</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.core.interactiveshell</span> <span class="kn">import</span> <span class="n">InteractiveShell</span>
 <span class="n">InteractiveShell</span><span class="o">.</span><span class="n">ast_node_interactivity</span> <span class="o">=</span> <span class="s2">&quot;all&quot;</span>
 
 <span class="kn">from</span> <span class="nn">IPython.core.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">HTML</span>
@@ -71,7 +71,7 @@
 <div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">io</span><span class="o">,</span> <span class="nn">sys</span><span class="o">,</span> <span class="nn">logging</span><span class="o">,</span> <span class="nn">imp</span><span class="o">,</span> <span class="nn">json</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">io</span><span class="o">,</span> <span class="nn">sys</span><span class="o">,</span> <span class="nn">logging</span><span class="o">,</span> <span class="nn">imp</span><span class="o">,</span> <span class="nn">json</span>
 <span class="kn">import</span> <span class="nn">time</span><span class="o">,</span> <span class="nn">pickle</span><span class="o">,</span> <span class="nn">requests</span><span class="o">,</span> <span class="nn">json</span>
 <span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">timedelta</span>
 <span class="kn">import</span> <span class="nn">pickle</span>
@@ -170,7 +170,7 @@
 <div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="o">%</span><span class="k">run</span> ./2017-python-jupyter-kernel-gateway-module.ipynb
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">run</span> ./2017-python-jupyter-kernel-gateway-module.ipynb
 </pre></div>
 
     </div>
@@ -210,7 +210,7 @@
 <div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">store</span> <span class="o">=</span> <span class="n">Store</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">store</span> <span class="o">=</span> <span class="n">Store</span><span class="p">()</span>
 </pre></div>
 
     </div>
@@ -241,7 +241,7 @@ handler 코드는 독립된 셀에 "# [POST/GET/PUT/DELETE] /url" 형식으로 �
 <div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">REQUEST</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">({</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">REQUEST</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">({</span>
     <span class="s2">&quot;path&quot;</span> <span class="p">:</span> <span class="p">{</span> <span class="s2">&quot;user_id&quot;</span> <span class="p">:</span> <span class="s2">&quot;user1&quot;</span> <span class="p">},</span>
     <span class="s2">&quot;body&quot;</span> <span class="p">:</span> <span class="p">{</span> <span class="s2">&quot;name&quot;</span> <span class="p">:</span> <span class="s2">&quot;user1 store&quot;</span> <span class="p">}</span>
 <span class="p">})</span>
@@ -257,7 +257,7 @@ handler 코드는 독립된 셀에 "# [POST/GET/PUT/DELETE] /url" 형식으로 �
 <div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># POST /store/:user_id</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># POST /store/:user_id</span>
 <span class="n">req</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">REQUEST</span><span class="p">)</span>
 <span class="n">res</span> <span class="o">=</span> <span class="n">store</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">req</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
@@ -299,7 +299,7 @@ handler 코드는 독립된 셀에 "# [POST/GET/PUT/DELETE] /url" 형식으로 �
 <div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">REQUEST</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">({</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">REQUEST</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">({</span>
     <span class="s2">&quot;path&quot;</span> <span class="p">:</span> <span class="p">{</span> <span class="s2">&quot;user_id&quot;</span> <span class="p">:</span> <span class="s2">&quot;user1&quot;</span> <span class="p">}</span>
 <span class="p">})</span>
 </pre></div>
@@ -314,7 +314,7 @@ handler 코드는 독립된 셀에 "# [POST/GET/PUT/DELETE] /url" 형식으로 �
 <div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># GET /store/:user_id</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># GET /store/:user_id</span>
 <span class="n">req</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">REQUEST</span><span class="p">)</span>
 <span class="n">res</span> <span class="o">=</span> <span class="n">store</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">req</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
@@ -396,7 +396,7 @@ jupyter에서 Terminal 창을 열고 아래 명령으로 수행해 봅니다.</p
 <div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">URL</span> <span class="o">=</span> <span class="s1">&#39;http://127.0.0.1:8088&#39;</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">URL</span> <span class="o">=</span> <span class="s1">&#39;http://127.0.0.1:8088&#39;</span>
 </pre></div>
 
     </div>
@@ -417,7 +417,7 @@ jupyter에서 Terminal 창을 열고 아래 명령으로 수행해 봅니다.</p
 <div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="k">if</span> <span class="s1">&#39;KERNEL_GATEWAY&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">:</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">if</span> <span class="s1">&#39;KERNEL_GATEWAY&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">:</span>
     <span class="n">body</span> <span class="o">=</span> <span class="p">{</span> 
         <span class="s2">&quot;name&quot;</span> <span class="p">:</span> <span class="s2">&quot;user2 store&quot;</span><span class="p">,</span>
     <span class="p">}</span>    
@@ -462,7 +462,7 @@ jupyter에서 Terminal 창을 열고 아래 명령으로 수행해 봅니다.</p
 <div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="k">if</span> <span class="s1">&#39;KERNEL_GATEWAY&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">:</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">if</span> <span class="s1">&#39;KERNEL_GATEWAY&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">:</span>
     <span class="n">res</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">URL</span> <span class="o">+</span> <span class="s2">&quot;/store/user2&quot;</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>  
     <span class="n">res</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>

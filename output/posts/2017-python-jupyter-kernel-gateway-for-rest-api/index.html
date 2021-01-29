@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Jupyter 노트북으로 Rest API 개발해보기 | Data Tech Lab</title>
+<title>Jupyter 노트북으로 Rest API 개발해보기 | DataTech Lab</title>
 <link href="../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
 <link href="../../assets/css/ipython.min.css" rel="stylesheet" type="text/css">
 <link href="../../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
@@ -27,7 +27,7 @@
 <meta name="author" content="comafire">
 <link rel="prev" href="../2017-python-jupyter-kernel-gateway-module/" title="2017-python-jupyter-kernel-gateway-module" type="text/html">
 <link rel="next" href="../2018-bitcoin-core-basic/" title="BitCoin 설치" type="text/html">
-<meta property="og:site_name" content="Data Tech Lab">
+<meta property="og:site_name" content="DataTech Lab">
 <meta property="og:title" content="Jupyter 노트북으로 Rest API 개발해보기">
 <meta property="og:url" content="https://comafire.github.io/posts/2017-python-jupyter-kernel-gateway-for-rest-api/">
 <meta property="og:description" content="README¶데이터 분석을 할때에는 주로 jupyter에서 python를 많이 사용합니다. 머신 사양이 좋다면 pyspark을 이용하여 데이터 전처리시 편하게 대용량 램과 멀티코어를 활용할 수도 있고, python에 있는 많은 편리한 유틸과 머신러닝 라이브러리도 생산성을 배가 시켜 줍니다. 게다가 간단한 PoC를 위한 개발을 하면서 문서화 및 발표자료까지 ">
@@ -45,7 +45,7 @@ navbar-dark bg-dark
 <!-- This keeps the margins nice -->
         <a class="navbar-brand" href="https://comafire.github.io/">
 
-            <span id="blog-title">Data Tech Lab</span>
+            <span id="blog-title">DataTech Lab</span>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -170,7 +170,7 @@ navbar-dark bg-dark
 <div class="prompt input_prompt">In [1]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.core.interactiveshell</span> <span class="kn">import</span> <span class="n">InteractiveShell</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.core.interactiveshell</span> <span class="kn">import</span> <span class="n">InteractiveShell</span>
 <span class="n">InteractiveShell</span><span class="o">.</span><span class="n">ast_node_interactivity</span> <span class="o">=</span> <span class="s2">"all"</span>
 
 <span class="kn">from</span> <span class="nn">IPython.core.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">HTML</span>
@@ -217,7 +217,7 @@ navbar-dark bg-dark
 <div class="prompt input_prompt">In [2]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">io</span><span class="o">,</span> <span class="nn">sys</span><span class="o">,</span> <span class="nn">logging</span><span class="o">,</span> <span class="nn">imp</span><span class="o">,</span> <span class="nn">json</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">io</span><span class="o">,</span> <span class="nn">sys</span><span class="o">,</span> <span class="nn">logging</span><span class="o">,</span> <span class="nn">imp</span><span class="o">,</span> <span class="nn">json</span>
 <span class="kn">import</span> <span class="nn">time</span><span class="o">,</span> <span class="nn">pickle</span><span class="o">,</span> <span class="nn">requests</span><span class="o">,</span> <span class="nn">json</span>
 <span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">timedelta</span>
 <span class="kn">import</span> <span class="nn">pickle</span>
@@ -323,7 +323,7 @@ navbar-dark bg-dark
 <div class="prompt input_prompt">In [3]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="o">%</span><span class="k">run</span> ./2017-python-jupyter-kernel-gateway-module.ipynb
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">run</span> ./2017-python-jupyter-kernel-gateway-module.ipynb
 </pre></div>
 
     </div>
@@ -367,7 +367,7 @@ navbar-dark bg-dark
 <div class="prompt input_prompt">In [4]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">store</span> <span class="o">=</span> <span class="n">Store</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">store</span> <span class="o">=</span> <span class="n">Store</span><span class="p">()</span>
 </pre></div>
 
     </div>
@@ -407,7 +407,7 @@ handler 코드는 독립된 셀에 "# [POST/GET/PUT/DELETE] /url" 형식으로 �
 <div class="prompt input_prompt">In [5]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">REQUEST</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">({</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">REQUEST</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">({</span>
     <span class="s2">"path"</span> <span class="p">:</span> <span class="p">{</span> <span class="s2">"user_id"</span> <span class="p">:</span> <span class="s2">"user1"</span> <span class="p">},</span>
     <span class="s2">"body"</span> <span class="p">:</span> <span class="p">{</span> <span class="s2">"name"</span> <span class="p">:</span> <span class="s2">"user1 store"</span> <span class="p">}</span>
 <span class="p">})</span>
@@ -423,7 +423,7 @@ handler 코드는 독립된 셀에 "# [POST/GET/PUT/DELETE] /url" 형식으로 �
 <div class="prompt input_prompt">In [6]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># POST /store/:user_id</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># POST /store/:user_id</span>
 <span class="n">req</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">REQUEST</span><span class="p">)</span>
 <span class="n">res</span> <span class="o">=</span> <span class="n">store</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">req</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
@@ -469,7 +469,7 @@ handler 코드는 독립된 셀에 "# [POST/GET/PUT/DELETE] /url" 형식으로 �
 <div class="prompt input_prompt">In [7]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">REQUEST</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">({</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">REQUEST</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">({</span>
     <span class="s2">"path"</span> <span class="p">:</span> <span class="p">{</span> <span class="s2">"user_id"</span> <span class="p">:</span> <span class="s2">"user1"</span> <span class="p">}</span>
 <span class="p">})</span>
 </pre></div>
@@ -484,7 +484,7 @@ handler 코드는 독립된 셀에 "# [POST/GET/PUT/DELETE] /url" 형식으로 �
 <div class="prompt input_prompt">In [8]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># GET /store/:user_id</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># GET /store/:user_id</span>
 <span class="n">req</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">REQUEST</span><span class="p">)</span>
 <span class="n">res</span> <span class="o">=</span> <span class="n">store</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">req</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
@@ -583,7 +583,7 @@ jupyter에서 Terminal 창을 열고 아래 명령으로 수행해 봅니다.</p
 <div class="prompt input_prompt">In [9]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">URL</span> <span class="o">=</span> <span class="s1">'http://127.0.0.1:8088'</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">URL</span> <span class="o">=</span> <span class="s1">'http://127.0.0.1:8088'</span>
 </pre></div>
 
     </div>
@@ -608,7 +608,7 @@ jupyter에서 Terminal 창을 열고 아래 명령으로 수행해 봅니다.</p
 <div class="prompt input_prompt">In [10]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="k">if</span> <span class="s1">'KERNEL_GATEWAY'</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">:</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">if</span> <span class="s1">'KERNEL_GATEWAY'</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">:</span>
     <span class="n">body</span> <span class="o">=</span> <span class="p">{</span> 
         <span class="s2">"name"</span> <span class="p">:</span> <span class="s2">"user2 store"</span><span class="p">,</span>
     <span class="p">}</span>    
@@ -657,7 +657,7 @@ jupyter에서 Terminal 창을 열고 아래 명령으로 수행해 봅니다.</p
 <div class="prompt input_prompt">In [11]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="k">if</span> <span class="s1">'KERNEL_GATEWAY'</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">:</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">if</span> <span class="s1">'KERNEL_GATEWAY'</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">:</span>
     <span class="n">res</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">URL</span> <span class="o">+</span> <span class="s2">"/store/user2"</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>  
     <span class="n">res</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
@@ -730,7 +730,7 @@ jupyter에서 Terminal 창을 열고 아래 명령으로 수행해 봅니다.</p
         </section><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha384-3lJUsx1TJHt7BA4udB5KPnDrlkO8T6J6v/op7ui0BbCjvZ9WqV4Xm6DTP6kQ/iBH" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
         MathJax.Hub.Config({tex2jax: {inlineMath: [['$latex ','$'], ['\\(','\\)']]}});
         </script></article><script>var disqus_shortname="comafire";(function(){var a=document.createElement("script");a.async=true;a.src="https://"+disqus_shortname+".disqus.com/count.js";(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(a)}());</script><!--End of body content--><footer id="footer">
-            Contents © 2020         <a href="mailto:comafire@gmail.com">comafire</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
+            Contents © 2021         <a href="mailto:comafire@gmail.com">comafire</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
             
             
         </footer>

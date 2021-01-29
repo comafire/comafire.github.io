@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Machine Learning - Data Description | Data Tech Lab</title>
+<title>Machine Learning - Data Description | DataTech Lab</title>
 <link href="../../assets/css/all-nocdn.css" rel="stylesheet" type="text/css">
 <link href="../../assets/css/ipython.min.css" rel="stylesheet" type="text/css">
 <link href="../../assets/css/nikola_ipython.css" rel="stylesheet" type="text/css">
@@ -25,10 +25,10 @@
   gtag('config', 'UA-81648003-1');
 </script><meta name="naver-site-verification" content="92ad3daf42c3770f3ecb63db30979a8f35b0b01f">
 <meta name="author" content="comafire">
-<meta property="og:site_name" content="Data Tech Lab">
+<meta property="og:site_name" content="DataTech Lab">
 <meta property="og:title" content="Machine Learning - Data Description">
 <meta property="og:url" content="https://comafire.github.io/pages/ml-data-description/">
-<meta property="og:description" content='Data Description¶데이터의 각 컬럼의 특성 및 형태를 파악합니다.
+<meta property="og:description" content="Data Description¶데이터의 각 컬럼의 특성 및 형태를 파악합니다.
 
 
 
@@ -38,27 +38,42 @@
 In [1]:
 
     
-import quilt
+import sklearn
 
-quilt.install("uciml/iris", force=True)
-
-
-    
-
-
-
-
-
-
-
+sklearn.__version__
 
 
     
 
 
 
-Downloading package metadata...
-Fragments already download'>
+
+
+
+
+
+
+    Out[1]:
+
+
+
+
+
+'0.24.1'
+
+
+
+
+
+
+
+
+
+
+In [2]:
+
+    
+from sklearn.datasets import load_">
 <meta property="og:type" content="article">
 <meta property="article:published_time" content="2019-02-24T00:00:00+09:00">
 </head>
@@ -73,7 +88,7 @@ navbar-dark bg-dark
 <!-- This keeps the margins nice -->
         <a class="navbar-brand" href="https://comafire.github.io/">
 
-            <span id="blog-title">Data Tech Lab</span>
+            <span id="blog-title">DataTech Lab</span>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#bs-navbar" aria-controls="bs-navbar" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -161,9 +176,9 @@ navbar-dark bg-dark
 <div class="prompt input_prompt">In [1]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">quilt</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">sklearn</span>
 
-<span class="n">quilt</span><span class="o">.</span><span class="n">install</span><span class="p">(</span><span class="s2">"uciml/iris"</span><span class="p">,</span> <span class="n">force</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">sklearn</span><span class="o">.</span><span class="n">__version__</span>
 </pre></div>
 
     </div>
@@ -176,14 +191,15 @@ navbar-dark bg-dark
 
 <div class="output_area">
 
-    <div class="prompt"></div>
+    <div class="prompt output_prompt">Out[1]:</div>
 
 
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Downloading package metadata...
-Fragments already downloaded
-</pre>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>'0.24.1'</pre>
 </div>
+
 </div>
 
 </div>
@@ -195,9 +211,9 @@ Fragments already downloaded
 <div class="prompt input_prompt">In [2]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">quilt.data.uciml</span> <span class="kn">import</span> <span class="n">iris</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">load_iris</span>
 
-<span class="n">df_iris</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">tables</span><span class="o">.</span><span class="n">iris</span><span class="p">()</span>
+<span class="n">features</span><span class="p">,</span> <span class="n">targets</span> <span class="o">=</span> <span class="n">load_iris</span><span class="p">(</span><span class="n">return_X_y</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">as_frame</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -235,6 +251,8 @@ Fragments already downloaded
 </ul>
 </li>
 </ul>
+<p>scikit-learn 에서 제공하는 Iris Dataset 에 대한 정보 입니다.</p>
+<p><a href="https://scikit-learn.org/stable/datasets/toy_dataset.html#iris-dataset">https://scikit-learn.org/stable/datasets/toy_dataset.html#iris-dataset</a></p>
 <p>아래는 예제 데이터인 IRIS 데이터 셋에 대한 UCI 홈페이지상의 데이터 설명입니다.</p>
 <p><a href="https://archive.ics.uci.edu/ml/datasets/iris">https://archive.ics.uci.edu/ml/datasets/iris</a></p>
 <p>Data Set Information:</p>
@@ -253,7 +271,7 @@ Fragments already downloaded
 -- Iris Versicolour 
 -- Iris Virginica</li>
 </ol>
-<p>데이터 컬럼의 정보를 확인해 봄으로써, 1 ~ 4 까지의 데이터 컬럼은 독립변수로써 숫자 연속형 변수이고, 5 데이터 컬럼은 종속변수로써 문자 범주형 변수임을 알 수 있습니다.</p>
+<p>데이터 컬럼의 정보를 확인해 봄으로써, 1 ~ 4 까지의 데이터 컬럼은 독립변수로써 숫자 연속형 변수이고, 5 데이터 컬럼은 종속변수로써 숫자 범주형 변수임을 알 수 있습니다.</p>
 
 </div>
 </div>
@@ -263,7 +281,7 @@ Fragments already downloaded
 <div class="prompt input_prompt">In [3]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_iris</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">features</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
 </pre></div>
 
     </div>
@@ -281,15 +299,16 @@ Fragments already downloaded
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>&lt;class 'pandas.core.frame.DataFrame'&gt;
-Int64Index: 150 entries, 0 to 149
-Data columns (total 5 columns):
-sepal_length    150 non-null float64
-sepal_width     150 non-null float64
-petal_length    150 non-null float64
-petal_width     150 non-null float64
-class           150 non-null object
-dtypes: float64(4), object(1)
-memory usage: 7.0+ KB
+RangeIndex: 150 entries, 0 to 149
+Data columns (total 4 columns):
+ #   Column             Non-Null Count  Dtype  
+---  ------             --------------  -----  
+ 0   sepal length (cm)  150 non-null    float64
+ 1   sepal width (cm)   150 non-null    float64
+ 2   petal length (cm)  150 non-null    float64
+ 3   petal width (cm)   150 non-null    float64
+dtypes: float64(4)
+memory usage: 4.8 KB
 </pre>
 </div>
 </div>
@@ -310,10 +329,102 @@ memory usage: 7.0+ KB
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
+<div class="prompt input_prompt">In [4]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">features</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[4]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead><tr style="text-align: right;">
+<th></th>
+      <th>sepal length (cm)</th>
+      <th>sepal width (cm)</th>
+      <th>petal length (cm)</th>
+      <th>petal width (cm)</th>
+    </tr></thead>
+<tbody>
+<tr>
+<th>0</th>
+      <td>5.1</td>
+      <td>3.5</td>
+      <td>1.4</td>
+      <td>0.2</td>
+    </tr>
+<tr>
+<th>1</th>
+      <td>4.9</td>
+      <td>3.0</td>
+      <td>1.4</td>
+      <td>0.2</td>
+    </tr>
+<tr>
+<th>2</th>
+      <td>4.7</td>
+      <td>3.2</td>
+      <td>1.3</td>
+      <td>0.2</td>
+    </tr>
+<tr>
+<th>3</th>
+      <td>4.6</td>
+      <td>3.1</td>
+      <td>1.5</td>
+      <td>0.2</td>
+    </tr>
+<tr>
+<th>4</th>
+      <td>5.0</td>
+      <td>3.6</td>
+      <td>1.4</td>
+      <td>0.2</td>
+    </tr>
+</tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
 <div class="prompt input_prompt">In [5]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_iris</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">features</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="c1"># 랜덤하게 데이터를 출력해봅니다.</span>
 </pre></div>
 
     </div>
@@ -348,52 +459,46 @@ memory usage: 7.0+ KB
 <table border="1" class="dataframe">
 <thead><tr style="text-align: right;">
 <th></th>
-      <th>sepal_length</th>
-      <th>sepal_width</th>
-      <th>petal_length</th>
-      <th>petal_width</th>
-      <th>class</th>
+      <th>sepal length (cm)</th>
+      <th>sepal width (cm)</th>
+      <th>petal length (cm)</th>
+      <th>petal width (cm)</th>
     </tr></thead>
 <tbody>
 <tr>
-<th>0</th>
-      <td>5.1</td>
-      <td>3.5</td>
-      <td>1.4</td>
-      <td>0.2</td>
-      <td>Iris-setosa</td>
+<th>131</th>
+      <td>7.9</td>
+      <td>3.8</td>
+      <td>6.4</td>
+      <td>2.0</td>
     </tr>
 <tr>
-<th>1</th>
-      <td>4.9</td>
-      <td>3.0</td>
-      <td>1.4</td>
-      <td>0.2</td>
-      <td>Iris-setosa</td>
+<th>90</th>
+      <td>5.5</td>
+      <td>2.6</td>
+      <td>4.4</td>
+      <td>1.2</td>
     </tr>
 <tr>
-<th>2</th>
+<th>29</th>
       <td>4.7</td>
       <td>3.2</td>
-      <td>1.3</td>
+      <td>1.6</td>
       <td>0.2</td>
-      <td>Iris-setosa</td>
     </tr>
 <tr>
-<th>3</th>
-      <td>4.6</td>
+<th>52</th>
+      <td>6.9</td>
       <td>3.1</td>
+      <td>4.9</td>
       <td>1.5</td>
-      <td>0.2</td>
-      <td>Iris-setosa</td>
     </tr>
 <tr>
-<th>4</th>
+<th>93</th>
       <td>5.0</td>
-      <td>3.6</td>
-      <td>1.4</td>
-      <td>0.2</td>
-      <td>Iris-setosa</td>
+      <td>2.3</td>
+      <td>3.3</td>
+      <td>1.0</td>
     </tr>
 </tbody>
 </table>
@@ -411,7 +516,7 @@ memory usage: 7.0+ KB
 <div class="prompt input_prompt">In [6]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_iris</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">features</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
 </pre></div>
 
     </div>
@@ -446,11 +551,10 @@ memory usage: 7.0+ KB
 <table border="1" class="dataframe">
 <thead><tr style="text-align: right;">
 <th></th>
-      <th>sepal_length</th>
-      <th>sepal_width</th>
-      <th>petal_length</th>
-      <th>petal_width</th>
-      <th>class</th>
+      <th>sepal length (cm)</th>
+      <th>sepal width (cm)</th>
+      <th>petal length (cm)</th>
+      <th>petal width (cm)</th>
     </tr></thead>
 <tbody>
 <tr>
@@ -459,7 +563,6 @@ memory usage: 7.0+ KB
       <td>3.0</td>
       <td>5.2</td>
       <td>2.3</td>
-      <td>Iris-virginica</td>
     </tr>
 <tr>
 <th>146</th>
@@ -467,7 +570,6 @@ memory usage: 7.0+ KB
       <td>2.5</td>
       <td>5.0</td>
       <td>1.9</td>
-      <td>Iris-virginica</td>
     </tr>
 <tr>
 <th>147</th>
@@ -475,7 +577,6 @@ memory usage: 7.0+ KB
       <td>3.0</td>
       <td>5.2</td>
       <td>2.0</td>
-      <td>Iris-virginica</td>
     </tr>
 <tr>
 <th>148</th>
@@ -483,7 +584,6 @@ memory usage: 7.0+ KB
       <td>3.4</td>
       <td>5.4</td>
       <td>2.3</td>
-      <td>Iris-virginica</td>
     </tr>
 <tr>
 <th>149</th>
@@ -491,7 +591,6 @@ memory usage: 7.0+ KB
       <td>3.0</td>
       <td>5.1</td>
       <td>1.8</td>
-      <td>Iris-virginica</td>
     </tr>
 </tbody>
 </table>
@@ -500,6 +599,19 @@ memory usage: 7.0+ KB
 
 </div>
 
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+
+    </div>
 </div>
 </div>
 
@@ -531,7 +643,7 @@ memory usage: 7.0+ KB
         </section><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML" integrity="sha384-3lJUsx1TJHt7BA4udB5KPnDrlkO8T6J6v/op7ui0BbCjvZ9WqV4Xm6DTP6kQ/iBH" crossorigin="anonymous"></script><script type="text/x-mathjax-config">
         MathJax.Hub.Config({tex2jax: {inlineMath: [['$latex ','$'], ['\\(','\\)']]}});
         </script></article><!--End of body content--><footer id="footer">
-            Contents © 2020         <a href="mailto:comafire@gmail.com">comafire</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
+            Contents © 2021         <a href="mailto:comafire@gmail.com">comafire</a> - Powered by         <a href="https://getnikola.com" rel="nofollow">Nikola</a>         
             
             
         </footer>

@@ -39,7 +39,7 @@
  </url>
  <url>
   <loc>https://comafire.github.io/archive.html</loc>
-  <lastmod>2021-01-29T14:40:00Z</lastmod>
+  <lastmod>2021-02-12T14:37:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/categories/</loc>
@@ -55,7 +55,7 @@
  </url>
  <url>
   <loc>https://comafire.github.io/pages/</loc>
-  <lastmod>2020-09-05T07:15:00Z</lastmod>
+  <lastmod>2021-02-12T14:37:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/pages/data-science-data-engineering/</loc>
@@ -196,6 +196,10 @@
  <url>
   <loc>https://comafire.github.io/pages/ml-polynomial-regression/</loc>
   <lastmod>2020-09-05T07:15:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://comafire.github.io/pages/ml-random-seed/</loc>
+  <lastmod>2021-02-12T14:37:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/pages/ml-semi-supervised-learning/</loc>
@@ -491,22 +495,22 @@
  </url>
  <url>
   <loc>https://comafire.github.io/posts/index-1.html</loc>
-  <lastmod>2021-01-29T14:40:00Z</lastmod>
+  <lastmod>2021-02-12T14:37:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/posts/index-2.html</loc>
-  <lastmod>2021-01-29T14:40:00Z</lastmod>
+  <lastmod>2021-02-12T14:37:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/posts/index-3.html</loc>
-  <lastmod>2021-01-29T14:40:00Z</lastmod>
+  <lastmod>2021-02-12T14:37:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/posts/index-4.html</loc>
-  <lastmod>2021-01-29T14:40:00Z</lastmod>
+  <lastmod>2021-02-12T14:37:00Z</lastmod>
  </url>
  <url>
   <loc>https://comafire.github.io/posts/index-5.html</loc>
-  <lastmod>2021-01-29T14:40:00Z</lastmod>
+  <lastmod>2021-02-12T14:37:00Z</lastmod>
  </url>
 </urlset>

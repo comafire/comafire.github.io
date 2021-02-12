@@ -1210,13 +1210,6 @@ SEARCH_FORM = """
 # before </head>
 # (translatable)
 EXTRA_HEAD_DATA = """
-<!-- Kakao Adfit -->
-<ins class="kakao_ad_area" style="display:none;" 
- data-ad-unit    = "DAN-CAZ0C6OBGcmKzDzt" 
- data-ad-width   = "320" 
- data-ad-height  = "100"></ins> 
-<script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>
-
 <!-- Google Adsense -->
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <script>

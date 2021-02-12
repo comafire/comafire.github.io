@@ -1,7 +1,7 @@
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Feature-Extraction">Feature Extraction<a class="anchor-link" href="#Feature-Extraction">&#182;</a></h1><p>Feature Extraction은 주어진 고차원 데이터 분석 시에 모델링에 사용할 변수를 추출하는 방법입니다. Feature Selection과 다른 점은 존재하는 변수 중에서 중요한 변수들을 선택하여 차원을 축소하는 것이 아니라, 저차원으로 맵핑한 새로운 변수를 통해 차원을 줄인다는 것입니다.</p>
+<h1 id="Feature-Extraction">Feature Extraction<a class="anchor-link" href="#Feature-Extraction">&#182;</a></h1><p>Feature Extraction은 고차원 데이터 분석 시에 모델링에 사용할 변수를 추출하는 방법입니다. Feature Selection과 다른 점은 존재하는 변수 중에서 중요한 변수들을 선택하여 차원을 축소하는 것이 아니라, 저차원으로 맵핑한 새로운 변수를 통해 차원을 줄인다는 것입니다.</p>
 <h2 id="Unsupervised-Method">Unsupervised Method<a class="anchor-link" href="#Unsupervised-Method">&#182;</a></h2><h3 id="Principal-Component-Analysis(PCA:-&#51452;&#49457;&#48516;-&#48516;&#49437;)">Principal Component Analysis(PCA: &#51452;&#49457;&#48516; &#48516;&#49437;)<a class="anchor-link" href="#Principal-Component-Analysis(PCA:-&#51452;&#49457;&#48516;-&#48516;&#49437;)">&#182;</a></h3><p>PCA 는 고차원 데이터의 Variance 는 최대한 보존하면서 서로 직교하는 새 축을 찾아 데이터를 이 축상에 맵핑하여 새로운 저차원 변수를 만들어 차원 축소를 합니다. 비지도 학습 방법이어서 Label 이 없는 데이터에 대해서도 사용이 가능합니다.</p>
 <p>만약 데이터에 이상치가 많이 포함되어 있다고 판단되면 whiten = True 로 놓는 것이 모델 성능 향상에 도움이 될 수 있습니다.</p>
 <p><strong>whiten : bool, optional (default False)</strong></p>

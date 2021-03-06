@@ -1,0 +1,1492 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TF2 회귀 &#8212; 데사견문록</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="TF2 Overfit Underfit" href="tf2_overfit_underfit.html" />
+    <link rel="prev" title="TF2 Hub로 텍스트 분류" href="tf2_hub_text_classification.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">데사견문록</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../readme.html">
+   데이터사이언스견문록
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../1day_trip/readme.html">
+   당일치기 편
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/e2eds.html">
+     End to End Data Science (E2EDS)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/infra.html">
+     인프라
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/jupyter_cloud.html">
+     Jupyter (Cloud)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/random_seed.html">
+     Random
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/pandas_10mins.html">
+     Pandas 10분만에 훑어보기
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/numpy_10mins.html">
+     Numpy 10분만에 훑어보기
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/data_description.html">
+     데이터 서술
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/missing_value.html">
+     결측치
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/descriptive_statistics.html">
+     기술 통계
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/outlier.html">
+     이상치
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/feature_selection.html">
+     변수 선택
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/feature_extraction.html">
+     변수 추출
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/feature_transformation.html">
+     변수 변형
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/normality_test.html">
+     정규성 검정
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/statistics_test.html">
+     통계적 검정
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/parallel_algorithm.html">
+     1-Pass/병렬 알고리즘
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/split_train_test.html">
+     Train/Valid/Test 데이터 셋 나누기
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/imbalanced_class.html">
+     Imbalanced Class
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/model_persistence.html">
+     Model Persistence
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/eval_regression.html">
+     Regression 평가
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/linear_regression.html">
+     Linear Regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/polynomial_regression.html">
+     Polynomial Regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/sgd_regression.html">
+     SGD Regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/svm_regression.html">
+     SVM Regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/nearest_neighbor_regression.html">
+     Nearest Neighbors Regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/ensemble_regression.html">
+     Ensemble Regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/eval_classification.html">
+     Classification 평가
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/logistic_regression.html">
+     Logistic Regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/sgd_classification.html">
+     SGD Classification
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/svm_classification.html">
+     SVM Classification
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/nearest_neighbor_classification.html">
+     Nearest Neighbors Classification
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/ensemble_classification.html">
+     Ensemble Classification
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/eval_clustering.html">
+     Clustering 평가
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/kmeans.html">
+     K-Means
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/mean_shift.html">
+     Mean Shift
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/spectral_clustering.html">
+     Spectral Clustering
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 current active collapsible-parent">
+  <a class="reference internal" href="readme.html">
+   주말여행 편
+  </a>
+  <ul class="current collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="jupyter_native_ubuntu.html">
+     Jupyter (Ubuntu)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="jupyter_native_macos.html">
+     Jupyter (macOS)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="spark_dataframe_10mins.html">
+     Spark DataFrame 10분만에 훑어보기
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="keras_10mins.html">
+     Keras 10분 만에 훑어보기
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="dnn_regression.html">
+     DNN Regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="dnn_classification.html">
+     DNN Classification
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="hyper_parameter_tunning.html">
+     Hyper Parameter Tunning
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="collaborative_filtering.html">
+     Collaborative Filtering (CF)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="anomaly_detection.html">
+     Anomaly Detection
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="tf2_10mins.html">
+     Tensorflow2 10분만에 훑어보기
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="tf2_basic_image_classification.html">
+     TF2 기본 이미지 분류
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="tf2_basic_text_classification.html">
+     TF2 기본 텍스트 분류
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="tf2_hub_text_classification.html">
+     TF2 Hub로 텍스트 분류
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     TF2 회귀
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="tf2_overfit_underfit.html">
+     TF2 Overfit Underfit
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="tf2_save_load.html">
+     TF2 Save Load
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../5day_trip/readme.html">
+   단기여행 편
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../5day_trip/infra.html">
+     인프라
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../5day_trip/jupyter_docker.html">
+     Jupyter (Docker)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../5day_trip/vagrant_virtualbox.html">
+     Vagrant (Optional)
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../long_trip/readme.html">
+   장기여행 편
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/2day_trip/tf2_basic_regression.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/comafire/comafire.github.io"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/comafire/comafire.github.io/issues/new?title=Issue%20on%20page%20%2F2day_trip/tf2_basic_regression.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/comafire/comafire.github.io/master?urlpath=tree/2day_trip/tf2_basic_regression.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   자동차 연비 예측하기: 회귀
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#auto-mpg">
+     Auto MPG 데이터셋 다운로드
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     데이터 정제하기
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     데이터 조사하기
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     데이터 정규화
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id5">
+     모델 구성
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id6">
+     모델 훈련
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id7">
+     예측
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="tf2">
+<h1>TF2 회귀<a class="headerlink" href="#tf2" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference external" href="https://www.tensorflow.org/tutorials/keras/regression?hl=ko">https://www.tensorflow.org/tutorials/keras/regression?hl=ko</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 설치</span>
+<span class="o">!</span>pip install -q --upgrade pip
+<span class="o">!</span>pip install -q seaborn
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 경고 메시지 출력 끄기</span>
+<span class="kn">import</span> <span class="nn">warnings</span> 
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="n">action</span><span class="o">=</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+
+<span class="c1"># 노트북 셀 표시를 브라우저 전체 폭 사용하기</span>
+<span class="kn">from</span> <span class="nn">IPython.core.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">HTML</span>
+<span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="s2">&quot;&lt;style&gt;.container { width:100% !important; }&lt;/style&gt;&quot;</span><span class="p">))</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">clear_output</span>
+
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="n">rseed</span> <span class="o">=</span> <span class="mi">22</span>
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">rseed</span><span class="p">)</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">rseed</span><span class="p">)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">set_printoptions</span><span class="p">(</span><span class="n">precision</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">set_printoptions</span><span class="p">(</span><span class="n">formatter</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;float_kind&#39;</span><span class="p">:</span> <span class="s2">&quot;</span><span class="si">{:.5f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">})</span>
+
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_rows&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> 
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_columns&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> 
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_colwidth&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">float_format</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{:,.5f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span>
+
+<span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+<span class="n">tf</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">set_seed</span><span class="p">(</span><span class="n">rseed</span><span class="p">)</span>
+<span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">backend</span><span class="o">.</span><span class="n">set_floatx</span><span class="p">(</span><span class="s1">&#39;float32&#39;</span><span class="p">)</span> <span class="c1"># keras default float type 설정</span>
+
+<span class="kn">import</span> <span class="nn">tensorflow_hub</span> <span class="k">as</span> <span class="nn">tfhub</span>
+<span class="kn">import</span> <span class="nn">tensorflow_datasets</span> <span class="k">as</span> <span class="nn">tfds</span>
+
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;python ver=</span><span class="si">{</span><span class="n">sys</span><span class="o">.</span><span class="n">version</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;pandas ver=</span><span class="si">{</span><span class="n">pd</span><span class="o">.</span><span class="n">__version__</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;numpy ver=</span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">__version__</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;tensorflow ver=</span><span class="si">{</span><span class="n">tf</span><span class="o">.</span><span class="n">__version__</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;tensorflow execuring eagerly=</span><span class="si">{</span><span class="n">tf</span><span class="o">.</span><span class="n">executing_eagerly</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;tensorflow hub ver=</span><span class="si">{</span><span class="n">tfhub</span><span class="o">.</span><span class="n">__version__</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;tensorflow GPU=</span><span class="si">{</span><span class="s1">&#39;True&#39;</span> <span class="k">if</span> <span class="n">tf</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">experimental</span><span class="o">.</span><span class="n">list_physical_devices</span><span class="p">(</span><span class="s1">&#39;GPU&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="s1">&#39;False&#39;</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;senborn ver=</span><span class="si">{</span><span class="n">sns</span><span class="o">.</span><span class="n">__version__</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style>.container { width:100% !important; }</style></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>python ver=3.7.6 (default, Nov 21 2020, 22:51:13) 
+[Clang 12.0.0 (clang-1200.0.32.27)]
+pandas ver=1.0.5
+numpy ver=1.19.5
+tensorflow ver=2.1.0
+tensorflow execuring eagerly=True
+tensorflow hub ver=0.11.0
+tensorflow GPU=False
+senborn ver=0.10.0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id1">
+<h2>자동차 연비 예측하기: 회귀<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>회귀(regression)는 가격이나 확률 같이 연속된 출력 값을 예측하는 것이 목적입니다.</p>
+<p>이 노트북은 Auto MPG 데이터셋을 사용하여 1970년대 후반과 1980년대 초반의 자동차 연비를 예측하는 모델을 만듭니다. 이 기간에 출시된 자동차 정보를 모델에 제공하겠습니다. 이 정보에는 실린더 수, 배기량, 마력(horsepower), 공차 중량 같은 속성이 포함됩니다.</p>
+<div class="section" id="auto-mpg">
+<h3>Auto MPG 데이터셋 다운로드<a class="headerlink" href="#auto-mpg" title="Permalink to this headline">¶</a></h3>
+<p>이 데이터셋은 UCI 머신 러닝 저장소에서 다운로드할 수 있습니다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dataset_path</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">get_file</span><span class="p">(</span><span class="s2">&quot;auto-mpg.data&quot;</span><span class="p">,</span> <span class="s2">&quot;http://archive.ics.uci.edu/ml/machine-learning-databases/auto-mpg/auto-mpg.data&quot;</span><span class="p">)</span>
+<span class="n">dataset_path</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;/Users/comafire/.keras/datasets/auto-mpg.data&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># csv 형태의 데이터를 pandas를 통해 읽어 출력해봅니다.</span>
+<span class="n">column_names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;MPG&#39;</span><span class="p">,</span><span class="s1">&#39;Cylinders&#39;</span><span class="p">,</span><span class="s1">&#39;Displacement&#39;</span><span class="p">,</span><span class="s1">&#39;Horsepower&#39;</span><span class="p">,</span><span class="s1">&#39;Weight&#39;</span><span class="p">,</span> <span class="s1">&#39;Acceleration&#39;</span><span class="p">,</span> <span class="s1">&#39;Model Year&#39;</span><span class="p">,</span> <span class="s1">&#39;Origin&#39;</span><span class="p">]</span>
+<span class="n">raw_dataset</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">dataset_path</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="n">column_names</span><span class="p">,</span> <span class="n">na_values</span> <span class="o">=</span> <span class="s2">&quot;?&quot;</span><span class="p">,</span> <span class="n">comment</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="n">skipinitialspace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">dataset</span> <span class="o">=</span> <span class="n">raw_dataset</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">dataset</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>MPG</th>
+      <th>Cylinders</th>
+      <th>Displacement</th>
+      <th>Horsepower</th>
+      <th>Weight</th>
+      <th>Acceleration</th>
+      <th>Model Year</th>
+      <th>Origin</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>393</th>
+      <td>27.00000</td>
+      <td>4</td>
+      <td>140.00000</td>
+      <td>86.00000</td>
+      <td>2,790.00000</td>
+      <td>15.60000</td>
+      <td>82</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>394</th>
+      <td>44.00000</td>
+      <td>4</td>
+      <td>97.00000</td>
+      <td>52.00000</td>
+      <td>2,130.00000</td>
+      <td>24.60000</td>
+      <td>82</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>395</th>
+      <td>32.00000</td>
+      <td>4</td>
+      <td>135.00000</td>
+      <td>84.00000</td>
+      <td>2,295.00000</td>
+      <td>11.60000</td>
+      <td>82</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>396</th>
+      <td>28.00000</td>
+      <td>4</td>
+      <td>120.00000</td>
+      <td>79.00000</td>
+      <td>2,625.00000</td>
+      <td>18.60000</td>
+      <td>82</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>397</th>
+      <td>31.00000</td>
+      <td>4</td>
+      <td>119.00000</td>
+      <td>82.00000</td>
+      <td>2,720.00000</td>
+      <td>19.40000</td>
+      <td>82</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="id2">
+<h3>데이터 정제하기<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dataset</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MPG             0
+Cylinders       0
+Displacement    0
+Horsepower      6
+Weight          0
+Acceleration    0
+Model Year      0
+Origin          0
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dataset</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+<span class="n">dataset</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MPG             0
+Cylinders       0
+Displacement    0
+Horsepower      0
+Weight          0
+Acceleration    0
+Model Year      0
+Origin          0
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># &quot;Origin&quot; 열은 수치형이 아니고 범주형이므로 원-핫 인코딩(one-hot encoding)으로 변환하겠습니다:</span>
+<span class="n">origin</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;Origin&#39;</span><span class="p">)</span>
+<span class="n">dataset</span><span class="p">[</span><span class="s1">&#39;USA&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">origin</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="mf">1.0</span>
+<span class="n">dataset</span><span class="p">[</span><span class="s1">&#39;Europe&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">origin</span> <span class="o">==</span> <span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="mf">1.0</span>
+<span class="n">dataset</span><span class="p">[</span><span class="s1">&#39;Japan&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">origin</span> <span class="o">==</span> <span class="mi">3</span><span class="p">)</span><span class="o">*</span><span class="mf">1.0</span>
+<span class="n">dataset</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>MPG</th>
+      <th>Cylinders</th>
+      <th>Displacement</th>
+      <th>Horsepower</th>
+      <th>Weight</th>
+      <th>Acceleration</th>
+      <th>Model Year</th>
+      <th>USA</th>
+      <th>Europe</th>
+      <th>Japan</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>393</th>
+      <td>27.00000</td>
+      <td>4</td>
+      <td>140.00000</td>
+      <td>86.00000</td>
+      <td>2,790.00000</td>
+      <td>15.60000</td>
+      <td>82</td>
+      <td>1.00000</td>
+      <td>0.00000</td>
+      <td>0.00000</td>
+    </tr>
+    <tr>
+      <th>394</th>
+      <td>44.00000</td>
+      <td>4</td>
+      <td>97.00000</td>
+      <td>52.00000</td>
+      <td>2,130.00000</td>
+      <td>24.60000</td>
+      <td>82</td>
+      <td>0.00000</td>
+      <td>1.00000</td>
+      <td>0.00000</td>
+    </tr>
+    <tr>
+      <th>395</th>
+      <td>32.00000</td>
+      <td>4</td>
+      <td>135.00000</td>
+      <td>84.00000</td>
+      <td>2,295.00000</td>
+      <td>11.60000</td>
+      <td>82</td>
+      <td>1.00000</td>
+      <td>0.00000</td>
+      <td>0.00000</td>
+    </tr>
+    <tr>
+      <th>396</th>
+      <td>28.00000</td>
+      <td>4</td>
+      <td>120.00000</td>
+      <td>79.00000</td>
+      <td>2,625.00000</td>
+      <td>18.60000</td>
+      <td>82</td>
+      <td>1.00000</td>
+      <td>0.00000</td>
+      <td>0.00000</td>
+    </tr>
+    <tr>
+      <th>397</th>
+      <td>31.00000</td>
+      <td>4</td>
+      <td>119.00000</td>
+      <td>82.00000</td>
+      <td>2,720.00000</td>
+      <td>19.40000</td>
+      <td>82</td>
+      <td>1.00000</td>
+      <td>0.00000</td>
+      <td>0.00000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="id3">
+<h3>데이터 조사하기<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>훈련 세트에서 몇 개의 열을 선택해 산점도 행렬 및 통계를 살펴보겠습니다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">train_dataset</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">frac</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span><span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">test_dataset</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">train_dataset</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span><span class="n">train_dataset</span><span class="p">[[</span><span class="s2">&quot;MPG&quot;</span><span class="p">,</span> <span class="s2">&quot;Cylinders&quot;</span><span class="p">,</span> <span class="s2">&quot;Displacement&quot;</span><span class="p">,</span> <span class="s2">&quot;Horsepower&quot;</span><span class="p">,</span> <span class="s2">&quot;Weight&quot;</span><span class="p">,</span> <span class="s2">&quot;Acceleration&quot;</span><span class="p">,</span> <span class="s2">&quot;Model Year&quot;</span><span class="p">]],</span> <span class="n">diag_kind</span><span class="o">=</span><span class="s2">&quot;kde&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.PairGrid at 0x191fa9590&gt;
+</pre></div>
+</div>
+<img alt="../_images/tf2_basic_regression_13_1.png" src="../_images/tf2_basic_regression_13_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">train_stats</span> <span class="o">=</span> <span class="n">train_dataset</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+<span class="n">train_stats</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;MPG&quot;</span><span class="p">)</span>
+<span class="n">train_stats</span> <span class="o">=</span> <span class="n">train_stats</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
+<span class="n">train_stats</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>count</th>
+      <th>mean</th>
+      <th>std</th>
+      <th>min</th>
+      <th>25%</th>
+      <th>50%</th>
+      <th>75%</th>
+      <th>max</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Cylinders</th>
+      <td>314.00000</td>
+      <td>5.47771</td>
+      <td>1.69979</td>
+      <td>3.00000</td>
+      <td>4.00000</td>
+      <td>4.00000</td>
+      <td>8.00000</td>
+      <td>8.00000</td>
+    </tr>
+    <tr>
+      <th>Displacement</th>
+      <td>314.00000</td>
+      <td>195.31847</td>
+      <td>104.33159</td>
+      <td>68.00000</td>
+      <td>105.50000</td>
+      <td>151.00000</td>
+      <td>265.75000</td>
+      <td>455.00000</td>
+    </tr>
+    <tr>
+      <th>Horsepower</th>
+      <td>314.00000</td>
+      <td>104.86943</td>
+      <td>38.09621</td>
+      <td>46.00000</td>
+      <td>76.25000</td>
+      <td>94.50000</td>
+      <td>128.00000</td>
+      <td>225.00000</td>
+    </tr>
+    <tr>
+      <th>Weight</th>
+      <td>314.00000</td>
+      <td>2,990.25159</td>
+      <td>843.89860</td>
+      <td>1,649.00000</td>
+      <td>2,256.50000</td>
+      <td>2,822.50000</td>
+      <td>3,608.00000</td>
+      <td>5,140.00000</td>
+    </tr>
+    <tr>
+      <th>Acceleration</th>
+      <td>314.00000</td>
+      <td>15.55924</td>
+      <td>2.78923</td>
+      <td>8.00000</td>
+      <td>13.80000</td>
+      <td>15.50000</td>
+      <td>17.20000</td>
+      <td>24.80000</td>
+    </tr>
+    <tr>
+      <th>Model Year</th>
+      <td>314.00000</td>
+      <td>75.89809</td>
+      <td>3.67564</td>
+      <td>70.00000</td>
+      <td>73.00000</td>
+      <td>76.00000</td>
+      <td>79.00000</td>
+      <td>82.00000</td>
+    </tr>
+    <tr>
+      <th>USA</th>
+      <td>314.00000</td>
+      <td>0.62420</td>
+      <td>0.48510</td>
+      <td>0.00000</td>
+      <td>0.00000</td>
+      <td>1.00000</td>
+      <td>1.00000</td>
+      <td>1.00000</td>
+    </tr>
+    <tr>
+      <th>Europe</th>
+      <td>314.00000</td>
+      <td>0.17834</td>
+      <td>0.38341</td>
+      <td>0.00000</td>
+      <td>0.00000</td>
+      <td>0.00000</td>
+      <td>0.00000</td>
+      <td>1.00000</td>
+    </tr>
+    <tr>
+      <th>Japan</th>
+      <td>314.00000</td>
+      <td>0.19745</td>
+      <td>0.39871</td>
+      <td>0.00000</td>
+      <td>0.00000</td>
+      <td>0.00000</td>
+      <td>0.00000</td>
+      <td>1.00000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 레이블 분리</span>
+<span class="n">train_labels</span> <span class="o">=</span> <span class="n">train_dataset</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;MPG&#39;</span><span class="p">)</span>
+<span class="n">test_labels</span> <span class="o">=</span> <span class="n">test_dataset</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;MPG&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id4">
+<h3>데이터 정규화<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>위 train_stats 통계를 다시 살펴보고 각 특성의 범위가 얼마나 다른지 확인해 보죠.</p>
+<p>특성의 스케일과 범위가 다르면 정규화(normalization)하는 것이 권장됩니다. 특성을 정규화하지 않아도 모델이 수렴할 수 있지만, 훈련시키기 어렵고 입력 단위에 의존적인 모델이 만들어집니다.</p>
+<p>노트: 의도적으로 훈련 세트만 사용하여 통계치를 생성했습니다. 이 통계는 테스트 세트를 정규화할 때에도 사용됩니다. 이는 테스트 세트를 모델이 훈련에 사용했던 것과 동일한 분포로 투영하기 위해서입니다.</p>
+<p>주의: 여기에서 입력 데이터를 정규화하기 위해 사용한 통계치(평균과 표준편차)는 원-핫 인코딩과 마찬가지로 모델에 주입되는 모든 데이터에 적용되어야 합니다. 여기에는 테스트 세트는 물론 모델이 실전에 투입되어 얻은 라이브 데이터도 포함됩니다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">norm</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">train_stats</span><span class="p">[</span><span class="s1">&#39;mean&#39;</span><span class="p">])</span> <span class="o">/</span> <span class="n">train_stats</span><span class="p">[</span><span class="s1">&#39;std&#39;</span><span class="p">]</span>
+<span class="n">normed_train_data</span> <span class="o">=</span> <span class="n">norm</span><span class="p">(</span><span class="n">train_dataset</span><span class="p">)</span>
+<span class="n">normed_test_data</span> <span class="o">=</span> <span class="n">norm</span><span class="p">(</span><span class="n">test_dataset</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id5">
+<h3>모델 구성<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<p>모델은 두 개의 완전 연결(densely connected) 은닉 레이어로 구성하며, 출력 레이어는 하나의 연속적인 값을 반환합니다.</p>
+<p>나중에 두 번째 모델을 만들기 쉽도록 build_model 함수로 모델 구성 단계를 감싸겠습니다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">build_model</span><span class="p">():</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Sequential</span><span class="p">([</span>
+        <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">,</span> <span class="n">input_shape</span><span class="o">=</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">train_dataset</span><span class="o">.</span><span class="n">keys</span><span class="p">())]),</span>
+        <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">),</span>
+        <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="p">])</span>
+
+    <span class="n">optimizer</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">optimizers</span><span class="o">.</span><span class="n">RMSprop</span><span class="p">(</span><span class="mf">0.001</span><span class="p">)</span>
+
+    <span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">loss</span><span class="o">=</span><span class="s1">&#39;mse&#39;</span><span class="p">,</span> <span class="n">optimizer</span><span class="o">=</span><span class="n">optimizer</span><span class="p">,</span> <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;mae&#39;</span><span class="p">,</span> <span class="s1">&#39;mse&#39;</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">model</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">build_model</span><span class="p">()</span>
+<span class="n">model</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Model: &quot;sequential&quot;
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+dense (Dense)                (None, 64)                640       
+_________________________________________________________________
+dense_1 (Dense)              (None, 64)                4160      
+_________________________________________________________________
+dense_2 (Dense)              (None, 1)                 65        
+=================================================================
+Total params: 4,865
+Trainable params: 4,865
+Non-trainable params: 0
+_________________________________________________________________
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id6">
+<h3>모델 훈련<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<p>이 모델을 1,000번의 에포크(epoch) 동안 훈련합니다. 훈련 정확도와 검증 정확도는 history 객체에 기록됩니다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 에포크가 끝날 때마다 점(.)을 출력해 훈련 진행 과정을 표시합니다</span>
+<span class="k">class</span> <span class="nc">PrintDot</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">callbacks</span><span class="o">.</span><span class="n">Callback</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">on_epoch_end</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">epoch</span><span class="p">,</span> <span class="n">logs</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">epoch</span> <span class="o">%</span> <span class="mi">100</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+
+<span class="n">EPOCHS</span> <span class="o">=</span> <span class="mi">1000</span>
+
+<span class="n">history</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">normed_train_data</span><span class="p">,</span> <span class="n">train_labels</span><span class="p">,</span>
+  <span class="n">epochs</span><span class="o">=</span><span class="n">EPOCHS</span><span class="p">,</span> <span class="n">validation_split</span> <span class="o">=</span> <span class="mf">0.2</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">callbacks</span><span class="o">=</span><span class="p">[</span><span class="n">PrintDot</span><span class="p">()])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>....................................................................................................
+....................................................................................................
+....................................................................................................
+....................................................................................................
+....................................................................................................
+....................................................................................................
+....................................................................................................
+....................................................................................................
+....................................................................................................
+....................................................................................................
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hist</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">history</span><span class="o">.</span><span class="n">history</span><span class="p">)</span>
+<span class="n">hist</span><span class="p">[</span><span class="s1">&#39;epoch&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">history</span><span class="o">.</span><span class="n">epoch</span>
+<span class="n">hist</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>loss</th>
+      <th>mae</th>
+      <th>mse</th>
+      <th>val_loss</th>
+      <th>val_mae</th>
+      <th>val_mse</th>
+      <th>epoch</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>995</th>
+      <td>3.24942</td>
+      <td>1.17503</td>
+      <td>3.24942</td>
+      <td>9.42920</td>
+      <td>2.33514</td>
+      <td>9.42920</td>
+      <td>995</td>
+    </tr>
+    <tr>
+      <th>996</th>
+      <td>2.90733</td>
+      <td>1.07133</td>
+      <td>2.90733</td>
+      <td>8.38685</td>
+      <td>2.19271</td>
+      <td>8.38685</td>
+      <td>996</td>
+    </tr>
+    <tr>
+      <th>997</th>
+      <td>3.04874</td>
+      <td>1.12028</td>
+      <td>3.04874</td>
+      <td>8.54450</td>
+      <td>2.22555</td>
+      <td>8.54450</td>
+      <td>997</td>
+    </tr>
+    <tr>
+      <th>998</th>
+      <td>2.93534</td>
+      <td>1.07158</td>
+      <td>2.93534</td>
+      <td>8.53166</td>
+      <td>2.22665</td>
+      <td>8.53166</td>
+      <td>998</td>
+    </tr>
+    <tr>
+      <th>999</th>
+      <td>2.91966</td>
+      <td>1.09630</td>
+      <td>2.91966</td>
+      <td>8.46656</td>
+      <td>2.22170</td>
+      <td>8.46656</td>
+      <td>999</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="k">def</span> <span class="nf">plot_history</span><span class="p">(</span><span class="n">history</span><span class="p">):</span>
+    <span class="n">hist</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">history</span><span class="o">.</span><span class="n">history</span><span class="p">)</span>
+    <span class="n">hist</span><span class="p">[</span><span class="s1">&#39;epoch&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">history</span><span class="o">.</span><span class="n">epoch</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">12</span><span class="p">))</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Epoch&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Mean Abs Error [MPG]&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">hist</span><span class="p">[</span><span class="s1">&#39;epoch&#39;</span><span class="p">],</span> <span class="n">hist</span><span class="p">[</span><span class="s1">&#39;mae&#39;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Train Error&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">hist</span><span class="p">[</span><span class="s1">&#39;epoch&#39;</span><span class="p">],</span> <span class="n">hist</span><span class="p">[</span><span class="s1">&#39;val_mae&#39;</span><span class="p">],</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Val Error&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">])</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Epoch&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Mean Square Error [$MPG^2$]&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">hist</span><span class="p">[</span><span class="s1">&#39;epoch&#39;</span><span class="p">],</span> <span class="n">hist</span><span class="p">[</span><span class="s1">&#39;mse&#39;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Train Error&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">hist</span><span class="p">[</span><span class="s1">&#39;epoch&#39;</span><span class="p">],</span> <span class="n">hist</span><span class="p">[</span><span class="s1">&#39;val_mse&#39;</span><span class="p">],</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Val Error&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">20</span><span class="p">])</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="n">plot_history</span><span class="p">(</span><span class="n">history</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/tf2_basic_regression_23_0.png" src="../_images/tf2_basic_regression_23_0.png" />
+</div>
+</div>
+<p>이 그래프를 보면 수 백번 에포크를 진행한 이후에는 모델이 거의 향상되지 않는 것 같습니다. model.fit 메서드를 수정하여 검증 점수가 향상되지 않으면 자동으로 훈련을 멈추도록 만들어 보죠. 에포크마다 훈련 상태를 점검하기 위해 EarlyStopping 콜백(callback)을 사용하겠습니다. 지정된 에포크 횟수 동안 성능 향상이 없으면 자동으로 훈련이 멈춥니다.</p>
+<p>이 콜백에 대해 더 자세한 내용은 <a class="reference external" href="https://www.tensorflow.org/versions/master/api_docs/python/tf/keras/callbacks/EarlyStopping?hl=ko">여기</a>를 참고하세요.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">build_model</span><span class="p">()</span>
+
+<span class="c1"># patience 매개변수는 성능 향상을 체크할 에포크 횟수입니다</span>
+<span class="n">early_stop</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">callbacks</span><span class="o">.</span><span class="n">EarlyStopping</span><span class="p">(</span><span class="n">monitor</span><span class="o">=</span><span class="s1">&#39;val_loss&#39;</span><span class="p">,</span> <span class="n">patience</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+
+<span class="n">history</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">normed_train_data</span><span class="p">,</span> <span class="n">train_labels</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="n">EPOCHS</span><span class="p">,</span>
+                    <span class="n">validation_split</span> <span class="o">=</span> <span class="mf">0.2</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">callbacks</span><span class="o">=</span><span class="p">[</span><span class="n">early_stop</span><span class="p">,</span> <span class="n">PrintDot</span><span class="p">()])</span>
+
+<span class="n">plot_history</span><span class="p">(</span><span class="n">history</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>.......................................................
+</pre></div>
+</div>
+<img alt="../_images/tf2_basic_regression_25_1.png" src="../_images/tf2_basic_regression_25_1.png" />
+</div>
+</div>
+<p>이 그래프를 보면 검증 세트의 평균 오차가 약 +/- 2 MPG입니다. 좋은 결과인가요? 이에 대한 평가는 여러분에게 맡기겠습니다.</p>
+<p>모델을 훈련할 때 사용하지 않았던 테스트 세트에서 모델의 성능을 확인해 보죠. 이를 통해 모델이 실전에 투입되었을 때 모델의 성능을 짐작할 수 있습니다:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">loss</span><span class="p">,</span> <span class="n">mae</span><span class="p">,</span> <span class="n">mse</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">normed_test_data</span><span class="p">,</span> <span class="n">test_labels</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;테스트 세트의 평균 절대 오차: </span><span class="si">{:5.2f}</span><span class="s2"> MPG&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">mae</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>78/78 - 0s - loss: 6.0590 - mae: 1.9627 - mse: 6.0590
+테스트 세트의 평균 절대 오차:  1.96 MPG
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id7">
+<h3>예측<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<p>마지막으로 테스트 세트에 있는 샘플을 사용해 MPG 값을 예측해 보겠습니다:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">test_predictions</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">normed_test_data</span><span class="p">)</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">test_labels</span><span class="p">,</span> <span class="n">test_predictions</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;True Values [MPG]&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Predictions [MPG]&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;square&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">()[</span><span class="mi">1</span><span class="p">]])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">()[</span><span class="mi">1</span><span class="p">]])</span>
+<span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="o">-</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/tf2_basic_regression_29_0.png" src="../_images/tf2_basic_regression_29_0.png" />
+</div>
+</div>
+<p>모델이 꽤 잘 예측한 것 같습니다. 오차의 분포를 살펴 보죠.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">error</span> <span class="o">=</span> <span class="n">test_predictions</span> <span class="o">-</span> <span class="n">test_labels</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">error</span><span class="p">,</span> <span class="n">bins</span> <span class="o">=</span> <span class="mi">25</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Prediction Error [MPG]&quot;</span><span class="p">)</span>
+<span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Count&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/tf2_basic_regression_31_0.png" src="../_images/tf2_basic_regression_31_0.png" />
+</div>
+</div>
+<p>가우시안 분포가 아니지만 아마도 훈련 샘플의 수가 매우 작기 때문일 것입니다.</p>
+<p><strong>결론</strong></p>
+<p>이 노트북은 회귀 문제를 위한 기법을 소개합니다.</p>
+<ul class="simple">
+<li><p>평균 제곱 오차(MSE)는 회귀 문제에서 자주 사용하는 손실 함수입니다(분류 문제에서 사용하는 손실 함수와 다릅니다).</p></li>
+<li><p>비슷하게 회귀에서 사용되는 평가 지표도 분류와 다릅니다. 많이 사용하는 회귀 지표는 평균 절댓값 오차(MAE)입니다.</p></li>
+<li><p>수치 입력 데이터의 특성이 여러 가지 범위를 가질 때 동일한 범위가 되도록 각 특성의 스케일을 독립적으로 조정해야 합니다.</p></li>
+<li><p>훈련 데이터가 많지 않다면 과대적합을 피하기 위해 은닉층의 개수가 적은 소규모 네트워크를 선택하는 방법이 좋습니다.</p></li>
+<li><p>조기 종료(Early stopping)은 과대적합을 방지하기 위한 좋은 방법입니다.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># MIT License</span>
+<span class="c1">#</span>
+<span class="c1"># Copyright (c) 2017 François Chollet</span>
+<span class="c1">#</span>
+<span class="c1"># Permission is hereby granted, free of charge, to any person obtaining a</span>
+<span class="c1"># copy of this software and associated documentation files (the &quot;Software&quot;),</span>
+<span class="c1"># to deal in the Software without restriction, including without limitation</span>
+<span class="c1"># the rights to use, copy, modify, merge, publish, distribute, sublicense,</span>
+<span class="c1"># and/or sell copies of the Software, and to permit persons to whom the</span>
+<span class="c1"># Software is furnished to do so, subject to the following conditions:</span>
+<span class="c1">#</span>
+<span class="c1"># The above copyright notice and this permission notice shall be included in</span>
+<span class="c1"># all copies or substantial portions of the Software.</span>
+<span class="c1">#</span>
+<span class="c1"># THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR</span>
+<span class="c1"># IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,</span>
+<span class="c1"># FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL</span>
+<span class="c1"># THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER</span>
+<span class="c1"># LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING</span>
+<span class="c1"># FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER</span>
+<span class="c1"># DEALINGS IN THE SOFTWARE.</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./2day_trip"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="tf2_hub_text_classification.html" title="previous page">TF2 Hub로 텍스트 분류</a>
+    <a class='right-next' id="next-link" href="tf2_overfit_underfit.html" title="next page">TF2 Overfit Underfit</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By comafire<br/>
+        
+            &copy; Copyright 2015.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+    <!-- Google Analytics -->
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-81648003-1', 'auto');
+      ga('set', 'anonymizeIp', true);
+      ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+    <!-- End Google Analytics -->
+    
+  </body>
+</html>

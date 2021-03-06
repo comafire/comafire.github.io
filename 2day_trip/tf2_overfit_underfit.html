@@ -1,0 +1,1272 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TF2 Overfit Underfit &#8212; 데사견문록</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="TF2 Save Load" href="tf2_save_load.html" />
+    <link rel="prev" title="TF2 회귀" href="tf2_basic_regression.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">데사견문록</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../readme.html">
+   데이터사이언스견문록
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../1day_trip/readme.html">
+   당일치기 편
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/e2eds.html">
+     End to End Data Science (E2EDS)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/infra.html">
+     인프라
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/jupyter_cloud.html">
+     Jupyter (Cloud)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/random_seed.html">
+     Random
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/pandas_10mins.html">
+     Pandas 10분만에 훑어보기
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/numpy_10mins.html">
+     Numpy 10분만에 훑어보기
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/data_description.html">
+     데이터 서술
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/missing_value.html">
+     결측치
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/descriptive_statistics.html">
+     기술 통계
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/outlier.html">
+     이상치
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/feature_selection.html">
+     변수 선택
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/feature_extraction.html">
+     변수 추출
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/feature_transformation.html">
+     변수 변형
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/normality_test.html">
+     정규성 검정
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/statistics_test.html">
+     통계적 검정
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/parallel_algorithm.html">
+     1-Pass/병렬 알고리즘
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/split_train_test.html">
+     Train/Valid/Test 데이터 셋 나누기
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/imbalanced_class.html">
+     Imbalanced Class
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/model_persistence.html">
+     Model Persistence
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/eval_regression.html">
+     Regression 평가
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/linear_regression.html">
+     Linear Regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/polynomial_regression.html">
+     Polynomial Regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/sgd_regression.html">
+     SGD Regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/svm_regression.html">
+     SVM Regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/nearest_neighbor_regression.html">
+     Nearest Neighbors Regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/ensemble_regression.html">
+     Ensemble Regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/eval_classification.html">
+     Classification 평가
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/logistic_regression.html">
+     Logistic Regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/sgd_classification.html">
+     SGD Classification
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/svm_classification.html">
+     SVM Classification
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/nearest_neighbor_classification.html">
+     Nearest Neighbors Classification
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/ensemble_classification.html">
+     Ensemble Classification
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/eval_clustering.html">
+     Clustering 평가
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/kmeans.html">
+     K-Means
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/mean_shift.html">
+     Mean Shift
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/spectral_clustering.html">
+     Spectral Clustering
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 current active collapsible-parent">
+  <a class="reference internal" href="readme.html">
+   주말여행 편
+  </a>
+  <ul class="current collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="jupyter_native_ubuntu.html">
+     Jupyter (Ubuntu)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="jupyter_native_macos.html">
+     Jupyter (macOS)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="spark_dataframe_10mins.html">
+     Spark DataFrame 10분만에 훑어보기
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="keras_10mins.html">
+     Keras 10분 만에 훑어보기
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="dnn_regression.html">
+     DNN Regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="dnn_classification.html">
+     DNN Classification
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="hyper_parameter_tunning.html">
+     Hyper Parameter Tunning
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="collaborative_filtering.html">
+     Collaborative Filtering (CF)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="anomaly_detection.html">
+     Anomaly Detection
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="tf2_10mins.html">
+     Tensorflow2 10분만에 훑어보기
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="tf2_basic_image_classification.html">
+     TF2 기본 이미지 분류
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="tf2_basic_text_classification.html">
+     TF2 기본 텍스트 분류
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="tf2_hub_text_classification.html">
+     TF2 Hub로 텍스트 분류
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="tf2_basic_regression.html">
+     TF2 회귀
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     TF2 Overfit Underfit
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="tf2_save_load.html">
+     TF2 Save Load
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../5day_trip/readme.html">
+   단기여행 편
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../5day_trip/infra.html">
+     인프라
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../5day_trip/jupyter_docker.html">
+     Jupyter (Docker)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../5day_trip/vagrant_virtualbox.html">
+     Vagrant (Optional)
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../long_trip/readme.html">
+   장기여행 편
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/2day_trip/tf2_overfit_underfit.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/comafire/comafire.github.io"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/comafire/comafire.github.io/issues/new?title=Issue%20on%20page%20%2F2day_trip/tf2_overfit_underfit.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/comafire/comafire.github.io/master?urlpath=tree/2day_trip/tf2_overfit_underfit.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#overfit-underfit">
+   Overfit (과대적합) 및 Underfit (과소적합)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#imdb">
+   IMDB 데이터셋 다운로드
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   과대적합 예제
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   기준 모델 만들기
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id3">
+   작은 모델 만들기
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id4">
+   큰 모델 만들기
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id5">
+   훈련 손실과 검증 손실 그래프 그리기
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id6">
+   과대적합을 방지하기 위한 전략
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id7">
+     가중치를 규제하기
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id8">
+   드롭아웃 추가하기
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="tf2-overfit-underfit">
+<h1>TF2 Overfit Underfit<a class="headerlink" href="#tf2-overfit-underfit" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference external" href="https://www.tensorflow.org/tutorials/keras/overfit_and_underfit?hl=ko">https://www.tensorflow.org/tutorials/keras/overfit_and_underfit?hl=ko</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 경고 메시지 출력 끄기</span>
+<span class="kn">import</span> <span class="nn">warnings</span> 
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="n">action</span><span class="o">=</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+
+<span class="c1"># 노트북 셀 표시를 브라우저 전체 폭 사용하기</span>
+<span class="kn">from</span> <span class="nn">IPython.core.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">HTML</span>
+<span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="s2">&quot;&lt;style&gt;.container { width:100% !important; }&lt;/style&gt;&quot;</span><span class="p">))</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">clear_output</span>
+
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="n">rseed</span> <span class="o">=</span> <span class="mi">22</span>
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">rseed</span><span class="p">)</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">rseed</span><span class="p">)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">set_printoptions</span><span class="p">(</span><span class="n">precision</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">set_printoptions</span><span class="p">(</span><span class="n">formatter</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;float_kind&#39;</span><span class="p">:</span> <span class="s2">&quot;</span><span class="si">{:.5f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">})</span>
+
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_rows&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> 
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_columns&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> 
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_colwidth&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">float_format</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{:,.5f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span>
+
+<span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+<span class="n">tf</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">set_seed</span><span class="p">(</span><span class="n">rseed</span><span class="p">)</span>
+<span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">backend</span><span class="o">.</span><span class="n">set_floatx</span><span class="p">(</span><span class="s1">&#39;float32&#39;</span><span class="p">)</span> <span class="c1"># keras default float type 설정</span>
+
+<span class="kn">import</span> <span class="nn">tensorflow_hub</span> <span class="k">as</span> <span class="nn">tfhub</span>
+<span class="kn">import</span> <span class="nn">tensorflow_datasets</span> <span class="k">as</span> <span class="nn">tfds</span>
+
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;python ver=</span><span class="si">{</span><span class="n">sys</span><span class="o">.</span><span class="n">version</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;pandas ver=</span><span class="si">{</span><span class="n">pd</span><span class="o">.</span><span class="n">__version__</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;numpy ver=</span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">__version__</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;tensorflow ver=</span><span class="si">{</span><span class="n">tf</span><span class="o">.</span><span class="n">__version__</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;tensorflow execuring eagerly=</span><span class="si">{</span><span class="n">tf</span><span class="o">.</span><span class="n">executing_eagerly</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;tensorflow hub ver=</span><span class="si">{</span><span class="n">tfhub</span><span class="o">.</span><span class="n">__version__</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;tensorflow GPU=</span><span class="si">{</span><span class="s1">&#39;True&#39;</span> <span class="k">if</span> <span class="n">tf</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">experimental</span><span class="o">.</span><span class="n">list_physical_devices</span><span class="p">(</span><span class="s1">&#39;GPU&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="s1">&#39;False&#39;</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;senborn ver=</span><span class="si">{</span><span class="n">sns</span><span class="o">.</span><span class="n">__version__</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style>.container { width:100% !important; }</style></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>python ver=3.7.6 (default, Nov 21 2020, 22:51:13) 
+[Clang 12.0.0 (clang-1200.0.32.27)]
+pandas ver=1.0.5
+numpy ver=1.19.5
+tensorflow ver=2.1.0
+tensorflow execuring eagerly=True
+tensorflow hub ver=0.11.0
+tensorflow GPU=False
+senborn ver=0.10.0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="overfit-underfit">
+<h2>Overfit (과대적합) 및 Underfit (과소적합)<a class="headerlink" href="#overfit-underfit" title="Permalink to this headline">¶</a></h2>
+<p>앞서 영화 리뷰 분류와 주택 가격 예측의 두 예제에서 일정 에포크 동안 훈련하면 검증 세트에서 모델 성능이 최고점에 도달한 다음 감소하기 시작한 것을 보았습니다.</p>
+<p>다른 말로 하면, 모델이 훈련 세트에 과대적합(overfitting)된 것입니다. 과대적합을 다루는 방법은 꼭 배워야 합니다. 훈련 세트에서 높은 성능을 얻을 수 있지만 진짜 원하는 것은 테스트 세트(또는 이전에 본 적 없는 데이터)에 잘 일반화되는 모델입니다.</p>
+<p>과대적합의 반대는 과소적합(underfitting)입니다. 과소적합은 테스트 세트의 성능이 향상될 여지가 아직 있을 때 일어납니다. 발생하는 원인은 여러가지입니다. 모델이 너무 단순하거나, 규제가 너무 많거나, 그냥 단순히 충분히 오래 훈련하지 않는 경우입니다. 즉 네트워크가 훈련 세트에서 적절한 패턴을 학습하지 못했다는 뜻입니다.</p>
+<p>모델을 너무 오래 훈련하면 과대적합되기 시작하고 테스트 세트에서 일반화되지 못하는 패턴을 훈련 세트에서 학습합니다. 과대적합과 과소적합 사이에서 균형을 잡아야 합니다. 이를 위해 적절한 에포크 횟수동안 모델을 훈련하는 방법을 배워보겠습니다.</p>
+<p>과대적합을 막는 가장 좋은 방법은 더 많은 훈련 데이터를 사용하는 것입니다. 많은 데이터에서 훈련한 모델은 자연적으로 일반화 성능이 더 좋습니다. 데이터를 더 준비할 수 없을 때 그다음으로 가장 좋은 방법은 규제(regularization)와 같은 기법을 사용하는 것입니다. 모델이 저장할 수 있는 정보의 양과 종류에 제약을 부과하는 방법입니다. 네트워크가 소수의 패턴만 기억할 수 있다면 최적화 과정 동안 일반화 가능성이 높은 가장 중요한 패턴에 촛점을 맞출 것입니다.</p>
+<p>이 노트북에서 널리 사용되는 두 가지 규제 기법인 가중치 규제와 드롭아웃(dropout)을 알아 보겠습니다. 이런 기법을 사용하여 IMDB 영화 리뷰 분류 모델의 성능을 향상시켜 보죠.</p>
+</div>
+<div class="section" id="imdb">
+<h2>IMDB 데이터셋 다운로드<a class="headerlink" href="#imdb" title="Permalink to this headline">¶</a></h2>
+<p>이전 노트북에서처럼 임베딩을 사용하지 않고 여기에서는 문장을 멀티-핫 인코딩(multi-hot encoding)으로 변환하겠습니다. 이 모델은 훈련 세트에 빠르게 과대적합될 것입니다. 과대적합을 발생시키기고 어떻게 해결하는지 보이기 위해 선택했습니다.</p>
+<p>멀티-핫 인코딩은 정수 시퀀스를 0과 1로 이루어진 벡터로 변환합니다. 정확하게 말하면 시퀀스 [3, 5]를 인덱스 3과 5만 1이고 나머지는 모두 0인 10,000 차원 벡터로 변환한다는 의미입니다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">NUM_WORDS</span> <span class="o">=</span> <span class="mi">1000</span>
+
+<span class="p">(</span><span class="n">train_data</span><span class="p">,</span> <span class="n">train_labels</span><span class="p">),</span> <span class="p">(</span><span class="n">test_data</span><span class="p">,</span> <span class="n">test_labels</span><span class="p">)</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">imdb</span><span class="o">.</span><span class="n">load_data</span><span class="p">(</span><span class="n">num_words</span><span class="o">=</span><span class="n">NUM_WORDS</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">multi_hot_sequences</span><span class="p">(</span><span class="n">sequences</span><span class="p">,</span> <span class="n">dimension</span><span class="p">):</span>
+    <span class="c1"># 0으로 채워진 (len(sequences), dimension) 크기의 행렬을 만듭니다</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">sequences</span><span class="p">),</span> <span class="n">dimension</span><span class="p">))</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">word_indices</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">sequences</span><span class="p">):</span>
+        <span class="n">results</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">word_indices</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span>  <span class="c1"># results[i]의 특정 인덱스만 1로 설정합니다</span>
+    <span class="k">return</span> <span class="n">results</span>
+
+
+<span class="n">train_data</span> <span class="o">=</span> <span class="n">multi_hot_sequences</span><span class="p">(</span><span class="n">train_data</span><span class="p">,</span> <span class="n">dimension</span><span class="o">=</span><span class="n">NUM_WORDS</span><span class="p">)</span>
+<span class="n">test_data</span> <span class="o">=</span> <span class="n">multi_hot_sequences</span><span class="p">(</span><span class="n">test_data</span><span class="p">,</span> <span class="n">dimension</span><span class="o">=</span><span class="n">NUM_WORDS</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>만들어진 멀티-핫 벡터 중 하나를 살펴 보죠. 단어 인덱스는 빈도 순으로 정렬되어 있습니다. 그래프에서 볼 수 있듯이 인덱스 0에 가까울수록 1이 많이 등장합니다:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">train_data</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x19f5d3e10&gt;]
+</pre></div>
+</div>
+<img alt="../_images/tf2_overfit_underfit_6_1.png" src="../_images/tf2_overfit_underfit_6_1.png" />
+</div>
+</div>
+</div>
+<div class="section" id="id1">
+<h2>과대적합 예제<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>과대적합을 막는 가장 간단한 방법은 모델의 규모를 축소하는 것입니다. 즉, 모델에 있는 학습 가능한 파라미터의 수를 줄입니다(모델 파라미터는 레이어(layer)의 개수와 레이어의 유닛(unit) 개수에 의해 결정됩니다). 딥러닝에서는 모델의 학습 가능한 파라미터의 수를 종종 모델의 “용량”이라고 말합니다. 직관적으로 생각해 보면 많은 파라미터를 가진 모델이 더 많은 “기억 용량”을 가집니다. 이런 모델은 훈련 샘플과 타깃 사이를 일반화 능력이 없는 딕셔너리와 같은 매핑으로 완벽하게 학습할 수 있습니다. 하지만 이전에 본 적 없는 데이터에서 예측을 할 땐 쓸모가 없을 것입니다.</p>
+<p>항상 기억해야 할 점은 딥러닝 모델이 훈련 세트에는 학습이 잘 되는 경향이 있지만 진짜 해결할 문제는 학습이 아니라 일반화라는 것입니다.</p>
+<p>반면에 네트워크의 기억 용량이 부족하다면 이런 매핑을 쉽게 학습할 수 없을 것입니다. 손실을 최소화하기 위해서는 예측 성능이 더 많은 압축된 표현을 학습해야 합니다. 또한 너무 작은 모델을 만들면 훈련 데이터를 학습하기 어렵울 것입니다. “너무 많은 용량”과 “충분하지 않은 용량” 사이의 균형을 잡아야 합니다.</p>
+<p>안타깝지만 어떤 모델의 (레이어의 개수나 뉴런 개수에 해당하는) 적절한 크기나 구조를 결정하는 마법같은 공식은 없습니다. 여러 가지 다른 구조를 사용해 실험을 해봐야만 합니다.</p>
+<p>알맞은 모델의 크기를 찾으려면 비교적 적은 수의 레이어와 파라미터로 시작해서 검증 손실이 감소할 때까지 새로운 레이어을 추가하거나 레이어의 크기를 늘리는 것이 좋습니다. 영화 리뷰 분류 네트워크를 사용해 이를 실험해 보겠습니다.</p>
+<p>Dense 레이어만 사용하는 간단한 기준 모델을 만들고 작은 규모의 버전와 큰 버전의 모델을 만들어 비교하겠습니다.</p>
+</div>
+<div class="section" id="id2">
+<h2>기준 모델 만들기<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">baseline_model</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Sequential</span><span class="p">([</span>
+    <span class="c1"># `.summary` 메서드 때문에 `input_shape`가 필요합니다</span>
+    <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">,</span> <span class="n">input_shape</span><span class="o">=</span><span class="p">(</span><span class="n">NUM_WORDS</span><span class="p">,)),</span>
+    <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">),</span>
+    <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;sigmoid&#39;</span><span class="p">)</span>
+<span class="p">])</span>
+
+<span class="n">baseline_model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="s1">&#39;adam&#39;</span><span class="p">,</span> <span class="n">loss</span><span class="o">=</span><span class="s1">&#39;binary_crossentropy&#39;</span><span class="p">,</span>
+                       <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;accuracy&#39;</span><span class="p">,</span> <span class="s1">&#39;binary_crossentropy&#39;</span><span class="p">])</span>
+
+<span class="n">baseline_model</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Model: &quot;sequential&quot;
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+dense (Dense)                (None, 16)                16016     
+_________________________________________________________________
+dense_1 (Dense)              (None, 16)                272       
+_________________________________________________________________
+dense_2 (Dense)              (None, 1)                 17        
+=================================================================
+Total params: 16,305
+Trainable params: 16,305
+Non-trainable params: 0
+_________________________________________________________________
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">baseline_history</span> <span class="o">=</span> <span class="n">baseline_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_data</span><span class="p">,</span> <span class="n">train_labels</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">512</span><span class="p">,</span>
+                                      <span class="n">validation_data</span><span class="o">=</span><span class="p">(</span><span class="n">test_data</span><span class="p">,</span> <span class="n">test_labels</span><span class="p">),</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Train on 25000 samples, validate on 25000 samples
+Epoch 1/20
+25000/25000 - 1s - loss: 0.5791 - accuracy: 0.6984 - binary_crossentropy: 0.5791 - val_loss: 0.4356 - val_accuracy: 0.8184 - val_binary_crossentropy: 0.4356
+Epoch 2/20
+25000/25000 - 0s - loss: 0.3705 - accuracy: 0.8473 - binary_crossentropy: 0.3705 - val_loss: 0.3511 - val_accuracy: 0.8510 - val_binary_crossentropy: 0.3511
+Epoch 3/20
+25000/25000 - 0s - loss: 0.3208 - accuracy: 0.8667 - binary_crossentropy: 0.3208 - val_loss: 0.3348 - val_accuracy: 0.8581 - val_binary_crossentropy: 0.3348
+Epoch 4/20
+25000/25000 - 0s - loss: 0.3048 - accuracy: 0.8750 - binary_crossentropy: 0.3048 - val_loss: 0.3307 - val_accuracy: 0.8605 - val_binary_crossentropy: 0.3307
+Epoch 5/20
+25000/25000 - 0s - loss: 0.2965 - accuracy: 0.8781 - binary_crossentropy: 0.2965 - val_loss: 0.3327 - val_accuracy: 0.8596 - val_binary_crossentropy: 0.3327
+Epoch 6/20
+25000/25000 - 0s - loss: 0.2876 - accuracy: 0.8811 - binary_crossentropy: 0.2876 - val_loss: 0.3297 - val_accuracy: 0.8587 - val_binary_crossentropy: 0.3297
+Epoch 7/20
+25000/25000 - 0s - loss: 0.2801 - accuracy: 0.8858 - binary_crossentropy: 0.2801 - val_loss: 0.3341 - val_accuracy: 0.8588 - val_binary_crossentropy: 0.3341
+Epoch 8/20
+25000/25000 - 0s - loss: 0.2733 - accuracy: 0.8874 - binary_crossentropy: 0.2733 - val_loss: 0.3318 - val_accuracy: 0.8584 - val_binary_crossentropy: 0.3318
+Epoch 9/20
+25000/25000 - 1s - loss: 0.2653 - accuracy: 0.8911 - binary_crossentropy: 0.2653 - val_loss: 0.3343 - val_accuracy: 0.8578 - val_binary_crossentropy: 0.3343
+Epoch 10/20
+25000/25000 - 1s - loss: 0.2574 - accuracy: 0.8958 - binary_crossentropy: 0.2574 - val_loss: 0.3453 - val_accuracy: 0.8550 - val_binary_crossentropy: 0.3453
+Epoch 11/20
+25000/25000 - 1s - loss: 0.2481 - accuracy: 0.8992 - binary_crossentropy: 0.2481 - val_loss: 0.3400 - val_accuracy: 0.8563 - val_binary_crossentropy: 0.3400
+Epoch 12/20
+25000/25000 - 1s - loss: 0.2397 - accuracy: 0.9026 - binary_crossentropy: 0.2397 - val_loss: 0.3484 - val_accuracy: 0.8536 - val_binary_crossentropy: 0.3484
+Epoch 13/20
+25000/25000 - 0s - loss: 0.2303 - accuracy: 0.9090 - binary_crossentropy: 0.2303 - val_loss: 0.3509 - val_accuracy: 0.8537 - val_binary_crossentropy: 0.3509
+Epoch 14/20
+25000/25000 - 0s - loss: 0.2238 - accuracy: 0.9117 - binary_crossentropy: 0.2238 - val_loss: 0.3593 - val_accuracy: 0.8491 - val_binary_crossentropy: 0.3593
+Epoch 15/20
+25000/25000 - 0s - loss: 0.2144 - accuracy: 0.9168 - binary_crossentropy: 0.2144 - val_loss: 0.3720 - val_accuracy: 0.8482 - val_binary_crossentropy: 0.3720
+Epoch 16/20
+25000/25000 - 0s - loss: 0.2072 - accuracy: 0.9200 - binary_crossentropy: 0.2072 - val_loss: 0.3767 - val_accuracy: 0.8473 - val_binary_crossentropy: 0.3767
+Epoch 17/20
+25000/25000 - 0s - loss: 0.1978 - accuracy: 0.9244 - binary_crossentropy: 0.1978 - val_loss: 0.3781 - val_accuracy: 0.8479 - val_binary_crossentropy: 0.3781
+Epoch 18/20
+25000/25000 - 1s - loss: 0.1899 - accuracy: 0.9281 - binary_crossentropy: 0.1899 - val_loss: 0.3911 - val_accuracy: 0.8436 - val_binary_crossentropy: 0.3911
+Epoch 19/20
+25000/25000 - 1s - loss: 0.1830 - accuracy: 0.9316 - binary_crossentropy: 0.1830 - val_loss: 0.3943 - val_accuracy: 0.8441 - val_binary_crossentropy: 0.3943
+Epoch 20/20
+25000/25000 - 0s - loss: 0.1751 - accuracy: 0.9357 - binary_crossentropy: 0.1751 - val_loss: 0.4020 - val_accuracy: 0.8419 - val_binary_crossentropy: 0.4020
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id3">
+<h2>작은 모델 만들기<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>앞서 만든 기준 모델과 비교하기 위해 적은 수의 은닉 유닛을 가진 모델을 만들어 보죠:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">smaller_model</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Sequential</span><span class="p">([</span>
+    <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">,</span> <span class="n">input_shape</span><span class="o">=</span><span class="p">(</span><span class="n">NUM_WORDS</span><span class="p">,)),</span>
+    <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">),</span>
+    <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;sigmoid&#39;</span><span class="p">)</span>
+<span class="p">])</span>
+
+<span class="n">smaller_model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="s1">&#39;adam&#39;</span><span class="p">,</span>
+                      <span class="n">loss</span><span class="o">=</span><span class="s1">&#39;binary_crossentropy&#39;</span><span class="p">,</span> <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;accuracy&#39;</span><span class="p">,</span> <span class="s1">&#39;binary_crossentropy&#39;</span><span class="p">])</span>
+
+<span class="n">smaller_model</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Model: &quot;sequential_1&quot;
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+dense_3 (Dense)              (None, 4)                 4004      
+_________________________________________________________________
+dense_4 (Dense)              (None, 4)                 20        
+_________________________________________________________________
+dense_5 (Dense)              (None, 1)                 5         
+=================================================================
+Total params: 4,029
+Trainable params: 4,029
+Non-trainable params: 0
+_________________________________________________________________
+</pre></div>
+</div>
+</div>
+</div>
+<p>같은 데이터를 사용해 이 모델을 훈련합니다:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">smaller_history</span> <span class="o">=</span> <span class="n">smaller_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_data</span><span class="p">,</span> <span class="n">train_labels</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">512</span><span class="p">,</span>
+                                    <span class="n">validation_data</span><span class="o">=</span><span class="p">(</span><span class="n">test_data</span><span class="p">,</span> <span class="n">test_labels</span><span class="p">),</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Train on 25000 samples, validate on 25000 samples
+Epoch 1/20
+25000/25000 - 1s - loss: 0.6765 - accuracy: 0.5566 - binary_crossentropy: 0.6765 - val_loss: 0.6501 - val_accuracy: 0.5896 - val_binary_crossentropy: 0.6501
+Epoch 2/20
+25000/25000 - 0s - loss: 0.6078 - accuracy: 0.6739 - binary_crossentropy: 0.6078 - val_loss: 0.5710 - val_accuracy: 0.7478 - val_binary_crossentropy: 0.5710
+Epoch 3/20
+25000/25000 - 0s - loss: 0.5351 - accuracy: 0.7901 - binary_crossentropy: 0.5351 - val_loss: 0.5158 - val_accuracy: 0.8039 - val_binary_crossentropy: 0.5158
+Epoch 4/20
+25000/25000 - 0s - loss: 0.4876 - accuracy: 0.8372 - binary_crossentropy: 0.4876 - val_loss: 0.4797 - val_accuracy: 0.8400 - val_binary_crossentropy: 0.4797
+Epoch 5/20
+25000/25000 - 0s - loss: 0.4548 - accuracy: 0.8568 - binary_crossentropy: 0.4548 - val_loss: 0.4573 - val_accuracy: 0.8450 - val_binary_crossentropy: 0.4573
+Epoch 6/20
+25000/25000 - 0s - loss: 0.4289 - accuracy: 0.8645 - binary_crossentropy: 0.4289 - val_loss: 0.4364 - val_accuracy: 0.8566 - val_binary_crossentropy: 0.4364
+Epoch 7/20
+25000/25000 - 0s - loss: 0.4086 - accuracy: 0.8697 - binary_crossentropy: 0.4086 - val_loss: 0.4250 - val_accuracy: 0.8541 - val_binary_crossentropy: 0.4250
+Epoch 8/20
+25000/25000 - 0s - loss: 0.3899 - accuracy: 0.8744 - binary_crossentropy: 0.3899 - val_loss: 0.4082 - val_accuracy: 0.8578 - val_binary_crossentropy: 0.4082
+Epoch 9/20
+25000/25000 - 0s - loss: 0.3734 - accuracy: 0.8773 - binary_crossentropy: 0.3734 - val_loss: 0.3968 - val_accuracy: 0.8582 - val_binary_crossentropy: 0.3968
+Epoch 10/20
+25000/25000 - 0s - loss: 0.3593 - accuracy: 0.8778 - binary_crossentropy: 0.3593 - val_loss: 0.3869 - val_accuracy: 0.8583 - val_binary_crossentropy: 0.3869
+Epoch 11/20
+25000/25000 - 0s - loss: 0.3450 - accuracy: 0.8800 - binary_crossentropy: 0.3450 - val_loss: 0.3748 - val_accuracy: 0.8576 - val_binary_crossentropy: 0.3748
+Epoch 12/20
+25000/25000 - 0s - loss: 0.3275 - accuracy: 0.8804 - binary_crossentropy: 0.3275 - val_loss: 0.3600 - val_accuracy: 0.8579 - val_binary_crossentropy: 0.3600
+Epoch 13/20
+25000/25000 - 0s - loss: 0.3112 - accuracy: 0.8799 - binary_crossentropy: 0.3112 - val_loss: 0.3488 - val_accuracy: 0.8556 - val_binary_crossentropy: 0.3488
+Epoch 14/20
+25000/25000 - 0s - loss: 0.3016 - accuracy: 0.8792 - binary_crossentropy: 0.3016 - val_loss: 0.3433 - val_accuracy: 0.8590 - val_binary_crossentropy: 0.3433
+Epoch 15/20
+25000/25000 - 0s - loss: 0.2941 - accuracy: 0.8814 - binary_crossentropy: 0.2941 - val_loss: 0.3421 - val_accuracy: 0.8595 - val_binary_crossentropy: 0.3421
+Epoch 16/20
+25000/25000 - 0s - loss: 0.2903 - accuracy: 0.8822 - binary_crossentropy: 0.2903 - val_loss: 0.3406 - val_accuracy: 0.8594 - val_binary_crossentropy: 0.3406
+Epoch 17/20
+25000/25000 - 0s - loss: 0.2874 - accuracy: 0.8825 - binary_crossentropy: 0.2874 - val_loss: 0.3395 - val_accuracy: 0.8601 - val_binary_crossentropy: 0.3395
+Epoch 18/20
+25000/25000 - 1s - loss: 0.2855 - accuracy: 0.8822 - binary_crossentropy: 0.2855 - val_loss: 0.3379 - val_accuracy: 0.8597 - val_binary_crossentropy: 0.3379
+Epoch 19/20
+25000/25000 - 0s - loss: 0.2823 - accuracy: 0.8833 - binary_crossentropy: 0.2823 - val_loss: 0.3362 - val_accuracy: 0.8586 - val_binary_crossentropy: 0.3362
+Epoch 20/20
+25000/25000 - 0s - loss: 0.2815 - accuracy: 0.8831 - binary_crossentropy: 0.2815 - val_loss: 0.3378 - val_accuracy: 0.8588 - val_binary_crossentropy: 0.3378
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id4">
+<h2>큰 모델 만들기<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>아주 큰 모델을 만들어 얼마나 빠르게 과대적합이 시작되는지 알아 볼 수 있습니다. 이 문제에 필요한 것보다 훨씬 더 큰 용량을 가진 네트워크를 추가해서 비교해 보죠:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bigger_model</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">Sequential</span><span class="p">([</span>
+    <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">512</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">,</span> <span class="n">input_shape</span><span class="o">=</span><span class="p">(</span><span class="n">NUM_WORDS</span><span class="p">,)),</span>
+    <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">512</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">),</span>
+    <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;sigmoid&#39;</span><span class="p">)</span>
+<span class="p">])</span>
+
+<span class="n">bigger_model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="s1">&#39;adam&#39;</span><span class="p">,</span>
+                     <span class="n">loss</span><span class="o">=</span><span class="s1">&#39;binary_crossentropy&#39;</span><span class="p">,</span> <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;accuracy&#39;</span><span class="p">,</span><span class="s1">&#39;binary_crossentropy&#39;</span><span class="p">])</span>
+
+<span class="n">bigger_model</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Model: &quot;sequential_2&quot;
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+dense_6 (Dense)              (None, 512)               512512    
+_________________________________________________________________
+dense_7 (Dense)              (None, 512)               262656    
+_________________________________________________________________
+dense_8 (Dense)              (None, 1)                 513       
+=================================================================
+Total params: 775,681
+Trainable params: 775,681
+Non-trainable params: 0
+_________________________________________________________________
+</pre></div>
+</div>
+</div>
+</div>
+<p>역시 같은 데이터를 사용해 모델을 훈련합니다:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bigger_history</span> <span class="o">=</span> <span class="n">bigger_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_data</span><span class="p">,</span> <span class="n">train_labels</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">512</span><span class="p">,</span>
+                                  <span class="n">validation_data</span><span class="o">=</span><span class="p">(</span><span class="n">test_data</span><span class="p">,</span> <span class="n">test_labels</span><span class="p">),</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Train on 25000 samples, validate on 25000 samples
+Epoch 1/20
+25000/25000 - 2s - loss: 0.4078 - accuracy: 0.8136 - binary_crossentropy: 0.4078 - val_loss: 0.3287 - val_accuracy: 0.8596 - val_binary_crossentropy: 0.3287
+Epoch 2/20
+25000/25000 - 1s - loss: 0.2885 - accuracy: 0.8793 - binary_crossentropy: 0.2885 - val_loss: 0.3264 - val_accuracy: 0.8586 - val_binary_crossentropy: 0.3264
+Epoch 3/20
+25000/25000 - 1s - loss: 0.2225 - accuracy: 0.9119 - binary_crossentropy: 0.2225 - val_loss: 0.3446 - val_accuracy: 0.8560 - val_binary_crossentropy: 0.3446
+Epoch 4/20
+25000/25000 - 1s - loss: 0.1083 - accuracy: 0.9654 - binary_crossentropy: 0.1083 - val_loss: 0.4182 - val_accuracy: 0.8467 - val_binary_crossentropy: 0.4182
+Epoch 5/20
+25000/25000 - 1s - loss: 0.0261 - accuracy: 0.9960 - binary_crossentropy: 0.0261 - val_loss: 0.5359 - val_accuracy: 0.8482 - val_binary_crossentropy: 0.5359
+Epoch 6/20
+25000/25000 - 1s - loss: 0.0057 - accuracy: 0.9997 - binary_crossentropy: 0.0057 - val_loss: 0.6063 - val_accuracy: 0.8496 - val_binary_crossentropy: 0.6063
+Epoch 7/20
+25000/25000 - 1s - loss: 0.0021 - accuracy: 1.0000 - binary_crossentropy: 0.0021 - val_loss: 0.6550 - val_accuracy: 0.8519 - val_binary_crossentropy: 0.6550
+Epoch 8/20
+25000/25000 - 1s - loss: 8.2529e-04 - accuracy: 1.0000 - binary_crossentropy: 8.2529e-04 - val_loss: 0.6824 - val_accuracy: 0.8527 - val_binary_crossentropy: 0.6824
+Epoch 9/20
+25000/25000 - 1s - loss: 5.5183e-04 - accuracy: 1.0000 - binary_crossentropy: 5.5183e-04 - val_loss: 0.7071 - val_accuracy: 0.8533 - val_binary_crossentropy: 0.7071
+Epoch 10/20
+25000/25000 - 1s - loss: 4.1410e-04 - accuracy: 1.0000 - binary_crossentropy: 4.1410e-04 - val_loss: 0.7260 - val_accuracy: 0.8529 - val_binary_crossentropy: 0.7260
+Epoch 11/20
+25000/25000 - 1s - loss: 3.2589e-04 - accuracy: 1.0000 - binary_crossentropy: 3.2589e-04 - val_loss: 0.7429 - val_accuracy: 0.8530 - val_binary_crossentropy: 0.7429
+Epoch 12/20
+25000/25000 - 1s - loss: 2.6403e-04 - accuracy: 1.0000 - binary_crossentropy: 2.6403e-04 - val_loss: 0.7584 - val_accuracy: 0.8531 - val_binary_crossentropy: 0.7584
+Epoch 13/20
+25000/25000 - 1s - loss: 2.1824e-04 - accuracy: 1.0000 - binary_crossentropy: 2.1824e-04 - val_loss: 0.7704 - val_accuracy: 0.8531 - val_binary_crossentropy: 0.7704
+Epoch 14/20
+25000/25000 - 1s - loss: 1.8235e-04 - accuracy: 1.0000 - binary_crossentropy: 1.8235e-04 - val_loss: 0.7835 - val_accuracy: 0.8534 - val_binary_crossentropy: 0.7835
+Epoch 15/20
+25000/25000 - 1s - loss: 1.5401e-04 - accuracy: 1.0000 - binary_crossentropy: 1.5401e-04 - val_loss: 0.7960 - val_accuracy: 0.8533 - val_binary_crossentropy: 0.7960
+Epoch 16/20
+25000/25000 - 1s - loss: 1.3172e-04 - accuracy: 1.0000 - binary_crossentropy: 1.3172e-04 - val_loss: 0.8074 - val_accuracy: 0.8532 - val_binary_crossentropy: 0.8074
+Epoch 17/20
+25000/25000 - 1s - loss: 1.1302e-04 - accuracy: 1.0000 - binary_crossentropy: 1.1302e-04 - val_loss: 0.8184 - val_accuracy: 0.8531 - val_binary_crossentropy: 0.8184
+Epoch 18/20
+25000/25000 - 1s - loss: 9.7793e-05 - accuracy: 1.0000 - binary_crossentropy: 9.7793e-05 - val_loss: 0.8296 - val_accuracy: 0.8530 - val_binary_crossentropy: 0.8296
+Epoch 19/20
+25000/25000 - 1s - loss: 8.5155e-05 - accuracy: 1.0000 - binary_crossentropy: 8.5155e-05 - val_loss: 0.8402 - val_accuracy: 0.8532 - val_binary_crossentropy: 0.8402
+Epoch 20/20
+25000/25000 - 1s - loss: 7.4695e-05 - accuracy: 1.0000 - binary_crossentropy: 7.4695e-05 - val_loss: 0.8501 - val_accuracy: 0.8532 - val_binary_crossentropy: 0.8501
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id5">
+<h2>훈련 손실과 검증 손실 그래프 그리기<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<p>실선은 훈련 손실이고 점선은 검증 손실입니다(낮은 검증 손실이 더 좋은 모델입니다). 여기서는 작은 네트워크가 기준 모델보다 더 늦게 과대적합이 시작되었습니다(즉 에포크 4가 아니라 6에서 시작됩니다). 또한 과대적합이 시작되고 훨씬 천천히 성능이 감소합니다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plot_history</span><span class="p">(</span><span class="n">histories</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="s1">&#39;binary_crossentropy&#39;</span><span class="p">):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+
+    <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">history</span> <span class="ow">in</span> <span class="n">histories</span><span class="p">:</span>
+        <span class="n">val</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">history</span><span class="o">.</span><span class="n">epoch</span><span class="p">,</span> <span class="n">history</span><span class="o">.</span><span class="n">history</span><span class="p">[</span><span class="s1">&#39;val_&#39;</span><span class="o">+</span><span class="n">key</span><span class="p">],</span>
+                       <span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">name</span><span class="o">.</span><span class="n">title</span><span class="p">()</span><span class="o">+</span><span class="s1">&#39; Val&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">history</span><span class="o">.</span><span class="n">epoch</span><span class="p">,</span> <span class="n">history</span><span class="o">.</span><span class="n">history</span><span class="p">[</span><span class="n">key</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="n">val</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">get_color</span><span class="p">(),</span>
+                 <span class="n">label</span><span class="o">=</span><span class="n">name</span><span class="o">.</span><span class="n">title</span><span class="p">()</span><span class="o">+</span><span class="s1">&#39; Train&#39;</span><span class="p">)</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Epochs&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="n">key</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">,</span><span class="s1">&#39; &#39;</span><span class="p">)</span><span class="o">.</span><span class="n">title</span><span class="p">())</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="nb">max</span><span class="p">(</span><span class="n">history</span><span class="o">.</span><span class="n">epoch</span><span class="p">)])</span>
+
+<span class="n">plot_history</span><span class="p">([(</span><span class="s1">&#39;baseline&#39;</span><span class="p">,</span> <span class="n">baseline_history</span><span class="p">),</span>
+              <span class="p">(</span><span class="s1">&#39;smaller&#39;</span><span class="p">,</span> <span class="n">smaller_history</span><span class="p">),</span>
+              <span class="p">(</span><span class="s1">&#39;bigger&#39;</span><span class="p">,</span> <span class="n">bigger_history</span><span class="p">)])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/tf2_overfit_underfit_20_0.png" src="../_images/tf2_overfit_underfit_20_0.png" />
+</div>
+</div>
+<p>큰 네트워크는 거의 바로 첫 번째 에포크 이후에 과대적합이 시작되고 훨씬 더 심각하게 과대적합됩니다. 네트워크의 용량이 많을수록 훈련 세트를 더 빠르게 모델링할 수 있습니다(훈련 손실이 낮아집니다). 하지만 더 쉽게 과대적합됩니다(훈련 손실과 검증 손실 사이에 큰 차이가 발생합니다).</p>
+</div>
+<div class="section" id="id6">
+<h2>과대적합을 방지하기 위한 전략<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id7">
+<h3>가중치를 규제하기<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<p>아마도 오캄의 면도날(Occam’s Razor) 이론을 들어 보았을 것입니다. 어떤 것을 설명하는 두 가지 방법이 있다면 더 정확한 설명은 최소한의 가정이 필요한 가장 “간단한” 설명일 것입니다. 이는 신경망으로 학습되는 모델에도 적용됩니다. 훈련 데이터와 네트워크 구조가 주어졌을 때 이 데이터를 설명할 수 있는 가중치의 조합(즉, 가능한 모델)은 많습니다. 간단한 모델은 복잡한 것보다 과대적합되는 경향이 작을 것입니다.</p>
+<p>여기서 “간단한 모델”은 모델 파라미터의 분포를 봤을 때 엔트로피(entropy)가 작은 모델입니다(또는 앞 절에서 보았듯이 적은 파라미터를 가진 모델입니다). 따라서 과대적합을 완화시키는 일반적인 방법은 가중치가 작은 값을 가지도록 네트워크의 복잡도에 제약을 가하는 것입니다. 이는 가중치 값의 분포를 좀 더 균일하게 만들어 줍니다. 이를 “가중치 규제”(weight regularization)라고 부릅니다. 네트워크의 손실 함수에 큰 가중치에 해당하는 비용을 추가합니다. 이 비용은 두 가지 형태가 있습니다:</p>
+<p>L1 규제는 가중치의 절댓값에 비례하는 비용이 추가됩니다(즉, 가중치의 “L1 노름(norm)”을 추가합니다).</p>
+<p>L2 규제는 가중치의 제곱에 비례하는 비용이 추가됩니다(즉, 가중치의 “L2 노름”의 제곱을 추가합니다). 신경망에서는 L2 규제를 가중치 감쇠(weight decay)라고도 부릅니다. 이름이 다르지만 혼돈하지 마세요. 가중치 감쇠는 수학적으로 L2 규제와 동일합니다.</p>
+<p>L1 규제는 일부 가중치 파라미터를 0으로 만듭니다. L2 규제는 가중치 파라미터를 제한하지만 완전히 0으로 만들지는 않습니다. 이것이 L2 규제를 더 많이 사용하는 이유 중 하나입니다.</p>
+<p>tf.keras에서는 가중치 규제 객체를 레이어의 키워드 매개변수에 전달하여 가중치에 규제를 추가합니다. L2 가중치 규제를 추가해 보죠</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">l2_model</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">Sequential</span><span class="p">([</span>
+    <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="n">kernel_regularizer</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">regularizers</span><span class="o">.</span><span class="n">l2</span><span class="p">(</span><span class="mf">0.001</span><span class="p">),</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">,</span> <span class="n">input_shape</span><span class="o">=</span><span class="p">(</span><span class="n">NUM_WORDS</span><span class="p">,)),</span>
+    <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="n">kernel_regularizer</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">regularizers</span><span class="o">.</span><span class="n">l2</span><span class="p">(</span><span class="mf">0.001</span><span class="p">),</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">),</span>
+    <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;sigmoid&#39;</span><span class="p">)</span>
+<span class="p">])</span>
+
+<span class="n">l2_model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="s1">&#39;adam&#39;</span><span class="p">,</span>
+                 <span class="n">loss</span><span class="o">=</span><span class="s1">&#39;binary_crossentropy&#39;</span><span class="p">,</span> <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;accuracy&#39;</span><span class="p">,</span> <span class="s1">&#39;binary_crossentropy&#39;</span><span class="p">])</span>
+
+<span class="n">l2_model_history</span> <span class="o">=</span> <span class="n">l2_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_data</span><span class="p">,</span> <span class="n">train_labels</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">512</span><span class="p">,</span>
+                                <span class="n">validation_data</span><span class="o">=</span><span class="p">(</span><span class="n">test_data</span><span class="p">,</span> <span class="n">test_labels</span><span class="p">),</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Train on 25000 samples, validate on 25000 samples
+Epoch 1/20
+25000/25000 - 1s - loss: 0.6564 - accuracy: 0.6915 - binary_crossentropy: 0.6162 - val_loss: 0.5262 - val_accuracy: 0.8130 - val_binary_crossentropy: 0.4890
+Epoch 2/20
+25000/25000 - 0s - loss: 0.4414 - accuracy: 0.8415 - binary_crossentropy: 0.4028 - val_loss: 0.4015 - val_accuracy: 0.8493 - val_binary_crossentropy: 0.3617
+Epoch 3/20
+25000/25000 - 1s - loss: 0.3725 - accuracy: 0.8630 - binary_crossentropy: 0.3326 - val_loss: 0.3745 - val_accuracy: 0.8586 - val_binary_crossentropy: 0.3348
+Epoch 4/20
+25000/25000 - 0s - loss: 0.3538 - accuracy: 0.8696 - binary_crossentropy: 0.3147 - val_loss: 0.3680 - val_accuracy: 0.8614 - val_binary_crossentropy: 0.3296
+Epoch 5/20
+25000/25000 - 1s - loss: 0.3470 - accuracy: 0.8728 - binary_crossentropy: 0.3094 - val_loss: 0.3683 - val_accuracy: 0.8594 - val_binary_crossentropy: 0.3316
+Epoch 6/20
+25000/25000 - 0s - loss: 0.3413 - accuracy: 0.8736 - binary_crossentropy: 0.3053 - val_loss: 0.3620 - val_accuracy: 0.8601 - val_binary_crossentropy: 0.3269
+Epoch 7/20
+25000/25000 - 1s - loss: 0.3380 - accuracy: 0.8762 - binary_crossentropy: 0.3036 - val_loss: 0.3618 - val_accuracy: 0.8606 - val_binary_crossentropy: 0.3282
+Epoch 8/20
+25000/25000 - 1s - loss: 0.3367 - accuracy: 0.8747 - binary_crossentropy: 0.3037 - val_loss: 0.3593 - val_accuracy: 0.8603 - val_binary_crossentropy: 0.3271
+Epoch 9/20
+25000/25000 - 0s - loss: 0.3341 - accuracy: 0.8760 - binary_crossentropy: 0.3025 - val_loss: 0.3583 - val_accuracy: 0.8609 - val_binary_crossentropy: 0.3273
+Epoch 10/20
+25000/25000 - 0s - loss: 0.3330 - accuracy: 0.8766 - binary_crossentropy: 0.3024 - val_loss: 0.3614 - val_accuracy: 0.8594 - val_binary_crossentropy: 0.3314
+Epoch 11/20
+25000/25000 - 0s - loss: 0.3324 - accuracy: 0.8749 - binary_crossentropy: 0.3026 - val_loss: 0.3592 - val_accuracy: 0.8586 - val_binary_crossentropy: 0.3297
+Epoch 12/20
+25000/25000 - 1s - loss: 0.3298 - accuracy: 0.8760 - binary_crossentropy: 0.3008 - val_loss: 0.3565 - val_accuracy: 0.8601 - val_binary_crossentropy: 0.3276
+Epoch 13/20
+25000/25000 - 0s - loss: 0.3262 - accuracy: 0.8769 - binary_crossentropy: 0.2974 - val_loss: 0.3543 - val_accuracy: 0.8610 - val_binary_crossentropy: 0.3258
+Epoch 14/20
+25000/25000 - 0s - loss: 0.3264 - accuracy: 0.8754 - binary_crossentropy: 0.2980 - val_loss: 0.3583 - val_accuracy: 0.8582 - val_binary_crossentropy: 0.3300
+Epoch 15/20
+25000/25000 - 0s - loss: 0.3222 - accuracy: 0.8784 - binary_crossentropy: 0.2938 - val_loss: 0.3674 - val_accuracy: 0.8550 - val_binary_crossentropy: 0.3392
+Epoch 16/20
+25000/25000 - 0s - loss: 0.3199 - accuracy: 0.8795 - binary_crossentropy: 0.2914 - val_loss: 0.3586 - val_accuracy: 0.8596 - val_binary_crossentropy: 0.3301
+Epoch 17/20
+25000/25000 - 0s - loss: 0.3157 - accuracy: 0.8812 - binary_crossentropy: 0.2872 - val_loss: 0.3539 - val_accuracy: 0.8599 - val_binary_crossentropy: 0.3253
+Epoch 18/20
+25000/25000 - 0s - loss: 0.3129 - accuracy: 0.8825 - binary_crossentropy: 0.2841 - val_loss: 0.3547 - val_accuracy: 0.8598 - val_binary_crossentropy: 0.3259
+Epoch 19/20
+25000/25000 - 0s - loss: 0.3102 - accuracy: 0.8834 - binary_crossentropy: 0.2813 - val_loss: 0.3573 - val_accuracy: 0.8576 - val_binary_crossentropy: 0.3283
+Epoch 20/20
+25000/25000 - 0s - loss: 0.3080 - accuracy: 0.8842 - binary_crossentropy: 0.2788 - val_loss: 0.3577 - val_accuracy: 0.8584 - val_binary_crossentropy: 0.3284
+</pre></div>
+</div>
+</div>
+</div>
+<p>l2(0.001)는 네트워크의 전체 손실에 층에 있는 가중치 행렬의 모든 값이 0.001 * weight_coefficient_value**2만큼 더해진다는 의미입니다. 이런 페널티(penalty)는 훈련할 때만 추가됩니다. 따라서 테스트 단계보다 훈련 단계에서 네트워크 손실이 훨씬 더 클 것입니다.</p>
+<p>L2 규제의 효과를 확인해 보죠:</p>
+<p>결과에서 보듯이 모델 파라미터의 개수는 같지만 L2 규제를 적용한 모델이 기본 모델보다 과대적합에 훨씬 잘 견디고 있습니다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_history</span><span class="p">([(</span><span class="s1">&#39;baseline&#39;</span><span class="p">,</span> <span class="n">baseline_history</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;l2&#39;</span><span class="p">,</span> <span class="n">l2_model_history</span><span class="p">)])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/tf2_overfit_underfit_25_0.png" src="../_images/tf2_overfit_underfit_25_0.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id8">
+<h2>드롭아웃 추가하기<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
+<p>드롭아웃(dropout)은 신경망에서 가장 효과적이고 널리 사용하는 규제 기법 중 하나입니다. 토론토(Toronto) 대학의 힌튼(Hinton)과 그의 제자들이 개발했습니다. 드롭아웃을 레이어에 적용하면 훈련하는 동안 층의 출력 특성을 랜덤하게 끕니다(즉, 0으로 만듭니다). 훈련하는 동안 어떤 입력 샘플에 대해 [0.2, 0.5, 1.3, 0.8, 1.1] 벡터를 출력하는 층이 있다고 가정해 보죠. 드롭아웃을 적용하면 이 벡터에서 몇 개의 원소가 랜덤하게 0이 됩니다. 예를 들면, [0, 0.5, 1.3, 0, 1.1]가 됩니다. “드롭아웃 비율”은 0이 되는 특성의 비율입니다. 보통 0.2에서 0.5 사이를 사용합니다. 테스트 단계에서는 어떤 유닛도 드롭아웃하지 않습니다. 훈련 단계보다 더 많은 유닛이 활성화되기 때문에 균형을 맞추기 위해 레이어의 출력 값을 드롭아웃 비율만큼 줄입니다.</p>
+<p>tf.keras에서는 Dropout 레이어를 이용해 네트워크에 드롭아웃을 추가할 수 있습니다. 이 레이어는 바로 이전 레이어의 출력에 드롭아웃을 적용합니다.</p>
+<p>IMDB 네트워크에 두 개의 Dropout 레이어를 추가하여 과대적합이 얼마나 감소하는지 알아 보겠습니다:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dpt_model</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">Sequential</span><span class="p">([</span>
+    <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">,</span> <span class="n">input_shape</span><span class="o">=</span><span class="p">(</span><span class="n">NUM_WORDS</span><span class="p">,)),</span>
+    <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dropout</span><span class="p">(</span><span class="mf">0.5</span><span class="p">),</span>
+    <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">),</span>
+    <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dropout</span><span class="p">(</span><span class="mf">0.5</span><span class="p">),</span>
+    <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;sigmoid&#39;</span><span class="p">)</span>
+<span class="p">])</span>
+
+<span class="n">dpt_model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="s1">&#39;adam&#39;</span><span class="p">,</span>
+                  <span class="n">loss</span><span class="o">=</span><span class="s1">&#39;binary_crossentropy&#39;</span><span class="p">,</span> <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;accuracy&#39;</span><span class="p">,</span><span class="s1">&#39;binary_crossentropy&#39;</span><span class="p">])</span>
+
+<span class="n">dpt_model_history</span> <span class="o">=</span> <span class="n">dpt_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_data</span><span class="p">,</span> <span class="n">train_labels</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">512</span><span class="p">,</span>
+                                  <span class="n">validation_data</span><span class="o">=</span><span class="p">(</span><span class="n">test_data</span><span class="p">,</span> <span class="n">test_labels</span><span class="p">),</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Train on 25000 samples, validate on 25000 samples
+Epoch 1/20
+25000/25000 - 1s - loss: 0.6849 - accuracy: 0.5502 - binary_crossentropy: 0.6849 - val_loss: 0.6178 - val_accuracy: 0.7287 - val_binary_crossentropy: 0.6178
+Epoch 2/20
+25000/25000 - 0s - loss: 0.5959 - accuracy: 0.6741 - binary_crossentropy: 0.5959 - val_loss: 0.4886 - val_accuracy: 0.8224 - val_binary_crossentropy: 0.4886
+Epoch 3/20
+25000/25000 - 1s - loss: 0.5192 - accuracy: 0.7429 - binary_crossentropy: 0.5192 - val_loss: 0.4116 - val_accuracy: 0.8450 - val_binary_crossentropy: 0.4116
+Epoch 4/20
+25000/25000 - 0s - loss: 0.4664 - accuracy: 0.7788 - binary_crossentropy: 0.4664 - val_loss: 0.3740 - val_accuracy: 0.8517 - val_binary_crossentropy: 0.3740
+Epoch 5/20
+25000/25000 - 1s - loss: 0.4339 - accuracy: 0.8067 - binary_crossentropy: 0.4339 - val_loss: 0.3454 - val_accuracy: 0.8569 - val_binary_crossentropy: 0.3454
+Epoch 6/20
+25000/25000 - 1s - loss: 0.4136 - accuracy: 0.8190 - binary_crossentropy: 0.4136 - val_loss: 0.3395 - val_accuracy: 0.8585 - val_binary_crossentropy: 0.3395
+Epoch 7/20
+25000/25000 - 0s - loss: 0.3977 - accuracy: 0.8300 - binary_crossentropy: 0.3977 - val_loss: 0.3297 - val_accuracy: 0.8593 - val_binary_crossentropy: 0.3297
+Epoch 8/20
+25000/25000 - 0s - loss: 0.3873 - accuracy: 0.8379 - binary_crossentropy: 0.3873 - val_loss: 0.3280 - val_accuracy: 0.8605 - val_binary_crossentropy: 0.3280
+Epoch 9/20
+25000/25000 - 1s - loss: 0.3748 - accuracy: 0.8416 - binary_crossentropy: 0.3748 - val_loss: 0.3246 - val_accuracy: 0.8607 - val_binary_crossentropy: 0.3246
+Epoch 10/20
+25000/25000 - 1s - loss: 0.3729 - accuracy: 0.8434 - binary_crossentropy: 0.3729 - val_loss: 0.3267 - val_accuracy: 0.8613 - val_binary_crossentropy: 0.3267
+Epoch 11/20
+25000/25000 - 0s - loss: 0.3609 - accuracy: 0.8507 - binary_crossentropy: 0.3609 - val_loss: 0.3249 - val_accuracy: 0.8607 - val_binary_crossentropy: 0.3249
+Epoch 12/20
+25000/25000 - 0s - loss: 0.3573 - accuracy: 0.8550 - binary_crossentropy: 0.3573 - val_loss: 0.3249 - val_accuracy: 0.8596 - val_binary_crossentropy: 0.3249
+Epoch 13/20
+25000/25000 - 0s - loss: 0.3488 - accuracy: 0.8577 - binary_crossentropy: 0.3488 - val_loss: 0.3262 - val_accuracy: 0.8589 - val_binary_crossentropy: 0.3262
+Epoch 14/20
+25000/25000 - 0s - loss: 0.3462 - accuracy: 0.8590 - binary_crossentropy: 0.3462 - val_loss: 0.3262 - val_accuracy: 0.8586 - val_binary_crossentropy: 0.3262
+Epoch 15/20
+25000/25000 - 0s - loss: 0.3392 - accuracy: 0.8621 - binary_crossentropy: 0.3392 - val_loss: 0.3284 - val_accuracy: 0.8560 - val_binary_crossentropy: 0.3284
+Epoch 16/20
+25000/25000 - 0s - loss: 0.3361 - accuracy: 0.8660 - binary_crossentropy: 0.3361 - val_loss: 0.3295 - val_accuracy: 0.8586 - val_binary_crossentropy: 0.3295
+Epoch 17/20
+25000/25000 - 0s - loss: 0.3329 - accuracy: 0.8662 - binary_crossentropy: 0.3329 - val_loss: 0.3299 - val_accuracy: 0.8582 - val_binary_crossentropy: 0.3299
+Epoch 18/20
+25000/25000 - 0s - loss: 0.3299 - accuracy: 0.8696 - binary_crossentropy: 0.3299 - val_loss: 0.3311 - val_accuracy: 0.8556 - val_binary_crossentropy: 0.3311
+Epoch 19/20
+25000/25000 - 0s - loss: 0.3229 - accuracy: 0.8713 - binary_crossentropy: 0.3229 - val_loss: 0.3333 - val_accuracy: 0.8566 - val_binary_crossentropy: 0.3333
+Epoch 20/20
+25000/25000 - 1s - loss: 0.3260 - accuracy: 0.8692 - binary_crossentropy: 0.3260 - val_loss: 0.3380 - val_accuracy: 0.8568 - val_binary_crossentropy: 0.3380
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_history</span><span class="p">([(</span><span class="s1">&#39;baseline&#39;</span><span class="p">,</span> <span class="n">baseline_history</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;dropout&#39;</span><span class="p">,</span> <span class="n">dpt_model_history</span><span class="p">)])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/tf2_overfit_underfit_28_0.png" src="../_images/tf2_overfit_underfit_28_0.png" />
+</div>
+</div>
+<p>드롭아웃을 추가하니 기준 모델보다 확실히 향상되었습니다.</p>
+<p>정리하면 신경망에서 과대적합을 방지하기 위해 가장 널리 사용하는 방법은 다음과 같습니다:</p>
+<ul class="simple">
+<li><p>더 많은 훈련 데이터를 모읍니다.</p></li>
+<li><p>네트워크의 용량을 줄입니다.</p></li>
+<li><p>가중치 규제를 추가합니다.</p></li>
+<li><p>드롭아웃을 추가합니다.</p></li>
+</ul>
+<p>이 문서에서 다루지 않은 중요한 방법 두 가지는 데이터 증식(data-augmentation)과 배치 정규화(batch normalization)입니다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># MIT License</span>
+<span class="c1">#</span>
+<span class="c1"># Copyright (c) 2017 François Chollet</span>
+<span class="c1">#</span>
+<span class="c1"># Permission is hereby granted, free of charge, to any person obtaining a</span>
+<span class="c1"># copy of this software and associated documentation files (the &quot;Software&quot;),</span>
+<span class="c1"># to deal in the Software without restriction, including without limitation</span>
+<span class="c1"># the rights to use, copy, modify, merge, publish, distribute, sublicense,</span>
+<span class="c1"># and/or sell copies of the Software, and to permit persons to whom the</span>
+<span class="c1"># Software is furnished to do so, subject to the following conditions:</span>
+<span class="c1">#</span>
+<span class="c1"># The above copyright notice and this permission notice shall be included in</span>
+<span class="c1"># all copies or substantial portions of the Software.</span>
+<span class="c1">#</span>
+<span class="c1"># THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR</span>
+<span class="c1"># IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,</span>
+<span class="c1"># FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL</span>
+<span class="c1"># THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER</span>
+<span class="c1"># LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING</span>
+<span class="c1"># FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER</span>
+<span class="c1"># DEALINGS IN THE SOFTWARE.</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./2day_trip"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="tf2_basic_regression.html" title="previous page">TF2 회귀</a>
+    <a class='right-next' id="next-link" href="tf2_save_load.html" title="next page">TF2 Save Load</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By comafire<br/>
+        
+            &copy; Copyright 2015.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+    <!-- Google Analytics -->
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-81648003-1', 'auto');
+      ga('set', 'anonymizeIp', true);
+      ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+    <!-- End Google Analytics -->
+    
+  </body>
+</html>

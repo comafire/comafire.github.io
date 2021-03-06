@@ -1,0 +1,855 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jupyter (Ubuntu) &#8212; 데사견문록</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Jupyter (macOS)" href="jupyter_native_macos.html" />
+    <link rel="prev" title="주말여행 편" href="readme.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">데사견문록</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../readme.html">
+   데이터사이언스견문록
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../1day_trip/readme.html">
+   당일치기 편
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/e2eds.html">
+     End to End Data Science (E2EDS)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/infra.html">
+     인프라
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/jupyter_cloud.html">
+     Jupyter (Cloud)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/random_seed.html">
+     Random
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/pandas_10mins.html">
+     Pandas 10분만에 훑어보기
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/numpy_10mins.html">
+     Numpy 10분만에 훑어보기
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/data_description.html">
+     데이터 서술
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/missing_value.html">
+     결측치
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/descriptive_statistics.html">
+     기술 통계
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/outlier.html">
+     이상치
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/feature_selection.html">
+     변수 선택
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/feature_extraction.html">
+     변수 추출
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/feature_transformation.html">
+     변수 변형
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/normality_test.html">
+     정규성 검정
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/statistics_test.html">
+     통계적 검정
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/parallel_algorithm.html">
+     1-Pass/병렬 알고리즘
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/split_train_test.html">
+     Train/Valid/Test 데이터 셋 나누기
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/imbalanced_class.html">
+     Imbalanced Class
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/model_persistence.html">
+     Model Persistence
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/eval_regression.html">
+     Regression 평가
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/linear_regression.html">
+     Linear Regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/polynomial_regression.html">
+     Polynomial Regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/sgd_regression.html">
+     SGD Regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/svm_regression.html">
+     SVM Regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/nearest_neighbor_regression.html">
+     Nearest Neighbors Regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/ensemble_regression.html">
+     Ensemble Regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/eval_classification.html">
+     Classification 평가
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/logistic_regression.html">
+     Logistic Regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/sgd_classification.html">
+     SGD Classification
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/svm_classification.html">
+     SVM Classification
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/nearest_neighbor_classification.html">
+     Nearest Neighbors Classification
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/ensemble_classification.html">
+     Ensemble Classification
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/eval_clustering.html">
+     Clustering 평가
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/kmeans.html">
+     K-Means
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/mean_shift.html">
+     Mean Shift
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/spectral_clustering.html">
+     Spectral Clustering
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 current active collapsible-parent">
+  <a class="reference internal" href="readme.html">
+   주말여행 편
+  </a>
+  <ul class="current collapse-ul">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Jupyter (Ubuntu)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="jupyter_native_macos.html">
+     Jupyter (macOS)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="spark_dataframe_10mins.html">
+     Spark DataFrame 10분만에 훑어보기
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="keras_10mins.html">
+     Keras 10분 만에 훑어보기
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="dnn_regression.html">
+     DNN Regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="dnn_classification.html">
+     DNN Classification
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="hyper_parameter_tunning.html">
+     Hyper Parameter Tunning
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="collaborative_filtering.html">
+     Collaborative Filtering (CF)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="anomaly_detection.html">
+     Anomaly Detection
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="tf2_10mins.html">
+     Tensorflow2 10분만에 훑어보기
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="tf2_basic_image_classification.html">
+     TF2 기본 이미지 분류
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="tf2_basic_text_classification.html">
+     TF2 기본 텍스트 분류
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="tf2_hub_text_classification.html">
+     TF2 Hub로 텍스트 분류
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="tf2_basic_regression.html">
+     TF2 회귀
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="tf2_overfit_underfit.html">
+     TF2 Overfit Underfit
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="tf2_save_load.html">
+     TF2 Save Load
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../5day_trip/readme.html">
+   단기여행 편
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../5day_trip/infra.html">
+     인프라
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../5day_trip/jupyter_docker.html">
+     Jupyter (Docker)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../5day_trip/vagrant_virtualbox.html">
+     Vagrant (Optional)
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../long_trip/readme.html">
+   장기여행 편
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/2day_trip/jupyter_native_ubuntu.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/executablebooks/comafire.github.io"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/executablebooks/comafire.github.io/issues/new?title=Issue%20on%20page%20%2F2day_trip/jupyter_native_ubuntu.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/comafire.github.io/master?urlpath=tree/docs/2day_trip/jupyter_native_ubuntu.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sudoers">
+   Sudoers
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#git">
+   Git
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#git-multi-ssh-key">
+     Git Multi SSH Key 이용
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pyenv-pyenv-virtualenv-direnv">
+   pyenv, pyenv-virtualenv, direnv
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#spark-jupyter-python-data-science-library">
+   Spark &amp; Jupyter &amp; Python Data Science Library
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="jupyter-ubuntu">
+<h1>Jupyter (Ubuntu)<a class="headerlink" href="#jupyter-ubuntu" title="Permalink to this headline">¶</a></h1>
+<p>VMWare등의 운영체제 가상화 환경을 사용하지 않고 운영체제에 바로 툴들을 설치하는 Native 개발 환경은 컴퓨터의 리소스를 최대한 활용할 수 있다는 장점이 있지만, Docker 등의 컨테이너 가상화 환경 처럼 프로젝트에 따라 개발 환경을 완벽하게 분리하여 관리할 수 없다는 단점이 있습니다.</p>
+<div class="section" id="sudoers">
+<h2>Sudoers<a class="headerlink" href="#sudoers" title="Permalink to this headline">¶</a></h2>
+<p>sudo 명령을 통해 권한을 업그레이드 하는 경우가 많기 때문에 자동 수행을 위해 암호 없이 사용 가능하도록 설정합니다.</p>
+<p>visudo 명령을 이용하여 sudo 권한 사용자가 암호를 넣지 않아도 되도록 NOPASSWD 설정을 추가합니다.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>&gt; sudo <span class="nv">EDITOR</span><span class="o">=</span>vim visudo
+
+%sudo   <span class="nv">ALL</span><span class="o">=(</span>ALL:ALL<span class="o">)</span> NOPASSWD:ALL
+</pre></div>
+</div>
+<p>사용자를 sudo 그룹에 추가하고 id 명령을 통해 현재 잘 추가 되었는지 확인합니다.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>&gt; sudo usermod -aG sudo <span class="nv">$USER</span>
+&gt; id
+<span class="nv">uid</span><span class="o">=</span><span class="m">192435321</span><span class="o">(</span><span class="nv">$USER</span><span class="o">)</span> <span class="nv">gid</span><span class="o">=</span><span class="m">27</span><span class="o">(</span>sudo<span class="o">)</span>
+</pre></div>
+</div>
+<p>id를 통해서 sudo gid가 잘 적용되지 않을 경우에는 system reboot을 해줍니다.</p>
+</div>
+<div class="section" id="git">
+<h2>Git<a class="headerlink" href="#git" title="Permalink to this headline">¶</a></h2>
+<p>소스의 버전을 관리하기 위해 버전 관리 툴인 git을 설치합니다.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>&gt; sudo apt-get update
+&gt; sudo apt install git-all
+</pre></div>
+</div>
+<p>Git Manual</p>
+<ul class="simple">
+<li><p>Git 간편안내서: <a class="reference external" href="https://rogerdudler.github.io/git-guide/index.ko.html">https://rogerdudler.github.io/git-guide/index.ko.html</a></p></li>
+<li><p>Git Book: <a class="reference external" href="https://git-scm.com/book/ko/v2">https://git-scm.com/book/ko/v2</a></p></li>
+<li><p>Git Flow(Git 개발 브렌치 전략): <a class="reference external" href="https://danielkummer.github.io/git-flow-cheatsheet/index.ko_KR.html">https://danielkummer.github.io/git-flow-cheatsheet/index.ko_KR.html</a></p></li>
+</ul>
+<div class="section" id="git-multi-ssh-key">
+<h3>Git Multi SSH Key 이용<a class="headerlink" href="#git-multi-ssh-key" title="Permalink to this headline">¶</a></h3>
+<p>소스 버전별 저장소는 <a class="reference external" href="http://github.com">github.com</a> 또는 <a class="reference external" href="http://gitlab.com">gitlab.com</a> 을 많이 이용합니다. github 및 gitlab 사용시 인증은 간편하게 http 인증을 사용할 수 있으나, 프로젝트가 많아지면 commit 시 마다 비번을 넣어야 하는 불편함과 한 컴퓨터에서 gitlab, github내에 여러 계정이 혼재 할 경우 http 인증이 동작하지 않기에 SSH Key를 이용한 인증 방법을 추천합니다.</p>
+<p>먼저 sshkey-gen 명령을 통해서 각 git 계정 마다 사용할 키를 생성해줍니다. 여기서는 A, B, C 3개의 계정 예를 들어 보겠습니다.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>&gt; ssh-keygen -t rsa -b <span class="m">4096</span> -C <span class="s2">&quot;A@A.com&quot;</span>
+Generating public/private rsa key pair.
+Enter file in which to save the key <span class="o">(</span>~/.ssh/id_rsa<span class="o">)</span>: a_id_rsa
+
+&gt; ssh-keygen -t rsa -b <span class="m">4096</span> -C <span class="s2">&quot;B@B.com&quot;</span>
+Generating public/private rsa key pair.
+Enter file in which to save the key <span class="o">(</span>~/.ssh/id_rsa<span class="o">)</span>: b_id_rsa
+
+&gt; ssh-keygen -t rsa -b <span class="m">4096</span> -C <span class="s2">&quot;C@C.com&quot;</span>
+Generating public/private rsa key pair.
+Enter file in which to save the key <span class="o">(</span>~/.ssh/id_rsa<span class="o">)</span>: c_id_rsa
+</pre></div>
+</div>
+<p>키를 생성하게 되면 A, B, C 계정을 위한 개인키와 공개키 쌍이 생성되게 됩니다.</p>
+<ul class="simple">
+<li><p>개인키: a_id_rsa, b_id_rsa, c_id_rsa</p></li>
+<li><p>공개키: a_id_rsa.pub, b_id_rsa.pub, c_id_rsa.pub</p></li>
+</ul>
+<p>.ssh 디렉토리에 생성한 개인키와 공개키를 복사합니다. 이제 생성된 개인키를 SSH 에 등록해 줍니다.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ssh-add ~/.ssh/a_id_rsa
+ssh-add ~/.ssh/b_id_rsa
+ssh-add ~/.ssh/c_id_rsa
+</pre></div>
+</div>
+<p>등록된 키는 ssh-add -l 명령어로 확인이 가능합니다.</p>
+<p>생성된 공개키를 각 사이트 계정의 SSH Key 등록하는 곳에 등록해 주면 됩니다. SSH Key를 등록하는 방법은 아래 링크를 참조하세요.</p>
+<ul class="simple">
+<li><p>Github: <a class="reference external" href="https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account/">https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account/</a></p></li>
+<li><p>Gitlab: <a class="reference external" href="https://about.gitlab.com/2014/03/04/add-ssh-key-screencast/">https://about.gitlab.com/2014/03/04/add-ssh-key-screencast/</a></p></li>
+</ul>
+<p>SSH를 이용한 접속시 자동으로 해당 키를 사용할 수 있도록 ssh 접속 설정을 합니다.</p>
+<p>~/.ssh/config 파일을 생성해서 아래와 같이 설정해 줍니다.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Host A.github.com
+        HostName github.com
+        User A
+        PreferredAuthentications publickey
+        IdentityFile ~/.ssh/a_id_rsa
+Host B.gitlab.com
+        HostName gitlab.com
+        User B
+        PreferredAuthentications publickey
+        IdentityFile ~/.ssh/b_id_rsa
+Host C.gitlab.com
+        HostName gitlab.com
+        User C
+        PreferredAuthentications publickey
+        IdentityFile ~/.ssh/c_id_rsa
+</pre></div>
+</div>
+<p>소스의 git 레포지토리로 이동하여 .git/config 파일에서 Host부분을 ~/.ssh/config 에 설정한 Host와 일치 시킵니다.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>remote <span class="s2">&quot;origin&quot;</span><span class="o">]</span>
+        <span class="nv">url</span> <span class="o">=</span> git@A.github.com:comafire/test.git
+        <span class="nv">fetch</span> <span class="o">=</span> +refs/heads/*:refs/remotes/origin/*
+</pre></div>
+</div>
+<p>이제 git 사용시 각 계정 마다 다른 키 파일을 이용하여 암호를 넣지 않고 편리하게 사용 할 수 있습니다.</p>
+</div>
+</div>
+<div class="section" id="pyenv-pyenv-virtualenv-direnv">
+<h2>pyenv, pyenv-virtualenv, direnv<a class="headerlink" href="#pyenv-pyenv-virtualenv-direnv" title="Permalink to this headline">¶</a></h2>
+<p>프로젝트를 진행할때, 파이썬의 특성상 파이썬 자체의 버전과 패키지 버전들에 대한 의존성이 생기게 됩니다. 프로젝트 별로 편리하게 의존성을 관리하기 위해 3가지 툴을 조합하여 사용합니다.</p>
+<ul class="simple">
+<li><p>pyenv: 로컬에 멀티 버전의 파이썬을 설치/사용, 파이썬 버전에 대한 의존성을 해결</p></li>
+<li><p>virtualenv: 로컬에 멀티 파이썬 환경을 설치/사용, 프로젝트별 패키지에 대한 의존성을 해결</p></li>
+<li><p>direnv: 프로젝트 디렉토리에 들어갈때 마다 자동 환경 셋팅, .bash_profile 과 비슷한 역활</p></li>
+</ul>
+<p>3가지 툴을 설치하고 기본 셋팅합니다.</p>
+<p><strong>direnv</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>&gt; sudo apt-get update
+&gt; sudo apt-get install -y --no-install-recommends direnv
+&gt; <span class="nb">echo</span> <span class="s1">&#39;eval &quot;$(direnv hook bash)&quot;&#39;</span> &gt;&gt; ~/.bashrc
+&gt; <span class="nb">source</span> ~/.bashrc 
+</pre></div>
+</div>
+<p><strong>pyenv, virtualenv</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>&gt; sudo apt-get update
+&gt; sudo apt-get install -y make build-essential libssl-dev zlib1g-dev libbz2-dev <span class="se">\</span>
+libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev <span class="se">\</span>
+xz-utils tk-dev libffi-dev liblzma-dev
+
+&gt; curl https://pyenv.run <span class="p">|</span> bash
+</pre></div>
+</div>
+<p>pyenv를 이용해 파이썬 여러 버전을 설치할수 있습니다. 파이썬 빌드시 필요한 의존성 패키지와 주로 사용하는 2.x 대와 3.x 대의 최신 버전을 설치해 봅니다. 2.x 의 지원종료가 다가오기에 3.x 사용을 추천합니다. apache spark 과의 호완성을 위해 여기서는 3.7.6 버전을 사용합니다. (<a class="reference external" href="https://stackoverflow.com/questions/58700384/how-to-fix-typeerror-an-integer-is-required-got-type-bytes-error-when-tryin">https://stackoverflow.com/questions/58700384/how-to-fix-typeerror-an-integer-is-required-got-type-bytes-error-when-tryin</a>)</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>&gt; pyenv install <span class="m">2</span>.7.16
+&gt; pyenv install <span class="m">3</span>.7.6
+&gt; pyenv versions
+* system <span class="o">(</span><span class="nb">set</span> by /Users/comafire/.pyenv/version<span class="o">)</span>
+  <span class="m">2</span>.7.16
+  <span class="m">3</span>.7.6
+</pre></div>
+</div>
+<p>pyenv-virtualenv를 이용해 각 버전의 파이썬 가상환경을 만들어 봅니다.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>&gt; pyenv virtualenv <span class="m">2</span>.7.16 pyenv-2.7.16
+&gt; pyenv virtualenv <span class="m">3</span>.7.6 ubuntu-jupyter
+&gt; pyenv virtualenvs
+  ...
+  pyenv-2.7.16 <span class="o">(</span>created from /Users/comafire/.pyenv/versions/2.7.16<span class="o">)</span>
+  ubuntu-jupyter <span class="o">(</span>created from /Users/comafire/.pyenv/versions/3.7.6<span class="o">)</span>
+</pre></div>
+</div>
+<p>프로젝트를 생성하고 프로젝트의 기본 환경을 자동 셋팅할 수 있도록 direnv를 사용해 봅니다. direnv를 이용하면 프로젝트 폴더에 들어갈때 마다 자동으로 프로젝트에 맞는 특정 파이썬 가상환경을 활성화할 수 있습니다. 방법은 간단히 프로젝트의 최상위 디렉토리 아래 .envrc 파일을 만들고 아래 필요한 환경설정 내용을 적어주면 됩니다.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>&gt; vi .envrc
+
+<span class="nb">eval</span> <span class="s2">&quot;</span><span class="k">$(</span>pyenv init -<span class="k">)</span><span class="s2">&quot;</span>
+<span class="nb">eval</span> <span class="s2">&quot;</span><span class="k">$(</span>pyenv virtualenv-init -<span class="k">)</span><span class="s2">&quot;</span>
+<span class="nb">export</span> <span class="nv">PYENV_VIRTUALENV_DISABLE_PROMPT</span><span class="o">=</span><span class="m">1</span>
+
+pyenv activate ubuntu-jupyter
+</pre></div>
+</div>
+<p>저장 후, 해당 환경을 활성화 하기 위해 아래 명령을 수행해 줍니다.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>&gt; direnv allow .
+</pre></div>
+</div>
+<p>이후 부터는 .envrc 가 있는 프로젝트 디렉토리에 들어가면 자동으로 .envrc 내에 있는 환경이 활성화되고, 디렉토리를 벗어나면 자동으로 환경이 해제 됩니다.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>&gt; <span class="nb">cd</span> ubuntu-jupyter
+direnv: loading ~/ubuntu-jupyter/.envrc
+direnv: <span class="nb">export</span> +PYENV_ACTIVATE_SHELL +PYENV_SHELL +PYENV_VERSION +PYENV_VIRTUALENV_DISABLE_PROMPT +PYENV_VIRTUAL_ENV +VIRTUAL_ENV ~PATH
+
+&gt; <span class="nb">cd</span> ../
+direnv: unloading
+</pre></div>
+</div>
+</div>
+<div class="section" id="spark-jupyter-python-data-science-library">
+<h2>Spark &amp; Jupyter &amp; Python Data Science Library<a class="headerlink" href="#spark-jupyter-python-data-science-library" title="Permalink to this headline">¶</a></h2>
+<p>Ubuntu 에서 Spark 을 설치하여 사용하는 방법은 여러가지가 있지만, 버전 의존성 및 설정의 편리성을 위해 github 저장소에 Spark 및 자주사용하는 Data Science Library 그리고 Jupyter를 띄울수 있도록 템플릿 환경을 저장하여 놓고 사용합니다.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>&gt; git clone https://github.com/comafire/ubuntu-jupyter.git
+</pre></div>
+</div>
+<p>Spark 실행을 의한 의존성 패키지들을 설치 및 다운받아 프로젝트 내부의 usr/local 디렉토리내에 압축을 풀어 줍니다.</p>
+<p>openjdk-8: <a class="reference external" href="https://www.digitalocean.com/community/tutorials/how-to-install-java-with-apt-on-ubuntu-18-04">https://www.digitalocean.com/community/tutorials/how-to-install-java-with-apt-on-ubuntu-18-04</a>
+scala-2.12.10: <a class="reference external" href="https://www.scala-lang.org/download/2.12.11.html">https://www.scala-lang.org/download/2.12.11.html</a>
+spark-2.4.7-bin-hadoop2.7.tgz: 다운로드</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>&gt; mkdir -p usr
+&gt; <span class="nb">cd</span> usr
+&gt; sudo apt install openjdk-8-jdk
+&gt; wget https://downloads.lightbend.com/scala/2.12.10/scala-2.12.10.tgz
+&gt; wget http://mirror.navercorp.com/apache/spark/spark-2.4.7/spark-2.4.7-bin-hadoop2.7.tgz
+&gt; tar -zvxf scala-2.12.10.tgz
+&gt; tar -zxvf spark-2.4.7-bin-hadoop2.7.tgz
+&gt; ln -s scala-2.12.10 scala
+&gt; ln -s spark-2.4.7-bin-hadoop2.7 spark
+</pre></div>
+</div>
+<p>ubuntu-jupyter 내부 디렉토리 안에 미리 .envrc.template 안에 기본 설정이 되어 있으며, 이를 복사하여 추가적으로 필요한 부분은 수정해서 사용할 수 있습니다.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>&gt; cp .envrc.template .envrc
+&gt; vi .envrc
+
+<span class="c1"># BASE</span>
+<span class="nb">export</span> <span class="nv">UBUNTU_JUPYTER</span><span class="o">=</span><span class="nv">$PWD</span>
+
+<span class="c1"># Java</span>
+<span class="nb">export</span> <span class="nv">JAVA_HOME</span><span class="o">=</span><span class="s2">&quot;/usr/lib/jvm/java-8-openjdk-amd64&quot;</span>
+<span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$JAVA_HOME</span><span class="s2">/bin:</span><span class="nv">$PATH</span><span class="s2">&quot;</span>
+<span class="nb">export</span> <span class="nv">CPPFLAGS</span><span class="o">=</span><span class="s2">&quot;-I</span><span class="nv">$JAVA_HOME</span><span class="s2">/include&quot;</span>
+
+<span class="c1"># Scala</span>
+<span class="nb">export</span> <span class="nv">SCALA_HOME</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$UBUNTU_JUPYTER</span><span class="s2">/usr/scala&quot;</span>
+<span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$SCALA_HOME</span><span class="s2">/bin:</span><span class="nv">$PATH</span><span class="s2">&quot;</span>
+
+<span class="c1"># Python</span>
+<span class="nb">eval</span> <span class="s2">&quot;</span><span class="k">$(</span>pyenv init -<span class="k">)</span><span class="s2">&quot;</span>
+<span class="nb">eval</span> <span class="s2">&quot;</span><span class="k">$(</span>pyenv virtualenv-init -<span class="k">)</span><span class="s2">&quot;</span>
+<span class="nb">export</span> <span class="nv">PYENV_VIRTUALENV_DISABLE_PROMPT</span><span class="o">=</span><span class="m">1</span>
+
+pyenv activate ubuntu-jupyter
+
+<span class="c1"># Spark </span>
+<span class="nb">export</span> <span class="nv">SPARK_HOME</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$UBUNTU_JUPYTER</span><span class="s2">/usr/spark&quot;</span>
+<span class="nb">export</span> <span class="nv">PYSPARK_PYTHON</span><span class="o">=</span><span class="s2">&quot;</span><span class="k">$(</span>which python3<span class="k">)</span><span class="s2">&quot;</span>
+<span class="nb">export</span> <span class="nv">PYSPARK_DRIVER_PYTHON</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$PYSPARK_PYTHON</span><span class="s2">&quot;</span>
+<span class="nb">export</span> <span class="nv">PY4J_VERSION</span><span class="o">=</span><span class="m">0</span>.10.7
+<span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">SPARK_HOME</span><span class="si">}</span><span class="s2">/bin:</span><span class="nv">$PATH</span><span class="s2">&quot;</span>
+<span class="nb">export</span> <span class="nv">PYTHONPATH</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$SPARK_HOME</span><span class="s2">/python/:</span><span class="nv">$PYTHONPATH</span><span class="s2">&quot;</span>
+<span class="nb">export</span> <span class="nv">PYTHONPATH</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$SPARK_HOME</span><span class="s2">/python/lib/py4j-</span><span class="nv">$PY4J_VERSION</span><span class="s2">-src.zip:</span><span class="nv">$PYTHONPATH</span><span class="s2">&quot;</span>
+
+<span class="c1"># Jupyter</span>
+<span class="nb">export</span> <span class="nv">LOCALE</span><span class="o">=</span><span class="s2">&quot;ko_KR.UTF-8&quot;</span>
+
+<span class="c1"># Jupyter</span>
+<span class="nb">export</span> <span class="nv">JUPYTER_PORT</span><span class="o">=</span><span class="s2">&quot;7010&quot;</span> <span class="c1"># Your Jupyter Port</span>
+<span class="nb">export</span> <span class="nv">JUPYTER_PASSWORD</span><span class="o">=</span><span class="s2">&quot;notebooks&quot;</span> <span class="c1"># Your Jupyter Password</span>
+<span class="nb">export</span> <span class="nv">JUPYTER_BASEURL</span><span class="o">=</span><span class="s2">&quot;jupyter&quot;</span> <span class="c1"># Your Jupyter BaseURL, ex) http://localhost:8010/jupyter</span>
+<span class="nb">export</span> <span class="nv">JUPYTER_NOTEBOOKDIR</span><span class="o">=</span><span class="nv">$PWD</span>
+</pre></div>
+</div>
+<p>이제 필요한 Data Science 라이브러리를 설치합니다. requirements.txt 파일내에 기본 설치 라이브러리가 있으며, 필요시 추가해서 사용하면 됩니다.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>&gt; pip3 install --upgrade --user pip
+&gt; pip3 install -r etc/pip/requirements.txt
+&gt; python3 -m spylon_kernel install --user
+</pre></div>
+</div>
+<p>이제 아래 명령으로 jupyter 노트북을 띄우게 되면 Ubuntu 상에서 독립적인 가상 환경내에서 프로젝트 진행이 가능하게 됩니다.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>&gt; ./bin/run_jupyter.sh
+
+<span class="o">[</span>I <span class="m">16</span>:11:31.013 LabApp<span class="o">]</span> Loading IPython parallel extension
+<span class="o">[</span>I <span class="m">16</span>:11:31.248 LabApp<span class="o">]</span> JupyterLab extension loaded from /Users/comafire/.pyenv/versions/3.7.6/envs/macos-jupyter/lib/python3.7/site-packages/jupyterlab
+<span class="o">[</span>I <span class="m">16</span>:11:31.249 LabApp<span class="o">]</span> JupyterLab application directory is /Users/comafire/.pyenv/versions/3.7.6/envs/macos-jupyter/share/jupyter/lab
+<span class="o">[</span>I <span class="m">16</span>:11:31.251 LabApp<span class="o">]</span> Serving notebooks from <span class="nb">local</span> directory: /Users/comafire/LocalDrive/macos-jupyter
+<span class="o">[</span>I <span class="m">16</span>:11:31.251 LabApp<span class="o">]</span> The Jupyter Notebook is running at:
+<span class="o">[</span>I <span class="m">16</span>:11:31.252 LabApp<span class="o">]</span> http://localhost:7010/jupyter/
+</pre></div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./2day_trip"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="readme.html" title="previous page">주말여행 편</a>
+    <a class='right-next' id="next-link" href="jupyter_native_macos.html" title="next page">Jupyter (macOS)</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By comafire<br/>
+        
+            &copy; Copyright 2015.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+    <!-- Google Analytics -->
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-81648003-1', 'auto');
+      ga('set', 'anonymizeIp', true);
+      ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+    <!-- End Google Analytics -->
+    
+  </body>
+</html>

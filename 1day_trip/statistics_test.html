@@ -1,0 +1,672 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>통계적 검정 &#8212; 데사견문록</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="1-Pass/병렬 알고리즘" href="parallel_algorithm.html" />
+    <link rel="prev" title="정규성 검정" href="normality_test.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">데사견문록</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../readme.html">
+   데이터사이언스견문록
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 current active collapsible-parent">
+  <a class="reference internal" href="readme.html">
+   당일치기 편
+  </a>
+  <ul class="current collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="e2eds.html">
+     End to End Data Science (E2EDS)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="infra.html">
+     인프라
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="jupyter_cloud.html">
+     Jupyter (Cloud)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="random_seed.html">
+     Random
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="pandas_10mins.html">
+     Pandas 10분만에 훑어보기
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="numpy_10mins.html">
+     Numpy 10분만에 훑어보기
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="data_description.html">
+     데이터 서술
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="missing_value.html">
+     결측치
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="descriptive_statistics.html">
+     기술 통계
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="outlier.html">
+     이상치
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="feature_selection.html">
+     변수 선택
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="feature_extraction.html">
+     변수 추출
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="feature_transformation.html">
+     변수 변형
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="normality_test.html">
+     정규성 검정
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     통계적 검정
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="parallel_algorithm.html">
+     1-Pass/병렬 알고리즘
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="split_train_test.html">
+     Train/Valid/Test 데이터 셋 나누기
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="imbalanced_class.html">
+     Imbalanced Class
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="model_persistence.html">
+     Model Persistence
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="eval_regression.html">
+     Regression 평가
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="linear_regression.html">
+     Linear Regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="polynomial_regression.html">
+     Polynomial Regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="sgd_regression.html">
+     SGD Regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="svm_regression.html">
+     SVM Regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="nearest_neighbor_regression.html">
+     Nearest Neighbors Regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="ensemble_regression.html">
+     Ensemble Regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="eval_classification.html">
+     Classification 평가
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="logistic_regression.html">
+     Logistic Regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="sgd_classification.html">
+     SGD Classification
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="svm_classification.html">
+     SVM Classification
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="nearest_neighbor_classification.html">
+     Nearest Neighbors Classification
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="ensemble_classification.html">
+     Ensemble Classification
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="eval_clustering.html">
+     Clustering 평가
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="kmeans.html">
+     K-Means
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="mean_shift.html">
+     Mean Shift
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="spectral_clustering.html">
+     Spectral Clustering
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../2day_trip/readme.html">
+   주말여행 편
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../2day_trip/jupyter_native_ubuntu.html">
+     Jupyter (Ubuntu)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../2day_trip/jupyter_native_macos.html">
+     Jupyter (macOS)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../2day_trip/spark_dataframe_10mins.html">
+     Spark DataFrame 10분만에 훑어보기
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../2day_trip/keras_10mins.html">
+     Keras 10분 만에 훑어보기
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../2day_trip/dnn_regression.html">
+     DNN Regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../2day_trip/dnn_classification.html">
+     DNN Classification
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../2day_trip/hyper_parameter_tunning.html">
+     Hyper Parameter Tunning
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../2day_trip/collaborative_filtering.html">
+     Collaborative Filtering (CF)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../2day_trip/anomaly_detection.html">
+     Anomaly Detection
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../2day_trip/tf2_10mins.html">
+     Tensorflow2 10분만에 훑어보기
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../2day_trip/tf2_basic_image_classification.html">
+     TF2 기본 이미지 분류
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../2day_trip/tf2_basic_text_classification.html">
+     TF2 기본 텍스트 분류
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../2day_trip/tf2_hub_text_classification.html">
+     TF2 Hub로 텍스트 분류
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../2day_trip/tf2_basic_regression.html">
+     TF2 회귀
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../2day_trip/tf2_overfit_underfit.html">
+     TF2 Overfit Underfit
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../2day_trip/tf2_save_load.html">
+     TF2 Save Load
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../5day_trip/readme.html">
+   단기여행 편
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../5day_trip/infra.html">
+     인프라
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../5day_trip/jupyter_docker.html">
+     Jupyter (Docker)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../5day_trip/vagrant_virtualbox.html">
+     Vagrant (Optional)
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../long_trip/readme.html">
+   장기여행 편
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/1day_trip/statistics_test.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/executablebooks/comafire.github.io"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/executablebooks/comafire.github.io/issues/new?title=Issue%20on%20page%20%2F1day_trip/statistics_test.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/comafire.github.io/master?urlpath=tree/docs/1day_trip/statistics_test.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   모수적 방법
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="id1">
+<h1>통계적 검정<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id2">
+<h2>모수적 방법<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>Parametric Method</p>
+<p>통계학의 중심극한정리에 따라 무작위로 복원 추출된 랜덤 샘플로 구성된 연속형 표본의 평균 분포는 정규분포를 따르게 됩니다. 이런 정규성을 가진다는 모수적 특성을 이용하여 비교하고자 하는 집단이 모두 정규 분포를 따르고 집단내의 분산이 같다면 집단간의 평균을 비교함으로써 차이를 밝히는 방법을 모수적 방법(Parametric Method)이라고 합니다. 일반적으로 각 집단의 랜덤 샘플 표본이 30개 이상이면 정규성을 따른다고 가정합니다. 대표적인 모수적 검정 방법으로는 F-Test, T-Test, ANOVA 등이 있습니다.</p>
+<p><strong>F-Test</strong></p>
+<p>F-Test 는 두 표본의 분산 차이를 통계적으로 검증하는 분석 방법입니다. 이는 등분산 검정 (Equal-variance Test)이라고도 합니다. F-Test 의 귀무가설은 ‘두 표본 간 분산의 차이가 없다’입니다. 따라서 F-Test 후 계산된 p-value 가 0.05 보다 작으면 (p &lt; 0.05) 두 표본 간 분산의 차이가 있는 것으로 판단합니다.</p>
+<p><strong>T-Test</strong></p>
+<p>T-Test 는 두 표본의 평균 차이를 통계적으로 검증하는 분석 방법입니다. T-Test 의 귀무가설은 ‘두 표본 간 평균의 차이가 없다’입니다. 따라서 T-Test 후 계산된 p-value 가 0.05 보다 작으면 (p &lt; 0.05) 두 표본 간 평균의 차이가 있는 것으로 판단합니다. 두 집단의 평균을 비교하는 분석방법에는 Z-Test, T-Test가 있지만, Z-Test는 표본의 크기가 30개 이상일 경우에 사용가능하기때문에, 이에 영향이 없는 T-Test를 일반적으로 사용합니다. 표본이 30개 이상일 경우는 Z-Test 와 T-Test의 검증 결과가 동일합니다.</p>
+<p><strong>ANOVA(분산분석)</strong></p>
+<p>ANOVA 는 세 표본 이상의 평균 차이를 통계적으로 검증하는 분석 방법입니다. ANOVA는 종속 변수의 수에 따라 One-way(1개), Two-way(2개), Multi-way(3개 이상) ANOVA로 나뉘어 집니다. ANOVA 의 귀무가설은 ‘표본 간 평균의 차이가 없다’입니다. 따라서 ANOVA 후 계산된 p-value 가 0.05 보다 작으면 (p &lt; 0.05) 표본 간 평균의 차이가 있는 것으로 판단합니다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
+
+<span class="n">random_seed</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">random_seed</span><span class="p">)</span>
+
+<span class="c1"># 샘플의 숫자만 다르고, 같은 평균과 분산을 가진 세 그룹을 만듭니다.</span>
+<span class="c1"># norm: normal distribution</span>
+<span class="c1"># A normal continuous random variable.</span>
+<span class="c1"># The location (loc) keyword specifies the mean. The scale (scale) keyword specifies the standard deviation.</span>
+<span class="c1"># rvs: random value sampling</span>
+<span class="n">np_data1</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="n">random_seed</span><span class="p">)</span>
+<span class="n">np_data2</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="n">random_seed</span><span class="p">)</span>
+<span class="n">np_data3</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="n">random_seed</span><span class="p">)</span>
+
+<span class="c1"># 독립 표본 t-검정: Independent Two Sample&#39;s T-Test</span>
+<span class="c1"># Calculate the T-test for the means of two independent samples of scores.</span>
+<span class="c1"># This is a two-sided test for the null hypothesis </span>
+<span class="c1"># that 2 independent samples have identical average (expected) values. </span>
+<span class="c1"># This test assumes that the populations have identical variances by default.</span>
+
+<span class="c1"># 두 표본은 같은 평균을 가지기 때문에 p &lt; 0.05 보다 낮게 나옵니다.</span>
+<span class="n">statistic</span><span class="p">,</span> <span class="n">p</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">ttest_ind</span><span class="p">(</span><span class="n">np_data1</span><span class="p">,</span> <span class="n">np_data2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Independent Two Sample&#39;s T-Test: statistic=</span><span class="si">{:.5f}</span><span class="s2">, p=</span><span class="si">{:.2f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">statistic</span><span class="p">,</span> <span class="n">p</span><span class="p">))</span>
+
+<span class="c1"># 독립 표본 f-검정: Independent Two Sample&#39;s F-Test</span>
+<span class="c1"># f-검정은 두 표본의 분산을 비교한 값이 F 분포상에 위치하는 확률 값을 나타내기 때문에 아래와 같이 구할 수 있지만, 이상치에 민감합니다.</span>
+
+<span class="c1"># 두 표본은 같은 분산을 가지기 때문에 p &lt; 0.05 보다 낮게 나옵니다.</span>
+<span class="n">statistic</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">np_data1</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">np_data2</span><span class="p">)</span>
+<span class="n">df1</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">np_data1</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+<span class="n">df2</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">np_data2</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">f</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">statistic</span><span class="p">,</span> <span class="n">df1</span><span class="p">,</span> <span class="n">df2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Independent Two Sample&#39;s F-Test: statistic=</span><span class="si">{:.5f}</span><span class="s2">, p=</span><span class="si">{:.2f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">statistic</span><span class="p">,</span> <span class="n">p</span><span class="p">))</span>
+
+<span class="c1"># levene 방식은 이를 보완한 함수 입니다.</span>
+<span class="c1"># Perform Levene test for equal variances.</span>
+<span class="c1"># The Levene test tests the null hypothesis that all input samples are from populations with equal variances.</span>
+<span class="n">statistic</span><span class="p">,</span> <span class="n">p</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">levene</span><span class="p">(</span><span class="n">np_data1</span><span class="p">,</span> <span class="n">np_data2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Independent Two Sample&#39;s F-Test(Levene): statistic=</span><span class="si">{:.5f}</span><span class="s2">, p=</span><span class="si">{:.2f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">statistic</span><span class="p">,</span> <span class="n">p</span><span class="p">))</span>
+
+
+<span class="c1"># Oneway ANOVA:</span>
+<span class="c1"># Performs a 1-way ANOVA.</span>
+<span class="c1"># The one-way ANOVA tests the null hypothesis that two or more groups have the same population mean. </span>
+<span class="c1"># The test is applied to samples from two or more groups, possibly with differing sizes.</span>
+<span class="c1"># The ANOVA test has important assumptions that must be satisfied in order for the associated p-value to be valid.</span>
+<span class="c1">#</span>
+<span class="c1">#  1.The samples are independent.</span>
+<span class="c1">#  2. Each sample is from a normally distributed population.</span>
+<span class="c1">#  3. The population standard deviations of the groups are all equal. This property is known as homoscedasticity.</span>
+
+<span class="c1"># 세 표본은 같은 평균을 가지기 때문에 p &lt; 0.05 보다 낮게 나옵니다.</span>
+<span class="n">statistic</span><span class="p">,</span> <span class="n">p</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">f_oneway</span><span class="p">(</span><span class="n">np_data1</span><span class="p">,</span> <span class="n">np_data2</span><span class="p">,</span> <span class="n">np_data3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Oneway ANOVA: statistic=</span><span class="si">{:.5f}</span><span class="s2">, p=</span><span class="si">{:.2f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">statistic</span><span class="p">,</span> <span class="n">p</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Independent Two Sample&#39;s T-Test: statistic=-0.54012, p=0.59
+Independent Two Sample&#39;s F-Test: statistic=1.19987, p=0.78
+Independent Two Sample&#39;s F-Test(Levene): statistic=0.59023, p=0.44
+Oneway ANOVA: statistic=0.43331, p=0.65
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./1day_trip"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="normality_test.html" title="previous page">정규성 검정</a>
+    <a class='right-next' id="next-link" href="parallel_algorithm.html" title="next page">1-Pass/병렬 알고리즘</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By comafire<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+    <!-- Google Analytics -->
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-81648003-1', 'auto');
+      ga('set', 'anonymizeIp', true);
+      ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+    <!-- End Google Analytics -->
+    
+  </body>
+</html>

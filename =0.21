@@ -1,3 +1,0 @@
-Requirement already satisfied: scikit-learn in /usr/local/lib/python3.5/dist-packages (0.20.3)
-Requirement already satisfied: scipy>=0.13.3 in /usr/local/lib/python3.5/dist-packages (from scikit-learn) (1.2.1)
-Requirement already satisfied: numpy>=1.8.2 in /usr/local/lib/python3.5/dist-packages (from scikit-learn) (1.16.2)

@@ -1,0 +1,821 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jupyter (Docker) &#8212; 데사견문록</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Vagrant (Optional)" href="vagrant_virtualbox.html" />
+    <link rel="prev" title="인프라" href="infra.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">데사견문록</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../readme.html">
+   데이터사이언스견문록
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../1day_trip/readme.html">
+   당일치기 편
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/e2eds.html">
+     End to End Data Science (E2EDS)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/infra.html">
+     인프라
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/jupyter_cloud.html">
+     Jupyter (Cloud)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/random_seed.html">
+     Random
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/pandas_10mins.html">
+     Pandas 10분만에 훑어보기
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/numpy_10mins.html">
+     Numpy 10분만에 훑어보기
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/data_description.html">
+     데이터 서술
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/missing_value.html">
+     결측치
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/descriptive_statistics.html">
+     기술 통계
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/outlier.html">
+     이상치
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/feature_selection.html">
+     변수 선택
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/feature_extraction.html">
+     변수 추출
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/feature_transformation.html">
+     변수 변형
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/normality_test.html">
+     정규성 검정
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/statistics_test.html">
+     통계적 검정
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/parallel_algorithm.html">
+     1-Pass/병렬 알고리즘
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/split_train_test.html">
+     Train/Valid/Test 데이터 셋 나누기
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/imbalanced_class.html">
+     Imbalanced Class
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/model_persistence.html">
+     Model Persistence
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/eval_regression.html">
+     Regression 평가
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/linear_regression.html">
+     Linear Regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/polynomial_regression.html">
+     Polynomial Regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/sgd_regression.html">
+     SGD Regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/svm_regression.html">
+     SVM Regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/nearest_neighbor_regression.html">
+     Nearest Neighbors Regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/ensemble_regression.html">
+     Ensemble Regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/eval_classification.html">
+     Classification 평가
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/logistic_regression.html">
+     Logistic Regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/sgd_classification.html">
+     SGD Classification
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/svm_classification.html">
+     SVM Classification
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/nearest_neighbor_classification.html">
+     Nearest Neighbors Classification
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/ensemble_classification.html">
+     Ensemble Classification
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/eval_clustering.html">
+     Clustering 평가
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/kmeans.html">
+     K-Means
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/mean_shift.html">
+     Mean Shift
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/spectral_clustering.html">
+     Spectral Clustering
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../2day_trip/readme.html">
+   주말여행 편
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../2day_trip/jupyter_native_ubuntu.html">
+     Jupyter (Ubuntu)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../2day_trip/jupyter_native_macos.html">
+     Jupyter (macOS)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../2day_trip/spark_dataframe_10mins.html">
+     Spark DataFrame 10분만에 훑어보기
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../2day_trip/keras_10mins.html">
+     Keras 10분 만에 훑어보기
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../2day_trip/dnn_regression.html">
+     DNN Regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../2day_trip/dnn_classification.html">
+     DNN Classification
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../2day_trip/hyper_parameter_tunning.html">
+     Hyper Parameter Tunning
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../2day_trip/collaborative_filtering.html">
+     Collaborative Filtering (CF)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../2day_trip/anomaly_detection.html">
+     Anomaly Detection
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../2day_trip/tf2_10mins.html">
+     Tensorflow2 10분만에 훑어보기
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../2day_trip/tf2_basic_image_classification.html">
+     TF2 기본 이미지 분류
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../2day_trip/tf2_basic_text_classification.html">
+     TF2 기본 텍스트 분류
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../2day_trip/tf2_hub_text_classification.html">
+     TF2 Hub로 텍스트 분류
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../2day_trip/tf2_basic_regression.html">
+     TF2 회귀
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../2day_trip/tf2_overfit_underfit.html">
+     TF2 Overfit Underfit
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../2day_trip/tf2_save_load.html">
+     TF2 Save Load
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 current active collapsible-parent">
+  <a class="reference internal" href="readme.html">
+   단기여행 편
+  </a>
+  <ul class="current collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="infra.html">
+     인프라
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Jupyter (Docker)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="vagrant_virtualbox.html">
+     Vagrant (Optional)
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../long_trip/readme.html">
+   장기여행 편
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/5day_trip/jupyter_docker.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/executablebooks/comafire.github.io"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/executablebooks/comafire.github.io/issues/new?title=Issue%20on%20page%20%2F5day_trip/jupyter_docker.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/comafire.github.io/master?urlpath=tree/docs/5day_trip/jupyter_docker.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#git-clone">
+   Git Clone
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#install-docker">
+   Install Docker
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#for-nvidia-gpu">
+   for Nvidia GPU
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#install-nvidia-gpu-driver">
+     Install Nvidia GPU Driver
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#install-nvidia-docker">
+     Install Nvidia-Docker
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#setup">
+   Setup
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#build-docker-image">
+   Build Docker Image
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#run">
+   Run
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#install-extra-library">
+   Install Extra Library
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#python">
+     Python
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#option-vagrant">
+   Option - Vagrant
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#install-vagrant">
+     Install Vagrant
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#vagrantfile">
+     Vagrantfile
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#virtual-machine">
+     Virtual Machine 생성 및 접속
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="jupyter-docker">
+<h1>Jupyter (Docker)<a class="headerlink" href="#jupyter-docker" title="Permalink to this headline">¶</a></h1>
+<p>DataScientist 를 위한 Jupyter Docker</p>
+<p>Native 개발 환경을 사용하다 보면, 컴퓨터 교체나 운영체제 업그레이드시에 개발 환경이 꼬여서 재설치하는 경우가 심심치 않게 생깁니다. 이런 불편함 때문에 생겨난 기술이 Docker(도커) 입니다.</p>
+<p>도커를 이용하면 개발 환경을 완벽하게 분리된 상태로 사용하면서 이미지처럼 저장하거나 원하면 빌드해서 사용할 수 있기 때문에 개발 환경을 재구축 해야 할때의 수고스러움을 많은 부분에서 덜 수 있습니다.</p>
+<p>다만, 윈도우 / 맥에서는 Docker를 사용해도 Virtual Machine 위에 Docker가 돌아가기 때문에 성능 및 GPU 사용에 제약이 발생합니다. 이런 제약을 피하려면, 리눅스 개발 환경을 추천합니다.</p>
+<p>도커가 뭐고 왜 쓰는건가요? (Youtube 5분 소개)</p>
+<p><a class="reference external" href="https://www.youtube.com/watch?v=tPjpcsgxgWc"><img alt="youtube" src="https://img.youtube.com/vi/tPjpcsgxgWc/0.jpg" /></a></p>
+<p>여기서는 Data Science 에 자주 사용되는 Jupyter 와 Spark, CPU/GPU DeepLearning 및 주요 Library 를 Docker Image 로 제공합니다.</p>
+<p>현재 지원 기능</p>
+<ul class="simple">
+<li><p>Jupyter</p>
+<ul>
+<li><p>Jupyter Kernel: Python3, Scala, R, Julia</p></li>
+<li><p>Machine Learning</p>
+<ul>
+<li><p>Python3 Lib: tensorflow CPU/GPU, pytorch CPU/GPU, keras, pandas, scikit-learn, .. etc</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Apache Spark</p></li>
+</ul>
+<p>시스템 요구사항</p>
+<ul class="simple">
+<li><p>Ubuntu 18.04 LTS</p></li>
+<li><p>Docker</p></li>
+<li><p>Nvidia-Docker (for GPU)</p></li>
+</ul>
+<div class="section" id="git-clone">
+<h2>Git Clone<a class="headerlink" href="#git-clone" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>&gt; git clone https://github.com/comafire/docker-jupyter.git
+</pre></div>
+</div>
+</div>
+<div class="section" id="install-docker">
+<h2>Install Docker<a class="headerlink" href="#install-docker" title="Permalink to this headline">¶</a></h2>
+<p>Docker 공식 설치 문서를 참조하여 설치하시면 됩니다.</p>
+<p><a class="reference external" href="https://docs.docker.com/engine/installation/linux/ubuntu/">https://docs.docker.com/engine/installation/linux/ubuntu/</a></p>
+<p><a class="reference external" href="https://docs.docker.com/engine/installation/linux/linux-postinstall/">https://docs.docker.com/engine/installation/linux/linux-postinstall/</a></p>
+</div>
+<div class="section" id="for-nvidia-gpu">
+<h2>for Nvidia GPU<a class="headerlink" href="#for-nvidia-gpu" title="Permalink to this headline">¶</a></h2>
+<p>Nvidia GPU 가 장착된 머신이라면 아래 Nvidia GPU Driver 와 Nvidia-Docker 설치를 통해서 GPU DeepLarning 라이브러리를 사용하실 수 있습니다.</p>
+<div class="section" id="install-nvidia-gpu-driver">
+<h3>Install Nvidia GPU Driver<a class="headerlink" href="#install-nvidia-gpu-driver" title="Permalink to this headline">¶</a></h3>
+<p>Cuda 및 툴킷 라이브러니는 Nvidia-Docker 를 사용할 것이기에 Driver 만 설치하면 됩니다.</p>
+<p>설치 방법은 아래 링크를 참조하세요.</p>
+<p><a class="reference external" href="https://linuxconfig.org/how-to-install-the-nvidia-drivers-on-ubuntu-18-04-bionic-beaver-linux">https://linuxconfig.org/how-to-install-the-nvidia-drivers-on-ubuntu-18-04-bionic-beaver-linux</a></p>
+</div>
+<div class="section" id="install-nvidia-docker">
+<h3>Install Nvidia-Docker<a class="headerlink" href="#install-nvidia-docker" title="Permalink to this headline">¶</a></h3>
+<p>Docker 상에서 Nvidia GPU 를 이용하기 위해 Nvidia-Docker 를 사용합니다.</p>
+<p>설치 방법은 아래 공식 설치 문서를 참조하세요.</p>
+<p><a class="reference external" href="https://github.com/NVIDIA/nvidia-docker">https://github.com/NVIDIA/nvidia-docker</a></p>
+</div>
+</div>
+<div class="section" id="setup">
+<h2>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h2>
+<p>env.sh.template 파일을 <a class="reference external" href="http://env.sh">env.sh</a> 로 복사하여 설정 변경이 가능합니다.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+
+<span class="nb">export</span> <span class="nv">HOSTNAME</span><span class="o">=</span><span class="s2">&quot;docker-jupyter&quot;</span> 
+<span class="nb">export</span> <span class="nv">USERNAME</span><span class="o">=</span><span class="k">$(</span>id -un<span class="k">)</span> 
+<span class="nb">export</span> <span class="nv">USERID</span><span class="o">=</span><span class="k">$(</span>id -u <span class="nv">$USERNAME</span><span class="k">)</span>
+<span class="nb">export</span> <span class="nv">LOCALE</span><span class="o">=</span><span class="s2">&quot;ko_KR.UTF-8&quot;</span>
+
+<span class="c1"># Jupyter</span>
+<span class="nb">export</span> <span class="nv">JUPYTER_NAME</span><span class="o">=</span><span class="s2">&quot;jupyter&quot;</span>
+<span class="nb">export</span> <span class="nv">JUPYTER_PORT</span><span class="o">=</span><span class="s2">&quot;8010&quot;</span> <span class="c1"># Your Jupyter Port</span>
+<span class="nb">export</span> <span class="nv">JUPYTER_HOME</span><span class="o">=</span><span class="s2">&quot;</span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span><span class="s2">&quot;</span>
+<span class="nb">export</span> <span class="nv">JUPYTER_MNT</span><span class="o">=</span><span class="s2">&quot;/data&quot;</span> <span class="c1"># Your External Mount</span>
+<span class="nb">export</span> <span class="nv">JUPYTER_PASSWORD</span><span class="o">=</span><span class="s2">&quot;notebooks&quot;</span> <span class="c1"># Your Jupyter Password</span>
+<span class="nb">export</span> <span class="nv">JUPYTER_BASEURL</span><span class="o">=</span><span class="s2">&quot;jupyter&quot;</span> <span class="c1"># Your Jupyter BaseURL, ex) http://localhost:8010/jupyter</span>
+<span class="nb">export</span> <span class="nv">JUPYTER_RESTAPIPORT</span><span class="o">=</span><span class="s2">&quot;8020&quot;</span> <span class="c1"># Your Jupyter Kernel Gateway Port</span>
+<span class="nb">export</span> <span class="nv">JUPYTER_IMAGE</span><span class="o">=</span><span class="s2">&quot;comafire/docker-jupyter&quot;</span>
+<span class="nb">export</span> <span class="nv">JUPYTER_TAG</span><span class="o">=</span><span class="s2">&quot;latest&quot;</span>
+<span class="nb">export</span> <span class="nv">JUPYTER_GPU_IMAGE</span><span class="o">=</span><span class="s2">&quot;comafire/docker-jupyter-gpu&quot;</span>
+<span class="nb">export</span> <span class="nv">JUPYTER_GPU_TAG</span><span class="o">=</span><span class="s2">&quot;latest&quot;</span>
+<span class="nb">export</span> <span class="nv">JUPYTER_GPU</span><span class="o">=</span><span class="s2">&quot;FALSE&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="build-docker-image">
+<h2>Build Docker Image<a class="headerlink" href="#build-docker-image" title="Permalink to this headline">¶</a></h2>
+<p>./docker_build.sh 명령을 통해 <a class="reference external" href="http://env.sh">env.sh</a> 에서 설정한 이미지를 빌드합니다.</p>
+<p>Dockerfile 을 제공하므로 커스텀 이미지 빌드도 가능합니다.</p>
+</div>
+<div class="section" id="run">
+<h2>Run<a class="headerlink" href="#run" title="Permalink to this headline">¶</a></h2>
+<p>./docker_run_jupyter.sh 명령으로 Jupyter Docker 이미지를 실행할 수 있습니다.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>&gt; ./docker_run_jupyter.sh
+&gt; docker ps
+CONTAINER ID        IMAGE                                COMMAND              CREATED             STATUS              PORTS                                            NAMES
+c63e1132d207        comafire/docker-jupyter:latest       <span class="s2">&quot;./run_jupyter.sh&quot;</span>   <span class="m">2</span> seconds ago       Up <span class="m">1</span> second         <span class="m">0</span>.0.0.0:8020-&gt;8088/tcp, <span class="m">0</span>.0.0.0:8010-&gt;8888/tcp   jupyter
+</pre></div>
+</div>
+<p>이제, 설정한 Jupyter URL 인 <a class="reference external" href="http://localhost:8010/jupyter">http://localhost:8010/jupyter</a> 로 접속하여 Jupyter를 사용할 수 있습니다.</p>
+</div>
+<div class="section" id="install-extra-library">
+<h2>Install Extra Library<a class="headerlink" href="#install-extra-library" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="python">
+<h3>Python<a class="headerlink" href="#python" title="Permalink to this headline">¶</a></h3>
+<p>Jupyter 사용중 추가 외부 라이브러리가 필요하시면 Jupyter 상에서 Terminal 창을 띄우신 후에 pip3 명령을 사용하시면 됩니다.</p>
+<p>Docker 실행시 자동 설치를 원하시면 requirements.txt 파일에 패키지를 추가하시면 됩니다.</p>
+</div>
+</div>
+<div class="section" id="option-vagrant">
+<h2>Option - Vagrant<a class="headerlink" href="#option-vagrant" title="Permalink to this headline">¶</a></h2>
+<p>Linux 에서 Virtual Box Virtual Machine 을 편리하게 관리하기 위한 툴로 Vagrant를 이용합니다.</p>
+<p>docker-jupyter 를 로컬 머신상이 아닌 Virtual Machine 상에서 설치 테스트를 하기 위해 사용합니다.</p>
+<div class="section" id="install-vagrant">
+<h3>Install Vagrant<a class="headerlink" href="#install-vagrant" title="Permalink to this headline">¶</a></h3>
+<p>Vagrant를 아래 명령으로 설치 합니다. vagrant 의 virtual box disk 사이즈 설정 플러그인 기능을 사용하기 위해 특정 버전의 vagrant 를 설치합니다.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- <span class="p">|</span> sudo apt-key add -
+wget -q https://www.virtualbox.org/download/oracle_vbox.asc -O- <span class="p">|</span> sudo apt-key add -
+sudo add-apt-repository <span class="s2">&quot;deb [arch=amd64] http://download.virtualbox.org/virtualbox/debian </span><span class="k">$(</span>lsb_release -cs<span class="k">)</span><span class="s2"> contrib&quot;</span>
+sudo apt update
+sudo apt install virtualbox virtualbox-ext-pack
+wget -c https://releases.hashicorp.com/vagrant/2.0.3/vagrant_2.0.3_x86_64.deb -P /tmp
+sudo dpkg -i /tmp/vagrant_2.0.3_x86_64.deb
+vagrant plugin install vagrant-disksize
+</pre></div>
+</div>
+</div>
+<div class="section" id="vagrantfile">
+<h3>Vagrantfile<a class="headerlink" href="#vagrantfile" title="Permalink to this headline">¶</a></h3>
+<p>Virtual Machine 에서 사용할 네트워크/메모리/디스크 설정은 Vagrantfile 파일에서 자신에 맞게 수정하면 됩니다.</p>
+<p>docker-jupyter 디렉토리는 Virtual box 내에 /home/vagrant/docker-jupyter 와 마운트되게 됩니다.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ENV<span class="o">[</span><span class="s2">&quot;LC_ALL&quot;</span><span class="o">]</span> <span class="o">=</span> <span class="s2">&quot;en_US.UTF-8&quot;</span>
+
+Vagrant.configure<span class="o">(</span><span class="s2">&quot;2&quot;</span><span class="o">)</span> <span class="k">do</span> <span class="p">|</span>config<span class="p">|</span>
+
+  config.vm.define <span class="s2">&quot;v01&quot;</span> <span class="k">do</span> <span class="p">|</span>host<span class="p">|</span>
+    host.vm.box <span class="o">=</span> <span class="s2">&quot;ubuntu/xenial64&quot;</span>
+    host.vm.hostname <span class="o">=</span> <span class="s2">&quot;v01&quot;</span>
+    host.vm.network <span class="s2">&quot;public_network&quot;</span>, ip: <span class="s2">&quot;192.168.0.70&quot;</span>
+    <span class="c1">#host.vm.network &quot;private_network&quot;, ip: &quot;10.0.1.1&quot;</span>
+    host.vm.provider <span class="s2">&quot;virtualbox&quot;</span> <span class="k">do</span> <span class="p">|</span>vb<span class="p">|</span>
+      vb.gui <span class="o">=</span> <span class="nb">false</span>
+      vb.cpus <span class="o">=</span> <span class="m">2</span>
+      vb.memory <span class="o">=</span> <span class="s2">&quot;4096&quot;</span>
+    end
+    host.disksize.size <span class="o">=</span> <span class="s1">&#39;16GB&#39;</span>
+    host.vm.synced_folder <span class="s2">&quot;./&quot;</span>, <span class="s2">&quot;/home/vagrant/docker-jupyter&quot;</span>, owner: <span class="s2">&quot;vagrant&quot;</span>, group: <span class="s2">&quot;vagrant&quot;</span>
+  end
+
+end
+</pre></div>
+</div>
+</div>
+<div class="section" id="virtual-machine">
+<h3>Virtual Machine 생성 및 접속<a class="headerlink" href="#virtual-machine" title="Permalink to this headline">¶</a></h3>
+<p>docker-jupyter 디렉토리 내에서 아래 명령어를 통해 Virtual Box 의 Virtual Machine 을 생성하고 접속하여 사용할수 있습니다.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">vagrant</span> <span class="n">up</span>
+<span class="n">vagrant</span> <span class="n">ssh</span> <span class="n">v01</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./5day_trip"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="infra.html" title="previous page">인프라</a>
+    <a class='right-next' id="next-link" href="vagrant_virtualbox.html" title="next page">Vagrant (Optional)</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By comafire<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+    <!-- Google Analytics -->
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-81648003-1', 'auto');
+      ga('set', 'anonymizeIp', true);
+      ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+    <!-- End Google Analytics -->
+    
+  </body>
+</html>

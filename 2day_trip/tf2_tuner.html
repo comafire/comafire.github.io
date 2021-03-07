@@ -1,0 +1,861 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hyper Parameter Tunning (TF2) &#8212; 데사견문록</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="단기여행 편" href="../5day_trip/readme.html" />
+    <link rel="prev" title="Model Save/Load (TF2)" href="tf2_save_load.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">데사견문록</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../readme.html">
+   데이터사이언스견문록
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../1day_trip/readme.html">
+   당일치기 편
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/e2eds.html">
+     End to End Data Science (E2EDS)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/infra.html">
+     Infrastructure
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/jupyter_cloud.html">
+     Jupyter (Cloud)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/random_seed.html">
+     Random
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/pandas_10mins.html">
+     Pandas 10mins
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/numpy_10mins.html">
+     Numpy 10mins
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/data_description.html">
+     Data Description
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/missing_value.html">
+     Missing Value
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/descriptive_statistics.html">
+     Descriptive Statistcs
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/outlier.html">
+     Outlier
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/feature_selection.html">
+     Feature Selection
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/feature_extraction.html">
+     Feature Extraction
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/feature_transformation.html">
+     Feature Transformation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/normality_test.html">
+     Normality Test
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/statistics_test.html">
+     Statistics Test
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/parallel_algorithm.html">
+     One-Pass/Parallel Algorithm
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/split_train_test.html">
+     Train/Valid/Test Dataset
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/imbalanced_class.html">
+     Imbalanced Class
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/model_persistence.html">
+     Model Persistence
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/eval_regression.html">
+     Regression Evaluation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/linear_regression.html">
+     Linear Regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/polynomial_regression.html">
+     Polynomial Regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/sgd_regression.html">
+     SGD Regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/svm_regression.html">
+     SVM Regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/nearest_neighbor_regression.html">
+     Nearest Neighbors Regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/ensemble_regression.html">
+     Ensemble Regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/eval_classification.html">
+     Classification Evaluation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/logistic_regression.html">
+     Logistic Regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/sgd_classification.html">
+     SGD Classification
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/svm_classification.html">
+     SVM Classification
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/nearest_neighbor_classification.html">
+     Nearest Neighbors Classification
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/ensemble_classification.html">
+     Ensemble Classification
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/eval_clustering.html">
+     Clustering Evaluation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/kmeans.html">
+     K-Means
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/mean_shift.html">
+     Mean Shift
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/spectral_clustering.html">
+     Spectral Clustering
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/hyper_parameter_tunning.html">
+     Hyper Parameter Tunning
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../1day_trip/anomaly_detection.html">
+     Anomaly Detection
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 current active collapsible-parent">
+  <a class="reference internal" href="readme.html">
+   주말여행 편
+  </a>
+  <ul class="current collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="jupyter_native_ubuntu.html">
+     Jupyter (Ubuntu)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="jupyter_native_macos.html">
+     Jupyter (macOS)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="spark_dataframe_10mins.html">
+     Spark DataFrame 10mins
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="keras_10mins.html">
+     Keras 10mins
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="dnn_regression.html">
+     DNN Regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="dnn_classification.html">
+     DNN Classification
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="collaborative_filtering.html">
+     Collaborative Filtering (CF)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="tf2_10mins.html">
+     Tensorflow2 10mins
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="tf2_basic_image_classification.html">
+     이미지 분류 - 기본 (TF2)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="tf2_basic_text_classification.html">
+     텍스트 분류 - 기본 (TF2)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="tf2_hub_text_classification.html">
+     텍스트 분류 - Hub이용 (TF2)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="tf2_basic_regression.html">
+     회귀 - 기본 (TF2)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="tf2_overfit_underfit.html">
+     Overfit Underfit (TF2)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="tf2_save_load.html">
+     Model Save/Load (TF2)
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Hyper Parameter Tunning (TF2)
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../5day_trip/readme.html">
+   단기여행 편
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../5day_trip/infra.html">
+     Infrastructure
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../5day_trip/jupyter_docker.html">
+     Jupyter (Docker)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../5day_trip/vagrant_virtualbox.html">
+     Vagrant (Optional)
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../long_trip/readme.html">
+   장기여행 편
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/2day_trip/tf2_tuner.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/comafire/comafire.github.io"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/comafire/comafire.github.io/issues/new?title=Issue%20on%20page%20%2F2day_trip/tf2_tuner.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/comafire/comafire.github.io/master?urlpath=tree/2day_trip/tf2_tuner.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   소개
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   데이터세트 다운로드 및 준비하기
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id3">
+   모델 정의하기
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id4">
+   튜너를 인스턴스화하고 하이퍼튜닝 수행하기
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id5">
+   요약
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="hyper-parameter-tunning-tf2">
+<h1>Hyper Parameter Tunning (TF2)<a class="headerlink" href="#hyper-parameter-tunning-tf2" title="Permalink to this headline">¶</a></h1>
+<p>하이퍼 파라미터 튜닝</p>
+<p><a class="reference external" href="https://www.tensorflow.org/tutorials/keras/keras_tuner?hl=ko">https://www.tensorflow.org/tutorials/keras/keras_tuner?hl=ko</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 설치</span>
+<span class="o">!</span>pip install -q --upgrade pip
+<span class="o">!</span>pip install -q -U keras-tuner
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 경고 메시지 출력 끄기</span>
+<span class="kn">import</span> <span class="nn">warnings</span> 
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="n">action</span><span class="o">=</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+
+<span class="c1"># 노트북 셀 표시를 브라우저 전체 폭 사용하기</span>
+<span class="kn">from</span> <span class="nn">IPython.core.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">HTML</span>
+<span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="s2">&quot;&lt;style&gt;.container { width:100% !important; }&lt;/style&gt;&quot;</span><span class="p">))</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">clear_output</span>
+
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">sys</span><span class="o">,</span> <span class="nn">shutil</span>
+
+<span class="n">rseed</span> <span class="o">=</span> <span class="mi">22</span>
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">rseed</span><span class="p">)</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">rseed</span><span class="p">)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">set_printoptions</span><span class="p">(</span><span class="n">precision</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">set_printoptions</span><span class="p">(</span><span class="n">formatter</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;float_kind&#39;</span><span class="p">:</span> <span class="s2">&quot;</span><span class="si">{:.5f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">})</span>
+
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_rows&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> 
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_columns&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> 
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_colwidth&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">float_format</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{:,.5f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span>
+
+<span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+<span class="n">tf</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">set_seed</span><span class="p">(</span><span class="n">rseed</span><span class="p">)</span>
+<span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">backend</span><span class="o">.</span><span class="n">set_floatx</span><span class="p">(</span><span class="s1">&#39;float32&#39;</span><span class="p">)</span> <span class="c1"># keras default float type 설정</span>
+
+<span class="kn">import</span> <span class="nn">tensorflow_hub</span> <span class="k">as</span> <span class="nn">tfhub</span>
+<span class="kn">import</span> <span class="nn">tensorflow_datasets</span> <span class="k">as</span> <span class="nn">tfds</span>
+
+<span class="kn">import</span> <span class="nn">kerastuner</span> <span class="k">as</span> <span class="nn">kt</span>
+
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;python ver=</span><span class="si">{</span><span class="n">sys</span><span class="o">.</span><span class="n">version</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;pandas ver=</span><span class="si">{</span><span class="n">pd</span><span class="o">.</span><span class="n">__version__</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;numpy ver=</span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">__version__</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;tensorflow ver=</span><span class="si">{</span><span class="n">tf</span><span class="o">.</span><span class="n">__version__</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;tensorflow execuring eagerly=</span><span class="si">{</span><span class="n">tf</span><span class="o">.</span><span class="n">executing_eagerly</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;tensorflow hub ver=</span><span class="si">{</span><span class="n">tfhub</span><span class="o">.</span><span class="n">__version__</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;tensorflow GPU=</span><span class="si">{</span><span class="s1">&#39;True&#39;</span> <span class="k">if</span> <span class="n">tf</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">experimental</span><span class="o">.</span><span class="n">list_physical_devices</span><span class="p">(</span><span class="s1">&#39;GPU&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="s1">&#39;False&#39;</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;keras tuner ver=</span><span class="si">{</span><span class="n">kt</span><span class="o">.</span><span class="n">__version__</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;senborn ver=</span><span class="si">{</span><span class="n">sns</span><span class="o">.</span><span class="n">__version__</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style>.container { width:100% !important; }</style></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>python ver=3.7.6 (default, Nov 21 2020, 22:51:13) 
+[Clang 12.0.0 (clang-1200.0.32.27)]
+pandas ver=1.0.5
+numpy ver=1.19.5
+tensorflow ver=2.4.1
+tensorflow execuring eagerly=True
+tensorflow hub ver=0.11.0
+tensorflow GPU=False
+keras tuner ver=1.0.2
+senborn ver=0.10.0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id1">
+<h2>소개<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>Keras Tuner는 TensorFlow 프로그램에 대한 최적의 하이퍼파라미터 세트를 선택하는 데 도움을 주는 라이브러리입니다. 머신러닝(ML) 애플리케이션에 대한 올바른 하이퍼파라미터 세트를 선택하는 과정을 하이퍼파라미터 조정 또는 하이퍼튜닝이라고 합니다.</p>
+<p>하이퍼파라미터는 훈련 프로세스 및 ML 모델의 토폴로지를 제어하는 변수입니다. 이러한 변수는 훈련 과정에서 일정하게 유지되며 ML 프로그램의 성능에 직접적으로 영향을 미칩니다. 하이퍼파라미터에는 두 가지 유형이 있습니다.</p>
+<ul class="simple">
+<li><p>숨겨진 레이어의 수 및 너비와 같이 모델 선택에 영향을 미치는 모델 하이퍼파라미터</p></li>
+<li><p>SGD(Stochastic Gradient Descent)의 학습률 및 KNN(k Nearest Neighbors) 분류자의 최근접 이웃 수와 같은 학습 알고리즘의 속도와 품질에 영향을 주는 알고리즘 하이퍼파라미터</p></li>
+</ul>
+<p>이 튜토리얼에서는 Keras Tuner를 사용하여 이미지 분류 애플리케이션에 하이퍼튜닝을 수행합니다.</p>
+</div>
+<div class="section" id="id2">
+<h2>데이터세트 다운로드 및 준비하기<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>이 튜토리얼에서는 Keras Tuner를 사용하여 <a class="reference external" href="https://github.com/zalandoresearch/fashion-mnist">Fashion MNIST 데이터세트</a>에서 의류 이미지를 분류하는 머신러닝 모델에 가장 적합한 하이퍼파라미터를 찾습니다.</p>
+<p>데이터를 로드합니다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">img_train</span><span class="p">,</span> <span class="n">label_train</span><span class="p">),</span> <span class="p">(</span><span class="n">img_test</span><span class="p">,</span> <span class="n">label_test</span><span class="p">)</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">fashion_mnist</span><span class="o">.</span><span class="n">load_data</span><span class="p">()</span>
+
+<span class="c1"># Normalize pixel values between 0 and 1</span>
+<span class="n">img_train</span> <span class="o">=</span> <span class="n">img_train</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;float32&#39;</span><span class="p">)</span> <span class="o">/</span> <span class="mf">255.0</span>
+<span class="n">img_test</span> <span class="o">=</span> <span class="n">img_test</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;float32&#39;</span><span class="p">)</span> <span class="o">/</span> <span class="mf">255.0</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id3">
+<h2>모델 정의하기<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>하이퍼튜닝을 위한 모델을 빌드할 때는 모델 아키텍처와 더불어 하이퍼파라미터 검색 공간도 정의합니다. 하이퍼튜닝을 위해 설정하는 모델을 하이퍼 모델이라고 합니다.</p>
+<p>두 가지 접근 방식을 통해 하이퍼 모델을 정의할 수 있습니다.</p>
+<ul class="simple">
+<li><p>모델 빌더 함수 사용</p></li>
+<li><p>Keras Tuner API의 HyperModel 클래스를 하위 클래스화</p></li>
+</ul>
+<p>또한 두 개의 사전 정의된 HyperModel - 클래스인 HyperXception과 HyperResNet을 컴퓨터 비전 애플리케이션에 사용할 수 있습니다.</p>
+<p>이 튜토리얼에서는 모델 빌더 함수를 사용하여 이미지 분류 모델을 정의합니다. 모델 빌더 함수는 컴파일된 모델을 반환하고 인라인으로 정의한 하이퍼파라미터를 사용하여 모델을 하이퍼튜닝합니다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">model_builder</span><span class="p">(</span><span class="n">hp</span><span class="p">):</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Sequential</span><span class="p">()</span>
+    
+    <span class="c1"># 입력 레이어를 정의합니다.</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Flatten</span><span class="p">(</span><span class="n">input_shape</span><span class="o">=</span><span class="p">(</span><span class="mi">28</span><span class="p">,</span> <span class="mi">28</span><span class="p">)))</span>
+
+    <span class="c1"># 첫번째 Dense Layer의 유닛 수를 32-512 사이의 값 중 최적의 값을 선택하여 튜닝합니다.</span>
+    <span class="n">hp_units</span> <span class="o">=</span> <span class="n">hp</span><span class="o">.</span><span class="n">Int</span><span class="p">(</span><span class="s1">&#39;units&#39;</span><span class="p">,</span> <span class="n">min_value</span> <span class="o">=</span> <span class="mi">32</span><span class="p">,</span> <span class="n">max_value</span> <span class="o">=</span> <span class="mi">512</span><span class="p">,</span> <span class="n">step</span> <span class="o">=</span> <span class="mi">32</span><span class="p">)</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="n">units</span> <span class="o">=</span> <span class="n">hp_units</span><span class="p">,</span> <span class="n">activation</span> <span class="o">=</span> <span class="s1">&#39;relu&#39;</span><span class="p">))</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+
+    <span class="c1"># 옵티마이저를 위한 learning rate 값을 0.01, 0.001 또는 0.001 중 최적의 값을 선택하여 튜닝합니다. </span>
+    <span class="n">hp_learning_rate</span> <span class="o">=</span> <span class="n">hp</span><span class="o">.</span><span class="n">Choice</span><span class="p">(</span><span class="s1">&#39;learning_rate&#39;</span><span class="p">,</span> <span class="n">values</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1e-2</span><span class="p">,</span> <span class="mf">1e-3</span><span class="p">,</span> <span class="mf">1e-4</span><span class="p">])</span> 
+
+    <span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">optimizer</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">optimizers</span><span class="o">.</span><span class="n">Adam</span><span class="p">(</span><span class="n">learning_rate</span> <span class="o">=</span> <span class="n">hp_learning_rate</span><span class="p">),</span>
+                  <span class="n">loss</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">losses</span><span class="o">.</span><span class="n">SparseCategoricalCrossentropy</span><span class="p">(</span><span class="n">from_logits</span> <span class="o">=</span> <span class="kc">True</span><span class="p">),</span> <span class="n">metrics</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;accuracy&#39;</span><span class="p">])</span>
+
+    <span class="k">return</span> <span class="n">model</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id4">
+<h2>튜너를 인스턴스화하고 하이퍼튜닝 수행하기<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>튜너를 인스턴스화하여 하이퍼튜닝을 수행합니다. Keras Tuner에는 RandomSearch, Hyperband, BayesianOptimization 및 Sklearn의 네 가지 튜너가 있습니다. 이 튜토리얼에서는 Hyperband 튜너를 사용합니다.</p>
+<p>Hyperband 튜너를 인스턴스화하려면 최적화할 하이퍼모델인 objective, 및 훈련할 최대 epoch 수(max_epochs)를 지정해야 합니다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">directory</span> <span class="o">=</span> <span class="s1">&#39;/tmp/my_dir&#39;</span>
+<span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">directory</span><span class="p">)</span> <span class="ow">and</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">directory</span><span class="p">):</span>
+    <span class="n">shutil</span><span class="o">.</span><span class="n">rmtree</span><span class="p">(</span><span class="n">directory</span><span class="p">)</span>
+    
+<span class="n">tuner</span> <span class="o">=</span> <span class="n">kt</span><span class="o">.</span><span class="n">Hyperband</span><span class="p">(</span><span class="n">model_builder</span><span class="p">,</span> <span class="n">objective</span> <span class="o">=</span> <span class="s1">&#39;val_accuracy&#39;</span><span class="p">,</span> 
+                     <span class="n">max_epochs</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">factor</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">directory</span> <span class="o">=</span> <span class="n">directory</span><span class="p">,</span> <span class="n">project_name</span> <span class="o">=</span> <span class="s1">&#39;intro_to_kt&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Hyperband 튜닝 알고리즘은 적응형 리소스 할당 및 조기 중단을 사용하여 고성능 모델에서 신속하게 수렴합니다. 이것은 스포츠 챔피언십 스타일 브래킷을 사용하여 수행됩니다. 이 알고리즘은 몇 개의 epoch에 대해 많은 수의 모델을 훈련하고 최고 성능을 보이는 절반만 다음 단계로 넘깁니다. Hyperband는 1 + logfactor(max_epochs)를 계산하고 이를 가장 가까운 정수로 반올림하여 한 브래킷에서 훈련할 모델 수를 결정합니다.</p>
+<p>하이퍼파라미터 검색을 실행하기 전에 훈련 단계가 끝날 때마다 훈련 결과를 지우도록 콜백을 정의합니다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">ClearTrainingOutput</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">callbacks</span><span class="o">.</span><span class="n">Callback</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">on_train_end</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="n">clear_output</span><span class="p">(</span><span class="n">wait</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>하이퍼파라미터 검색을 실행합니다. 검색 메서드의 인수는 위의 콜백 외에 tf.keras.model.fit에 사용되는 인수와 같습니다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tuner</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">img_train</span><span class="p">,</span> <span class="n">label_train</span><span class="p">,</span> <span class="n">epochs</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">validation_data</span> <span class="o">=</span> <span class="p">(</span><span class="n">img_test</span><span class="p">,</span> <span class="n">label_test</span><span class="p">),</span> <span class="n">callbacks</span> <span class="o">=</span> <span class="p">[</span><span class="n">ClearTrainingOutput</span><span class="p">()])</span>
+
+<span class="c1"># Get the optimal hyperparameters</span>
+<span class="c1"># https://keras-team.github.io/keras-tuner/documentation/tuners/#get_best_hyperparameters-method</span>
+<span class="c1"># num_trials: (int, optional). Number of HyperParameters objects to return. HyperParameters will be returned in sorted order based on trial performance.</span>
+<span class="n">best_hps</span> <span class="o">=</span> <span class="n">tuner</span><span class="o">.</span><span class="n">get_best_hyperparameters</span><span class="p">(</span><span class="n">num_trials</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&quot;&quot;The hyperparameter search is complete. The optimal number of units in the first densely-connected</span>
+<span class="s2">layer is </span><span class="si">{</span><span class="n">best_hps</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;units&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2"> and the optimal learning rate for the optimizer is </span><span class="si">{</span><span class="n">best_hps</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;learning_rate&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">.&quot;&quot;&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Trial 30 Complete [00h 00m 14s]
+val_accuracy: 0.8569999933242798
+
+Best val_accuracy So Far: 0.8920999765396118
+Total elapsed time: 00h 04m 09s
+INFO:tensorflow:Oracle triggered exit
+The hyperparameter search is complete. The optimal number of units in the first densely-connected
+layer is 448 and the optimal learning rate for the optimizer is 0.001.
+</pre></div>
+</div>
+</div>
+</div>
+<p>이 튜토리얼을 마치려면 검색에서 최적의 하이퍼파라미터로 모델을 재훈련합니다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Build the model with the optimal hyperparameters and train it on the data</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">tuner</span><span class="o">.</span><span class="n">hypermodel</span><span class="o">.</span><span class="n">build</span><span class="p">(</span><span class="n">best_hps</span><span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">img_train</span><span class="p">,</span> <span class="n">label_train</span><span class="p">,</span> <span class="n">epochs</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">validation_data</span> <span class="o">=</span> <span class="p">(</span><span class="n">img_test</span><span class="p">,</span> <span class="n">label_test</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 1/10
+1875/1875 [==============================] - 2s 1ms/step - loss: 0.5928 - accuracy: 0.7883 - val_loss: 0.3999 - val_accuracy: 0.8583
+Epoch 2/10
+1875/1875 [==============================] - 2s 1ms/step - loss: 0.3691 - accuracy: 0.8639 - val_loss: 0.4122 - val_accuracy: 0.8485
+Epoch 3/10
+1875/1875 [==============================] - 2s 1ms/step - loss: 0.3228 - accuracy: 0.8801 - val_loss: 0.3446 - val_accuracy: 0.8738
+Epoch 4/10
+1875/1875 [==============================] - 2s 1ms/step - loss: 0.3005 - accuracy: 0.8879 - val_loss: 0.3647 - val_accuracy: 0.8689
+Epoch 5/10
+1875/1875 [==============================] - 2s 1ms/step - loss: 0.2779 - accuracy: 0.8983 - val_loss: 0.3345 - val_accuracy: 0.8785
+Epoch 6/10
+1875/1875 [==============================] - 2s 1ms/step - loss: 0.2671 - accuracy: 0.8981 - val_loss: 0.3369 - val_accuracy: 0.8792
+Epoch 7/10
+1875/1875 [==============================] - 2s 1ms/step - loss: 0.2482 - accuracy: 0.9070 - val_loss: 0.3748 - val_accuracy: 0.8698
+Epoch 8/10
+1875/1875 [==============================] - 2s 1ms/step - loss: 0.2432 - accuracy: 0.9091 - val_loss: 0.3271 - val_accuracy: 0.8834
+Epoch 9/10
+1875/1875 [==============================] - 2s 1ms/step - loss: 0.2341 - accuracy: 0.9114 - val_loss: 0.3243 - val_accuracy: 0.8867
+Epoch 10/10
+1875/1875 [==============================] - 2s 1ms/step - loss: 0.2262 - accuracy: 0.9139 - val_loss: 0.3230 - val_accuracy: 0.8905
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;tensorflow.python.keras.callbacks.History at 0x19124a910&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>/tmp/my_dir/intro_to_kt 디렉토리에는 하이퍼파라미터 검색 중에 실행되는 모든 시험(모델 구성)에 대한 상세 로그와 체크포인트가 들어 있습니다. 하이퍼파라미터 검색을 다시 실행하면 Keras Tuner가 이러한 로그의 기존 상태를 사용하여 검색을 재개합니다. 이 동작을 비활성화하려면 튜너를 인스턴스화하는 동안 추가 overwrite = True 인수를 전달합니다.</p>
+</div>
+<div class="section" id="id5">
+<h2>요약<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<p>이 튜토리얼에서는 Keras Tuner를 사용하여 모델의 하이퍼파라미터를 조정하는 방법을 배웠습니다. Keras Tuner에 대한 자세한 내용은 다음 추가 자료를 확인하세요.</p>
+<p><a class="reference external" href="https://blog.tensorflow.org/2020/01/hyperparameter-tuning-with-keras-tuner.html?hl=ko">TensorFlow 블로그의 Keras Tuner</a>
+<a class="reference external" href="https://keras-team.github.io/keras-tuner/">Keras Tuner 웹 사이트</a></p>
+<p>모델 하이퍼파라미터를 능동적으로 조정하기 위한 <a class="reference external" href="https://www.tensorflow.org/tensorboard/hyperparameter_tuning_with_hparams?hl=ko">TensorBoard의 HParams Dashboard</a>도 확인해 보세요.</p>
+<hr class="docutils" />
+<p>Except as otherwise noted, the content of this page is licensed under the <a class="reference external" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 License</a>, and code samples are licensed under the <a class="reference external" href="https://www.apache.org/licenses/LICENSE-2.0">Apache 2.0 License</a>. For details, see the <a class="reference external" href="https://developers.google.com/site-policies?hl=ko">Google Developers Site Policies</a>. Java is a registered trademark of Oracle and/or its affiliates.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./2day_trip"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="tf2_save_load.html" title="previous page">Model Save/Load (TF2)</a>
+    <a class='right-next' id="next-link" href="../5day_trip/readme.html" title="next page">단기여행 편</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By comafire<br/>
+        
+            &copy; Copyright 2015.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+    <!-- Google Analytics -->
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-81648003-1', 'auto');
+      ga('set', 'anonymizeIp', true);
+      ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+    <!-- End Google Analytics -->
+    
+  </body>
+</html>

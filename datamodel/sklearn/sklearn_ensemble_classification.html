@@ -1,0 +1,941 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ensemble Classification (Sklearn) &#8212; 데사견문록</title>
+    
+  <link rel="stylesheet" href="../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Clustering Evaluation (Sklearn)" href="sklearn_eval_clustering.html" />
+    <link rel="prev" title="Nearest Neighbors Classification (Sklearn)" href="sklearn_nearest_neighbor_classification.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <img src="../../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">데사견문록</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../readme.html">
+   데이터사이언스견문록
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../datascience/readme.html">
+   데이터사이언스
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../datascience/e2eds.html">
+     End to End Data Science (E2EDS)
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../dataplatform/readme.html">
+   데이터플랫폼
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../dataplatform/infra_beginner.html">
+     Infrastructure - Bignner
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../dataplatform/infra_advanced.html">
+     Infrastructure - Advanced
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../dataplatform/jupyter_cloud.html">
+     Jupyter (Cloud)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../dataplatform/jupyter_native_ubuntu.html">
+     Jupyter (Ubuntu)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../dataplatform/jupyter_native_macos.html">
+     Jupyter (macOS)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../dataplatform/jupyter_docker.html">
+     Jupyter (Docker)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../dataplatform/vagrant_virtualbox.html">
+     Vagrant (Optional)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../dataplatform/skp.html">
+     St. Kilda Pier (SKP)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../dataplatform/gce-nested-vm.html">
+     Google Computer Engine
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 current active collapsible-parent">
+  <a class="reference internal" href="../readme.html">
+   데이터모델
+  </a>
+  <ul class="current collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../spark_dataframe_10mins.html">
+     Spark DataFrame 10mins
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../pandas_10mins.html">
+     Pandas 10mins
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../numpy_10mins.html">
+     Numpy 10mins
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../random_seed.html">
+     Random
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../pandas_data_description.html">
+     Data Description (Pandas)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../missing_value.html">
+     Missing Value
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../pandas_descriptive_statistics.html">
+     Descriptive Statistcs (Pandas)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../outlier.html">
+     Outlier
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../scipy_normality_test.html">
+     Normality Test (Scipy)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../scipy_statistics_test.html">
+     Statistics Test (Scipy)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../parallel_algorithm.html">
+     One-Pass/Parallel Algorithm
+    </a>
+   </li>
+   <li class="toctree-l2 current active collapsible-parent">
+    <a class="reference internal" href="readme.html">
+     Scikit-Learn
+    </a>
+    <ul class="current collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="sklearn_feature_selection.html">
+       Feature Selection (Sklearn)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="sklearn_feature_extraction.html">
+       Feature Extraction (Sklearn)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="sklearn_feature_transformation.html">
+       Feature Transformation (Sklearn)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="sklearn_split_train_test.html">
+       Train/Valid/Test Dataset (Sklearn)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="imblearn_imbalanced_class.html">
+       Imbalanced Class (Imblearn)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="sklearn_model_persistence.html">
+       Model Persistence (Sklearn)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="sklearn_eval_regression.html">
+       Regression Evaluation (Sklearn)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="sklearn_linear_regression.html">
+       Linear Regression (Sklearn)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="sklearn_polynomial_regression.html">
+       Polynomial Regression (Sklearn)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="sklearn_sgd_regression.html">
+       SGD Regression (Sklearn)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="sklearn_svm_regression.html">
+       SVM Regression (Sklearn)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="sklearn_nearest_neighbor_regression.html">
+       Nearest Neighbors Regression (Sklearn)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="sklearn_ensemble_regression.html">
+       Ensemble Regression (Sklearn)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="sklearn_eval_classification.html">
+       Classification Evaluation (Sklearn)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="sklearn_logistic_regression.html">
+       Logistic Regression (Sklearn)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="sklearn_sgd_classification.html">
+       SGD Classification (Sklearn)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="sklearn_svm_classification.html">
+       SVM Classification (Sklearn)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="sklearn_nearest_neighbor_classification.html">
+       Nearest Neighbors Classification (Sklearn)
+      </a>
+     </li>
+     <li class="toctree-l3 current active">
+      <a class="current reference internal" href="#">
+       Ensemble Classification (Sklearn)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="sklearn_eval_clustering.html">
+       Clustering Evaluation (Sklearn)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="sklearn_kmeans.html">
+       K-Means (Sklearn)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="sklearn_mean_shift.html">
+       Mean Shift (Sklearn)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="sklearn_spectral_clustering.html">
+       Spectral Clustering (Sklearn)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="sklearn_hyper_parameter_tunning.html">
+       Hyper Parameter Tunning (Sklearn)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="sklearn_anomaly_detection.html">
+       Anomaly Detection (Sklearn)
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../tf2/readme.html">
+     Tensorflow2
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../tf2/keras_10mins.html">
+       Keras 10mins
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../tf2/keras_dnn_regression.html">
+       DNN Regression (Keras)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../tf2/keras_dnn_classification.html">
+       DNN Classification (Keras)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../tf2/tf2_10mins.html">
+       Tensorflow2 10mins
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../tf2/tf2_beginner_quickstart.html">
+       Quickstart - Beginner (TF2)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../tf2/tf2_beginner_image_classification.html">
+       Image Classification - Beginner (TF2)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../tf2/tf2_beginner_text_classification.html">
+       Text Classification - Beginner (TF2)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../tf2/tf2_beginner_hub_text_classification.html">
+       Text Classification with Hub - Beginner (TF2)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../tf2/tf2_beginner_regression.html">
+       Regression - Beginner (TF2)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../tf2/tf2_beginner_overfit_underfit.html">
+       Overfit &amp; Underfit - Beginner (TF2)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../tf2/tf2_beginner_save_load.html">
+       Save &amp; Load - Beginner (TF2)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../tf2/tf2_beginner_keras_tuner.html">
+       Keras Tuner - Beginner (TF2)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../tf2/tf2_beginner_images.html">
+       Images - Beginner (TF2)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../tf2/tf2_beginner_csv.html">
+       CSV - Beginner (TF2)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../tf2/tf2_beginner_numpy.html">
+       Numpy - Beginner (TF2)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../tf2/tf2_beginner_pandas.html">
+       Pandas - Beginner (TF2)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../tf2/tf2_beginner_text.html">
+       Text - Beginner (TF2)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../tf2/tf2_beginner_unicode.html">
+       Unicode - Beginner (TF2)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../tf2/tf2_beginner_tftext.html">
+       TF.Text - Beginner (TF2)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../tf2/tf2_beginner_subwords_tokenizer.html">
+       Subword Tokenization - Beginner (TF2)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../tf2/tf2_beginner_tfrecord.html">
+       TFRecord and tf.train.Example - Beginner (TF2)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../tf2/tf2_beginner_tfio.html">
+       TF I/O - Beginner (TF2)
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../structed_data/readme.html">
+     Structed Data
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../structed_data/surprise_collaborative_filtering.html">
+       Collaborative Filtering (Surprise)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../structed_data/keras_deepmf.html">
+       Deep MF (Keras)
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../computer_vision/readme.html">
+     Computer Vision
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../nlp/readme.html">
+     Neural Language Processing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../timeseries/readme.html">
+     Timeseries
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../audio_data/readme.html">
+     Audio Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../generative_dl/readme.html">
+     Generative Deep Learning
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../rl/readme.html">
+     Reinforcement learning
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/datamodel/sklearn/sklearn_ensemble_classification.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/comafire/comafire.github.io"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/comafire/comafire.github.io/issues/new?title=Issue%20on%20page%20%2Fdatamodel/sklearn/sklearn_ensemble_classification.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/comafire/comafire.github.io/master?urlpath=tree/datamodel/sklearn/sklearn_ensemble_classification.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bagging-methods">
+   Bagging methods
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#boosting-methods">
+   Boosting methods
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#stacking-methods">
+   Stacking methods
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="ensemble-classification-sklearn">
+<h1>Ensemble Classification (Sklearn)<a class="headerlink" href="#ensemble-classification-sklearn" title="Permalink to this headline">¶</a></h1>
+<p>앙상블 기법은 모델의 예측 성능을 높이기 위해 여러 개의 기본 모델들의 결과를 조합하여 사용하는 방식입니다. 선형/비선형 데이터셋 및 분류/회귀 문제 모두에 사용할수 있습니다.</p>
+<p>앙상블 기법에서 모델을 학습시키기 위해 학습 데이터 셋을 구성하는 방식으로 Bootstrapping 방식을 사용합니다. 이는 흔히 말하는 ‘랜덤 복원 샘플링’입니다. 샘플에서 랜덤 복원 샘플을 통해 리샘플링한 다양한 학습 데이터 셋을 구성함으로써 아래 그림 처럼 전체적으로 평균, 분산 등의 통계적 특성은 같은 샘플이어도 그 안에 속한 샘플들은 각각 다양한 특성을 포함하도록 하여 강건한 모델을 학습시키는데 도움이 되도록 합니다.</p>
+<ul class="simple">
+<li><p>Bootstrapping:
+<img alt="Bootstrapping" src="https://cdn-images-1.medium.com/max/2400/0*jW2hAGmYEFH0RP9W." /></p></li>
+</ul>
+<div class="section" id="bagging-methods">
+<h2>Bagging methods<a class="headerlink" href="#bagging-methods" title="Permalink to this headline">¶</a></h2>
+<p>데이터를 Bootstrapping 하여 만든 학습 데이터 셋에 대하여 각각 독립적인 모델을 학습 시킨 후, 각 모델이 예측 한 값의 평균(Average, 연속형 변수) 또는 다수 투표(Majority Voting, 범주형 변수)방식을 통한 Bootstrap Aggregating하여 예측하는 방식 (복수의 독립적인 모델을 사용하는 방식이기에 분산처리 가능하여 학습 속도가 빠름)</p>
+<ul class="simple">
+<li><p>예: Random Forest, …
+<img alt="Bagging" src="https://cdn-images-1.medium.com/max/1600/1*DFHUbdz6EyOuMYP4pDnFlw.jpeg" /></p></li>
+</ul>
+</div>
+<div class="section" id="boosting-methods">
+<h2>Boosting methods<a class="headerlink" href="#boosting-methods" title="Permalink to this headline">¶</a></h2>
+<p>약한 학습기(weak learner)을 학습 시키고, 예측 오류를 최소화 하기위해 약한 학습기(weak learner)를 추가하는 식의 순차적 학습 방식을 통해 강한 학습기(strong learner)를 만드는 방법 (순차적으로 학습을 진행하는 방식으로 분산처리가 불가능하여 학습 속도가 느림)</p>
+<ul class="simple">
+<li><p>예: AdaBoost, XGBoost, GradientBoost, …</p></li>
+</ul>
+<p><img alt="Boosting" src="https://cdn-images-1.medium.com/max/1600/1*C7CrBG1VNaa1x491eZ3fnw.gif" /></p>
+</div>
+<div class="section" id="stacking-methods">
+<h2>Stacking methods<a class="headerlink" href="#stacking-methods" title="Permalink to this headline">¶</a></h2>
+<p>모델링 알고리즘(SVM, RandomForest, XGBoost, …)들은 각기 다른 장단점을 가지기 때문에 서로 다른 모델링 알고리즘을 조합해서 최고의 성능을 내는 모델을 생성하는 방법</p>
+<ul class="simple">
+<li><p>예: StackNet, …</p></li>
+</ul>
+<p><img alt="Stacking" src="https://cdn-images-1.medium.com/max/1600/0*GHYCJIjkkrP5ZgPh.png" /></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">xgboost</span> <span class="k">as</span> <span class="nn">xgb</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">datasets</span><span class="p">,</span> <span class="n">model_selection</span><span class="p">,</span> <span class="n">ensemble</span><span class="p">,</span> <span class="n">metrics</span>
+
+<span class="c1"># 데이터</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">n_samples</span> <span class="o">=</span> <span class="mi">10000</span>
+<span class="n">np_data_xs</span><span class="p">,</span> <span class="n">np_data_ys</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">make_classification</span><span class="p">(</span>
+    <span class="n">n_samples</span><span class="o">=</span><span class="n">n_samples</span><span class="p">,</span> <span class="c1"># 데이터 수</span>
+    <span class="n">n_features</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="c1"># X feature 수</span>
+    <span class="n">n_informative</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+    <span class="n">n_classes</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="c1"># Y class 수</span>
+    <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># 난수 발생용 Seed 값</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;data shape: np_data_xs=</span><span class="si">{}</span><span class="s2">, np_data_ys=</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np_data_xs</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">np_data_ys</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
+<span class="n">np_train_xs</span><span class="p">,</span> <span class="n">np_test_xs</span><span class="p">,</span> <span class="n">np_train_ys</span><span class="p">,</span> <span class="n">np_test_ys</span> <span class="o">=</span> <span class="n">model_selection</span><span class="o">.</span><span class="n">train_test_split</span><span class="p">(</span>
+    <span class="n">np_data_xs</span><span class="p">,</span> <span class="n">np_data_ys</span><span class="p">,</span> 
+    <span class="n">test_size</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;train shape: np_train_xs=</span><span class="si">{}</span><span class="s2">, np_train_ys=</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np_train_xs</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">np_train_ys</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;test shape: np_test_xs=</span><span class="si">{}</span><span class="s2">, np_test_ys=</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np_test_xs</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">np_test_ys</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
+
+<span class="c1"># 모델</span>
+<span class="n">models</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">ensemble</span><span class="o">.</span><span class="n">BaggingClassifier</span><span class="p">(),</span>
+    <span class="n">ensemble</span><span class="o">.</span><span class="n">RandomForestClassifier</span><span class="p">(),</span>
+    <span class="n">ensemble</span><span class="o">.</span><span class="n">AdaBoostClassifier</span><span class="p">(),</span>
+    <span class="n">ensemble</span><span class="o">.</span><span class="n">GradientBoostingClassifier</span><span class="p">(),</span>
+    <span class="n">xgb</span><span class="o">.</span><span class="n">XGBClassifier</span><span class="p">()</span>
+<span class="p">]</span>
+
+<span class="k">for</span> <span class="n">model</span> <span class="ow">in</span> <span class="n">models</span><span class="p">:</span>
+    <span class="c1"># 학습</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">model=</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">model</span><span class="p">))</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">np_train_xs</span><span class="p">,</span> <span class="n">np_train_ys</span><span class="p">)</span>
+
+    <span class="c1"># 평가</span>
+    <span class="n">np_pred_ys</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">np_test_xs</span><span class="p">)</span>
+
+    <span class="n">acc</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">np_test_ys</span><span class="p">,</span> <span class="n">np_pred_ys</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;acc=</span><span class="si">{:.5f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">acc</span><span class="p">))</span>
+
+    <span class="n">cr</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">classification_report</span><span class="p">(</span><span class="n">np_test_ys</span><span class="p">,</span> <span class="n">np_pred_ys</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;classification_report</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">cr</span><span class="p">)</span>
+    
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">feature_importances</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">feature_importances_</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Feature Importances: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">feature_importances</span><span class="p">))</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">feature_importances</span><span class="p">)),</span> <span class="n">feature_importances</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Feature Importances&quot;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">pass</span>
+    
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>data shape: np_data_xs=(10000, 10), np_data_ys=(10000,)
+train shape: np_train_xs=(7000, 10), np_train_ys=(7000,)
+test shape: np_test_xs=(3000, 10), np_test_ys=(3000,)
+
+model=BaggingClassifier(base_estimator=None, bootstrap=True, bootstrap_features=False,
+                  max_features=1.0, max_samples=1.0, n_estimators=10,
+                  n_jobs=None, oob_score=False, random_state=None, verbose=0,
+                  warm_start=False)
+acc=0.93700
+classification_report
+               precision    recall  f1-score   support
+
+           0       0.93      0.91      0.92      1021
+           1       0.93      0.93      0.93      1011
+           2       0.95      0.98      0.97       968
+
+    accuracy                           0.94      3000
+   macro avg       0.94      0.94      0.94      3000
+weighted avg       0.94      0.94      0.94      3000
+
+
+model=RandomForestClassifier(bootstrap=True, ccp_alpha=0.0, class_weight=None,
+                       criterion=&#39;gini&#39;, max_depth=None, max_features=&#39;auto&#39;,
+                       max_leaf_nodes=None, max_samples=None,
+                       min_impurity_decrease=0.0, min_impurity_split=None,
+                       min_samples_leaf=1, min_samples_split=2,
+                       min_weight_fraction_leaf=0.0, n_estimators=100,
+                       n_jobs=None, oob_score=False, random_state=None,
+                       verbose=0, warm_start=False)
+acc=0.93933
+classification_report
+               precision    recall  f1-score   support
+
+           0       0.93      0.90      0.92      1021
+           1       0.93      0.94      0.93      1011
+           2       0.95      0.98      0.97       968
+
+    accuracy                           0.94      3000
+   macro avg       0.94      0.94      0.94      3000
+weighted avg       0.94      0.94      0.94      3000
+
+Feature Importances: [0.27947746 0.27995043 0.01171821 0.19646749 0.12501725 0.01104038
+ 0.01152699 0.01225641 0.06120948 0.0113359 ]
+</pre></div>
+</div>
+<img alt="../../_images/sklearn_ensemble_classification_1_1.png" src="../../_images/sklearn_ensemble_classification_1_1.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>model=AdaBoostClassifier(algorithm=&#39;SAMME.R&#39;, base_estimator=None, learning_rate=1.0,
+                   n_estimators=50, random_state=None)
+acc=0.87333
+classification_report
+               precision    recall  f1-score   support
+
+           0       0.81      0.88      0.84      1021
+           1       0.91      0.80      0.85      1011
+           2       0.92      0.94      0.93       968
+
+    accuracy                           0.87      3000
+   macro avg       0.88      0.87      0.87      3000
+weighted avg       0.88      0.87      0.87      3000
+
+Feature Importances: [0.12 0.12 0.   0.18 0.16 0.1  0.   0.04 0.26 0.02]
+</pre></div>
+</div>
+<img alt="../../_images/sklearn_ensemble_classification_1_3.png" src="../../_images/sklearn_ensemble_classification_1_3.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>model=GradientBoostingClassifier(ccp_alpha=0.0, criterion=&#39;friedman_mse&#39;, init=None,
+                           learning_rate=0.1, loss=&#39;deviance&#39;, max_depth=3,
+                           max_features=None, max_leaf_nodes=None,
+                           min_impurity_decrease=0.0, min_impurity_split=None,
+                           min_samples_leaf=1, min_samples_split=2,
+                           min_weight_fraction_leaf=0.0, n_estimators=100,
+                           n_iter_no_change=None, presort=&#39;deprecated&#39;,
+                           random_state=None, subsample=1.0, tol=0.0001,
+                           validation_fraction=0.1, verbose=0,
+                           warm_start=False)
+acc=0.93833
+classification_report
+               precision    recall  f1-score   support
+
+           0       0.93      0.91      0.92      1021
+           1       0.94      0.93      0.93      1011
+           2       0.95      0.98      0.96       968
+
+    accuracy                           0.94      3000
+   macro avg       0.94      0.94      0.94      3000
+weighted avg       0.94      0.94      0.94      3000
+
+Feature Importances: [0.36358158 0.29025805 0.00092383 0.21949302 0.0870738  0.00108648
+ 0.00094662 0.00157459 0.0335122  0.00154984]
+</pre></div>
+</div>
+<img alt="../../_images/sklearn_ensemble_classification_1_5.png" src="../../_images/sklearn_ensemble_classification_1_5.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>model=XGBClassifier(base_score=None, booster=None, colsample_bylevel=None,
+              colsample_bynode=None, colsample_bytree=None, gamma=None,
+              gpu_id=None, importance_type=&#39;gain&#39;, interaction_constraints=None,
+              learning_rate=None, max_delta_step=None, max_depth=None,
+              min_child_weight=None, missing=nan, monotone_constraints=None,
+              n_estimators=100, n_jobs=None, num_parallel_tree=None,
+              objective=&#39;binary:logistic&#39;, random_state=None, reg_alpha=None,
+              reg_lambda=None, scale_pos_weight=None, subsample=None,
+              tree_method=None, validate_parameters=False, verbosity=None)
+acc=0.93733
+classification_report
+               precision    recall  f1-score   support
+
+           0       0.93      0.91      0.92      1021
+           1       0.93      0.93      0.93      1011
+           2       0.95      0.98      0.96       968
+
+    accuracy                           0.94      3000
+   macro avg       0.94      0.94      0.94      3000
+weighted avg       0.94      0.94      0.94      3000
+
+Feature Importances: [0.27865943 0.31299987 0.0136447  0.20451018 0.08755126 0.0125111
+ 0.01178049 0.01207659 0.05252295 0.01374354]
+</pre></div>
+</div>
+<img alt="../../_images/sklearn_ensemble_classification_1_7.png" src="../../_images/sklearn_ensemble_classification_1_7.png" />
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./datamodel/sklearn"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="sklearn_nearest_neighbor_classification.html" title="previous page">Nearest Neighbors Classification (Sklearn)</a>
+    <a class='right-next' id="next-link" href="sklearn_eval_clustering.html" title="next page">Clustering Evaluation (Sklearn)</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By comafire<br/>
+        
+            &copy; Copyright 2015.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+    <!-- Google Analytics -->
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-81648003-1', 'auto');
+      ga('set', 'anonymizeIp', true);
+      ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+    <!-- End Google Analytics -->
+    
+  </body>
+</html>

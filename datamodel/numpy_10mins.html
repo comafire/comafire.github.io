@@ -5,46 +5,46 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>데이터사이언스견문록 &#8212; 데사견문록</title>
+    <title>Numpy 10mins &#8212; 데사견문록</title>
     
-  <link rel="stylesheet" href="_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
     
   <link rel="stylesheet"
-    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
   <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
   <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
     
       
   <link rel="stylesheet"
-    href="_static/vendor/open-sans_all/1.44.1/index.css">
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
   <link rel="stylesheet"
-    href="_static/vendor/lato_latin-ext/1.44.1/index.css">
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
 
     
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="_static/js/index.d3f166471bb80abb5163.js">
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
 
-    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/togglebutton.js"></script>
-    <script src="_static/clipboard.min.js"></script>
-    <script src="_static/copybutton.js"></script>
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
@@ -53,10 +53,11 @@
         const thebe_selector_input = "pre"
         const thebe_selector_output = ".output"
     </script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
-    <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="데이터사이언스" href="datascience/readme.html" />
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Random" href="random_seed.html" />
+    <link rel="prev" title="Pandas 10mins" href="pandas_10mins.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -73,34 +74,34 @@
 <div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
     
         <div class="navbar-brand-box">
-<a class="navbar-brand text-wrap" href="index.html">
+<a class="navbar-brand text-wrap" href="../index.html">
   
-  <img src="_static/logo.png" class="logo" alt="logo">
+  <img src="../_static/logo.png" class="logo" alt="logo">
   
   
   <h1 class="site-logo" id="site-title">데사견문록</h1>
   
 </a>
-</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form>
 <nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
     <ul class="nav sidenav_l1">
- <li class="toctree-l1 current active">
-  <a class="reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../readme.html">
    데이터사이언스견문록
   </a>
  </li>
 </ul>
-<ul class="nav sidenav_l1">
+<ul class="current nav sidenav_l1">
  <li class="toctree-l1 collapsible-parent">
-  <a class="reference internal" href="datascience/readme.html">
+  <a class="reference internal" href="../datascience/readme.html">
    데이터사이언스
   </a>
   <ul class="collapse-ul">
    <li class="toctree-l2">
-    <a class="reference internal" href="datascience/e2eds.html">
+    <a class="reference internal" href="../datascience/e2eds.html">
      End to End Data Science (E2EDS)
     </a>
    </li>
@@ -109,52 +110,52 @@
   </i>
  </li>
  <li class="toctree-l1 collapsible-parent">
-  <a class="reference internal" href="dataplatform/readme.html">
+  <a class="reference internal" href="../dataplatform/readme.html">
    데이터플랫폼
   </a>
   <ul class="collapse-ul">
    <li class="toctree-l2">
-    <a class="reference internal" href="dataplatform/infra_beginner.html">
+    <a class="reference internal" href="../dataplatform/infra_beginner.html">
      Infrastructure - Bignner
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="dataplatform/infra_advanced.html">
+    <a class="reference internal" href="../dataplatform/infra_advanced.html">
      Infrastructure - Advanced
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="dataplatform/jupyter_cloud.html">
+    <a class="reference internal" href="../dataplatform/jupyter_cloud.html">
      Jupyter (Cloud)
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="dataplatform/jupyter_native_ubuntu.html">
+    <a class="reference internal" href="../dataplatform/jupyter_native_ubuntu.html">
      Jupyter (Ubuntu)
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="dataplatform/jupyter_native_macos.html">
+    <a class="reference internal" href="../dataplatform/jupyter_native_macos.html">
      Jupyter (macOS)
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="dataplatform/jupyter_docker.html">
+    <a class="reference internal" href="../dataplatform/jupyter_docker.html">
      Jupyter (Docker)
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="dataplatform/vagrant_virtualbox.html">
+    <a class="reference internal" href="../dataplatform/vagrant_virtualbox.html">
      Vagrant (Optional)
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="dataplatform/skp.html">
+    <a class="reference internal" href="../dataplatform/skp.html">
      St. Kilda Pier (SKP)
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="dataplatform/gce-nested-vm.html">
+    <a class="reference internal" href="../dataplatform/gce-nested-vm.html">
      Google Computer Engine
     </a>
    </li>
@@ -162,193 +163,193 @@
   <i class="fas fa-chevron-down">
   </i>
  </li>
- <li class="toctree-l1 collapsible-parent">
-  <a class="reference internal" href="datamodel/readme.html">
+ <li class="toctree-l1 current active collapsible-parent">
+  <a class="reference internal" href="readme.html">
    데이터모델
   </a>
-  <ul class="collapse-ul">
+  <ul class="current collapse-ul">
    <li class="toctree-l2">
-    <a class="reference internal" href="datamodel/spark_dataframe_10mins.html">
+    <a class="reference internal" href="spark_dataframe_10mins.html">
      Spark DataFrame 10mins
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="datamodel/pandas_10mins.html">
+    <a class="reference internal" href="pandas_10mins.html">
      Pandas 10mins
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="datamodel/numpy_10mins.html">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
      Numpy 10mins
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="datamodel/random_seed.html">
+    <a class="reference internal" href="random_seed.html">
      Random
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="datamodel/pandas_data_description.html">
+    <a class="reference internal" href="pandas_data_description.html">
      Data Description (Pandas)
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="datamodel/missing_value.html">
+    <a class="reference internal" href="missing_value.html">
      Missing Value
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="datamodel/pandas_descriptive_statistics.html">
+    <a class="reference internal" href="pandas_descriptive_statistics.html">
      Descriptive Statistcs (Pandas)
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="datamodel/outlier.html">
+    <a class="reference internal" href="outlier.html">
      Outlier
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="datamodel/scipy_normality_test.html">
+    <a class="reference internal" href="scipy_normality_test.html">
      Normality Test (Scipy)
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="datamodel/scipy_statistics_test.html">
+    <a class="reference internal" href="scipy_statistics_test.html">
      Statistics Test (Scipy)
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="datamodel/parallel_algorithm.html">
+    <a class="reference internal" href="parallel_algorithm.html">
      One-Pass/Parallel Algorithm
     </a>
    </li>
    <li class="toctree-l2 collapsible-parent">
-    <a class="reference internal" href="datamodel/sklearn/readme.html">
+    <a class="reference internal" href="sklearn/readme.html">
      Scikit-Learn
     </a>
     <ul class="collapse-ul">
      <li class="toctree-l3">
-      <a class="reference internal" href="datamodel/sklearn/sklearn_feature_selection.html">
+      <a class="reference internal" href="sklearn/sklearn_feature_selection.html">
        Feature Selection (Sklearn)
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="datamodel/sklearn/sklearn_feature_extraction.html">
+      <a class="reference internal" href="sklearn/sklearn_feature_extraction.html">
        Feature Extraction (Sklearn)
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="datamodel/sklearn/sklearn_feature_transformation.html">
+      <a class="reference internal" href="sklearn/sklearn_feature_transformation.html">
        Feature Transformation (Sklearn)
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="datamodel/sklearn/sklearn_split_train_test.html">
+      <a class="reference internal" href="sklearn/sklearn_split_train_test.html">
        Train/Valid/Test Dataset (Sklearn)
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="datamodel/sklearn/imblearn_imbalanced_class.html">
+      <a class="reference internal" href="sklearn/imblearn_imbalanced_class.html">
        Imbalanced Class (Imblearn)
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="datamodel/sklearn/sklearn_model_persistence.html">
+      <a class="reference internal" href="sklearn/sklearn_model_persistence.html">
        Model Persistence (Sklearn)
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="datamodel/sklearn/sklearn_eval_regression.html">
+      <a class="reference internal" href="sklearn/sklearn_eval_regression.html">
        Regression Evaluation (Sklearn)
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="datamodel/sklearn/sklearn_linear_regression.html">
+      <a class="reference internal" href="sklearn/sklearn_linear_regression.html">
        Linear Regression (Sklearn)
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="datamodel/sklearn/sklearn_polynomial_regression.html">
+      <a class="reference internal" href="sklearn/sklearn_polynomial_regression.html">
        Polynomial Regression (Sklearn)
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="datamodel/sklearn/sklearn_sgd_regression.html">
+      <a class="reference internal" href="sklearn/sklearn_sgd_regression.html">
        SGD Regression (Sklearn)
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="datamodel/sklearn/sklearn_svm_regression.html">
+      <a class="reference internal" href="sklearn/sklearn_svm_regression.html">
        SVM Regression (Sklearn)
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="datamodel/sklearn/sklearn_nearest_neighbor_regression.html">
+      <a class="reference internal" href="sklearn/sklearn_nearest_neighbor_regression.html">
        Nearest Neighbors Regression (Sklearn)
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="datamodel/sklearn/sklearn_ensemble_regression.html">
+      <a class="reference internal" href="sklearn/sklearn_ensemble_regression.html">
        Ensemble Regression (Sklearn)
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="datamodel/sklearn/sklearn_eval_classification.html">
+      <a class="reference internal" href="sklearn/sklearn_eval_classification.html">
        Classification Evaluation (Sklearn)
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="datamodel/sklearn/sklearn_logistic_regression.html">
+      <a class="reference internal" href="sklearn/sklearn_logistic_regression.html">
        Logistic Regression (Sklearn)
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="datamodel/sklearn/sklearn_sgd_classification.html">
+      <a class="reference internal" href="sklearn/sklearn_sgd_classification.html">
        SGD Classification (Sklearn)
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="datamodel/sklearn/sklearn_svm_classification.html">
+      <a class="reference internal" href="sklearn/sklearn_svm_classification.html">
        SVM Classification (Sklearn)
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="datamodel/sklearn/sklearn_nearest_neighbor_classification.html">
+      <a class="reference internal" href="sklearn/sklearn_nearest_neighbor_classification.html">
        Nearest Neighbors Classification (Sklearn)
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="datamodel/sklearn/sklearn_ensemble_classification.html">
+      <a class="reference internal" href="sklearn/sklearn_ensemble_classification.html">
        Ensemble Classification (Sklearn)
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="datamodel/sklearn/sklearn_eval_clustering.html">
+      <a class="reference internal" href="sklearn/sklearn_eval_clustering.html">
        Clustering Evaluation (Sklearn)
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="datamodel/sklearn/sklearn_kmeans.html">
+      <a class="reference internal" href="sklearn/sklearn_kmeans.html">
        K-Means (Sklearn)
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="datamodel/sklearn/sklearn_mean_shift.html">
+      <a class="reference internal" href="sklearn/sklearn_mean_shift.html">
        Mean Shift (Sklearn)
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="datamodel/sklearn/sklearn_spectral_clustering.html">
+      <a class="reference internal" href="sklearn/sklearn_spectral_clustering.html">
        Spectral Clustering (Sklearn)
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="datamodel/sklearn/sklearn_hyper_parameter_tunning.html">
+      <a class="reference internal" href="sklearn/sklearn_hyper_parameter_tunning.html">
        Hyper Parameter Tunning (Sklearn)
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="datamodel/sklearn/sklearn_anomaly_detection.html">
+      <a class="reference internal" href="sklearn/sklearn_anomaly_detection.html">
        Anomaly Detection (Sklearn)
       </a>
      </li>
@@ -357,117 +358,117 @@
     </i>
    </li>
    <li class="toctree-l2 collapsible-parent">
-    <a class="reference internal" href="datamodel/tf2/readme.html">
+    <a class="reference internal" href="tf2/readme.html">
      Tensorflow2
     </a>
     <ul class="collapse-ul">
      <li class="toctree-l3">
-      <a class="reference internal" href="datamodel/tf2/keras_10mins.html">
+      <a class="reference internal" href="tf2/keras_10mins.html">
        Keras 10mins
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="datamodel/tf2/keras_dnn_regression.html">
+      <a class="reference internal" href="tf2/keras_dnn_regression.html">
        DNN Regression (Keras)
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="datamodel/tf2/keras_dnn_classification.html">
+      <a class="reference internal" href="tf2/keras_dnn_classification.html">
        DNN Classification (Keras)
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="datamodel/tf2/tf2_10mins.html">
+      <a class="reference internal" href="tf2/tf2_10mins.html">
        Tensorflow2 10mins
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="datamodel/tf2/tf2_beginner_quickstart.html">
+      <a class="reference internal" href="tf2/tf2_beginner_quickstart.html">
        Quickstart - Beginner (TF2)
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="datamodel/tf2/tf2_beginner_image_classification.html">
+      <a class="reference internal" href="tf2/tf2_beginner_image_classification.html">
        Image Classification - Beginner (TF2)
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="datamodel/tf2/tf2_beginner_text_classification.html">
+      <a class="reference internal" href="tf2/tf2_beginner_text_classification.html">
        Text Classification - Beginner (TF2)
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="datamodel/tf2/tf2_beginner_hub_text_classification.html">
+      <a class="reference internal" href="tf2/tf2_beginner_hub_text_classification.html">
        Text Classification with Hub - Beginner (TF2)
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="datamodel/tf2/tf2_beginner_regression.html">
+      <a class="reference internal" href="tf2/tf2_beginner_regression.html">
        Regression - Beginner (TF2)
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="datamodel/tf2/tf2_beginner_overfit_underfit.html">
+      <a class="reference internal" href="tf2/tf2_beginner_overfit_underfit.html">
        Overfit &amp; Underfit - Beginner (TF2)
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="datamodel/tf2/tf2_beginner_save_load.html">
+      <a class="reference internal" href="tf2/tf2_beginner_save_load.html">
        Save &amp; Load - Beginner (TF2)
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="datamodel/tf2/tf2_beginner_keras_tuner.html">
+      <a class="reference internal" href="tf2/tf2_beginner_keras_tuner.html">
        Keras Tuner - Beginner (TF2)
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="datamodel/tf2/tf2_beginner_images.html">
+      <a class="reference internal" href="tf2/tf2_beginner_images.html">
        Images - Beginner (TF2)
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="datamodel/tf2/tf2_beginner_csv.html">
+      <a class="reference internal" href="tf2/tf2_beginner_csv.html">
        CSV - Beginner (TF2)
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="datamodel/tf2/tf2_beginner_numpy.html">
+      <a class="reference internal" href="tf2/tf2_beginner_numpy.html">
        Numpy - Beginner (TF2)
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="datamodel/tf2/tf2_beginner_pandas.html">
+      <a class="reference internal" href="tf2/tf2_beginner_pandas.html">
        Pandas - Beginner (TF2)
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="datamodel/tf2/tf2_beginner_text.html">
+      <a class="reference internal" href="tf2/tf2_beginner_text.html">
        Text - Beginner (TF2)
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="datamodel/tf2/tf2_beginner_unicode.html">
+      <a class="reference internal" href="tf2/tf2_beginner_unicode.html">
        Unicode - Beginner (TF2)
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="datamodel/tf2/tf2_beginner_tftext.html">
+      <a class="reference internal" href="tf2/tf2_beginner_tftext.html">
        TF.Text - Beginner (TF2)
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="datamodel/tf2/tf2_beginner_subwords_tokenizer.html">
+      <a class="reference internal" href="tf2/tf2_beginner_subwords_tokenizer.html">
        Subword Tokenization - Beginner (TF2)
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="datamodel/tf2/tf2_beginner_tfrecord.html">
+      <a class="reference internal" href="tf2/tf2_beginner_tfrecord.html">
        TFRecord and tf.train.Example - Beginner (TF2)
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="datamodel/tf2/tf2_beginner_tfio.html">
+      <a class="reference internal" href="tf2/tf2_beginner_tfio.html">
        TF I/O - Beginner (TF2)
       </a>
      </li>
@@ -476,17 +477,17 @@
     </i>
    </li>
    <li class="toctree-l2 collapsible-parent">
-    <a class="reference internal" href="datamodel/structed_data/readme.html">
+    <a class="reference internal" href="structed_data/readme.html">
      Structed Data
     </a>
     <ul class="collapse-ul">
      <li class="toctree-l3">
-      <a class="reference internal" href="datamodel/structed_data/surprise_collaborative_filtering.html">
+      <a class="reference internal" href="structed_data/surprise_collaborative_filtering.html">
        Collaborative Filtering (Surprise)
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="datamodel/structed_data/keras_deepmf.html">
+      <a class="reference internal" href="structed_data/keras_deepmf.html">
        Deep MF (Keras)
       </a>
      </li>
@@ -495,32 +496,32 @@
     </i>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="datamodel/computer_vision/readme.html">
+    <a class="reference internal" href="computer_vision/readme.html">
      Computer Vision
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="datamodel/nlp/readme.html">
+    <a class="reference internal" href="nlp/readme.html">
      Neural Language Processing
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="datamodel/timeseries/readme.html">
+    <a class="reference internal" href="timeseries/readme.html">
      Timeseries
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="datamodel/audio_data/readme.html">
+    <a class="reference internal" href="audio_data/readme.html">
      Audio Data
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="datamodel/generative_dl/readme.html">
+    <a class="reference internal" href="generative_dl/readme.html">
      Generative Deep Learning
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="datamodel/rl/readme.html">
+    <a class="reference internal" href="rl/readme.html">
      Reinforcement learning
     </a>
    </li>
@@ -568,9 +569,9 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/readme.md"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/datamodel/numpy_10mins.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
+                data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
             onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
@@ -588,7 +589,7 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/comafire/comafire.github.io/issues/new?title=Issue%20on%20page%20%2Freadme.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/comafire/comafire.github.io/issues/new?title=Issue%20on%20page%20%2Fdatamodel/numpy_10mins.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -604,6 +605,23 @@
 
         <!-- Launch buttons -->
 
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/comafire/comafire.github.io/master?urlpath=tree/datamodel/numpy_10mins.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
     </div>
 
     <!-- Table of contents -->
@@ -616,12 +634,29 @@
         
               <div>
                 
-  <div class="section" id="id1">
-<h1>데이터사이언스견문록<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
-<p>Data Science Travelogue</p>
-<p><strong>견문록: 보고 들은 지식을 기록하여 놓은 글.</strong> 이라는 사전적 정의처럼 데이터 사이언스와 관련하여 개인적으로 보고 들은 지식들에 대한 여행기입니다.</p>
-<div class="toctree-wrapper compound">
+  <div class="section" id="numpy-10mins">
+<h1>Numpy 10mins<a class="headerlink" href="#numpy-10mins" title="Permalink to this headline">¶</a></h1>
+<p>Numpy는 행렬이나 일반적으로 대규모 다차원 배열을 쉽게 처리 할 수 있도록 지원하는 파이썬 라이브러리입니다. NumPy는 데이터 구조 외에도 수치 계산을 위해 효율적으로 구현된 기능을 제공합니다.</p>
+<p>참조</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://numpy.org/doc/stable/user/quickstart.html">NumPy quickstart</a></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;numpy ver=</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">__version__</span><span class="p">))</span>
+</pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>numpy ver=1.19.5
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>작성 중 ..</strong></p>
 </div>
 
     <script type="text/x-thebe-config">
@@ -637,7 +672,7 @@
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./."
+            path: "./datamodel"
         },
         predefinedOutput: true
     }
@@ -652,7 +687,8 @@
     
     <div class='prev-next-bottom'>
         
-    <a class='right-next' id="next-link" href="datascience/readme.html" title="next page">데이터사이언스</a>
+    <a class='left-prev' id="prev-link" href="pandas_10mins.html" title="previous page">Pandas 10mins</a>
+    <a class='right-next' id="next-link" href="random_seed.html" title="next page">Random</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
@@ -672,7 +708,7 @@
     </div>
 
     
-  <script src="_static/js/index.d3f166471bb80abb5163.js"></script>
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
 
 
     

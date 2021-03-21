@@ -1,0 +1,965 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Descriptive Statistcs (Pandas) &#8212; 데사견문록</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Outlier" href="outlier.html" />
+    <link rel="prev" title="Missing Value" href="missing_value.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">데사견문록</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../readme.html">
+   데이터사이언스견문록
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../datascience/readme.html">
+   데이터사이언스
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../datascience/e2eds.html">
+     End to End Data Science (E2EDS)
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../dataplatform/readme.html">
+   데이터플랫폼
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../dataplatform/infra_beginner.html">
+     Infrastructure - Bignner
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../dataplatform/infra_advanced.html">
+     Infrastructure - Advanced
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../dataplatform/jupyter_cloud.html">
+     Jupyter (Cloud)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../dataplatform/jupyter_native_ubuntu.html">
+     Jupyter (Ubuntu)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../dataplatform/jupyter_native_macos.html">
+     Jupyter (macOS)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../dataplatform/jupyter_docker.html">
+     Jupyter (Docker)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../dataplatform/vagrant_virtualbox.html">
+     Vagrant (Optional)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../dataplatform/skp.html">
+     St. Kilda Pier (SKP)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../dataplatform/gce-nested-vm.html">
+     Google Computer Engine
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 current active collapsible-parent">
+  <a class="reference internal" href="readme.html">
+   데이터모델
+  </a>
+  <ul class="current collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="spark_dataframe_10mins.html">
+     Spark DataFrame 10mins
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="pandas_10mins.html">
+     Pandas 10mins
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="numpy_10mins.html">
+     Numpy 10mins
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="random_seed.html">
+     Random
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="pandas_data_description.html">
+     Data Description (Pandas)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="missing_value.html">
+     Missing Value
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Descriptive Statistcs (Pandas)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="outlier.html">
+     Outlier
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="scipy_normality_test.html">
+     Normality Test (Scipy)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="scipy_statistics_test.html">
+     Statistics Test (Scipy)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="parallel_algorithm.html">
+     One-Pass/Parallel Algorithm
+    </a>
+   </li>
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="sklearn/readme.html">
+     Scikit-Learn
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="sklearn/sklearn_feature_selection.html">
+       Feature Selection (Sklearn)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="sklearn/sklearn_feature_extraction.html">
+       Feature Extraction (Sklearn)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="sklearn/sklearn_feature_transformation.html">
+       Feature Transformation (Sklearn)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="sklearn/sklearn_split_train_test.html">
+       Train/Valid/Test Dataset (Sklearn)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="sklearn/imblearn_imbalanced_class.html">
+       Imbalanced Class (Imblearn)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="sklearn/sklearn_model_persistence.html">
+       Model Persistence (Sklearn)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="sklearn/sklearn_eval_regression.html">
+       Regression Evaluation (Sklearn)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="sklearn/sklearn_linear_regression.html">
+       Linear Regression (Sklearn)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="sklearn/sklearn_polynomial_regression.html">
+       Polynomial Regression (Sklearn)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="sklearn/sklearn_sgd_regression.html">
+       SGD Regression (Sklearn)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="sklearn/sklearn_svm_regression.html">
+       SVM Regression (Sklearn)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="sklearn/sklearn_nearest_neighbor_regression.html">
+       Nearest Neighbors Regression (Sklearn)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="sklearn/sklearn_ensemble_regression.html">
+       Ensemble Regression (Sklearn)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="sklearn/sklearn_eval_classification.html">
+       Classification Evaluation (Sklearn)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="sklearn/sklearn_logistic_regression.html">
+       Logistic Regression (Sklearn)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="sklearn/sklearn_sgd_classification.html">
+       SGD Classification (Sklearn)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="sklearn/sklearn_svm_classification.html">
+       SVM Classification (Sklearn)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="sklearn/sklearn_nearest_neighbor_classification.html">
+       Nearest Neighbors Classification (Sklearn)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="sklearn/sklearn_ensemble_classification.html">
+       Ensemble Classification (Sklearn)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="sklearn/sklearn_eval_clustering.html">
+       Clustering Evaluation (Sklearn)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="sklearn/sklearn_kmeans.html">
+       K-Means (Sklearn)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="sklearn/sklearn_mean_shift.html">
+       Mean Shift (Sklearn)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="sklearn/sklearn_spectral_clustering.html">
+       Spectral Clustering (Sklearn)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="sklearn/sklearn_hyper_parameter_tunning.html">
+       Hyper Parameter Tunning (Sklearn)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="sklearn/sklearn_anomaly_detection.html">
+       Anomaly Detection (Sklearn)
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="tf2/readme.html">
+     Tensorflow2
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="tf2/keras_10mins.html">
+       Keras 10mins
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="tf2/keras_dnn_regression.html">
+       DNN Regression (Keras)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="tf2/keras_dnn_classification.html">
+       DNN Classification (Keras)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="tf2/tf2_10mins.html">
+       Tensorflow2 10mins
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="tf2/tf2_beginner_quickstart.html">
+       Quickstart - Beginner (TF2)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="tf2/tf2_beginner_image_classification.html">
+       Image Classification - Beginner (TF2)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="tf2/tf2_beginner_text_classification.html">
+       Text Classification - Beginner (TF2)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="tf2/tf2_beginner_hub_text_classification.html">
+       Text Classification with Hub - Beginner (TF2)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="tf2/tf2_beginner_regression.html">
+       Regression - Beginner (TF2)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="tf2/tf2_beginner_overfit_underfit.html">
+       Overfit &amp; Underfit - Beginner (TF2)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="tf2/tf2_beginner_save_load.html">
+       Save &amp; Load - Beginner (TF2)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="tf2/tf2_beginner_keras_tuner.html">
+       Keras Tuner - Beginner (TF2)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="tf2/tf2_beginner_images.html">
+       Images - Beginner (TF2)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="tf2/tf2_beginner_csv.html">
+       CSV - Beginner (TF2)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="tf2/tf2_beginner_numpy.html">
+       Numpy - Beginner (TF2)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="tf2/tf2_beginner_pandas.html">
+       Pandas - Beginner (TF2)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="tf2/tf2_beginner_text.html">
+       Text - Beginner (TF2)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="tf2/tf2_beginner_unicode.html">
+       Unicode - Beginner (TF2)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="tf2/tf2_beginner_tftext.html">
+       TF.Text - Beginner (TF2)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="tf2/tf2_beginner_subwords_tokenizer.html">
+       Subword Tokenization - Beginner (TF2)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="tf2/tf2_beginner_tfrecord.html">
+       TFRecord and tf.train.Example - Beginner (TF2)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="tf2/tf2_beginner_tfio.html">
+       TF I/O - Beginner (TF2)
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="structed_data/readme.html">
+     Structed Data
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="structed_data/surprise_collaborative_filtering.html">
+       Collaborative Filtering (Surprise)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="structed_data/keras_deepmf.html">
+       Deep MF (Keras)
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="computer_vision/readme.html">
+     Computer Vision
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="nlp/readme.html">
+     Neural Language Processing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="timeseries/readme.html">
+     Timeseries
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="audio_data/readme.html">
+     Audio Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="generative_dl/readme.html">
+     Generative Deep Learning
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="rl/readme.html">
+     Reinforcement learning
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/datamodel/pandas_descriptive_statistics.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/comafire/comafire.github.io"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/comafire/comafire.github.io/issues/new?title=Issue%20on%20page%20%2Fdatamodel/pandas_descriptive_statistics.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/comafire/comafire.github.io/master?urlpath=tree/datamodel/pandas_descriptive_statistics.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="descriptive-statistcs-pandas">
+<h1>Descriptive Statistcs (Pandas)<a class="headerlink" href="#descriptive-statistcs-pandas" title="Permalink to this headline">¶</a></h1>
+<p>기술 통계</p>
+<p>데이터를 기술적 통계적 방법을 통해 요약해 봄으로써 데이터를 이해하는데 도움을 받을 수 있습니다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">quilt</span>
+
+<span class="n">quilt</span><span class="o">.</span><span class="n">install</span><span class="p">(</span><span class="s2">&quot;uciml/iris&quot;</span><span class="p">,</span> <span class="n">force</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading package metadata...
+Fragments already downloaded
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">quilt.data.uciml</span> <span class="kn">import</span> <span class="n">iris</span>
+
+<span class="n">df_iris</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">tables</span><span class="o">.</span><span class="n">iris</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>각각의 변수를 통계적 방법으로 분석하여 변수안의 데이터가 어떤 분포를 가지고 있는지 확인할 수 있습니다.</p>
+<p><strong>연속형 변수(Continuous Variable)</strong></p>
+<ul class="simple">
+<li><p>최대(Max), 최소(Min), 중간(Median), 평균(Mean) 값을 통해 데이터의 중심화 경향(Central Tendency)를 조사해봅니다.</p></li>
+<li><p>분산(Variance), 표준 편차(Standard Deviation), 범위(Range), 사분위수(Quartile), 외도(Skewness), 첨도(kurtosis)를 통해 데이터의 분포를 볼수 있습니다.</p></li>
+</ul>
+<p><strong>범주형 변수(Categorical Variable)</strong></p>
+<ul class="simple">
+<li><p>변수안의 데이터가 몇개의 범주를 가지는지 그리고 각 범주별 비율을 도수분포표(Frequency Table)을 통해 데이터 분포를 확인 합니다.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span> 
+
+<span class="n">df_iris</span><span class="o">.</span><span class="n">describe</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="s1">&#39;all&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>sepal_length</th>
+      <th>sepal_width</th>
+      <th>petal_length</th>
+      <th>petal_width</th>
+      <th>class</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>150.000000</td>
+      <td>150.000000</td>
+      <td>150.000000</td>
+      <td>150.000000</td>
+      <td>150</td>
+    </tr>
+    <tr>
+      <th>unique</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>top</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Iris-virginica</td>
+    </tr>
+    <tr>
+      <th>freq</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>50</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>5.843333</td>
+      <td>3.054000</td>
+      <td>3.758667</td>
+      <td>1.198667</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>0.828066</td>
+      <td>0.433594</td>
+      <td>1.764420</td>
+      <td>0.763161</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>4.300000</td>
+      <td>2.000000</td>
+      <td>1.000000</td>
+      <td>0.100000</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>5.100000</td>
+      <td>2.800000</td>
+      <td>1.600000</td>
+      <td>0.300000</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>5.800000</td>
+      <td>3.000000</td>
+      <td>4.350000</td>
+      <td>1.300000</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>6.400000</td>
+      <td>3.300000</td>
+      <td>5.100000</td>
+      <td>1.800000</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>7.900000</td>
+      <td>4.400000</td>
+      <td>6.900000</td>
+      <td>2.500000</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>좀 더 확인하기 쉽도록 boxplot, histogram을 통해 이를 시각화 해볼 수 있습니다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># select_dtypes: 원하는 타입의 데이터 선택</span>
+<span class="n">df_iris</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span><span class="n">include</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;float64&#39;</span><span class="p">,</span> <span class="s1">&#39;int64&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">boxplot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x163abcf90&gt;
+</pre></div>
+</div>
+<img alt="../_images/pandas_descriptive_statistics_6_1.png" src="../_images/pandas_descriptive_statistics_6_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_iris</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;class&#39;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[&lt;matplotlib.axes._subplots.AxesSubplot object at 0x163ed5d90&gt;,
+        &lt;matplotlib.axes._subplots.AxesSubplot object at 0x163f0de50&gt;],
+       [&lt;matplotlib.axes._subplots.AxesSubplot object at 0x163f46750&gt;,
+        &lt;matplotlib.axes._subplots.AxesSubplot object at 0x163f79b90&gt;]],
+      dtype=object)
+</pre></div>
+</div>
+<img alt="../_images/pandas_descriptive_statistics_7_1.png" src="../_images/pandas_descriptive_statistics_7_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_iris</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[&lt;matplotlib.axes._subplots.AxesSubplot object at 0x16415e150&gt;,
+        &lt;matplotlib.axes._subplots.AxesSubplot object at 0x16423ec10&gt;],
+       [&lt;matplotlib.axes._subplots.AxesSubplot object at 0x164277fd0&gt;,
+        &lt;matplotlib.axes._subplots.AxesSubplot object at 0x1642b8710&gt;]],
+      dtype=object)
+</pre></div>
+</div>
+<img alt="../_images/pandas_descriptive_statistics_8_1.png" src="../_images/pandas_descriptive_statistics_8_1.png" />
+</div>
+</div>
+<p>범주형 데이터에 대해서 도수분포표(Frequency Table)를 작성해 봅니다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 범주형 데이터 카운트</span>
+<span class="n">df_iris</span><span class="p">[</span><span class="s1">&#39;class&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iris-virginica     50
+Iris-setosa        50
+Iris-versicolor    50
+Name: class, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">countplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;class&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df_iris</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x17894e510&gt;
+</pre></div>
+</div>
+<img alt="../_images/pandas_descriptive_statistics_11_1.png" src="../_images/pandas_descriptive_statistics_11_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 범주형 데이터 비율</span>
+<span class="n">df_iris</span><span class="p">[</span><span class="s1">&#39;class&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="n">normalize</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iris-virginica     0.333333
+Iris-setosa        0.333333
+Iris-versicolor    0.333333
+Name: class, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./datamodel"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="missing_value.html" title="previous page">Missing Value</a>
+    <a class='right-next' id="next-link" href="outlier.html" title="next page">Outlier</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By comafire<br/>
+        
+            &copy; Copyright 2015.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+    <!-- Google Analytics -->
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-81648003-1', 'auto');
+      ga('set', 'anonymizeIp', true);
+      ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+    <!-- End Google Analytics -->
+    
+  </body>
+</html>

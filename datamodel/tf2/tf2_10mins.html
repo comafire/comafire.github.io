@@ -388,6 +388,11 @@
       </a>
      </li>
      <li class="toctree-l3">
+      <a class="reference internal" href="tf2_advanced_quickstart.html">
+       Quickstart - Advanced (TF2)
+      </a>
+     </li>
+     <li class="toctree-l3">
       <a class="reference internal" href="tf2_beginner_image_classification.html">
        Image Classification - Beginner (TF2)
       </a>
@@ -475,6 +480,11 @@
     </ul>
     <i class="fas fa-chevron-down">
     </i>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../pytorch/readme.html">
+     Pytorch
+    </a>
    </li>
    <li class="toctree-l2 collapsible-parent">
     <a class="reference internal" href="../structed_data/readme.html">
@@ -688,12 +698,9 @@
 <span class="kn">import</span> <span class="nn">warnings</span> 
 <span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="n">action</span><span class="o">=</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
 
-<span class="c1"># 노트북 셀 표시를 브라우저 전체 폭 사용하기</span>
-<span class="kn">from</span> <span class="nn">IPython.core.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">HTML</span>
-<span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="s2">&quot;&lt;style&gt;.container { width:100% !important; }&lt;/style&gt;&quot;</span><span class="p">))</span>
-
 <span class="o">%</span><span class="k">matplotlib</span> inline
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">IPython</span>
 
 <span class="kn">import</span> <span class="nn">sys</span>
 
@@ -724,7 +731,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><style>.container { width:100% !important; }</style></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>python ver=3.7.6 (default, Nov 21 2020, 22:51:13) 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>python ver=3.7.6 (default, Nov 21 2020, 22:51:13) 
 [Clang 12.0.0 (clang-1200.0.32.27)]
 pandas ver=1.0.5
 numpy ver=1.19.5
@@ -825,15 +832,15 @@ _________________________________________________________________
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 1/5
-1875/1875 [==============================] - 2s 701us/step - loss: 0.4874 - accuracy: 0.8576
+1875/1875 [==============================] - 2s 714us/step - loss: 0.4874 - accuracy: 0.8576
 Epoch 2/5
-1875/1875 [==============================] - 1s 686us/step - loss: 0.1566 - accuracy: 0.9533
+1875/1875 [==============================] - 1s 696us/step - loss: 0.1566 - accuracy: 0.9533
 Epoch 3/5
-1875/1875 [==============================] - 1s 687us/step - loss: 0.1137 - accuracy: 0.9647
+1875/1875 [==============================] - 1s 700us/step - loss: 0.1137 - accuracy: 0.9647
 Epoch 4/5
-1875/1875 [==============================] - 1s 691us/step - loss: 0.0889 - accuracy: 0.9737
+1875/1875 [==============================] - 1s 697us/step - loss: 0.0889 - accuracy: 0.9737
 Epoch 5/5
-1875/1875 [==============================] - 1s 696us/step - loss: 0.0733 - accuracy: 0.9771
+1875/1875 [==============================] - 1s 695us/step - loss: 0.0733 - accuracy: 0.9771
 313/313 - 0s - loss: 0.0753 - accuracy: 0.9779
 </pre></div>
 </div>

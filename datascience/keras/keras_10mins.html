@@ -1,0 +1,1099 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Keras 10mins &#8212; 데사견문록</title>
+    
+  <link rel="stylesheet" href="../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="DNN Regression" href="keras_dnn_regression.html" />
+    <link rel="prev" title="Keras" href="keras.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <img src="../../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">데사견문록</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../readme.html">
+   데이터사이언스견문록
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 current active collapsible-parent">
+  <a class="reference internal" href="../readme.html">
+   데이터사이언스
+  </a>
+  <ul class="current collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../e2eds.html">
+     End to End Data Science (E2EDS)
+    </a>
+   </li>
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../dataprep.html">
+     Data Preperation
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../spark_dataframe_10mins.html">
+       Spark DataFrame 10mins
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../pandas_10mins.html">
+       Pandas 10mins
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../numpy_10mins.html">
+       Numpy 10mins
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../random_seed.html">
+       Random
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../pandas_data_description.html">
+       Data Description
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../missing_value.html">
+       Missing Value
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../pandas_descriptive_statistics.html">
+       Descriptive Statistcs
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+   <li class="toctree-l2 current active collapsible-parent">
+    <a class="reference internal" href="../model.html">
+     Model
+    </a>
+    <ul class="current collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../outlier.html">
+       Outlier
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../scipy_normality_test.html">
+       Normality Test (Scipy)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../scipy_statistics_test.html">
+       Statistics Test (Scipy)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../parallel_algorithm.html">
+       One-Pass/Parallel Algorithm
+      </a>
+     </li>
+     <li class="toctree-l3 collapsible-parent">
+      <a class="reference internal" href="../sklearn/sklearn.html">
+       Scikit-Learn
+      </a>
+      <ul class="collapse-ul">
+       <li class="toctree-l4">
+        <a class="reference internal" href="../sklearn/sklearn_feature_selection.html">
+         Feature Selection
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../sklearn/sklearn_feature_extraction.html">
+         Feature Extraction
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../sklearn/sklearn_feature_transformation.html">
+         Feature Transformation
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../sklearn/sklearn_split_train_test.html">
+         Train/Valid/Test Dataset
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../sklearn/imblearn_imbalanced_class.html">
+         Imbalanced Class
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../sklearn/sklearn_model_persistence.html">
+         Model Persistence
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../sklearn/sklearn_eval_regression.html">
+         Regression Evaluation
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../sklearn/sklearn_linear_regression.html">
+         Linear Regression
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../sklearn/sklearn_polynomial_regression.html">
+         Polynomial Regression
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../sklearn/sklearn_sgd_regression.html">
+         SGD Regression
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../sklearn/sklearn_svm_regression.html">
+         SVM Regression
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../sklearn/sklearn_nearest_neighbor_regression.html">
+         Nearest Neighbors Regression
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../sklearn/sklearn_ensemble_regression.html">
+         Ensemble Regression
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../sklearn/sklearn_eval_classification.html">
+         Classification Evaluation
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../sklearn/sklearn_logistic_regression.html">
+         Logistic Regression
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../sklearn/sklearn_sgd_classification.html">
+         SGD Classification
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../sklearn/sklearn_svm_classification.html">
+         SVM Classification
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../sklearn/sklearn_nearest_neighbor_classification.html">
+         Nearest Neighbors Classification
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../sklearn/sklearn_ensemble_classification.html">
+         Ensemble Classification
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../sklearn/sklearn_eval_clustering.html">
+         Clustering Evaluation
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../sklearn/sklearn_kmeans.html">
+         K-Means
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../sklearn/sklearn_mean_shift.html">
+         Mean Shift
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../sklearn/sklearn_spectral_clustering.html">
+         Spectral Clustering
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../sklearn/sklearn_hyper_parameter_tunning.html">
+         Hyper Parameter Tunning
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../sklearn/sklearn_anomaly_detection.html">
+         Anomaly Detection
+        </a>
+       </li>
+      </ul>
+      <i class="fas fa-chevron-down">
+      </i>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../surprise_collaborative_filtering.html">
+       Collaborative Filtering (Surprise)
+      </a>
+     </li>
+     <li class="toctree-l3 current active collapsible-parent">
+      <a class="reference internal" href="keras.html">
+       Keras
+      </a>
+      <ul class="current collapse-ul">
+       <li class="toctree-l4 current active">
+        <a class="current reference internal" href="#">
+         Keras 10mins
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="keras_dnn_regression.html">
+         DNN Regression
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="keras_dnn_classification.html">
+         DNN Classification
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="keras_deepmf.html">
+         Deep MF
+        </a>
+       </li>
+      </ul>
+      <i class="fas fa-chevron-down">
+      </i>
+     </li>
+     <li class="toctree-l3 collapsible-parent">
+      <a class="reference internal" href="../tf2/tf2.html">
+       Tensorflow2
+      </a>
+      <ul class="collapse-ul">
+       <li class="toctree-l4">
+        <a class="reference internal" href="../tf2/tf2_10mins.html">
+         Tensorflow2 10mins
+        </a>
+       </li>
+       <li class="toctree-l4 collapsible-parent">
+        <a class="reference internal" href="../tf2/tf2_beginner.html">
+         Beginner
+        </a>
+        <ul class="collapse-ul">
+         <li class="toctree-l5">
+          <a class="reference internal" href="../tf2/tf2_beginner_quickstart.html">
+           Quickstart
+          </a>
+         </li>
+         <li class="toctree-l5">
+          <a class="reference internal" href="../tf2/tf2_beginner_image_classification.html">
+           Image Classification
+          </a>
+         </li>
+         <li class="toctree-l5">
+          <a class="reference internal" href="../tf2/tf2_beginner_text_classification.html">
+           Text Classification
+          </a>
+         </li>
+         <li class="toctree-l5">
+          <a class="reference internal" href="../tf2/tf2_beginner_hub_text_classification.html">
+           Text Classification with Hub
+          </a>
+         </li>
+         <li class="toctree-l5">
+          <a class="reference internal" href="../tf2/tf2_beginner_regression.html">
+           Regression
+          </a>
+         </li>
+         <li class="toctree-l5">
+          <a class="reference internal" href="../tf2/tf2_beginner_overfit_underfit.html">
+           Overfit &amp; Underfit
+          </a>
+         </li>
+         <li class="toctree-l5">
+          <a class="reference internal" href="../tf2/tf2_beginner_save_load.html">
+           Save &amp; Load
+          </a>
+         </li>
+         <li class="toctree-l5">
+          <a class="reference internal" href="../tf2/tf2_beginner_keras_tuner.html">
+           Keras Tuner
+          </a>
+         </li>
+         <li class="toctree-l5">
+          <a class="reference internal" href="../tf2/tf2_beginner_images.html">
+           Images
+          </a>
+         </li>
+         <li class="toctree-l5">
+          <a class="reference internal" href="../tf2/tf2_beginner_csv.html">
+           CSV
+          </a>
+         </li>
+         <li class="toctree-l5">
+          <a class="reference internal" href="../tf2/tf2_beginner_numpy.html">
+           Numpy
+          </a>
+         </li>
+         <li class="toctree-l5">
+          <a class="reference internal" href="../tf2/tf2_beginner_pandas.html">
+           Pandas
+          </a>
+         </li>
+         <li class="toctree-l5">
+          <a class="reference internal" href="../tf2/tf2_beginner_text.html">
+           Text
+          </a>
+         </li>
+         <li class="toctree-l5">
+          <a class="reference internal" href="../tf2/tf2_beginner_unicode.html">
+           Unicode
+          </a>
+         </li>
+         <li class="toctree-l5">
+          <a class="reference internal" href="../tf2/tf2_beginner_tftext.html">
+           TF.Text
+          </a>
+         </li>
+         <li class="toctree-l5">
+          <a class="reference internal" href="../tf2/tf2_beginner_subwords_tokenizer.html">
+           Subword Tokenization
+          </a>
+         </li>
+         <li class="toctree-l5">
+          <a class="reference internal" href="../tf2/tf2_beginner_tfrecord.html">
+           TFRecord and tf.train.Example
+          </a>
+         </li>
+         <li class="toctree-l5">
+          <a class="reference internal" href="../tf2/tf2_beginner_tfio.html">
+           TF I/O
+          </a>
+         </li>
+        </ul>
+        <i class="fas fa-chevron-down">
+        </i>
+       </li>
+       <li class="toctree-l4 collapsible-parent">
+        <a class="reference internal" href="../tf2/tf2_advanced.html">
+         Advanced
+        </a>
+        <ul class="collapse-ul">
+         <li class="toctree-l5">
+          <a class="reference internal" href="../tf2/tf2_advanced_quickstart.html">
+           Quickstart
+          </a>
+         </li>
+         <li class="toctree-l5">
+          <a class="reference internal" href="../tf2/tf2_advanced_image_cnn.html">
+           Image CNN
+          </a>
+         </li>
+         <li class="toctree-l5">
+          <a class="reference internal" href="../tf2/tf2_advanced_image_classification.html">
+           Image Classification
+          </a>
+         </li>
+         <li class="toctree-l5">
+          <a class="reference internal" href="../tf2/tf2_advanced_transfer_learning.html">
+           Transfer learning and fine-tuning
+          </a>
+         </li>
+         <li class="toctree-l5">
+          <a class="reference internal" href="../tf2/tf2_advanced_transfer_learning_with_hub.html">
+           Transfer learning with TensorFlow Hub
+          </a>
+         </li>
+        </ul>
+        <i class="fas fa-chevron-down">
+        </i>
+       </li>
+      </ul>
+      <i class="fas fa-chevron-down">
+      </i>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../pytorch/pytorch.html">
+       Pytorch
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../deploy.html">
+     Deployment
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../streamlit.html">
+       Streamlit
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../flask.html">
+       Flask
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../dataplatform/readme.html">
+   데이터플랫폼
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../dataplatform/infra_beginner.html">
+     Infrastructure - Bignner
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../dataplatform/infra_advanced.html">
+     Infrastructure - Advanced
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../dataplatform/jupyter_cloud.html">
+     Jupyter (Cloud)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../dataplatform/jupyter_native_ubuntu.html">
+     Jupyter (Ubuntu)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../dataplatform/jupyter_native_macos.html">
+     Jupyter (macOS)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../dataplatform/jupyter_docker.html">
+     Jupyter (Docker)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../dataplatform/vagrant_virtualbox.html">
+     Vagrant (Optional)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../dataplatform/skp.html">
+     St. Kilda Pier (SKP)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../dataplatform/gce-nested-vm.html">
+     Google Computer Engine
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/datascience/keras/keras_10mins.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/comafire/comafire.github.io"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/comafire/comafire.github.io/issues/new?title=Issue%20on%20page%20%2Fdatascience/keras/keras_10mins.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/comafire/comafire.github.io/master?urlpath=tree/datascience/keras/keras_10mins.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#model-persistance">
+   Model Persistance
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#architecture-weights-optimizer-state">
+     전체 모델 저장하기/불러오기 (architecture + weights + optimizer state)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     모델 구조만 저장하기/불러오기
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     모델 가중치만 저장하기/불러오기
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#custom-layers-or-other-custom-objects">
+     모델에 custom layers (or other custom objects) 포함된 경우
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="keras-10mins">
+<h1>Keras 10mins<a class="headerlink" href="#keras-10mins" title="Permalink to this headline">¶</a></h1>
+<p><strong>Tensorflow2 부터 Keras가 Core API 로 제공됩니다. 백엔드 엔진으로 Tensorflow를 쓰시는 분들은 Tensorflow2를 통해 Keras를 사용하시길 추천드립니다.</strong></p>
+<p><a class="reference external" href="https://keras.io/">Keras</a>는 Deep Learning 을 위한 배우고 사용하기 위한 API 를 지향하면서 다양한 백엔드 엔진에 대한 통일된 API 를 제공합니다. 몇 줄 안되는 코드로 Deep Learning 구조들을 쉽게 만들고 시험해 볼수 있습니다.</p>
+<p><img alt="Deep Learning Framework Power Scores 2018" src="https://s3.amazonaws.com/keras.io/img/dl_frameworks_power_scores.png" /></p>
+<p>참조</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.datacamp.com/community/blog/keras-cheat-sheet">Keras Cheat Sheet</a></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.core.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">HTML</span>
+<span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="s2">&quot;&lt;style&gt;.container { width:100% !important; }&lt;/style&gt;&quot;</span><span class="p">))</span>
+
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">np</span><span class="o">.</span><span class="n">set_printoptions</span><span class="p">(</span><span class="n">precision</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_rows&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> 
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_columns&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> 
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_colwidth&#39;</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">float_format</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{:,.5f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;pandas ver=</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">__version__</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;numpy ver=</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">__version__</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style>.container { width:100% !important; }</style></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pandas ver=0.24.1
+numpy ver=1.16.2
+</pre></div>
+</div>
+</div>
+</div>
+<p>Keras 에서는 2가지 방식의 딥러닝 모델 구성 방식을 제공합니다.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://keras.io/getting-started/sequential-model-guide/">Sequential Model</a></p>
+<ul>
+<li><p>스택처럼 쌓아서 만드는 단일 구조의 딥러닝 모델을 간편하게 설계할 수 있습니다.</p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="https://keras.io/getting-started/functional-api-guide/">Function API</a></p>
+<ul>
+<li><p>다양한 모델을 엮어 만드는 복잡한 구조의 딥러닝 모델을 설계할 수 있습니다.</p></li>
+<li><p>multi-output models, directed acyclic graphs, 또는 shared layers를 가지는 모델들의 설계가 가능합니다.</p></li>
+</ul>
+</li>
+</ul>
+<p>MNIST 데이터셋을 2가지 방식으로 DNN을 구축해보면서 각 구현 방식의 차이점에 대해서 알아봅니다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">keras.datasets</span> <span class="kn">import</span> <span class="n">mnist</span>
+
+<span class="c1"># MNIST 샘플 데이터</span>
+<span class="p">(</span><span class="n">np_train_xs</span><span class="p">,</span> <span class="n">np_train_ys</span><span class="p">),</span> <span class="p">(</span><span class="n">np_test_xs</span><span class="p">,</span> <span class="n">np_test_ys</span><span class="p">)</span> <span class="o">=</span> <span class="n">mnist</span><span class="o">.</span><span class="n">load_data</span><span class="p">()</span>
+
+<span class="n">r</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">h</span> <span class="o">=</span> <span class="n">np_train_xs</span><span class="o">.</span><span class="n">shape</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;r=</span><span class="si">{}</span><span class="s2">, w=</span><span class="si">{}</span><span class="s2">, h=</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">))</span>
+
+<span class="c1"># 전처리 - 28x28 2D 이미지를 DNN 모델링을 위해 784 1D 로 변환합니다. </span>
+<span class="n">dim_x</span> <span class="o">=</span> <span class="n">w</span> <span class="o">*</span> <span class="n">h</span>
+<span class="n">np_train_xs</span> <span class="o">=</span> <span class="n">np_train_xs</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">dim_x</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;float32&#39;</span><span class="p">)</span>
+<span class="n">np_test_xs</span> <span class="o">=</span> <span class="n">np_test_xs</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">dim_x</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;float32&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np_train_xs</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np_test_xs</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+
+<span class="c1"># 전처리 - 0~1 사이로 데이터 Min Max Scaling</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">preprocessing</span>
+
+<span class="n">scaler</span> <span class="o">=</span> <span class="n">preprocessing</span><span class="o">.</span><span class="n">MinMaxScaler</span><span class="p">(</span><span class="n">feature_range</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="n">np_train_xs</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">np_train_xs</span><span class="p">)</span>
+<span class="n">np_test_xs</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">np_test_xs</span><span class="p">)</span>
+
+<span class="c1"># 전처리 - 레이블을 One Hot 인코팅 </span>
+<span class="kn">from</span> <span class="nn">keras.utils</span> <span class="kn">import</span> <span class="n">np_utils</span>
+
+<span class="n">n_class</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">np_train_ys</span> <span class="o">=</span> <span class="n">np_utils</span><span class="o">.</span><span class="n">to_categorical</span><span class="p">(</span><span class="n">np_train_ys</span><span class="p">,</span> <span class="n">n_class</span><span class="p">)</span>
+<span class="n">np_test_ys</span> <span class="o">=</span> <span class="n">np_utils</span><span class="o">.</span><span class="n">to_categorical</span><span class="p">(</span><span class="n">np_test_ys</span><span class="p">,</span> <span class="n">n_class</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np_train_ys</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np_train_ys</span><span class="p">[:</span><span class="mi">3</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Using TensorFlow backend.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>r=60000, w=28, h=28
+(60000, 784)
+(10000, 784)
+(60000, 10)
+[[0. 0. 0. 0. 0. 1. 0. 0. 0. 0.]
+ [1. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+ [0. 0. 0. 0. 1. 0. 0. 0. 0. 0.]]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">keras</span> <span class="kn">import</span> <span class="n">layers</span><span class="p">,</span> <span class="n">models</span><span class="p">,</span> <span class="n">optimizers</span>
+
+<span class="c1"># Sequential Model를 사용</span>
+<span class="k">def</span> <span class="nf">dnn_seq</span><span class="p">(</span><span class="n">n_i</span><span class="p">,</span> <span class="n">n_hs</span><span class="p">,</span> <span class="n">n_o</span><span class="p">):</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">Sequential</span><span class="p">()</span>
+    <span class="n">m</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="n">n_i</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">,</span> <span class="n">input_shape</span><span class="o">=</span><span class="p">(</span><span class="n">n_i</span><span class="p">,)))</span>
+    <span class="k">for</span> <span class="n">l</span><span class="p">,</span> <span class="n">n_h</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">n_hs</span><span class="p">):</span>
+        <span class="n">m</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="n">n_h</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">))</span>
+    <span class="n">m</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="n">n_o</span><span class="p">,</span> <span class="n">activation</span> <span class="o">=</span> <span class="s1">&#39;softmax&#39;</span><span class="p">))</span>
+    <span class="n">sgd</span> <span class="o">=</span> <span class="n">optimizers</span><span class="o">.</span><span class="n">SGD</span><span class="p">(</span><span class="n">lr</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">decay</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">,</span> <span class="n">momentum</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span> <span class="n">nesterov</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">m</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="n">sgd</span><span class="p">,</span> <span class="n">loss</span><span class="o">=</span><span class="s1">&#39;categorical_crossentropy&#39;</span><span class="p">,</span> <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;accuracy&#39;</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">m</span>
+
+<span class="k">class</span> <span class="nc">DnnSeq</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Sequential</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n_i</span><span class="p">,</span> <span class="n">n_hs</span><span class="p">,</span> <span class="n">n_o</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="n">n_i</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">,</span> <span class="n">input_shape</span><span class="o">=</span><span class="p">(</span><span class="n">n_i</span><span class="p">,)))</span>
+        <span class="k">for</span> <span class="n">l</span><span class="p">,</span> <span class="n">n_h</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">n_hs</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="n">n_h</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="n">n_o</span><span class="p">,</span> <span class="n">activation</span> <span class="o">=</span> <span class="s1">&#39;softmax&#39;</span><span class="p">))</span>
+        <span class="n">sgd</span> <span class="o">=</span> <span class="n">optimizers</span><span class="o">.</span><span class="n">SGD</span><span class="p">(</span><span class="n">lr</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">decay</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">,</span> <span class="n">momentum</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span> <span class="n">nesterov</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="n">sgd</span><span class="p">,</span> <span class="n">loss</span><span class="o">=</span><span class="s1">&#39;categorical_crossentropy&#39;</span><span class="p">,</span> <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;accuracy&#39;</span><span class="p">])</span>
+
+<span class="c1"># Function API를 사용</span>
+<span class="k">def</span> <span class="nf">dnn_func</span><span class="p">(</span><span class="n">n_i</span><span class="p">,</span> <span class="n">n_hs</span><span class="p">,</span> <span class="n">n_o</span><span class="p">):</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="n">layers</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="n">shape</span> <span class="o">=</span> <span class="p">(</span><span class="n">n_i</span><span class="p">,))</span>
+    <span class="k">for</span> <span class="n">l</span><span class="p">,</span> <span class="n">n_h</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">n_hs</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">l</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">h</span> <span class="o">=</span> <span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="n">n_h</span><span class="p">,</span> <span class="n">activation</span> <span class="o">=</span> <span class="s1">&#39;relu&#39;</span><span class="p">)(</span><span class="n">i</span><span class="p">)</span>            
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">h</span> <span class="o">=</span> <span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="n">n_h</span><span class="p">,</span> <span class="n">activation</span> <span class="o">=</span> <span class="s1">&#39;relu&#39;</span><span class="p">)(</span><span class="n">h</span><span class="p">)</span>    
+    <span class="n">o</span> <span class="o">=</span> <span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="n">n_o</span><span class="p">,</span> <span class="n">activation</span> <span class="o">=</span> <span class="s1">&#39;softmax&#39;</span><span class="p">)(</span><span class="n">h</span><span class="p">)</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">(</span><span class="n">inputs</span><span class="o">=</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">outputs</span><span class="o">=</span><span class="p">[</span><span class="n">o</span><span class="p">])</span>
+    <span class="n">sgd</span> <span class="o">=</span> <span class="n">optimizers</span><span class="o">.</span><span class="n">SGD</span><span class="p">(</span><span class="n">lr</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">decay</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">,</span> <span class="n">momentum</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span> <span class="n">nesterov</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">m</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="n">sgd</span><span class="p">,</span> <span class="n">loss</span><span class="o">=</span><span class="s1">&#39;categorical_crossentropy&#39;</span><span class="p">,</span> <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;accuracy&#39;</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">m</span>
+
+<span class="k">class</span> <span class="nc">DnnFunc</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n_i</span><span class="p">,</span> <span class="n">n_hs</span><span class="p">,</span> <span class="n">n_o</span><span class="p">):</span>
+        <span class="n">i</span> <span class="o">=</span> <span class="n">layers</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="n">shape</span> <span class="o">=</span> <span class="p">(</span><span class="n">n_i</span><span class="p">,))</span>
+        <span class="k">for</span> <span class="n">l</span><span class="p">,</span> <span class="n">n_h</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">n_hs</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">l</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">h</span> <span class="o">=</span> <span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="n">n_h</span><span class="p">,</span> <span class="n">activation</span> <span class="o">=</span> <span class="s1">&#39;relu&#39;</span><span class="p">)(</span><span class="n">i</span><span class="p">)</span>            
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">h</span> <span class="o">=</span> <span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="n">n_h</span><span class="p">,</span> <span class="n">activation</span> <span class="o">=</span> <span class="s1">&#39;relu&#39;</span><span class="p">)(</span><span class="n">h</span><span class="p">)</span>    
+        <span class="n">o</span> <span class="o">=</span> <span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="n">n_o</span><span class="p">,</span> <span class="n">activation</span> <span class="o">=</span> <span class="s1">&#39;softmax&#39;</span><span class="p">)(</span><span class="n">h</span><span class="p">)</span>
+        
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">inputs</span><span class="o">=</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">outputs</span><span class="o">=</span><span class="p">[</span><span class="n">o</span><span class="p">])</span>
+        <span class="n">sgd</span> <span class="o">=</span> <span class="n">optimizers</span><span class="o">.</span><span class="n">SGD</span><span class="p">(</span><span class="n">lr</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">decay</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">,</span> <span class="n">momentum</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span> <span class="n">nesterov</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="n">sgd</span><span class="p">,</span> <span class="n">loss</span><span class="o">=</span><span class="s1">&#39;categorical_crossentropy&#39;</span><span class="p">,</span> <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;accuracy&#39;</span><span class="p">])</span>
+        
+<span class="c1">#model = dnn_seq(n_i = dim_x, n_hs = [384, 128, 64], n_o = n_class)</span>
+<span class="c1">#model = DnnSeq(n_i = dim_x, n_hs = [384, 128, 64], n_o = n_class)</span>
+<span class="c1">#model = dnn_func(n_i = dim_x, n_hs = [384, 128, 64], n_o = n_class)</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">DnnFunc</span><span class="p">(</span><span class="n">n_i</span> <span class="o">=</span> <span class="n">dim_x</span><span class="p">,</span> <span class="n">n_hs</span> <span class="o">=</span> <span class="p">[</span><span class="mi">384</span><span class="p">,</span> <span class="mi">128</span><span class="p">,</span> <span class="mi">64</span><span class="p">],</span> <span class="n">n_o</span> <span class="o">=</span> <span class="n">n_class</span><span class="p">)</span>
+
+<span class="n">model</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+input_2 (InputLayer)         (None, 784)               0         
+_________________________________________________________________
+dense_5 (Dense)              (None, 384)               301440    
+_________________________________________________________________
+dense_6 (Dense)              (None, 128)               49280     
+_________________________________________________________________
+dense_7 (Dense)              (None, 64)                8256      
+_________________________________________________________________
+dense_8 (Dense)              (None, 10)                650       
+=================================================================
+Total params: 359,626
+Trainable params: 359,626
+Non-trainable params: 0
+_________________________________________________________________
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 학습과 평가</span>
+<span class="n">history</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">np_train_xs</span><span class="p">,</span> <span class="n">np_train_ys</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">validation_split</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+<span class="nb">eval</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">np_test_xs</span><span class="p">,</span> <span class="n">np_test_ys</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">eval</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WARNING:tensorflow:From /usr/local/lib/python3.5/dist-packages/tensorflow/python/ops/math_ops.py:3066: to_int32 (from tensorflow.python.ops.math_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use tf.cast instead.
+Train on 48000 samples, validate on 12000 samples
+Epoch 1/10
+48000/48000 [==============================] - 2s 32us/step - loss: 0.4390 - acc: 0.8731 - val_loss: 0.1959 - val_acc: 0.9461
+Epoch 2/10
+48000/48000 [==============================] - 1s 28us/step - loss: 0.1683 - acc: 0.9508 - val_loss: 0.1449 - val_acc: 0.9585
+Epoch 3/10
+48000/48000 [==============================] - 1s 28us/step - loss: 0.1157 - acc: 0.9659 - val_loss: 0.1164 - val_acc: 0.9668
+Epoch 4/10
+48000/48000 [==============================] - 1s 28us/step - loss: 0.0860 - acc: 0.9745 - val_loss: 0.1134 - val_acc: 0.9660
+Epoch 5/10
+48000/48000 [==============================] - 1s 28us/step - loss: 0.0669 - acc: 0.9796 - val_loss: 0.0897 - val_acc: 0.9734
+Epoch 6/10
+48000/48000 [==============================] - 1s 28us/step - loss: 0.0509 - acc: 0.9854 - val_loss: 0.0908 - val_acc: 0.9717
+Epoch 7/10
+48000/48000 [==============================] - 1s 28us/step - loss: 0.0400 - acc: 0.9881 - val_loss: 0.0889 - val_acc: 0.9733
+Epoch 8/10
+48000/48000 [==============================] - 1s 28us/step - loss: 0.0320 - acc: 0.9910 - val_loss: 0.0808 - val_acc: 0.9758
+Epoch 9/10
+48000/48000 [==============================] - 1s 28us/step - loss: 0.0247 - acc: 0.9933 - val_loss: 0.0783 - val_acc: 0.9770
+Epoch 10/10
+48000/48000 [==============================] - 1s 28us/step - loss: 0.0189 - acc: 0.9949 - val_loss: 0.0767 - val_acc: 0.9792
+10000/10000 [==============================] - 0s 9us/step
+[0.07681204915992566, 0.9782000082731247]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="model-persistance">
+<h2>Model Persistance<a class="headerlink" href="#model-persistance" title="Permalink to this headline">¶</a></h2>
+<p>Keras에서 학습한 모델을 저장하고 불러오는 방법을 알아봅니다.</p>
+<p>참조: <a class="reference external" href="https://keras.io/getting-started/faq/#how-can-i-save-a-keras-model">https://keras.io/getting-started/faq/#how-can-i-save-a-keras-model</a></p>
+<div class="section" id="architecture-weights-optimizer-state">
+<h3>전체 모델 저장하기/불러오기 (architecture + weights + optimizer state)<a class="headerlink" href="#architecture-weights-optimizer-state" title="Permalink to this headline">¶</a></h3>
+<p>모델을 하나의 HD5 파일 형식으로 하나의 파일에 저장하고 불러올 수 있습니다. 저장되는 정보는 아래와 같습니다.</p>
+<ul class="simple">
+<li><p>the architecture of the model, allowing to re-create the model</p></li>
+<li><p>the weights of the model</p></li>
+<li><p>the training configuration (loss, optimizer)</p></li>
+<li><p>the state of the optimizer, allowing to resume training exactly where you left off.</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">keras.models</span> <span class="kn">import</span> <span class="n">load_model</span>
+
+<span class="n">model</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;my_model.h5&#39;</span><span class="p">)</span>  <span class="c1"># creates a HDF5 file &#39;my_model.h5&#39;</span>
+<span class="k">del</span> <span class="n">model</span>  <span class="c1"># deletes the existing model</span>
+
+<span class="c1"># returns a compiled model</span>
+<span class="c1"># identical to the previous one</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">load_model</span><span class="p">(</span><span class="s1">&#39;my_model.h5&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>전체 모델을 저장하고/불러오기 위해서는 Keras의 기본 모델을 이용하여 모델을 생성해야 합니다. 코드의 가독성을 위해 Keras 모델을 상속하여 모델 클래스를 만들어 사용하는 경우는 모델의 가중치 값만을 저장하고 불러올 수 있습니다. 복잡한 모델의 경우는 모델의 구조를 저장하는 것이 유리하기때문에 기본 Keras 클래스를 통해 모델을 생성하는 것을 추천합니다.</p>
+</div>
+<div class="section" id="id1">
+<h3>모델 구조만 저장하기/불러오기<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>JSON 또는 YAML 형태로 모델을 저장하고 불러올 수 있습니다.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">keras.models</span> <span class="kn">import</span> <span class="n">model_from_json</span>
+<span class="kn">from</span> <span class="nn">keras.models</span> <span class="kn">import</span> <span class="n">model_from_yaml</span>
+
+<span class="c1"># JSON</span>
+<span class="n">json_string</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">to_json</span><span class="p">()</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">model_from_json</span><span class="p">(</span><span class="n">json_string</span><span class="p">)</span>
+
+<span class="c1"># YAML</span>
+<span class="n">yaml_string</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">to_yaml</span><span class="p">()</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">model_from_yaml</span><span class="p">(</span><span class="n">yaml_string</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id2">
+<h3>모델 가중치만 저장하기/불러오기<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>모델을 학습시킨 결과 가중치만 HDF5 형식으로 저장하고 불러올 수 있습니다. 저장된 가중치를 사용하기 위해서는 저장한 모델의 구조가 동일해야 합니다</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">save_weights</span><span class="p">(</span><span class="s1">&#39;my_model_weights.h5&#39;</span><span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">load_weights</span><span class="p">(</span><span class="s1">&#39;my_model_weights.h5&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Fine-tuning 또는 Transfer-learning 과 같이 불러온 가중치를 다른 모델에서 사용해야 할 경우에는 layer 의 이름을 통해 해당 layer 의 가중치만 불러오기도 가능합니다.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Assuming the original model looks like this:</span>
+<span class="sd">    model = Sequential()</span>
+<span class="sd">    model.add(Dense(2, input_dim=3, name=&#39;dense_1&#39;))</span>
+<span class="sd">    model.add(Dense(3, name=&#39;dense_2&#39;))</span>
+<span class="sd">    ...</span>
+<span class="sd">    model.save_weights(fname)</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1"># new model</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">Sequential</span><span class="p">()</span>
+<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">input_dim</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;dense_1&#39;</span><span class="p">))</span>  <span class="c1"># will be loaded</span>
+<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;new_dense&#39;</span><span class="p">))</span>  <span class="c1"># will not be loaded</span>
+
+<span class="c1"># load weights from first model; will only affect the first layer, dense_1.</span>
+<span class="n">model</span><span class="o">.</span><span class="n">load_weights</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="n">by_name</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="custom-layers-or-other-custom-objects">
+<h3>모델에 custom layers (or other custom objects) 포함된 경우<a class="headerlink" href="#custom-layers-or-other-custom-objects" title="Permalink to this headline">¶</a></h3>
+<p>자신만의 모델을 위해 custom layer/object/function 를 작성한 경우, 모델을 불러올 때는 해당 정보를 모델에 넘겨 줘야 합니다.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">keras.models</span> <span class="kn">import</span> <span class="n">load_model</span>
+<span class="c1"># Assuming your model includes instance of an &quot;AttentionLayer&quot; class</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">load_model</span><span class="p">(</span><span class="s1">&#39;my_model.h5&#39;</span><span class="p">,</span> <span class="n">custom_objects</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;AttentionLayer&#39;</span><span class="p">:</span> <span class="n">AttentionLayer</span><span class="p">})</span>
+
+<span class="kn">from</span> <span class="nn">keras.utils</span> <span class="kn">import</span> <span class="n">CustomObjectScope</span>
+<span class="c1"># Alternatively, you can use a custom object scope:</span>
+<span class="k">with</span> <span class="n">CustomObjectScope</span><span class="p">({</span><span class="s1">&#39;AttentionLayer&#39;</span><span class="p">:</span> <span class="n">AttentionLayer</span><span class="p">}):</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">load_model</span><span class="p">(</span><span class="s1">&#39;my_model.h5&#39;</span><span class="p">)</span>
+
+<span class="kn">from</span> <span class="nn">keras.models</span> <span class="kn">import</span> <span class="n">model_from_json</span>
+<span class="c1"># Custom objects handling works the same way for load_model, model_from_json, model_from_yaml:</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">model_from_json</span><span class="p">(</span><span class="n">json_string</span><span class="p">,</span> <span class="n">custom_objects</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;AttentionLayer&#39;</span><span class="p">:</span> <span class="n">AttentionLayer</span><span class="p">})</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./datascience/keras"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="keras.html" title="previous page">Keras</a>
+    <a class='right-next' id="next-link" href="keras_dnn_regression.html" title="next page">DNN Regression</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By comafire<br/>
+        
+            &copy; Copyright 2015.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+    <!-- Google Analytics -->
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-81648003-1', 'auto');
+      ga('set', 'anonymizeIp', true);
+      ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+    <!-- End Google Analytics -->
+    
+  </body>
+</html>

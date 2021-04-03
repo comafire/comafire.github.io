@@ -1,0 +1,1611 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image Classification &#8212; 데사견문록</title>
+    
+  <link rel="stylesheet" href="../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Transfer learning and fine-tuning" href="tf2_advanced_transfer_learning.html" />
+    <link rel="prev" title="Image CNN" href="tf2_advanced_image_cnn.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <img src="../../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">데사견문록</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../readme.html">
+   데이터사이언스견문록
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 current active collapsible-parent">
+  <a class="reference internal" href="../readme.html">
+   데이터사이언스
+  </a>
+  <ul class="current collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../e2eds.html">
+     End to End Data Science (E2EDS)
+    </a>
+   </li>
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../dataprep.html">
+     Data Preperation
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../spark_dataframe_10mins.html">
+       Spark DataFrame 10mins
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../pandas_10mins.html">
+       Pandas 10mins
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../numpy_10mins.html">
+       Numpy 10mins
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../random_seed.html">
+       Random
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../pandas_data_description.html">
+       Data Description
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../missing_value.html">
+       Missing Value
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../pandas_descriptive_statistics.html">
+       Descriptive Statistcs
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+   <li class="toctree-l2 current active collapsible-parent">
+    <a class="reference internal" href="../model.html">
+     Model
+    </a>
+    <ul class="current collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../outlier.html">
+       Outlier
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../scipy_normality_test.html">
+       Normality Test (Scipy)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../scipy_statistics_test.html">
+       Statistics Test (Scipy)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../parallel_algorithm.html">
+       One-Pass/Parallel Algorithm
+      </a>
+     </li>
+     <li class="toctree-l3 collapsible-parent">
+      <a class="reference internal" href="../sklearn/sklearn.html">
+       Scikit-Learn
+      </a>
+      <ul class="collapse-ul">
+       <li class="toctree-l4">
+        <a class="reference internal" href="../sklearn/sklearn_feature_selection.html">
+         Feature Selection
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../sklearn/sklearn_feature_extraction.html">
+         Feature Extraction
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../sklearn/sklearn_feature_transformation.html">
+         Feature Transformation
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../sklearn/sklearn_split_train_test.html">
+         Train/Valid/Test Dataset
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../sklearn/imblearn_imbalanced_class.html">
+         Imbalanced Class
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../sklearn/sklearn_model_persistence.html">
+         Model Persistence
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../sklearn/sklearn_eval_regression.html">
+         Regression Evaluation
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../sklearn/sklearn_linear_regression.html">
+         Linear Regression
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../sklearn/sklearn_polynomial_regression.html">
+         Polynomial Regression
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../sklearn/sklearn_sgd_regression.html">
+         SGD Regression
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../sklearn/sklearn_svm_regression.html">
+         SVM Regression
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../sklearn/sklearn_nearest_neighbor_regression.html">
+         Nearest Neighbors Regression
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../sklearn/sklearn_ensemble_regression.html">
+         Ensemble Regression
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../sklearn/sklearn_eval_classification.html">
+         Classification Evaluation
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../sklearn/sklearn_logistic_regression.html">
+         Logistic Regression
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../sklearn/sklearn_sgd_classification.html">
+         SGD Classification
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../sklearn/sklearn_svm_classification.html">
+         SVM Classification
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../sklearn/sklearn_nearest_neighbor_classification.html">
+         Nearest Neighbors Classification
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../sklearn/sklearn_ensemble_classification.html">
+         Ensemble Classification
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../sklearn/sklearn_eval_clustering.html">
+         Clustering Evaluation
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../sklearn/sklearn_kmeans.html">
+         K-Means
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../sklearn/sklearn_mean_shift.html">
+         Mean Shift
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../sklearn/sklearn_spectral_clustering.html">
+         Spectral Clustering
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../sklearn/sklearn_hyper_parameter_tunning.html">
+         Hyper Parameter Tunning
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../sklearn/sklearn_anomaly_detection.html">
+         Anomaly Detection
+        </a>
+       </li>
+      </ul>
+      <i class="fas fa-chevron-down">
+      </i>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../surprise_collaborative_filtering.html">
+       Collaborative Filtering (Surprise)
+      </a>
+     </li>
+     <li class="toctree-l3 collapsible-parent">
+      <a class="reference internal" href="../keras/keras.html">
+       Keras
+      </a>
+      <ul class="collapse-ul">
+       <li class="toctree-l4">
+        <a class="reference internal" href="../keras/keras_10mins.html">
+         Keras 10mins
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../keras/keras_dnn_regression.html">
+         DNN Regression
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../keras/keras_dnn_classification.html">
+         DNN Classification
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../keras/keras_deepmf.html">
+         Deep MF
+        </a>
+       </li>
+      </ul>
+      <i class="fas fa-chevron-down">
+      </i>
+     </li>
+     <li class="toctree-l3 current active collapsible-parent">
+      <a class="reference internal" href="tf2.html">
+       Tensorflow2
+      </a>
+      <ul class="current collapse-ul">
+       <li class="toctree-l4">
+        <a class="reference internal" href="tf2_10mins.html">
+         Tensorflow2 10mins
+        </a>
+       </li>
+       <li class="toctree-l4 collapsible-parent">
+        <a class="reference internal" href="tf2_beginner.html">
+         Beginner
+        </a>
+        <ul class="collapse-ul">
+         <li class="toctree-l5">
+          <a class="reference internal" href="tf2_beginner_quickstart.html">
+           Quickstart
+          </a>
+         </li>
+         <li class="toctree-l5">
+          <a class="reference internal" href="tf2_beginner_image_classification.html">
+           Image Classification
+          </a>
+         </li>
+         <li class="toctree-l5">
+          <a class="reference internal" href="tf2_beginner_text_classification.html">
+           Text Classification
+          </a>
+         </li>
+         <li class="toctree-l5">
+          <a class="reference internal" href="tf2_beginner_hub_text_classification.html">
+           Text Classification with Hub
+          </a>
+         </li>
+         <li class="toctree-l5">
+          <a class="reference internal" href="tf2_beginner_regression.html">
+           Regression
+          </a>
+         </li>
+         <li class="toctree-l5">
+          <a class="reference internal" href="tf2_beginner_overfit_underfit.html">
+           Overfit &amp; Underfit
+          </a>
+         </li>
+         <li class="toctree-l5">
+          <a class="reference internal" href="tf2_beginner_save_load.html">
+           Save &amp; Load
+          </a>
+         </li>
+         <li class="toctree-l5">
+          <a class="reference internal" href="tf2_beginner_keras_tuner.html">
+           Keras Tuner
+          </a>
+         </li>
+         <li class="toctree-l5">
+          <a class="reference internal" href="tf2_beginner_images.html">
+           Images
+          </a>
+         </li>
+         <li class="toctree-l5">
+          <a class="reference internal" href="tf2_beginner_csv.html">
+           CSV
+          </a>
+         </li>
+         <li class="toctree-l5">
+          <a class="reference internal" href="tf2_beginner_numpy.html">
+           Numpy
+          </a>
+         </li>
+         <li class="toctree-l5">
+          <a class="reference internal" href="tf2_beginner_pandas.html">
+           Pandas
+          </a>
+         </li>
+         <li class="toctree-l5">
+          <a class="reference internal" href="tf2_beginner_text.html">
+           Text
+          </a>
+         </li>
+         <li class="toctree-l5">
+          <a class="reference internal" href="tf2_beginner_unicode.html">
+           Unicode
+          </a>
+         </li>
+         <li class="toctree-l5">
+          <a class="reference internal" href="tf2_beginner_tftext.html">
+           TF.Text
+          </a>
+         </li>
+         <li class="toctree-l5">
+          <a class="reference internal" href="tf2_beginner_subwords_tokenizer.html">
+           Subword Tokenization
+          </a>
+         </li>
+         <li class="toctree-l5">
+          <a class="reference internal" href="tf2_beginner_tfrecord.html">
+           TFRecord and tf.train.Example
+          </a>
+         </li>
+         <li class="toctree-l5">
+          <a class="reference internal" href="tf2_beginner_tfio.html">
+           TF I/O
+          </a>
+         </li>
+        </ul>
+        <i class="fas fa-chevron-down">
+        </i>
+       </li>
+       <li class="toctree-l4 current active collapsible-parent">
+        <a class="reference internal" href="tf2_advanced.html">
+         Advanced
+        </a>
+        <ul class="current collapse-ul">
+         <li class="toctree-l5">
+          <a class="reference internal" href="tf2_advanced_quickstart.html">
+           Quickstart
+          </a>
+         </li>
+         <li class="toctree-l5">
+          <a class="reference internal" href="tf2_advanced_image_cnn.html">
+           Image CNN
+          </a>
+         </li>
+         <li class="toctree-l5 current active">
+          <a class="current reference internal" href="#">
+           Image Classification
+          </a>
+         </li>
+         <li class="toctree-l5">
+          <a class="reference internal" href="tf2_advanced_transfer_learning.html">
+           Transfer learning and fine-tuning
+          </a>
+         </li>
+         <li class="toctree-l5">
+          <a class="reference internal" href="tf2_advanced_transfer_learning_with_hub.html">
+           Transfer learning with TensorFlow Hub
+          </a>
+         </li>
+        </ul>
+        <i class="fas fa-chevron-down">
+        </i>
+       </li>
+      </ul>
+      <i class="fas fa-chevron-down">
+      </i>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../pytorch/pytorch.html">
+       Pytorch
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../deploy.html">
+     Deployment
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../streamlit.html">
+       Streamlit
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../flask.html">
+       Flask
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../dataplatform/readme.html">
+   데이터플랫폼
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../dataplatform/infra_beginner.html">
+     Infrastructure - Bignner
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../dataplatform/infra_advanced.html">
+     Infrastructure - Advanced
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../dataplatform/jupyter_cloud.html">
+     Jupyter (Cloud)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../dataplatform/jupyter_native_ubuntu.html">
+     Jupyter (Ubuntu)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../dataplatform/jupyter_native_macos.html">
+     Jupyter (macOS)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../dataplatform/jupyter_docker.html">
+     Jupyter (Docker)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../dataplatform/vagrant_virtualbox.html">
+     Vagrant (Optional)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../dataplatform/skp.html">
+     St. Kilda Pier (SKP)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../dataplatform/gce-nested-vm.html">
+     Google Computer Engine
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/datascience/tf2/tf2_advanced_image_classification.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/comafire/comafire.github.io"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/comafire/comafire.github.io/issues/new?title=Issue%20on%20page%20%2Fdatascience/tf2/tf2_advanced_image_classification.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/comafire/comafire.github.io/master?urlpath=tree/datascience/tf2/tf2_advanced_image_classification.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#copyright-2018-the-tensorflow-authors">
+   Copyright 2018 The TensorFlow Authors.
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   Image classification
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#download-and-explore-the-dataset">
+   Download and explore the dataset
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#load-using-keras-preprocessing">
+   Load using keras.preprocessing
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#create-a-dataset">
+     Create a dataset
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#visualize-the-data">
+     Visualize the data
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#configure-the-dataset-for-performance">
+     Configure the dataset for performance
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#standardize-the-data">
+     Standardize the data
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#create-the-model">
+   Create the model
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#compile-the-model">
+     Compile the model
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#model-summary">
+     Model summary
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#train-the-model">
+     Train the model
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#visualize-training-results">
+     Visualize training results
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#overfitting">
+   Overfitting
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-augmentation">
+   Data augmentation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dropout">
+   Dropout
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#compile-and-train-the-model">
+   Compile and train the model
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id2">
+   Visualize training results
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#predict-on-new-data">
+   Predict on new data
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="image-classification">
+<h1>Image Classification<a class="headerlink" href="#image-classification" title="Permalink to this headline">¶</a></h1>
+<p>TensorFlow2 공식 홈페이지에 나와 있는 코드들을 수행해 보면서 빠르게 TensorFlow2를 익혀 봅니다.</p>
+<p><a class="reference external" href="https://www.tensorflow.org/tutorials/images/classification">https://www.tensorflow.org/tutorials/images/classification</a></p>
+<div class="section" id="copyright-2018-the-tensorflow-authors">
+<h2>Copyright 2018 The TensorFlow Authors.<a class="headerlink" href="#copyright-2018-the-tensorflow-authors" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
+<span class="c1"># you may not use this file except in compliance with the License.</span>
+<span class="c1"># You may obtain a copy of the License at</span>
+<span class="c1">#</span>
+<span class="c1"># https://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1"># Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1"># distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<span class="c1"># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span class="c1"># See the License for the specific language governing permissions and</span>
+<span class="c1"># limitations under the License.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 경고 메시지 출력 끄기</span>
+<span class="kn">import</span> <span class="nn">warnings</span> 
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="n">action</span><span class="o">=</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">clear_output</span>
+
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">sys</span><span class="o">,</span> <span class="nn">shutil</span>
+
+<span class="n">rseed</span> <span class="o">=</span> <span class="mi">22</span>
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">rseed</span><span class="p">)</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">rseed</span><span class="p">)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">set_printoptions</span><span class="p">(</span><span class="n">precision</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">set_printoptions</span><span class="p">(</span><span class="n">formatter</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;float_kind&#39;</span><span class="p">:</span> <span class="s2">&quot;</span><span class="si">{:.5f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">})</span>
+
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_rows&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> 
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_columns&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> 
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_colwidth&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">float_format</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{:,.5f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span>
+
+<span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+<span class="n">tf</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">set_seed</span><span class="p">(</span><span class="n">rseed</span><span class="p">)</span>
+<span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">backend</span><span class="o">.</span><span class="n">set_floatx</span><span class="p">(</span><span class="s1">&#39;float32&#39;</span><span class="p">)</span> <span class="c1"># keras default float type 설정</span>
+
+<span class="kn">import</span> <span class="nn">tensorflow_hub</span> <span class="k">as</span> <span class="nn">tfhub</span>
+<span class="kn">import</span> <span class="nn">tensorflow_datasets</span> <span class="k">as</span> <span class="nn">tfds</span>
+
+<span class="kn">import</span> <span class="nn">kerastuner</span> <span class="k">as</span> <span class="nn">kt</span>
+
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+
+<span class="kn">import</span> <span class="nn">PIL</span>
+<span class="kn">import</span> <span class="nn">PIL.Image</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;python ver=</span><span class="si">{</span><span class="n">sys</span><span class="o">.</span><span class="n">version</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;pandas ver=</span><span class="si">{</span><span class="n">pd</span><span class="o">.</span><span class="n">__version__</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;numpy ver=</span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">__version__</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;tensorflow ver=</span><span class="si">{</span><span class="n">tf</span><span class="o">.</span><span class="n">__version__</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;tensorflow execuring eagerly=</span><span class="si">{</span><span class="n">tf</span><span class="o">.</span><span class="n">executing_eagerly</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;tensorflow hub ver=</span><span class="si">{</span><span class="n">tfhub</span><span class="o">.</span><span class="n">__version__</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;tensorflow GPU=</span><span class="si">{</span><span class="s1">&#39;True&#39;</span> <span class="k">if</span> <span class="n">tf</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">experimental</span><span class="o">.</span><span class="n">list_physical_devices</span><span class="p">(</span><span class="s1">&#39;GPU&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="s1">&#39;False&#39;</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;keras tuner ver=</span><span class="si">{</span><span class="n">kt</span><span class="o">.</span><span class="n">__version__</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;senborn ver=</span><span class="si">{</span><span class="n">sns</span><span class="o">.</span><span class="n">__version__</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;PIL ver=</span><span class="si">{</span><span class="n">PIL</span><span class="o">.</span><span class="n">__version__</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style>.container { width:100% !important; }</style></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>python ver=3.7.6 (default, Nov 21 2020, 22:51:13) 
+[Clang 12.0.0 (clang-1200.0.32.27)]
+pandas ver=1.0.5
+numpy ver=1.19.5
+tensorflow ver=2.4.1
+tensorflow execuring eagerly=True
+tensorflow hub ver=0.11.0
+tensorflow GPU=False
+keras tuner ver=1.0.2
+senborn ver=0.10.0
+PIL ver=7.1.2
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id1">
+<h2>Image classification<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<table class="tfo-notebook-buttons" align="left">
+  <td>
+    <a target="_blank" href="https://www.tensorflow.org/tutorials/images/classification"><img src="https://www.tensorflow.org/images/tf_logo_32px.png" />View on TensorFlow.org</a>
+  </td>
+  <td>
+    <a target="_blank" href="https://colab.research.google.com/github/tensorflow/docs/blob/master/site/en/tutorials/images/classification.ipynb"><img src="https://www.tensorflow.org/images/colab_logo_32px.png" />Run in Google Colab</a>
+  </td>
+  <td>
+    <a target="_blank" href="https://github.com/tensorflow/docs/blob/master/site/en/tutorials/images/classification.ipynb"><img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />View source on GitHub</a>
+  </td>
+  <td>
+    <a href="https://storage.googleapis.com/tensorflow_docs/docs/site/en/tutorials/images/classification.ipynb"><img src="https://www.tensorflow.org/images/download_logo_32px.png" />Download notebook</a>
+  </td>
+</table>
+*<hr class="docutils" />
+<p>This tutorial shows how to classify images of flowers. It creates an image classifier using a <code class="docutils literal notranslate"><span class="pre">keras.Sequential</span></code> model, and loads data using <code class="docutils literal notranslate"><span class="pre">preprocessing.image_dataset_from_directory</span></code>. You will gain practical experience with the following concepts:</p>
+<ul class="simple">
+<li><p>Efficiently loading a dataset off disk.</p></li>
+<li><p>Identifying overfitting and applying techniques to mitigate it, including data augmentation and Dropout.</p></li>
+</ul>
+<p>This tutorial follows a basic machine learning workflow:</p>
+<ol class="simple">
+<li><p>Examine and understand data</p></li>
+<li><p>Build an input pipeline</p></li>
+<li><p>Build the model</p></li>
+<li><p>Train the model</p></li>
+<li><p>Test the model</p></li>
+<li><p>Improve the model and repeat the process</p></li>
+</ol>
+</div>
+<div class="section" id="download-and-explore-the-dataset">
+<h2>Download and explore the dataset<a class="headerlink" href="#download-and-explore-the-dataset" title="Permalink to this headline">¶</a></h2>
+<p>This tutorial uses a dataset of about 3,700 photos of flowers. The dataset contains 5 sub-directories, one per class:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">flower_photo</span><span class="o">/</span>
+  <span class="n">daisy</span><span class="o">/</span>
+  <span class="n">dandelion</span><span class="o">/</span>
+  <span class="n">roses</span><span class="o">/</span>
+  <span class="n">sunflowers</span><span class="o">/</span>
+  <span class="n">tulips</span><span class="o">/</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pathlib</span>
+<span class="n">dataset_url</span> <span class="o">=</span> <span class="s2">&quot;https://storage.googleapis.com/download.tensorflow.org/example_images/flower_photos.tgz&quot;</span>
+<span class="n">data_dir</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">get_file</span><span class="p">(</span><span class="n">fname</span><span class="o">=</span><span class="s1">&#39;flower_photos&#39;</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="n">dataset_url</span><span class="p">,</span> <span class="n">untar</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">data_dir</span> <span class="o">=</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="n">data_dir</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data_dir</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/comafire/.keras/datasets/flower_photos
+</pre></div>
+</div>
+</div>
+</div>
+<p>After downloading, you should now have a copy of the dataset available. There are 3,670 total images:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">image_count</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">data_dir</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s1">&#39;*/*.jpg&#39;</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">image_count</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3670
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here are some roses:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 장미 데이터 중 랜덤하게 2개의 샘플 데이터를 보여줍니다.</span>
+<span class="n">roses</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">data_dir</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s1">&#39;roses/*&#39;</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">):</span>
+    <span class="n">ridx</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">roses</span><span class="p">))</span>
+    <span class="n">display</span><span class="p">(</span><span class="n">PIL</span><span class="o">.</span><span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">roses</span><span class="p">[</span><span class="n">ridx</span><span class="p">])))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/tf2_advanced_image_classification_13_0.png" src="../../_images/tf2_advanced_image_classification_13_0.png" />
+<img alt="../../_images/tf2_advanced_image_classification_13_1.png" src="../../_images/tf2_advanced_image_classification_13_1.png" />
+</div>
+</div>
+<p>And some tulips:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 튤립 데이터 중 랜덤하게 2개의 샘플 데이터를 보여줍니다.</span>
+<span class="n">tulips</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">data_dir</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s1">&#39;tulips/*&#39;</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">):</span>
+    <span class="n">ridx</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">tulips</span><span class="p">))</span>
+    <span class="n">display</span><span class="p">(</span><span class="n">PIL</span><span class="o">.</span><span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">tulips</span><span class="p">[</span><span class="n">ridx</span><span class="p">])))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/tf2_advanced_image_classification_15_0.png" src="../../_images/tf2_advanced_image_classification_15_0.png" />
+<img alt="../../_images/tf2_advanced_image_classification_15_1.png" src="../../_images/tf2_advanced_image_classification_15_1.png" />
+</div>
+</div>
+</div>
+<div class="section" id="load-using-keras-preprocessing">
+<h2>Load using keras.preprocessing<a class="headerlink" href="#load-using-keras-preprocessing" title="Permalink to this headline">¶</a></h2>
+<p>Let’s load these images off disk using the helpful <a class="reference external" href="https://www.tensorflow.org/api_docs/python/tf/keras/preprocessing/image_dataset_from_directory">image_dataset_from_directory</a> utility. This will take you from a directory of images on disk to a <code class="docutils literal notranslate"><span class="pre">tf.data.Dataset</span></code> in just a couple lines of code. If you like, you can also write your own data loading code from scratch by visiting the <a class="reference external" href="https://www.tensorflow.org/tutorials/load_data/images">load images</a> tutorial.</p>
+<div class="section" id="create-a-dataset">
+<h3>Create a dataset<a class="headerlink" href="#create-a-dataset" title="Permalink to this headline">¶</a></h3>
+<p>Define some parameters for the loader:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">batch_size</span> <span class="o">=</span> <span class="mi">32</span>
+<span class="n">img_height</span> <span class="o">=</span> <span class="mi">180</span>
+<span class="n">img_width</span> <span class="o">=</span> <span class="mi">180</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>It’s good practice to use a validation split when developing your model. Let’s use 80% of the images for training, and 20% for validation.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">train_ds</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">preprocessing</span><span class="o">.</span><span class="n">image_dataset_from_directory</span><span class="p">(</span>
+  <span class="n">data_dir</span><span class="p">,</span>
+  <span class="n">validation_split</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span>
+  <span class="n">subset</span><span class="o">=</span><span class="s2">&quot;training&quot;</span><span class="p">,</span>
+  <span class="n">seed</span><span class="o">=</span><span class="mi">123</span><span class="p">,</span>
+  <span class="n">image_size</span><span class="o">=</span><span class="p">(</span><span class="n">img_height</span><span class="p">,</span> <span class="n">img_width</span><span class="p">),</span>
+  <span class="n">batch_size</span><span class="o">=</span><span class="n">batch_size</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Found 3670 files belonging to 5 classes.
+Using 2936 files for training.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">val_ds</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">preprocessing</span><span class="o">.</span><span class="n">image_dataset_from_directory</span><span class="p">(</span>
+  <span class="n">data_dir</span><span class="p">,</span>
+  <span class="n">validation_split</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span>
+  <span class="n">subset</span><span class="o">=</span><span class="s2">&quot;validation&quot;</span><span class="p">,</span>
+  <span class="n">seed</span><span class="o">=</span><span class="mi">123</span><span class="p">,</span>
+  <span class="n">image_size</span><span class="o">=</span><span class="p">(</span><span class="n">img_height</span><span class="p">,</span> <span class="n">img_width</span><span class="p">),</span>
+  <span class="n">batch_size</span><span class="o">=</span><span class="n">batch_size</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Found 3670 files belonging to 5 classes.
+Using 734 files for validation.
+</pre></div>
+</div>
+</div>
+</div>
+<p>You can find the class names in the <code class="docutils literal notranslate"><span class="pre">class_names</span></code> attribute on these datasets. These correspond to the directory names in alphabetical order.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">class_names</span> <span class="o">=</span> <span class="n">train_ds</span><span class="o">.</span><span class="n">class_names</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">class_names</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;daisy&#39;, &#39;dandelion&#39;, &#39;roses&#39;, &#39;sunflowers&#39;, &#39;tulips&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="visualize-the-data">
+<h3>Visualize the data<a class="headerlink" href="#visualize-the-data" title="Permalink to this headline">¶</a></h3>
+<p>Here are the first 9 images from the training dataset.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">images</span><span class="p">,</span> <span class="n">labels</span> <span class="ow">in</span> <span class="n">train_ds</span><span class="o">.</span><span class="n">take</span><span class="p">(</span><span class="mi">1</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">9</span><span class="p">):</span>
+        <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">images</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">&quot;uint8&quot;</span><span class="p">))</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">class_names</span><span class="p">[</span><span class="n">labels</span><span class="p">[</span><span class="n">i</span><span class="p">]])</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;off&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/tf2_advanced_image_classification_26_0.png" src="../../_images/tf2_advanced_image_classification_26_0.png" />
+</div>
+</div>
+<p>You will train a model using these datasets by passing them to <code class="docutils literal notranslate"><span class="pre">model.fit</span></code> in a moment. If you like, you can also manually iterate over the dataset and retrieve batches of images:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">image_batch</span><span class="p">,</span> <span class="n">labels_batch</span> <span class="ow">in</span> <span class="n">train_ds</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">image_batch</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">labels_batch</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+    <span class="k">break</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(32, 180, 180, 3)
+(32,)
+</pre></div>
+</div>
+</div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">image_batch</span></code> is a tensor of the shape <code class="docutils literal notranslate"><span class="pre">(32,</span> <span class="pre">180,</span> <span class="pre">180,</span> <span class="pre">3)</span></code>. This is a batch of 32 images of shape <code class="docutils literal notranslate"><span class="pre">180x180x3</span></code> (the last dimension refers to color channels RGB). The <code class="docutils literal notranslate"><span class="pre">label_batch</span></code> is a tensor of the shape <code class="docutils literal notranslate"><span class="pre">(32,)</span></code>, these are corresponding labels to the 32 images.</p>
+<p>You can call <code class="docutils literal notranslate"><span class="pre">.numpy()</span></code> on the <code class="docutils literal notranslate"><span class="pre">image_batch</span></code> and <code class="docutils literal notranslate"><span class="pre">labels_batch</span></code> tensors to convert them to a <code class="docutils literal notranslate"><span class="pre">numpy.ndarray</span></code>.</p>
+</div>
+<div class="section" id="configure-the-dataset-for-performance">
+<h3>Configure the dataset for performance<a class="headerlink" href="#configure-the-dataset-for-performance" title="Permalink to this headline">¶</a></h3>
+<p>Let’s make sure to use buffered prefetching so you can yield data from disk without having I/O become blocking. These are two important methods you should use when loading data.</p>
+<p><code class="docutils literal notranslate"><span class="pre">Dataset.cache()</span></code> keeps the images in memory after they’re loaded off disk during the first epoch. This will ensure the dataset does not become a bottleneck while training your model. If your dataset is too large to fit into memory, you can also use this method to create a performant on-disk cache.</p>
+<p><code class="docutils literal notranslate"><span class="pre">Dataset.prefetch()</span></code> overlaps data preprocessing and model execution while training.</p>
+<p>Interested readers can learn more about both methods, as well as how to cache data to disk in the <a class="reference external" href="https://www.tensorflow.org/guide/data_performance#prefetching">data performance guide</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 학습 성능 향상을 위한 cache() 및 prefetch() 사용</span>
+<span class="n">AUTOTUNE</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">AUTOTUNE</span>
+
+<span class="n">train_ds</span> <span class="o">=</span> <span class="n">train_ds</span><span class="o">.</span><span class="n">cache</span><span class="p">()</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span><span class="o">.</span><span class="n">prefetch</span><span class="p">(</span><span class="n">buffer_size</span><span class="o">=</span><span class="n">AUTOTUNE</span><span class="p">)</span>
+<span class="n">val_ds</span> <span class="o">=</span> <span class="n">val_ds</span><span class="o">.</span><span class="n">cache</span><span class="p">()</span><span class="o">.</span><span class="n">prefetch</span><span class="p">(</span><span class="n">buffer_size</span><span class="o">=</span><span class="n">AUTOTUNE</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="standardize-the-data">
+<h3>Standardize the data<a class="headerlink" href="#standardize-the-data" title="Permalink to this headline">¶</a></h3>
+<p>The RGB channel values are in the <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">255]</span></code> range. This is not ideal for a neural network; in general you should seek to make your input values small. Here, you will standardize values to be in the <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">1]</span></code> range by using a Rescaling layer.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">normalization_layer</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">experimental</span><span class="o">.</span><span class="n">preprocessing</span><span class="o">.</span><span class="n">Rescaling</span><span class="p">(</span><span class="mf">1.</span><span class="o">/</span><span class="mi">255</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note: The Keras Preprocessing utilities and layers introduced in this section are currently experimental and may change.</p>
+<p>There are two ways to use this layer. You can apply it to the dataset by calling map:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># normlize 를 데이터에 직접해도 되지만, 모델에 포함하는 것이 배포시 더 유리함</span>
+<span class="n">normalized_ds</span> <span class="o">=</span> <span class="n">train_ds</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="p">(</span><span class="n">normalization_layer</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">y</span><span class="p">))</span>
+<span class="n">image_batch</span><span class="p">,</span> <span class="n">labels_batch</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="nb">iter</span><span class="p">(</span><span class="n">normalized_ds</span><span class="p">))</span>
+<span class="n">first_image</span> <span class="o">=</span> <span class="n">image_batch</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="c1"># Notice the pixels values are now in `[0,1]`.</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">first_image</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">first_image</span><span class="p">))</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0 0.99992925
+</pre></div>
+</div>
+</div>
+</div>
+<p>Or, you can include the layer inside your model definition, which can simplify deployment. Let’s use the second approach here.</p>
+<p>Note: you previously resized images using the <code class="docutils literal notranslate"><span class="pre">image_size</span></code> argument of <code class="docutils literal notranslate"><span class="pre">image_dataset_from_directory</span></code>. If you want to include the resizing logic in your model as well, you can use the <a class="reference external" href="https://www.tensorflow.org/api_docs/python/tf/keras/layers/experimental/preprocessing/Resizing">Resizing</a> layer.</p>
+</div>
+</div>
+<div class="section" id="create-the-model">
+<h2>Create the model<a class="headerlink" href="#create-the-model" title="Permalink to this headline">¶</a></h2>
+<p>The model consists of three convolution blocks with a max pool layer in each of them. There’s a fully connected layer with 128 units on top of it that is activated by a <code class="docutils literal notranslate"><span class="pre">relu</span></code> activation function. This model has not been tuned for high accuracy, the goal of this tutorial is to show a standard approach.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">num_classes</span> <span class="o">=</span> <span class="mi">5</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Sequential</span><span class="p">([</span>
+  <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">experimental</span><span class="o">.</span><span class="n">preprocessing</span><span class="o">.</span><span class="n">Rescaling</span><span class="p">(</span><span class="mf">1.</span><span class="o">/</span><span class="mi">255</span><span class="p">,</span> <span class="n">input_shape</span><span class="o">=</span><span class="p">(</span><span class="n">img_height</span><span class="p">,</span> <span class="n">img_width</span><span class="p">,</span> <span class="mi">3</span><span class="p">)),</span>
+  <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Conv2D</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="s1">&#39;same&#39;</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">),</span>
+  <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">MaxPooling2D</span><span class="p">(),</span>
+  <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Conv2D</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="s1">&#39;same&#39;</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">),</span>
+  <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">MaxPooling2D</span><span class="p">(),</span>
+  <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Conv2D</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="s1">&#39;same&#39;</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">),</span>
+  <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">MaxPooling2D</span><span class="p">(),</span>
+  <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Flatten</span><span class="p">(),</span>
+  <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">),</span>
+  <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="n">num_classes</span><span class="p">)</span>
+<span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="compile-the-model">
+<h3>Compile the model<a class="headerlink" href="#compile-the-model" title="Permalink to this headline">¶</a></h3>
+<p>For this tutorial, choose the <code class="docutils literal notranslate"><span class="pre">optimizers.Adam</span></code> optimizer and <code class="docutils literal notranslate"><span class="pre">losses.SparseCategoricalCrossentropy</span></code> loss function. To view training and validation accuracy for each training epoch, pass the <code class="docutils literal notranslate"><span class="pre">metrics</span></code> argument.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="s1">&#39;adam&#39;</span><span class="p">,</span>
+              <span class="n">loss</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">losses</span><span class="o">.</span><span class="n">SparseCategoricalCrossentropy</span><span class="p">(</span><span class="n">from_logits</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+              <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;accuracy&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="model-summary">
+<h3>Model summary<a class="headerlink" href="#model-summary" title="Permalink to this headline">¶</a></h3>
+<p>View all the layers of the network using the model’s <code class="docutils literal notranslate"><span class="pre">summary</span></code> method:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Model: &quot;sequential_1&quot;
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+rescaling_3 (Rescaling)      (None, 180, 180, 3)       0         
+_________________________________________________________________
+conv2d_3 (Conv2D)            (None, 180, 180, 16)      448       
+_________________________________________________________________
+max_pooling2d_3 (MaxPooling2 (None, 90, 90, 16)        0         
+_________________________________________________________________
+conv2d_4 (Conv2D)            (None, 90, 90, 32)        4640      
+_________________________________________________________________
+max_pooling2d_4 (MaxPooling2 (None, 45, 45, 32)        0         
+_________________________________________________________________
+conv2d_5 (Conv2D)            (None, 45, 45, 64)        18496     
+_________________________________________________________________
+max_pooling2d_5 (MaxPooling2 (None, 22, 22, 64)        0         
+_________________________________________________________________
+flatten_1 (Flatten)          (None, 30976)             0         
+_________________________________________________________________
+dense_2 (Dense)              (None, 128)               3965056   
+_________________________________________________________________
+dense_3 (Dense)              (None, 5)                 645       
+=================================================================
+Total params: 3,989,285
+Trainable params: 3,989,285
+Non-trainable params: 0
+_________________________________________________________________
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="train-the-model">
+<h3>Train the model<a class="headerlink" href="#train-the-model" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">epochs</span><span class="o">=</span><span class="mi">10</span>
+<span class="n">history</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span>
+  <span class="n">train_ds</span><span class="p">,</span>
+  <span class="n">validation_data</span><span class="o">=</span><span class="n">val_ds</span><span class="p">,</span>
+  <span class="n">epochs</span><span class="o">=</span><span class="n">epochs</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 1/10
+92/92 [==============================] - 25s 269ms/step - loss: 1.5582 - accuracy: 0.3208 - val_loss: 1.1422 - val_accuracy: 0.5422
+Epoch 2/10
+92/92 [==============================] - 24s 257ms/step - loss: 1.0591 - accuracy: 0.5686 - val_loss: 0.9934 - val_accuracy: 0.5995
+Epoch 3/10
+92/92 [==============================] - 25s 273ms/step - loss: 0.8563 - accuracy: 0.6732 - val_loss: 0.9565 - val_accuracy: 0.6335
+Epoch 4/10
+92/92 [==============================] - 22s 244ms/step - loss: 0.6425 - accuracy: 0.7662 - val_loss: 0.9108 - val_accuracy: 0.6621
+Epoch 5/10
+92/92 [==============================] - 23s 251ms/step - loss: 0.3693 - accuracy: 0.8711 - val_loss: 0.9943 - val_accuracy: 0.6608
+Epoch 6/10
+92/92 [==============================] - 23s 249ms/step - loss: 0.2089 - accuracy: 0.9348 - val_loss: 1.2733 - val_accuracy: 0.6253
+Epoch 7/10
+92/92 [==============================] - 22s 243ms/step - loss: 0.1360 - accuracy: 0.9585 - val_loss: 1.2857 - val_accuracy: 0.6390
+Epoch 8/10
+92/92 [==============================] - 22s 235ms/step - loss: 0.0527 - accuracy: 0.9875 - val_loss: 1.5394 - val_accuracy: 0.6362
+Epoch 9/10
+92/92 [==============================] - 21s 233ms/step - loss: 0.0475 - accuracy: 0.9878 - val_loss: 1.6008 - val_accuracy: 0.6540
+Epoch 10/10
+92/92 [==============================] - 21s 232ms/step - loss: 0.0483 - accuracy: 0.9878 - val_loss: 1.7790 - val_accuracy: 0.6676
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="visualize-training-results">
+<h3>Visualize training results<a class="headerlink" href="#visualize-training-results" title="Permalink to this headline">¶</a></h3>
+<p>Create plots of loss and accuracy on the training and validation sets.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">acc</span> <span class="o">=</span> <span class="n">history</span><span class="o">.</span><span class="n">history</span><span class="p">[</span><span class="s1">&#39;accuracy&#39;</span><span class="p">]</span>
+<span class="n">val_acc</span> <span class="o">=</span> <span class="n">history</span><span class="o">.</span><span class="n">history</span><span class="p">[</span><span class="s1">&#39;val_accuracy&#39;</span><span class="p">]</span>
+
+<span class="n">loss</span> <span class="o">=</span> <span class="n">history</span><span class="o">.</span><span class="n">history</span><span class="p">[</span><span class="s1">&#39;loss&#39;</span><span class="p">]</span>
+<span class="n">val_loss</span> <span class="o">=</span> <span class="n">history</span><span class="o">.</span><span class="n">history</span><span class="p">[</span><span class="s1">&#39;val_loss&#39;</span><span class="p">]</span>
+
+<span class="n">epochs_range</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="n">epochs</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">epochs_range</span><span class="p">,</span> <span class="n">acc</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Training Accuracy&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">epochs_range</span><span class="p">,</span> <span class="n">val_acc</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Validation Accuracy&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;lower right&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Training and Validation Accuracy&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">epochs_range</span><span class="p">,</span> <span class="n">loss</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Training Loss&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">epochs_range</span><span class="p">,</span> <span class="n">val_loss</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Validation Loss&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper right&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Training and Validation Loss&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/tf2_advanced_image_classification_50_0.png" src="../../_images/tf2_advanced_image_classification_50_0.png" />
+</div>
+</div>
+<p>As you can see from the plots, training accuracy and validation accuracy are off by large margin and the model has achieved only around 60% accuracy on the validation set.</p>
+<p>Let’s look at what went wrong and try to increase the overall performance of the model.</p>
+</div>
+</div>
+<div class="section" id="overfitting">
+<h2>Overfitting<a class="headerlink" href="#overfitting" title="Permalink to this headline">¶</a></h2>
+<p>In the plots above, the training accuracy is increasing linearly over time, whereas validation accuracy stalls around 60% in the training process. Also, the difference in accuracy between training and validation accuracy is noticeable—a sign of <a class="reference external" href="https://www.tensorflow.org/tutorials/keras/overfit_and_underfit">overfitting</a>.</p>
+<p>When there are a small number of training examples, the model sometimes learns from noises or unwanted details from training examples—to an extent that it negatively impacts the performance of the model on new examples. This phenomenon is known as overfitting. It means that the model will have a difficult time generalizing on a new dataset.</p>
+<p>There are multiple ways to fight overfitting in the training process. In this tutorial, you’ll use <em>data augmentation</em> and add <em>Dropout</em> to your model.</p>
+</div>
+<div class="section" id="data-augmentation">
+<h2>Data augmentation<a class="headerlink" href="#data-augmentation" title="Permalink to this headline">¶</a></h2>
+<p>Overfitting generally occurs when there are a small number of training examples. <a class="reference external" href="https://www.tensorflow.org/tutorials/images/data_augmentation">Data augmentation</a> takes the approach of generating additional training data from your existing examples by augmenting them using random transformations that yield believable-looking images. This helps expose the model to more aspects of the data and generalize better.</p>
+<p>You will implement data augmentation using the layers from <code class="docutils literal notranslate"><span class="pre">tf.keras.layers.experimental.preprocessing</span></code>. These can be included inside your model like other layers, and run on the GPU.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_augmentation</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Sequential</span><span class="p">(</span>
+  <span class="p">[</span>
+    <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">experimental</span><span class="o">.</span><span class="n">preprocessing</span><span class="o">.</span><span class="n">RandomFlip</span><span class="p">(</span><span class="s2">&quot;horizontal&quot;</span><span class="p">,</span> <span class="n">input_shape</span><span class="o">=</span><span class="p">(</span><span class="n">img_height</span><span class="p">,</span> <span class="n">img_width</span><span class="p">,</span> <span class="mi">3</span><span class="p">)),</span>
+    <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">experimental</span><span class="o">.</span><span class="n">preprocessing</span><span class="o">.</span><span class="n">RandomRotation</span><span class="p">(</span><span class="mf">0.1</span><span class="p">),</span>
+    <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">experimental</span><span class="o">.</span><span class="n">preprocessing</span><span class="o">.</span><span class="n">RandomZoom</span><span class="p">(</span><span class="mf">0.1</span><span class="p">),</span>
+  <span class="p">]</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s visualize what a few augmented examples look like by applying data augmentation to the same image several times:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">images</span><span class="p">,</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">train_ds</span><span class="o">.</span><span class="n">take</span><span class="p">(</span><span class="mi">1</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">9</span><span class="p">):</span>
+        <span class="n">augmented_images</span> <span class="o">=</span> <span class="n">data_augmentation</span><span class="p">(</span><span class="n">images</span><span class="p">)</span>
+        <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">augmented_images</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">&quot;uint8&quot;</span><span class="p">))</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;off&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/tf2_advanced_image_classification_58_0.png" src="../../_images/tf2_advanced_image_classification_58_0.png" />
+</div>
+</div>
+<p>You will use data augmentation to train a model in a moment.</p>
+</div>
+<div class="section" id="dropout">
+<h2>Dropout<a class="headerlink" href="#dropout" title="Permalink to this headline">¶</a></h2>
+<p>Another technique to reduce overfitting is to introduce <a class="reference external" href="https://developers.google.com/machine-learning/glossary#dropout_regularization">Dropout</a> to the network, a form of <em>regularization</em>.</p>
+<p>When you apply Dropout to a layer it randomly drops out (by setting the activation to zero) a number of output units from the layer during the training process. Dropout takes a fractional number as its input value, in the form such as 0.1, 0.2, 0.4, etc. This means dropping out 10%, 20% or 40% of the output units randomly from the applied layer.</p>
+<p>Let’s create a new neural network using <code class="docutils literal notranslate"><span class="pre">layers.Dropout</span></code>, then train it using augmented images.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Sequential</span><span class="p">([</span>
+  <span class="n">data_augmentation</span><span class="p">,</span>
+  <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">experimental</span><span class="o">.</span><span class="n">preprocessing</span><span class="o">.</span><span class="n">Rescaling</span><span class="p">(</span><span class="mf">1.</span><span class="o">/</span><span class="mi">255</span><span class="p">),</span>
+  <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Conv2D</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="s1">&#39;same&#39;</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">),</span>
+  <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">MaxPooling2D</span><span class="p">(),</span>
+  <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Conv2D</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="s1">&#39;same&#39;</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">),</span>
+  <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">MaxPooling2D</span><span class="p">(),</span>
+  <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Conv2D</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="s1">&#39;same&#39;</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">),</span>
+  <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">MaxPooling2D</span><span class="p">(),</span>
+  <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dropout</span><span class="p">(</span><span class="mf">0.2</span><span class="p">),</span>
+  <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Flatten</span><span class="p">(),</span>
+  <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">),</span>
+  <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="n">num_classes</span><span class="p">)</span>
+<span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="compile-and-train-the-model">
+<h2>Compile and train the model<a class="headerlink" href="#compile-and-train-the-model" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="s1">&#39;adam&#39;</span><span class="p">,</span>
+              <span class="n">loss</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">losses</span><span class="o">.</span><span class="n">SparseCategoricalCrossentropy</span><span class="p">(</span><span class="n">from_logits</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+              <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;accuracy&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Model: &quot;sequential_3&quot;
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+sequential_2 (Sequential)    (None, 180, 180, 3)       0         
+_________________________________________________________________
+rescaling_4 (Rescaling)      (None, 180, 180, 3)       0         
+_________________________________________________________________
+conv2d_6 (Conv2D)            (None, 180, 180, 16)      448       
+_________________________________________________________________
+max_pooling2d_6 (MaxPooling2 (None, 90, 90, 16)        0         
+_________________________________________________________________
+conv2d_7 (Conv2D)            (None, 90, 90, 32)        4640      
+_________________________________________________________________
+max_pooling2d_7 (MaxPooling2 (None, 45, 45, 32)        0         
+_________________________________________________________________
+conv2d_8 (Conv2D)            (None, 45, 45, 64)        18496     
+_________________________________________________________________
+max_pooling2d_8 (MaxPooling2 (None, 22, 22, 64)        0         
+_________________________________________________________________
+dropout (Dropout)            (None, 22, 22, 64)        0         
+_________________________________________________________________
+flatten_2 (Flatten)          (None, 30976)             0         
+_________________________________________________________________
+dense_4 (Dense)              (None, 128)               3965056   
+_________________________________________________________________
+dense_5 (Dense)              (None, 5)                 645       
+=================================================================
+Total params: 3,989,285
+Trainable params: 3,989,285
+Non-trainable params: 0
+_________________________________________________________________
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">epochs</span> <span class="o">=</span> <span class="mi">15</span>
+<span class="n">history</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span>
+  <span class="n">train_ds</span><span class="p">,</span>
+  <span class="n">validation_data</span><span class="o">=</span><span class="n">val_ds</span><span class="p">,</span>
+  <span class="n">epochs</span><span class="o">=</span><span class="n">epochs</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 1/15
+92/92 [==============================] - 26s 279ms/step - loss: 1.4438 - accuracy: 0.3562 - val_loss: 1.2104 - val_accuracy: 0.5422
+Epoch 2/15
+92/92 [==============================] - 24s 266ms/step - loss: 1.0410 - accuracy: 0.5781 - val_loss: 0.9627 - val_accuracy: 0.6090
+Epoch 3/15
+92/92 [==============================] - 24s 266ms/step - loss: 0.9302 - accuracy: 0.6440 - val_loss: 0.9167 - val_accuracy: 0.6431
+Epoch 4/15
+92/92 [==============================] - 26s 286ms/step - loss: 0.8320 - accuracy: 0.6851 - val_loss: 0.8381 - val_accuracy: 0.6812
+Epoch 5/15
+92/92 [==============================] - 25s 272ms/step - loss: 0.8047 - accuracy: 0.6864 - val_loss: 0.7904 - val_accuracy: 0.7003
+Epoch 6/15
+92/92 [==============================] - 25s 268ms/step - loss: 0.7404 - accuracy: 0.7087 - val_loss: 0.8364 - val_accuracy: 0.6717
+Epoch 7/15
+92/92 [==============================] - 26s 281ms/step - loss: 0.7028 - accuracy: 0.7329 - val_loss: 0.7823 - val_accuracy: 0.6975
+Epoch 8/15
+92/92 [==============================] - 28s 305ms/step - loss: 0.6830 - accuracy: 0.7452 - val_loss: 0.8243 - val_accuracy: 0.6839
+Epoch 9/15
+92/92 [==============================] - 24s 266ms/step - loss: 0.6514 - accuracy: 0.7410 - val_loss: 0.7174 - val_accuracy: 0.7411
+Epoch 10/15
+92/92 [==============================] - 24s 265ms/step - loss: 0.6480 - accuracy: 0.7561 - val_loss: 0.7437 - val_accuracy: 0.7166
+Epoch 11/15
+92/92 [==============================] - 26s 285ms/step - loss: 0.5816 - accuracy: 0.7854 - val_loss: 0.7023 - val_accuracy: 0.7398
+Epoch 12/15
+92/92 [==============================] - 26s 288ms/step - loss: 0.5654 - accuracy: 0.7812 - val_loss: 0.7088 - val_accuracy: 0.7262
+Epoch 13/15
+92/92 [==============================] - 25s 267ms/step - loss: 0.5547 - accuracy: 0.7864 - val_loss: 0.7234 - val_accuracy: 0.7221
+Epoch 14/15
+92/92 [==============================] - 24s 266ms/step - loss: 0.5220 - accuracy: 0.8056 - val_loss: 0.7265 - val_accuracy: 0.7425
+Epoch 15/15
+92/92 [==============================] - 24s 266ms/step - loss: 0.4841 - accuracy: 0.8162 - val_loss: 0.7296 - val_accuracy: 0.7371
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id2">
+<h2>Visualize training results<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>After applying data augmentation and Dropout, there is less overfitting than before, and training and validation accuracy are closer aligned.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">acc</span> <span class="o">=</span> <span class="n">history</span><span class="o">.</span><span class="n">history</span><span class="p">[</span><span class="s1">&#39;accuracy&#39;</span><span class="p">]</span>
+<span class="n">val_acc</span> <span class="o">=</span> <span class="n">history</span><span class="o">.</span><span class="n">history</span><span class="p">[</span><span class="s1">&#39;val_accuracy&#39;</span><span class="p">]</span>
+
+<span class="n">loss</span> <span class="o">=</span> <span class="n">history</span><span class="o">.</span><span class="n">history</span><span class="p">[</span><span class="s1">&#39;loss&#39;</span><span class="p">]</span>
+<span class="n">val_loss</span> <span class="o">=</span> <span class="n">history</span><span class="o">.</span><span class="n">history</span><span class="p">[</span><span class="s1">&#39;val_loss&#39;</span><span class="p">]</span>
+
+<span class="n">epochs_range</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="n">epochs</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">epochs_range</span><span class="p">,</span> <span class="n">acc</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Training Accuracy&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">epochs_range</span><span class="p">,</span> <span class="n">val_acc</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Validation Accuracy&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;lower right&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Training and Validation Accuracy&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">epochs_range</span><span class="p">,</span> <span class="n">loss</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Training Loss&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">epochs_range</span><span class="p">,</span> <span class="n">val_loss</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Validation Loss&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper right&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Training and Validation Loss&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/tf2_advanced_image_classification_67_0.png" src="../../_images/tf2_advanced_image_classification_67_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="predict-on-new-data">
+<h2>Predict on new data<a class="headerlink" href="#predict-on-new-data" title="Permalink to this headline">¶</a></h2>
+<p>Finally, let’s use our model to classify an image that wasn’t included in the training or validation sets.</p>
+<p>Note: Data augmentation and Dropout layers are inactive at inference time.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sunflower_url</span> <span class="o">=</span> <span class="s2">&quot;https://storage.googleapis.com/download.tensorflow.org/example_images/592px-Red_sunflower.jpg&quot;</span>
+<span class="n">sunflower_path</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">get_file</span><span class="p">(</span><span class="s1">&#39;Red_sunflower&#39;</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="n">sunflower_url</span><span class="p">)</span>
+
+<span class="n">img</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">preprocessing</span><span class="o">.</span><span class="n">image</span><span class="o">.</span><span class="n">load_img</span><span class="p">(</span>
+    <span class="n">sunflower_path</span><span class="p">,</span> <span class="n">target_size</span><span class="o">=</span><span class="p">(</span><span class="n">img_height</span><span class="p">,</span> <span class="n">img_width</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="n">img_array</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">preprocessing</span><span class="o">.</span><span class="n">image</span><span class="o">.</span><span class="n">img_to_array</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
+<span class="n">img_array</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span><span class="n">img_array</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="c1"># Create a batch</span>
+
+<span class="n">predictions</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">img_array</span><span class="p">)</span>
+<span class="n">score</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">softmax</span><span class="p">(</span><span class="n">predictions</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+<span class="nb">print</span><span class="p">(</span>
+    <span class="s2">&quot;This image most likely belongs to </span><span class="si">{}</span><span class="s2"> with a </span><span class="si">{:.2f}</span><span class="s2"> percent confidence.&quot;</span>
+    <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">class_names</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">score</span><span class="p">)],</span> <span class="mi">100</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">score</span><span class="p">))</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading data from https://storage.googleapis.com/download.tensorflow.org/example_images/592px-Red_sunflower.jpg
+122880/117948 [===============================] - 0s 0us/step
+This image most likely belongs to sunflowers with a 96.77 percent confidence.
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./datascience/tf2"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="tf2_advanced_image_cnn.html" title="previous page">Image CNN</a>
+    <a class='right-next' id="next-link" href="tf2_advanced_transfer_learning.html" title="next page">Transfer learning and fine-tuning</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By comafire<br/>
+        
+            &copy; Copyright 2015.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+    <!-- Google Analytics -->
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-81648003-1', 'auto');
+      ga('set', 'anonymizeIp', true);
+      ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+    <!-- End Google Analytics -->
+    
+  </body>
+</html>

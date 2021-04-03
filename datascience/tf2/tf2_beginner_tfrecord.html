@@ -1,0 +1,1758 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TFRecord and tf.train.Example &#8212; 데사견문록</title>
+    
+  <link rel="stylesheet" href="../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="TF I/O" href="tf2_beginner_tfio.html" />
+    <link rel="prev" title="Subword Tokenization" href="tf2_beginner_subwords_tokenizer.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <img src="../../_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">데사견문록</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../readme.html">
+   데이터사이언스견문록
+  </a>
+ </li>
+</ul>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 current active collapsible-parent">
+  <a class="reference internal" href="../readme.html">
+   데이터사이언스
+  </a>
+  <ul class="current collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../e2eds.html">
+     End to End Data Science (E2EDS)
+    </a>
+   </li>
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../dataprep.html">
+     Data Preperation
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../spark_dataframe_10mins.html">
+       Spark DataFrame 10mins
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../pandas_10mins.html">
+       Pandas 10mins
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../numpy_10mins.html">
+       Numpy 10mins
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../random_seed.html">
+       Random
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../pandas_data_description.html">
+       Data Description
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../missing_value.html">
+       Missing Value
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../pandas_descriptive_statistics.html">
+       Descriptive Statistcs
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+   <li class="toctree-l2 current active collapsible-parent">
+    <a class="reference internal" href="../model.html">
+     Model
+    </a>
+    <ul class="current collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../outlier.html">
+       Outlier
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../scipy_normality_test.html">
+       Normality Test (Scipy)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../scipy_statistics_test.html">
+       Statistics Test (Scipy)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../parallel_algorithm.html">
+       One-Pass/Parallel Algorithm
+      </a>
+     </li>
+     <li class="toctree-l3 collapsible-parent">
+      <a class="reference internal" href="../sklearn/sklearn.html">
+       Scikit-Learn
+      </a>
+      <ul class="collapse-ul">
+       <li class="toctree-l4">
+        <a class="reference internal" href="../sklearn/sklearn_feature_selection.html">
+         Feature Selection
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../sklearn/sklearn_feature_extraction.html">
+         Feature Extraction
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../sklearn/sklearn_feature_transformation.html">
+         Feature Transformation
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../sklearn/sklearn_split_train_test.html">
+         Train/Valid/Test Dataset
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../sklearn/imblearn_imbalanced_class.html">
+         Imbalanced Class
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../sklearn/sklearn_model_persistence.html">
+         Model Persistence
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../sklearn/sklearn_eval_regression.html">
+         Regression Evaluation
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../sklearn/sklearn_linear_regression.html">
+         Linear Regression
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../sklearn/sklearn_polynomial_regression.html">
+         Polynomial Regression
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../sklearn/sklearn_sgd_regression.html">
+         SGD Regression
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../sklearn/sklearn_svm_regression.html">
+         SVM Regression
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../sklearn/sklearn_nearest_neighbor_regression.html">
+         Nearest Neighbors Regression
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../sklearn/sklearn_ensemble_regression.html">
+         Ensemble Regression
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../sklearn/sklearn_eval_classification.html">
+         Classification Evaluation
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../sklearn/sklearn_logistic_regression.html">
+         Logistic Regression
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../sklearn/sklearn_sgd_classification.html">
+         SGD Classification
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../sklearn/sklearn_svm_classification.html">
+         SVM Classification
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../sklearn/sklearn_nearest_neighbor_classification.html">
+         Nearest Neighbors Classification
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../sklearn/sklearn_ensemble_classification.html">
+         Ensemble Classification
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../sklearn/sklearn_eval_clustering.html">
+         Clustering Evaluation
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../sklearn/sklearn_kmeans.html">
+         K-Means
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../sklearn/sklearn_mean_shift.html">
+         Mean Shift
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../sklearn/sklearn_spectral_clustering.html">
+         Spectral Clustering
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../sklearn/sklearn_hyper_parameter_tunning.html">
+         Hyper Parameter Tunning
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../sklearn/sklearn_anomaly_detection.html">
+         Anomaly Detection
+        </a>
+       </li>
+      </ul>
+      <i class="fas fa-chevron-down">
+      </i>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../surprise_collaborative_filtering.html">
+       Collaborative Filtering (Surprise)
+      </a>
+     </li>
+     <li class="toctree-l3 collapsible-parent">
+      <a class="reference internal" href="../keras/keras.html">
+       Keras
+      </a>
+      <ul class="collapse-ul">
+       <li class="toctree-l4">
+        <a class="reference internal" href="../keras/keras_10mins.html">
+         Keras 10mins
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../keras/keras_dnn_regression.html">
+         DNN Regression
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../keras/keras_dnn_classification.html">
+         DNN Classification
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../keras/keras_deepmf.html">
+         Deep MF
+        </a>
+       </li>
+      </ul>
+      <i class="fas fa-chevron-down">
+      </i>
+     </li>
+     <li class="toctree-l3 current active collapsible-parent">
+      <a class="reference internal" href="tf2.html">
+       Tensorflow2
+      </a>
+      <ul class="current collapse-ul">
+       <li class="toctree-l4">
+        <a class="reference internal" href="tf2_10mins.html">
+         Tensorflow2 10mins
+        </a>
+       </li>
+       <li class="toctree-l4 current active collapsible-parent">
+        <a class="reference internal" href="tf2_beginner.html">
+         Beginner
+        </a>
+        <ul class="current collapse-ul">
+         <li class="toctree-l5">
+          <a class="reference internal" href="tf2_beginner_quickstart.html">
+           Quickstart
+          </a>
+         </li>
+         <li class="toctree-l5">
+          <a class="reference internal" href="tf2_beginner_image_classification.html">
+           Image Classification
+          </a>
+         </li>
+         <li class="toctree-l5">
+          <a class="reference internal" href="tf2_beginner_text_classification.html">
+           Text Classification
+          </a>
+         </li>
+         <li class="toctree-l5">
+          <a class="reference internal" href="tf2_beginner_hub_text_classification.html">
+           Text Classification with Hub
+          </a>
+         </li>
+         <li class="toctree-l5">
+          <a class="reference internal" href="tf2_beginner_regression.html">
+           Regression
+          </a>
+         </li>
+         <li class="toctree-l5">
+          <a class="reference internal" href="tf2_beginner_overfit_underfit.html">
+           Overfit &amp; Underfit
+          </a>
+         </li>
+         <li class="toctree-l5">
+          <a class="reference internal" href="tf2_beginner_save_load.html">
+           Save &amp; Load
+          </a>
+         </li>
+         <li class="toctree-l5">
+          <a class="reference internal" href="tf2_beginner_keras_tuner.html">
+           Keras Tuner
+          </a>
+         </li>
+         <li class="toctree-l5">
+          <a class="reference internal" href="tf2_beginner_images.html">
+           Images
+          </a>
+         </li>
+         <li class="toctree-l5">
+          <a class="reference internal" href="tf2_beginner_csv.html">
+           CSV
+          </a>
+         </li>
+         <li class="toctree-l5">
+          <a class="reference internal" href="tf2_beginner_numpy.html">
+           Numpy
+          </a>
+         </li>
+         <li class="toctree-l5">
+          <a class="reference internal" href="tf2_beginner_pandas.html">
+           Pandas
+          </a>
+         </li>
+         <li class="toctree-l5">
+          <a class="reference internal" href="tf2_beginner_text.html">
+           Text
+          </a>
+         </li>
+         <li class="toctree-l5">
+          <a class="reference internal" href="tf2_beginner_unicode.html">
+           Unicode
+          </a>
+         </li>
+         <li class="toctree-l5">
+          <a class="reference internal" href="tf2_beginner_tftext.html">
+           TF.Text
+          </a>
+         </li>
+         <li class="toctree-l5">
+          <a class="reference internal" href="tf2_beginner_subwords_tokenizer.html">
+           Subword Tokenization
+          </a>
+         </li>
+         <li class="toctree-l5 current active">
+          <a class="current reference internal" href="#">
+           TFRecord and tf.train.Example
+          </a>
+         </li>
+         <li class="toctree-l5">
+          <a class="reference internal" href="tf2_beginner_tfio.html">
+           TF I/O
+          </a>
+         </li>
+        </ul>
+        <i class="fas fa-chevron-down">
+        </i>
+       </li>
+       <li class="toctree-l4 collapsible-parent">
+        <a class="reference internal" href="tf2_advanced.html">
+         Advanced
+        </a>
+        <ul class="collapse-ul">
+         <li class="toctree-l5">
+          <a class="reference internal" href="tf2_advanced_quickstart.html">
+           Quickstart
+          </a>
+         </li>
+         <li class="toctree-l5">
+          <a class="reference internal" href="tf2_advanced_image_cnn.html">
+           Image CNN
+          </a>
+         </li>
+         <li class="toctree-l5">
+          <a class="reference internal" href="tf2_advanced_image_classification.html">
+           Image Classification
+          </a>
+         </li>
+         <li class="toctree-l5">
+          <a class="reference internal" href="tf2_advanced_transfer_learning.html">
+           Transfer learning and fine-tuning
+          </a>
+         </li>
+         <li class="toctree-l5">
+          <a class="reference internal" href="tf2_advanced_transfer_learning_with_hub.html">
+           Transfer learning with TensorFlow Hub
+          </a>
+         </li>
+        </ul>
+        <i class="fas fa-chevron-down">
+        </i>
+       </li>
+      </ul>
+      <i class="fas fa-chevron-down">
+      </i>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../pytorch/pytorch.html">
+       Pytorch
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../deploy.html">
+     Deployment
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../streamlit.html">
+       Streamlit
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../flask.html">
+       Flask
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../dataplatform/readme.html">
+   데이터플랫폼
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../dataplatform/infra_beginner.html">
+     Infrastructure - Bignner
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../dataplatform/infra_advanced.html">
+     Infrastructure - Advanced
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../dataplatform/jupyter_cloud.html">
+     Jupyter (Cloud)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../dataplatform/jupyter_native_ubuntu.html">
+     Jupyter (Ubuntu)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../dataplatform/jupyter_native_macos.html">
+     Jupyter (macOS)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../dataplatform/jupyter_docker.html">
+     Jupyter (Docker)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../dataplatform/vagrant_virtualbox.html">
+     Vagrant (Optional)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../dataplatform/skp.html">
+     St. Kilda Pier (SKP)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../dataplatform/gce-nested-vm.html">
+     Google Computer Engine
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/datascience/tf2/tf2_beginner_tfrecord.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/comafire/comafire.github.io"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/comafire/comafire.github.io/issues/new?title=Issue%20on%20page%20%2Fdatascience/tf2/tf2_beginner_tfrecord.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/comafire/comafire.github.io/master?urlpath=tree/datascience/tf2/tf2_beginner_tfrecord.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#copyright-2019-the-tensorflow-authors">
+   Copyright 2019 The TensorFlow Authors.
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   TFRecord and tf.train.Example
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tf-train-example">
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     tf.train.Example
+    </span>
+   </code>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data-types-for-tf-train-example">
+     Data types for
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       tf.train.Example
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#creating-a-tf-train-example-message">
+     Creating a
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       tf.train.Example
+      </span>
+     </code>
+     message
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tfrecords-format-details">
+   TFRecords format details
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tfrecord-files-using-tf-data">
+   TFRecord files using
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     tf.data
+    </span>
+   </code>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#writing-a-tfrecord-file">
+     Writing a TFRecord file
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#reading-a-tfrecord-file">
+     Reading a TFRecord file
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tfrecord-files-in-python">
+   TFRecord files in Python
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     Writing a TFRecord file
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     Reading a TFRecord file
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#walkthrough-reading-and-writing-image-data">
+   Walkthrough: Reading and writing image data
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#fetch-the-images">
+     Fetch the images
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#write-the-tfrecord-file">
+     Write the TFRecord file
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#read-the-tfrecord-file">
+     Read the TFRecord file
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="tfrecord-and-tf-train-example">
+<h1>TFRecord and tf.train.Example<a class="headerlink" href="#tfrecord-and-tf-train-example" title="Permalink to this headline">¶</a></h1>
+<p>TensorFlow2 공식 홈페이지에 나와 있는 코드들을 수행해 보면서 빠르게 TensorFlow2를 익혀 봅니다.</p>
+<p><a class="reference external" href="https://www.tensorflow.org/tutorials/load_data/tfrecord">https://www.tensorflow.org/tutorials/load_data/tfrecord</a></p>
+<div class="section" id="copyright-2019-the-tensorflow-authors">
+<h2>Copyright 2019 The TensorFlow Authors.<a class="headerlink" href="#copyright-2019-the-tensorflow-authors" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
+<span class="c1"># you may not use this file except in compliance with the License.</span>
+<span class="c1"># You may obtain a copy of the License at</span>
+<span class="c1">#</span>
+<span class="c1"># https://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1"># Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1"># distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<span class="c1"># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span class="c1"># See the License for the specific language governing permissions and</span>
+<span class="c1"># limitations under the License.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 경고 메시지 출력 끄기</span>
+<span class="kn">import</span> <span class="nn">warnings</span> 
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="n">action</span><span class="o">=</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">simplefilter</span><span class="p">(</span><span class="n">action</span><span class="o">=</span><span class="s1">&#39;ignore&#39;</span><span class="p">,</span> <span class="n">category</span><span class="o">=</span><span class="ne">FutureWarning</span><span class="p">)</span>
+
+<span class="c1"># 노트북 셀 표시를 브라우저 전체 폭 사용하기</span>
+<span class="kn">import</span> <span class="nn">IPython</span>
+<span class="n">IPython</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">display</span><span class="p">(</span><span class="n">IPython</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">HTML</span><span class="p">(</span><span class="s2">&quot;&lt;style&gt;.container { width:100% !important; }&lt;/style&gt;&quot;</span><span class="p">))</span>
+
+<span class="c1"># Matplotlib 설정</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="o">%</span><span class="k">config</span> InlineBackend.figure_format = &#39;retina&#39; # Macbook Retina Display를 위한 고해상도 설정
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;seaborn&#39;</span><span class="p">)</span> <span class="c1"># 스타일 설정</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;figure.figsize&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">16</span><span class="p">,</span> <span class="mi">9</span><span class="p">]</span> <span class="c1"># 그림 크기</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;figure.dpi&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">300</span> <span class="c1"># 해상도</span>
+
+<span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">sys</span><span class="o">,</span> <span class="nn">time</span><span class="o">,</span> <span class="nn">shutil</span><span class="o">,</span> <span class="nn">functools</span>
+<span class="kn">import</span> <span class="nn">collections</span><span class="o">,</span> <span class="nn">pathlib</span><span class="o">,</span> <span class="nn">re</span><span class="o">,</span> <span class="nn">string</span><span class="o">,</span> <span class="nn">tempfile</span>
+
+<span class="n">rseed</span> <span class="o">=</span> <span class="mi">22</span>
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">rseed</span><span class="p">)</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">rseed</span><span class="p">)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">set_printoptions</span><span class="p">(</span><span class="n">precision</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">set_printoptions</span><span class="p">(</span><span class="n">formatter</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;float_kind&#39;</span><span class="p">:</span> <span class="s2">&quot;</span><span class="si">{:.5f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">})</span>
+
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_rows&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> 
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_columns&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> 
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_colwidth&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">float_format</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{:,.5f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span>
+
+<span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+<span class="n">tf</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">set_seed</span><span class="p">(</span><span class="n">rseed</span><span class="p">)</span>
+<span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">backend</span><span class="o">.</span><span class="n">set_floatx</span><span class="p">(</span><span class="s1">&#39;float32&#39;</span><span class="p">)</span> <span class="c1"># keras default float type 설정</span>
+
+<span class="kn">import</span> <span class="nn">tensorflow_hub</span> <span class="k">as</span> <span class="nn">tfhub</span>
+<span class="kn">import</span> <span class="nn">tensorflow_datasets</span> <span class="k">as</span> <span class="nn">tfds</span>
+<span class="kn">import</span> <span class="nn">tensorflow_text</span> <span class="k">as</span> <span class="nn">tftext</span>
+
+<span class="kn">import</span> <span class="nn">kerastuner</span> <span class="k">as</span> <span class="nn">kt</span>
+
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+
+<span class="kn">import</span> <span class="nn">PIL</span>
+<span class="kn">import</span> <span class="nn">PIL.Image</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;python ver=</span><span class="si">{</span><span class="n">sys</span><span class="o">.</span><span class="n">version</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;pandas ver=</span><span class="si">{</span><span class="n">pd</span><span class="o">.</span><span class="n">__version__</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;numpy ver=</span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">__version__</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;tensorflow ver=</span><span class="si">{</span><span class="n">tf</span><span class="o">.</span><span class="n">__version__</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;tensorflow execuring eagerly=</span><span class="si">{</span><span class="n">tf</span><span class="o">.</span><span class="n">executing_eagerly</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;tensorflow GPU=</span><span class="si">{</span><span class="s1">&#39;True&#39;</span> <span class="k">if</span> <span class="n">tf</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">experimental</span><span class="o">.</span><span class="n">list_physical_devices</span><span class="p">(</span><span class="s1">&#39;GPU&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="s1">&#39;False&#39;</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;keras tuner ver=</span><span class="si">{</span><span class="n">kt</span><span class="o">.</span><span class="n">__version__</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;senborn ver=</span><span class="si">{</span><span class="n">sns</span><span class="o">.</span><span class="n">__version__</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;PIL ver=</span><span class="si">{</span><span class="n">PIL</span><span class="o">.</span><span class="n">__version__</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style>.container { width:100% !important; }</style></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>python ver=3.7.6 (default, Nov 21 2020, 22:51:13) 
+[Clang 12.0.0 (clang-1200.0.32.27)]
+pandas ver=1.0.5
+numpy ver=1.19.5
+tensorflow ver=2.4.1
+tensorflow execuring eagerly=True
+tensorflow GPU=False
+keras tuner ver=1.0.2
+senborn ver=0.10.0
+PIL ver=7.1.2
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id1">
+<h2>TFRecord and tf.train.Example<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<table class="tfo-notebook-buttons" align="left">
+  <td>
+    <a target="_blank" href="https://www.tensorflow.org/tutorials/load_data/tfrecord"><img src="https://www.tensorflow.org/images/tf_logo_32px.png" />View on TensorFlow.org</a>
+  </td>
+  <td>
+    <a target="_blank" href="https://colab.research.google.com/github/tensorflow/docs/blob/master/site/en/tutorials/load_data/tfrecord.ipynb"><img src="https://www.tensorflow.org/images/colab_logo_32px.png" />Run in Google Colab</a>
+  </td>
+  <td>
+    <a target="_blank" href="https://github.com/tensorflow/docs/blob/master/site/en/tutorials/load_data/tfrecord.ipynb"><img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />View source on GitHub</a>
+  </td>
+  <td>
+    <a href="https://storage.googleapis.com/tensorflow_docs/docs/site/en/tutorials/load_data/tfrecord.ipynb"><img src="https://www.tensorflow.org/images/download_logo_32px.png" />Download notebook</a>
+  </td>
+</table>
+*<hr class="docutils" />
+<p>The TFRecord format is a simple format for storing a sequence of binary records.</p>
+<p><a class="reference external" href="https://developers.google.com/protocol-buffers/">Protocol buffers</a> are a cross-platform, cross-language library for efficient serialization of structured data.</p>
+<p>Protocol messages are defined by <code class="docutils literal notranslate"><span class="pre">.proto</span></code> files, these are often the easiest way to understand a message type.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">tf.train.Example</span></code> message (or protobuf) is a flexible message type that represents a <code class="docutils literal notranslate"><span class="pre">{&quot;string&quot;:</span> <span class="pre">value}</span></code> mapping. It is designed for use with TensorFlow and is used throughout the higher-level APIs such as <a class="reference external" href="https://www.tensorflow.org/tfx/">TFX</a>.</p>
+<p>This notebook will demonstrate how to create, parse, and use the <code class="docutils literal notranslate"><span class="pre">tf.train.Example</span></code> message, and then serialize, write, and read <code class="docutils literal notranslate"><span class="pre">tf.train.Example</span></code> messages to and from <code class="docutils literal notranslate"><span class="pre">.tfrecord</span></code> files.</p>
+<p>Note: While useful, these structures are optional. There is no need to convert existing code to use TFRecords, unless you are using <a class="reference external" href="https://www.tensorflow.org/guide/datasets"><code class="docutils literal notranslate"><span class="pre">tf.data</span></code></a> and reading data is still the bottleneck to training. See <a class="reference external" href="https://www.tensorflow.org/guide/performance/datasets">Data Input Pipeline Performance</a> for dataset performance tips.</p>
+<p>Note: In general, you should shard your data across multiple files so that you can parallelize I/O (within a single host or across multiple hosts). The rule of thumb is to have at least 10 times as many files as there will be hosts reading data. At the same time, each file should be large enough (at least 10+MB and ideally 100MB+) so that you benefit from I/O prefetching. For example, say you have <code class="docutils literal notranslate"><span class="pre">X</span></code> GBs of data and you plan to train on up to <code class="docutils literal notranslate"><span class="pre">N</span></code> hosts. Ideally, you should shard the data to ~<code class="docutils literal notranslate"><span class="pre">10*N</span></code> files, as long as ~<code class="docutils literal notranslate"><span class="pre">X/(10*N)</span></code> is 10+ MBs (and ideally 100+ MBs). If it is less than that, you might need to create fewer shards to trade off parallelism benefits and I/O prefetching benefits.</p>
+</div>
+<div class="section" id="tf-train-example">
+<h2><code class="docutils literal notranslate"><span class="pre">tf.train.Example</span></code><a class="headerlink" href="#tf-train-example" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="data-types-for-tf-train-example">
+<h3>Data types for <code class="docutils literal notranslate"><span class="pre">tf.train.Example</span></code><a class="headerlink" href="#data-types-for-tf-train-example" title="Permalink to this headline">¶</a></h3>
+<p>Fundamentally, a <code class="docutils literal notranslate"><span class="pre">tf.train.Example</span></code> is a <code class="docutils literal notranslate"><span class="pre">{&quot;string&quot;:</span> <span class="pre">tf.train.Feature}</span></code> mapping.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">tf.train.Feature</span></code> message type can accept one of the following three types (See the <a class="reference external" href="https://github.com/tensorflow/tensorflow/blob/master/tensorflow/core/example/feature.proto"><code class="docutils literal notranslate"><span class="pre">.proto</span></code> file</a> for reference). Most other generic types can be coerced into one of these:</p>
+<ol class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">tf.train.BytesList</span></code> (the following types can be coerced)</p></li>
+</ol>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">string</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">byte</span></code></p></li>
+</ul>
+<ol class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">tf.train.FloatList</span></code> (the following types can be coerced)</p></li>
+</ol>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">float</span></code> (<code class="docutils literal notranslate"><span class="pre">float32</span></code>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">double</span></code> (<code class="docutils literal notranslate"><span class="pre">float64</span></code>)</p></li>
+</ul>
+<ol class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">tf.train.Int64List</span></code> (the following types can be coerced)</p></li>
+</ol>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">bool</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">enum</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int32</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">uint32</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int64</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">uint64</span></code></p></li>
+</ul>
+<p>In order to convert a standard TensorFlow type to a <code class="docutils literal notranslate"><span class="pre">tf.train.Example</span></code>-compatible <code class="docutils literal notranslate"><span class="pre">tf.train.Feature</span></code>, you can use the shortcut functions below. Note that each function takes a scalar input value and returns a <code class="docutils literal notranslate"><span class="pre">tf.train.Feature</span></code> containing one of the three <code class="docutils literal notranslate"><span class="pre">list</span></code> types above:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># The following functions can be used to convert a value to a type compatible</span>
+<span class="c1"># with tf.train.Example.</span>
+
+<span class="k">def</span> <span class="nf">_bytes_feature</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Returns a bytes_list from a string / byte.&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">(</span><span class="mi">0</span><span class="p">))):</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="n">value</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span> <span class="c1"># BytesList won&#39;t unpack a string from an EagerTensor.</span>
+    <span class="k">return</span> <span class="n">tf</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">Feature</span><span class="p">(</span><span class="n">bytes_list</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">BytesList</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="p">[</span><span class="n">value</span><span class="p">]))</span>
+
+<span class="k">def</span> <span class="nf">_float_feature</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Returns a float_list from a float / double.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">tf</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">Feature</span><span class="p">(</span><span class="n">float_list</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">FloatList</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="p">[</span><span class="n">value</span><span class="p">]))</span>
+
+<span class="k">def</span> <span class="nf">_int64_feature</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Returns an int64_list from a bool / enum / int / uint.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">tf</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">Feature</span><span class="p">(</span><span class="n">int64_list</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">Int64List</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="p">[</span><span class="n">value</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note: To stay simple, this example only uses scalar inputs. The simplest way to handle non-scalar features is to use <code class="docutils literal notranslate"><span class="pre">tf.io.serialize_tensor</span></code> to convert tensors to binary-strings. Strings are scalars in tensorflow. Use <code class="docutils literal notranslate"><span class="pre">tf.io.parse_tensor</span></code> to convert the binary-string back to a tensor.</p>
+<p>Below are some examples of how these functions work. Note the varying input types and the standardized output types. If the input type for a function does not match one of the coercible types stated above, the function will raise an exception (e.g. <code class="docutils literal notranslate"><span class="pre">_int64_feature(1.0)</span></code> will error out, since <code class="docutils literal notranslate"><span class="pre">1.0</span></code> is a float, so should be used with the <code class="docutils literal notranslate"><span class="pre">_float_feature</span></code> function instead):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">_bytes_feature</span><span class="p">(</span><span class="sa">b</span><span class="s1">&#39;test_string&#39;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">_bytes_feature</span><span class="p">(</span><span class="sa">u</span><span class="s1">&#39;test_bytes&#39;</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">_float_feature</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">1</span><span class="p">)))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">_int64_feature</span><span class="p">(</span><span class="kc">True</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">_int64_feature</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>bytes_list {
+  value: &quot;test_string&quot;
+}
+
+bytes_list {
+  value: &quot;test_bytes&quot;
+}
+
+float_list {
+  value: 2.7182817459106445
+}
+
+int64_list {
+  value: 1
+}
+
+int64_list {
+  value: 1
+}
+</pre></div>
+</div>
+</div>
+</div>
+<p>All proto messages can be serialized to a binary-string using the <code class="docutils literal notranslate"><span class="pre">.SerializeToString</span></code> method:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">feature</span> <span class="o">=</span> <span class="n">_float_feature</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+
+<span class="n">feature</span><span class="o">.</span><span class="n">SerializeToString</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>b&#39;\x12\x06\n\x04T\xf8-@&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="creating-a-tf-train-example-message">
+<h3>Creating a <code class="docutils literal notranslate"><span class="pre">tf.train.Example</span></code> message<a class="headerlink" href="#creating-a-tf-train-example-message" title="Permalink to this headline">¶</a></h3>
+<p>Suppose you want to create a <code class="docutils literal notranslate"><span class="pre">tf.train.Example</span></code> message from existing data. In practice, the dataset may come from anywhere, but the procedure of creating the <code class="docutils literal notranslate"><span class="pre">tf.train.Example</span></code> message from a single observation will be the same:</p>
+<ol class="simple">
+<li><p>Within each observation, each value needs to be converted to a <code class="docutils literal notranslate"><span class="pre">tf.train.Feature</span></code> containing one of the 3 compatible types, using one of the functions above.</p></li>
+<li><p>You create a map (dictionary) from the feature name string to the encoded feature value produced in #1.</p></li>
+<li><p>The map produced in step 2 is converted to a <a class="reference external" href="https://github.com/tensorflow/tensorflow/blob/master/tensorflow/core/example/feature.proto#L85"><code class="docutils literal notranslate"><span class="pre">Features</span></code> message</a>.</p></li>
+</ol>
+<p>In this notebook, you will create a dataset using NumPy.</p>
+<p>This dataset will have 4 features:</p>
+<ul class="simple">
+<li><p>a boolean feature, <code class="docutils literal notranslate"><span class="pre">False</span></code> or <code class="docutils literal notranslate"><span class="pre">True</span></code> with equal probability</p></li>
+<li><p>an integer feature uniformly randomly chosen from <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">5]</span></code></p></li>
+<li><p>a string feature generated from a string table by using the integer feature as an index</p></li>
+<li><p>a float feature from a standard normal distribution</p></li>
+</ul>
+<p>Consider a sample consisting of 10,000 independently and identically distributed observations from each of the above distributions:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># The number of observations in the dataset.</span>
+<span class="n">n_observations</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mf">1e4</span><span class="p">)</span>
+
+<span class="c1"># Boolean feature, encoded as False or True.</span>
+<span class="n">feature0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">],</span> <span class="n">n_observations</span><span class="p">)</span>
+
+<span class="c1"># Integer feature, random from 0 to 4.</span>
+<span class="n">feature1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">n_observations</span><span class="p">)</span>
+
+<span class="c1"># String feature</span>
+<span class="n">strings</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="sa">b</span><span class="s1">&#39;cat&#39;</span><span class="p">,</span> <span class="sa">b</span><span class="s1">&#39;dog&#39;</span><span class="p">,</span> <span class="sa">b</span><span class="s1">&#39;chicken&#39;</span><span class="p">,</span> <span class="sa">b</span><span class="s1">&#39;horse&#39;</span><span class="p">,</span> <span class="sa">b</span><span class="s1">&#39;goat&#39;</span><span class="p">])</span>
+<span class="n">feature2</span> <span class="o">=</span> <span class="n">strings</span><span class="p">[</span><span class="n">feature1</span><span class="p">]</span>
+
+<span class="c1"># Float feature, from a standard normal distribution</span>
+<span class="n">feature3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">n_observations</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Each of these features can be coerced into a <code class="docutils literal notranslate"><span class="pre">tf.train.Example</span></code>-compatible type using one of <code class="docutils literal notranslate"><span class="pre">_bytes_feature</span></code>, <code class="docutils literal notranslate"><span class="pre">_float_feature</span></code>, <code class="docutils literal notranslate"><span class="pre">_int64_feature</span></code>. You can then create a <code class="docutils literal notranslate"><span class="pre">tf.train.Example</span></code> message from these encoded features:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">serialize_example</span><span class="p">(</span><span class="n">feature0</span><span class="p">,</span> <span class="n">feature1</span><span class="p">,</span> <span class="n">feature2</span><span class="p">,</span> <span class="n">feature3</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Creates a tf.train.Example message ready to be written to a file.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Create a dictionary mapping the feature name to the tf.train.Example-compatible</span>
+    <span class="c1"># data type.</span>
+    <span class="n">feature</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="s1">&#39;feature0&#39;</span><span class="p">:</span> <span class="n">_int64_feature</span><span class="p">(</span><span class="n">feature0</span><span class="p">),</span>
+      <span class="s1">&#39;feature1&#39;</span><span class="p">:</span> <span class="n">_int64_feature</span><span class="p">(</span><span class="n">feature1</span><span class="p">),</span>
+      <span class="s1">&#39;feature2&#39;</span><span class="p">:</span> <span class="n">_bytes_feature</span><span class="p">(</span><span class="n">feature2</span><span class="p">),</span>
+      <span class="s1">&#39;feature3&#39;</span><span class="p">:</span> <span class="n">_float_feature</span><span class="p">(</span><span class="n">feature3</span><span class="p">),</span>
+    <span class="p">}</span>
+
+    <span class="c1"># Create a Features message using tf.train.Example.</span>
+
+    <span class="n">example_proto</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">Example</span><span class="p">(</span><span class="n">features</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">Features</span><span class="p">(</span><span class="n">feature</span><span class="o">=</span><span class="n">feature</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">example_proto</span><span class="o">.</span><span class="n">SerializeToString</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>For example, suppose you have a single observation from the dataset, <code class="docutils literal notranslate"><span class="pre">[False,</span> <span class="pre">4,</span> <span class="pre">bytes('goat'),</span> <span class="pre">0.9876]</span></code>. You can create and print the <code class="docutils literal notranslate"><span class="pre">tf.train.Example</span></code> message for this observation using <code class="docutils literal notranslate"><span class="pre">create_message()</span></code>. Each single observation will be written as a <code class="docutils literal notranslate"><span class="pre">Features</span></code> message as per the above. Note that the <code class="docutils literal notranslate"><span class="pre">tf.train.Example</span></code> <a class="reference external" href="https://github.com/tensorflow/tensorflow/blob/master/tensorflow/core/example/example.proto#L88">message</a> is just a wrapper around the <code class="docutils literal notranslate"><span class="pre">Features</span></code> message:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># This is an example observation from the dataset.</span>
+
+<span class="n">example_observation</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="n">serialized_example</span> <span class="o">=</span> <span class="n">serialize_example</span><span class="p">(</span><span class="kc">False</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="sa">b</span><span class="s1">&#39;goat&#39;</span><span class="p">,</span> <span class="mf">0.9876</span><span class="p">)</span>
+<span class="n">serialized_example</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>b&#39;\nR\n\x11\n\x08feature1\x12\x05\x1a\x03\n\x01\x04\n\x11\n\x08feature0\x12\x05\x1a\x03\n\x01\x00\n\x14\n\x08feature2\x12\x08\n\x06\n\x04goat\n\x14\n\x08feature3\x12\x08\x12\x06\n\x04[\xd3|?&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>To decode the message use the <code class="docutils literal notranslate"><span class="pre">tf.train.Example.FromString</span></code> method.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">example_proto</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">Example</span><span class="o">.</span><span class="n">FromString</span><span class="p">(</span><span class="n">serialized_example</span><span class="p">)</span>
+<span class="n">example_proto</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>features {
+  feature {
+    key: &quot;feature0&quot;
+    value {
+      int64_list {
+        value: 0
+      }
+    }
+  }
+  feature {
+    key: &quot;feature1&quot;
+    value {
+      int64_list {
+        value: 4
+      }
+    }
+  }
+  feature {
+    key: &quot;feature2&quot;
+    value {
+      bytes_list {
+        value: &quot;goat&quot;
+      }
+    }
+  }
+  feature {
+    key: &quot;feature3&quot;
+    value {
+      float_list {
+        value: 0.9876000285148621
+      }
+    }
+  }
+}
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="tfrecords-format-details">
+<h2>TFRecords format details<a class="headerlink" href="#tfrecords-format-details" title="Permalink to this headline">¶</a></h2>
+<p>A TFRecord file contains a sequence of records. The file can only be read sequentially.</p>
+<p>Each record contains a byte-string, for the data-payload, plus the data-length, and  CRC32C (32-bit CRC using the Castagnoli polynomial) hashes for integrity checking.</p>
+<p>Each record is stored in the following formats:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>uint64 length
+uint32 masked_crc32_of_length
+byte   data[length]
+uint32 masked_crc32_of_data
+</pre></div>
+</div>
+<p>The records are concatenated together to produce the file. CRCs are
+<a class="reference external" href="https://en.wikipedia.org/wiki/Cyclic_redundancy_check">described here</a>, and
+the mask of a CRC is:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>masked_crc = ((crc &gt;&gt; 15) | (crc &lt;&lt; 17)) + 0xa282ead8ul
+</pre></div>
+</div>
+<p>Note: There is no requirement to use <code class="docutils literal notranslate"><span class="pre">tf.train.Example</span></code> in TFRecord files. <code class="docutils literal notranslate"><span class="pre">tf.train.Example</span></code> is just a method of serializing dictionaries to byte-strings. Any byte-string that can be decoded in TensorFlow could be stored in a TFRecord file. Examples include: Lines of text, JSON (using <code class="docutils literal notranslate"><span class="pre">tf.io.decode_json_example</span></code>), encoded image data, or serialized <code class="docutils literal notranslate"><span class="pre">tf.Tensors</span></code> (using <code class="docutils literal notranslate"><span class="pre">tf.io.serialize_tensor</span></code>/<code class="docutils literal notranslate"><span class="pre">tf.io.parse_tensor</span></code>). See the <code class="docutils literal notranslate"><span class="pre">tf.io</span></code> module for more options.</p>
+</div>
+<div class="section" id="tfrecord-files-using-tf-data">
+<h2>TFRecord files using <code class="docutils literal notranslate"><span class="pre">tf.data</span></code><a class="headerlink" href="#tfrecord-files-using-tf-data" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">tf.data</span></code> module also provides tools for reading and writing data in TensorFlow.</p>
+<div class="section" id="writing-a-tfrecord-file">
+<h3>Writing a TFRecord file<a class="headerlink" href="#writing-a-tfrecord-file" title="Permalink to this headline">¶</a></h3>
+<p>The easiest way to get the data into a dataset is to use the <code class="docutils literal notranslate"><span class="pre">from_tensor_slices</span></code> method.</p>
+<p>Applied to an array, it returns a dataset of scalars:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tf</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">Dataset</span><span class="o">.</span><span class="n">from_tensor_slices</span><span class="p">(</span><span class="n">feature1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;TensorSliceDataset shapes: (), types: tf.int64&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Applied to a tuple of arrays, it returns a dataset of tuples:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">features_dataset</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">Dataset</span><span class="o">.</span><span class="n">from_tensor_slices</span><span class="p">((</span><span class="n">feature0</span><span class="p">,</span> <span class="n">feature1</span><span class="p">,</span> <span class="n">feature2</span><span class="p">,</span> <span class="n">feature3</span><span class="p">))</span>
+<span class="n">features_dataset</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;TensorSliceDataset shapes: ((), (), (), ()), types: (tf.bool, tf.int64, tf.string, tf.float64)&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Use `take(1)` to only pull one example from the dataset.</span>
+<span class="k">for</span> <span class="n">f0</span><span class="p">,</span><span class="n">f1</span><span class="p">,</span><span class="n">f2</span><span class="p">,</span><span class="n">f3</span> <span class="ow">in</span> <span class="n">features_dataset</span><span class="o">.</span><span class="n">take</span><span class="p">(</span><span class="mi">1</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">f0</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">f1</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">f2</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">f3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tf.Tensor(True, shape=(), dtype=bool)
+tf.Tensor(2, shape=(), dtype=int64)
+tf.Tensor(b&#39;chicken&#39;, shape=(), dtype=string)
+tf.Tensor(1.1070400019614852, shape=(), dtype=float64)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Use the <code class="docutils literal notranslate"><span class="pre">tf.data.Dataset.map</span></code> method to apply a function to each element of a <code class="docutils literal notranslate"><span class="pre">Dataset</span></code>.</p>
+<p>The mapped function must operate in TensorFlow graph mode—it must operate on and return <code class="docutils literal notranslate"><span class="pre">tf.Tensors</span></code>. A non-tensor function, like <code class="docutils literal notranslate"><span class="pre">serialize_example</span></code>, can be wrapped with <code class="docutils literal notranslate"><span class="pre">tf.py_function</span></code> to make it compatible.</p>
+<p>Using <code class="docutils literal notranslate"><span class="pre">tf.py_function</span></code> requires to specify the shape and type information that is otherwise unavailable:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">tf_serialize_example</span><span class="p">(</span><span class="n">f0</span><span class="p">,</span><span class="n">f1</span><span class="p">,</span><span class="n">f2</span><span class="p">,</span><span class="n">f3</span><span class="p">):</span>
+    <span class="n">tf_string</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">py_function</span><span class="p">(</span>
+        <span class="n">serialize_example</span><span class="p">,</span>
+        <span class="p">(</span><span class="n">f0</span><span class="p">,</span><span class="n">f1</span><span class="p">,</span><span class="n">f2</span><span class="p">,</span><span class="n">f3</span><span class="p">),</span>  <span class="c1"># pass these args to the above function.</span>
+        <span class="n">tf</span><span class="o">.</span><span class="n">string</span><span class="p">)</span>      <span class="c1"># the return type is `tf.string`.</span>
+    <span class="k">return</span> <span class="n">tf</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">tf_string</span><span class="p">,</span> <span class="p">())</span> <span class="c1"># The result is a scalar</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tf_serialize_example</span><span class="p">(</span><span class="n">f0</span><span class="p">,</span><span class="n">f1</span><span class="p">,</span><span class="n">f2</span><span class="p">,</span><span class="n">f3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;tf.Tensor: shape=(), dtype=string, numpy=b&#39;\nU\n\x17\n\x08feature2\x12\x0b\n\t\n\x07chicken\n\x11\n\x08feature0\x12\x05\x1a\x03\n\x01\x01\n\x11\n\x08feature1\x12\x05\x1a\x03\n\x01\x02\n\x14\n\x08feature3\x12\x08\x12\x06\n\x04}\xb3\x8d?&#39;&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Apply this function to each element in the dataset:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">serialized_features_dataset</span> <span class="o">=</span> <span class="n">features_dataset</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">tf_serialize_example</span><span class="p">)</span>
+<span class="n">serialized_features_dataset</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;MapDataset shapes: (), types: tf.string&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">generator</span><span class="p">():</span>
+    <span class="k">for</span> <span class="n">features</span> <span class="ow">in</span> <span class="n">features_dataset</span><span class="p">:</span>
+        <span class="k">yield</span> <span class="n">serialize_example</span><span class="p">(</span><span class="o">*</span><span class="n">features</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">serialized_features_dataset</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">Dataset</span><span class="o">.</span><span class="n">from_generator</span><span class="p">(</span>
+    <span class="n">generator</span><span class="p">,</span> <span class="n">output_types</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">string</span><span class="p">,</span> <span class="n">output_shapes</span><span class="o">=</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">serialized_features_dataset</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;FlatMapDataset shapes: (), types: tf.string&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>And write them to a TFRecord file:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filename</span> <span class="o">=</span> <span class="s1">&#39;/tmp/test.tfrecord&#39;</span>
+<span class="n">writer</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">experimental</span><span class="o">.</span><span class="n">TFRecordWriter</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+<span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">serialized_features_dataset</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="reading-a-tfrecord-file">
+<h3>Reading a TFRecord file<a class="headerlink" href="#reading-a-tfrecord-file" title="Permalink to this headline">¶</a></h3>
+<p>You can also read the TFRecord file using the <code class="docutils literal notranslate"><span class="pre">tf.data.TFRecordDataset</span></code> class.</p>
+<p>More information on consuming TFRecord files using <code class="docutils literal notranslate"><span class="pre">tf.data</span></code> can be found <a class="reference external" href="https://www.tensorflow.org/guide/datasets#consuming_tfrecord_data">here</a>.</p>
+<p>Using <code class="docutils literal notranslate"><span class="pre">TFRecordDataset</span></code>s can be useful for standardizing input data and optimizing performance.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filenames</span> <span class="o">=</span> <span class="p">[</span><span class="n">filename</span><span class="p">]</span>
+<span class="n">raw_dataset</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">TFRecordDataset</span><span class="p">(</span><span class="n">filenames</span><span class="p">)</span>
+<span class="n">raw_dataset</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;TFRecordDatasetV2 shapes: (), types: tf.string&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>At this point the dataset contains serialized <code class="docutils literal notranslate"><span class="pre">tf.train.Example</span></code> messages. When iterated over it returns these as scalar string tensors.</p>
+<p>Use the <code class="docutils literal notranslate"><span class="pre">.take</span></code> method to only show the first 10 records.</p>
+<p>Note: iterating over a <code class="docutils literal notranslate"><span class="pre">tf.data.Dataset</span></code> only works with eager execution enabled.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">raw_record</span> <span class="ow">in</span> <span class="n">raw_dataset</span><span class="o">.</span><span class="n">take</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">repr</span><span class="p">(</span><span class="n">raw_record</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;tf.Tensor: shape=(), dtype=string, numpy=b&#39;\nU\n\x11\n\x08feature1\x12\x05\x1a\x03\n\x01\x02\n\x17\n\x08feature2\x12\x0b\n\t\n\x07chicken\n\x11\n\x08feature0\x12\x05\x1a\x03\n\x01\x01\n\x14\n\x08feature3\x12\x08\x12\x06\n\x04}\xb3\x8d?&#39;&gt;
+&lt;tf.Tensor: shape=(), dtype=string, numpy=b&#39;\nR\n\x14\n\x08feature2\x12\x08\n\x06\n\x04goat\n\x14\n\x08feature3\x12\x08\x12\x06\n\x04u\x88/&gt;\n\x11\n\x08feature1\x12\x05\x1a\x03\n\x01\x04\n\x11\n\x08feature0\x12\x05\x1a\x03\n\x01\x00&#39;&gt;
+&lt;tf.Tensor: shape=(), dtype=string, numpy=b&#39;\nU\n\x11\n\x08feature1\x12\x05\x1a\x03\n\x01\x02\n\x17\n\x08feature2\x12\x0b\n\t\n\x07chicken\n\x11\n\x08feature0\x12\x05\x1a\x03\n\x01\x00\n\x14\n\x08feature3\x12\x08\x12\x06\n\x04\x83\x1a\x86?&#39;&gt;
+&lt;tf.Tensor: shape=(), dtype=string, numpy=b&#39;\nR\n\x14\n\x08feature3\x12\x08\x12\x06\n\x04\x85c\x12\xbf\n\x14\n\x08feature2\x12\x08\n\x06\n\x04goat\n\x11\n\x08feature0\x12\x05\x1a\x03\n\x01\x00\n\x11\n\x08feature1\x12\x05\x1a\x03\n\x01\x04&#39;&gt;
+&lt;tf.Tensor: shape=(), dtype=string, numpy=b&#39;\nR\n\x14\n\x08feature2\x12\x08\n\x06\n\x04goat\n\x11\n\x08feature0\x12\x05\x1a\x03\n\x01\x00\n\x14\n\x08feature3\x12\x08\x12\x06\n\x04\x88\xda\xa3&gt;\n\x11\n\x08feature1\x12\x05\x1a\x03\n\x01\x04&#39;&gt;
+&lt;tf.Tensor: shape=(), dtype=string, numpy=b&#39;\nU\n\x11\n\x08feature1\x12\x05\x1a\x03\n\x01\x02\n\x14\n\x08feature3\x12\x08\x12\x06\n\x04=\x18\xf2&gt;\n\x11\n\x08feature0\x12\x05\x1a\x03\n\x01\x00\n\x17\n\x08feature2\x12\x0b\n\t\n\x07chicken&#39;&gt;
+&lt;tf.Tensor: shape=(), dtype=string, numpy=b&#39;\nR\n\x14\n\x08feature3\x12\x08\x12\x06\n\x04lWM&gt;\n\x14\n\x08feature2\x12\x08\n\x06\n\x04goat\n\x11\n\x08feature0\x12\x05\x1a\x03\n\x01\x00\n\x11\n\x08feature1\x12\x05\x1a\x03\n\x01\x04&#39;&gt;
+&lt;tf.Tensor: shape=(), dtype=string, numpy=b&#39;\nU\n\x11\n\x08feature1\x12\x05\x1a\x03\n\x01\x02\n\x17\n\x08feature2\x12\x0b\n\t\n\x07chicken\n\x14\n\x08feature3\x12\x08\x12\x06\n\x04\xb8K$\xbf\n\x11\n\x08feature0\x12\x05\x1a\x03\n\x01\x01&#39;&gt;
+&lt;tf.Tensor: shape=(), dtype=string, numpy=b&#39;\nQ\n\x11\n\x08feature0\x12\x05\x1a\x03\n\x01\x00\n\x14\n\x08feature3\x12\x08\x12\x06\n\x04\xf6p\x80?\n\x11\n\x08feature1\x12\x05\x1a\x03\n\x01\x01\n\x13\n\x08feature2\x12\x07\n\x05\n\x03dog&#39;&gt;
+&lt;tf.Tensor: shape=(), dtype=string, numpy=b&#39;\nQ\n\x11\n\x08feature1\x12\x05\x1a\x03\n\x01\x01\n\x11\n\x08feature0\x12\x05\x1a\x03\n\x01\x00\n\x14\n\x08feature3\x12\x08\x12\x06\n\x04\x19qi\xbe\n\x13\n\x08feature2\x12\x07\n\x05\n\x03dog&#39;&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>These tensors can be parsed using the function below. Note that the <code class="docutils literal notranslate"><span class="pre">feature_description</span></code> is necessary here because datasets use graph-execution, and need this description to build their shape and type signature:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a description of the features.</span>
+<span class="n">feature_description</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;feature0&#39;</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">FixedLenFeature</span><span class="p">([],</span> <span class="n">tf</span><span class="o">.</span><span class="n">int64</span><span class="p">,</span> <span class="n">default_value</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span>
+    <span class="s1">&#39;feature1&#39;</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">FixedLenFeature</span><span class="p">([],</span> <span class="n">tf</span><span class="o">.</span><span class="n">int64</span><span class="p">,</span> <span class="n">default_value</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span>
+    <span class="s1">&#39;feature2&#39;</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">FixedLenFeature</span><span class="p">([],</span> <span class="n">tf</span><span class="o">.</span><span class="n">string</span><span class="p">,</span> <span class="n">default_value</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">),</span>
+    <span class="s1">&#39;feature3&#39;</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">FixedLenFeature</span><span class="p">([],</span> <span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> <span class="n">default_value</span><span class="o">=</span><span class="mf">0.0</span><span class="p">),</span>
+<span class="p">}</span>
+
+<span class="k">def</span> <span class="nf">_parse_function</span><span class="p">(</span><span class="n">example_proto</span><span class="p">):</span>
+  <span class="c1"># Parse the input `tf.train.Example` proto using the dictionary above.</span>
+  <span class="k">return</span> <span class="n">tf</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">parse_single_example</span><span class="p">(</span><span class="n">example_proto</span><span class="p">,</span> <span class="n">feature_description</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Alternatively, use <code class="docutils literal notranslate"><span class="pre">tf.parse</span> <span class="pre">example</span></code> to parse the whole batch at once. Apply this function to each item in the dataset using the <code class="docutils literal notranslate"><span class="pre">tf.data.Dataset.map</span></code> method:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">parsed_dataset</span> <span class="o">=</span> <span class="n">raw_dataset</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">_parse_function</span><span class="p">)</span>
+<span class="n">parsed_dataset</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;MapDataset shapes: {feature0: (), feature1: (), feature2: (), feature3: ()}, types: {feature0: tf.int64, feature1: tf.int64, feature2: tf.string, feature3: tf.float32}&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Use eager execution to display the observations in the dataset. There are 10,000 observations in this dataset, but you will only display the first 10. The data is displayed as a dictionary of features. Each item is a <code class="docutils literal notranslate"><span class="pre">tf.Tensor</span></code>, and the <code class="docutils literal notranslate"><span class="pre">numpy</span></code> element of this tensor displays the value of the feature:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">parsed_record</span> <span class="ow">in</span> <span class="n">parsed_dataset</span><span class="o">.</span><span class="n">take</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">repr</span><span class="p">(</span><span class="n">parsed_record</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;feature0&#39;: &lt;tf.Tensor: shape=(), dtype=int64, numpy=1&gt;, &#39;feature1&#39;: &lt;tf.Tensor: shape=(), dtype=int64, numpy=2&gt;, &#39;feature2&#39;: &lt;tf.Tensor: shape=(), dtype=string, numpy=b&#39;chicken&#39;&gt;, &#39;feature3&#39;: &lt;tf.Tensor: shape=(), dtype=float32, numpy=1.10704&gt;}
+{&#39;feature0&#39;: &lt;tf.Tensor: shape=(), dtype=int64, numpy=0&gt;, &#39;feature1&#39;: &lt;tf.Tensor: shape=(), dtype=int64, numpy=4&gt;, &#39;feature2&#39;: &lt;tf.Tensor: shape=(), dtype=string, numpy=b&#39;goat&#39;&gt;, &#39;feature3&#39;: &lt;tf.Tensor: shape=(), dtype=float32, numpy=0.17141898&gt;}
+{&#39;feature0&#39;: &lt;tf.Tensor: shape=(), dtype=int64, numpy=0&gt;, &#39;feature1&#39;: &lt;tf.Tensor: shape=(), dtype=int64, numpy=2&gt;, &#39;feature2&#39;: &lt;tf.Tensor: shape=(), dtype=string, numpy=b&#39;chicken&#39;&gt;, &#39;feature3&#39;: &lt;tf.Tensor: shape=(), dtype=float32, numpy=1.0476841&gt;}
+{&#39;feature0&#39;: &lt;tf.Tensor: shape=(), dtype=int64, numpy=0&gt;, &#39;feature1&#39;: &lt;tf.Tensor: shape=(), dtype=int64, numpy=4&gt;, &#39;feature2&#39;: &lt;tf.Tensor: shape=(), dtype=string, numpy=b&#39;goat&#39;&gt;, &#39;feature3&#39;: &lt;tf.Tensor: shape=(), dtype=float32, numpy=-0.57183105&gt;}
+{&#39;feature0&#39;: &lt;tf.Tensor: shape=(), dtype=int64, numpy=0&gt;, &#39;feature1&#39;: &lt;tf.Tensor: shape=(), dtype=int64, numpy=4&gt;, &#39;feature2&#39;: &lt;tf.Tensor: shape=(), dtype=string, numpy=b&#39;goat&#39;&gt;, &#39;feature3&#39;: &lt;tf.Tensor: shape=(), dtype=float32, numpy=0.32002664&gt;}
+{&#39;feature0&#39;: &lt;tf.Tensor: shape=(), dtype=int64, numpy=0&gt;, &#39;feature1&#39;: &lt;tf.Tensor: shape=(), dtype=int64, numpy=2&gt;, &#39;feature2&#39;: &lt;tf.Tensor: shape=(), dtype=string, numpy=b&#39;chicken&#39;&gt;, &#39;feature3&#39;: &lt;tf.Tensor: shape=(), dtype=float32, numpy=0.47284117&gt;}
+{&#39;feature0&#39;: &lt;tf.Tensor: shape=(), dtype=int64, numpy=0&gt;, &#39;feature1&#39;: &lt;tf.Tensor: shape=(), dtype=int64, numpy=4&gt;, &#39;feature2&#39;: &lt;tf.Tensor: shape=(), dtype=string, numpy=b&#39;goat&#39;&gt;, &#39;feature3&#39;: &lt;tf.Tensor: shape=(), dtype=float32, numpy=0.2005288&gt;}
+{&#39;feature0&#39;: &lt;tf.Tensor: shape=(), dtype=int64, numpy=1&gt;, &#39;feature1&#39;: &lt;tf.Tensor: shape=(), dtype=int64, numpy=2&gt;, &#39;feature2&#39;: &lt;tf.Tensor: shape=(), dtype=string, numpy=b&#39;chicken&#39;&gt;, &#39;feature3&#39;: &lt;tf.Tensor: shape=(), dtype=float32, numpy=-0.6417804&gt;}
+{&#39;feature0&#39;: &lt;tf.Tensor: shape=(), dtype=int64, numpy=0&gt;, &#39;feature1&#39;: &lt;tf.Tensor: shape=(), dtype=int64, numpy=1&gt;, &#39;feature2&#39;: &lt;tf.Tensor: shape=(), dtype=string, numpy=b&#39;dog&#39;&gt;, &#39;feature3&#39;: &lt;tf.Tensor: shape=(), dtype=float32, numpy=1.0034473&gt;}
+{&#39;feature0&#39;: &lt;tf.Tensor: shape=(), dtype=int64, numpy=0&gt;, &#39;feature1&#39;: &lt;tf.Tensor: shape=(), dtype=int64, numpy=1&gt;, &#39;feature2&#39;: &lt;tf.Tensor: shape=(), dtype=string, numpy=b&#39;dog&#39;&gt;, &#39;feature3&#39;: &lt;tf.Tensor: shape=(), dtype=float32, numpy=-0.2279705&gt;}
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here, the <code class="docutils literal notranslate"><span class="pre">tf.parse_example</span></code> function unpacks the <code class="docutils literal notranslate"><span class="pre">tf.train.Example</span></code> fields into standard tensors.</p>
+</div>
+</div>
+<div class="section" id="tfrecord-files-in-python">
+<h2>TFRecord files in Python<a class="headerlink" href="#tfrecord-files-in-python" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">tf.io</span></code> module also contains pure-Python functions for reading and writing TFRecord files.</p>
+<div class="section" id="id2">
+<h3>Writing a TFRecord file<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>Next, write the 10,000 observations to the file <code class="docutils literal notranslate"><span class="pre">test.tfrecord</span></code>. Each observation is converted to a <code class="docutils literal notranslate"><span class="pre">tf.train.Example</span></code> message, then written to file. You can then verify that the file <code class="docutils literal notranslate"><span class="pre">test.tfrecord</span></code> has been created:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Write the `tf.train.Example` observations to the file.</span>
+<span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">TFRecordWriter</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span> <span class="k">as</span> <span class="n">writer</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_observations</span><span class="p">):</span>
+        <span class="n">example</span> <span class="o">=</span> <span class="n">serialize_example</span><span class="p">(</span><span class="n">feature0</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">feature1</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">feature2</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">feature3</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+        <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">example</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>du -sh <span class="o">{</span>filename<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.0M	/tmp/test.tfrecord
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id3">
+<h3>Reading a TFRecord file<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>These serialized tensors can be easily parsed using <code class="docutils literal notranslate"><span class="pre">tf.train.Example.ParseFromString</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filenames</span> <span class="o">=</span> <span class="p">[</span><span class="n">filename</span><span class="p">]</span>
+<span class="n">raw_dataset</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">TFRecordDataset</span><span class="p">(</span><span class="n">filenames</span><span class="p">)</span>
+<span class="n">raw_dataset</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;TFRecordDatasetV2 shapes: (), types: tf.string&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">raw_record</span> <span class="ow">in</span> <span class="n">raw_dataset</span><span class="o">.</span><span class="n">take</span><span class="p">(</span><span class="mi">1</span><span class="p">):</span>
+    <span class="n">example</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">Example</span><span class="p">()</span>
+    <span class="n">example</span><span class="o">.</span><span class="n">ParseFromString</span><span class="p">(</span><span class="n">raw_record</span><span class="o">.</span><span class="n">numpy</span><span class="p">())</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">example</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>features {
+  feature {
+    key: &quot;feature0&quot;
+    value {
+      int64_list {
+        value: 1
+      }
+    }
+  }
+  feature {
+    key: &quot;feature1&quot;
+    value {
+      int64_list {
+        value: 2
+      }
+    }
+  }
+  feature {
+    key: &quot;feature2&quot;
+    value {
+      bytes_list {
+        value: &quot;chicken&quot;
+      }
+    }
+  }
+  feature {
+    key: &quot;feature3&quot;
+    value {
+      float_list {
+        value: 1.1070400476455688
+      }
+    }
+  }
+}
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="walkthrough-reading-and-writing-image-data">
+<h2>Walkthrough: Reading and writing image data<a class="headerlink" href="#walkthrough-reading-and-writing-image-data" title="Permalink to this headline">¶</a></h2>
+<p>This is an end-to-end example of how to read and write image data using TFRecords. Using an image as input data, you will write the data as a TFRecord file, then read the file back and display the image.</p>
+<p>This can be useful if, for example, you want to use several models on the same input dataset. Instead of storing the image data raw, it can be preprocessed into the TFRecords format, and that can be used in all further processing and modelling.</p>
+<p>First, let’s download <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Felis_catus-cat_on_snow.jpg">this image</a> of a cat in the snow and <a class="reference external" href="https://upload.wikimedia.org/wikipedia/commons/f/fe/New_East_River_Bridge_from_Brooklyn_det.4a09796u.jpg">this photo</a> of the Williamsburg Bridge, NYC under construction.</p>
+<div class="section" id="fetch-the-images">
+<h3>Fetch the images<a class="headerlink" href="#fetch-the-images" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cat_in_snow</span>  <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">get_file</span><span class="p">(</span><span class="s1">&#39;/tmp/320px-Felis_catus-cat_on_snow.jpg&#39;</span><span class="p">,</span> <span class="s1">&#39;https://storage.googleapis.com/download.tensorflow.org/example_images/320px-Felis_catus-cat_on_snow.jpg&#39;</span><span class="p">)</span>
+<span class="n">williamsburg_bridge</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">get_file</span><span class="p">(</span><span class="s1">&#39;/tmp/194px-New_East_River_Bridge_from_Brooklyn_det.4a09796u.jpg&#39;</span><span class="p">,</span><span class="s1">&#39;https://storage.googleapis.com/download.tensorflow.org/example_images/194px-New_East_River_Bridge_from_Brooklyn_det.4a09796u.jpg&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">IPython</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">display</span><span class="p">(</span><span class="n">IPython</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="n">cat_in_snow</span><span class="p">))</span>
+<span class="n">IPython</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">display</span><span class="p">(</span><span class="n">IPython</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">HTML</span><span class="p">(</span><span class="s1">&#39;Image cc-by: &lt;a &quot;href=https://commons.wikimedia.org/wiki/File:Felis_catus-cat_on_snow.jpg&quot;&gt;Von.grzanka&lt;/a&gt;&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/tf2_beginner_tfrecord_71_0.jpg" src="../../_images/tf2_beginner_tfrecord_71_0.jpg" />
+<div class="output text_html">Image cc-by: <a "href=https://commons.wikimedia.org/wiki/File:Felis_catus-cat_on_snow.jpg">Von.grzanka</a></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">IPython</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">display</span><span class="p">(</span><span class="n">IPython</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="n">williamsburg_bridge</span><span class="p">))</span>
+<span class="n">IPython</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">display</span><span class="p">(</span><span class="n">IPython</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">HTML</span><span class="p">(</span><span class="s1">&#39;&lt;a &quot;href=https://commons.wikimedia.org/wiki/File:New_East_River_Bridge_from_Brooklyn_det.4a09796u.jpg&quot;&gt;From Wikimedia&lt;/a&gt;&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/tf2_beginner_tfrecord_72_0.jpg" src="../../_images/tf2_beginner_tfrecord_72_0.jpg" />
+<div class="output text_html"><a "href=https://commons.wikimedia.org/wiki/File:New_East_River_Bridge_from_Brooklyn_det.4a09796u.jpg">From Wikimedia</a></div></div>
+</div>
+</div>
+<div class="section" id="write-the-tfrecord-file">
+<h3>Write the TFRecord file<a class="headerlink" href="#write-the-tfrecord-file" title="Permalink to this headline">¶</a></h3>
+<p>As before, encode the features as types compatible with <code class="docutils literal notranslate"><span class="pre">tf.train.Example</span></code>. This stores the raw image string feature, as well as the height, width, depth, and arbitrary <code class="docutils literal notranslate"><span class="pre">label</span></code> feature. The latter is used when you write the file to distinguish between the cat image and the bridge image. Use <code class="docutils literal notranslate"><span class="pre">0</span></code> for the cat image, and <code class="docutils literal notranslate"><span class="pre">1</span></code> for the bridge image:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">image_labels</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">cat_in_snow</span> <span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="n">williamsburg_bridge</span> <span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># This is an example, just using the cat image.</span>
+<span class="n">image_string</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">cat_in_snow</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+
+<span class="n">label</span> <span class="o">=</span> <span class="n">image_labels</span><span class="p">[</span><span class="n">cat_in_snow</span><span class="p">]</span>
+
+<span class="c1"># Create a dictionary with features that may be relevant.</span>
+<span class="k">def</span> <span class="nf">image_example</span><span class="p">(</span><span class="n">image_string</span><span class="p">,</span> <span class="n">label</span><span class="p">):</span>
+    <span class="n">image_shape</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">image</span><span class="o">.</span><span class="n">decode_jpeg</span><span class="p">(</span><span class="n">image_string</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span>
+
+    <span class="n">feature</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="s1">&#39;height&#39;</span><span class="p">:</span> <span class="n">_int64_feature</span><span class="p">(</span><span class="n">image_shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span>
+      <span class="s1">&#39;width&#39;</span><span class="p">:</span> <span class="n">_int64_feature</span><span class="p">(</span><span class="n">image_shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span>
+      <span class="s1">&#39;depth&#39;</span><span class="p">:</span> <span class="n">_int64_feature</span><span class="p">(</span><span class="n">image_shape</span><span class="p">[</span><span class="mi">2</span><span class="p">]),</span>
+      <span class="s1">&#39;label&#39;</span><span class="p">:</span> <span class="n">_int64_feature</span><span class="p">(</span><span class="n">label</span><span class="p">),</span>
+      <span class="s1">&#39;image_raw&#39;</span><span class="p">:</span> <span class="n">_bytes_feature</span><span class="p">(</span><span class="n">image_string</span><span class="p">),</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="n">tf</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">Example</span><span class="p">(</span><span class="n">features</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">Features</span><span class="p">(</span><span class="n">feature</span><span class="o">=</span><span class="n">feature</span><span class="p">))</span>
+
+<span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="n">image_example</span><span class="p">(</span><span class="n">image_string</span><span class="p">,</span> <span class="n">label</span><span class="p">))</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)[:</span><span class="mi">15</span><span class="p">]:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;...&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>features {
+  feature {
+    key: &quot;depth&quot;
+    value {
+      int64_list {
+        value: 3
+      }
+    }
+  }
+  feature {
+    key: &quot;height&quot;
+    value {
+      int64_list {
+        value: 213
+      }
+...
+</pre></div>
+</div>
+</div>
+</div>
+<p>Notice that all of the features are now stored in the <code class="docutils literal notranslate"><span class="pre">tf.train.Example</span></code> message. Next, functionalize the code above and write the example messages to a file named <code class="docutils literal notranslate"><span class="pre">images.tfrecords</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Write the raw image files to `images.tfrecords`.</span>
+<span class="c1"># First, process the two images into `tf.train.Example` messages.</span>
+<span class="c1"># Then, write to a `.tfrecords` file.</span>
+<span class="n">record_file</span> <span class="o">=</span> <span class="s1">&#39;/tmp/images.tfrecords&#39;</span>
+<span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">TFRecordWriter</span><span class="p">(</span><span class="n">record_file</span><span class="p">)</span> <span class="k">as</span> <span class="n">writer</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">filename</span><span class="p">,</span> <span class="n">label</span> <span class="ow">in</span> <span class="n">image_labels</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="n">image_string</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+        <span class="n">tf_example</span> <span class="o">=</span> <span class="n">image_example</span><span class="p">(</span><span class="n">image_string</span><span class="p">,</span> <span class="n">label</span><span class="p">)</span>
+        <span class="n">writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">tf_example</span><span class="o">.</span><span class="n">SerializeToString</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>du -sh <span class="o">{</span>record_file<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 36K	/tmp/images.tfrecords
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="read-the-tfrecord-file">
+<h3>Read the TFRecord file<a class="headerlink" href="#read-the-tfrecord-file" title="Permalink to this headline">¶</a></h3>
+<p>You now have the file—<code class="docutils literal notranslate"><span class="pre">images.tfrecords</span></code>—and can now iterate over the records in it to read back what you wrote. Given that in this example you will only reproduce the image, the only feature you will need is the raw image string. Extract it using the getters described above, namely <code class="docutils literal notranslate"><span class="pre">example.features.feature['image_raw'].bytes_list.value[0]</span></code>. You can also use the labels to determine which record is the cat and which one is the bridge:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">raw_image_dataset</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">TFRecordDataset</span><span class="p">(</span><span class="s1">&#39;/tmp/images.tfrecords&#39;</span><span class="p">)</span>
+
+<span class="c1"># Create a dictionary describing the features.</span>
+<span class="n">image_feature_description</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;height&#39;</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">FixedLenFeature</span><span class="p">([],</span> <span class="n">tf</span><span class="o">.</span><span class="n">int64</span><span class="p">),</span>
+    <span class="s1">&#39;width&#39;</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">FixedLenFeature</span><span class="p">([],</span> <span class="n">tf</span><span class="o">.</span><span class="n">int64</span><span class="p">),</span>
+    <span class="s1">&#39;depth&#39;</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">FixedLenFeature</span><span class="p">([],</span> <span class="n">tf</span><span class="o">.</span><span class="n">int64</span><span class="p">),</span>
+    <span class="s1">&#39;label&#39;</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">FixedLenFeature</span><span class="p">([],</span> <span class="n">tf</span><span class="o">.</span><span class="n">int64</span><span class="p">),</span>
+    <span class="s1">&#39;image_raw&#39;</span><span class="p">:</span> <span class="n">tf</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">FixedLenFeature</span><span class="p">([],</span> <span class="n">tf</span><span class="o">.</span><span class="n">string</span><span class="p">),</span>
+<span class="p">}</span>
+
+<span class="k">def</span> <span class="nf">_parse_image_function</span><span class="p">(</span><span class="n">example_proto</span><span class="p">):</span>
+  <span class="c1"># Parse the input tf.train.Example proto using the dictionary above.</span>
+  <span class="k">return</span> <span class="n">tf</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">parse_single_example</span><span class="p">(</span><span class="n">example_proto</span><span class="p">,</span> <span class="n">image_feature_description</span><span class="p">)</span>
+
+<span class="n">parsed_image_dataset</span> <span class="o">=</span> <span class="n">raw_image_dataset</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">_parse_image_function</span><span class="p">)</span>
+<span class="n">parsed_image_dataset</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;MapDataset shapes: {depth: (), height: (), image_raw: (), label: (), width: ()}, types: {depth: tf.int64, height: tf.int64, image_raw: tf.string, label: tf.int64, width: tf.int64}&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Recover the images from the TFRecord file:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">image_features</span> <span class="ow">in</span> <span class="n">parsed_image_dataset</span><span class="p">:</span>
+    <span class="n">image_raw</span> <span class="o">=</span> <span class="n">image_features</span><span class="p">[</span><span class="s1">&#39;image_raw&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+    <span class="n">IPython</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">display</span><span class="p">(</span><span class="n">IPython</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">image_raw</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/tf2_beginner_tfrecord_83_0.jpg" src="../../_images/tf2_beginner_tfrecord_83_0.jpg" />
+<img alt="../../_images/tf2_beginner_tfrecord_83_1.jpg" src="../../_images/tf2_beginner_tfrecord_83_1.jpg" />
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./datascience/tf2"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="tf2_beginner_subwords_tokenizer.html" title="previous page">Subword Tokenization</a>
+    <a class='right-next' id="next-link" href="tf2_beginner_tfio.html" title="next page">TF I/O</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By comafire<br/>
+        
+            &copy; Copyright 2015.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+    <!-- Google Analytics -->
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-81648003-1', 'auto');
+      ga('set', 'anonymizeIp', true);
+      ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+    <!-- End Google Analytics -->
+    
+  </body>
+</html>

@@ -512,10 +512,37 @@
      </li>
     </ul>
    </li>
-   <li class="toctree-l2">
+   <li class="toctree-l2 has-children">
     <a class="reference internal" href="../../dataplatform/skp.html">
      St. Kilda Pier (SKP)
     </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/>
+    <label for="toctree-checkbox-13">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../dataplatform/skp_n4e_vscode.html">
+       Native Visual Studio Code
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../dataplatform/skp_n4e_jupyter.html">
+       Native Jupyter
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../dataplatform/skp_d4r_jupyter.html">
+       Docker Jupyter
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../dataplatform/skp_n4e_traefik.html">
+       Native Traefik
+      </a>
+     </li>
+    </ul>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../../dataplatform/gce-nested-vm.html">
@@ -779,7 +806,7 @@ tensorflow ver=2.4.1
   </td>
 </table>
 *<hr class="docutils" />
-<p>This tutorial demonstrates training a simple <a class="reference external" href="https://developers.google.com/machine-learning/glossary/#convolutional_neural_network">Convolutional Neural Network</a> (CNN) to classify <a class="reference external" href="https://www.cs.toronto.edu/%7Ekriz/cifar.html">CIFAR images</a>. Because this tutorial uses the <a class="reference external" href="https://www.tensorflow.org/guide/keras/overview">Keras Sequential API</a>, creating and training our model will take just a few lines of code.</p>
+<p>This tutorial demonstrates training a simple <a class="reference external" href="https://developers.google.com/machine-learning/glossary/#convolutional_neural_network">Convolutional Neural Network</a> (CNN) to classify <a class="reference external" href="https://www.cs.toronto.edu/~kriz/cifar.html">CIFAR images</a>. Because this tutorial uses the <a class="reference external" href="https://www.tensorflow.org/guide/keras/overview">Keras Sequential API</a>, creating and training our model will take just a few lines of code.</p>
 <div class="section" id="download-and-prepare-the-cifar10-dataset">
 <h3>Download and prepare the CIFAR10 dataset<a class="headerlink" href="#download-and-prepare-the-cifar10-dataset" title="Permalink to this headline">¶</a></h3>
 <p>The CIFAR10 dataset contains 60,000 color images in 10 classes, with 6,000 images in each class. The dataset is divided into 50,000 training images and 10,000 testing images. The classes are mutually exclusive and there is no overlap between them.</p>

@@ -512,10 +512,37 @@
      </li>
     </ul>
    </li>
-   <li class="toctree-l2">
+   <li class="toctree-l2 has-children">
     <a class="reference internal" href="skp.html">
      St. Kilda Pier (SKP)
     </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/>
+    <label for="toctree-checkbox-13">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="skp_n4e_vscode.html">
+       Native Visual Studio Code
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="skp_n4e_jupyter.html">
+       Native Jupyter
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="skp_d4r_jupyter.html">
+       Docker Jupyter
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="skp_n4e_traefik.html">
+       Native Traefik
+      </a>
+     </li>
+    </ul>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="gce-nested-vm.html">
@@ -658,7 +685,7 @@
 <h1>Network<a class="headerlink" href="#network" title="Permalink to this headline">¶</a></h1>
 <p>요즘 인터넷 서비스는 속도면에서는 데이터 프로젝트를 진행하기에 충분합니다. 개인 노트북으로 분석 프로젝트를 진행하는데는 큰 문제는 없습니다.</p>
 <p>그리고 원격 접속 서비스앱을 이용한다면, 별다른 네트워크적 고려 없이 무선 공유기에 고성능 컴퓨터를 접속해 두고 외부 카페에서 가벼운 노트북이나 아이패드로 원격으로 작업을 할 수도 있습니다. 비슷한 기능을 제공하는 많은 서비스들이 있지만, 그 중 맥/윈도우간에 원격 접속 앱으로는 JumpDesktop 사용을 추천합니다. (맥용 앱은 유료입니다.) 사용방법은 인터넷 상에 많은 리뷰 글들이 있으니 참조하면 됩니다. (<a class="reference external" href="https://hauku.tistory.com/12">https://hauku.tistory.com/12</a>)</p>
-<p>이런, 시나리오 외에 웹으로 제공되는 서비스를 개발하는 프로젝트의 경우에는 네트워크 환경에 대해서 고려해야 할 것들이 좀 생겨납니다.</p>
+<p>이런, 시나리오 외에 웹으로 제공되는 서비스를 개발하는 프로젝트들 같은 경우에는 네트워크 환경에 대해서 고려해야 할 것들이 좀 생겨납니다.</p>
 <div class="section" id="public-ip-ddns-superdmz-twinip">
 <h2>Public IP / DDNS / SuperDMZ (TwinIP)<a class="headerlink" href="#public-ip-ddns-superdmz-twinip" title="Permalink to this headline">¶</a></h2>
 <p>인터넷 서비스 네트워크 구성은 보통 아래와 같습니다.</p>

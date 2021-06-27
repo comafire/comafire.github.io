@@ -512,10 +512,37 @@
      </li>
     </ul>
    </li>
-   <li class="toctree-l2">
+   <li class="toctree-l2 has-children">
     <a class="reference internal" href="../../dataplatform/skp.html">
      St. Kilda Pier (SKP)
     </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/>
+    <label for="toctree-checkbox-13">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../dataplatform/skp_n4e_vscode.html">
+       Native Visual Studio Code
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../dataplatform/skp_n4e_jupyter.html">
+       Native Jupyter
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../dataplatform/skp_d4r_jupyter.html">
+       Docker Jupyter
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../dataplatform/skp_n4e_traefik.html">
+       Native Traefik
+      </a>
+     </li>
+    </ul>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../../dataplatform/gce-nested-vm.html">
@@ -803,7 +830,7 @@ PIL ver=7.1.2
 <div class="section" id="what-is-image-segmentation">
 <h2>What is image segmentation?<a class="headerlink" href="#what-is-image-segmentation" title="Permalink to this headline">¶</a></h2>
 <p>So far you have seen image classification, where the task of the network is to assign a label or class to an input image. However, suppose you want to know where an object is located in the image, the shape of that object, which pixel belongs to which object, etc. In this case you will want to segment the image, i.e., each pixel of the image is given a label. Thus, the task of image segmentation is to train a neural network to output a pixel-wise mask of the image. This helps in understanding the image at a much lower level, i.e., the pixel level. Image segmentation has many applications in medical imaging, self-driving cars and satellite imaging to name a few.</p>
-<p>The dataset that will be used for this tutorial is the <a class="reference external" href="https://www.robots.ox.ac.uk/%7Evgg/data/pets/">Oxford-IIIT Pet Dataset</a>, created by Parkhi <em>et al</em>. The dataset consists of images, their corresponding labels, and pixel-wise masks. The masks are basically labels for each pixel. Each pixel is given one of three categories :</p>
+<p>The dataset that will be used for this tutorial is the <a class="reference external" href="https://www.robots.ox.ac.uk/~vgg/data/pets/">Oxford-IIIT Pet Dataset</a>, created by Parkhi <em>et al</em>. The dataset consists of images, their corresponding labels, and pixel-wise masks. The masks are basically labels for each pixel. Each pixel is given one of three categories :</p>
 <ul class="simple">
 <li><p>Class 1 : Pixel belonging to the pet.</p></li>
 <li><p>Class 2 : Pixel bordering the pet.</p></li>

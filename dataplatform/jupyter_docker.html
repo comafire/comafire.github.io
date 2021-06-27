@@ -512,10 +512,37 @@
      </li>
     </ul>
    </li>
-   <li class="toctree-l2">
+   <li class="toctree-l2 has-children">
     <a class="reference internal" href="skp.html">
      St. Kilda Pier (SKP)
     </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/>
+    <label for="toctree-checkbox-13">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="skp_n4e_vscode.html">
+       Native Visual Studio Code
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="skp_n4e_jupyter.html">
+       Native Jupyter
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="skp_d4r_jupyter.html">
+       Docker Jupyter
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="skp_n4e_traefik.html">
+       Native Traefik
+      </a>
+     </li>
+    </ul>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="gce-nested-vm.html">
@@ -717,7 +744,7 @@
                 
   <div class="section" id="jupyter-docker">
 <h1>Jupyter (Docker)<a class="headerlink" href="#jupyter-docker" title="Permalink to this headline">¶</a></h1>
-<p>DataScientist 를 위한 Jupyter Docker</p>
+<p><a class="reference external" href="https://github.com/comafire/docker-jupyter">https://github.com/comafire/docker-jupyter</a></p>
 <p>Native 개발 환경을 사용하다 보면, 컴퓨터 교체나 운영체제 업그레이드시에 개발 환경이 꼬여서 재설치하는 경우가 심심치 않게 생깁니다. 이런 불편함 때문에 생겨난 기술이 Docker(도커) 입니다.</p>
 <p>도커를 이용하면 개발 환경을 완벽하게 분리된 상태로 사용하면서 이미지처럼 저장하거나 원하면 빌드해서 사용할 수 있기 때문에 개발 환경을 재구축 해야 할때의 수고스러움을 많은 부분에서 덜 수 있습니다.</p>
 <p>다만, 윈도우 / 맥에서는 Docker를 사용해도 Virtual Machine 위에 Docker가 돌아가기 때문에 성능 및 GPU 사용에 제약이 발생합니다. 이런 제약을 피하려면, 리눅스 개발 환경을 추천합니다.</p>

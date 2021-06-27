@@ -512,10 +512,37 @@
      </li>
     </ul>
    </li>
-   <li class="toctree-l2">
+   <li class="toctree-l2 has-children">
     <a class="reference internal" href="../../dataplatform/skp.html">
      St. Kilda Pier (SKP)
     </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/>
+    <label for="toctree-checkbox-13">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../dataplatform/skp_n4e_vscode.html">
+       Native Visual Studio Code
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../dataplatform/skp_n4e_jupyter.html">
+       Native Jupyter
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../dataplatform/skp_d4r_jupyter.html">
+       Docker Jupyter
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../dataplatform/skp_n4e_traefik.html">
+       Native Traefik
+      </a>
+     </li>
+    </ul>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../../dataplatform/gce-nested-vm.html">
@@ -849,7 +876,7 @@ tensorflow ver=2.4.1
 <div class="section" id="sentiment-analysis">
 <h2>Sentiment analysis<a class="headerlink" href="#sentiment-analysis" title="Permalink to this headline">¶</a></h2>
 <p>This notebook trains a sentiment analysis model to classify movie reviews as <em>positive</em> or <em>negative</em>, based on the text of the review. This is an example of <em>binary</em>—or two-class—classification, an important and widely applicable kind of machine learning problem.</p>
-<p>You’ll use the <a class="reference external" href="https://ai.stanford.edu/%7Eamaas/data/sentiment/">Large Movie Review Dataset</a> that contains the text of 50,000 movie reviews from the <a class="reference external" href="https://www.imdb.com/">Internet Movie Database</a>. These are split into 25,000 reviews for training and 25,000 reviews for testing. The training and testing sets are <em>balanced</em>, meaning they contain an equal number of positive and negative reviews.</p>
+<p>You’ll use the <a class="reference external" href="https://ai.stanford.edu/~amaas/data/sentiment/">Large Movie Review Dataset</a> that contains the text of 50,000 movie reviews from the <a class="reference external" href="https://www.imdb.com/">Internet Movie Database</a>. These are split into 25,000 reviews for training and 25,000 reviews for testing. The training and testing sets are <em>balanced</em>, meaning they contain an equal number of positive and negative reviews.</p>
 <div class="section" id="download-and-explore-the-imdb-dataset">
 <h3>Download and explore the IMDB dataset<a class="headerlink" href="#download-and-explore-the-imdb-dataset" title="Permalink to this headline">¶</a></h3>
 <p>Let’s download and extract the dataset, then explore the directory structure.</p>

@@ -1,0 +1,1992 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Overfit &amp; Underfit &#8212; 데사견문록</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Save &amp; Load" href="tf2_beginner_save_load.html" />
+    <link rel="prev" title="Regression" href="tf2_beginner_regression.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+      <img src="../../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">데사견문록</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../readme.html">
+   데이터사이언스견문록
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  DataScience
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../e2eds.html">
+   End to End Data Science (E2EDS)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../random_seed.html">
+   Random
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../dataprep.html">
+   Data Preperation
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../dataprep/data_type.html">
+     Data Type
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../dataprep/spark_dataframe_10mins.html">
+     Spark DataFrame 10mins
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../dataprep/pandas_10mins.html">
+     Pandas 10mins
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../dataprep/numpy_10mins.html">
+     Numpy 10mins
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../data_analytics.html">
+   Data Analytics
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../data_analytics/data_description.html">
+     Data Description
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../data_analytics/missing_value.html">
+     Missing Value
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../data_analytics/descriptive_statistics.html">
+     Descriptive Statistcs
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../data_analytics/inferential_statistics.html">
+     Inferential Statistcs
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../data_analytics/multivariate_analysis.html">
+     Multivariate Analysis
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../data_analytics/bayesian_statistics.html">
+     Bayesian Statistics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../data_analytics/outlier.html">
+     Outlier
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../data_analytics/scipy_normality_test.html">
+     Normality Test
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../data_analytics/scipy_statistics_test.html">
+     Statistics Test
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../data_analytics/parallel_algorithm.html">
+     One-Pass/Parallel Algorithm
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../machine_learning.html">
+   Machine Learning
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../machine_learning/sklearn_feature_selection.html">
+     Feature Selection
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../machine_learning/sklearn_feature_extraction.html">
+     Feature Extraction
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../machine_learning/sklearn_feature_transformation.html">
+     Feature Transformation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../machine_learning/sklearn_split_train_test.html">
+     Train/Valid/Test Dataset
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../machine_learning/imblearn_imbalanced_class.html">
+     Imbalanced Class
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../machine_learning/sklearn_model_persistence.html">
+     Model Persistence
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../machine_learning/sklearn_eval_regression.html">
+     Regression Evaluation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../machine_learning/sklearn_linear_regression.html">
+     Linear Regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../machine_learning/sklearn_polynomial_regression.html">
+     Polynomial Regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../machine_learning/sklearn_sgd_regression.html">
+     SGD Regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../machine_learning/sklearn_svm_regression.html">
+     SVM Regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../machine_learning/sklearn_nearest_neighbor_regression.html">
+     Nearest Neighbors Regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../machine_learning/sklearn_ensemble_regression.html">
+     Ensemble Regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../machine_learning/sklearn_eval_classification.html">
+     Classification Evaluation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../machine_learning/sklearn_logistic_regression.html">
+     Logistic Regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../machine_learning/sklearn_sgd_classification.html">
+     SGD Classification
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../machine_learning/sklearn_svm_classification.html">
+     SVM Classification
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../machine_learning/sklearn_nearest_neighbor_classification.html">
+     Nearest Neighbors Classification
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../machine_learning/sklearn_ensemble_classification.html">
+     Ensemble Classification
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../machine_learning/sklearn_eval_clustering.html">
+     Clustering Evaluation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../machine_learning/sklearn_kmeans.html">
+     K-Means
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../machine_learning/sklearn_mean_shift.html">
+     Mean Shift
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../machine_learning/sklearn_spectral_clustering.html">
+     Spectral Clustering
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../machine_learning/sklearn_hyper_parameter_tunning.html">
+     Hyper Parameter Tunning
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../machine_learning/sklearn_anomaly_detection.html">
+     Anomaly Detection
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../machine_learning/surprise_collaborative_filtering.html">
+     Collaborative Filtering
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../machine_learning/frontal_face_detector.html">
+     Frontal Face Detector
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="../deep_learning.html">
+   Deep Learning
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="keras_10mins.html">
+     Keras 10mins
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="keras_dnn_regression.html">
+     DNN Regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="keras_dnn_classification.html">
+     DNN Classification
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="keras_deepmf.html">
+     Deep MF
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="tf2_10mins.html">
+     TF2 10mins
+    </a>
+   </li>
+   <li class="toctree-l2 current active has-children">
+    <a class="reference internal" href="tf2_beginner.html">
+     TF2 Beginner
+    </a>
+    <input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+    <label for="toctree-checkbox-5">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul class="current">
+     <li class="toctree-l3">
+      <a class="reference internal" href="tf2_beginner_quickstart.html">
+       Quickstart
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="tf2_beginner_image_classification.html">
+       Image Classification
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="tf2_beginner_text_classification.html">
+       Text Classification
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="tf2_beginner_hub_text_classification.html">
+       Text Classification with Hub
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="tf2_beginner_regression.html">
+       Regression
+      </a>
+     </li>
+     <li class="toctree-l3 current active">
+      <a class="current reference internal" href="#">
+       Overfit &amp; Underfit
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="tf2_beginner_save_load.html">
+       Save &amp; Load
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="tf2_beginner_keras_tuner.html">
+       Keras Tuner
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="tf2_beginner_images.html">
+       Images
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="tf2_beginner_csv.html">
+       CSV
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="tf2_beginner_numpy.html">
+       Numpy
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="tf2_beginner_pandas.html">
+       Pandas
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="tf2_beginner_text.html">
+       Text
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="tf2_beginner_unicode.html">
+       Unicode
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="tf2_beginner_tftext.html">
+       TF.Text
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="tf2_beginner_subwords_tokenizer.html">
+       Subword Tokenization
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="tf2_beginner_tfrecord.html">
+       TFRecord and tf.train.Example
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="tf2_beginner_tfio.html">
+       TF I/O
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="tf2_advanced.html">
+     TF2 Advanced
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+    <label for="toctree-checkbox-6">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="tf2_advanced_quickstart.html">
+       Quickstart
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="tf2_advanced_image_cnn.html">
+       Image CNN
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="tf2_advanced_image_classification.html">
+       Image Classification
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="tf2_advanced_transfer_learning.html">
+       Transfer learning and fine-tuning
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="tf2_advanced_transfer_learning_with_hub.html">
+       Transfer learning with TensorFlow Hub
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="tf2_advanced_data_augmentation.html">
+       Data augmentation
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="tf2_advanced_image_segmentation.html">
+       Image Segmentation
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../deploy.html">
+   Deployment
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../deploy/streamlit.html">
+     Streamlit
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../deploy/flask.html">
+     Flask
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  DataPlatform
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../dataplatform/e2edp.html">
+   End to End Data Platform (E2EDP)
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../dataplatform/infra.html">
+   Infrastructure
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../dataplatform/infra_computer.html">
+     Computer
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../dataplatform/infra_network.html">
+     Network
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../dataplatform/gce-nested-vm.html">
+     Google Computer Engine
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../dataplatform/jupyter.html">
+   Jupyter
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+  <label for="toctree-checkbox-9">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../dataplatform/jupyter_cloud.html">
+     Jupyter (Cloud)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../dataplatform/jupyter_native_ubuntu.html">
+     Jupyter (Ubuntu)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../dataplatform/jupyter_native_macos.html">
+     Jupyter (macOS)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../dataplatform/jupyter_docker.html">
+     Jupyter (Docker)
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../dataplatform/vagrant_virtualbox.html">
+   Vagrant &amp; Virtualbox
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+  <label for="toctree-checkbox-10">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../dataplatform/vagrant_skp_single.html">
+     vagrant_skp_single
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../dataplatform/ansible.html">
+   Ansible
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
+  <label for="toctree-checkbox-11">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../dataplatform/ansible_skp_ubuntu.html">
+     ansible_skp_ubuntu
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../dataplatform/skp.html">
+   St. Kilda Pier (SKP)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
+  <label for="toctree-checkbox-12">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../dataplatform/skp_n4e_vscode.html">
+     Native Visual Studio Code
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../dataplatform/skp_n4e_jupyter.html">
+     Native Jupyter
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../dataplatform/skp_d4r_jupyter.html">
+     Docker Jupyter
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../dataplatform/skp_n4e_traefik.html">
+     Native Traefik
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/datascience/deep_learning/tf2_beginner_overfit_underfit.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/comafire/comafire.github.io"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/comafire/comafire.github.io/issues/new?title=Issue%20on%20page%20%2Fdatascience/deep_learning/tf2_beginner_overfit_underfit.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/comafire/comafire.github.io/master?urlpath=tree/datascience/deep_learning/tf2_beginner_overfit_underfit.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#copyright-2018-the-tensorflow-authors">
+   Copyright 2018 The TensorFlow Authors.
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#overfit-and-underfit">
+   Overfit and underfit
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#setup">
+   Setup
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-higgs-dataset">
+   The Higgs Dataset
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#demonstrate-overfitting">
+   Demonstrate overfitting
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#training-procedure">
+     Training procedure
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tiny-model">
+     Tiny model
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#small-model">
+     Small model
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#medium-model">
+     Medium model
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#large-model">
+     Large model
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#plot-the-training-and-validation-losses">
+     Plot the training and validation losses
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#view-in-tensorboard">
+     View in TensorBoard
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#strategies-to-prevent-overfitting">
+   Strategies to prevent overfitting
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#add-weight-regularization">
+     Add weight regularization
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#more-info">
+       More info
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#add-dropout">
+     Add dropout
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#combined-l2-dropout">
+     Combined L2 + dropout
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     View in TensorBoard
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conclusions">
+   Conclusions
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="overfit-underfit">
+<h1>Overfit &amp; Underfit<a class="headerlink" href="#overfit-underfit" title="Permalink to this headline">¶</a></h1>
+<p>TensorFlow2 공식 홈페이지에 나와 있는 코드들을 수행해 보면서 빠르게 TensorFlow2를 익혀 봅니다.</p>
+<p><a class="reference external" href="https://www.tensorflow.org/tutorials/keras/overfit_and_underfit">https://www.tensorflow.org/tutorials/keras/overfit_and_underfit</a></p>
+<div class="section" id="copyright-2018-the-tensorflow-authors">
+<h2>Copyright 2018 The TensorFlow Authors.<a class="headerlink" href="#copyright-2018-the-tensorflow-authors" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
+<span class="c1"># you may not use this file except in compliance with the License.</span>
+<span class="c1"># You may obtain a copy of the License at</span>
+<span class="c1">#</span>
+<span class="c1"># https://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1"># Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1"># distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<span class="c1"># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span class="c1"># See the License for the specific language governing permissions and</span>
+<span class="c1"># limitations under the License.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title MIT License</span>
+<span class="c1">#</span>
+<span class="c1"># Copyright (c) 2017 François Chollet</span>
+<span class="c1">#</span>
+<span class="c1"># Permission is hereby granted, free of charge, to any person obtaining a</span>
+<span class="c1"># copy of this software and associated documentation files (the &quot;Software&quot;),</span>
+<span class="c1"># to deal in the Software without restriction, including without limitation</span>
+<span class="c1"># the rights to use, copy, modify, merge, publish, distribute, sublicense,</span>
+<span class="c1"># and/or sell copies of the Software, and to permit persons to whom the</span>
+<span class="c1"># Software is furnished to do so, subject to the following conditions:</span>
+<span class="c1">#</span>
+<span class="c1"># The above copyright notice and this permission notice shall be included in</span>
+<span class="c1"># all copies or substantial portions of the Software.</span>
+<span class="c1">#</span>
+<span class="c1"># THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR</span>
+<span class="c1"># IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,</span>
+<span class="c1"># FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL</span>
+<span class="c1"># THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER</span>
+<span class="c1"># LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING</span>
+<span class="c1"># FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER</span>
+<span class="c1"># DEALINGS IN THE SOFTWARE.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 설치</span>
+<span class="o">!</span>pip install -q --upgrade pip
+<span class="o">!</span>pip install -q git+https://github.com/tensorflow/docs
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 경고 메시지 출력 끄기</span>
+<span class="kn">import</span> <span class="nn">warnings</span> 
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="n">action</span><span class="o">=</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+
+<span class="c1"># 노트북 셀 표시를 브라우저 전체 폭 사용하기</span>
+<span class="kn">import</span> <span class="nn">IPython</span>
+<span class="kn">from</span> <span class="nn">IPython.core.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">HTML</span>
+<span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="s2">&quot;&lt;style&gt;.container { width:100% !important; }&lt;/style&gt;&quot;</span><span class="p">))</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">clear_output</span>
+
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="kn">import</span> <span class="nn">sys</span><span class="o">,</span> <span class="nn">pathlib</span><span class="o">,</span> <span class="nn">shutil</span><span class="o">,</span> <span class="nn">tempfile</span>
+
+<span class="n">rseed</span> <span class="o">=</span> <span class="mi">22</span>
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">rseed</span><span class="p">)</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">rseed</span><span class="p">)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">set_printoptions</span><span class="p">(</span><span class="n">precision</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">set_printoptions</span><span class="p">(</span><span class="n">formatter</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;float_kind&#39;</span><span class="p">:</span> <span class="s2">&quot;</span><span class="si">{:.5f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">})</span>
+
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_rows&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> 
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_columns&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> 
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_colwidth&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">float_format</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{:,.5f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span>
+
+<span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+<span class="n">tf</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">set_seed</span><span class="p">(</span><span class="n">rseed</span><span class="p">)</span>
+<span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">backend</span><span class="o">.</span><span class="n">set_floatx</span><span class="p">(</span><span class="s1">&#39;float32&#39;</span><span class="p">)</span> <span class="c1"># keras default float type 설정</span>
+
+<span class="kn">import</span> <span class="nn">tensorflow_hub</span> <span class="k">as</span> <span class="nn">tfhub</span>
+<span class="kn">import</span> <span class="nn">tensorflow_datasets</span> <span class="k">as</span> <span class="nn">tfds</span>
+
+<span class="kn">import</span> <span class="nn">tensorflow_docs</span> <span class="k">as</span> <span class="nn">tfdocs</span>
+<span class="kn">import</span> <span class="nn">tensorflow_docs.modeling</span>
+<span class="kn">import</span> <span class="nn">tensorflow_docs.plots</span>
+
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;python ver=</span><span class="si">{</span><span class="n">sys</span><span class="o">.</span><span class="n">version</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;pandas ver=</span><span class="si">{</span><span class="n">pd</span><span class="o">.</span><span class="n">__version__</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;numpy ver=</span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">__version__</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;tensorflow ver=</span><span class="si">{</span><span class="n">tf</span><span class="o">.</span><span class="n">__version__</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;tensorflow execuring eagerly=</span><span class="si">{</span><span class="n">tf</span><span class="o">.</span><span class="n">executing_eagerly</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;tensorflow hub ver=</span><span class="si">{</span><span class="n">tfhub</span><span class="o">.</span><span class="n">__version__</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;tensorflow GPU=</span><span class="si">{</span><span class="s1">&#39;True&#39;</span> <span class="k">if</span> <span class="n">tf</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">experimental</span><span class="o">.</span><span class="n">list_physical_devices</span><span class="p">(</span><span class="s1">&#39;GPU&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="s1">&#39;False&#39;</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;senborn ver=</span><span class="si">{</span><span class="n">sns</span><span class="o">.</span><span class="n">__version__</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style>.container { width:100% !important; }</style></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>python ver=3.7.6 (default, Nov 21 2020, 22:51:13) 
+[Clang 12.0.0 (clang-1200.0.32.27)]
+pandas ver=1.0.5
+numpy ver=1.19.5
+tensorflow ver=2.4.1
+tensorflow execuring eagerly=True
+tensorflow hub ver=0.11.0
+tensorflow GPU=False
+senborn ver=0.10.0
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="overfit-and-underfit">
+<h2>Overfit and underfit<a class="headerlink" href="#overfit-and-underfit" title="Permalink to this headline">¶</a></h2>
+<table class="tfo-notebook-buttons" align="left">
+  <td>
+    <a target="_blank" href="https://www.tensorflow.org/tutorials/keras/overfit_and_underfit"><img src="https://www.tensorflow.org/images/tf_logo_32px.png" />View on TensorFlow.org</a>
+  </td>
+  <td>
+    <a target="_blank" href="https://colab.research.google.com/github/tensorflow/docs/blob/master/site/en/tutorials/keras/overfit_and_underfit.ipynb"><img src="https://www.tensorflow.org/images/colab_logo_32px.png" />Run in Google Colab</a>
+  </td>
+  <td>
+    <a target="_blank" href="https://github.com/tensorflow/docs/blob/master/site/en/tutorials/keras/overfit_and_underfit.ipynb"><img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />View source on GitHub</a>
+  </td>
+  <td>
+    <a href="https://storage.googleapis.com/tensorflow_docs/docs/site/en/tutorials/keras/overfit_and_underfit.ipynb"><img src="https://www.tensorflow.org/images/download_logo_32px.png" />Download notebook</a>
+  </td>
+</table>
+*<hr class="docutils" />
+<p>As always, the code in this example will use the <code class="docutils literal notranslate"><span class="pre">tf.keras</span></code> API, which you can learn more about in the TensorFlow <a class="reference external" href="https://www.tensorflow.org/guide/keras">Keras guide</a>.</p>
+<p>In both of the previous examples—<a class="reference external" href="https://www.tensorflow.org/tutorials/keras/text_classification_with_hub">classifying text</a> and <a class="reference external" href="https://www.tensorflow.org/tutorials/keras/regression">predicting fuel efficiency</a> — we saw that the accuracy of our model on the validation data would peak after training for a number of epochs, and would then stagnate or start decreasing.</p>
+<p>In other words, our model would <em>overfit</em> to the training data. Learning how to deal with overfitting is important. Although it’s often possible to achieve high accuracy on the <em>training set</em>, what we really want is to develop models that generalize well to a <em>testing set</em> (or data they haven’t seen before).</p>
+<p>The opposite of overfitting is <em>underfitting</em>. Underfitting occurs when there is still room for improvement on the train data. This can happen for a number of reasons: If the model is not powerful enough, is over-regularized, or has simply not been trained long enough. This means the network has not learned the relevant patterns in the training data.</p>
+<p>If you train for too long though, the model will start to overfit and learn patterns from the training data that don’t generalize to the test data. We need to strike a balance. Understanding how to train for an appropriate number of epochs as we’ll explore below is a useful skill.</p>
+<p>To prevent overfitting, the best solution is to use more complete training data. The dataset should cover the full range of inputs that the model is expected to handle. Additional data may only be useful if it covers new and interesting cases.</p>
+<p>A model trained on more complete data will naturally generalize better. When that is no longer possible, the next best solution is to use techniques like regularization. These place constraints on the quantity and type of information your model can store.  If a network can only afford to memorize a small number of patterns, the optimization process will force it to focus on the most prominent patterns, which have a better chance of generalizing well.</p>
+<p>In this notebook, we’ll explore several common regularization techniques, and use them to improve on a classification model.</p>
+</div>
+<div class="section" id="setup">
+<h2>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">logdir</span> <span class="o">=</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="n">tempfile</span><span class="o">.</span><span class="n">mkdtemp</span><span class="p">())</span><span class="o">/</span><span class="s2">&quot;tensorboard_logs&quot;</span>
+<span class="n">shutil</span><span class="o">.</span><span class="n">rmtree</span><span class="p">(</span><span class="n">logdir</span><span class="p">,</span> <span class="n">ignore_errors</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="the-higgs-dataset">
+<h2>The Higgs Dataset<a class="headerlink" href="#the-higgs-dataset" title="Permalink to this headline">¶</a></h2>
+<p>The goal of this tutorial is not to do particle physics, so don’t dwell on the details of the dataset. It contains 11 000 000 examples, each with 28 features, and a binary class label.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gz</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">get_file</span><span class="p">(</span><span class="s1">&#39;/tmp/HIGGS.csv.gz&#39;</span><span class="p">,</span> <span class="s1">&#39;http://mlphysics.ics.uci.edu/data/higgs/HIGGS.csv.gz&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">FEATURES</span> <span class="o">=</span> <span class="mi">28</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">tf.data.experimental.CsvDataset</span></code> class can be used to read csv records directly from a gzip file with no intermediate decompression step.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">experimental</span><span class="o">.</span><span class="n">CsvDataset</span><span class="p">(</span><span class="n">gz</span><span class="p">,[</span><span class="nb">float</span><span class="p">(),]</span><span class="o">*</span><span class="p">(</span><span class="n">FEATURES</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span> <span class="n">compression_type</span><span class="o">=</span><span class="s2">&quot;GZIP&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>That csv reader class returns a list of scalars for each record. The following function repacks that list of scalars into a (feature_vector, label) pair.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">pack_row</span><span class="p">(</span><span class="o">*</span><span class="n">row</span><span class="p">):</span>
+    <span class="n">label</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">features</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">features</span><span class="p">,</span> <span class="n">label</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>TensorFlow is most efficient when operating on large batches of data.</p>
+<p>So instead of repacking each row individually make a new <code class="docutils literal notranslate"><span class="pre">Dataset</span></code> that takes batches of 10000-examples, applies the <code class="docutils literal notranslate"><span class="pre">pack_row</span></code> function to each batch, and then splits the batches back up into individual records:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">packed_ds</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">batch</span><span class="p">(</span><span class="mi">10000</span><span class="p">)</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">pack_row</span><span class="p">)</span><span class="o">.</span><span class="n">unbatch</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Have a look at some of the records from this new <code class="docutils literal notranslate"><span class="pre">packed_ds</span></code>.</p>
+<p>The features are not perfectly normalized, but this is sufficient for this tutorial.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">features</span><span class="p">,</span><span class="n">label</span> <span class="ow">in</span> <span class="n">packed_ds</span><span class="o">.</span><span class="n">batch</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span><span class="o">.</span><span class="n">take</span><span class="p">(</span><span class="mi">1</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">features</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">features</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span> <span class="n">bins</span> <span class="o">=</span> <span class="mi">101</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tf.Tensor(
+[0.86929 -0.63508 0.22569 0.32747 -0.68999 0.75420 -0.24857 -1.09206
+ 0.00000 1.37499 -0.65367 0.93035 1.10744 1.13890 -1.57820 -1.04699
+ 0.00000 0.65793 -0.01045 -0.04577 3.10196 1.35376 0.97956 0.97808 0.92000
+ 0.72166 0.98875 0.87668], shape=(28,), dtype=float32)
+</pre></div>
+</div>
+<img alt="../../_images/tf2_beginner_overfit_underfit_21_1.png" src="../../_images/tf2_beginner_overfit_underfit_21_1.png" />
+</div>
+</div>
+<p>To keep this tutorial relatively short use just the first 1000 samples for validation, and the next 10 000 for training:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">N_VALIDATION</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mf">1e3</span><span class="p">)</span>
+<span class="n">N_TRAIN</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mf">1e4</span><span class="p">)</span>
+<span class="n">BUFFER_SIZE</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mf">1e4</span><span class="p">)</span>
+<span class="n">BATCH_SIZE</span> <span class="o">=</span> <span class="mi">500</span>
+<span class="n">STEPS_PER_EPOCH</span> <span class="o">=</span> <span class="n">N_TRAIN</span><span class="o">//</span><span class="n">BATCH_SIZE</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">Dataset.skip</span></code> and <code class="docutils literal notranslate"><span class="pre">Dataset.take</span></code> methods make this easy.</p>
+<p>At the same time, use the <code class="docutils literal notranslate"><span class="pre">Dataset.cache</span></code> method to ensure that the loader doesn’t need to re-read the data from the file on each epoch:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">validate_ds</span> <span class="o">=</span> <span class="n">packed_ds</span><span class="o">.</span><span class="n">take</span><span class="p">(</span><span class="n">N_VALIDATION</span><span class="p">)</span><span class="o">.</span><span class="n">cache</span><span class="p">()</span>
+<span class="n">train_ds</span> <span class="o">=</span> <span class="n">packed_ds</span><span class="o">.</span><span class="n">skip</span><span class="p">(</span><span class="n">N_VALIDATION</span><span class="p">)</span><span class="o">.</span><span class="n">take</span><span class="p">(</span><span class="n">N_TRAIN</span><span class="p">)</span><span class="o">.</span><span class="n">cache</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">train_ds</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;CacheDataset shapes: ((28,), ()), types: (tf.float32, tf.float32)&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>These datasets return individual examples. Use the <code class="docutils literal notranslate"><span class="pre">.batch</span></code> method to create batches of an appropriate size for training. Before batching also remember to <code class="docutils literal notranslate"><span class="pre">.shuffle</span></code> and <code class="docutils literal notranslate"><span class="pre">.repeat</span></code> the training set.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">validate_ds</span> <span class="o">=</span> <span class="n">validate_ds</span><span class="o">.</span><span class="n">batch</span><span class="p">(</span><span class="n">BATCH_SIZE</span><span class="p">)</span>
+<span class="n">train_ds</span> <span class="o">=</span> <span class="n">train_ds</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">BUFFER_SIZE</span><span class="p">)</span><span class="o">.</span><span class="n">repeat</span><span class="p">()</span><span class="o">.</span><span class="n">batch</span><span class="p">(</span><span class="n">BATCH_SIZE</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="demonstrate-overfitting">
+<h2>Demonstrate overfitting<a class="headerlink" href="#demonstrate-overfitting" title="Permalink to this headline">¶</a></h2>
+<p>The simplest way to prevent overfitting is to start with a small model: A model with a small number of learnable parameters (which is determined by the number of layers and the number of units per layer). In deep learning, the number of learnable parameters in a model is often referred to as the model’s “capacity”.</p>
+<p>Intuitively, a model with more parameters will have more “memorization capacity” and therefore will be able to easily learn a perfect dictionary-like mapping between training samples and their targets, a mapping without any generalization power, but this would be useless when making predictions on previously unseen data.</p>
+<p><strong>Always keep this in mind: deep learning models tend to be good at fitting to the training data, but the real challenge is generalization, not fitting.</strong></p>
+<p>On the other hand, if the network has limited memorization resources, it will not be able to learn the mapping as easily. To minimize its loss, it will have to learn compressed representations that have more predictive power. At the same time, if you make your model too small, it will have difficulty fitting to the training data. There is a balance between “too much capacity” and “not enough capacity”.</p>
+<p>Unfortunately, there is no magical formula to determine the right size or architecture of your model (in terms of the number of layers, or the right size for each layer). You will have to experiment using a series of different architectures.</p>
+<p>To find an appropriate model size, it’s best to start with relatively few layers and parameters, then begin increasing the size of the layers or adding new layers until you see diminishing returns on the validation loss.</p>
+<p>Start with a simple model using only <code class="docutils literal notranslate"><span class="pre">layers.Dense</span></code> as a baseline, then create larger versions, and compare them.</p>
+<blockquote>
+<div><p>항상 기억해야 할 것은 딥러닝 모델은 목표는 training data 에 대해 fitting 을 잘하는 것이 아니라 실제 데이터에 대한 일반화된 모델을 찾는 것입니다. 이는 항상 overfitting 과 underfitting 사이의 trade-off 로 존재합니다.</p>
+</div></blockquote>
+<div class="section" id="training-procedure">
+<h3>Training procedure<a class="headerlink" href="#training-procedure" title="Permalink to this headline">¶</a></h3>
+<p>Many models train better if you gradually reduce the learning rate during training. Use <code class="docutils literal notranslate"><span class="pre">optimizers.schedules</span></code> to reduce the learning rate over time:</p>
+<blockquote>
+<div><p>학습시 optimizer 에서 중요한 부분은 적절한 learning rate 값을 찾는 것입니다. learning rate 값이 너무 클경우 최적화되지 않고, 너무 작을 경우 최적화 되기까지 학습에 많은 시간을 소비하게 됩니다. 하이퍼 파라미터 튜닝을 통해 적절한 값을 찾을 수도 있지만, 여기서는 처음 학습시 큰 값에서 epoch 가 거급될수록 learning rate 를 줄여 일정 값으로 수렴하는 방식으로 절충안을 제시하고 있습니다.</p>
+</div></blockquote>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lr_schedule</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">optimizers</span><span class="o">.</span><span class="n">schedules</span><span class="o">.</span><span class="n">InverseTimeDecay</span><span class="p">(</span>
+  <span class="mf">0.001</span><span class="p">,</span>
+  <span class="n">decay_steps</span><span class="o">=</span><span class="n">STEPS_PER_EPOCH</span><span class="o">*</span><span class="mi">1000</span><span class="p">,</span>
+  <span class="n">decay_rate</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+  <span class="n">staircase</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">get_optimizer</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">optimizers</span><span class="o">.</span><span class="n">Adam</span><span class="p">(</span><span class="n">lr_schedule</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The code above sets a <code class="docutils literal notranslate"><span class="pre">schedules.InverseTimeDecay</span></code> to hyperbolically decrease the learning rate to 1/2 of the base rate at 1000 epochs, 1/3 at 2000 epochs and so on.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">step</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">100000</span><span class="p">)</span>
+<span class="n">lr</span> <span class="o">=</span> <span class="n">lr_schedule</span><span class="p">(</span><span class="n">step</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">step</span><span class="o">/</span><span class="n">STEPS_PER_EPOCH</span><span class="p">,</span> <span class="n">lr</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="nb">max</span><span class="p">(</span><span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">())])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Epoch&#39;</span><span class="p">)</span>
+<span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Learning Rate&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/tf2_beginner_overfit_underfit_36_0.png" src="../../_images/tf2_beginner_overfit_underfit_36_0.png" />
+</div>
+</div>
+<p>Each model in this tutorial will use the same training configuration. So set these up in a reusable way, starting with the list of callbacks.</p>
+<p>The training for this tutorial runs for many short epochs. To reduce the logging noise use the <code class="docutils literal notranslate"><span class="pre">tfdocs.EpochDots</span></code> which simply prints a <code class="docutils literal notranslate"><span class="pre">.</span></code> for each epoch, and a full set of metrics every 100 epochs.</p>
+<p>Next include <code class="docutils literal notranslate"><span class="pre">callbacks.EarlyStopping</span></code> to avoid long and unnecessary training times. Note that this callback is set to monitor the <code class="docutils literal notranslate"><span class="pre">val_binary_crossentropy</span></code>, not the <code class="docutils literal notranslate"><span class="pre">val_loss</span></code>. This difference will be important later.</p>
+<p>Use <code class="docutils literal notranslate"><span class="pre">callbacks.TensorBoard</span></code> to generate TensorBoard logs for the training.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_callbacks</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">[</span>
+        <span class="n">tfdocs</span><span class="o">.</span><span class="n">modeling</span><span class="o">.</span><span class="n">EpochDots</span><span class="p">(),</span>
+        <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">callbacks</span><span class="o">.</span><span class="n">EarlyStopping</span><span class="p">(</span><span class="n">monitor</span><span class="o">=</span><span class="s1">&#39;val_binary_crossentropy&#39;</span><span class="p">,</span> <span class="n">patience</span><span class="o">=</span><span class="mi">200</span><span class="p">),</span>
+        <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">callbacks</span><span class="o">.</span><span class="n">TensorBoard</span><span class="p">(</span><span class="n">logdir</span><span class="o">/</span><span class="n">name</span><span class="p">),</span>
+    <span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Similarly each model will use the same <code class="docutils literal notranslate"><span class="pre">Model.compile</span></code> and <code class="docutils literal notranslate"><span class="pre">Model.fit</span></code> settings:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">compile_and_fit</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">optimizer</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">max_epochs</span><span class="o">=</span><span class="mi">10000</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">optimizer</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">optimizer</span> <span class="o">=</span> <span class="n">get_optimizer</span><span class="p">()</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="n">optimizer</span><span class="p">,</span> <span class="n">loss</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">losses</span><span class="o">.</span><span class="n">BinaryCrossentropy</span><span class="p">(</span><span class="n">from_logits</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+                  <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">losses</span><span class="o">.</span><span class="n">BinaryCrossentropy</span><span class="p">(</span><span class="n">from_logits</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;binary_crossentropy&#39;</span><span class="p">),</span> <span class="s1">&#39;accuracy&#39;</span><span class="p">])</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+
+    <span class="n">history</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_ds</span><span class="p">,</span> <span class="n">steps_per_epoch</span> <span class="o">=</span> <span class="n">STEPS_PER_EPOCH</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="n">max_epochs</span><span class="p">,</span>
+      <span class="n">validation_data</span><span class="o">=</span><span class="n">validate_ds</span><span class="p">,</span> <span class="n">callbacks</span><span class="o">=</span><span class="n">get_callbacks</span><span class="p">(</span><span class="n">name</span><span class="p">),</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">history</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="tiny-model">
+<h3>Tiny model<a class="headerlink" href="#tiny-model" title="Permalink to this headline">¶</a></h3>
+<p>Start by training a model:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tiny_model</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Sequential</span><span class="p">([</span>
+    <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;elu&#39;</span><span class="p">,</span> <span class="n">input_shape</span><span class="o">=</span><span class="p">(</span><span class="n">FEATURES</span><span class="p">,)),</span>
+    <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">size_histories</span> <span class="o">=</span> <span class="p">{}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">size_histories</span><span class="p">[</span><span class="s1">&#39;Tiny&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">compile_and_fit</span><span class="p">(</span><span class="n">tiny_model</span><span class="p">,</span> <span class="s1">&#39;sizes/Tiny&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Model: &quot;sequential&quot;
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+dense (Dense)                (None, 16)                464       
+_________________________________________________________________
+dense_1 (Dense)              (None, 1)                 17        
+=================================================================
+Total params: 481
+Trainable params: 481
+Non-trainable params: 0
+_________________________________________________________________
+WARNING:tensorflow:Callback method `on_train_batch_end` is slow compared to the batch time (batch time: 0.0013s vs `on_train_batch_end` time: 0.0066s). Check your callbacks.
+
+Epoch: 0, accuracy:0.5014,  binary_crossentropy:0.8334,  loss:0.8334,  val_accuracy:0.4850,  val_binary_crossentropy:0.7644,  val_loss:0.7644,  
+....................................................................................................
+Epoch: 100, accuracy:0.5913,  binary_crossentropy:0.6269,  loss:0.6269,  val_accuracy:0.5730,  val_binary_crossentropy:0.6292,  val_loss:0.6292,  
+....................................................................................................
+Epoch: 200, accuracy:0.6139,  binary_crossentropy:0.6164,  loss:0.6164,  val_accuracy:0.5920,  val_binary_crossentropy:0.6212,  val_loss:0.6212,  
+....................................................................................................
+Epoch: 300, accuracy:0.6253,  binary_crossentropy:0.6085,  loss:0.6085,  val_accuracy:0.6230,  val_binary_crossentropy:0.6131,  val_loss:0.6131,  
+....................................................................................................
+Epoch: 400, accuracy:0.6456,  binary_crossentropy:0.5999,  loss:0.5999,  val_accuracy:0.6240,  val_binary_crossentropy:0.6052,  val_loss:0.6052,  
+....................................................................................................
+Epoch: 500, accuracy:0.6492,  binary_crossentropy:0.5932,  loss:0.5932,  val_accuracy:0.6460,  val_binary_crossentropy:0.5986,  val_loss:0.5986,  
+....................................................................................................
+Epoch: 600, accuracy:0.6565,  binary_crossentropy:0.5894,  loss:0.5894,  val_accuracy:0.6480,  val_binary_crossentropy:0.5986,  val_loss:0.5986,  
+....................................................................................................
+Epoch: 700, accuracy:0.6620,  binary_crossentropy:0.5869,  loss:0.5869,  val_accuracy:0.6470,  val_binary_crossentropy:0.5983,  val_loss:0.5983,  
+....................................................................................................
+Epoch: 800, accuracy:0.6622,  binary_crossentropy:0.5848,  loss:0.5848,  val_accuracy:0.6520,  val_binary_crossentropy:0.5976,  val_loss:0.5976,  
+.................................................................................................
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now check how the model did:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plotter</span> <span class="o">=</span> <span class="n">tfdocs</span><span class="o">.</span><span class="n">plots</span><span class="o">.</span><span class="n">HistoryPlotter</span><span class="p">(</span><span class="n">metric</span> <span class="o">=</span> <span class="s1">&#39;binary_crossentropy&#39;</span><span class="p">,</span> <span class="n">smoothing_std</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">plotter</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">size_histories</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">([</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.5, 0.7)
+</pre></div>
+</div>
+<img alt="../../_images/tf2_beginner_overfit_underfit_47_1.png" src="../../_images/tf2_beginner_overfit_underfit_47_1.png" />
+</div>
+</div>
+</div>
+<div class="section" id="small-model">
+<h3>Small model<a class="headerlink" href="#small-model" title="Permalink to this headline">¶</a></h3>
+<p>To see if you can beat the performance of the small model, progressively train some larger models.</p>
+<p>Try two hidden layers with 16 units each:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">small_model</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Sequential</span><span class="p">([</span>
+    <span class="c1"># `input_shape` is only required here so that `.summary` works.</span>
+    <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;elu&#39;</span><span class="p">,</span> <span class="n">input_shape</span><span class="o">=</span><span class="p">(</span><span class="n">FEATURES</span><span class="p">,)),</span>
+    <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;elu&#39;</span><span class="p">),</span>
+    <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">size_histories</span><span class="p">[</span><span class="s1">&#39;Small&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">compile_and_fit</span><span class="p">(</span><span class="n">small_model</span><span class="p">,</span> <span class="s1">&#39;sizes/Small&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Model: &quot;sequential_1&quot;
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+dense_2 (Dense)              (None, 16)                464       
+_________________________________________________________________
+dense_3 (Dense)              (None, 16)                272       
+_________________________________________________________________
+dense_4 (Dense)              (None, 1)                 17        
+=================================================================
+Total params: 753
+Trainable params: 753
+Non-trainable params: 0
+_________________________________________________________________
+WARNING:tensorflow:Callback method `on_train_batch_end` is slow compared to the batch time (batch time: 0.0016s vs `on_train_batch_end` time: 0.0093s). Check your callbacks.
+
+Epoch: 0, accuracy:0.4944,  binary_crossentropy:0.7079,  loss:0.7079,  val_accuracy:0.4800,  val_binary_crossentropy:0.6933,  val_loss:0.6933,  
+....................................................................................................
+Epoch: 100, accuracy:0.6109,  binary_crossentropy:0.6201,  loss:0.6201,  val_accuracy:0.5610,  val_binary_crossentropy:0.6325,  val_loss:0.6325,  
+....................................................................................................
+Epoch: 200, accuracy:0.6580,  binary_crossentropy:0.5951,  loss:0.5951,  val_accuracy:0.6090,  val_binary_crossentropy:0.6076,  val_loss:0.6076,  
+....................................................................................................
+Epoch: 300, accuracy:0.6698,  binary_crossentropy:0.5823,  loss:0.5823,  val_accuracy:0.6590,  val_binary_crossentropy:0.5939,  val_loss:0.5939,  
+....................................................................................................
+Epoch: 400, accuracy:0.6777,  binary_crossentropy:0.5747,  loss:0.5747,  val_accuracy:0.6740,  val_binary_crossentropy:0.5901,  val_loss:0.5901,  
+....................................................................................................
+Epoch: 500, accuracy:0.6821,  binary_crossentropy:0.5688,  loss:0.5688,  val_accuracy:0.6620,  val_binary_crossentropy:0.5923,  val_loss:0.5923,  
+....................................................................................................
+Epoch: 600, accuracy:0.6862,  binary_crossentropy:0.5659,  loss:0.5659,  val_accuracy:0.6470,  val_binary_crossentropy:0.5994,  val_loss:0.5994,  
+........................................................
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="medium-model">
+<h3>Medium model<a class="headerlink" href="#medium-model" title="Permalink to this headline">¶</a></h3>
+<p>Now try 3 hidden layers with 64 units each:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">medium_model</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Sequential</span><span class="p">([</span>
+    <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;elu&#39;</span><span class="p">,</span> <span class="n">input_shape</span><span class="o">=</span><span class="p">(</span><span class="n">FEATURES</span><span class="p">,)),</span>
+    <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;elu&#39;</span><span class="p">),</span>
+    <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;elu&#39;</span><span class="p">),</span>
+    <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>And train the model using the same data:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">size_histories</span><span class="p">[</span><span class="s1">&#39;Medium&#39;</span><span class="p">]</span>  <span class="o">=</span> <span class="n">compile_and_fit</span><span class="p">(</span><span class="n">medium_model</span><span class="p">,</span> <span class="s2">&quot;sizes/Medium&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Model: &quot;sequential_2&quot;
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+dense_5 (Dense)              (None, 64)                1856      
+_________________________________________________________________
+dense_6 (Dense)              (None, 64)                4160      
+_________________________________________________________________
+dense_7 (Dense)              (None, 64)                4160      
+_________________________________________________________________
+dense_8 (Dense)              (None, 1)                 65        
+=================================================================
+Total params: 10,241
+Trainable params: 10,241
+Non-trainable params: 0
+_________________________________________________________________
+WARNING:tensorflow:Callback method `on_train_batch_end` is slow compared to the batch time (batch time: 0.0027s vs `on_train_batch_end` time: 0.0101s). Check your callbacks.
+
+Epoch: 0, accuracy:0.4914,  binary_crossentropy:0.6964,  loss:0.6964,  val_accuracy:0.5120,  val_binary_crossentropy:0.6844,  val_loss:0.6844,  
+....................................................................................................
+Epoch: 100, accuracy:0.7141,  binary_crossentropy:0.5330,  loss:0.5330,  val_accuracy:0.6250,  val_binary_crossentropy:0.6257,  val_loss:0.6257,  
+....................................................................................................
+Epoch: 200, accuracy:0.7833,  binary_crossentropy:0.4314,  loss:0.4314,  val_accuracy:0.6440,  val_binary_crossentropy:0.7203,  val_loss:0.7203,  
+...................................................................
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="large-model">
+<h3>Large model<a class="headerlink" href="#large-model" title="Permalink to this headline">¶</a></h3>
+<p>As an exercise, you can create an even larger model, and see how quickly it begins overfitting.  Next, let’s add to this benchmark a network that has much more capacity, far more than the problem would warrant:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">large_model</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Sequential</span><span class="p">([</span>
+    <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">512</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;elu&#39;</span><span class="p">,</span> <span class="n">input_shape</span><span class="o">=</span><span class="p">(</span><span class="n">FEATURES</span><span class="p">,)),</span>
+    <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">512</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;elu&#39;</span><span class="p">),</span>
+    <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">512</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;elu&#39;</span><span class="p">),</span>
+    <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">512</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;elu&#39;</span><span class="p">),</span>
+    <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>And, again, train the model using the same data:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">size_histories</span><span class="p">[</span><span class="s1">&#39;large&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">compile_and_fit</span><span class="p">(</span><span class="n">large_model</span><span class="p">,</span> <span class="s2">&quot;sizes/large&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Model: &quot;sequential_3&quot;
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+dense_9 (Dense)              (None, 512)               14848     
+_________________________________________________________________
+dense_10 (Dense)             (None, 512)               262656    
+_________________________________________________________________
+dense_11 (Dense)             (None, 512)               262656    
+_________________________________________________________________
+dense_12 (Dense)             (None, 512)               262656    
+_________________________________________________________________
+dense_13 (Dense)             (None, 1)                 513       
+=================================================================
+Total params: 803,329
+Trainable params: 803,329
+Non-trainable params: 0
+_________________________________________________________________
+WARNING:tensorflow:Callback method `on_train_batch_end` is slow compared to the batch time (batch time: 0.0109s vs `on_train_batch_end` time: 0.0115s). Check your callbacks.
+
+Epoch: 0, accuracy:0.4988,  binary_crossentropy:0.8415,  loss:0.8415,  val_accuracy:0.5610,  val_binary_crossentropy:0.6685,  val_loss:0.6685,  
+....................................................................................................
+Epoch: 100, accuracy:1.0000,  binary_crossentropy:0.0025,  loss:0.0025,  val_accuracy:0.6630,  val_binary_crossentropy:1.7155,  val_loss:1.7155,  
+....................................................................................................
+Epoch: 200, accuracy:1.0000,  binary_crossentropy:0.0001,  loss:0.0001,  val_accuracy:0.6650,  val_binary_crossentropy:2.3595,  val_loss:2.3595,  
+....................
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="plot-the-training-and-validation-losses">
+<h3>Plot the training and validation losses<a class="headerlink" href="#plot-the-training-and-validation-losses" title="Permalink to this headline">¶</a></h3>
+<p>The solid lines show the training loss, and the dashed lines show the validation loss (remember: a lower validation loss indicates a better model).</p>
+<p>While building a larger model gives it more power, if this power is not constrained somehow it can easily overfit to the training set.</p>
+<p>In this example, typically, only the <code class="docutils literal notranslate"><span class="pre">&quot;Tiny&quot;</span></code> model manages to avoid overfitting altogether, and each of the larger models overfit the data more quickly. This becomes so severe for the <code class="docutils literal notranslate"><span class="pre">&quot;large&quot;</span></code> model that you need to switch the plot to a log-scale to really see what’s happening.</p>
+<p>This is apparent if you plot and compare the validation metrics to the training metrics.</p>
+<ul class="simple">
+<li><p>It’s normal for there to be a small difference.</p></li>
+<li><p>If both metrics are moving in the same direction, everything is fine.</p></li>
+<li><p>If the validation metric begins to stagnate while the training metric continues to improve, you are probably close to overfitting.</p></li>
+<li><p>If the validation metric is going in the wrong direction, the model is clearly overfitting.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plotter</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">size_histories</span><span class="p">)</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">xscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">())])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">([</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Epochs [Log Scale]&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0, &#39;Epochs [Log Scale]&#39;)
+</pre></div>
+</div>
+<img alt="../../_images/tf2_beginner_overfit_underfit_64_1.png" src="../../_images/tf2_beginner_overfit_underfit_64_1.png" />
+</div>
+</div>
+<p>Note: All the above training runs used the <code class="docutils literal notranslate"><span class="pre">callbacks.EarlyStopping</span></code> to end the training once it was clear the model was not making progress.</p>
+</div>
+<div class="section" id="view-in-tensorboard">
+<h3>View in TensorBoard<a class="headerlink" href="#view-in-tensorboard" title="Permalink to this headline">¶</a></h3>
+<p>These models all wrote TensorBoard logs during training.</p>
+<p>Open an embedded  TensorBoard viewer inside a notebook:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#docs_infra: no_execute</span>
+
+<span class="c1"># Load the TensorBoard notebook extension</span>
+<span class="o">%</span><span class="k">load_ext</span> tensorboard
+
+<span class="c1"># Open an embedded TensorBoard viewer</span>
+<span class="o">%</span><span class="k">tensorboard</span> --logdir {logdir}/sizes
+</pre></div>
+</div>
+</div>
+</div>
+<p>You can view the <a class="reference external" href="https://tensorboard.dev/experiment/vW7jmmF9TmKmy3rbheMQpw/#scalars&amp;_smoothingWeight=0.97">results of a previous run</a> of this notebook on <a class="reference external" href="https://tensorboard.dev/">TensorBoard.dev</a>.</p>
+<p>TensorBoard.dev is a managed experience for hosting, tracking, and sharing ML experiments with everyone.</p>
+<p>It’s also included in an <code class="docutils literal notranslate"><span class="pre">&lt;iframe&gt;</span></code> for convenience:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">IPython</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">IFrame</span><span class="p">(</span>
+    <span class="n">src</span><span class="o">=</span><span class="s2">&quot;https://tensorboard.dev/experiment/vW7jmmF9TmKmy3rbheMQpw/#scalars&amp;_smoothingWeight=0.97&quot;</span><span class="p">,</span>
+    <span class="n">width</span><span class="o">=</span><span class="s2">&quot;100%&quot;</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="s2">&quot;800px&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>If you want to share TensorBoard results you can upload the logs to <a class="reference external" href="https://tensorboard.dev/">TensorBoard.dev</a> by copying the following into a code-cell.</p>
+<p>Note: This step requires a Google account.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!tensorboard dev upload --logdir  {logdir}/sizes
+</pre></div>
+</div>
+<p>Caution: This command does not terminate. It’s designed to continuously upload the results of long-running experiments. Once your data is uploaded you need to stop it using the “interrupt execution” option in your notebook tool.</p>
+</div>
+</div>
+<div class="section" id="strategies-to-prevent-overfitting">
+<h2>Strategies to prevent overfitting<a class="headerlink" href="#strategies-to-prevent-overfitting" title="Permalink to this headline">¶</a></h2>
+<p>Before getting into the content of this section copy the training logs from the <code class="docutils literal notranslate"><span class="pre">&quot;Tiny&quot;</span></code> model above, to use as a baseline for comparison.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">shutil</span><span class="o">.</span><span class="n">rmtree</span><span class="p">(</span><span class="n">logdir</span><span class="o">/</span><span class="s1">&#39;regularizers/Tiny&#39;</span><span class="p">,</span> <span class="n">ignore_errors</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">shutil</span><span class="o">.</span><span class="n">copytree</span><span class="p">(</span><span class="n">logdir</span><span class="o">/</span><span class="s1">&#39;sizes/Tiny&#39;</span><span class="p">,</span> <span class="n">logdir</span><span class="o">/</span><span class="s1">&#39;regularizers/Tiny&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PosixPath(&#39;/var/folders/d6/04nryqbd103cx8bwyb4hz1qc0000gp/T/tmpnopmtt_a/tensorboard_logs/regularizers/Tiny&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">regularizer_histories</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">regularizer_histories</span><span class="p">[</span><span class="s1">&#39;Tiny&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">size_histories</span><span class="p">[</span><span class="s1">&#39;Tiny&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="add-weight-regularization">
+<h3>Add weight regularization<a class="headerlink" href="#add-weight-regularization" title="Permalink to this headline">¶</a></h3>
+<p>You may be familiar with Occam’s Razor principle: given two explanations for something, the explanation most likely to be correct is the “simplest” one, the one that makes the least amount of assumptions. This also applies to the models learned by neural networks: given some training data and a network architecture, there are multiple sets of weights values (multiple models) that could explain the data, and simpler models are less likely to overfit than complex ones.</p>
+<p>A “simple model” in this context is a model where the distribution of parameter values has less entropy (or a model with fewer parameters altogether, as we saw in the section above). Thus a common way to mitigate overfitting is to put constraints on the complexity of a network by forcing its weights only to take small values, which makes the distribution of weight values more “regular”. This is called “weight regularization”, and it is done by adding to the loss function of the network a cost associated with having large weights. This cost comes in two flavors:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://developers.google.com/machine-learning/glossary/#L1_regularization">L1 regularization</a>, where the cost added is proportional to the absolute value of the weights coefficients (i.e. to what is called the “L1 norm” of the weights).</p></li>
+<li><p><a class="reference external" href="https://developers.google.com/machine-learning/glossary/#L2_regularization">L2 regularization</a>, where the cost added is proportional to the square of the value of the weights coefficients (i.e. to what is called the squared “L2 norm” of the weights). L2 regularization is also called weight decay in the context of neural networks. Don’t let the different name confuse you: weight decay is mathematically the exact same as L2 regularization.</p></li>
+</ul>
+<p>L1 regularization pushes weights towards exactly zero encouraging a sparse model. L2 regularization will penalize the weights parameters without making them sparse since the penalty goes to zero for small weights-one reason why L2 is more common.</p>
+<p>In <code class="docutils literal notranslate"><span class="pre">tf.keras</span></code>, weight regularization is added by passing weight regularizer instances to layers as keyword arguments. Let’s add L2 weight regularization now.</p>
+<blockquote>
+<div><p>L1 정규화는 페널티로 가중치 합만큼을 주며, 이로 인해 모델의 coefficient가 0으로 수렴될 확률이 높아지게 되어 모델이 sparse해 지게됩니다. 이렇게 되면 입력된 feature 들 중 coefficient가 0이 된 값은 결과에 영향을 미치지 않게 되므로 feature가 제거되는 효과를 나타내게 되어 (변수 선택의 효과) 과적합이 방지됩니다.</p>
+</div></blockquote>
+<blockquote>
+<div><p>L2 정규화는 페널티로 가중치의 제곱값의 합만큼을 주며, 이는 가중치가 클수록 페널티를 더 많이 받게 되므로 coefficient의 값이 smooth 해지게 됩니다. 이렇게 되면 전체적으로 모델 또한 일반화되는 효과를 나타내게 되어 과적합이 방지됩니다.</p>
+</div></blockquote>
+<blockquote>
+<div><p>L1 정규화의 경우 모델의 sparse 하게 만들 뿐만 아니라 미분되지 않는 지점이 존재할 수 있게 되기 때문에 L2 정규화를 보통 사용합니다.</p>
+</div></blockquote>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">l2_model</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Sequential</span><span class="p">([</span>
+    <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">512</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;elu&#39;</span><span class="p">,</span>
+                 <span class="n">kernel_regularizer</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">regularizers</span><span class="o">.</span><span class="n">l2</span><span class="p">(</span><span class="mf">0.001</span><span class="p">),</span>
+                 <span class="n">input_shape</span><span class="o">=</span><span class="p">(</span><span class="n">FEATURES</span><span class="p">,)),</span>
+    <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">512</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;elu&#39;</span><span class="p">,</span>
+                 <span class="n">kernel_regularizer</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">regularizers</span><span class="o">.</span><span class="n">l2</span><span class="p">(</span><span class="mf">0.001</span><span class="p">)),</span>
+    <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">512</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;elu&#39;</span><span class="p">,</span>
+                 <span class="n">kernel_regularizer</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">regularizers</span><span class="o">.</span><span class="n">l2</span><span class="p">(</span><span class="mf">0.001</span><span class="p">)),</span>
+    <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">512</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;elu&#39;</span><span class="p">,</span>
+                 <span class="n">kernel_regularizer</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">regularizers</span><span class="o">.</span><span class="n">l2</span><span class="p">(</span><span class="mf">0.001</span><span class="p">)),</span>
+    <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="p">])</span>
+
+<span class="n">regularizer_histories</span><span class="p">[</span><span class="s1">&#39;l2&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">compile_and_fit</span><span class="p">(</span><span class="n">l2_model</span><span class="p">,</span> <span class="s2">&quot;regularizers/l2&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Model: &quot;sequential_4&quot;
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+dense_17 (Dense)             (None, 512)               14848     
+_________________________________________________________________
+dense_18 (Dense)             (None, 512)               262656    
+_________________________________________________________________
+dense_19 (Dense)             (None, 512)               262656    
+_________________________________________________________________
+dense_20 (Dense)             (None, 512)               262656    
+_________________________________________________________________
+dense_21 (Dense)             (None, 1)                 513       
+=================================================================
+Total params: 803,329
+Trainable params: 803,329
+Non-trainable params: 0
+_________________________________________________________________
+
+Epoch: 0, accuracy:0.5009,  binary_crossentropy:0.8709,  loss:2.4070,  val_accuracy:0.5830,  val_binary_crossentropy:0.6822,  val_loss:2.1551,  
+....................................................................................................
+Epoch: 100, accuracy:0.6487,  binary_crossentropy:0.6010,  loss:0.6245,  val_accuracy:0.6380,  val_binary_crossentropy:0.5876,  val_loss:0.6111,  
+....................................................................................................
+Epoch: 200, accuracy:0.6671,  binary_crossentropy:0.5889,  loss:0.6110,  val_accuracy:0.6760,  val_binary_crossentropy:0.5774,  val_loss:0.5999,  
+....................................................................................................
+Epoch: 300, accuracy:0.6796,  binary_crossentropy:0.5772,  loss:0.5998,  val_accuracy:0.6890,  val_binary_crossentropy:0.5828,  val_loss:0.6054,  
+....................................................................................................
+Epoch: 400, accuracy:0.6843,  binary_crossentropy:0.5700,  loss:0.5923,  val_accuracy:0.6890,  val_binary_crossentropy:0.5750,  val_loss:0.5973,  
+...........................
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">l2(0.001)</span></code> means that every coefficient in the weight matrix of the layer will add <code class="docutils literal notranslate"><span class="pre">0.001</span> <span class="pre">*</span> <span class="pre">weight_coefficient_value**2</span></code> to the total <strong>loss</strong> of the network.</p>
+<p>That is why we’re monitoring the <code class="docutils literal notranslate"><span class="pre">binary_crossentropy</span></code> directly. Because it doesn’t have this regularization component mixed in.</p>
+<p>So, that same <code class="docutils literal notranslate"><span class="pre">&quot;Large&quot;</span></code> model with an <code class="docutils literal notranslate"><span class="pre">L2</span></code> regularization penalty performs much better:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plotter</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">regularizer_histories</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">([</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.5, 0.7)
+</pre></div>
+</div>
+<img alt="../../_images/tf2_beginner_overfit_underfit_80_1.png" src="../../_images/tf2_beginner_overfit_underfit_80_1.png" />
+</div>
+</div>
+<p>As you can see, the <code class="docutils literal notranslate"><span class="pre">&quot;L2&quot;</span></code> regularized model is now much more competitive with the the <code class="docutils literal notranslate"><span class="pre">&quot;Tiny&quot;</span></code> model. This <code class="docutils literal notranslate"><span class="pre">&quot;L2&quot;</span></code> model is also much more resistant to overfitting than the <code class="docutils literal notranslate"><span class="pre">&quot;Large&quot;</span></code> model it was based on despite having the same number of parameters.</p>
+<div class="section" id="more-info">
+<h4>More info<a class="headerlink" href="#more-info" title="Permalink to this headline">¶</a></h4>
+<p>There are two important things to note about this sort of regularization.</p>
+<p><strong>First:</strong> if you are writing your own training loop, then you need to be sure to ask the model for its regularization losses.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">l2_model</span><span class="p">(</span><span class="n">features</span><span class="p">)</span>
+<span class="n">regularization_loss</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">add_n</span><span class="p">(</span><span class="n">l2_model</span><span class="o">.</span><span class="n">losses</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Second:</strong> This implementation works by adding the weight penalties to the model’s loss, and then applying a standard optimization procedure after that.</p>
+<p>There is a second approach that instead only runs the optimizer on the raw loss, and then while applying the calculated step the optimizer also applies some weight decay. This “Decoupled Weight Decay” is seen in optimizers like <code class="docutils literal notranslate"><span class="pre">optimizers.FTRL</span></code> and <code class="docutils literal notranslate"><span class="pre">optimizers.AdamW</span></code>.</p>
+</div>
+</div>
+<div class="section" id="add-dropout">
+<h3>Add dropout<a class="headerlink" href="#add-dropout" title="Permalink to this headline">¶</a></h3>
+<p>Dropout is one of the most effective and most commonly used regularization techniques for neural networks, developed by Hinton and his students at the University of Toronto.</p>
+<p>The intuitive explanation for dropout is that because individual nodes in the network cannot rely on the output of the others, each node must output features that are useful on their own.</p>
+<p>Dropout, applied to a layer, consists of randomly “dropping out” (i.e. set to zero) a number of output features of the layer during training. Let’s say a given layer would normally have returned a vector [0.2, 0.5, 1.3, 0.8, 1.1] for a given input sample during training; after applying dropout, this vector will have a few zero entries distributed at random, e.g. [0, 0.5,
+1.3, 0, 1.1].</p>
+<p>The “dropout rate” is the fraction of the features that are being zeroed-out; it is usually set between 0.2 and 0.5. At test time, no units are dropped out, and instead the layer’s output values are scaled down by a factor equal to the dropout rate, so as to balance for the fact that more units are active than at training time.</p>
+<p>In <code class="docutils literal notranslate"><span class="pre">tf.keras</span></code> you can introduce dropout in a network via the Dropout layer, which gets applied to the output of layer right before.</p>
+<p>Let’s add two Dropout layers in our network to see how well they do at reducing overfitting:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dropout_model</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Sequential</span><span class="p">([</span>
+    <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">512</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;elu&#39;</span><span class="p">,</span> <span class="n">input_shape</span><span class="o">=</span><span class="p">(</span><span class="n">FEATURES</span><span class="p">,)),</span>
+    <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dropout</span><span class="p">(</span><span class="mf">0.5</span><span class="p">),</span>
+    <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">512</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;elu&#39;</span><span class="p">),</span>
+    <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dropout</span><span class="p">(</span><span class="mf">0.5</span><span class="p">),</span>
+    <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">512</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;elu&#39;</span><span class="p">),</span>
+    <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dropout</span><span class="p">(</span><span class="mf">0.5</span><span class="p">),</span>
+    <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">512</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;elu&#39;</span><span class="p">),</span>
+    <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dropout</span><span class="p">(</span><span class="mf">0.5</span><span class="p">),</span>
+    <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="p">])</span>
+
+<span class="n">regularizer_histories</span><span class="p">[</span><span class="s1">&#39;dropout&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">compile_and_fit</span><span class="p">(</span><span class="n">dropout_model</span><span class="p">,</span> <span class="s2">&quot;regularizers/dropout&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Model: &quot;sequential_5&quot;
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+dense_22 (Dense)             (None, 512)               14848     
+_________________________________________________________________
+dropout (Dropout)            (None, 512)               0         
+_________________________________________________________________
+dense_23 (Dense)             (None, 512)               262656    
+_________________________________________________________________
+dropout_1 (Dropout)          (None, 512)               0         
+_________________________________________________________________
+dense_24 (Dense)             (None, 512)               262656    
+_________________________________________________________________
+dropout_2 (Dropout)          (None, 512)               0         
+_________________________________________________________________
+dense_25 (Dense)             (None, 512)               262656    
+_________________________________________________________________
+dropout_3 (Dropout)          (None, 512)               0         
+_________________________________________________________________
+dense_26 (Dense)             (None, 1)                 513       
+=================================================================
+Total params: 803,329
+Trainable params: 803,329
+Non-trainable params: 0
+_________________________________________________________________
+
+Epoch: 0, accuracy:0.5121,  binary_crossentropy:0.7979,  loss:0.7979,  val_accuracy:0.5530,  val_binary_crossentropy:0.6741,  val_loss:0.6741,  
+....................................................................................................
+Epoch: 100, accuracy:0.6522,  binary_crossentropy:0.5994,  loss:0.5994,  val_accuracy:0.6850,  val_binary_crossentropy:0.5893,  val_loss:0.5893,  
+....................................................................................................
+Epoch: 200, accuracy:0.6917,  binary_crossentropy:0.5556,  loss:0.5556,  val_accuracy:0.6840,  val_binary_crossentropy:0.5764,  val_loss:0.5764,  
+....................................................................................................
+Epoch: 300, accuracy:0.7291,  binary_crossentropy:0.5047,  loss:0.5047,  val_accuracy:0.6900,  val_binary_crossentropy:0.6038,  val_loss:0.6038,  
+.........
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plotter</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">regularizer_histories</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">([</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.5, 0.7)
+</pre></div>
+</div>
+<img alt="../../_images/tf2_beginner_overfit_underfit_87_1.png" src="../../_images/tf2_beginner_overfit_underfit_87_1.png" />
+</div>
+</div>
+<p>It’s clear from this plot that both of these regularization approaches improve the behavior of the <code class="docutils literal notranslate"><span class="pre">&quot;Large&quot;</span></code> model. But this still doesn’t beat even the <code class="docutils literal notranslate"><span class="pre">&quot;Tiny&quot;</span></code> baseline.</p>
+<p>Next try them both, together, and see if that does better.</p>
+</div>
+<div class="section" id="combined-l2-dropout">
+<h3>Combined L2 + dropout<a class="headerlink" href="#combined-l2-dropout" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">combined_model</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Sequential</span><span class="p">([</span>
+    <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">512</span><span class="p">,</span> <span class="n">kernel_regularizer</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">regularizers</span><span class="o">.</span><span class="n">l2</span><span class="p">(</span><span class="mf">0.0001</span><span class="p">),</span>
+                 <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;elu&#39;</span><span class="p">,</span> <span class="n">input_shape</span><span class="o">=</span><span class="p">(</span><span class="n">FEATURES</span><span class="p">,)),</span>
+    <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dropout</span><span class="p">(</span><span class="mf">0.5</span><span class="p">),</span>
+    <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">512</span><span class="p">,</span> <span class="n">kernel_regularizer</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">regularizers</span><span class="o">.</span><span class="n">l2</span><span class="p">(</span><span class="mf">0.0001</span><span class="p">),</span>
+                 <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;elu&#39;</span><span class="p">),</span>
+    <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dropout</span><span class="p">(</span><span class="mf">0.5</span><span class="p">),</span>
+    <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">512</span><span class="p">,</span> <span class="n">kernel_regularizer</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">regularizers</span><span class="o">.</span><span class="n">l2</span><span class="p">(</span><span class="mf">0.0001</span><span class="p">),</span>
+                 <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;elu&#39;</span><span class="p">),</span>
+    <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dropout</span><span class="p">(</span><span class="mf">0.5</span><span class="p">),</span>
+    <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">512</span><span class="p">,</span> <span class="n">kernel_regularizer</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">regularizers</span><span class="o">.</span><span class="n">l2</span><span class="p">(</span><span class="mf">0.0001</span><span class="p">),</span>
+                 <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;elu&#39;</span><span class="p">),</span>
+    <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dropout</span><span class="p">(</span><span class="mf">0.5</span><span class="p">),</span>
+    <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="p">])</span>
+
+<span class="n">regularizer_histories</span><span class="p">[</span><span class="s1">&#39;combined&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">compile_and_fit</span><span class="p">(</span><span class="n">combined_model</span><span class="p">,</span> <span class="s2">&quot;regularizers/combined&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Model: &quot;sequential_6&quot;
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+dense_27 (Dense)             (None, 512)               14848     
+_________________________________________________________________
+dropout_4 (Dropout)          (None, 512)               0         
+_________________________________________________________________
+dense_28 (Dense)             (None, 512)               262656    
+_________________________________________________________________
+dropout_5 (Dropout)          (None, 512)               0         
+_________________________________________________________________
+dense_29 (Dense)             (None, 512)               262656    
+_________________________________________________________________
+dropout_6 (Dropout)          (None, 512)               0         
+_________________________________________________________________
+dense_30 (Dense)             (None, 512)               262656    
+_________________________________________________________________
+dropout_7 (Dropout)          (None, 512)               0         
+_________________________________________________________________
+dense_31 (Dense)             (None, 1)                 513       
+=================================================================
+Total params: 803,329
+Trainable params: 803,329
+Non-trainable params: 0
+_________________________________________________________________
+
+Epoch: 0, accuracy:0.5070,  binary_crossentropy:0.7998,  loss:0.9582,  val_accuracy:0.5090,  val_binary_crossentropy:0.6688,  val_loss:0.8264,  
+....................................................................................................
+Epoch: 100, accuracy:0.6472,  binary_crossentropy:0.6044,  loss:0.6343,  val_accuracy:0.6750,  val_binary_crossentropy:0.5874,  val_loss:0.6171,  
+....................................................................................................
+Epoch: 200, accuracy:0.6661,  binary_crossentropy:0.5926,  loss:0.6180,  val_accuracy:0.6430,  val_binary_crossentropy:0.5824,  val_loss:0.6076,  
+....................................................................................................
+Epoch: 300, accuracy:0.6737,  binary_crossentropy:0.5829,  loss:0.6116,  val_accuracy:0.6850,  val_binary_crossentropy:0.5611,  val_loss:0.5897,  
+....................................................................................................
+Epoch: 400, accuracy:0.6749,  binary_crossentropy:0.5796,  loss:0.6096,  val_accuracy:0.6680,  val_binary_crossentropy:0.5637,  val_loss:0.5938,  
+....................................................................................................
+Epoch: 500, accuracy:0.6851,  binary_crossentropy:0.5694,  loss:0.6016,  val_accuracy:0.6780,  val_binary_crossentropy:0.5540,  val_loss:0.5863,  
+....................................................................................................
+Epoch: 600, accuracy:0.6829,  binary_crossentropy:0.5671,  loss:0.6011,  val_accuracy:0.6990,  val_binary_crossentropy:0.5430,  val_loss:0.5770,  
+....................................................................................................
+Epoch: 700, accuracy:0.6863,  binary_crossentropy:0.5626,  loss:0.5985,  val_accuracy:0.6820,  val_binary_crossentropy:0.5444,  val_loss:0.5803,  
+....................................................................................................
+Epoch: 800, accuracy:0.6887,  binary_crossentropy:0.5591,  loss:0.5963,  val_accuracy:0.7000,  val_binary_crossentropy:0.5426,  val_loss:0.5799,  
+.........................................................................
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plotter</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">regularizer_histories</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">([</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.5, 0.7)
+</pre></div>
+</div>
+<img alt="../../_images/tf2_beginner_overfit_underfit_91_1.png" src="../../_images/tf2_beginner_overfit_underfit_91_1.png" />
+</div>
+</div>
+<p>This model with the <code class="docutils literal notranslate"><span class="pre">&quot;Combined&quot;</span></code> regularization is obviously the best one so far.</p>
+</div>
+<div class="section" id="id1">
+<h3>View in TensorBoard<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>These models also recorded TensorBoard logs.</p>
+<p>To open an embedded  tensorboard viewer inside a notebook, copy the following into a code-cell:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">tensorboard</span> <span class="o">--</span><span class="n">logdir</span> <span class="p">{</span><span class="n">logdir</span><span class="p">}</span><span class="o">/</span><span class="n">regularizers</span>
+</pre></div>
+</div>
+<p>You can view the <a class="reference external" href="https://tensorboard.dev/experiment/fGInKDo8TXes1z7HQku9mw/#scalars&amp;_smoothingWeight=0.97">results of a previous run</a> of this notebook on <a class="reference external" href="https://tensorboard.dev/">TensorDoard.dev</a>.</p>
+<p>It’s also included in an <code class="docutils literal notranslate"><span class="pre">&lt;iframe&gt;</span></code> for convenience:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">IPython</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">IFrame</span><span class="p">(</span>
+    <span class="n">src</span><span class="o">=</span><span class="s2">&quot;https://tensorboard.dev/experiment/fGInKDo8TXes1z7HQku9mw/#scalars&amp;_smoothingWeight=0.97&quot;</span><span class="p">,</span>
+    <span class="n">width</span> <span class="o">=</span> <span class="s2">&quot;100%&quot;</span><span class="p">,</span>
+    <span class="n">height</span><span class="o">=</span><span class="s2">&quot;800px&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>This was uploaded with:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!tensorboard dev upload --logdir  {logdir}/regularizers
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="conclusions">
+<h2>Conclusions<a class="headerlink" href="#conclusions" title="Permalink to this headline">¶</a></h2>
+<p>To recap: here are the most common ways to prevent overfitting in neural networks:</p>
+<ul class="simple">
+<li><p>Get more training data.</p></li>
+<li><p>Reduce the capacity of the network.</p></li>
+<li><p>Add weight regularization.</p></li>
+<li><p>Add dropout.</p></li>
+</ul>
+<p>Two important approaches not covered in this guide are:</p>
+<ul class="simple">
+<li><p>data-augmentation</p></li>
+<li><p>batch normalization</p></li>
+</ul>
+<p>Remember that each method can help on its own, but often combining them can be even more effective.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./datascience/deep_learning"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="tf2_beginner_regression.html" title="previous page">Regression</a>
+    <a class='right-next' id="next-link" href="tf2_beginner_save_load.html" title="next page">Save &amp; Load</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By comafire<br/>
+        
+            &copy; Copyright 2015.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+<script async="" src="https://www.google-analytics.com/analytics.js"></script>
+<script>
+                        window.ga = window.ga || function () {
+                            (ga.q = ga.q || []).push(arguments) };
+                        ga.l = +new Date;
+                        ga('create', 'UA-81648003-1', 'auto');
+                        ga('set', 'anonymizeIp', true);
+                        ga('send', 'pageview');
+                    </script>
+
+  </body>
+</html>

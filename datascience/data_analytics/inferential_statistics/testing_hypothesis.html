@@ -1,0 +1,1084 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Testing Hypothesis &#8212; 데사견문록</title>
+    
+  <link href="../../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Bayesian Statistics" href="../bayesian_statistics.html" />
+    <link rel="prev" title="Estimation" href="estimation.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../index.html">
+      
+      <img src="../../../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">데사견문록</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../readme.html">
+   데이터사이언스견문록
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  DataScience
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../e2eds.html">
+   End to End Data Science (E2EDS)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../random_seed.html">
+   Random
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../dataprep.html">
+   Data Preperation
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../dataprep/data_type.html">
+     Data Type
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../dataprep/spark_dataframe_10mins.html">
+     Spark DataFrame 10mins
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../dataprep/pandas_10mins.html">
+     Pandas 10mins
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../dataprep/numpy_10mins.html">
+     Numpy 10mins
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="../../data_analytics.html">
+   Data Analytics
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../data_description.html">
+     Data Description
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../missing_value.html">
+     Missing Value
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../descriptive_statistics.html">
+     Descriptive Statistcs
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../inferential_statistics.html">
+     Inferential Statistcs
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="probability_distribution.html">
+     Probability Distribution
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="estimation.html">
+     Estimation
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Testing Hypothesis
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../bayesian_statistics.html">
+     Bayesian Statistics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../outlier.html">
+     Outlier
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../scipy_normality_test.html">
+     Normality Test
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../scipy_statistics_test.html">
+     Statistics Test
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../parallel_algorithm.html">
+     One-Pass/Parallel Algorithm
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../machine_learning.html">
+   Machine Learning
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../machine_learning/sklearn_feature_selection.html">
+     Feature Selection
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../machine_learning/sklearn_feature_extraction.html">
+     Feature Extraction
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../machine_learning/sklearn_feature_transformation.html">
+     Feature Transformation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../machine_learning/sklearn_split_train_test.html">
+     Train/Valid/Test Dataset
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../machine_learning/imblearn_imbalanced_class.html">
+     Imbalanced Class
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../machine_learning/sklearn_model_persistence.html">
+     Model Persistence
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../machine_learning/sklearn_eval_regression.html">
+     Regression Evaluation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../machine_learning/sklearn_linear_regression.html">
+     Linear Regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../machine_learning/sklearn_polynomial_regression.html">
+     Polynomial Regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../machine_learning/sklearn_sgd_regression.html">
+     SGD Regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../machine_learning/sklearn_svm_regression.html">
+     SVM Regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../machine_learning/sklearn_nearest_neighbor_regression.html">
+     Nearest Neighbors Regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../machine_learning/sklearn_ensemble_regression.html">
+     Ensemble Regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../machine_learning/sklearn_eval_classification.html">
+     Classification Evaluation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../machine_learning/sklearn_logistic_regression.html">
+     Logistic Regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../machine_learning/sklearn_sgd_classification.html">
+     SGD Classification
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../machine_learning/sklearn_svm_classification.html">
+     SVM Classification
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../machine_learning/sklearn_nearest_neighbor_classification.html">
+     Nearest Neighbors Classification
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../machine_learning/sklearn_ensemble_classification.html">
+     Ensemble Classification
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../machine_learning/sklearn_eval_clustering.html">
+     Clustering Evaluation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../machine_learning/sklearn_kmeans.html">
+     K-Means
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../machine_learning/sklearn_mean_shift.html">
+     Mean Shift
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../machine_learning/sklearn_spectral_clustering.html">
+     Spectral Clustering
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../machine_learning/sklearn_hyper_parameter_tunning.html">
+     Hyper Parameter Tunning
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../machine_learning/sklearn_anomaly_detection.html">
+     Anomaly Detection
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../machine_learning/surprise_collaborative_filtering.html">
+     Collaborative Filtering
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../machine_learning/frontal_face_detector.html">
+     Frontal Face Detector
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../deep_learning.html">
+   Deep Learning
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../deep_learning/keras_10mins.html">
+     Keras 10mins
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../deep_learning/keras_dnn_regression.html">
+     DNN Regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../deep_learning/keras_dnn_classification.html">
+     DNN Classification
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../deep_learning/keras_deepmf.html">
+     Deep MF
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../deep_learning/tf2_10mins.html">
+     TF2 10mins
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../deep_learning/tf2_beginner.html">
+     TF2 Beginner
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+    <label for="toctree-checkbox-5">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../deep_learning/tf2_beginner_quickstart.html">
+       Quickstart
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../deep_learning/tf2_beginner_image_classification.html">
+       Image Classification
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../deep_learning/tf2_beginner_text_classification.html">
+       Text Classification
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../deep_learning/tf2_beginner_hub_text_classification.html">
+       Text Classification with Hub
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../deep_learning/tf2_beginner_regression.html">
+       Regression
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../deep_learning/tf2_beginner_overfit_underfit.html">
+       Overfit &amp; Underfit
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../deep_learning/tf2_beginner_save_load.html">
+       Save &amp; Load
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../deep_learning/tf2_beginner_keras_tuner.html">
+       Keras Tuner
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../deep_learning/tf2_beginner_images.html">
+       Images
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../deep_learning/tf2_beginner_csv.html">
+       CSV
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../deep_learning/tf2_beginner_numpy.html">
+       Numpy
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../deep_learning/tf2_beginner_pandas.html">
+       Pandas
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../deep_learning/tf2_beginner_text.html">
+       Text
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../deep_learning/tf2_beginner_unicode.html">
+       Unicode
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../deep_learning/tf2_beginner_tftext.html">
+       TF.Text
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../deep_learning/tf2_beginner_subwords_tokenizer.html">
+       Subword Tokenization
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../deep_learning/tf2_beginner_tfrecord.html">
+       TFRecord and tf.train.Example
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../deep_learning/tf2_beginner_tfio.html">
+       TF I/O
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../deep_learning/tf2_advanced.html">
+     TF2 Advanced
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+    <label for="toctree-checkbox-6">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../deep_learning/tf2_advanced_quickstart.html">
+       Quickstart
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../deep_learning/tf2_advanced_image_cnn.html">
+       Image CNN
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../deep_learning/tf2_advanced_image_classification.html">
+       Image Classification
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../deep_learning/tf2_advanced_transfer_learning.html">
+       Transfer learning and fine-tuning
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../deep_learning/tf2_advanced_transfer_learning_with_hub.html">
+       Transfer learning with TensorFlow Hub
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../deep_learning/tf2_advanced_data_augmentation.html">
+       Data augmentation
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../deep_learning/tf2_advanced_image_segmentation.html">
+       Image Segmentation
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../deploy.html">
+   Deployment
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../deploy/streamlit.html">
+     Streamlit
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../deploy/flask.html">
+     Flask
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  DataPlatform
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../dataplatform/e2edp.html">
+   End to End Data Platform (E2EDP)
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../../dataplatform/infra.html">
+   Infrastructure
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../dataplatform/infra_computer.html">
+     Computer
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../dataplatform/infra_network.html">
+     Network
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../dataplatform/gce-nested-vm.html">
+     Google Computer Engine
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../../dataplatform/jupyter.html">
+   Jupyter
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+  <label for="toctree-checkbox-9">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../dataplatform/jupyter_cloud.html">
+     Jupyter (Cloud)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../dataplatform/jupyter_native_ubuntu.html">
+     Jupyter (Ubuntu)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../dataplatform/jupyter_native_macos.html">
+     Jupyter (macOS)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../dataplatform/jupyter_docker.html">
+     Jupyter (Docker)
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../../dataplatform/vagrant_virtualbox.html">
+   Vagrant &amp; Virtualbox
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+  <label for="toctree-checkbox-10">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../dataplatform/vagrant_skp_single.html">
+     vagrant_skp_single
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../../dataplatform/ansible.html">
+   Ansible
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
+  <label for="toctree-checkbox-11">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../dataplatform/ansible_skp_ubuntu.html">
+     ansible_skp_ubuntu
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../../dataplatform/skp.html">
+   St. Kilda Pier (SKP)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
+  <label for="toctree-checkbox-12">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../dataplatform/skp_n4e_vscode.html">
+     Native Visual Studio Code
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../dataplatform/skp_n4e_jupyter.html">
+     Native Jupyter
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../dataplatform/skp_d4r_jupyter.html">
+     Docker Jupyter
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../../dataplatform/skp_n4e_traefik.html">
+     Native Traefik
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../_sources/datascience/data_analytics/inferential_statistics/testing_hypothesis.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/comafire/comafire.github.io"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/comafire/comafire.github.io/issues/new?title=Issue%20on%20page%20%2Fdatascience/data_analytics/inferential_statistics/testing_hypothesis.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/comafire/comafire.github.io/master?urlpath=tree/datascience/data_analytics/inferential_statistics/testing_hypothesis.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   가설검정 (Testing Hypothesis)
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="testing-hypothesis">
+<h1>Testing Hypothesis<a class="headerlink" href="#testing-hypothesis" title="Permalink to this headline">¶</a></h1>
+<p>가설 검증</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 경고 메시지 출력 끄기</span>
+<span class="kn">import</span> <span class="nn">warnings</span> 
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="n">action</span><span class="o">=</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+
+<span class="c1"># 노트북 셀 표시를 브라우저 전체 폭 사용하기</span>
+<span class="kn">from</span> <span class="nn">IPython.core.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">HTML</span>
+<span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="s2">&quot;&lt;style&gt;.container { width:100% !important; }&lt;/style&gt;&quot;</span><span class="p">))</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">clear_output</span>
+
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">sys</span><span class="o">,</span> <span class="nn">shutil</span><span class="o">,</span> <span class="nn">functools</span>
+<span class="kn">import</span> <span class="nn">collections</span><span class="o">,</span> <span class="nn">pathlib</span><span class="o">,</span> <span class="nn">re</span><span class="o">,</span> <span class="nn">string</span>
+
+<span class="n">rseed</span> <span class="o">=</span> <span class="mi">22</span>
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">rseed</span><span class="p">)</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">rseed</span><span class="p">)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">set_printoptions</span><span class="p">(</span><span class="n">precision</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">set_printoptions</span><span class="p">(</span><span class="n">formatter</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;float_kind&#39;</span><span class="p">:</span> <span class="s2">&quot;</span><span class="si">{:.5f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">})</span>
+
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_rows&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> 
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_columns&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> 
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_colwidth&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">float_format</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{:,.5f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span>
+
+<span class="kn">import</span> <span class="nn">scipy</span> <span class="k">as</span> <span class="nn">sp</span>
+
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+
+<span class="kn">from</span> <span class="nn">pydataset</span> <span class="kn">import</span> <span class="n">data</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;python ver=</span><span class="si">{</span><span class="n">sys</span><span class="o">.</span><span class="n">version</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;pandas ver=</span><span class="si">{</span><span class="n">pd</span><span class="o">.</span><span class="n">__version__</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;numpy ver=</span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">__version__</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;scipy ver=</span><span class="si">{</span><span class="n">sp</span><span class="o">.</span><span class="n">__version__</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style>.container { width:100% !important; }</style></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>python ver=3.8.9 (default, Jun 27 2021, 02:41:12) 
+[GCC 7.5.0]
+pandas ver=1.2.5
+numpy ver=1.19.5
+scipy ver=1.6.3
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Iris 데이터 셋의 컬럼 정보 살피기</span>
+<span class="n">df_iris</span> <span class="o">=</span> <span class="n">data</span><span class="p">(</span><span class="s1">&#39;iris&#39;</span><span class="p">)</span>
+<span class="n">df_iris</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+Int64Index: 150 entries, 1 to 150
+Data columns (total 5 columns):
+ #   Column        Non-Null Count  Dtype  
+---  ------        --------------  -----  
+ 0   Sepal.Length  150 non-null    float64
+ 1   Sepal.Width   150 non-null    float64
+ 2   Petal.Length  150 non-null    float64
+ 3   Petal.Width   150 non-null    float64
+ 4   Species       150 non-null    object 
+dtypes: float64(4), object(1)
+memory usage: 7.0+ KB
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id1">
+<h2>가설검정 (Testing Hypothesis)<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>가설검정이란 모집단의 통계량에 대해 두가지 가설을 세우고 표본의 통계량을 이용하여 어느 가설이 옳은지 판단하는 통계적 기법입니다. 모집단 통계량에 대해 귀무가설(H0, Null hypothesis, 기각하고 싶은 가설)을 세우고 이에 대한 표본을 수집하여 계산한 표본통계량(검정통계량)이 확률적으로 거의 일어나지 않을 일임을 증명하여 귀무가설을 기각하고, 대립가설(H1, Alternative hypothesis, 채택하고 싶은 가설)을 채택하는 방식입니다. 이를 위해 중심극한정리와 구간추정이 사용됩니다.</p>
+<p>먼저 가설검정에 사용되는 용어를 정리합니다.</p>
+<ul class="simple">
+<li><p>귀무가설(H0, Null hypothesis): 기각하고 싶은 가설</p></li>
+<li><p>대립가설(H1, Alternative hypothesis): 채택하고 싶은 가설</p></li>
+<li><p>기각역(Rejection region): 귀무가설이 기각되는 구간</p></li>
+<li><p>채택역(Acceptance region): 귀무가설이 채택되는 구간</p></li>
+<li><p>유의수준(Significance level): 기각역 구간에 들어가는 확률</p></li>
+<li><p>임계값(Critical value): 기각역 구간의 경계선 상의 값</p></li>
+<li><p>검정통계량(Test statistic): 검정에 사용되는 통계량</p></li>
+<li><p>p값(p-value): 검정통계량의 확률 값</p></li>
+</ul>
+<p>이제 가설 검증의 단계에 대해서 알아봅니다.</p>
+<p><strong>가설검증 단계</strong></p>
+<p><img alt="" src="https://storage.ning.com/topology/rest/1.0/file/get/4345192898?profile=original" /></p>
+<p>예) 모평균과 표본평균 검정</p>
+<p>매일 사먹는 감자칩에 표기된 무게 150g인데 사먹을 때마다 왠지 부족하다는 생각이 들어 검증을 하고 싶어졌다.</p>
+<ul class="simple">
+<li><p>Step1: 귀무가설 정의</p>
+<ul>
+<li><p>H0: <span class="math notranslate nohighlight">\(\mu = \mu_0\)</span>, 감자칩의 평균 무게가 150g 이다.</p></li>
+</ul>
+</li>
+<li><p>Step2: 대립가설 정의</p>
+<ul>
+<li><p>H1: <span class="math notranslate nohighlight">\(\mu \neq \mu_0\)</span>, 감자칩의 평균 무게가 150g이 아니다.</p></li>
+</ul>
+</li>
+</ul>
+<p>귀무가설과 대립가설의 정의에 따라 양측검정(Two-tailed Test), 단측검정(One-tailed Test) 실시 여부가 결정 됩니다.</p>
+<p><img alt="" src="https://ars.els-cdn.com/content/image/3-s2.0-B9780128008522000092-f09-06-9780128008522.jpg" /></p>
+<ul class="simple">
+<li><p>Step3: 유의수준 정의</p>
+<ul>
+<li><p>유의 수준: 0.05, 귀무가설 기각을 위한 기각역의 확률</p></li>
+</ul>
+</li>
+<li><p>Step4: 검증 데이터 선택</p>
+<ul>
+<li><p>랜덤하게 5개의 감자칩을 구매하여 무게 측정</p></li>
+</ul>
+</li>
+<li><p>Step5: 검정 통계량 또는 p-value 계산</p>
+<ul>
+<li><p>보통 모분산을 알수 없고, 소표본에서도 사용할 수 있는 t-score 를 이용하여 검정 통계량을 계산 또는 p-value 계산 (One Sample T-Test)</p></li>
+</ul>
+</li>
+</ul>
+<div class="math notranslate nohighlight">
+\[t = \frac{\bar{x} - \mu}{s/\sqrt{n}}\]</div>
+<p><img alt="" src="http://scu2.anu.edu.au/core/HtestMean/images/twoTailedT.gif" /></p>
+<ul class="simple">
+<li><p>Step6: 임계값 계산</p>
+<ul>
+<li><p>자유도가 4인 t 분포에서 임계값 계산</p></li>
+</ul>
+</li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 표본(Sample): 5개의 데이터를 가지는 표본을 랜덤 샘플링</span>
+<span class="n">samples</span> <span class="o">=</span> <span class="p">[</span><span class="mi">134</span><span class="p">,</span> <span class="mi">125</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">145</span><span class="p">,</span> <span class="mi">134</span><span class="p">]</span>
+<span class="n">size</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">samples</span><span class="p">)</span>
+
+<span class="c1"># 신뢰구간 (confidence level), 유의수준 (significance level), 자유도 (Degree of Freedom)</span>
+<span class="n">cl</span> <span class="o">=</span> <span class="mf">.95</span>
+<span class="n">sl</span> <span class="o">=</span> <span class="p">(</span><span class="mf">1.</span><span class="o">-</span><span class="n">cl</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span> <span class="c1"># for Two-Tailed (양측검정) </span>
+<span class="n">dof</span> <span class="o">=</span> <span class="n">size</span> <span class="o">-</span> <span class="mi">1</span> <span class="c1"># Degree of Freedom</span>
+<span class="n">ddof</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1"># Delta Degrees of Freedom (dof = n - ddof)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;cl=</span><span class="si">{</span><span class="n">cl</span><span class="si">}</span><span class="s2">, sl=</span><span class="si">{</span><span class="n">sl</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">, dof=</span><span class="si">{</span><span class="n">dof</span><span class="si">}</span><span class="s2">, ddof=</span><span class="si">{</span><span class="n">ddof</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># 표본평균(Sample Mean), 표본편차(Sample Standard Deviation) , 표준오차 (Standard Error)</span>
+<span class="n">s_mean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">samples</span><span class="p">)</span>
+<span class="n">s_std</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">samples</span><span class="p">)</span> 
+<span class="n">s_ste</span> <span class="o">=</span> <span class="n">s_std</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">size</span><span class="p">)</span>
+<span class="n">t_score</span> <span class="o">=</span> <span class="p">(</span><span class="n">s_mean</span> <span class="o">-</span> <span class="mi">150</span><span class="p">)</span><span class="o">/</span><span class="n">s_ste</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;t_score=</span><span class="si">{</span><span class="n">t_score</span><span class="si">:</span><span class="s2">.5f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># c_value: Critical value계산, interval 함수 이용 </span>
+<span class="n">c_value</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">t</span><span class="o">.</span><span class="n">interval</span><span class="p">(</span><span class="n">alpha</span><span class="o">=</span><span class="n">cl</span><span class="p">,</span> <span class="n">df</span><span class="o">=</span><span class="n">dof</span><span class="p">)</span> 
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;c_value:</span><span class="si">{</span><span class="n">c_value</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">:</span><span class="s2">.5f</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">c_value</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">:</span><span class="s2">.5f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># p-value: 양측 검정이기 때문에 면적x2</span>
+<span class="n">p_value</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">t</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">t_score</span><span class="p">,</span> <span class="n">dof</span><span class="p">)</span><span class="o">*</span><span class="mi">2</span>
+<span class="c1"># p_value = sp.stats.t.sf(abs(t_score), dof)*2</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;p_value=</span><span class="si">{</span><span class="n">p_value</span><span class="si">:</span><span class="s2">.5f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>cl=0.95, sl=0.025, dof=4, ddof=1
+t_score=-3.12669
+c_value:-2.77645, 2.77645
+p_value=0.03530
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Step7: 귀무가설 채택/기각 결정</p>
+<ul>
+<li><p>검정 통계량이 임계값보다 작거나 크면 기각역이므로 귀무가설을 기각하고 대립가설을 채택합니다.</p></li>
+<li><p>p-value 가 유의수준보다 작으면 기각역이므로 귀무가설을 기각하고 대립가설을 채택합니다.</p></li>
+</ul>
+</li>
+</ul>
+<p>검정 통계량인 표본평균의 t-score 가 t분포의 유의수준 임계값 범위를 벗어나기 때문에 귀무가설을 기각하고 대립가설을 채택합니다.</p>
+<p>t-score의 p-value 값이 유의수준인 0.05 보다 작아 귀무가설을 기가하고 대립가설을 채택합니다.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./datascience/data_analytics/inferential_statistics"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="estimation.html" title="previous page">Estimation</a>
+    <a class='right-next' id="next-link" href="../bayesian_statistics.html" title="next page">Bayesian Statistics</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By comafire<br/>
+        
+            &copy; Copyright 2015.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+<script async="" src="https://www.google-analytics.com/analytics.js"></script>
+<script>
+                        window.ga = window.ga || function () {
+                            (ga.q = ga.q || []).push(arguments) };
+                        ga.l = +new Date;
+                        ga('create', 'UA-81648003-1', 'auto');
+                        ga('set', 'anonymizeIp', true);
+                        ga('send', 'pageview');
+                    </script>
+
+  </body>
+</html>

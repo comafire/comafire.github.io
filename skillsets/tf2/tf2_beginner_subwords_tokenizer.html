@@ -1,0 +1,1900 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Subword Tokenization &#8212; 데사견문록</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="TFRecord and tf.train.Example" href="tf2_beginner_tfrecord.html" />
+    <link rel="prev" title="TF.Text" href="tf2_beginner_tftext.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+      <img src="../../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">데사견문록</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../readme.html">
+   데이터사이언스견문록
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  End to End Data Science
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../e2eds/data_science.html">
+   Data Science
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../e2eds/e2eds.html">
+   End to End Data Science
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Episodes
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../episodes/tbc.html">
+   TO BE CONTINUE…
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  skillsets
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="tf2.html">
+   Tensorflow2
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="tf2_10mins.html">
+     TF2 10mins
+    </a>
+   </li>
+   <li class="toctree-l2 current active has-children">
+    <a class="reference internal" href="tf2_beginner.html">
+     TF2 Beginner
+    </a>
+    <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+    <label for="toctree-checkbox-2">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul class="current">
+     <li class="toctree-l3">
+      <a class="reference internal" href="tf2_beginner_quickstart.html">
+       Quickstart
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="tf2_beginner_image_classification.html">
+       Image Classification
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="tf2_beginner_text_classification.html">
+       Text Classification
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="tf2_beginner_hub_text_classification.html">
+       Text Classification with Hub
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="tf2_beginner_regression.html">
+       Regression
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="tf2_beginner_overfit_underfit.html">
+       Overfit &amp; Underfit
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="tf2_beginner_save_load.html">
+       Save &amp; Load
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="tf2_beginner_keras_tuner.html">
+       Keras Tuner
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="tf2_beginner_images.html">
+       Images
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="tf2_beginner_csv.html">
+       CSV
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="tf2_beginner_numpy.html">
+       Numpy
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="tf2_beginner_pandas.html">
+       Pandas
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="tf2_beginner_text.html">
+       Text
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="tf2_beginner_unicode.html">
+       Unicode
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="tf2_beginner_tftext.html">
+       TF.Text
+      </a>
+     </li>
+     <li class="toctree-l3 current active">
+      <a class="current reference internal" href="#">
+       Subword Tokenization
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="tf2_beginner_tfrecord.html">
+       TFRecord and tf.train.Example
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="tf2_beginner_tfio.html">
+       TF I/O
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="tf2_advanced.html">
+     TF2 Advanced
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+    <label for="toctree-checkbox-3">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="tf2_advanced_quickstart.html">
+       Quickstart
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="tf2_advanced_image_cnn.html">
+       Image CNN
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="tf2_advanced_image_classification.html">
+       Image Classification
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="tf2_advanced_transfer_learning.html">
+       Transfer learning and fine-tuning
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="tf2_advanced_transfer_learning_with_hub.html">
+       Transfer learning with TensorFlow Hub
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="tf2_advanced_data_augmentation.html">
+       Data augmentation
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="tf2_advanced_image_segmentation.html">
+       Image Segmentation
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../keras/keras.html">
+   Keras
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../keras/keras_10mins.html">
+     Keras 10mins
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../keras/keras_dnn_regression.html">
+     DNN Regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../keras/keras_dnn_classification.html">
+     DNN Classification
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../keras/keras_deepmf.html">
+     Deep MF
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../sklearn/sklearn.html">
+   Scikit-Learn
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../sklearn/sklearn_10mins.html">
+     Scikit-Learn 10mins
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../sklearn/sklearn_datasets.html">
+     Datasets
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../sklearn/sklearn_preprocessing.html">
+     Preprocessing
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../sklearn/sklearn_regression.html">
+     Regression
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+    <label for="toctree-checkbox-6">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../sklearn/sklearn_linear_regression.html">
+       Linear Regression
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../sklearn/sklearn_polynomial_regression.html">
+       Polynomial Regression
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../sklearn/sklearn_sgd_regression.html">
+       SGD Regression
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../sklearn/sklearn_svm_regression.html">
+       SVM Regression
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../sklearn/sklearn_nearest_neighbor_regression.html">
+       Nearest Neighbors Regression
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../sklearn/sklearn_ensemble_regression.html">
+       Ensemble Regression
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../sklearn/sklearn_eval_regression.html">
+       Regression Evaluation
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../sklearn/sklearn_classification.html">
+     Classification
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+    <label for="toctree-checkbox-7">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../sklearn/sklearn_logistic_regression.html">
+       Logistic Regression
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../sklearn/sklearn_sgd_classification.html">
+       SGD Classification
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../sklearn/sklearn_svm_classification.html">
+       SVM Classification
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../sklearn/sklearn_nearest_neighbor_classification.html">
+       Nearest Neighbors Classification
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../sklearn/sklearn_ensemble_classification.html">
+       Ensemble Classification
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../sklearn/sklearn_eval_classification.html">
+       Classification Evaluation
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../sklearn/sklearn_clustering.html">
+     Clustering
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+    <label for="toctree-checkbox-8">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../sklearn/sklearn_kmeans.html">
+       K-Means
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../sklearn/sklearn_mean_shift.html">
+       Mean Shift
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../sklearn/sklearn_spectral_clustering.html">
+       Spectral Clustering
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../sklearn/sklearn_eval_clustering.html">
+       Clustering Evaluation
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../sklearn/sklearn_feature_selection.html">
+     Feature Selection
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../sklearn/sklearn_feature_extraction.html">
+     Feature Extraction
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../sklearn/sklearn_split_train_test.html">
+     Train/Valid/Test Dataset
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../sklearn/sklearn_model_persistence.html">
+     Model Persistence
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../sklearn/sklearn_hyper_parameter_tunning.html">
+     Hyper Parameter Tunning
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../sklearn/sklearn_anomaly_detection.html">
+     Anomaly Detection
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../dlib/dlib.html">
+   Dlib
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+  <label for="toctree-checkbox-9">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../dlib/dlib_frontal_face_detector.html">
+     Frontal Face Detector
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../surprise/surprise.html">
+   Surprise
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+  <label for="toctree-checkbox-10">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../surprise/surprise_collaborative_filtering.html">
+     Collaborative Filtering
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../imblearn/imblearn.html">
+   Imblearn
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
+  <label for="toctree-checkbox-11">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../imblearn/imblearn_imbalanced_class.html">
+     Imbalanced Class
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../spark/spark.html">
+   Spark
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
+  <label for="toctree-checkbox-12">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../spark/spark_dataframe_10mins.html">
+     Spark DataFrame 10mins
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../pandas/pandas.html">
+   Pandas
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/>
+  <label for="toctree-checkbox-13">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../pandas/pandas_10mins.html">
+     Pandas 10mins
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../pandas/pandas_missing_value.html">
+     Missing Value
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../pandas/pandas_data_description.html">
+     Data Description
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../numpy/numpy.html">
+   Numpy
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/>
+  <label for="toctree-checkbox-14">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../numpy/numpy_10mins.html">
+     Numpy 10mins
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../numpy/numpy_outlier.html">
+     Outlier
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../jupyter/jupyter.html">
+   Jupyter
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/>
+  <label for="toctree-checkbox-15">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../jupyter/jupyter_cloud.html">
+     Jupyter (Cloud)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../jupyter/jupyter_native_ubuntu.html">
+     Jupyter (Ubuntu)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../jupyter/jupyter_native_macos_x86.html">
+     Jupyter (macOS x86)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../jupyter/jupyter_docker.html">
+     Jupyter (Docker)
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../skp/skp.html">
+   St. Kilda Pier (SKP)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/>
+  <label for="toctree-checkbox-16">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../skp/skp_n4e_vscode.html">
+     Native Visual Studio Code
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../skp/skp_n4e_jupyter.html">
+     Native Jupyter
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../skp/skp_d4r_jupyter.html">
+     Docker Jupyter
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../skp/skp_n4e_traefik.html">
+     Native Traefik
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ansible/ansible.html">
+   Ansible
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/>
+  <label for="toctree-checkbox-17">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ansible/ansible_skp_ubuntu.html">
+     ansible_skp_ubuntu
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../vagrant/vagrant_virtualbox.html">
+   Vagrant &amp; Virtualbox
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/>
+  <label for="toctree-checkbox-18">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../vagrant/vagrant_skp_single.html">
+     vagrant_skp_single
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  devicesets
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../devicesets/computer.html">
+   Computer
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../devicesets/network.html">
+   Network
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../devicesets/gce_nested_vm.html">
+   Google Computer Engine
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/skillsets/tf2/tf2_beginner_subwords_tokenizer.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/comafire/comafire.github.io"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/comafire/comafire.github.io/issues/new?title=Issue%20on%20page%20%2Fskillsets/tf2/tf2_beginner_subwords_tokenizer.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/comafire/comafire.github.io/master?urlpath=tree/skillsets/tf2/tf2_beginner_subwords_tokenizer.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#copyright-2019-the-tensorflow-authors">
+   Copyright 2019 The TensorFlow Authors.
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#subword-tokenizers">
+   Subword tokenizers
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#overview">
+   Overview
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#setup">
+   Setup
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#download-the-dataset">
+   Download the dataset
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#generate-the-vocabulary">
+   Generate the vocabulary
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#build-the-tokenizer">
+   Build the tokenizer
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#customization-and-export">
+   Customization and export
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#custom-tokenization">
+     Custom tokenization
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#custom-detokenization">
+     Custom detokenization
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#export">
+     Export
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#optional-the-algorithm">
+   Optional: The algorithm
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#choosing-the-vocabulary">
+     Choosing the vocabulary
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#first-iteration">
+       First iteration
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#second-and-third-iteration">
+       Second (and third …) iteration
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#applying-wordpiece">
+     Applying WordPiece
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#intuition">
+     Intuition
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#optional-tf-lookup">
+   Optional: tf.lookup
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="subword-tokenization">
+<h1>Subword Tokenization<a class="headerlink" href="#subword-tokenization" title="Permalink to this headline">¶</a></h1>
+<p>TensorFlow2 공식 홈페이지에 나와 있는 코드들을 수행해 보면서 빠르게 TensorFlow2를 익혀 봅니다.</p>
+<p><a class="reference external" href="https://www.tensorflow.org/tutorials/tensorflow_text/subwords_tokenizer">https://www.tensorflow.org/tutorials/tensorflow_text/subwords_tokenizer</a></p>
+<p><code class="docutils literal notranslate"><span class="pre">BertTokenizer.detokenize</span></code> is not in <code class="docutils literal notranslate"><span class="pre">tf-text</span></code> stable yet (currently 2.4.3). –&gt; stable 에 추가되면 방문</p>
+<div class="section" id="copyright-2019-the-tensorflow-authors">
+<h2>Copyright 2019 The TensorFlow Authors.<a class="headerlink" href="#copyright-2019-the-tensorflow-authors" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
+<span class="c1"># you may not use this file except in compliance with the License.</span>
+<span class="c1"># You may obtain a copy of the License at</span>
+<span class="c1">#</span>
+<span class="c1"># https://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1"># Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1"># distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<span class="c1"># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span class="c1"># See the License for the specific language governing permissions and</span>
+<span class="c1"># limitations under the License.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 설치</span>
+<span class="o">!</span>pip install -q --upgrade pip
+<span class="o">!</span>pip install -q tensorflow_datasets
+<span class="c1"># `BertTokenizer.detokenize` is not in `tf-text` stable yet (currently 2.4.3).</span>
+<span class="o">!</span>pip install -q tensorflow_text_nightly
+<span class="c1"># tf-text-nightly resquires tf-nightly</span>
+<span class="o">!</span>pip install -q tf-nightly
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Red">ERROR: pip&#39;s dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.</span>
+<span class=" -Color -Color-Red">tensorflow 2.4.1 requires gast==0.3.3, but you have gast 0.4.0 which is incompatible.</span>
+<span class=" -Color -Color-Red">tensorflow 2.4.1 requires grpcio~=1.32.0, but you have grpcio 1.34.1 which is incompatible.</span>
+<span class=" -Color -Color-Red">tensorflow 2.4.1 requires h5py~=2.10.0, but you have h5py 3.1.0 which is incompatible.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 경고 메시지 출력 끄기</span>
+<span class="kn">import</span> <span class="nn">warnings</span> 
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="n">action</span><span class="o">=</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">simplefilter</span><span class="p">(</span><span class="n">action</span><span class="o">=</span><span class="s1">&#39;ignore&#39;</span><span class="p">,</span> <span class="n">category</span><span class="o">=</span><span class="ne">FutureWarning</span><span class="p">)</span>
+
+<span class="c1"># 노트북 셀 표시를 브라우저 전체 폭 사용하기</span>
+<span class="kn">from</span> <span class="nn">IPython.core.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">HTML</span>
+<span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="s2">&quot;&lt;style&gt;.container { width:100% !important; }&lt;/style&gt;&quot;</span><span class="p">))</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">clear_output</span>
+
+<span class="c1"># Matplotlib 설정</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="o">%</span><span class="k">config</span> InlineBackend.figure_format = &#39;retina&#39; # Macbook Retina Display를 위한 고해상도 설정
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;seaborn&#39;</span><span class="p">)</span> <span class="c1"># 스타일 설정</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;figure.figsize&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">16</span><span class="p">,</span> <span class="mi">9</span><span class="p">]</span> <span class="c1"># 그림 크기</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;figure.dpi&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">300</span> <span class="c1"># 해상도</span>
+
+<span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">sys</span><span class="o">,</span> <span class="nn">time</span><span class="o">,</span> <span class="nn">shutil</span><span class="o">,</span> <span class="nn">functools</span>
+<span class="kn">import</span> <span class="nn">collections</span><span class="o">,</span> <span class="nn">pathlib</span><span class="o">,</span> <span class="nn">re</span><span class="o">,</span> <span class="nn">string</span><span class="o">,</span> <span class="nn">tempfile</span>
+
+<span class="n">rseed</span> <span class="o">=</span> <span class="mi">22</span>
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">rseed</span><span class="p">)</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">rseed</span><span class="p">)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">set_printoptions</span><span class="p">(</span><span class="n">precision</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">set_printoptions</span><span class="p">(</span><span class="n">formatter</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;float_kind&#39;</span><span class="p">:</span> <span class="s2">&quot;</span><span class="si">{:.5f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">})</span>
+
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_rows&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> 
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_columns&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> 
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_colwidth&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">float_format</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{:,.5f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span>
+
+<span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+<span class="n">tf</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">set_seed</span><span class="p">(</span><span class="n">rseed</span><span class="p">)</span>
+<span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">backend</span><span class="o">.</span><span class="n">set_floatx</span><span class="p">(</span><span class="s1">&#39;float32&#39;</span><span class="p">)</span> <span class="c1"># keras default float type 설정</span>
+
+<span class="kn">import</span> <span class="nn">tensorflow_hub</span> <span class="k">as</span> <span class="nn">tfhub</span>
+<span class="kn">import</span> <span class="nn">tensorflow_datasets</span> <span class="k">as</span> <span class="nn">tfds</span>
+<span class="kn">import</span> <span class="nn">tensorflow_text</span> <span class="k">as</span> <span class="nn">tftext</span>
+
+<span class="kn">import</span> <span class="nn">kerastuner</span> <span class="k">as</span> <span class="nn">kt</span>
+
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+
+<span class="kn">import</span> <span class="nn">PIL</span>
+<span class="kn">import</span> <span class="nn">PIL.Image</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;python ver=</span><span class="si">{</span><span class="n">sys</span><span class="o">.</span><span class="n">version</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;pandas ver=</span><span class="si">{</span><span class="n">pd</span><span class="o">.</span><span class="n">__version__</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;numpy ver=</span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">__version__</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;tensorflow ver=</span><span class="si">{</span><span class="n">tf</span><span class="o">.</span><span class="n">__version__</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;tensorflow execuring eagerly=</span><span class="si">{</span><span class="n">tf</span><span class="o">.</span><span class="n">executing_eagerly</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;tensorflow GPU=</span><span class="si">{</span><span class="s1">&#39;True&#39;</span> <span class="k">if</span> <span class="n">tf</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">experimental</span><span class="o">.</span><span class="n">list_physical_devices</span><span class="p">(</span><span class="s1">&#39;GPU&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="s1">&#39;False&#39;</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;keras tuner ver=</span><span class="si">{</span><span class="n">kt</span><span class="o">.</span><span class="n">__version__</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;senborn ver=</span><span class="si">{</span><span class="n">sns</span><span class="o">.</span><span class="n">__version__</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;PIL ver=</span><span class="si">{</span><span class="n">PIL</span><span class="o">.</span><span class="n">__version__</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<table class="tfo-notebook-buttons" align="left">
+  <td>
+    <a target="_blank" href="https://www.tensorflow.org/tutorials/tensorflow_text/subwords_tokenizer"><img src="https://www.tensorflow.org/images/tf_logo_32px.png" />View on TensorFlow.org</a>
+  </td>
+  <td>
+    <a target="_blank" href="https://colab.research.google.com/github/tensorflow/text/blob/master/examples/subwords_tokenizer.ipynb"><img src="https://www.tensorflow.org/images/colab_logo_32px.png" />Run in Google Colab</a>
+  </td>
+  <td>
+    <a target="_blank" href="https://github.com/tensorflow/text/blob/master/examples/subwords_tokenizer.ipynb"><img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />View source on GitHub</a>
+  </td>
+  <td>
+    <a href="https://storage.googleapis.com/tensorflow_docs/text/examples/subwords_tokenizer.ipynb"><img src="https://www.tensorflow.org/images/download_logo_32px.png" />Download notebook</a>
+  </td>
+</table>
+*</div>
+<hr class="docutils" />
+<div class="section" id="subword-tokenizers">
+<h2>Subword tokenizers<a class="headerlink" href="#subword-tokenizers" title="Permalink to this headline">¶</a></h2>
+<p>This tutorial demonstrates how to generate a subword vocabulary from a dataset, and use it to build a <code class="docutils literal notranslate"><span class="pre">text.BertTokenizer</span></code> from the vocabulary.</p>
+<p>The main advantage of a subword tokenizer is that it interpolates between word-based and character-based tokenization. Common words get a slot in the vocabulary, but the tokenizer can fall back to word pieces and individual characters for unknown words.</p>
+<p>Objective: At the end of this tutorial you’ll have built a complete end-to-end wordpiece tokenizer and detokenizer from scratch, and saved it as a <code class="docutils literal notranslate"><span class="pre">saved_model</span></code> that you can load and use in this <a class="reference external" href="https://tensorflow.org/tutorials/text/transformer">translation tutorial</a>.</p>
+</div>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">tensorflow_text</span></code> package includes TensorFlow implementations of many common tokenizers. This includes three subword-style tokenizers:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">text.BertTokenizer</span></code> - The <code class="docutils literal notranslate"><span class="pre">BertTokenizer</span></code> class is a higher level interface. It includes BERT’s token splitting algorithm and a <code class="docutils literal notranslate"><span class="pre">WordPieceTokenizer</span></code>. It takes <strong>sentences</strong> as input and returns <strong>token-IDs</strong>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">text.WordpeiceTokenizer</span></code> - The <code class="docutils literal notranslate"><span class="pre">WordPieceTokenizer</span></code> class is a lower level interface. It only implements the <a class="reference external" href="#applying_wordpiece">WordPiece algorithm</a>. You must standardize and split the text into words before calling it. It takes <strong>words</strong> as input and returns token-IDs.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">text.SentencepieceTokenizer</span></code> - The <code class="docutils literal notranslate"><span class="pre">SentencepieceTokenizer</span></code> requires a more complex setup. Its initializer requires a pre-trained sentencepiece model. See the <a class="reference external" href="https://github.com/google/sentencepiece#train-sentencepiece-model">google/sentencepiece repository</a> for instructions on how to build one of these models. It can accept <strong>sentences</strong> as input when tokenizing.</p></li>
+</ul>
+<p>This tutorial builds a Wordpiece vocabulary in a top down manner, starting from existing words. This process doesn’t work for Japanese, Chinese, or Korean since these languages don’t have clear multi-character units. To tokenize these languages conside using <code class="docutils literal notranslate"><span class="pre">text.SentencepieceTokenizer</span></code>, <code class="docutils literal notranslate"><span class="pre">text.UnicodeCharTokenizer</span></code> or <a class="reference external" href="https://tfhub.dev/google/zh_segmentation/1">this approach</a>.</p>
+</div>
+<div class="section" id="setup">
+<h2>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tf</span><span class="o">.</span><span class="n">get_logger</span><span class="p">()</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="s1">&#39;ERROR&#39;</span><span class="p">)</span>
+<span class="n">pwd</span> <span class="o">=</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="o">.</span><span class="n">cwd</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="download-the-dataset">
+<h2>Download the dataset<a class="headerlink" href="#download-the-dataset" title="Permalink to this headline">¶</a></h2>
+<p>Fetch the Portuguese/English translation dataset from <a class="reference external" href="https://tensorflow.org/datasets">tfds</a>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">examples</span><span class="p">,</span> <span class="n">metadata</span> <span class="o">=</span> <span class="n">tfds</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;ted_hrlr_translate/pt_to_en&#39;</span><span class="p">,</span> <span class="n">with_info</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                               <span class="n">as_supervised</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">train_examples</span><span class="p">,</span> <span class="n">val_examples</span> <span class="o">=</span> <span class="n">examples</span><span class="p">[</span><span class="s1">&#39;train&#39;</span><span class="p">],</span> <span class="n">examples</span><span class="p">[</span><span class="s1">&#39;validation&#39;</span><span class="p">]</span>  
+</pre></div>
+</div>
+</div>
+</div>
+<p>This dataset produces Portuguese/English sentence pairs:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">pt</span><span class="p">,</span> <span class="n">en</span> <span class="ow">in</span> <span class="n">train_examples</span><span class="o">.</span><span class="n">take</span><span class="p">(</span><span class="mi">1</span><span class="p">):</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Portuguese: &quot;</span><span class="p">,</span> <span class="n">pt</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">))</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;English:   &quot;</span><span class="p">,</span> <span class="n">en</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Portuguese:  e quando melhoramos a procura , tiramos a única vantagem da impressão , que é a serendipidade .
+English:    and when you improve searchability , you actually take away the one advantage of print , which is serendipity .
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note a few things about the example sentences above:</p>
+<ul class="simple">
+<li><p>They’re lower case.</p></li>
+<li><p>There are spaces around the punctuation.</p></li>
+<li><p>It’s not clear if or what unicode normalization is being used.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">train_en</span> <span class="o">=</span> <span class="n">train_examples</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">pt</span><span class="p">,</span> <span class="n">en</span><span class="p">:</span> <span class="n">en</span><span class="p">)</span>
+<span class="n">train_pt</span> <span class="o">=</span> <span class="n">train_examples</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">pt</span><span class="p">,</span> <span class="n">en</span><span class="p">:</span> <span class="n">pt</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="generate-the-vocabulary">
+<h2>Generate the vocabulary<a class="headerlink" href="#generate-the-vocabulary" title="Permalink to this headline">¶</a></h2>
+<p>This section generates a wordpiece vocabulary from a dataset. If you already have a vocabulary file and just want to see how to build a <code class="docutils literal notranslate"><span class="pre">text.BertTokenizer</span></code> or <code class="docutils literal notranslate"><span class="pre">text.Wordpiece</span></code> tokenizer with it then you can skip ahead to the <a class="reference external" href="#build_the_tokenizer">Build the tokenizer</a> section.</p>
+<p>The vocabulary generation code is included in the <code class="docutils literal notranslate"><span class="pre">tensorflow_text</span></code> pip package. It is not imported by default , you need to manually import it:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">tensorflow_text.tools.wordpiece_vocab</span> <span class="kn">import</span> <span class="n">bert_vocab_from_dataset</span> <span class="k">as</span> <span class="n">bert_vocab</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">bert_vocab.bert_vocab_from_dataset</span></code> function will generate the vocabulary.</p>
+<p>There are many arguments you can set to adjust its behavior. For this tutorial, you’ll mostly use the defaults. If you want to learn more about the options, first read about <a class="reference external" href="#algorithm">the algorithm</a>, and then have a look at <a class="reference external" href="https://github.com/tensorflow/text/blob/master/tools/wordpiece_vocab/bert_vocab_from_dataset.py">the code</a>.</p>
+<p>This takes about 2 minutes.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bert_tokenizer_params</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">lower_case</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">reserved_tokens</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;[PAD]&quot;</span><span class="p">,</span> <span class="s2">&quot;[UNK]&quot;</span><span class="p">,</span> <span class="s2">&quot;[START]&quot;</span><span class="p">,</span> <span class="s2">&quot;[END]&quot;</span><span class="p">]</span>
+
+<span class="n">bert_vocab_args</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+    <span class="c1"># The target vocabulary size</span>
+    <span class="n">vocab_size</span> <span class="o">=</span> <span class="mi">8000</span><span class="p">,</span>
+    <span class="c1"># Reserved tokens that must be included in the vocabulary</span>
+    <span class="n">reserved_tokens</span><span class="o">=</span><span class="n">reserved_tokens</span><span class="p">,</span>
+    <span class="c1"># Arguments for `text.BertTokenizer`</span>
+    <span class="n">bert_tokenizer_params</span><span class="o">=</span><span class="n">bert_tokenizer_params</span><span class="p">,</span>
+    <span class="c1"># Arguments for `wordpiece_vocab.wordpiece_tokenizer_learner_lib.learn`</span>
+    <span class="n">learn_params</span><span class="o">=</span><span class="p">{},</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>
+<span class="n">pt_vocab</span> <span class="o">=</span> <span class="n">bert_vocab</span><span class="o">.</span><span class="n">bert_vocab_from_dataset</span><span class="p">(</span>
+    <span class="n">train_pt</span><span class="o">.</span><span class="n">batch</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span><span class="o">.</span><span class="n">prefetch</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span>
+    <span class="o">**</span><span class="n">bert_vocab_args</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 1min 23s, sys: 3.67 s, total: 1min 27s
+Wall time: 1min 19s
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here are some slices of the resulting vocabulary.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">pt_vocab</span><span class="p">[:</span><span class="mi">10</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pt_vocab</span><span class="p">[</span><span class="mi">100</span><span class="p">:</span><span class="mi">110</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pt_vocab</span><span class="p">[</span><span class="mi">1000</span><span class="p">:</span><span class="mi">1010</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pt_vocab</span><span class="p">[</span><span class="o">-</span><span class="mi">10</span><span class="p">:])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;[PAD]&#39;, &#39;[UNK]&#39;, &#39;[START]&#39;, &#39;[END]&#39;, &#39;!&#39;, &#39;#&#39;, &#39;$&#39;, &#39;%&#39;, &#39;&amp;&#39;, &quot;&#39;&quot;]
+[&#39;no&#39;, &#39;por&#39;, &#39;mais&#39;, &#39;na&#39;, &#39;eu&#39;, &#39;esta&#39;, &#39;muito&#39;, &#39;isso&#39;, &#39;isto&#39;, &#39;sao&#39;]
+[&#39;90&#39;, &#39;desse&#39;, &#39;efeito&#39;, &#39;malaria&#39;, &#39;normalmente&#39;, &#39;palestra&#39;, &#39;recentemente&#39;, &#39;##nca&#39;, &#39;bons&#39;, &#39;chave&#39;]
+[&#39;##–&#39;, &#39;##—&#39;, &#39;##‘&#39;, &#39;##’&#39;, &#39;##“&#39;, &#39;##”&#39;, &#39;##⁄&#39;, &#39;##€&#39;, &#39;##♪&#39;, &#39;##♫&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Write a vocabulary file:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">write_vocab_file</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="n">vocab</span><span class="p">):</span>
+  <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">vocab</span><span class="p">:</span>
+      <span class="nb">print</span><span class="p">(</span><span class="n">token</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="n">f</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">write_vocab_file</span><span class="p">(</span><span class="s1">&#39;pt_vocab.txt&#39;</span><span class="p">,</span> <span class="n">pt_vocab</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Use that function to generate a vocabulary from the english data:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>
+<span class="n">en_vocab</span> <span class="o">=</span> <span class="n">bert_vocab</span><span class="o">.</span><span class="n">bert_vocab_from_dataset</span><span class="p">(</span>
+    <span class="n">train_en</span><span class="o">.</span><span class="n">batch</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span><span class="o">.</span><span class="n">prefetch</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span>
+    <span class="o">**</span><span class="n">bert_vocab_args</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 1min, sys: 2.49 s, total: 1min 3s
+Wall time: 54.8 s
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">en_vocab</span><span class="p">[:</span><span class="mi">10</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">en_vocab</span><span class="p">[</span><span class="mi">100</span><span class="p">:</span><span class="mi">110</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">en_vocab</span><span class="p">[</span><span class="mi">1000</span><span class="p">:</span><span class="mi">1010</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">en_vocab</span><span class="p">[</span><span class="o">-</span><span class="mi">10</span><span class="p">:])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;[PAD]&#39;, &#39;[UNK]&#39;, &#39;[START]&#39;, &#39;[END]&#39;, &#39;!&#39;, &#39;#&#39;, &#39;$&#39;, &#39;%&#39;, &#39;&amp;&#39;, &quot;&#39;&quot;]
+[&#39;as&#39;, &#39;all&#39;, &#39;at&#39;, &#39;one&#39;, &#39;people&#39;, &#39;re&#39;, &#39;like&#39;, &#39;if&#39;, &#39;our&#39;, &#39;from&#39;]
+[&#39;choose&#39;, &#39;consider&#39;, &#39;extraordinary&#39;, &#39;focus&#39;, &#39;generation&#39;, &#39;killed&#39;, &#39;patterns&#39;, &#39;putting&#39;, &#39;scientific&#39;, &#39;wait&#39;]
+[&#39;##_&#39;, &#39;##`&#39;, &#39;##ย&#39;, &#39;##ร&#39;, &#39;##อ&#39;, &#39;##–&#39;, &#39;##—&#39;, &#39;##’&#39;, &#39;##♪&#39;, &#39;##♫&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here are the two vocabulary files:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">write_vocab_file</span><span class="p">(</span><span class="s1">&#39;en_vocab.txt&#39;</span><span class="p">,</span> <span class="n">en_vocab</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>ls *.txt
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>en_vocab.txt  pt_vocab.txt
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="build-the-tokenizer">
+<h2>Build the tokenizer<a class="headerlink" href="#build-the-tokenizer" title="Permalink to this headline">¶</a></h2>
+<p><a id="build_the_tokenizer"></a></p>
+<p>The <code class="docutils literal notranslate"><span class="pre">text.BertTokenizer</span></code> can be initialized by passing the vocabulary file’s path as the first argument (see the section on <a class="reference external" href="#tf.lookup">tf.lookup</a> for other options):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pt_tokenizer</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">BertTokenizer</span><span class="p">(</span><span class="s1">&#39;pt_vocab.txt&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">bert_tokenizer_params</span><span class="p">)</span>
+<span class="n">en_tokenizer</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">BertTokenizer</span><span class="p">(</span><span class="s1">&#39;en_vocab.txt&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">bert_tokenizer_params</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now you can use it to encode some text. Take a batch of 3 examples from the english data:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">pt_examples</span><span class="p">,</span> <span class="n">en_examples</span> <span class="ow">in</span> <span class="n">train_examples</span><span class="o">.</span><span class="n">batch</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">take</span><span class="p">(</span><span class="mi">1</span><span class="p">):</span>
+  <span class="k">for</span> <span class="n">ex</span> <span class="ow">in</span> <span class="n">en_examples</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">ex</span><span class="o">.</span><span class="n">numpy</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>b&#39;and when you improve searchability , you actually take away the one advantage of print , which is serendipity .&#39;
+b&#39;but what if it were active ?&#39;
+b&quot;but they did n&#39;t test for curiosity .&quot;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Run it through the <code class="docutils literal notranslate"><span class="pre">BertTokenizer.tokenize</span></code> method. Initially, this returns a <code class="docutils literal notranslate"><span class="pre">tf.RaggedTensor</span></code> with axes <code class="docutils literal notranslate"><span class="pre">(batch,</span> <span class="pre">word,</span> <span class="pre">word-piece)</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tokenize the examples -&gt; (batch, word, word-piece)</span>
+<span class="n">token_batch</span> <span class="o">=</span> <span class="n">en_tokenizer</span><span class="o">.</span><span class="n">tokenize</span><span class="p">(</span><span class="n">en_examples</span><span class="p">)</span>
+<span class="c1"># Merge the word and word-piece axes -&gt; (batch, tokens)</span>
+<span class="n">token_batch</span> <span class="o">=</span> <span class="n">token_batch</span><span class="o">.</span><span class="n">merge_dims</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">ex</span> <span class="ow">in</span> <span class="n">token_batch</span><span class="o">.</span><span class="n">to_list</span><span class="p">():</span>
+  <span class="nb">print</span><span class="p">(</span><span class="n">ex</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[72, 117, 79, 1259, 1491, 2362, 13, 79, 150, 184, 311, 71, 103, 2308, 74, 2679, 13, 148, 80, 55, 4840, 1434, 2423, 540, 15]
+[87, 90, 107, 76, 129, 1852, 30]
+[87, 83, 149, 50, 9, 56, 664, 85, 2512, 15]
+</pre></div>
+</div>
+</div>
+</div>
+<p>If you replace the token IDs with their text representations (using <code class="docutils literal notranslate"><span class="pre">tf.gather</span></code>) you can see that in the first example the words <code class="docutils literal notranslate"><span class="pre">&quot;searchability&quot;</span></code> and  <code class="docutils literal notranslate"><span class="pre">&quot;serendipity&quot;</span></code> have been decomposed into <code class="docutils literal notranslate"><span class="pre">&quot;search</span> <span class="pre">##ability&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">&quot;s</span> <span class="pre">##ere</span> <span class="pre">##nd</span> <span class="pre">##ip</span> <span class="pre">##ity&quot;</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Lookup each token id in the vocabulary.</span>
+<span class="n">txt_tokens</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">gather</span><span class="p">(</span><span class="n">en_vocab</span><span class="p">,</span> <span class="n">token_batch</span><span class="p">)</span>
+<span class="c1"># Join with spaces.</span>
+<span class="n">tf</span><span class="o">.</span><span class="n">strings</span><span class="o">.</span><span class="n">reduce_join</span><span class="p">(</span><span class="n">txt_tokens</span><span class="p">,</span> <span class="n">separator</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;tf.Tensor: shape=(3,), dtype=string, numpy=
+array([b&#39;and when you improve search ##ability , you actually take away the one advantage of print , which is s ##ere ##nd ##ip ##ity .&#39;,
+       b&#39;but what if it were active ?&#39;,
+       b&quot;but they did n &#39; t test for curiosity .&quot;], dtype=object)&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>To re-assemble words from the extracted tokens, use the <code class="docutils literal notranslate"><span class="pre">BertTokenizer.detokenize</span></code> method:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">words</span> <span class="o">=</span> <span class="n">en_tokenizer</span><span class="o">.</span><span class="n">detokenize</span><span class="p">(</span><span class="n">token_batch</span><span class="p">)</span>
+<span class="n">tf</span><span class="o">.</span><span class="n">strings</span><span class="o">.</span><span class="n">reduce_join</span><span class="p">(</span><span class="n">words</span><span class="p">,</span> <span class="n">separator</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;tf.Tensor: shape=(3,), dtype=string, numpy=
+array([b&#39;and when you improve searchability , you actually take away the one advantage of print , which is serendipity .&#39;,
+       b&#39;but what if it were active ?&#39;,
+       b&quot;but they did n &#39; t test for curiosity .&quot;], dtype=object)&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<blockquote>
+<div><p>Note: <code class="docutils literal notranslate"><span class="pre">BertTokenizer.tokenize</span></code>/<code class="docutils literal notranslate"><span class="pre">BertTokenizer.detokenize</span></code> does not round
+trip losslessly. The result of <code class="docutils literal notranslate"><span class="pre">detokenize</span></code> will not, in general, have the
+same content or offsets as the input to <code class="docutils literal notranslate"><span class="pre">tokenize</span></code>. This is because of the
+“basic tokenization” step, that splits the strings into words before
+applying the <code class="docutils literal notranslate"><span class="pre">WordpieceTokenizer</span></code>, includes irreversible
+steps like lower-casing and splitting on punctuation. <code class="docutils literal notranslate"><span class="pre">WordpieceTokenizer</span></code>
+on the other hand <strong>is</strong> reversible.</p>
+</div></blockquote>
+</div>
+<div class="section" id="customization-and-export">
+<h2>Customization and export<a class="headerlink" href="#customization-and-export" title="Permalink to this headline">¶</a></h2>
+<p>This tutorial builds the text tokenizer and detokenizer used by the <a class="reference external" href="https://tensorflow.org/tutorials/text/transformer">Transformer</a> tutorial. This section adds methods and processing steps to simplify that tutorial, and exports the tokenizers using <code class="docutils literal notranslate"><span class="pre">tf.saved_model</span></code> so they can be imported by the other tutorials.</p>
+<div class="section" id="custom-tokenization">
+<h3>Custom tokenization<a class="headerlink" href="#custom-tokenization" title="Permalink to this headline">¶</a></h3>
+<p>The downstream tutorials both expect the tokenized text to include <code class="docutils literal notranslate"><span class="pre">[START]</span></code> and <code class="docutils literal notranslate"><span class="pre">[END]</span></code> tokens.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">reserved_tokens</span></code> reserve space at the beginning of the vocabulary, so <code class="docutils literal notranslate"><span class="pre">[START]</span></code> and <code class="docutils literal notranslate"><span class="pre">[END]</span></code> have the same indexes for both languages:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">START</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">(</span><span class="n">reserved_tokens</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;[START]&quot;</span><span class="p">)</span>
+<span class="n">END</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">(</span><span class="n">reserved_tokens</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;[END]&quot;</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">add_start_end</span><span class="p">(</span><span class="n">ragged</span><span class="p">):</span>
+  <span class="n">count</span> <span class="o">=</span> <span class="n">ragged</span><span class="o">.</span><span class="n">bounding_shape</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+  <span class="n">starts</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">fill</span><span class="p">([</span><span class="n">count</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="n">START</span><span class="p">)</span>
+  <span class="n">ends</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">fill</span><span class="p">([</span><span class="n">count</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="n">END</span><span class="p">)</span>
+  <span class="k">return</span> <span class="n">tf</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">starts</span><span class="p">,</span> <span class="n">ragged</span><span class="p">,</span> <span class="n">ends</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">words</span> <span class="o">=</span> <span class="n">en_tokenizer</span><span class="o">.</span><span class="n">detokenize</span><span class="p">(</span><span class="n">add_start_end</span><span class="p">(</span><span class="n">token_batch</span><span class="p">))</span>
+<span class="n">tf</span><span class="o">.</span><span class="n">strings</span><span class="o">.</span><span class="n">reduce_join</span><span class="p">(</span><span class="n">words</span><span class="p">,</span> <span class="n">separator</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;tf.Tensor: shape=(3,), dtype=string, numpy=
+array([b&#39;[START] and when you improve searchability , you actually take away the one advantage of print , which is serendipity . [END]&#39;,
+       b&#39;[START] but what if it were active ? [END]&#39;,
+       b&quot;[START] but they did n &#39; t test for curiosity . [END]&quot;],
+      dtype=object)&gt;
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="custom-detokenization">
+<h3>Custom detokenization<a class="headerlink" href="#custom-detokenization" title="Permalink to this headline">¶</a></h3>
+<p>Before exporting the tokenizers there are a couple of things you can cleanup for the downstream tutorials:</p>
+<ol class="simple">
+<li><p>They want to generate clean text output, so drop reserved tokens like <code class="docutils literal notranslate"><span class="pre">[START]</span></code>, <code class="docutils literal notranslate"><span class="pre">[END]</span></code> and <code class="docutils literal notranslate"><span class="pre">[PAD]</span></code>.</p></li>
+<li><p>They’re interested in complete strings, so apply a string join along the <code class="docutils literal notranslate"><span class="pre">words</span></code> axis of the result.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">cleanup_text</span><span class="p">(</span><span class="n">reserved_tokens</span><span class="p">,</span> <span class="n">token_txt</span><span class="p">):</span>
+  <span class="c1"># Drop the reserved tokens, except for &quot;[UNK]&quot;.</span>
+  <span class="n">bad_tokens</span> <span class="o">=</span> <span class="p">[</span><span class="n">re</span><span class="o">.</span><span class="n">escape</span><span class="p">(</span><span class="n">tok</span><span class="p">)</span> <span class="k">for</span> <span class="n">tok</span> <span class="ow">in</span> <span class="n">reserved_tokens</span> <span class="k">if</span> <span class="n">tok</span> <span class="o">!=</span> <span class="s2">&quot;[UNK]&quot;</span><span class="p">]</span>
+  <span class="n">bad_token_re</span> <span class="o">=</span> <span class="s2">&quot;|&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">bad_tokens</span><span class="p">)</span>
+    
+  <span class="n">bad_cells</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">strings</span><span class="o">.</span><span class="n">regex_full_match</span><span class="p">(</span><span class="n">token_txt</span><span class="p">,</span> <span class="n">bad_token_re</span><span class="p">)</span>
+  <span class="n">result</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">ragged</span><span class="o">.</span><span class="n">boolean_mask</span><span class="p">(</span><span class="n">token_txt</span><span class="p">,</span> <span class="o">~</span><span class="n">bad_cells</span><span class="p">)</span>
+
+  <span class="c1"># Join them into strings.</span>
+  <span class="n">result</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">strings</span><span class="o">.</span><span class="n">reduce_join</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">separator</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+
+  <span class="k">return</span> <span class="n">result</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">en_examples</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([b&#39;and when you improve searchability , you actually take away the one advantage of print , which is serendipity .&#39;,
+       b&#39;but what if it were active ?&#39;,
+       b&quot;but they did n&#39;t test for curiosity .&quot;], dtype=object)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">token_batch</span> <span class="o">=</span> <span class="n">en_tokenizer</span><span class="o">.</span><span class="n">tokenize</span><span class="p">(</span><span class="n">en_examples</span><span class="p">)</span><span class="o">.</span><span class="n">merge_dims</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">words</span> <span class="o">=</span> <span class="n">en_tokenizer</span><span class="o">.</span><span class="n">detokenize</span><span class="p">(</span><span class="n">token_batch</span><span class="p">)</span>
+<span class="n">words</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;tf.RaggedTensor [[b&#39;and&#39;, b&#39;when&#39;, b&#39;you&#39;, b&#39;improve&#39;, b&#39;searchability&#39;, b&#39;,&#39;, b&#39;you&#39;, b&#39;actually&#39;, b&#39;take&#39;, b&#39;away&#39;, b&#39;the&#39;, b&#39;one&#39;, b&#39;advantage&#39;, b&#39;of&#39;, b&#39;print&#39;, b&#39;,&#39;, b&#39;which&#39;, b&#39;is&#39;, b&#39;serendipity&#39;, b&#39;.&#39;], [b&#39;but&#39;, b&#39;what&#39;, b&#39;if&#39;, b&#39;it&#39;, b&#39;were&#39;, b&#39;active&#39;, b&#39;?&#39;], [b&#39;but&#39;, b&#39;they&#39;, b&#39;did&#39;, b&#39;n&#39;, b&quot;&#39;&quot;, b&#39;t&#39;, b&#39;test&#39;, b&#39;for&#39;, b&#39;curiosity&#39;, b&#39;.&#39;]]&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cleanup_text</span><span class="p">(</span><span class="n">reserved_tokens</span><span class="p">,</span> <span class="n">words</span><span class="p">)</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([b&#39;and when you improve searchability , you actually take away the one advantage of print , which is serendipity .&#39;,
+       b&#39;but what if it were active ?&#39;,
+       b&quot;but they did n &#39; t test for curiosity .&quot;], dtype=object)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="export">
+<h3>Export<a class="headerlink" href="#export" title="Permalink to this headline">¶</a></h3>
+<p>The following code block builds a <code class="docutils literal notranslate"><span class="pre">CustomTokenizer</span></code> class to contain the <code class="docutils literal notranslate"><span class="pre">text.BertTokenizer</span></code> instances, the custom logic, and the <code class="docutils literal notranslate"><span class="pre">&#64;tf.function</span></code> wrappers required for export.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">CustomTokenizer</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+  <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">reserved_tokens</span><span class="p">,</span> <span class="n">vocab_path</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">tokenizer</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">BertTokenizer</span><span class="p">(</span><span class="n">vocab_path</span><span class="p">,</span> <span class="n">lower_case</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_reserved_tokens</span> <span class="o">=</span> <span class="n">reserved_tokens</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_vocab_path</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">saved_model</span><span class="o">.</span><span class="n">Asset</span><span class="p">(</span><span class="n">vocab_path</span><span class="p">)</span>
+
+    <span class="n">vocab</span> <span class="o">=</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="n">vocab_path</span><span class="p">)</span><span class="o">.</span><span class="n">read_text</span><span class="p">()</span><span class="o">.</span><span class="n">splitlines</span><span class="p">()</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">vocab</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">vocab</span><span class="p">)</span>
+
+    <span class="c1">## Create the signatures for export:   </span>
+
+    <span class="c1"># Include a tokenize signature for a batch of strings. </span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">tokenize</span><span class="o">.</span><span class="n">get_concrete_function</span><span class="p">(</span>
+        <span class="n">tf</span><span class="o">.</span><span class="n">TensorSpec</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="kc">None</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">string</span><span class="p">))</span>
+    
+    <span class="c1"># Include `detokenize` and `lookup` signatures for:</span>
+    <span class="c1">#   * `Tensors` with shapes [tokens] and [batch, tokens]</span>
+    <span class="c1">#   * `RaggedTensors` with shape [batch, tokens]</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">detokenize</span><span class="o">.</span><span class="n">get_concrete_function</span><span class="p">(</span>
+        <span class="n">tf</span><span class="o">.</span><span class="n">TensorSpec</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">int64</span><span class="p">))</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">detokenize</span><span class="o">.</span><span class="n">get_concrete_function</span><span class="p">(</span>
+          <span class="n">tf</span><span class="o">.</span><span class="n">RaggedTensorSpec</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">int64</span><span class="p">))</span>
+
+    <span class="bp">self</span><span class="o">.</span><span class="n">lookup</span><span class="o">.</span><span class="n">get_concrete_function</span><span class="p">(</span>
+        <span class="n">tf</span><span class="o">.</span><span class="n">TensorSpec</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">int64</span><span class="p">))</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">lookup</span><span class="o">.</span><span class="n">get_concrete_function</span><span class="p">(</span>
+          <span class="n">tf</span><span class="o">.</span><span class="n">RaggedTensorSpec</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">int64</span><span class="p">))</span>
+
+    <span class="c1"># These `get_*` methods take no arguments</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">get_vocab_size</span><span class="o">.</span><span class="n">get_concrete_function</span><span class="p">()</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">get_vocab_path</span><span class="o">.</span><span class="n">get_concrete_function</span><span class="p">()</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">get_reserved_tokens</span><span class="o">.</span><span class="n">get_concrete_function</span><span class="p">()</span>
+    
+  <span class="nd">@tf</span><span class="o">.</span><span class="n">function</span>
+  <span class="k">def</span> <span class="nf">tokenize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">strings</span><span class="p">):</span>
+    <span class="n">enc</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">tokenizer</span><span class="o">.</span><span class="n">tokenize</span><span class="p">(</span><span class="n">strings</span><span class="p">)</span>
+    <span class="c1"># Merge the `word` and `word-piece` axes.</span>
+    <span class="n">enc</span> <span class="o">=</span> <span class="n">enc</span><span class="o">.</span><span class="n">merge_dims</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">enc</span> <span class="o">=</span> <span class="n">add_start_end</span><span class="p">(</span><span class="n">enc</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">enc</span>
+
+  <span class="nd">@tf</span><span class="o">.</span><span class="n">function</span>
+  <span class="k">def</span> <span class="nf">detokenize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tokenized</span><span class="p">):</span>
+    <span class="n">words</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">tokenizer</span><span class="o">.</span><span class="n">detokenize</span><span class="p">(</span><span class="n">tokenized</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">cleanup_text</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_reserved_tokens</span><span class="p">,</span> <span class="n">words</span><span class="p">)</span>
+
+  <span class="nd">@tf</span><span class="o">.</span><span class="n">function</span>
+  <span class="k">def</span> <span class="nf">lookup</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">token_ids</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">tf</span><span class="o">.</span><span class="n">gather</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">vocab</span><span class="p">,</span> <span class="n">token_ids</span><span class="p">)</span>
+
+  <span class="nd">@tf</span><span class="o">.</span><span class="n">function</span>
+  <span class="k">def</span> <span class="nf">get_vocab_size</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">tf</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">vocab</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+
+  <span class="nd">@tf</span><span class="o">.</span><span class="n">function</span>
+  <span class="k">def</span> <span class="nf">get_vocab_path</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_vocab_path</span>
+
+  <span class="nd">@tf</span><span class="o">.</span><span class="n">function</span>
+  <span class="k">def</span> <span class="nf">get_reserved_tokens</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_reserved_tokens</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Build a <code class="docutils literal notranslate"><span class="pre">CustomTokenizer</span></code> for each language:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tokenizers</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Module</span><span class="p">()</span>
+<span class="n">tokenizers</span><span class="o">.</span><span class="n">pt</span> <span class="o">=</span> <span class="n">CustomTokenizer</span><span class="p">(</span><span class="n">reserved_tokens</span><span class="p">,</span> <span class="s1">&#39;pt_vocab.txt&#39;</span><span class="p">)</span>
+<span class="n">tokenizers</span><span class="o">.</span><span class="n">en</span> <span class="o">=</span> <span class="n">CustomTokenizer</span><span class="p">(</span><span class="n">reserved_tokens</span><span class="p">,</span> <span class="s1">&#39;en_vocab.txt&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Export the tokenizers as a <code class="docutils literal notranslate"><span class="pre">saved_model</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model_name</span> <span class="o">=</span> <span class="s1">&#39;ted_hrlr_translate_pt_en_converter&#39;</span>
+<span class="n">tf</span><span class="o">.</span><span class="n">saved_model</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">tokenizers</span><span class="p">,</span> <span class="n">model_name</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Reload the <code class="docutils literal notranslate"><span class="pre">saved_model</span></code> and test the methods:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">reloaded_tokenizers</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">saved_model</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">model_name</span><span class="p">)</span>
+<span class="n">reloaded_tokenizers</span><span class="o">.</span><span class="n">en</span><span class="o">.</span><span class="n">get_vocab_size</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>7010
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tokens</span> <span class="o">=</span> <span class="n">reloaded_tokenizers</span><span class="o">.</span><span class="n">en</span><span class="o">.</span><span class="n">tokenize</span><span class="p">([</span><span class="s1">&#39;Hello TensorFlow!&#39;</span><span class="p">])</span>
+<span class="n">tokens</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[   2, 4006, 2358,  687, 1192, 2365,    4,    3]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">text_tokens</span> <span class="o">=</span> <span class="n">reloaded_tokenizers</span><span class="o">.</span><span class="n">en</span><span class="o">.</span><span class="n">lookup</span><span class="p">(</span><span class="n">tokens</span><span class="p">)</span>
+<span class="n">text_tokens</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;tf.RaggedTensor [[b&#39;[START]&#39;, b&#39;hello&#39;, b&#39;tens&#39;, b&#39;##or&#39;, b&#39;##f&#39;, b&#39;##low&#39;, b&#39;!&#39;, b&#39;[END]&#39;]]&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">round_trip</span> <span class="o">=</span> <span class="n">reloaded_tokenizers</span><span class="o">.</span><span class="n">en</span><span class="o">.</span><span class="n">detokenize</span><span class="p">(</span><span class="n">tokens</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">round_trip</span><span class="o">.</span><span class="n">numpy</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>hello tensorflow !
+</pre></div>
+</div>
+</div>
+</div>
+<p>Archive it for the <a class="reference external" href="https://tensorflow.org/tutorials/text/transformer">translation tutorials</a>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>zip -r <span class="o">{</span>model_name<span class="o">}</span>.zip <span class="o">{</span>model_name<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  adding: ted_hrlr_translate_pt_en_converter/ (stored 0%)
+  adding: ted_hrlr_translate_pt_en_converter/variables/ (stored 0%)
+  adding: ted_hrlr_translate_pt_en_converter/variables/variables.data-00000-of-00001 (deflated 51%)
+  adding: ted_hrlr_translate_pt_en_converter/variables/variables.index (deflated 33%)
+  adding: ted_hrlr_translate_pt_en_converter/assets/ (stored 0%)
+  adding: ted_hrlr_translate_pt_en_converter/assets/pt_vocab.txt (deflated 57%)
+  adding: ted_hrlr_translate_pt_en_converter/assets/en_vocab.txt (deflated 54%)
+  adding: ted_hrlr_translate_pt_en_converter/saved_model.pb (deflated 91%)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>du -h *.zip
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>184K	ted_hrlr_translate_pt_en_converter.zip
+</pre></div>
+</div>
+</div>
+</div>
+<p><a id="algorithm"></a></p>
+</div>
+</div>
+<div class="section" id="optional-the-algorithm">
+<h2>Optional: The algorithm<a class="headerlink" href="#optional-the-algorithm" title="Permalink to this headline">¶</a></h2>
+<p>It’s worth noting here that there are two versions of the WordPiece algorithm: Bottom-up and top-down. In both cases goal is the same: “Given a training corpus and a number of desired
+tokens D, the optimization problem is to select D wordpieces such that the resulting corpus is minimal in the
+number of wordpieces when segmented according to the chosen wordpiece model.”</p>
+<p>The  original <a class="reference external" href="https://static.googleusercontent.com/media/research.google.com/ja//pubs/archive/37842.pdf">bottom-up WordPiece algorithm</a>, is based on <a class="reference external" href="https://towardsdatascience.com/byte-pair-encoding-the-dark-horse-of-modern-nlp-eb36c7df4f10">byte-pair encoding</a>. Like BPE, It starts with the alphabet, and iteratively combines common bigrams to form word-pieces and words.</p>
+<p>TensorFlow Text’s vocabulary generator follows the top-down implementation from <a class="reference external" href="https://arxiv.org/pdf/1810.04805.pdf">BERT</a>. Starting with words and breaking them down into smaller components until they hit the frequency threshold, or can’t be broken down further. The next section describes this in detail. For Japanese, Chinese and Korean this top-down approach doesn’t work since there are no explicit word units to start with. For those you need a <a class="reference external" href="https://tfhub.dev/google/zh_segmentation/1">different approach</a>.</p>
+<div class="section" id="choosing-the-vocabulary">
+<h3>Choosing the vocabulary<a class="headerlink" href="#choosing-the-vocabulary" title="Permalink to this headline">¶</a></h3>
+<p>The top-down WordPiece generation algorithm takes in a set of (word, count) pairs and a threshold <code class="docutils literal notranslate"><span class="pre">T</span></code>, and returns a vocabulary <code class="docutils literal notranslate"><span class="pre">V</span></code>.</p>
+<p>The algorithm is iterative. It is run for <code class="docutils literal notranslate"><span class="pre">k</span></code> iterations, where typically <code class="docutils literal notranslate"><span class="pre">k</span> <span class="pre">=</span> <span class="pre">4</span></code>, but only the first two are really important. The third and fourth (and beyond) are just identical to the second. Note that each step of the binary search runs the algorithm from scratch for <code class="docutils literal notranslate"><span class="pre">k</span></code> iterations.</p>
+<p>The iterations described below:</p>
+<div class="section" id="first-iteration">
+<h4>First iteration<a class="headerlink" href="#first-iteration" title="Permalink to this headline">¶</a></h4>
+<ol class="simple">
+<li><p>Iterate over every word and count pair in the input, denoted as <code class="docutils literal notranslate"><span class="pre">(w,</span> <span class="pre">c)</span></code>.</p></li>
+<li><p>For each word <code class="docutils literal notranslate"><span class="pre">w</span></code>, generate every substring, denoted as <code class="docutils literal notranslate"><span class="pre">s</span></code>. E.g., for the
+word <code class="docutils literal notranslate"><span class="pre">human</span></code>, we generate <code class="docutils literal notranslate"><span class="pre">{h,</span> <span class="pre">hu,</span> <span class="pre">hum,</span> <span class="pre">huma,</span> <span class="pre">human,</span> <span class="pre">##u,</span> <span class="pre">##um,</span> <span class="pre">##uma,</span> <span class="pre">##uman,</span> <span class="pre">##m,</span> <span class="pre">##ma,</span> <span class="pre">##man,</span> <span class="pre">#a,</span> <span class="pre">##an,</span> <span class="pre">##n}</span></code>.</p></li>
+<li><p>Maintain a substring-to-count hash map, and increment the count of each <code class="docutils literal notranslate"><span class="pre">s</span></code>
+by <code class="docutils literal notranslate"><span class="pre">c</span></code>. E.g., if we have <code class="docutils literal notranslate"><span class="pre">(human,</span> <span class="pre">113)</span></code> and <code class="docutils literal notranslate"><span class="pre">(humas,</span> <span class="pre">3)</span></code> in our input, the
+count of <code class="docutils literal notranslate"><span class="pre">s</span> <span class="pre">=</span> <span class="pre">huma</span></code> will be <code class="docutils literal notranslate"><span class="pre">113+3=116</span></code>.</p></li>
+<li><p>Once we’ve collected the counts of every substring, iterate over the <code class="docutils literal notranslate"><span class="pre">(s,</span> <span class="pre">c)</span></code> pairs <em>starting with the longest <code class="docutils literal notranslate"><span class="pre">s</span></code> first</em>.</p></li>
+<li><p>Keep any <code class="docutils literal notranslate"><span class="pre">s</span></code> that has a <code class="docutils literal notranslate"><span class="pre">c</span> <span class="pre">&gt;</span> <span class="pre">T</span></code>. E.g., if <code class="docutils literal notranslate"><span class="pre">T</span> <span class="pre">=</span> <span class="pre">100</span></code> and we have <code class="docutils literal notranslate"><span class="pre">(pers,</span> <span class="pre">231);</span> <span class="pre">(dogs,</span> <span class="pre">259);</span> <span class="pre">(##rint;</span> <span class="pre">76)</span></code>, then we would keep <code class="docutils literal notranslate"><span class="pre">pers</span></code> and <code class="docutils literal notranslate"><span class="pre">dogs</span></code>.</p></li>
+<li><p>When an <code class="docutils literal notranslate"><span class="pre">s</span></code> is kept, subtract off its count from all of its prefixes. This
+is the reason for sorting all of the <code class="docutils literal notranslate"><span class="pre">s</span></code> by length in step 4. This is a
+critical part of the algorithm, because otherwise words would be double
+counted. For example, let’s say that we’ve kept <code class="docutils literal notranslate"><span class="pre">human</span></code> and we get to
+<code class="docutils literal notranslate"><span class="pre">(huma,</span> <span class="pre">116)</span></code>. We know that <code class="docutils literal notranslate"><span class="pre">113</span></code> of those <code class="docutils literal notranslate"><span class="pre">116</span></code> came from <code class="docutils literal notranslate"><span class="pre">human</span></code>, and <code class="docutils literal notranslate"><span class="pre">3</span></code>
+came from <code class="docutils literal notranslate"><span class="pre">humas</span></code>. However, now that <code class="docutils literal notranslate"><span class="pre">human</span></code> is in our vocabulary, we know
+we will never segment <code class="docutils literal notranslate"><span class="pre">human</span></code> into <code class="docutils literal notranslate"><span class="pre">huma</span> <span class="pre">##n</span></code>. So once <code class="docutils literal notranslate"><span class="pre">human</span></code> has been
+kept, then <code class="docutils literal notranslate"><span class="pre">huma</span></code> only has an <em>effective</em> count of <code class="docutils literal notranslate"><span class="pre">3</span></code>.</p></li>
+</ol>
+<p>This algorithm will generate a set of word pieces <code class="docutils literal notranslate"><span class="pre">s</span></code> (many of which will be
+whole words <code class="docutils literal notranslate"><span class="pre">w</span></code>), which we <em>could</em> use as our WordPiece vocabulary.</p>
+<p>However, there is a problem: This algorithm will severely overgenerate word
+pieces. The reason is that we only subtract off counts of prefix tokens.
+Therefore, if we keep the word <code class="docutils literal notranslate"><span class="pre">human</span></code>, we will subtract off the count for <code class="docutils literal notranslate"><span class="pre">h,</span> <span class="pre">hu,</span> <span class="pre">hu,</span> <span class="pre">huma</span></code>, but not for <code class="docutils literal notranslate"><span class="pre">##u,</span> <span class="pre">##um,</span> <span class="pre">##uma,</span> <span class="pre">##uman</span></code> and so on. So we might
+generate both <code class="docutils literal notranslate"><span class="pre">human</span></code> and <code class="docutils literal notranslate"><span class="pre">##uman</span></code> as word pieces, even though <code class="docutils literal notranslate"><span class="pre">##uman</span></code> will
+never be applied.</p>
+<p>So why not subtract off the counts for every <em>substring</em>, not just every
+<em>prefix</em>? Because then we could end up subtracting off the counts multiple
+times. Let’s say that we’re processing <code class="docutils literal notranslate"><span class="pre">s</span></code> of length 5 and we keep both
+<code class="docutils literal notranslate"><span class="pre">(##denia,</span> <span class="pre">129)</span></code> and <code class="docutils literal notranslate"><span class="pre">(##eniab,</span> <span class="pre">137)</span></code>, where <code class="docutils literal notranslate"><span class="pre">65</span></code> of those counts came from the
+word <code class="docutils literal notranslate"><span class="pre">undeniable</span></code>. If we subtract off from <em>every</em> substring, we would subtract
+<code class="docutils literal notranslate"><span class="pre">65</span></code> from the substring <code class="docutils literal notranslate"><span class="pre">##enia</span></code> twice, even though we should only subtract
+once. However, if we only subtract off from prefixes, it will correctly only be
+subtracted once.</p>
+</div>
+<div class="section" id="second-and-third-iteration">
+<h4>Second (and third …) iteration<a class="headerlink" href="#second-and-third-iteration" title="Permalink to this headline">¶</a></h4>
+<p>To solve the overgeneration issue mentioned above, we perform multiple
+iterations of the algorithm.</p>
+<p>Subsequent iterations are identical to the first, with one important
+distinction: In step 2, instead of considering <em>every</em> substring, we apply the
+WordPiece tokenization algorithm using the vocabulary from the previous
+iteration, and only consider substrings which <em>start</em> on a split point.</p>
+<p>For example, let’s say that we’re performing step 2 of the algorithm and
+encounter the word <code class="docutils literal notranslate"><span class="pre">undeniable</span></code>. In the first iteration, we would consider every
+substring, e.g., <code class="docutils literal notranslate"><span class="pre">{u,</span> <span class="pre">un,</span> <span class="pre">und,</span> <span class="pre">...,</span> <span class="pre">undeniable,</span> <span class="pre">##n,</span> <span class="pre">##nd,</span> <span class="pre">...,</span> <span class="pre">##ndeniable,</span> <span class="pre">...}</span></code>.</p>
+<p>Now, for the second iteration, we will only consider a subset of these. Let’s
+say that after the first iteration, the relevant word pieces are:</p>
+<p><code class="docutils literal notranslate"><span class="pre">un,</span> <span class="pre">##deni,</span> <span class="pre">##able,</span> <span class="pre">##ndeni,</span> <span class="pre">##iable</span></code></p>
+<p>The WordPiece algorithm will segment this into <code class="docutils literal notranslate"><span class="pre">un</span> <span class="pre">##deni</span> <span class="pre">##able</span></code> (see the
+section <a class="reference external" href="#applying-wordpiece">Applying WordPiece</a> for more information). In this
+case, we will only consider substrings that <em>start</em> at a segmentation point. We
+will still consider every possible <em>end</em> position. So during the second
+iteration, the set of <code class="docutils literal notranslate"><span class="pre">s</span></code> for <code class="docutils literal notranslate"><span class="pre">undeniable</span></code> is:</p>
+<p><code class="docutils literal notranslate"><span class="pre">{u,</span> <span class="pre">un,</span> <span class="pre">und,</span> <span class="pre">unden,</span> <span class="pre">undeni,</span> <span class="pre">undenia,</span> <span class="pre">undeniab,</span> <span class="pre">undeniabl,</span> <span class="pre">undeniable,</span> <span class="pre">##d,</span> <span class="pre">##de,</span> <span class="pre">##den,</span> <span class="pre">##deni,</span> <span class="pre">##denia,</span> <span class="pre">##deniab,</span> <span class="pre">##deniabl</span> <span class="pre">,</span> <span class="pre">##deniable,</span> <span class="pre">##a,</span> <span class="pre">##ab,</span> <span class="pre">##abl,</span> <span class="pre">##able}</span></code></p>
+<p>The algorithm is otherwise identical. In this example, in the first iteration,
+the algorithm produces the suprious tokens <code class="docutils literal notranslate"><span class="pre">##ndeni</span></code> and <code class="docutils literal notranslate"><span class="pre">##iable</span></code>. Now, these
+tokens are never considered, so they will not be generated by the second
+iteration. We perform several iterations just to make sure the results converge
+(although there is no literal convergence guarantee).</p>
+</div>
+</div>
+<div class="section" id="applying-wordpiece">
+<h3>Applying WordPiece<a class="headerlink" href="#applying-wordpiece" title="Permalink to this headline">¶</a></h3>
+<p><a id="applying_wordpiece"></a></p>
+<p>Once a WordPiece vocabulary has been generated, we need to be able to apply it
+to new data. The algorithm is a simple greedy longest-match-first application.</p>
+<p>For example, consider segmenting the word <code class="docutils literal notranslate"><span class="pre">undeniable</span></code>.</p>
+<p>We first lookup <code class="docutils literal notranslate"><span class="pre">undeniable</span></code> in our WordPiece dictionary, and if it’s present,
+we’re done. If not, we decrement the end point by one character, and repeat,
+e.g., <code class="docutils literal notranslate"><span class="pre">undeniabl</span></code>.</p>
+<p>Eventually, we will either find a subtoken in our vocabulary, or get down to a
+single character subtoken. (In general, we assume that every character is in our
+vocabulary, although this might not be the case for rare Unicode characters. If
+we encounter a rare Unicode character that’s not in the vocabulary we simply map
+the entire word to <code class="docutils literal notranslate"><span class="pre">&lt;unk&gt;</span></code>).</p>
+<p>In this case, we find <code class="docutils literal notranslate"><span class="pre">un</span></code> in our vocabulary. So that’s our first word piece.
+Then we jump to the end of <code class="docutils literal notranslate"><span class="pre">un</span></code> and repeat the processing, e.g., try to find
+<code class="docutils literal notranslate"><span class="pre">##deniable</span></code>, then <code class="docutils literal notranslate"><span class="pre">##deniabl</span></code>, etc. This is repeated until we’ve segmented the
+entire word.</p>
+</div>
+<div class="section" id="intuition">
+<h3>Intuition<a class="headerlink" href="#intuition" title="Permalink to this headline">¶</a></h3>
+<p>Intuitively, WordPiece tokenization is trying to satisfy two different
+objectives:</p>
+<ol class="simple">
+<li><p>Tokenize the data into the <em>least</em> number of pieces as possible. It is
+important to keep in mind that the WordPiece algorithm does not “want” to
+split words. Otherwise, it would just split every word into its characters,
+e.g., <code class="docutils literal notranslate"><span class="pre">human</span> <span class="pre">-&gt;</span> <span class="pre">{h,</span> <span class="pre">##u,</span> <span class="pre">##m,</span> <span class="pre">##a,</span> <span class="pre">#n}</span></code>. This is one critical thing that
+makes WordPiece different from morphological splitters, which will split
+linguistic morphemes even for common words (e.g., <code class="docutils literal notranslate"><span class="pre">unwanted</span> <span class="pre">-&gt;</span> <span class="pre">{un,</span> <span class="pre">want,</span> <span class="pre">ed}</span></code>).</p></li>
+<li><p>When a word does have to be split into pieces, split it into pieces that
+have maximal counts in the training data. For example, the reason why the
+word <code class="docutils literal notranslate"><span class="pre">undeniable</span></code> would be split into <code class="docutils literal notranslate"><span class="pre">{un,</span> <span class="pre">##deni,</span> <span class="pre">##able}</span></code> rather than
+alternatives like <code class="docutils literal notranslate"><span class="pre">{unde,</span> <span class="pre">##niab,</span> <span class="pre">##le}</span></code> is that the counts for <code class="docutils literal notranslate"><span class="pre">un</span></code> and
+<code class="docutils literal notranslate"><span class="pre">##able</span></code> in particular will be very high, since these are common prefixes
+and suffixes. Even though the count for <code class="docutils literal notranslate"><span class="pre">##le</span></code> must be higher than <code class="docutils literal notranslate"><span class="pre">##able</span></code>,
+the low counts of <code class="docutils literal notranslate"><span class="pre">unde</span></code> and <code class="docutils literal notranslate"><span class="pre">##niab</span></code> will make this a less “desirable”
+tokenization to the algorithm.</p></li>
+</ol>
+</div>
+</div>
+<div class="section" id="optional-tf-lookup">
+<h2>Optional: tf.lookup<a class="headerlink" href="#optional-tf-lookup" title="Permalink to this headline">¶</a></h2>
+<p><a id="tf.lookup"></a></p>
+<p>If you need access to, or more control over the vocabulary it’s worth noting that you can build the lookup table yourself and pass that to <code class="docutils literal notranslate"><span class="pre">BertTokenizer</span></code>.</p>
+<p>When you pass a string, <code class="docutils literal notranslate"><span class="pre">BertTokenizer</span></code> does the following:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pt_lookup</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">lookup</span><span class="o">.</span><span class="n">StaticVocabularyTable</span><span class="p">(</span>
+    <span class="n">num_oov_buckets</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+    <span class="n">initializer</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">lookup</span><span class="o">.</span><span class="n">TextFileInitializer</span><span class="p">(</span>
+        <span class="n">filename</span><span class="o">=</span><span class="s1">&#39;pt_vocab.txt&#39;</span><span class="p">,</span>
+        <span class="n">key_dtype</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">string</span><span class="p">,</span>
+        <span class="n">key_index</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">lookup</span><span class="o">.</span><span class="n">TextFileIndex</span><span class="o">.</span><span class="n">WHOLE_LINE</span><span class="p">,</span>
+        <span class="n">value_dtype</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">int64</span><span class="p">,</span>
+        <span class="n">value_index</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">lookup</span><span class="o">.</span><span class="n">TextFileIndex</span><span class="o">.</span><span class="n">LINE_NUMBER</span><span class="p">))</span> 
+<span class="n">pt_tokenizer</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">BertTokenizer</span><span class="p">(</span><span class="n">pt_lookup</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now you have direct access to the lookup table used in the tokenizer.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pt_lookup</span><span class="o">.</span><span class="n">lookup</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">([</span><span class="s1">&#39;é&#39;</span><span class="p">,</span> <span class="s1">&#39;um&#39;</span><span class="p">,</span> <span class="s1">&#39;uma&#39;</span><span class="p">,</span> <span class="s1">&#39;para&#39;</span><span class="p">,</span> <span class="s1">&#39;não&#39;</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;tf.Tensor: shape=(5,), dtype=int64, numpy=array([7765,   85,   86,   87, 7765])&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>You don’t need to use a vocabulary file, <code class="docutils literal notranslate"><span class="pre">tf.lookup</span></code> has other initializer options. If you have the vocabulary in memory you can use <code class="docutils literal notranslate"><span class="pre">lookup.KeyValueTensorInitializer</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pt_lookup</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">lookup</span><span class="o">.</span><span class="n">StaticVocabularyTable</span><span class="p">(</span>
+    <span class="n">num_oov_buckets</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+    <span class="n">initializer</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">lookup</span><span class="o">.</span><span class="n">KeyValueTensorInitializer</span><span class="p">(</span>
+        <span class="n">keys</span><span class="o">=</span><span class="n">pt_vocab</span><span class="p">,</span>
+        <span class="n">values</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">pt_vocab</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">int64</span><span class="p">)))</span> 
+<span class="n">pt_tokenizer</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">BertTokenizer</span><span class="p">(</span><span class="n">pt_lookup</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./skillsets/tf2"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="tf2_beginner_tftext.html" title="previous page">TF.Text</a>
+    <a class='right-next' id="next-link" href="tf2_beginner_tfrecord.html" title="next page">TFRecord and tf.train.Example</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By comafire<br/>
+        
+            &copy; Copyright 2015.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+<script async="" src="https://www.google-analytics.com/analytics.js"></script>
+<script>
+                        window.ga = window.ga || function () {
+                            (ga.q = ga.q || []).push(arguments) };
+                        ga.l = +new Date;
+                        ga('create', 'UA-81648003-1', 'auto');
+                        ga('set', 'anonymizeIp', true);
+                        ga('send', 'pageview');
+                    </script>
+
+  </body>
+</html>

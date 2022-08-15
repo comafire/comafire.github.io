@@ -1,0 +1,1935 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Preprocessing &#8212; 데사견문록</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Regression" href="sklearn_regression.html" />
+    <link rel="prev" title="Datasets" href="sklearn_datasets.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+      <img src="../../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">데사견문록</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../readme.html">
+   데이터사이언스견문록
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  End to End Data Science
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../e2eds/data_science.html">
+   Data Science
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../e2eds/e2eds.html">
+   End to End Data Science
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Episodes
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../episodes/tbc.html">
+   TO BE CONTINUE…
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  skillsets
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../tf2/tf2.html">
+   Tensorflow2
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../tf2/tf2_10mins.html">
+     TF2 10mins
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../tf2/tf2_beginner.html">
+     TF2 Beginner
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+    <label for="toctree-checkbox-2">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../tf2/tf2_beginner_quickstart.html">
+       Quickstart
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../tf2/tf2_beginner_image_classification.html">
+       Image Classification
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../tf2/tf2_beginner_text_classification.html">
+       Text Classification
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../tf2/tf2_beginner_hub_text_classification.html">
+       Text Classification with Hub
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../tf2/tf2_beginner_regression.html">
+       Regression
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../tf2/tf2_beginner_overfit_underfit.html">
+       Overfit &amp; Underfit
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../tf2/tf2_beginner_save_load.html">
+       Save &amp; Load
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../tf2/tf2_beginner_keras_tuner.html">
+       Keras Tuner
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../tf2/tf2_beginner_images.html">
+       Images
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../tf2/tf2_beginner_csv.html">
+       CSV
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../tf2/tf2_beginner_numpy.html">
+       Numpy
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../tf2/tf2_beginner_pandas.html">
+       Pandas
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../tf2/tf2_beginner_text.html">
+       Text
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../tf2/tf2_beginner_unicode.html">
+       Unicode
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../tf2/tf2_beginner_tftext.html">
+       TF.Text
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../tf2/tf2_beginner_subwords_tokenizer.html">
+       Subword Tokenization
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../tf2/tf2_beginner_tfrecord.html">
+       TFRecord and tf.train.Example
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../tf2/tf2_beginner_tfio.html">
+       TF I/O
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../tf2/tf2_advanced.html">
+     TF2 Advanced
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+    <label for="toctree-checkbox-3">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../tf2/tf2_advanced_quickstart.html">
+       Quickstart
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../tf2/tf2_advanced_image_cnn.html">
+       Image CNN
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../tf2/tf2_advanced_image_classification.html">
+       Image Classification
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../tf2/tf2_advanced_transfer_learning.html">
+       Transfer learning and fine-tuning
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../tf2/tf2_advanced_transfer_learning_with_hub.html">
+       Transfer learning with TensorFlow Hub
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../tf2/tf2_advanced_data_augmentation.html">
+       Data augmentation
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../tf2/tf2_advanced_image_segmentation.html">
+       Image Segmentation
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../keras/keras.html">
+   Keras
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../keras/keras_10mins.html">
+     Keras 10mins
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../keras/keras_dnn_regression.html">
+     DNN Regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../keras/keras_dnn_classification.html">
+     DNN Classification
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../keras/keras_deepmf.html">
+     Deep MF
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="sklearn.html">
+   Scikit-Learn
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="sklearn_10mins.html">
+     Scikit-Learn 10mins
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="sklearn_datasets.html">
+     Datasets
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Preprocessing
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="sklearn_regression.html">
+     Regression
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+    <label for="toctree-checkbox-6">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="sklearn_linear_regression.html">
+       Linear Regression
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="sklearn_polynomial_regression.html">
+       Polynomial Regression
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="sklearn_sgd_regression.html">
+       SGD Regression
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="sklearn_svm_regression.html">
+       SVM Regression
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="sklearn_nearest_neighbor_regression.html">
+       Nearest Neighbors Regression
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="sklearn_ensemble_regression.html">
+       Ensemble Regression
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="sklearn_eval_regression.html">
+       Regression Evaluation
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="sklearn_classification.html">
+     Classification
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+    <label for="toctree-checkbox-7">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="sklearn_logistic_regression.html">
+       Logistic Regression
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="sklearn_sgd_classification.html">
+       SGD Classification
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="sklearn_svm_classification.html">
+       SVM Classification
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="sklearn_nearest_neighbor_classification.html">
+       Nearest Neighbors Classification
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="sklearn_ensemble_classification.html">
+       Ensemble Classification
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="sklearn_eval_classification.html">
+       Classification Evaluation
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="sklearn_clustering.html">
+     Clustering
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+    <label for="toctree-checkbox-8">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="sklearn_kmeans.html">
+       K-Means
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="sklearn_mean_shift.html">
+       Mean Shift
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="sklearn_spectral_clustering.html">
+       Spectral Clustering
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="sklearn_eval_clustering.html">
+       Clustering Evaluation
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="sklearn_feature_selection.html">
+     Feature Selection
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="sklearn_feature_extraction.html">
+     Feature Extraction
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="sklearn_split_train_test.html">
+     Train/Valid/Test Dataset
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="sklearn_model_persistence.html">
+     Model Persistence
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="sklearn_hyper_parameter_tunning.html">
+     Hyper Parameter Tunning
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="sklearn_anomaly_detection.html">
+     Anomaly Detection
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../dlib/dlib.html">
+   Dlib
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+  <label for="toctree-checkbox-9">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../dlib/dlib_frontal_face_detector.html">
+     Frontal Face Detector
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../surprise/surprise.html">
+   Surprise
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+  <label for="toctree-checkbox-10">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../surprise/surprise_collaborative_filtering.html">
+     Collaborative Filtering
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../imblearn/imblearn.html">
+   Imblearn
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
+  <label for="toctree-checkbox-11">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../imblearn/imblearn_imbalanced_class.html">
+     Imbalanced Class
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../spark/spark.html">
+   Spark
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
+  <label for="toctree-checkbox-12">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../spark/spark_dataframe_10mins.html">
+     Spark DataFrame 10mins
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../pandas/pandas.html">
+   Pandas
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/>
+  <label for="toctree-checkbox-13">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../pandas/pandas_10mins.html">
+     Pandas 10mins
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../pandas/pandas_missing_value.html">
+     Missing Value
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../pandas/pandas_data_description.html">
+     Data Description
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../numpy/numpy.html">
+   Numpy
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/>
+  <label for="toctree-checkbox-14">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../numpy/numpy_10mins.html">
+     Numpy 10mins
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../numpy/numpy_outlier.html">
+     Outlier
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../jupyter/jupyter.html">
+   Jupyter
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/>
+  <label for="toctree-checkbox-15">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../jupyter/jupyter_cloud.html">
+     Jupyter (Cloud)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../jupyter/jupyter_native_ubuntu.html">
+     Jupyter (Ubuntu)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../jupyter/jupyter_native_macos_x86.html">
+     Jupyter (macOS x86)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../jupyter/jupyter_docker.html">
+     Jupyter (Docker)
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../skp/skp.html">
+   St. Kilda Pier (SKP)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/>
+  <label for="toctree-checkbox-16">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../skp/skp_n4e_vscode.html">
+     Native Visual Studio Code
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../skp/skp_n4e_jupyter.html">
+     Native Jupyter
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../skp/skp_d4r_jupyter.html">
+     Docker Jupyter
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../skp/skp_n4e_traefik.html">
+     Native Traefik
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ansible/ansible.html">
+   Ansible
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/>
+  <label for="toctree-checkbox-17">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ansible/ansible_skp_ubuntu.html">
+     ansible_skp_ubuntu
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../vagrant/vagrant_virtualbox.html">
+   Vagrant &amp; Virtualbox
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/>
+  <label for="toctree-checkbox-18">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../vagrant/vagrant_skp_single.html">
+     vagrant_skp_single
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  devicesets
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../devicesets/computer.html">
+   Computer
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../devicesets/network.html">
+   Network
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../devicesets/gce_nested_vm.html">
+   Google Computer Engine
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/skillsets/sklearn/sklearn_preprocessing.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/comafire/comafire.github.io"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/comafire/comafire.github.io/issues/new?title=Issue%20on%20page%20%2Fskillsets/sklearn/sklearn_preprocessing.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/comafire/comafire.github.io/master?urlpath=tree/skillsets/sklearn/sklearn_preprocessing.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#standardization-or-mean-removal-and-variance-scaling">
+   Standardization, or mean removal and variance scaling
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#standardscaler">
+     StandardScaler
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#minmaxscaler">
+     MinMaxScaler
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#maxabsscaler">
+     MaxAbsScaler
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#robustscaler">
+     RobustScaler
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#non-linear-transformation">
+   Non-linear transformation
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#powertransformer">
+     PowerTransformer
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#quantiletransformer">
+     QuantileTransformer
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#normalization">
+   Normalization
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#normalizer">
+     Normalizer
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#encoding-categorical-features">
+   Encoding categorical features
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ordinalencoder">
+     OrdinalEncoder
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#onehotencoder">
+     OneHotEncoder
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#labelencoder">
+     LabelEncoder
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#labelbinarizer">
+     LabelBinarizer
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#discretization">
+   Discretization
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#k-bins-discretization">
+     K-bins discretization
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#feature-binarization">
+     Feature binarization
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#imputation-of-missing-values">
+   Imputation of missing values
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#univariate-feature-imputation">
+     Univariate feature imputation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#multivariate-feature-imputation">
+     Multivariate feature imputation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#nearest-neighbors-imputation">
+     Nearest neighbors imputation
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#generating-polynomial-features">
+   Generating polynomial features
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="preprocessing">
+<h1>Preprocessing<a class="headerlink" href="#preprocessing" title="Permalink to this headline">¶</a></h1>
+<p>데이터 전처리</p>
+<p>데이터를 모델의 입력으로 넣기 전에 모델의 특성에 맞게 입력 값을 조정해야 할 필요가 있습니다.</p>
+<p>Feature 들 간의 값 범위가 상관 없는 모델도 있지만, 대부분의 모델들은 Feature 들간의 값 범위를 맞추거나 Feature 내에 이상치를 조정해주는 것이 모델의 학습 시간과 성능을 높이는데 도움을 주게 됩니다.</p>
+<p>하지만, Feature 들의 분포를 변형하는 전처리는 Feature의 특성에 변형을 가져오기 때문에 모델에 따라 성능이 낮아지는 현상이 나타날 수도 있기 때문에 신중해야 합니다.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://scikit-learn.org/stable/modules/preprocessing.html">https://scikit-learn.org/stable/modules/preprocessing.html</a></p></li>
+<li><p><a class="reference external" href="https://scikit-learn.org/stable/auto_examples/preprocessing/plot_all_scaling.html#sphx-glr-auto-examples-preprocessing-plot-all-scaling-py">https://scikit-learn.org/stable/auto_examples/preprocessing/plot_all_scaling.html#sphx-glr-auto-examples-preprocessing-plot-all-scaling-py</a></p></li>
+</ul>
+<p>캘리포니아 주거 데이터 셋의 Feature 0 (블록 단위 평균 소득)과 Feature 5 (평균 주택 점유율)는 매우 다른 범위이며 매우 큰 이상치를 포함합니다.</p>
+<p>이 두 가지 Feature는 데이터를 시각화하는 데 어려움을 야기하며 더 중요한 것은 많은 모델의 예측 성능을 저하시킬 수 있다는 것입니다.</p>
+<p>스케일되지 않은 데이터는 또한 그래디언트 기반 학습시에 수렴을 지연 시키거나 방해 할 수 있습니다.</p>
+<div class="section" id="standardization-or-mean-removal-and-variance-scaling">
+<h2>Standardization, or mean removal and variance scaling<a class="headerlink" href="#standardization-or-mean-removal-and-variance-scaling" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Author:  Raghav RV &lt;rvraghav93@gmail.com&gt;</span>
+<span class="c1">#          Guillaume Lemaitre &lt;g.lemaitre58@gmail.com&gt;</span>
+<span class="c1">#          Thomas Unterthiner</span>
+<span class="c1"># License: BSD 3 clause</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="kn">import</span> <span class="nn">matplotlib</span> <span class="k">as</span> <span class="nn">mpl</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">cm</span>
+
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">MinMaxScaler</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">minmax_scale</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">MaxAbsScaler</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">RobustScaler</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">Normalizer</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">QuantileTransformer</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">PowerTransformer</span>
+
+<span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">fetch_california_housing</span>
+
+<span class="n">dataset</span> <span class="o">=</span> <span class="n">fetch_california_housing</span><span class="p">()</span>
+<span class="n">X_full</span><span class="p">,</span> <span class="n">y_full</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">dataset</span><span class="o">.</span><span class="n">target</span>
+<span class="n">feature_names</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">feature_names</span>
+
+<span class="n">feature_mapping</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;MedInc&quot;</span><span class="p">:</span> <span class="s2">&quot;Median income in block&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;HousAge&quot;</span><span class="p">:</span> <span class="s2">&quot;Median house age in block&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;AveRooms&quot;</span><span class="p">:</span> <span class="s2">&quot;Average number of rooms&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;AveBedrms&quot;</span><span class="p">:</span> <span class="s2">&quot;Average number of bedrooms&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Population&quot;</span><span class="p">:</span> <span class="s2">&quot;Block population&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;AveOccup&quot;</span><span class="p">:</span> <span class="s2">&quot;Average house occupancy&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Latitude&quot;</span><span class="p">:</span> <span class="s2">&quot;House block latitude&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Longitude&quot;</span><span class="p">:</span> <span class="s2">&quot;House block longitude&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="c1"># Take only 2 features to make visualization easier</span>
+<span class="c1"># Feature MedInc has a long tail distribution.</span>
+<span class="c1"># Feature AveOccup has a few but very large outliers.</span>
+<span class="n">features</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;MedInc&quot;</span><span class="p">,</span> <span class="s2">&quot;AveOccup&quot;</span><span class="p">]</span>
+<span class="n">features_idx</span> <span class="o">=</span> <span class="p">[</span><span class="n">feature_names</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">feature</span><span class="p">)</span> <span class="k">for</span> <span class="n">feature</span> <span class="ow">in</span> <span class="n">features</span><span class="p">]</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">X_full</span><span class="p">[:,</span> <span class="n">features_idx</span><span class="p">]</span>
+<span class="n">distributions</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">(</span><span class="s2">&quot;Unscaled data&quot;</span><span class="p">,</span> <span class="n">X</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;Data after standard scaling&quot;</span><span class="p">,</span> <span class="n">StandardScaler</span><span class="p">()</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">)),</span>
+    <span class="p">(</span><span class="s2">&quot;Data after min-max scaling&quot;</span><span class="p">,</span> <span class="n">MinMaxScaler</span><span class="p">()</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">)),</span>
+    <span class="p">(</span><span class="s2">&quot;Data after max-abs scaling&quot;</span><span class="p">,</span> <span class="n">MaxAbsScaler</span><span class="p">()</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">)),</span>
+    <span class="p">(</span>
+        <span class="s2">&quot;Data after robust scaling&quot;</span><span class="p">,</span>
+        <span class="n">RobustScaler</span><span class="p">(</span><span class="n">quantile_range</span><span class="o">=</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="mi">75</span><span class="p">))</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">),</span>
+    <span class="p">),</span>
+    <span class="p">(</span>
+        <span class="s2">&quot;Data after power transformation (Yeo-Johnson)&quot;</span><span class="p">,</span>
+        <span class="n">PowerTransformer</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s2">&quot;yeo-johnson&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">),</span>
+    <span class="p">),</span>
+    <span class="p">(</span>
+        <span class="s2">&quot;Data after power transformation (Box-Cox)&quot;</span><span class="p">,</span>
+        <span class="n">PowerTransformer</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s2">&quot;box-cox&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">),</span>
+    <span class="p">),</span>
+    <span class="p">(</span>
+        <span class="s2">&quot;Data after quantile transformation (uniform pdf)&quot;</span><span class="p">,</span>
+        <span class="n">QuantileTransformer</span><span class="p">(</span><span class="n">output_distribution</span><span class="o">=</span><span class="s2">&quot;uniform&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">),</span>
+    <span class="p">),</span>
+    <span class="p">(</span>
+        <span class="s2">&quot;Data after quantile transformation (gaussian pdf)&quot;</span><span class="p">,</span>
+        <span class="n">QuantileTransformer</span><span class="p">(</span><span class="n">output_distribution</span><span class="o">=</span><span class="s2">&quot;normal&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">),</span>
+    <span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;Data after sample-wise L2 normalizing&quot;</span><span class="p">,</span> <span class="n">Normalizer</span><span class="p">()</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">)),</span>
+<span class="p">]</span>
+
+<span class="c1"># scale the output between 0 and 1 for the colorbar</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">minmax_scale</span><span class="p">(</span><span class="n">y_full</span><span class="p">)</span>
+
+<span class="c1"># plasma does not exist in matplotlib &lt; 1.5</span>
+<span class="n">cmap</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">cm</span><span class="p">,</span> <span class="s2">&quot;plasma_r&quot;</span><span class="p">,</span> <span class="n">cm</span><span class="o">.</span><span class="n">hot_r</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">create_axes</span><span class="p">(</span><span class="n">title</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">6</span><span class="p">)):</span>
+    <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="n">figsize</span><span class="p">)</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
+
+    <span class="c1"># define the axis for the first plot</span>
+    <span class="n">left</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.22</span>
+    <span class="n">bottom</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.7</span>
+    <span class="n">bottom_h</span> <span class="o">=</span> <span class="n">height</span> <span class="o">+</span> <span class="mf">0.15</span>
+    <span class="n">left_h</span> <span class="o">=</span> <span class="n">left</span> <span class="o">+</span> <span class="n">width</span> <span class="o">+</span> <span class="mf">0.02</span>
+
+    <span class="n">rect_scatter</span> <span class="o">=</span> <span class="p">[</span><span class="n">left</span><span class="p">,</span> <span class="n">bottom</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">]</span>
+    <span class="n">rect_histx</span> <span class="o">=</span> <span class="p">[</span><span class="n">left</span><span class="p">,</span> <span class="n">bottom_h</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">]</span>
+    <span class="n">rect_histy</span> <span class="o">=</span> <span class="p">[</span><span class="n">left_h</span><span class="p">,</span> <span class="n">bottom</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">,</span> <span class="n">height</span><span class="p">]</span>
+
+    <span class="n">ax_scatter</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">axes</span><span class="p">(</span><span class="n">rect_scatter</span><span class="p">)</span>
+    <span class="n">ax_histx</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">axes</span><span class="p">(</span><span class="n">rect_histx</span><span class="p">)</span>
+    <span class="n">ax_histy</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">axes</span><span class="p">(</span><span class="n">rect_histy</span><span class="p">)</span>
+
+    <span class="c1"># define the axis for the zoomed-in plot</span>
+    <span class="n">left</span> <span class="o">=</span> <span class="n">width</span> <span class="o">+</span> <span class="n">left</span> <span class="o">+</span> <span class="mf">0.2</span>
+    <span class="n">left_h</span> <span class="o">=</span> <span class="n">left</span> <span class="o">+</span> <span class="n">width</span> <span class="o">+</span> <span class="mf">0.02</span>
+
+    <span class="n">rect_scatter</span> <span class="o">=</span> <span class="p">[</span><span class="n">left</span><span class="p">,</span> <span class="n">bottom</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">]</span>
+    <span class="n">rect_histx</span> <span class="o">=</span> <span class="p">[</span><span class="n">left</span><span class="p">,</span> <span class="n">bottom_h</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">]</span>
+    <span class="n">rect_histy</span> <span class="o">=</span> <span class="p">[</span><span class="n">left_h</span><span class="p">,</span> <span class="n">bottom</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">,</span> <span class="n">height</span><span class="p">]</span>
+
+    <span class="n">ax_scatter_zoom</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">axes</span><span class="p">(</span><span class="n">rect_scatter</span><span class="p">)</span>
+    <span class="n">ax_histx_zoom</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">axes</span><span class="p">(</span><span class="n">rect_histx</span><span class="p">)</span>
+    <span class="n">ax_histy_zoom</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">axes</span><span class="p">(</span><span class="n">rect_histy</span><span class="p">)</span>
+
+    <span class="c1"># define the axis for the colorbar</span>
+    <span class="n">left</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="n">width</span> <span class="o">+</span> <span class="n">left</span> <span class="o">+</span> <span class="mf">0.13</span><span class="p">,</span> <span class="mf">0.01</span>
+
+    <span class="n">rect_colorbar</span> <span class="o">=</span> <span class="p">[</span><span class="n">left</span><span class="p">,</span> <span class="n">bottom</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">]</span>
+    <span class="n">ax_colorbar</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">axes</span><span class="p">(</span><span class="n">rect_colorbar</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="p">(</span>
+        <span class="p">(</span><span class="n">ax_scatter</span><span class="p">,</span> <span class="n">ax_histy</span><span class="p">,</span> <span class="n">ax_histx</span><span class="p">),</span>
+        <span class="p">(</span><span class="n">ax_scatter_zoom</span><span class="p">,</span> <span class="n">ax_histy_zoom</span><span class="p">,</span> <span class="n">ax_histx_zoom</span><span class="p">),</span>
+        <span class="n">ax_colorbar</span><span class="p">,</span>
+    <span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">plot_distribution</span><span class="p">(</span><span class="n">axes</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">hist_nbins</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">x0_label</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">x1_label</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">):</span>
+    <span class="n">ax</span><span class="p">,</span> <span class="n">hist_X1</span><span class="p">,</span> <span class="n">hist_X0</span> <span class="o">=</span> <span class="n">axes</span>
+
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="n">x0_label</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="n">x1_label</span><span class="p">)</span>
+
+    <span class="c1"># The scatter plot</span>
+    <span class="n">colors</span> <span class="o">=</span> <span class="n">cmap</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;o&quot;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">colors</span><span class="p">)</span>
+
+    <span class="c1"># Removing the top and the right spine for aesthetics</span>
+    <span class="c1"># make nice axis layout</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s2">&quot;top&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s2">&quot;right&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">get_xaxis</span><span class="p">()</span><span class="o">.</span><span class="n">tick_bottom</span><span class="p">()</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">get_yaxis</span><span class="p">()</span><span class="o">.</span><span class="n">tick_left</span><span class="p">()</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s2">&quot;left&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">set_position</span><span class="p">((</span><span class="s2">&quot;outward&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s2">&quot;bottom&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">set_position</span><span class="p">((</span><span class="s2">&quot;outward&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+
+    <span class="c1"># Histogram for axis X1 (feature 5)</span>
+    <span class="n">hist_X1</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="n">ax</span><span class="o">.</span><span class="n">get_ylim</span><span class="p">())</span>
+    <span class="n">hist_X1</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span>
+        <span class="n">X</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="n">hist_nbins</span><span class="p">,</span> <span class="n">orientation</span><span class="o">=</span><span class="s2">&quot;horizontal&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;grey&quot;</span><span class="p">,</span> <span class="n">ec</span><span class="o">=</span><span class="s2">&quot;grey&quot;</span>
+    <span class="p">)</span>
+    <span class="n">hist_X1</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;off&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Histogram for axis X0 (feature 0)</span>
+    <span class="n">hist_X0</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="n">ax</span><span class="o">.</span><span class="n">get_xlim</span><span class="p">())</span>
+    <span class="n">hist_X0</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span>
+        <span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="n">hist_nbins</span><span class="p">,</span> <span class="n">orientation</span><span class="o">=</span><span class="s2">&quot;vertical&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;grey&quot;</span><span class="p">,</span> <span class="n">ec</span><span class="o">=</span><span class="s2">&quot;grey&quot;</span>
+    <span class="p">)</span>
+    <span class="n">hist_X0</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;off&quot;</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">make_plot</span><span class="p">(</span><span class="n">item_idx</span><span class="p">):</span>
+    <span class="n">title</span><span class="p">,</span> <span class="n">X</span> <span class="o">=</span> <span class="n">distributions</span><span class="p">[</span><span class="n">item_idx</span><span class="p">]</span>
+    <span class="n">ax_zoom_out</span><span class="p">,</span> <span class="n">ax_zoom_in</span><span class="p">,</span> <span class="n">ax_colorbar</span> <span class="o">=</span> <span class="n">create_axes</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
+    <span class="n">axarr</span> <span class="o">=</span> <span class="p">(</span><span class="n">ax_zoom_out</span><span class="p">,</span> <span class="n">ax_zoom_in</span><span class="p">)</span>
+    <span class="n">plot_distribution</span><span class="p">(</span>
+        <span class="n">axarr</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+        <span class="n">X</span><span class="p">,</span>
+        <span class="n">y</span><span class="p">,</span>
+        <span class="n">hist_nbins</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span>
+        <span class="n">x0_label</span><span class="o">=</span><span class="n">feature_mapping</span><span class="p">[</span><span class="n">features</span><span class="p">[</span><span class="mi">0</span><span class="p">]],</span>
+        <span class="n">x1_label</span><span class="o">=</span><span class="n">feature_mapping</span><span class="p">[</span><span class="n">features</span><span class="p">[</span><span class="mi">1</span><span class="p">]],</span>
+        <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Full data&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="c1"># zoom-in</span>
+    <span class="n">zoom_in_percentile_range</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">99</span><span class="p">)</span>
+    <span class="n">cutoffs_X0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">zoom_in_percentile_range</span><span class="p">)</span>
+    <span class="n">cutoffs_X1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">zoom_in_percentile_range</span><span class="p">)</span>
+
+    <span class="n">non_outliers_mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">X</span> <span class="o">&gt;</span> <span class="p">[</span><span class="n">cutoffs_X0</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">cutoffs_X1</span><span class="p">[</span><span class="mi">0</span><span class="p">]],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">&amp;</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span>
+        <span class="n">X</span> <span class="o">&lt;</span> <span class="p">[</span><span class="n">cutoffs_X0</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">cutoffs_X1</span><span class="p">[</span><span class="mi">1</span><span class="p">]],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span>
+    <span class="p">)</span>
+    <span class="n">plot_distribution</span><span class="p">(</span>
+        <span class="n">axarr</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+        <span class="n">X</span><span class="p">[</span><span class="n">non_outliers_mask</span><span class="p">],</span>
+        <span class="n">y</span><span class="p">[</span><span class="n">non_outliers_mask</span><span class="p">],</span>
+        <span class="n">hist_nbins</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+        <span class="n">x0_label</span><span class="o">=</span><span class="n">feature_mapping</span><span class="p">[</span><span class="n">features</span><span class="p">[</span><span class="mi">0</span><span class="p">]],</span>
+        <span class="n">x1_label</span><span class="o">=</span><span class="n">feature_mapping</span><span class="p">[</span><span class="n">features</span><span class="p">[</span><span class="mi">1</span><span class="p">]],</span>
+        <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Zoom-in&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="n">norm</span> <span class="o">=</span> <span class="n">mpl</span><span class="o">.</span><span class="n">colors</span><span class="o">.</span><span class="n">Normalize</span><span class="p">(</span><span class="n">y_full</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">y_full</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+    <span class="n">mpl</span><span class="o">.</span><span class="n">colorbar</span><span class="o">.</span><span class="n">ColorbarBase</span><span class="p">(</span>
+        <span class="n">ax_colorbar</span><span class="p">,</span>
+        <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">,</span>
+        <span class="n">norm</span><span class="o">=</span><span class="n">norm</span><span class="p">,</span>
+        <span class="n">orientation</span><span class="o">=</span><span class="s2">&quot;vertical&quot;</span><span class="p">,</span>
+        <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Color mapping for values of y&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Orginal Data</strong></p>
+<p>전체 데이터는 중앙 소득은 [0, 10], 평균 주택 점유율는 [0, 6] 범위 값을 가지고, 일부 이상치(일부 블록에는 평균 주택 점유율이 1200임)를 포함하고 있습니다.</p>
+<p>왼쪽 그림은 전체 데이터 세트를 나타낸 것이고, 오른쪽 그림은 이상치가 없는 부분을 확대하여 나타낸 것입니다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">make_plot</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/sklearn_preprocessing_4_0.png" src="../../_images/sklearn_preprocessing_4_0.png" />
+</div>
+</div>
+<div class="section" id="standardscaler">
+<h3>StandardScaler<a class="headerlink" href="#standardscaler" title="Permalink to this headline">¶</a></h3>
+<p>StandardScaler는 Mean을 제거하고 Unit Variance로 데이터를 스케일링합니다.</p>
+<p><span class="math notranslate nohighlight">\(
+\frac{x - \mu}{\sigma}
+\)</span></p>
+<p>데이터가 정규 분포를 따른다는 가정하에 일반적으로 데이터에 StandardScaler를 적용하는 경우가 많습니다.</p>
+<p>데이터가 심하게 정규 분포에서 벗어날 경우 제대로 동작하지 않을 수 있습니다. 이상치가 존재할 경우도 이는 평균과 표준 편차에 영향을 주기 때문에 그림과 같이 변환된 Feature의 범위에 영향을 미치게 됩니다.</p>
+<p>특히 각 Feature의 이상치는 다른 범위를 가지므로 각 Feature의 변환 된 데이터의 분포는 매우 다르게 나타나게 됩니다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">preprocessing</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">X_train</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span> <span class="mf">1.</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.</span><span class="p">,</span>  <span class="mf">2.</span><span class="p">],</span>
+                    <span class="p">[</span> <span class="mf">2.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">],</span>
+                    <span class="p">[</span> <span class="mf">0.</span><span class="p">,</span>  <span class="mf">1.</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.</span><span class="p">]])</span>
+<span class="n">scaler</span> <span class="o">=</span> <span class="n">preprocessing</span><span class="o">.</span><span class="n">StandardScaler</span><span class="p">()</span>
+<span class="n">scaler</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;scaler</span><span class="se">\n</span><span class="s2">mean: </span><span class="si">{</span><span class="n">scaler</span><span class="o">.</span><span class="n">mean_</span><span class="si">}</span><span class="s2">, scale: </span><span class="si">{</span><span class="n">scaler</span><span class="o">.</span><span class="n">scale_</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">X_scaled</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;X_scaled</span><span class="se">\n</span><span class="si">{</span><span class="n">X_scaled</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>scaler
+mean: [1.         0.         0.33333333], scale: [0.81649658 0.81649658 1.24721913]
+X_scaled
+[[ 0.         -1.22474487  1.33630621]
+ [ 1.22474487  0.         -0.26726124]
+ [-1.22474487  1.22474487 -1.06904497]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>예제 데이터셋을 변형해 보면, 대부분의 데이터는 변형 된 중앙 소득 Feature의 [-2, 4] 범위에 속하지만 평균 주택 점유율 Feature는 변환 된 세대수에 대해 더 작은 [-0.2, 0.2] 범위로 변형됩니다.</p>
+<p>따라서, 이상치가 있는 경우 균형 잡힌 범위로 Feature의 변환을 보장할 수 없게 됩니다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># StandardScaler().fit_transform(X)</span>
+<span class="n">make_plot</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/sklearn_preprocessing_8_0.png" src="../../_images/sklearn_preprocessing_8_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="minmaxscaler">
+<h3>MinMaxScaler<a class="headerlink" href="#minmaxscaler" title="Permalink to this headline">¶</a></h3>
+<p>Feature들 간의 변환 범위를 통일하기 위해서 자주 사용됩니다. 지정된 Min, Max 범위로 아래 공식을 통해 계산됩니다.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">X_std</span> <span class="o">=</span> <span class="p">(</span><span class="n">X</span> <span class="o">-</span> <span class="n">X</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span> <span class="o">/</span> <span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="o">-</span> <span class="n">X</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
+<span class="n">X_scaled</span> <span class="o">=</span> <span class="n">X_std</span> <span class="o">*</span> <span class="p">(</span><span class="nb">max</span> <span class="o">-</span> <span class="nb">min</span><span class="p">)</span> <span class="o">+</span> <span class="nb">min</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_train</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span> <span class="mf">1.</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.</span><span class="p">,</span>  <span class="mf">2.</span><span class="p">],</span>
+                    <span class="p">[</span> <span class="mf">2.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">],</span>
+                    <span class="p">[</span> <span class="mf">0.</span><span class="p">,</span>  <span class="mf">1.</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.</span><span class="p">]])</span>
+
+<span class="n">scaler</span> <span class="o">=</span> <span class="n">preprocessing</span><span class="o">.</span><span class="n">MinMaxScaler</span><span class="p">()</span>
+<span class="n">X_train_minmax</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;scaler scale: </span><span class="si">{</span><span class="n">scaler</span><span class="o">.</span><span class="n">scale_</span><span class="si">}</span><span class="s2">, min: </span><span class="si">{</span><span class="n">scaler</span><span class="o">.</span><span class="n">min_</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;X_train_minmax</span><span class="se">\n</span><span class="si">{</span><span class="n">X_train_minmax</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">scaler</span> <span class="o">=</span> <span class="n">preprocessing</span><span class="o">.</span><span class="n">MinMaxScaler</span><span class="p">(</span><span class="n">feature_range</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<span class="n">X_train_minmax</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;scaler scale: </span><span class="si">{</span><span class="n">scaler</span><span class="o">.</span><span class="n">scale_</span><span class="si">}</span><span class="s2">, min: </span><span class="si">{</span><span class="n">scaler</span><span class="o">.</span><span class="n">min_</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;X_train_minmax</span><span class="se">\n</span><span class="si">{</span><span class="n">X_train_minmax</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>scaler scale: [0.5        0.5        0.33333333], min: [0.         0.5        0.33333333]
+X_train_minmax
+[[0.5        0.         1.        ]
+ [1.         0.5        0.33333333]
+ [0.         1.         0.        ]]
+scaler scale: [5.         5.         3.33333333], min: [0.         5.         3.33333333]
+X_train_minmax
+[[ 5.          0.         10.        ]
+ [10.          5.          3.33333333]
+ [ 0.         10.          0.        ]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>MinMaxScaler의 기본 변환 범위는 [0, 1]로 모든 Feature가 [0, 1] 범위로 변현된 것을 볼 수 있습니다. 그러나 이상치가 포함된 세대 수의 경우는 [0, 0.005]로 매우 좁은 범위로 변형됩니다.</p>
+<p>StandardScaler와 마찬가지로 MinMaxScaler는 이상치의 존재에 매우 민감합니다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># MinMaxScaler().fit_transform(X))</span>
+<span class="n">make_plot</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/sklearn_preprocessing_12_0.png" src="../../_images/sklearn_preprocessing_12_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="maxabsscaler">
+<h3>MaxAbsScaler<a class="headerlink" href="#maxabsscaler" title="Permalink to this headline">¶</a></h3>
+<p>MaxAbsScaler는 절대 값이 범위 [0, 1]에 위치하도록 변형합니다.</p>
+<p>하지만, MinMaxScaler와 유사하게 동작하기 때문에 이상치에 민감한 결과를 보입니다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># MaxAbsScaler().fit_transform(X))</span>
+<span class="n">make_plot</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/sklearn_preprocessing_14_0.png" src="../../_images/sklearn_preprocessing_14_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="robustscaler">
+<h3>RobustScaler<a class="headerlink" href="#robustscaler" title="Permalink to this headline">¶</a></h3>
+<p>RobustScaler는 Median 값과 Percentile을 기반으로 하기때문에 이상치에 대해서 민감하지 않습니다.</p>
+<p>두 Feature는 이전 Scaler에 비해 비슷한 범위([-2, 3])를 가지며 잘 변환됩니다.</p>
+<p>하지만, 데이터가 Skew 되어 있는 부분은 변환되지 않습니다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># RobustScaler(quantile_range=(25, 75)).fit_transform(X))</span>
+<span class="n">make_plot</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/sklearn_preprocessing_16_0.png" src="../../_images/sklearn_preprocessing_16_0.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="non-linear-transformation">
+<h2>Non-linear transformation<a class="headerlink" href="#non-linear-transformation" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="powertransformer">
+<h3>PowerTransformer<a class="headerlink" href="#powertransformer" title="Permalink to this headline">¶</a></h3>
+<p>PowerTransformer는 Feature의 범위 뿐 아니라 분포를 Gaussian 에 가깝도록 변환 합니다. 이에 이상치 뿐만 아니라 데이터의 Skew 에도 강건하게 됩니다.</p>
+<p>PowerTransformer의 기본은 maximum likelihood estimation을 통한 variance 안정화와 skewness 최소화입니다.</p>
+<p>Yeo-Johnson 방법은 데이터에 음수가 존재할 경우, Box-Cox는 데이터에 양수만 존재할 경우 사용합니다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># PowerTransformer(method=&#39;yeo-johnson&#39;).fit_transform(X))</span>
+<span class="n">make_plot</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/sklearn_preprocessing_18_0.png" src="../../_images/sklearn_preprocessing_18_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># PowerTransformer(method=&#39;box-cox&#39;).fit_transform(X))</span>
+<span class="n">make_plot</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/sklearn_preprocessing_19_0.png" src="../../_images/sklearn_preprocessing_19_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="quantiletransformer">
+<h3>QuantileTransformer<a class="headerlink" href="#quantiletransformer" title="Permalink to this headline">¶</a></h3>
+<p>QuantileTransformer는 output_distribution 파라미터를 통해 출력 분포를 지정할 수 있습니다.</p>
+<ul class="simple">
+<li><p>normal: Gaussian 분포</p></li>
+<li><p>uniform: Uniform 분포, 모든 데이터는 범위 [0, 1]로 변환</p></li>
+</ul>
+<p>이상치 및 데이터의 Skew 에 대해서도 강건합니다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># QuantileTransformer(output_distribution=&#39;normal&#39;).fit_transform(X)</span>
+<span class="n">make_plot</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/sklearn_preprocessing_21_0.png" src="../../_images/sklearn_preprocessing_21_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># QuantileTransformer(output_distribution=&#39;uniform&#39;).fit_transform(X)</span>
+<span class="n">make_plot</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/sklearn_preprocessing_22_0.png" src="../../_images/sklearn_preprocessing_22_0.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="normalization">
+<h2>Normalization<a class="headerlink" href="#normalization" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="normalizer">
+<h3>Normalizer<a class="headerlink" href="#normalizer" title="Permalink to this headline">¶</a></h3>
+<p>Unit Norm 을 가지도록 개별 샘플을 재조정합니다.</p>
+<p>이는 샘플 쌍의 유사성을 Matrix 의 곱이나 2차 함수를 통해 정량화하려는 경우 유용 할 수 있습니다.</p>
+<p>이는 텍스트 분류 및 클러스터링에서 자주 사용되는 벡터 공간 모델의 기본입니다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Normalizer().fit_transform(X)</span>
+<span class="n">make_plot</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/sklearn_preprocessing_24_0.png" src="../../_images/sklearn_preprocessing_24_0.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="encoding-categorical-features">
+<h2>Encoding categorical features<a class="headerlink" href="#encoding-categorical-features" title="Permalink to this headline">¶</a></h2>
+<p>범주형으로 제공 된 Feature 또는 Label을 효율적으로 처리하기 위하여 정수로 부호화 합니다.</p>
+<p>Feature 용</p>
+<ul class="simple">
+<li><p>OrdinalEncoder: 정수 (0 ~ n_categories - 1)형태로 변환</p></li>
+<li><p>OneHotEnconder: 이진 (0 or 1) 형태로 변환</p></li>
+</ul>
+<p>Label 용</p>
+<ul class="simple">
+<li><p>LabelEncoder: 정수 (0 ~ n_categories - 1)형태로 변환</p></li>
+<li><p>LabelBinarizer: 이진 (0 or 1) 형태로 변환</p></li>
+</ul>
+<div class="section" id="ordinalencoder">
+<h3>OrdinalEncoder<a class="headerlink" href="#ordinalencoder" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">preprocessing</span>
+
+<span class="n">enc</span> <span class="o">=</span> <span class="n">preprocessing</span><span class="o">.</span><span class="n">OrdinalEncoder</span><span class="p">()</span>
+<span class="n">X</span> <span class="o">=</span> <span class="p">[[</span><span class="s1">&#39;male&#39;</span><span class="p">,</span> <span class="s1">&#39;from US&#39;</span><span class="p">,</span> <span class="s1">&#39;uses Safari&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;female&#39;</span><span class="p">,</span> <span class="s1">&#39;from Europe&#39;</span><span class="p">,</span> <span class="s1">&#39;uses Firefox&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;female&#39;</span><span class="p">,</span> <span class="s1">&#39;from Asia&#39;</span><span class="p">,</span> <span class="s1">&#39;uses Chrome&#39;</span><span class="p">]]</span>
+<span class="n">enc</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>  
+<span class="n">enc</span><span class="o">.</span><span class="n">transform</span><span class="p">([[</span><span class="s1">&#39;female&#39;</span><span class="p">,</span> <span class="s1">&#39;from Asia&#39;</span><span class="p">,</span> <span class="s1">&#39;uses Safari&#39;</span><span class="p">]])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0., 0., 2.]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>결과는 아래와 같이 각 Feature가 정수 형태로 변환되었습니다.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[[</span><span class="mf">0.</span><span class="p">,</span>      <span class="mf">0.</span><span class="p">,</span>      <span class="mf">2.</span><span class="p">]]</span>
+  <span class="n">Gender</span><span class="p">,</span>  <span class="n">Country</span><span class="p">,</span> <span class="n">Browser</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="onehotencoder">
+<h3>OneHotEncoder<a class="headerlink" href="#onehotencoder" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">enc</span> <span class="o">=</span> <span class="n">preprocessing</span><span class="o">.</span><span class="n">OneHotEncoder</span><span class="p">()</span>
+<span class="n">X</span> <span class="o">=</span> <span class="p">[[</span><span class="s1">&#39;male&#39;</span><span class="p">,</span> <span class="s1">&#39;from US&#39;</span><span class="p">,</span> <span class="s1">&#39;uses Safari&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;female&#39;</span><span class="p">,</span> <span class="s1">&#39;from Europe&#39;</span><span class="p">,</span> <span class="s1">&#39;uses Firefox&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;female&#39;</span><span class="p">,</span> <span class="s1">&#39;from Asia&#39;</span><span class="p">,</span> <span class="s1">&#39;uses Chrome&#39;</span><span class="p">]]</span>
+<span class="n">enc</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>  
+<span class="n">enc</span><span class="o">.</span><span class="n">transform</span><span class="p">([[</span><span class="s1">&#39;female&#39;</span><span class="p">,</span> <span class="s1">&#39;from US&#39;</span><span class="p">,</span> <span class="s1">&#39;uses Safari&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;male&#39;</span><span class="p">,</span> <span class="s1">&#39;from Europe&#39;</span><span class="p">,</span> <span class="s1">&#39;uses Safari&#39;</span><span class="p">]])</span><span class="o">.</span><span class="n">toarray</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[1., 0., 0., 0., 1., 0., 0., 1.],
+       [0., 1., 0., 1., 0., 0., 0., 1.]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>결과는 아래와 같이 각 Feature가 이진 형태로 변환되었습니다.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span>    <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span>    <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">]</span>
+ <span class="n">Gender</span>     <span class="n">Country</span>        <span class="n">Browser</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="labelencoder">
+<h3>LabelEncoder<a class="headerlink" href="#labelencoder" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">le</span> <span class="o">=</span> <span class="n">preprocessing</span><span class="o">.</span><span class="n">LabelEncoder</span><span class="p">()</span>
+<span class="n">le</span><span class="o">.</span><span class="n">fit</span><span class="p">([</span><span class="s2">&quot;paris&quot;</span><span class="p">,</span> <span class="s2">&quot;paris&quot;</span><span class="p">,</span> <span class="s2">&quot;tokyo&quot;</span><span class="p">,</span> <span class="s2">&quot;amsterdam&quot;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;classes_: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">le</span><span class="o">.</span><span class="n">classes_</span><span class="p">))</span>
+
+<span class="n">trans</span> <span class="o">=</span> <span class="n">le</span><span class="o">.</span><span class="n">transform</span><span class="p">([</span><span class="s2">&quot;tokyo&quot;</span><span class="p">,</span> <span class="s2">&quot;tokyo&quot;</span><span class="p">,</span> <span class="s2">&quot;paris&quot;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;transform: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">trans</span><span class="p">))</span>
+<span class="n">inv_trans</span> <span class="o">=</span> <span class="n">le</span><span class="o">.</span><span class="n">inverse_transform</span><span class="p">(</span><span class="n">trans</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;inverse_transform: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">inv_trans</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>classes_: [&#39;amsterdam&#39; &#39;paris&#39; &#39;tokyo&#39;]
+transform: [2 2 1]
+inverse_transform: [&#39;tokyo&#39; &#39;tokyo&#39; &#39;paris&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="labelbinarizer">
+<h3>LabelBinarizer<a class="headerlink" href="#labelbinarizer" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">le</span> <span class="o">=</span> <span class="n">preprocessing</span><span class="o">.</span><span class="n">LabelBinarizer</span><span class="p">()</span>
+<span class="n">le</span><span class="o">.</span><span class="n">fit</span><span class="p">([</span><span class="s2">&quot;paris&quot;</span><span class="p">,</span> <span class="s2">&quot;paris&quot;</span><span class="p">,</span> <span class="s2">&quot;tokyo&quot;</span><span class="p">,</span> <span class="s2">&quot;amsterdam&quot;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;classes_: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">le</span><span class="o">.</span><span class="n">classes_</span><span class="p">))</span>
+
+<span class="n">trans</span> <span class="o">=</span> <span class="n">le</span><span class="o">.</span><span class="n">transform</span><span class="p">([</span><span class="s2">&quot;tokyo&quot;</span><span class="p">,</span> <span class="s2">&quot;tokyo&quot;</span><span class="p">,</span> <span class="s2">&quot;paris&quot;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;transform: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">trans</span><span class="p">))</span>
+
+<span class="n">inv_trans</span> <span class="o">=</span> <span class="n">le</span><span class="o">.</span><span class="n">inverse_transform</span><span class="p">(</span><span class="n">trans</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;inverse_transform: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">inv_trans</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>classes_: [&#39;amsterdam&#39; &#39;paris&#39; &#39;tokyo&#39;]
+transform: [[0 0 1]
+ [0 0 1]
+ [0 1 0]]
+inverse_transform: [&#39;tokyo&#39; &#39;tokyo&#39; &#39;paris&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="discretization">
+<h2>Discretization<a class="headerlink" href="#discretization" title="Permalink to this headline">¶</a></h2>
+<p>연속 피쳐를 정의된 범위의 값으로 분할하는 방법을 제공합니다.</p>
+<div class="section" id="k-bins-discretization">
+<h3>K-bins discretization<a class="headerlink" href="#k-bins-discretization" title="Permalink to this headline">¶</a></h3>
+<p>KBinsDiscretizer 는 Feature들을 K개의 균등한 빈으로 분할하여 이산화 합니다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span> <span class="o">-</span><span class="mf">3.</span><span class="p">,</span> <span class="mf">5.</span><span class="p">,</span> <span class="mi">15</span> <span class="p">],</span>
+              <span class="p">[</span>  <span class="mf">0.</span><span class="p">,</span> <span class="mf">6.</span><span class="p">,</span> <span class="mi">14</span> <span class="p">],</span>
+              <span class="p">[</span>  <span class="mf">6.</span><span class="p">,</span> <span class="mf">3.</span><span class="p">,</span> <span class="mi">11</span> <span class="p">]])</span>
+<span class="n">est</span> <span class="o">=</span> <span class="n">preprocessing</span><span class="o">.</span><span class="n">KBinsDiscretizer</span><span class="p">(</span><span class="n">n_bins</span><span class="o">=</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">encode</span><span class="o">=</span><span class="s1">&#39;ordinal&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="n">est</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0., 1., 1.],
+       [1., 1., 1.],
+       [2., 0., 0.]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>n_bins=[3, 2, 2] 에서 각 피처는 아래와 같이 이산화 됩니다.</p>
+<ul class="simple">
+<li><p>feature 1: <span class="math notranslate nohighlight">\([-\infty, -1), [-1, 2), [2, \infty)\)</span></p></li>
+<li><p>feature 2: <span class="math notranslate nohighlight">\([-\infty, 5), [5, \infty)\)</span></p></li>
+<li><p>feature 3: <span class="math notranslate nohighlight">\([-\infty, 14), [14, \infty)\)</span></p></li>
+</ul>
+</div>
+<div class="section" id="feature-binarization">
+<h3>Feature binarization<a class="headerlink" href="#feature-binarization" title="Permalink to this headline">¶</a></h3>
+<p>Feature binarization는 주어지 Threshold 값에 따라 Feature 를 Boolean 값으로 변환 합니다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="p">[[</span> <span class="mf">1.</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.</span><span class="p">,</span>  <span class="mf">2.</span><span class="p">],</span>
+     <span class="p">[</span> <span class="mf">2.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">,</span>  <span class="mf">0.</span><span class="p">],</span>
+     <span class="p">[</span> <span class="mf">0.</span><span class="p">,</span>  <span class="mf">1.</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.</span><span class="p">]]</span>
+
+<span class="n">binarizer</span> <span class="o">=</span> <span class="n">preprocessing</span><span class="o">.</span><span class="n">Binarizer</span><span class="p">()</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>  <span class="c1"># fit does nothing</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">binarizer</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">binarizer</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X</span><span class="p">))</span>
+
+<span class="n">binarizer</span> <span class="o">=</span> <span class="n">preprocessing</span><span class="o">.</span><span class="n">Binarizer</span><span class="p">(</span><span class="n">threshold</span><span class="o">=</span><span class="mf">1.1</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>  <span class="c1"># fit does nothing</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">binarizer</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">binarizer</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Binarizer()
+[[1. 0. 1.]
+ [1. 0. 0.]
+ [0. 1. 0.]]
+Binarizer(threshold=1.1)
+[[0. 0. 1.]
+ [1. 0. 0.]
+ [0. 0. 0.]]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="imputation-of-missing-values">
+<h2>Imputation of missing values<a class="headerlink" href="#imputation-of-missing-values" title="Permalink to this headline">¶</a></h2>
+<p>다양한 이융로 실세계 데이터에서는 결측치가 나타날 수 있습니다. Scikit-Learn의 모델은 결측치가 없다고 가정하기 때문에 모델 입력전에 제거 또는 대체가 필요합니다.</p>
+<div class="section" id="univariate-feature-imputation">
+<h3>Univariate feature imputation<a class="headerlink" href="#univariate-feature-imputation" title="Permalink to this headline">¶</a></h3>
+<p>결측치를 대치하기 위한 기본 전략을 제공합니다. 대치 방식으로는 평균값, 중앙값, 최빈값 등을 선택할 수 있습니다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">impute</span>
+
+<span class="n">train_xs</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">6</span><span class="p">]]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;train_xs</span><span class="se">\n</span><span class="si">{</span><span class="n">train_xs</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># strategy: mean, median, most_frequent, constant</span>
+<span class="n">imp</span> <span class="o">=</span> <span class="n">impute</span><span class="o">.</span><span class="n">SimpleImputer</span><span class="p">(</span><span class="n">missing_values</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">strategy</span><span class="o">=</span><span class="s1">&#39;mean&#39;</span><span class="p">)</span>
+<span class="n">train_xs</span> <span class="o">=</span> <span class="n">imp</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">train_xs</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;transformed train_xs</span><span class="se">\n</span><span class="si">{</span><span class="n">train_xs</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">test_xs</span> <span class="o">=</span> <span class="p">[[</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">6</span><span class="p">]]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;test_xs</span><span class="se">\n</span><span class="si">{</span><span class="n">test_xs</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">test_xs</span> <span class="o">=</span> <span class="n">imp</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">test_xs</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;transformed test_xs</span><span class="se">\n</span><span class="si">{</span><span class="n">test_xs</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train_xs
+[[1, 2], [nan, 3], [7, 6]]
+transformed train_xs
+[[1. 2.]
+ [4. 3.]
+ [7. 6.]]
+test_xs
+[[nan, 2], [6, nan], [7, 6]]
+transformed test_xs
+[[4.         2.        ]
+ [6.         3.66666667]
+ [7.         6.        ]]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="multivariate-feature-imputation">
+<h3>Multivariate feature imputation<a class="headerlink" href="#multivariate-feature-imputation" title="Permalink to this headline">¶</a></h3>
+<p>결측치를 대치하기 위해 좀 더 정교한 모델을 이용한 전략을 제공합니다. 기본적인 대치 방식으로는 선형 모델을 사용합니다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># To use this experimental feature, we need to explicitly ask for it:</span>
+<span class="kn">from</span> <span class="nn">sklearn.experimental</span> <span class="kn">import</span> <span class="n">enable_iterative_imputer</span>  <span class="c1"># noqa</span>
+
+<span class="n">train_xs</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">],</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">]]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;train_xs</span><span class="se">\n</span><span class="si">{</span><span class="n">train_xs</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">imp</span> <span class="o">=</span> <span class="n">impute</span><span class="o">.</span><span class="n">IterativeImputer</span><span class="p">(</span><span class="n">max_iter</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">train_xs</span> <span class="o">=</span> <span class="n">imp</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">train_xs</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;transformed train_xs</span><span class="se">\n</span><span class="si">{</span><span class="n">train_xs</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">test_xs</span> <span class="o">=</span> <span class="p">[[</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">],</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="mi">6</span><span class="p">]]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;test_xs</span><span class="se">\n</span><span class="si">{</span><span class="n">test_xs</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">test_xs</span> <span class="o">=</span> <span class="n">imp</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">test_xs</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;transformed test_xs</span><span class="se">\n</span><span class="si">{</span><span class="n">test_xs</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train_xs
+[[1, 2], [3, 6], [4, 8], [nan, 3], [7, nan]]
+transformed train_xs
+[[ 1.          2.        ]
+ [ 3.          6.        ]
+ [ 4.          8.        ]
+ [ 1.50004509  3.        ]
+ [ 7.         14.00004135]]
+test_xs
+[[nan, 2], [6, nan], [nan, 6]]
+transformed test_xs
+[[ 1.00007297  2.        ]
+ [ 6.         12.00002754]
+ [ 2.99996145  6.        ]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>대치 방식으로는 기본적인 선형 모델 외에 Scikit-learn에서 제공하는 모델 클래스들과 결합하여 다양한 전략으로 결측치를 처리하는 것이 가능합니다.</p>
+<ul class="simple">
+<li><p>BayesianRidge: regularized linear regression</p></li>
+<li><p>DecisionTreeRegressor: non-linear regression</p></li>
+<li><p>ExtraTreesRegressor: similar to missForest in R</p></li>
+<li><p>KNeighborsRegressor: comparable to other KNN imputation approaches</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># https://scikit-learn.org/stable/auto_examples/impute/plot_iterative_imputer_variants_comparison.html#sphx-glr-auto-examples-impute-plot-iterative-imputer-variants-comparison-py</span>
+<span class="kn">import</span> <span class="nn">warnings</span> 
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="n">action</span><span class="o">=</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="c1"># To use this experimental feature, we need to explicitly ask for it:</span>
+<span class="kn">from</span> <span class="nn">sklearn.experimental</span> <span class="kn">import</span> <span class="n">enable_iterative_imputer</span>  <span class="c1"># noqa</span>
+<span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">fetch_california_housing</span>
+<span class="kn">from</span> <span class="nn">sklearn.impute</span> <span class="kn">import</span> <span class="n">SimpleImputer</span>
+<span class="kn">from</span> <span class="nn">sklearn.impute</span> <span class="kn">import</span> <span class="n">IterativeImputer</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">BayesianRidge</span>
+<span class="kn">from</span> <span class="nn">sklearn.tree</span> <span class="kn">import</span> <span class="n">DecisionTreeRegressor</span>
+<span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">ExtraTreesRegressor</span>
+<span class="kn">from</span> <span class="nn">sklearn.neighbors</span> <span class="kn">import</span> <span class="n">KNeighborsRegressor</span>
+<span class="kn">from</span> <span class="nn">sklearn.pipeline</span> <span class="kn">import</span> <span class="n">make_pipeline</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">cross_val_score</span>
+
+<span class="n">N_SPLITS</span> <span class="o">=</span> <span class="mi">5</span>
+
+<span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">RandomState</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="n">X_full</span><span class="p">,</span> <span class="n">y_full</span> <span class="o">=</span> <span class="n">fetch_california_housing</span><span class="p">(</span><span class="n">return_X_y</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="c1"># ~2k samples is enough for the purpose of the example.</span>
+<span class="c1"># Remove the following two lines for a slower run with different error bars.</span>
+<span class="n">X_full</span> <span class="o">=</span> <span class="n">X_full</span><span class="p">[::</span><span class="mi">10</span><span class="p">]</span>
+<span class="n">y_full</span> <span class="o">=</span> <span class="n">y_full</span><span class="p">[::</span><span class="mi">10</span><span class="p">]</span>
+<span class="n">n_samples</span><span class="p">,</span> <span class="n">n_features</span> <span class="o">=</span> <span class="n">X_full</span><span class="o">.</span><span class="n">shape</span>
+
+<span class="c1"># Estimate the score on the entire dataset, with no missing values</span>
+<span class="n">br_estimator</span> <span class="o">=</span> <span class="n">BayesianRidge</span><span class="p">()</span>
+<span class="n">score_full_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+    <span class="n">cross_val_score</span><span class="p">(</span>
+        <span class="n">br_estimator</span><span class="p">,</span> <span class="n">X_full</span><span class="p">,</span> <span class="n">y_full</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="s2">&quot;neg_mean_squared_error&quot;</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="n">N_SPLITS</span>
+    <span class="p">),</span>
+    <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Full Data&quot;</span><span class="p">],</span>
+<span class="p">)</span>
+
+<span class="c1"># Add a single missing value to each row</span>
+<span class="n">X_missing</span> <span class="o">=</span> <span class="n">X_full</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">y_missing</span> <span class="o">=</span> <span class="n">y_full</span>
+<span class="n">missing_samples</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">n_samples</span><span class="p">)</span>
+<span class="n">missing_features</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">n_features</span><span class="p">,</span> <span class="n">n_samples</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">X_missing</span><span class="p">[</span><span class="n">missing_samples</span><span class="p">,</span> <span class="n">missing_features</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+
+<span class="c1"># Estimate the score after imputation (mean and median strategies)</span>
+<span class="n">score_simple_imputer</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">strategy</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;mean&quot;</span><span class="p">,</span> <span class="s2">&quot;median&quot;</span><span class="p">):</span>
+    <span class="n">estimator</span> <span class="o">=</span> <span class="n">make_pipeline</span><span class="p">(</span>
+        <span class="n">SimpleImputer</span><span class="p">(</span><span class="n">missing_values</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">strategy</span><span class="o">=</span><span class="n">strategy</span><span class="p">),</span> <span class="n">br_estimator</span>
+    <span class="p">)</span>
+    <span class="n">score_simple_imputer</span><span class="p">[</span><span class="n">strategy</span><span class="p">]</span> <span class="o">=</span> <span class="n">cross_val_score</span><span class="p">(</span>
+        <span class="n">estimator</span><span class="p">,</span> <span class="n">X_missing</span><span class="p">,</span> <span class="n">y_missing</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="s2">&quot;neg_mean_squared_error&quot;</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="n">N_SPLITS</span>
+    <span class="p">)</span>
+
+<span class="c1"># Estimate the score after iterative imputation of the missing values</span>
+<span class="c1"># with different estimators</span>
+<span class="n">estimators</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">BayesianRidge</span><span class="p">(),</span>
+    <span class="n">DecisionTreeRegressor</span><span class="p">(</span><span class="n">max_features</span><span class="o">=</span><span class="s2">&quot;sqrt&quot;</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span>
+    <span class="n">ExtraTreesRegressor</span><span class="p">(</span><span class="n">n_estimators</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span>
+    <span class="n">KNeighborsRegressor</span><span class="p">(</span><span class="n">n_neighbors</span><span class="o">=</span><span class="mi">15</span><span class="p">),</span>
+<span class="p">]</span>
+<span class="n">score_iterative_imputer</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">impute_estimator</span> <span class="ow">in</span> <span class="n">estimators</span><span class="p">:</span>
+    <span class="n">estimator</span> <span class="o">=</span> <span class="n">make_pipeline</span><span class="p">(</span>
+        <span class="n">IterativeImputer</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">estimator</span><span class="o">=</span><span class="n">impute_estimator</span><span class="p">),</span> <span class="n">br_estimator</span>
+    <span class="p">)</span>
+    <span class="n">score_iterative_imputer</span><span class="p">[</span><span class="n">impute_estimator</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">]</span> <span class="o">=</span> <span class="n">cross_val_score</span><span class="p">(</span>
+        <span class="n">estimator</span><span class="p">,</span> <span class="n">X_missing</span><span class="p">,</span> <span class="n">y_missing</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="s2">&quot;neg_mean_squared_error&quot;</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="n">N_SPLITS</span>
+    <span class="p">)</span>
+
+<span class="n">scores</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span>
+    <span class="p">[</span><span class="n">score_full_data</span><span class="p">,</span> <span class="n">score_simple_imputer</span><span class="p">,</span> <span class="n">score_iterative_imputer</span><span class="p">],</span>
+    <span class="n">keys</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Original&quot;</span><span class="p">,</span> <span class="s2">&quot;SimpleImputer&quot;</span><span class="p">,</span> <span class="s2">&quot;IterativeImputer&quot;</span><span class="p">],</span>
+    <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="c1"># plot california housing results</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">13</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">means</span> <span class="o">=</span> <span class="o">-</span><span class="n">scores</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">errors</span> <span class="o">=</span> <span class="n">scores</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
+<span class="n">means</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">barh</span><span class="p">(</span><span class="n">xerr</span><span class="o">=</span><span class="n">errors</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;California Housing Regression with Different Imputation Methods&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;MSE (smaller is better)&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">means</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_yticklabels</span><span class="p">([</span><span class="s2">&quot; w/ &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">label</span><span class="p">)</span> <span class="k">for</span> <span class="n">label</span> <span class="ow">in</span> <span class="n">means</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">tolist</span><span class="p">()])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">(</span><span class="n">pad</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/sklearn_preprocessing_46_0.png" src="../../_images/sklearn_preprocessing_46_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="nearest-neighbors-imputation">
+<h3>Nearest neighbors imputation<a class="headerlink" href="#nearest-neighbors-imputation" title="Permalink to this headline">¶</a></h3>
+<p>KNNImputer는 k-최근접 이웃 접근 방식을 사용하여 샘플 중에서 선택된 값으로 결측값 대치합니다.</p>
+<p>위 예제에서 다룬 KNeighborsRegressor와 IterativeImputer를 이용한 방법은 모델을 통해 결측값을 예측하고 대치하는 방식으로 KNNImputer와는 다릅니다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">train_xs</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="p">[</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">7</span><span class="p">]]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;train_xs</span><span class="se">\n</span><span class="si">{</span><span class="n">train_xs</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">imp</span> <span class="o">=</span> <span class="n">impute</span><span class="o">.</span><span class="n">KNNImputer</span><span class="p">(</span><span class="n">n_neighbors</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="s2">&quot;uniform&quot;</span><span class="p">)</span>
+<span class="n">train_xs</span> <span class="o">=</span> <span class="n">imp</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">train_xs</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;transformed train_xs</span><span class="se">\n</span><span class="si">{</span><span class="n">train_xs</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train_xs
+[[1, 2, nan], [3, 4, 3], [nan, 6, 5], [8, 8, 7]]
+transformed train_xs
+[[1.  2.  4. ]
+ [3.  4.  3. ]
+ [5.5 6.  5. ]
+ [8.  8.  7. ]]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="generating-polynomial-features">
+<h2>Generating polynomial features<a class="headerlink" href="#generating-polynomial-features" title="Permalink to this headline">¶</a></h2>
+<p>데이터의 Feature를 고차원으로 퍼트려 설명력을 증가 시키기 위해 사용됩니다. 아래에서는 차원을 올리는 것과 interaction 만을 증가시키는 예제를 볼 수 있습니다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+
+<span class="c1"># (X1, X2) =&gt; (1, X1, X2, X1^2, X1*X2, X2^2)</span>
+<span class="n">poly</span> <span class="o">=</span> <span class="n">preprocessing</span><span class="o">.</span><span class="n">PolynomialFeatures</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">poly</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">))</span>
+
+<span class="c1"># (X1, X2) =&gt; (1, X1, X2, X1*X2)</span>
+<span class="n">poly</span> <span class="o">=</span> <span class="n">preprocessing</span><span class="o">.</span><span class="n">PolynomialFeatures</span><span class="p">(</span><span class="n">degree</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">interaction_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">poly</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0 1]
+ [2 3]
+ [4 5]]
+[[ 1.  0.  1.  0.  0.  1.]
+ [ 1.  2.  3.  4.  6.  9.]
+ [ 1.  4.  5. 16. 20. 25.]]
+[[ 1.  0.  1.  0.]
+ [ 1.  2.  3.  6.]
+ [ 1.  4.  5. 20.]]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./skillsets/sklearn"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="sklearn_datasets.html" title="previous page">Datasets</a>
+    <a class='right-next' id="next-link" href="sklearn_regression.html" title="next page">Regression</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By comafire<br/>
+        
+            &copy; Copyright 2015.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+<script async="" src="https://www.google-analytics.com/analytics.js"></script>
+<script>
+                        window.ga = window.ga || function () {
+                            (ga.q = ga.q || []).push(arguments) };
+                        ga.l = +new Date;
+                        ga('create', 'UA-81648003-1', 'auto');
+                        ga('set', 'anonymizeIp', true);
+                        ga('send', 'pageview');
+                    </script>
+
+  </body>
+</html>

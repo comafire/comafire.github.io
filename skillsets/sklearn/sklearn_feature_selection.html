@@ -1,0 +1,1994 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Feature Selection &#8212; 데사견문록</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Feature Extraction" href="sklearn_feature_extraction.html" />
+    <link rel="prev" title="Clustering Evaluation" href="sklearn_eval_clustering.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+      <img src="../../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">데사견문록</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../readme.html">
+   데이터사이언스견문록
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  End to End Data Science
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../e2eds/data_science.html">
+   Data Science
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../e2eds/e2eds.html">
+   End to End Data Science
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Episodes
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../episodes/tbc.html">
+   TO BE CONTINUE…
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  skillsets
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../tf2/tf2.html">
+   Tensorflow2
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../tf2/tf2_10mins.html">
+     TF2 10mins
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../tf2/tf2_beginner.html">
+     TF2 Beginner
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+    <label for="toctree-checkbox-2">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../tf2/tf2_beginner_quickstart.html">
+       Quickstart
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../tf2/tf2_beginner_image_classification.html">
+       Image Classification
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../tf2/tf2_beginner_text_classification.html">
+       Text Classification
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../tf2/tf2_beginner_hub_text_classification.html">
+       Text Classification with Hub
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../tf2/tf2_beginner_regression.html">
+       Regression
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../tf2/tf2_beginner_overfit_underfit.html">
+       Overfit &amp; Underfit
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../tf2/tf2_beginner_save_load.html">
+       Save &amp; Load
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../tf2/tf2_beginner_keras_tuner.html">
+       Keras Tuner
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../tf2/tf2_beginner_images.html">
+       Images
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../tf2/tf2_beginner_csv.html">
+       CSV
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../tf2/tf2_beginner_numpy.html">
+       Numpy
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../tf2/tf2_beginner_pandas.html">
+       Pandas
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../tf2/tf2_beginner_text.html">
+       Text
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../tf2/tf2_beginner_unicode.html">
+       Unicode
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../tf2/tf2_beginner_tftext.html">
+       TF.Text
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../tf2/tf2_beginner_subwords_tokenizer.html">
+       Subword Tokenization
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../tf2/tf2_beginner_tfrecord.html">
+       TFRecord and tf.train.Example
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../tf2/tf2_beginner_tfio.html">
+       TF I/O
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../tf2/tf2_advanced.html">
+     TF2 Advanced
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+    <label for="toctree-checkbox-3">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../tf2/tf2_advanced_quickstart.html">
+       Quickstart
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../tf2/tf2_advanced_image_cnn.html">
+       Image CNN
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../tf2/tf2_advanced_image_classification.html">
+       Image Classification
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../tf2/tf2_advanced_transfer_learning.html">
+       Transfer learning and fine-tuning
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../tf2/tf2_advanced_transfer_learning_with_hub.html">
+       Transfer learning with TensorFlow Hub
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../tf2/tf2_advanced_data_augmentation.html">
+       Data augmentation
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../tf2/tf2_advanced_image_segmentation.html">
+       Image Segmentation
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../keras/keras.html">
+   Keras
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../keras/keras_10mins.html">
+     Keras 10mins
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../keras/keras_dnn_regression.html">
+     DNN Regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../keras/keras_dnn_classification.html">
+     DNN Classification
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../keras/keras_deepmf.html">
+     Deep MF
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="sklearn.html">
+   Scikit-Learn
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="sklearn_10mins.html">
+     Scikit-Learn 10mins
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="sklearn_datasets.html">
+     Datasets
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="sklearn_preprocessing.html">
+     Preprocessing
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="sklearn_regression.html">
+     Regression
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+    <label for="toctree-checkbox-6">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="sklearn_linear_regression.html">
+       Linear Regression
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="sklearn_polynomial_regression.html">
+       Polynomial Regression
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="sklearn_sgd_regression.html">
+       SGD Regression
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="sklearn_svm_regression.html">
+       SVM Regression
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="sklearn_nearest_neighbor_regression.html">
+       Nearest Neighbors Regression
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="sklearn_ensemble_regression.html">
+       Ensemble Regression
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="sklearn_eval_regression.html">
+       Regression Evaluation
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="sklearn_classification.html">
+     Classification
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+    <label for="toctree-checkbox-7">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="sklearn_logistic_regression.html">
+       Logistic Regression
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="sklearn_sgd_classification.html">
+       SGD Classification
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="sklearn_svm_classification.html">
+       SVM Classification
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="sklearn_nearest_neighbor_classification.html">
+       Nearest Neighbors Classification
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="sklearn_ensemble_classification.html">
+       Ensemble Classification
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="sklearn_eval_classification.html">
+       Classification Evaluation
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="sklearn_clustering.html">
+     Clustering
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+    <label for="toctree-checkbox-8">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="sklearn_kmeans.html">
+       K-Means
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="sklearn_mean_shift.html">
+       Mean Shift
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="sklearn_spectral_clustering.html">
+       Spectral Clustering
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="sklearn_eval_clustering.html">
+       Clustering Evaluation
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Feature Selection
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="sklearn_feature_extraction.html">
+     Feature Extraction
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="sklearn_split_train_test.html">
+     Train/Valid/Test Dataset
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="sklearn_model_persistence.html">
+     Model Persistence
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="sklearn_hyper_parameter_tunning.html">
+     Hyper Parameter Tunning
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="sklearn_anomaly_detection.html">
+     Anomaly Detection
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../dlib/dlib.html">
+   Dlib
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+  <label for="toctree-checkbox-9">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../dlib/dlib_frontal_face_detector.html">
+     Frontal Face Detector
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../surprise/surprise.html">
+   Surprise
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+  <label for="toctree-checkbox-10">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../surprise/surprise_collaborative_filtering.html">
+     Collaborative Filtering
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../imblearn/imblearn.html">
+   Imblearn
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
+  <label for="toctree-checkbox-11">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../imblearn/imblearn_imbalanced_class.html">
+     Imbalanced Class
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../spark/spark.html">
+   Spark
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
+  <label for="toctree-checkbox-12">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../spark/spark_dataframe_10mins.html">
+     Spark DataFrame 10mins
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../pandas/pandas.html">
+   Pandas
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/>
+  <label for="toctree-checkbox-13">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../pandas/pandas_10mins.html">
+     Pandas 10mins
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../pandas/pandas_missing_value.html">
+     Missing Value
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../pandas/pandas_data_description.html">
+     Data Description
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../numpy/numpy.html">
+   Numpy
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/>
+  <label for="toctree-checkbox-14">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../numpy/numpy_10mins.html">
+     Numpy 10mins
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../numpy/numpy_outlier.html">
+     Outlier
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../jupyter/jupyter.html">
+   Jupyter
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/>
+  <label for="toctree-checkbox-15">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../jupyter/jupyter_cloud.html">
+     Jupyter (Cloud)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../jupyter/jupyter_native_ubuntu.html">
+     Jupyter (Ubuntu)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../jupyter/jupyter_native_macos_x86.html">
+     Jupyter (macOS x86)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../jupyter/jupyter_docker.html">
+     Jupyter (Docker)
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../skp/skp.html">
+   St. Kilda Pier (SKP)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/>
+  <label for="toctree-checkbox-16">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../skp/skp_n4e_vscode.html">
+     Native Visual Studio Code
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../skp/skp_n4e_jupyter.html">
+     Native Jupyter
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../skp/skp_d4r_jupyter.html">
+     Docker Jupyter
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../skp/skp_n4e_traefik.html">
+     Native Traefik
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ansible/ansible.html">
+   Ansible
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/>
+  <label for="toctree-checkbox-17">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ansible/ansible_skp_ubuntu.html">
+     ansible_skp_ubuntu
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../vagrant/vagrant_virtualbox.html">
+   Vagrant &amp; Virtualbox
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/>
+  <label for="toctree-checkbox-18">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../vagrant/vagrant_skp_single.html">
+     vagrant_skp_single
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  devicesets
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../devicesets/computer.html">
+   Computer
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../devicesets/network.html">
+   Network
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../devicesets/gce_nested_vm.html">
+   Google Computer Engine
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/skillsets/sklearn/sklearn_feature_selection.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/comafire/comafire.github.io"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/comafire/comafire.github.io/issues/new?title=Issue%20on%20page%20%2Fskillsets/sklearn/sklearn_feature_selection.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/comafire/comafire.github.io/master?urlpath=tree/skillsets/sklearn/sklearn_feature_selection.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#variance-threshold">
+   변수 자체의 Variance Threshold 를 통한 변수 제거
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#independet-variable-dependent-variable">
+   Independet Variable와 Dependent Variable간의 관계를 통해 변수 제거
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#regression">
+     Regression
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#classification">
+     Classification
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#recursive">
+   Recursive 한 변수 조합 평가를 통한 변수 제거
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     Regression
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     Classification
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#modeling-feature-selection">
+   Modeling 을 통한 Feature selection
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     Regression
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     Classification
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="feature-selection">
+<h1>Feature Selection<a class="headerlink" href="#feature-selection" title="Permalink to this headline">¶</a></h1>
+<p>변수 선택</p>
+<p>Feature Selection은 주어진 고차원 데이터 분석 시에 모델링에 사용할 변수를 선택하거나 제거하는 방법입니다.</p>
+<p><strong>Further Reading</strong></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://heartbeat.fritz.ai/hands-on-with-feature-selection-techniques-filter-methods-f248e0436ce5">Hands-on with Feature Selection Techniques: Filter Methods</a></p></li>
+</ul>
+<div class="section" id="variance-threshold">
+<h2>변수 자체의 Variance Threshold 를 통한 변수 제거<a class="headerlink" href="#variance-threshold" title="Permalink to this headline">¶</a></h2>
+<p>Feature Selection의 가장 기본적인 접근방법으로, Variance 가 Threshold 보다 작은 변수를 제거합니다. Variance 가 낮다는 것은 변수 안에 같은 값의 데이터가 많다는 의미입니다.</p>
+<p>예를 들면 변수의 데이터의 다수가 0 으로 채워져 있는 경우입니다.</p>
+<p>Variance Threshold 는 Independent Variable(독립변수, x)와 Dependent Variable(종속변수, y)간의 관계를 고려하지 않기 때문에 분석 차원에서 제거시 이 부분을 고려해봐야 합니다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 경고 메시지 출력 끄기</span>
+<span class="kn">import</span> <span class="nn">warnings</span> 
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="n">action</span><span class="o">=</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">IPython</span>
+
+<span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="n">rseed</span> <span class="o">=</span> <span class="mi">22</span>
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">rseed</span><span class="p">)</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">rseed</span><span class="p">)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">set_printoptions</span><span class="p">(</span><span class="n">precision</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">set_printoptions</span><span class="p">(</span><span class="n">formatter</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;float_kind&#39;</span><span class="p">:</span> <span class="s2">&quot;</span><span class="si">{:.3f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">})</span>
+
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_rows&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> 
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_columns&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> 
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_colwidth&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">float_format</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{:,.5f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span>
+
+<span class="kn">import</span> <span class="nn">sklearn</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;python ver=</span><span class="si">{</span><span class="n">sys</span><span class="o">.</span><span class="n">version</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;pandas ver=</span><span class="si">{</span><span class="n">pd</span><span class="o">.</span><span class="n">__version__</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;numpy ver=</span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">__version__</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;sklearn ver=</span><span class="si">{</span><span class="n">sklearn</span><span class="o">.</span><span class="n">__version__</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>python ver=3.8.9 (default, Jun 12 2021, 23:47:44) 
+[Clang 12.0.5 (clang-1205.0.22.9)]
+pandas ver=1.2.4
+numpy ver=1.19.5
+sklearn ver=0.24.2
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">feature_selection</span>
+
+<span class="n">xs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+    <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+     <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+     <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">]]</span>
+<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">xs</span><span class="p">)</span>
+
+<span class="n">selector</span> <span class="o">=</span> <span class="n">feature_selection</span><span class="o">.</span><span class="n">VarianceThreshold</span><span class="p">()</span>
+<span class="n">fit</span> <span class="o">=</span> <span class="n">selector</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">xs</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">fit</span><span class="o">.</span><span class="n">variances_</span><span class="p">)</span>
+
+<span class="n">xs_selected</span> <span class="o">=</span> <span class="n">selector</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">xs</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">xs_selected</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">xs_selected</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0 2 0 3]
+ [0 1 4 3]
+ [0 1 1 3]]
+[0.000 0.222 2.889 0.000]
+(3, 2)
+[[2 0]
+ [1 4]
+ [1 1]]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="independet-variable-dependent-variable">
+<h2>Independet Variable와 Dependent Variable간의 관계를 통해 변수 제거<a class="headerlink" href="#independet-variable-dependent-variable" title="Permalink to this headline">¶</a></h2>
+<p>주어진 고차원 독립변수(Independent Variable) 각각을 종속변수(Dependent Variable)와의 관계를 계산하여 그 중 모델의 성능에 영향을 줄수 있는 독립변수를 우선적으로 선택합니다.</p>
+<p>독립변수와 종속변수간의 관계가 강한 Top-K 변수를 선택함으로써 아래와 같은 이점을 얻을 수 있습니다.</p>
+<ul class="simple">
+<li><p>Overfitting 감소</p></li>
+<li><p>모델 성능 향상</p></li>
+<li><p>모델 훈련 시간 감소</p></li>
+</ul>
+<p>Scikit-learn 에서는 단변량 통계 (Univariate Statistics)를 이용한 선택 방법 및 종속 변수의 범주에 따른 분석 방법이 Regression, Classification 이냐에 따라 다른 특징 선택 방법을 제공합니다.</p>
+<p>변수 선택 방법</p>
+<ul class="simple">
+<li><p>SelectKBest: 가장 높은 점수를 받은 K 개 변수외의 변수를 제거</p></li>
+<li><p>SelectPercentile: 가장 높은 점수순으로 사용자가 제공한 Percent 를 제외한 변수를 제거</p></li>
+<li><p>SelectFpr: False Positve Rate를 통해 변수를 제거</p></li>
+<li><p>SelectFdr: False Discovery Rate를 통해 변수를 제거</p></li>
+<li><p>SelectFwe: Family Wise Error를 통해 변수를 제거</p></li>
+</ul>
+<p>종속 변수 분석 방법</p>
+<ul class="simple">
+<li><p>Regression: f_regression, mutual_info_regression</p></li>
+<li><p>Classification: chi2, f_classif, mutual_info_classif</p></li>
+</ul>
+<p>Regression 문제에 Classification 특징 선택 함수를 쓸 경우에는 잘못된 결과를 얻을 수 있기 때문에 주의해야 합니다.</p>
+<p>한가지 더 생각해보아야 할 점은 종속변수와 관계가 약한 독립변수의 제거에 있습니다. 많은 특징 데이터를 학습하여 복잡한 모델을 만들게 되는 딥러닝 기법에서는 약한 관계에 있는 변수들도 사용 시에 도움이 될 수 있기에 Top-K 변수를 사용하는 것 보다는 전혀 관계가 없는 변수만을 제거하는 것을 분석 차원 축소의 의미로 사용하는 것을 생각해보아야 합니다.</p>
+<div class="section" id="regression">
+<h3>Regression<a class="headerlink" href="#regression" title="Permalink to this headline">¶</a></h3>
+<p>Scikit-learn 에서 제공하는 샘플 데이터 셋에서 Regression 에 적합한 데이터 셋에 대해서 특징 선택을 수행해봅니다. 데이터 셋 로딩 함수의 도움말을 통해 데이터 컬럼 정보를 확인해 봅니다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">datasets</span>
+
+datasets.load_boston<span class="o">?</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Red">Signature:</span> datasets<span class=" -Color -Color-Blue">.</span>load_boston<span class=" -Color -Color-Blue">(*,</span> return_X_y<span class=" -Color -Color-Blue">=</span><span class=" -Color -Color-Green">False</span><span class=" -Color -Color-Blue">)</span>
+<span class=" -Color -Color-Red">Docstring:</span>
+Load and return the boston house-prices dataset (regression).
+
+==============   ==============
+Samples total               506
+Dimensionality               13
+Features         real, positive
+Targets           real 5. - 50.
+==============   ==============
+
+Read more in the :ref:`User Guide &lt;boston_dataset&gt;`.
+
+Parameters
+----------
+return_X_y : bool, default=False
+    If True, returns ``(data, target)`` instead of a Bunch object.
+    See below for more information about the `data` and `target` object.
+
+    .. versionadded:: 0.18
+
+Returns
+-------
+data : :class:`~sklearn.utils.Bunch`
+    Dictionary-like object, with the following attributes.
+
+    data : ndarray of shape (506, 13)
+        The data matrix.
+    target : ndarray of shape (506, )
+        The regression target.
+    filename : str
+        The physical location of boston csv dataset.
+
+        .. versionadded:: 0.20
+
+    DESCR : str
+        The full description of the dataset.
+    feature_names : ndarray
+        The names of features
+
+(data, target) : tuple if ``return_X_y`` is True
+
+    .. versionadded:: 0.18
+
+Notes
+-----
+    .. versionchanged:: 0.20
+        Fixed a wrong data point at [445, 0].
+
+Examples
+--------
+&gt;&gt;&gt; from sklearn.datasets import load_boston
+&gt;&gt;&gt; X, y = load_boston(return_X_y=True)
+&gt;&gt;&gt; print(X.shape)
+(506, 13)
+<span class=" -Color -Color-Red">File:</span>      ~/.pyenv/versions/3.8.9/envs/skp-n4e-jupyter-sts/lib/python3.8/site-packages/sklearn/datasets/_base.py
+<span class=" -Color -Color-Red">Type:</span>      function
+</pre></div>
+</div>
+</div>
+</div>
+<p>전체 13개의 변수 중에 5개의 특징을 선택해 보도록 하겠습니다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">datasets</span><span class="p">,</span> <span class="n">feature_selection</span>
+
+<span class="n">xs</span><span class="p">,</span> <span class="n">ys</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">load_boston</span><span class="p">(</span><span class="n">return_X_y</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;shape: xs=</span><span class="si">{</span><span class="n">xs</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">, ys=</span><span class="si">{</span><span class="n">ys</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">selector</span> <span class="o">=</span> <span class="n">feature_selection</span><span class="o">.</span><span class="n">SelectKBest</span><span class="p">(</span><span class="n">score_func</span> <span class="o">=</span> <span class="n">feature_selection</span><span class="o">.</span><span class="n">f_regression</span><span class="p">,</span> <span class="n">k</span> <span class="o">=</span> <span class="s1">&#39;all&#39;</span><span class="p">)</span>
+<span class="n">fit</span> <span class="o">=</span> <span class="n">selector</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">xs</span><span class="p">,</span> <span class="n">ys</span><span class="p">)</span>
+
+<span class="c1"># Display score</span>
+<span class="n">columns</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">xs</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+<span class="n">scores</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">fit</span><span class="o">.</span><span class="n">scores_</span><span class="p">)</span>
+<span class="n">feature_scores</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">columns</span><span class="p">,</span> <span class="n">scores</span><span class="p">],</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">feature_scores</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;column&#39;</span><span class="p">,</span> <span class="s1">&#39;score&#39;</span><span class="p">]</span>
+<span class="n">display</span><span class="p">(</span><span class="n">feature_scores</span><span class="p">)</span>
+
+<span class="c1"># Select Top-N score</span>
+<span class="n">display</span><span class="p">(</span><span class="n">feature_scores</span><span class="o">.</span><span class="n">nlargest</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="s1">&#39;score&#39;</span><span class="p">))</span>
+
+<span class="n">index</span> <span class="o">=</span>  <span class="n">feature_scores</span><span class="o">.</span><span class="n">nlargest</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="s1">&#39;score&#39;</span><span class="p">)[</span><span class="s1">&#39;column&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="n">display</span><span class="p">(</span><span class="n">index</span><span class="p">)</span>
+
+<span class="n">xs_selected</span> <span class="o">=</span> <span class="n">xs</span><span class="p">[:,</span> <span class="n">index</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">xs_selected</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">xs_selected</span><span class="p">[:</span><span class="mi">5</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>shape: xs=(506, 13), ys=(506,)
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>column</th>
+      <th>score</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>89.48611</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>75.25764</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2</td>
+      <td>153.95488</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3</td>
+      <td>15.97151</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>4</td>
+      <td>112.59148</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>5</td>
+      <td>471.84674</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>6</td>
+      <td>83.47746</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>7</td>
+      <td>33.57957</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>8</td>
+      <td>85.91428</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>9</td>
+      <td>141.76136</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>10</td>
+      <td>175.10554</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>11</td>
+      <td>63.05423</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>12</td>
+      <td>601.61787</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>column</th>
+      <th>score</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>12</th>
+      <td>12</td>
+      <td>601.61787</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>5</td>
+      <td>471.84674</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>10</td>
+      <td>175.10554</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2</td>
+      <td>153.95488</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>9</td>
+      <td>141.76136</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([12,  5, 10,  2,  9])
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(506, 5)
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[4.980, 6.575, 15.300, 2.310, 296.000],
+       [9.140, 6.421, 17.800, 7.070, 242.000],
+       [4.030, 7.185, 17.800, 7.070, 242.000],
+       [2.940, 6.998, 18.700, 2.180, 222.000],
+       [5.330, 7.147, 18.700, 2.180, 222.000]])
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="classification">
+<h3>Classification<a class="headerlink" href="#classification" title="Permalink to this headline">¶</a></h3>
+<p>Scikit-learn 에서 제공하는 샘플 데이터 셋에서 Classication 에 적합한 데이터 셋에 대해서 특징 선택을 수행해봅니다. 데이터 셋 로딩 함수의 도움말을 통해 데이터 컬럼 정보를 확인해 봅니다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">datasets</span>
+
+datasets.load_wine<span class="o">?</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Red">Signature:</span> datasets<span class=" -Color -Color-Blue">.</span>load_wine<span class=" -Color -Color-Blue">(*,</span> return_X_y<span class=" -Color -Color-Blue">=</span><span class=" -Color -Color-Green">False</span><span class=" -Color -Color-Blue">,</span> as_frame<span class=" -Color -Color-Blue">=</span><span class=" -Color -Color-Green">False</span><span class=" -Color -Color-Blue">)</span>
+<span class=" -Color -Color-Red">Docstring:</span>
+Load and return the wine dataset (classification).
+
+.. versionadded:: 0.18
+
+The wine dataset is a classic and very easy multi-class classification
+dataset.
+
+=================   ==============
+Classes                          3
+Samples per class        [59,71,48]
+Samples total                  178
+Dimensionality                  13
+Features            real, positive
+=================   ==============
+
+Read more in the :ref:`User Guide &lt;wine_dataset&gt;`.
+
+Parameters
+----------
+return_X_y : bool, default=False
+    If True, returns ``(data, target)`` instead of a Bunch object.
+    See below for more information about the `data` and `target` object.
+
+as_frame : bool, default=False
+    If True, the data is a pandas DataFrame including columns with
+    appropriate dtypes (numeric). The target is
+    a pandas DataFrame or Series depending on the number of target columns.
+    If `return_X_y` is True, then (`data`, `target`) will be pandas
+    DataFrames or Series as described below.
+
+    .. versionadded:: 0.23
+
+Returns
+-------
+data : :class:`~sklearn.utils.Bunch`
+    Dictionary-like object, with the following attributes.
+
+    data : {ndarray, dataframe} of shape (178, 13)
+        The data matrix. If `as_frame=True`, `data` will be a pandas
+        DataFrame.
+    target: {ndarray, Series} of shape (178,)
+        The classification target. If `as_frame=True`, `target` will be
+        a pandas Series.
+    feature_names: list
+        The names of the dataset columns.
+    target_names: list
+        The names of target classes.
+    frame: DataFrame of shape (178, 14)
+        Only present when `as_frame=True`. DataFrame with `data` and
+        `target`.
+
+        .. versionadded:: 0.23
+    DESCR: str
+        The full description of the dataset.
+
+(data, target) : tuple if ``return_X_y`` is True
+
+The copy of UCI ML Wine Data Set dataset is downloaded and modified to fit
+standard format from:
+https://archive.ics.uci.edu/ml/machine-learning-databases/wine/wine.data
+
+Examples
+--------
+Let&#39;s say you are interested in the samples 10, 80, and 140, and want to
+know their class name.
+
+&gt;&gt;&gt; from sklearn.datasets import load_wine
+&gt;&gt;&gt; data = load_wine()
+&gt;&gt;&gt; data.target[[10, 80, 140]]
+array([0, 1, 2])
+&gt;&gt;&gt; list(data.target_names)
+[&#39;class_0&#39;, &#39;class_1&#39;, &#39;class_2&#39;]
+<span class=" -Color -Color-Red">File:</span>      ~/.pyenv/versions/3.8.9/envs/skp-n4e-jupyter-sts/lib/python3.8/site-packages/sklearn/datasets/_base.py
+<span class=" -Color -Color-Red">Type:</span>      function
+</pre></div>
+</div>
+</div>
+</div>
+<p>전체 13개의 변수 중에 5개의 특징을 선택해 보도록 하겠습니다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">datasets</span><span class="p">,</span> <span class="n">feature_selection</span>
+
+<span class="n">xs</span><span class="p">,</span> <span class="n">ys</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">load_wine</span><span class="p">(</span><span class="n">return_X_y</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;shape: xs=</span><span class="si">{</span><span class="n">xs</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">, ys=</span><span class="si">{</span><span class="n">ys</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">selector</span> <span class="o">=</span> <span class="n">feature_selection</span><span class="o">.</span><span class="n">SelectKBest</span><span class="p">(</span><span class="n">score_func</span> <span class="o">=</span> <span class="n">feature_selection</span><span class="o">.</span><span class="n">f_classif</span><span class="p">,</span> <span class="n">k</span> <span class="o">=</span> <span class="s1">&#39;all&#39;</span><span class="p">)</span>
+<span class="n">fit</span> <span class="o">=</span> <span class="n">selector</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">xs</span><span class="p">,</span> <span class="n">ys</span><span class="p">)</span>
+
+<span class="c1"># Display score</span>
+<span class="n">columns</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">xs</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+<span class="n">scores</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">fit</span><span class="o">.</span><span class="n">scores_</span><span class="p">)</span>
+<span class="n">feature_scores</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">columns</span><span class="p">,</span> <span class="n">scores</span><span class="p">],</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">feature_scores</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;column&#39;</span><span class="p">,</span> <span class="s1">&#39;score&#39;</span><span class="p">]</span>
+<span class="n">display</span><span class="p">(</span><span class="n">feature_scores</span><span class="p">)</span>
+
+<span class="c1"># Select Top-N score</span>
+<span class="n">display</span><span class="p">(</span><span class="n">feature_scores</span><span class="o">.</span><span class="n">nlargest</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="s1">&#39;score&#39;</span><span class="p">))</span>
+
+<span class="n">index</span> <span class="o">=</span>  <span class="n">feature_scores</span><span class="o">.</span><span class="n">nlargest</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="s1">&#39;score&#39;</span><span class="p">)[</span><span class="s1">&#39;column&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="n">display</span><span class="p">(</span><span class="n">index</span><span class="p">)</span>
+
+<span class="n">xs_selected</span> <span class="o">=</span> <span class="n">xs</span><span class="p">[:,</span> <span class="n">index</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">xs_selected</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">xs_selected</span><span class="p">[:</span><span class="mi">5</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>shape: xs=(178, 13), ys=(178,)
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>column</th>
+      <th>score</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>135.07762</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>36.94342</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2</td>
+      <td>13.31290</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3</td>
+      <td>35.77164</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>4</td>
+      <td>12.42958</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>5</td>
+      <td>93.73301</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>6</td>
+      <td>233.92587</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>7</td>
+      <td>27.57542</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>8</td>
+      <td>30.27138</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>9</td>
+      <td>120.66402</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>10</td>
+      <td>101.31680</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>11</td>
+      <td>189.97232</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>12</td>
+      <td>207.92037</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>column</th>
+      <th>score</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>6</th>
+      <td>6</td>
+      <td>233.92587</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>12</td>
+      <td>207.92037</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>11</td>
+      <td>189.97232</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>135.07762</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>9</td>
+      <td>120.66402</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 6, 12, 11,  0,  9])
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(178, 5)
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[3.060, 1065.000, 3.920, 14.230, 5.640],
+       [2.760, 1050.000, 3.400, 13.200, 4.380],
+       [3.240, 1185.000, 3.170, 13.160, 5.680],
+       [3.490, 1480.000, 3.450, 14.370, 7.800],
+       [2.690, 735.000, 2.930, 13.240, 4.320]])
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="recursive">
+<h2>Recursive 한 변수 조합 평가를 통한 변수 제거<a class="headerlink" href="#recursive" title="Permalink to this headline">¶</a></h2>
+<p>이 방법은 전체 종속 변수에 대한 서브셋을 만들고 그중 가장 나쁜 성능을 나타내는 변수 조합을 제거하는 방법입니다.</p>
+<p>예를 들어 5개의 변수 중 3개의 변수를 선택한다고 하면, 재귀적으로 표현 가능한 변수의 조합 셋을 만들고, n-1 조합에서 가장 좋은 셋을 찾고 그 셋에서 n-2 조합 중에 가장 좋은 셋을 찾는 식입니다.</p>
+<p>평가에 사용하는 함수는 원하는 모델 함수를 파라미터로 선택하여 이용할 수 있습니다. 이 방법은 변수의 수가 많은 고차원 데이터 셋에서는 많은 시간이 들기 때문에 고차원 데이터라면 추천되지는 않습니다.</p>
+<div class="section" id="id1">
+<h3>Regression<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">datasets</span><span class="p">,</span> <span class="n">feature_selection</span><span class="p">,</span> <span class="n">svm</span>
+
+<span class="n">xs</span><span class="p">,</span> <span class="n">ys</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">load_boston</span><span class="p">(</span><span class="n">return_X_y</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;shape: xs=</span><span class="si">{</span><span class="n">xs</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">, ys=</span><span class="si">{</span><span class="n">ys</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">estimator</span> <span class="o">=</span> <span class="n">svm</span><span class="o">.</span><span class="n">SVR</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="s2">&quot;linear&quot;</span><span class="p">)</span>
+<span class="n">selector</span> <span class="o">=</span> <span class="n">feature_selection</span><span class="o">.</span><span class="n">RFE</span><span class="p">(</span><span class="n">estimator</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="o">%</span><span class="k">time</span> fit = selector.fit(xs, ys)
+
+<span class="c1"># Display score</span>
+<span class="n">columns</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">xs</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+<span class="n">ranks</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">fit</span><span class="o">.</span><span class="n">ranking_</span><span class="p">)</span>
+<span class="n">feature_ranks</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">columns</span><span class="p">,</span> <span class="n">ranks</span><span class="p">],</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">feature_ranks</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;column&#39;</span><span class="p">,</span> <span class="s1">&#39;rank&#39;</span><span class="p">]</span>
+<span class="n">display</span><span class="p">(</span><span class="n">feature_ranks</span><span class="p">)</span>
+
+<span class="c1"># Select Top-N score</span>
+<span class="n">index</span> <span class="o">=</span> <span class="n">fit</span><span class="o">.</span><span class="n">support_</span>
+<span class="n">display</span><span class="p">(</span><span class="n">index</span><span class="p">)</span>
+
+<span class="n">xs_selected</span> <span class="o">=</span> <span class="n">xs</span><span class="p">[:,</span> <span class="n">index</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">xs_selected</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">xs_selected</span><span class="p">[:</span><span class="mi">5</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>shape: xs=(506, 13), ys=(506,)
+CPU times: user 3.6 s, sys: 8.43 ms, total: 3.61 s
+Wall time: 3.62 s
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>column</th>
+      <th>rank</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>4</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>5</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>6</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>7</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>8</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>9</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>10</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>11</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>12</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([False, False, False,  True,  True,  True, False, False, False,
+       False,  True, False,  True])
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(506, 5)
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0.000, 0.538, 6.575, 15.300, 4.980],
+       [0.000, 0.469, 6.421, 17.800, 9.140],
+       [0.000, 0.469, 7.185, 17.800, 4.030],
+       [0.000, 0.458, 6.998, 18.700, 2.940],
+       [0.000, 0.458, 7.147, 18.700, 5.330]])
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id2">
+<h3>Classification<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">datasets</span><span class="p">,</span> <span class="n">feature_selection</span><span class="p">,</span> <span class="n">svm</span>
+
+<span class="n">xs</span><span class="p">,</span> <span class="n">ys</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">load_wine</span><span class="p">(</span><span class="n">return_X_y</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;shape: xs=</span><span class="si">{</span><span class="n">xs</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">, ys=</span><span class="si">{</span><span class="n">ys</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">estimator</span> <span class="o">=</span> <span class="n">svm</span><span class="o">.</span><span class="n">SVC</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="s2">&quot;linear&quot;</span><span class="p">)</span>
+<span class="n">selector</span> <span class="o">=</span> <span class="n">feature_selection</span><span class="o">.</span><span class="n">RFE</span><span class="p">(</span><span class="n">estimator</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="o">%</span><span class="k">time</span> fit = selector.fit(xs, ys)
+
+<span class="c1"># Display score</span>
+<span class="n">columns</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">xs</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+<span class="n">ranks</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">fit</span><span class="o">.</span><span class="n">ranking_</span><span class="p">)</span>
+<span class="n">feature_ranks</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">columns</span><span class="p">,</span> <span class="n">ranks</span><span class="p">],</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">feature_ranks</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;column&#39;</span><span class="p">,</span> <span class="s1">&#39;rank&#39;</span><span class="p">]</span>
+<span class="n">display</span><span class="p">(</span><span class="n">feature_ranks</span><span class="p">)</span>
+
+<span class="c1"># Select Top-N score</span>
+<span class="n">index</span> <span class="o">=</span> <span class="n">fit</span><span class="o">.</span><span class="n">support_</span>
+<span class="n">display</span><span class="p">(</span><span class="n">index</span><span class="p">)</span>
+
+<span class="n">xs_selected</span> <span class="o">=</span> <span class="n">xs</span><span class="p">[:,</span> <span class="n">index</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">xs_selected</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">xs_selected</span><span class="p">[:</span><span class="mi">5</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>shape: xs=(178, 13), ys=(178,)
+CPU times: user 103 ms, sys: 1.82 ms, total: 105 ms
+Wall time: 103 ms
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>column</th>
+      <th>rank</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>4</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>5</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>6</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>7</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>8</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>9</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>10</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>11</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>12</td>
+      <td>9</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ True, False,  True, False, False, False,  True,  True, False,
+       False, False,  True, False])
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(178, 5)
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[14.230, 2.430, 3.060, 0.280, 3.920],
+       [13.200, 2.140, 2.760, 0.260, 3.400],
+       [13.160, 2.670, 3.240, 0.300, 3.170],
+       [14.370, 2.500, 3.490, 0.240, 3.450],
+       [13.240, 2.870, 2.690, 0.390, 2.930]])
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="modeling-feature-selection">
+<h2>Modeling 을 통한 Feature selection<a class="headerlink" href="#modeling-feature-selection" title="Permalink to this headline">¶</a></h2>
+<p>이 방법은 모델 알고리즘 중에 훈련시에 변수의 중요도가 뽑혀저 나오는 알고리즘을 이용하여 중요도에 따라서 Feature를 선택하는 방법입니다. 이 방법의 장점은 Feature 선택과 동시에 Baseline 모델로도 활용할 수 있다는 것입니다.</p>
+<div class="section" id="id3">
+<h3>Regression<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>estimator로 LinearRegression을 사용해도 되지만 좀 더 좋은 선택을 위해 Lasso Regression를 사용해봅니다. Lasso는 L1 Regularization 을 통해 모델의 복잡성을 줄이면서 Overfit 을 방지하는 Regression 알고리즘입니다. 이 알고리즘을 통해 모델을 훈련시킬때 사용되는 coefficient 를 통해 변수를 선택합니다. 사용할 수 있는 다른 estimator는 LogisticRegression(linear_model.LogisticRegression), LinearSVM(svm.LinearSVC) 이 있습니다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">datasets</span><span class="p">,</span> <span class="n">feature_selection</span><span class="p">,</span> <span class="n">linear_model</span>
+
+<span class="n">xs</span><span class="p">,</span> <span class="n">ys</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">load_boston</span><span class="p">(</span><span class="n">return_X_y</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;shape: xs=</span><span class="si">{</span><span class="n">xs</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">, ys=</span><span class="si">{</span><span class="n">ys</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">estimator</span> <span class="o">=</span> <span class="n">linear_model</span><span class="o">.</span><span class="n">LassoCV</span><span class="p">(</span><span class="n">cv</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span> <span class="c1"># cv: cross validation</span>
+<span class="n">selector</span> <span class="o">=</span> <span class="n">feature_selection</span><span class="o">.</span><span class="n">SelectFromModel</span><span class="p">(</span><span class="n">estimator</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">0.25</span><span class="p">)</span>
+<span class="o">%</span><span class="k">time</span> fit = selector.fit(xs, ys)
+
+<span class="n">xs_seleted</span> <span class="o">=</span> <span class="n">fit</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">xs</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">xs_selected</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>shape: xs=(506, 13), ys=(506,)
+CPU times: user 63.8 ms, sys: 1.01 ms, total: 64.8 ms
+Wall time: 65 ms
+(178, 5)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id4">
+<h3>Classification<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>estimator로 Tree 기반 알고리즘인 RandomForest를 사용해봅니다.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">datasets</span><span class="p">,</span> <span class="n">feature_selection</span><span class="p">,</span> <span class="n">ensemble</span>
+
+<span class="n">xs</span><span class="p">,</span> <span class="n">ys</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">load_wine</span><span class="p">(</span><span class="n">return_X_y</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;shape: xs=</span><span class="si">{</span><span class="n">xs</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">, ys=</span><span class="si">{</span><span class="n">ys</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">estimator</span> <span class="o">=</span> <span class="n">ensemble</span><span class="o">.</span><span class="n">RandomForestClassifier</span><span class="p">(</span><span class="n">n_estimators</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">selector</span> <span class="o">=</span> <span class="n">feature_selection</span><span class="o">.</span><span class="n">SelectFromModel</span><span class="p">(</span><span class="n">estimator</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="s1">&#39;1.25*median&#39;</span><span class="p">)</span>
+<span class="o">%</span><span class="k">time</span> fit = selector.fit(xs, ys)
+
+<span class="n">xs_seleted</span> <span class="o">=</span> <span class="n">fit</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">xs</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">xs_seleted</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>shape: xs=(178, 13), ys=(178,)
+CPU times: user 161 ms, sys: 1.85 ms, total: 163 ms
+Wall time: 163 ms
+(178, 5)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./skillsets/sklearn"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="sklearn_eval_clustering.html" title="previous page">Clustering Evaluation</a>
+    <a class='right-next' id="next-link" href="sklearn_feature_extraction.html" title="next page">Feature Extraction</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By comafire<br/>
+        
+            &copy; Copyright 2015.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+<script async="" src="https://www.google-analytics.com/analytics.js"></script>
+<script>
+                        window.ga = window.ga || function () {
+                            (ga.q = ga.q || []).push(arguments) };
+                        ga.l = +new Date;
+                        ga('create', 'UA-81648003-1', 'auto');
+                        ga('set', 'anonymizeIp', true);
+                        ga('send', 'pageview');
+                    </script>
+
+  </body>
+</html>

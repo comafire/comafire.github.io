@@ -1,0 +1,1624 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Unicode &#8212; 데사견문록</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="TF.Text" href="tf2_beginner_tftext.html" />
+    <link rel="prev" title="Text" href="tf2_beginner_text.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+      <img src="../../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">데사견문록</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../readme.html">
+   데이터사이언스견문록
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  End to End Data Science
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../e2eds/data_science.html">
+   Data Science
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../e2eds/e2eds.html">
+   End to End Data Science
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Episodes
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../episodes/tbc.html">
+   TO BE CONTINUE…
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  skillsets
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="tf2.html">
+   Tensorflow2
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="tf2_10mins.html">
+     TF2 10mins
+    </a>
+   </li>
+   <li class="toctree-l2 current active has-children">
+    <a class="reference internal" href="tf2_beginner.html">
+     TF2 Beginner
+    </a>
+    <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+    <label for="toctree-checkbox-2">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul class="current">
+     <li class="toctree-l3">
+      <a class="reference internal" href="tf2_beginner_quickstart.html">
+       Quickstart
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="tf2_beginner_image_classification.html">
+       Image Classification
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="tf2_beginner_text_classification.html">
+       Text Classification
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="tf2_beginner_hub_text_classification.html">
+       Text Classification with Hub
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="tf2_beginner_regression.html">
+       Regression
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="tf2_beginner_overfit_underfit.html">
+       Overfit &amp; Underfit
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="tf2_beginner_save_load.html">
+       Save &amp; Load
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="tf2_beginner_keras_tuner.html">
+       Keras Tuner
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="tf2_beginner_images.html">
+       Images
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="tf2_beginner_csv.html">
+       CSV
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="tf2_beginner_numpy.html">
+       Numpy
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="tf2_beginner_pandas.html">
+       Pandas
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="tf2_beginner_text.html">
+       Text
+      </a>
+     </li>
+     <li class="toctree-l3 current active">
+      <a class="current reference internal" href="#">
+       Unicode
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="tf2_beginner_tftext.html">
+       TF.Text
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="tf2_beginner_subwords_tokenizer.html">
+       Subword Tokenization
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="tf2_beginner_tfrecord.html">
+       TFRecord and tf.train.Example
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="tf2_beginner_tfio.html">
+       TF I/O
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="tf2_advanced.html">
+     TF2 Advanced
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+    <label for="toctree-checkbox-3">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="tf2_advanced_quickstart.html">
+       Quickstart
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="tf2_advanced_image_cnn.html">
+       Image CNN
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="tf2_advanced_image_classification.html">
+       Image Classification
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="tf2_advanced_transfer_learning.html">
+       Transfer learning and fine-tuning
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="tf2_advanced_transfer_learning_with_hub.html">
+       Transfer learning with TensorFlow Hub
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="tf2_advanced_data_augmentation.html">
+       Data augmentation
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="tf2_advanced_image_segmentation.html">
+       Image Segmentation
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../keras/keras.html">
+   Keras
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../keras/keras_10mins.html">
+     Keras 10mins
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../keras/keras_dnn_regression.html">
+     DNN Regression
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../keras/keras_dnn_classification.html">
+     DNN Classification
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../keras/keras_deepmf.html">
+     Deep MF
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../sklearn/sklearn.html">
+   Scikit-Learn
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../sklearn/sklearn_10mins.html">
+     Scikit-Learn 10mins
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../sklearn/sklearn_datasets.html">
+     Datasets
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../sklearn/sklearn_preprocessing.html">
+     Preprocessing
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../sklearn/sklearn_regression.html">
+     Regression
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+    <label for="toctree-checkbox-6">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../sklearn/sklearn_linear_regression.html">
+       Linear Regression
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../sklearn/sklearn_polynomial_regression.html">
+       Polynomial Regression
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../sklearn/sklearn_sgd_regression.html">
+       SGD Regression
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../sklearn/sklearn_svm_regression.html">
+       SVM Regression
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../sklearn/sklearn_nearest_neighbor_regression.html">
+       Nearest Neighbors Regression
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../sklearn/sklearn_ensemble_regression.html">
+       Ensemble Regression
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../sklearn/sklearn_eval_regression.html">
+       Regression Evaluation
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../sklearn/sklearn_classification.html">
+     Classification
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+    <label for="toctree-checkbox-7">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../sklearn/sklearn_logistic_regression.html">
+       Logistic Regression
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../sklearn/sklearn_sgd_classification.html">
+       SGD Classification
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../sklearn/sklearn_svm_classification.html">
+       SVM Classification
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../sklearn/sklearn_nearest_neighbor_classification.html">
+       Nearest Neighbors Classification
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../sklearn/sklearn_ensemble_classification.html">
+       Ensemble Classification
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../sklearn/sklearn_eval_classification.html">
+       Classification Evaluation
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../sklearn/sklearn_clustering.html">
+     Clustering
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+    <label for="toctree-checkbox-8">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../sklearn/sklearn_kmeans.html">
+       K-Means
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../sklearn/sklearn_mean_shift.html">
+       Mean Shift
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../sklearn/sklearn_spectral_clustering.html">
+       Spectral Clustering
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../sklearn/sklearn_eval_clustering.html">
+       Clustering Evaluation
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../sklearn/sklearn_feature_selection.html">
+     Feature Selection
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../sklearn/sklearn_feature_extraction.html">
+     Feature Extraction
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../sklearn/sklearn_split_train_test.html">
+     Train/Valid/Test Dataset
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../sklearn/sklearn_model_persistence.html">
+     Model Persistence
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../sklearn/sklearn_hyper_parameter_tunning.html">
+     Hyper Parameter Tunning
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../sklearn/sklearn_anomaly_detection.html">
+     Anomaly Detection
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../dlib/dlib.html">
+   Dlib
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+  <label for="toctree-checkbox-9">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../dlib/dlib_frontal_face_detector.html">
+     Frontal Face Detector
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../surprise/surprise.html">
+   Surprise
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+  <label for="toctree-checkbox-10">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../surprise/surprise_collaborative_filtering.html">
+     Collaborative Filtering
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../imblearn/imblearn.html">
+   Imblearn
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
+  <label for="toctree-checkbox-11">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../imblearn/imblearn_imbalanced_class.html">
+     Imbalanced Class
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../spark/spark.html">
+   Spark
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
+  <label for="toctree-checkbox-12">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../spark/spark_dataframe_10mins.html">
+     Spark DataFrame 10mins
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../pandas/pandas.html">
+   Pandas
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/>
+  <label for="toctree-checkbox-13">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../pandas/pandas_10mins.html">
+     Pandas 10mins
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../pandas/pandas_missing_value.html">
+     Missing Value
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../pandas/pandas_data_description.html">
+     Data Description
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../numpy/numpy.html">
+   Numpy
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/>
+  <label for="toctree-checkbox-14">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../numpy/numpy_10mins.html">
+     Numpy 10mins
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../numpy/numpy_outlier.html">
+     Outlier
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../jupyter/jupyter.html">
+   Jupyter
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/>
+  <label for="toctree-checkbox-15">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../jupyter/jupyter_cloud.html">
+     Jupyter (Cloud)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../jupyter/jupyter_native_ubuntu.html">
+     Jupyter (Ubuntu)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../jupyter/jupyter_native_macos_x86.html">
+     Jupyter (macOS x86)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../jupyter/jupyter_docker.html">
+     Jupyter (Docker)
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../skp/skp.html">
+   St. Kilda Pier (SKP)
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/>
+  <label for="toctree-checkbox-16">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../skp/skp_n4e_vscode.html">
+     Native Visual Studio Code
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../skp/skp_n4e_jupyter.html">
+     Native Jupyter
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../skp/skp_d4r_jupyter.html">
+     Docker Jupyter
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../skp/skp_n4e_traefik.html">
+     Native Traefik
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ansible/ansible.html">
+   Ansible
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/>
+  <label for="toctree-checkbox-17">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ansible/ansible_skp_ubuntu.html">
+     ansible_skp_ubuntu
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../vagrant/vagrant_virtualbox.html">
+   Vagrant &amp; Virtualbox
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/>
+  <label for="toctree-checkbox-18">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../vagrant/vagrant_skp_single.html">
+     vagrant_skp_single
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  devicesets
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../devicesets/computer.html">
+   Computer
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../devicesets/network.html">
+   Network
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../devicesets/gce_nested_vm.html">
+   Google Computer Engine
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/skillsets/tf2/tf2_beginner_unicode.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/comafire/comafire.github.io"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/comafire/comafire.github.io/issues/new?title=Issue%20on%20page%20%2Fskillsets/tf2/tf2_beginner_unicode.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/comafire/comafire.github.io/master?urlpath=tree/skillsets/tf2/tf2_beginner_unicode.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#copyright-2018-the-tensorflow-authors">
+   Copyright 2018 The TensorFlow Authors.
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduction">
+   Introduction
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-tf-string-data-type">
+   The
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     tf.string
+    </span>
+   </code>
+   data type
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#representing-unicode">
+   Representing Unicode
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#converting-between-representations">
+     Converting between representations
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#batch-dimensions">
+     Batch dimensions
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#unicode-operations">
+   Unicode operations
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#character-length">
+     Character length
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#character-substrings">
+     Character substrings
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#split-unicode-strings">
+     Split Unicode strings
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#byte-offsets-for-characters">
+     Byte offsets for characters
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#unicode-scripts">
+   Unicode scripts
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-simple-segmentation">
+   Example: Simple segmentation
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="unicode">
+<h1>Unicode<a class="headerlink" href="#unicode" title="Permalink to this headline">¶</a></h1>
+<p>TensorFlow2 공식 홈페이지에 나와 있는 코드들을 수행해 보면서 빠르게 TensorFlow2를 익혀 봅니다.</p>
+<p><a class="reference external" href="https://www.tensorflow.org/tutorials/load_data/unicode">https://www.tensorflow.org/tutorials/load_data/unicode</a></p>
+<div class="section" id="copyright-2018-the-tensorflow-authors">
+<h2>Copyright 2018 The TensorFlow Authors.<a class="headerlink" href="#copyright-2018-the-tensorflow-authors" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#@title Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
+<span class="c1"># you may not use this file except in compliance with the License.</span>
+<span class="c1"># You may obtain a copy of the License at</span>
+<span class="c1">#</span>
+<span class="c1"># https://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1"># Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1"># distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<span class="c1"># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span class="c1"># See the License for the specific language governing permissions and</span>
+<span class="c1"># limitations under the License.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 경고 메시지 출력 끄기</span>
+<span class="kn">import</span> <span class="nn">warnings</span> 
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="n">action</span><span class="o">=</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">simplefilter</span><span class="p">(</span><span class="n">action</span><span class="o">=</span><span class="s1">&#39;ignore&#39;</span><span class="p">,</span> <span class="n">category</span><span class="o">=</span><span class="ne">FutureWarning</span><span class="p">)</span>
+
+<span class="c1"># 노트북 셀 표시를 브라우저 전체 폭 사용하기</span>
+<span class="kn">from</span> <span class="nn">IPython.core.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">HTML</span>
+<span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="s2">&quot;&lt;style&gt;.container { width:100% !important; }&lt;/style&gt;&quot;</span><span class="p">))</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">clear_output</span>
+
+<span class="c1"># Matplotlib 설정</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="o">%</span><span class="k">config</span> InlineBackend.figure_format = &#39;retina&#39; # Macbook Retina Display를 위한 고해상도 설정
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;seaborn&#39;</span><span class="p">)</span> <span class="c1"># 스타일 설정</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;figure.figsize&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">16</span><span class="p">,</span> <span class="mi">9</span><span class="p">]</span> <span class="c1"># 그림 크기</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;figure.dpi&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">300</span> <span class="c1"># 해상도</span>
+
+<span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">sys</span><span class="o">,</span> <span class="nn">shutil</span><span class="o">,</span> <span class="nn">functools</span>
+<span class="kn">import</span> <span class="nn">collections</span><span class="o">,</span> <span class="nn">pathlib</span><span class="o">,</span> <span class="nn">re</span><span class="o">,</span> <span class="nn">string</span>
+
+<span class="n">rseed</span> <span class="o">=</span> <span class="mi">22</span>
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">rseed</span><span class="p">)</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">rseed</span><span class="p">)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">set_printoptions</span><span class="p">(</span><span class="n">precision</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">set_printoptions</span><span class="p">(</span><span class="n">formatter</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;float_kind&#39;</span><span class="p">:</span> <span class="s2">&quot;</span><span class="si">{:.5f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">})</span>
+
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_rows&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> 
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_columns&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> 
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_colwidth&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">float_format</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{:,.5f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span>
+
+<span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+<span class="n">tf</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">set_seed</span><span class="p">(</span><span class="n">rseed</span><span class="p">)</span>
+<span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">backend</span><span class="o">.</span><span class="n">set_floatx</span><span class="p">(</span><span class="s1">&#39;float32&#39;</span><span class="p">)</span> <span class="c1"># keras default float type 설정</span>
+
+<span class="kn">import</span> <span class="nn">tensorflow_hub</span> <span class="k">as</span> <span class="nn">tfhub</span>
+<span class="kn">import</span> <span class="nn">tensorflow_datasets</span> <span class="k">as</span> <span class="nn">tfds</span>
+<span class="kn">import</span> <span class="nn">tensorflow_text</span> <span class="k">as</span> <span class="nn">tftext</span>
+
+<span class="kn">import</span> <span class="nn">kerastuner</span> <span class="k">as</span> <span class="nn">kt</span>
+
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+
+<span class="kn">import</span> <span class="nn">PIL</span>
+<span class="kn">import</span> <span class="nn">PIL.Image</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;python ver=</span><span class="si">{</span><span class="n">sys</span><span class="o">.</span><span class="n">version</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;pandas ver=</span><span class="si">{</span><span class="n">pd</span><span class="o">.</span><span class="n">__version__</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;numpy ver=</span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">__version__</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;tensorflow ver=</span><span class="si">{</span><span class="n">tf</span><span class="o">.</span><span class="n">__version__</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;tensorflow execuring eagerly=</span><span class="si">{</span><span class="n">tf</span><span class="o">.</span><span class="n">executing_eagerly</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;tensorflow GPU=</span><span class="si">{</span><span class="s1">&#39;True&#39;</span> <span class="k">if</span> <span class="n">tf</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">experimental</span><span class="o">.</span><span class="n">list_physical_devices</span><span class="p">(</span><span class="s1">&#39;GPU&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="s1">&#39;False&#39;</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;keras tuner ver=</span><span class="si">{</span><span class="n">kt</span><span class="o">.</span><span class="n">__version__</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;senborn ver=</span><span class="si">{</span><span class="n">sns</span><span class="o">.</span><span class="n">__version__</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;PIL ver=</span><span class="si">{</span><span class="n">PIL</span><span class="o">.</span><span class="n">__version__</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style>.container { width:100% !important; }</style></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>python ver=3.7.6 (default, Nov 21 2020, 22:51:13) 
+[Clang 12.0.0 (clang-1200.0.32.27)]
+pandas ver=1.0.5
+numpy ver=1.19.5
+tensorflow ver=2.4.1
+tensorflow execuring eagerly=True
+tensorflow GPU=False
+keras tuner ver=1.0.2
+senborn ver=0.10.0
+PIL ver=7.1.2
+</pre></div>
+</div>
+</div>
+</div>
+<p>#W Unicode strings</p>
+<table class="tfo-notebook-buttons" align="left">
+  <td>
+    <a target="_blank" href="https://www.tensorflow.org/tutorials/load_data/unicode"><img src="https://www.tensorflow.org/images/tf_logo_32px.png" />View on TensorFlow.org</a>
+  </td>
+  <td>
+    <a target="_blank" href="https://colab.research.google.com/github/tensorflow/docs/blob/master/site/en/tutorials/load_data/unicode.ipynb"><img src="https://www.tensorflow.org/images/colab_logo_32px.png" />Run in Google Colab</a>
+  </td>
+  <td>
+    <a target="_blank" href="https://github.com/tensorflow/docs/blob/master/site/en/tutorials/load_data/unicode.ipynb"><img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" />View source on GitHub</a>
+  </td>
+  <td>
+    <a href="https://storage.googleapis.com/tensorflow_docs/docs/site/en/tutorials/load_data/unicode.ipynb"><img src="https://www.tensorflow.org/images/download_logo_32px.png" />Download notebook</a>
+  </td>
+</table>
+*</div>
+<hr class="docutils" />
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>Models that process natural language often handle different languages with different character sets.  <em>Unicode</em> is a standard encoding system that is used to represent character from almost all languages.  Each character is encoded using a unique integer <a class="reference external" href="https://en.wikipedia.org/wiki/Code_point">code point</a> between <code class="docutils literal notranslate"><span class="pre">0</span></code> and <code class="docutils literal notranslate"><span class="pre">0x10FFFF</span></code>. A <em>Unicode string</em> is a sequence of zero or more code points.</p>
+<p>This tutorial shows how to represent Unicode strings in TensorFlow and manipulate them using Unicode equivalents of standard string ops. It separates Unicode strings into tokens based on script detection.</p>
+</div>
+<div class="section" id="the-tf-string-data-type">
+<h2>The <code class="docutils literal notranslate"><span class="pre">tf.string</span></code> data type<a class="headerlink" href="#the-tf-string-data-type" title="Permalink to this headline">¶</a></h2>
+<p>The basic TensorFlow <code class="docutils literal notranslate"><span class="pre">tf.string</span></code> <code class="docutils literal notranslate"><span class="pre">dtype</span></code> allows you to build tensors of byte strings.
+Unicode strings are utf-8 encoded by default.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">(</span><span class="sa">u</span><span class="s2">&quot;Thanks 😊&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;tf.Tensor: shape=(), dtype=string, numpy=b&#39;Thanks \xf0\x9f\x98\x8a&#39;&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>A <code class="docutils literal notranslate"><span class="pre">tf.string</span></code> tensor can hold byte strings of varying lengths because the byte strings are treated as atomic units. The string length is not included in the tensor dimensions.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">([</span><span class="sa">u</span><span class="s2">&quot;You&#39;re&quot;</span><span class="p">,</span> <span class="sa">u</span><span class="s2">&quot;welcome!&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TensorShape([2])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note: When using python to construct strings, the handling of unicode differs betweeen v2 and v3. In v2, unicode strings are indicated by the “u” prefix, as above. In v3, strings are unicode-encoded by default.</p>
+</div>
+<div class="section" id="representing-unicode">
+<h2>Representing Unicode<a class="headerlink" href="#representing-unicode" title="Permalink to this headline">¶</a></h2>
+<p>There are two standard ways to represent a Unicode string in TensorFlow:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">string</span></code> scalar — where the sequence of code points is encoded using a known <a class="reference external" href="https://en.wikipedia.org/wiki/Character_encoding">character encoding</a>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int32</span></code> vector — where each position contains a single code point.</p></li>
+</ul>
+<p>For example, the following three values all represent the Unicode string <code class="docutils literal notranslate"><span class="pre">&quot;语言处理&quot;</span></code> (which means “language processing” in Chinese):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Unicode string, represented as a UTF-8 encoded string scalar.</span>
+<span class="n">text_utf8</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">(</span><span class="sa">u</span><span class="s2">&quot;语言处理&quot;</span><span class="p">)</span>
+<span class="n">text_utf8</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;tf.Tensor: shape=(), dtype=string, numpy=b&#39;\xe8\xaf\xad\xe8\xa8\x80\xe5\xa4\x84\xe7\x90\x86&#39;&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Unicode string, represented as a UTF-16-BE encoded string scalar.</span>
+<span class="n">text_utf16be</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">(</span><span class="sa">u</span><span class="s2">&quot;语言处理&quot;</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s2">&quot;UTF-16-BE&quot;</span><span class="p">))</span>
+<span class="n">text_utf16be</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;tf.Tensor: shape=(), dtype=string, numpy=b&#39;\x8b\xed\x8a\x00Y\x04t\x06&#39;&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Unicode string, represented as a vector of Unicode code points.</span>
+<span class="n">text_chars</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">([</span><span class="nb">ord</span><span class="p">(</span><span class="n">char</span><span class="p">)</span> <span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="sa">u</span><span class="s2">&quot;语言处理&quot;</span><span class="p">])</span>
+<span class="n">text_chars</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;tf.Tensor: shape=(4,), dtype=int32, numpy=array([35821, 35328, 22788, 29702], dtype=int32)&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="converting-between-representations">
+<h3>Converting between representations<a class="headerlink" href="#converting-between-representations" title="Permalink to this headline">¶</a></h3>
+<p>TensorFlow provides operations to convert between these different representations:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">tf.strings.unicode_decode</span></code>: Converts an encoded string scalar to a vector of code points.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tf.strings.unicode_encode</span></code>: Converts a vector of code points to an encoded string scalar.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tf.strings.unicode_transcode</span></code>: Converts an encoded string scalar to a different encoding.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tf</span><span class="o">.</span><span class="n">strings</span><span class="o">.</span><span class="n">unicode_decode</span><span class="p">(</span><span class="n">text_utf8</span><span class="p">,</span>
+                          <span class="n">input_encoding</span><span class="o">=</span><span class="s1">&#39;UTF-8&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;tf.Tensor: shape=(4,), dtype=int32, numpy=array([35821, 35328, 22788, 29702], dtype=int32)&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tf</span><span class="o">.</span><span class="n">strings</span><span class="o">.</span><span class="n">unicode_encode</span><span class="p">(</span><span class="n">text_chars</span><span class="p">,</span>
+                          <span class="n">output_encoding</span><span class="o">=</span><span class="s1">&#39;UTF-8&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;tf.Tensor: shape=(), dtype=string, numpy=b&#39;\xe8\xaf\xad\xe8\xa8\x80\xe5\xa4\x84\xe7\x90\x86&#39;&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tf</span><span class="o">.</span><span class="n">strings</span><span class="o">.</span><span class="n">unicode_transcode</span><span class="p">(</span><span class="n">text_utf8</span><span class="p">,</span>
+                             <span class="n">input_encoding</span><span class="o">=</span><span class="s1">&#39;UTF8&#39;</span><span class="p">,</span>
+                             <span class="n">output_encoding</span><span class="o">=</span><span class="s1">&#39;UTF-16-BE&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;tf.Tensor: shape=(), dtype=string, numpy=b&#39;\x8b\xed\x8a\x00Y\x04t\x06&#39;&gt;
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="batch-dimensions">
+<h3>Batch dimensions<a class="headerlink" href="#batch-dimensions" title="Permalink to this headline">¶</a></h3>
+<p>When decoding multiple strings, the number of characters in each string may not be equal.  The return result is a <span class="xref myst"><code class="docutils literal notranslate"><span class="pre">tf.RaggedTensor</span></code></span>, where the length of the innermost dimension varies depending on the number of characters in each string:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># A batch of Unicode strings, each represented as a UTF8-encoded string.</span>
+<span class="n">batch_utf8</span> <span class="o">=</span> <span class="p">[</span><span class="n">s</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;UTF-8&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span>
+              <span class="p">[</span><span class="sa">u</span><span class="s1">&#39;hÃllo&#39;</span><span class="p">,</span>  <span class="sa">u</span><span class="s1">&#39;What is the weather tomorrow&#39;</span><span class="p">,</span>  <span class="sa">u</span><span class="s1">&#39;Göödnight&#39;</span><span class="p">,</span> <span class="sa">u</span><span class="s1">&#39;😊&#39;</span><span class="p">]]</span>
+<span class="n">batch_chars_ragged</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">strings</span><span class="o">.</span><span class="n">unicode_decode</span><span class="p">(</span><span class="n">batch_utf8</span><span class="p">,</span>
+                                               <span class="n">input_encoding</span><span class="o">=</span><span class="s1">&#39;UTF-8&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">sentence_chars</span> <span class="ow">in</span> <span class="n">batch_chars_ragged</span><span class="o">.</span><span class="n">to_list</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">sentence_chars</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[104, 195, 108, 108, 111]
+[87, 104, 97, 116, 32, 105, 115, 32, 116, 104, 101, 32, 119, 101, 97, 116, 104, 101, 114, 32, 116, 111, 109, 111, 114, 114, 111, 119]
+[71, 246, 246, 100, 110, 105, 103, 104, 116]
+[128522]
+</pre></div>
+</div>
+</div>
+</div>
+<p>You can use this <code class="docutils literal notranslate"><span class="pre">tf.RaggedTensor</span></code> directly, or convert it to a dense <code class="docutils literal notranslate"><span class="pre">tf.Tensor</span></code> with padding or a <code class="docutils literal notranslate"><span class="pre">tf.SparseTensor</span></code> using the methods <code class="docutils literal notranslate"><span class="pre">tf.RaggedTensor.to_tensor</span></code> and <code class="docutils literal notranslate"><span class="pre">tf.RaggedTensor.to_sparse</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">batch_chars_padded</span> <span class="o">=</span> <span class="n">batch_chars_ragged</span><span class="o">.</span><span class="n">to_tensor</span><span class="p">(</span><span class="n">default_value</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">batch_chars_padded</span><span class="o">.</span><span class="n">numpy</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[   104    195    108    108    111     -1     -1     -1     -1     -1
+      -1     -1     -1     -1     -1     -1     -1     -1     -1     -1
+      -1     -1     -1     -1     -1     -1     -1     -1]
+ [    87    104     97    116     32    105    115     32    116    104
+     101     32    119    101     97    116    104    101    114     32
+     116    111    109    111    114    114    111    119]
+ [    71    246    246    100    110    105    103    104    116     -1
+      -1     -1     -1     -1     -1     -1     -1     -1     -1     -1
+      -1     -1     -1     -1     -1     -1     -1     -1]
+ [128522     -1     -1     -1     -1     -1     -1     -1     -1     -1
+      -1     -1     -1     -1     -1     -1     -1     -1     -1     -1
+      -1     -1     -1     -1     -1     -1     -1     -1]]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">batch_chars_sparse</span> <span class="o">=</span> <span class="n">batch_chars_ragged</span><span class="o">.</span><span class="n">to_sparse</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>When encoding multiple strings with the same lengths, a <code class="docutils literal notranslate"><span class="pre">tf.Tensor</span></code> may be used as input:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tf</span><span class="o">.</span><span class="n">strings</span><span class="o">.</span><span class="n">unicode_encode</span><span class="p">([[</span><span class="mi">99</span><span class="p">,</span> <span class="mi">97</span><span class="p">,</span> <span class="mi">116</span><span class="p">],</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">111</span><span class="p">,</span> <span class="mi">103</span><span class="p">],</span> <span class="p">[</span> <span class="mi">99</span><span class="p">,</span> <span class="mi">111</span><span class="p">,</span> <span class="mi">119</span><span class="p">]],</span>
+                          <span class="n">output_encoding</span><span class="o">=</span><span class="s1">&#39;UTF-8&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;tf.Tensor: shape=(3,), dtype=string, numpy=array([b&#39;cat&#39;, b&#39;dog&#39;, b&#39;cow&#39;], dtype=object)&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>When encoding multiple strings with varying length, a <code class="docutils literal notranslate"><span class="pre">tf.RaggedTensor</span></code> should be used as input:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tf</span><span class="o">.</span><span class="n">strings</span><span class="o">.</span><span class="n">unicode_encode</span><span class="p">(</span><span class="n">batch_chars_ragged</span><span class="p">,</span> <span class="n">output_encoding</span><span class="o">=</span><span class="s1">&#39;UTF-8&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;tf.Tensor: shape=(4,), dtype=string, numpy=
+array([b&#39;h\xc3\x83llo&#39;, b&#39;What is the weather tomorrow&#39;,
+       b&#39;G\xc3\xb6\xc3\xb6dnight&#39;, b&#39;\xf0\x9f\x98\x8a&#39;], dtype=object)&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>If you have a tensor with multiple strings in padded or sparse format, then convert it to a <code class="docutils literal notranslate"><span class="pre">tf.RaggedTensor</span></code> before calling <code class="docutils literal notranslate"><span class="pre">unicode_encode</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tf</span><span class="o">.</span><span class="n">strings</span><span class="o">.</span><span class="n">unicode_encode</span><span class="p">(</span>
+    <span class="n">tf</span><span class="o">.</span><span class="n">RaggedTensor</span><span class="o">.</span><span class="n">from_sparse</span><span class="p">(</span><span class="n">batch_chars_sparse</span><span class="p">),</span>
+    <span class="n">output_encoding</span><span class="o">=</span><span class="s1">&#39;UTF-8&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;tf.Tensor: shape=(4,), dtype=string, numpy=
+array([b&#39;h\xc3\x83llo&#39;, b&#39;What is the weather tomorrow&#39;,
+       b&#39;G\xc3\xb6\xc3\xb6dnight&#39;, b&#39;\xf0\x9f\x98\x8a&#39;], dtype=object)&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tf</span><span class="o">.</span><span class="n">strings</span><span class="o">.</span><span class="n">unicode_encode</span><span class="p">(</span>
+    <span class="n">tf</span><span class="o">.</span><span class="n">RaggedTensor</span><span class="o">.</span><span class="n">from_tensor</span><span class="p">(</span><span class="n">batch_chars_padded</span><span class="p">,</span> <span class="n">padding</span><span class="o">=-</span><span class="mi">1</span><span class="p">),</span>
+    <span class="n">output_encoding</span><span class="o">=</span><span class="s1">&#39;UTF-8&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;tf.Tensor: shape=(4,), dtype=string, numpy=
+array([b&#39;h\xc3\x83llo&#39;, b&#39;What is the weather tomorrow&#39;,
+       b&#39;G\xc3\xb6\xc3\xb6dnight&#39;, b&#39;\xf0\x9f\x98\x8a&#39;], dtype=object)&gt;
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="unicode-operations">
+<h2>Unicode operations<a class="headerlink" href="#unicode-operations" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="character-length">
+<h3>Character length<a class="headerlink" href="#character-length" title="Permalink to this headline">¶</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">tf.strings.length</span></code> operation has a parameter <code class="docutils literal notranslate"><span class="pre">unit</span></code>, which indicates how lengths should be computed.  <code class="docutils literal notranslate"><span class="pre">unit</span></code> defaults to <code class="docutils literal notranslate"><span class="pre">&quot;BYTE&quot;</span></code>, but it can be set to other values, such as <code class="docutils literal notranslate"><span class="pre">&quot;UTF8_CHAR&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;UTF16_CHAR&quot;</span></code>, to determine the number of Unicode codepoints in each encoded <code class="docutils literal notranslate"><span class="pre">string</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Note that the final character takes up 4 bytes in UTF8.</span>
+<span class="n">thanks</span> <span class="o">=</span> <span class="sa">u</span><span class="s1">&#39;Thanks 😊&#39;</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;UTF-8&#39;</span><span class="p">)</span>
+<span class="n">num_bytes</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">strings</span><span class="o">.</span><span class="n">length</span><span class="p">(</span><span class="n">thanks</span><span class="p">)</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+<span class="n">num_chars</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">strings</span><span class="o">.</span><span class="n">length</span><span class="p">(</span><span class="n">thanks</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="s1">&#39;UTF8_CHAR&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1"> bytes; </span><span class="si">{}</span><span class="s1"> UTF-8 characters&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">num_bytes</span><span class="p">,</span> <span class="n">num_chars</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>11 bytes; 8 UTF-8 characters
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="character-substrings">
+<h3>Character substrings<a class="headerlink" href="#character-substrings" title="Permalink to this headline">¶</a></h3>
+<p>Similarly, the <code class="docutils literal notranslate"><span class="pre">tf.strings.substr</span></code> operation accepts the “<code class="docutils literal notranslate"><span class="pre">unit</span></code>” parameter, and uses it to determine what kind of offsets the “<code class="docutils literal notranslate"><span class="pre">pos</span></code>” and “<code class="docutils literal notranslate"><span class="pre">len</span></code>” paremeters contain.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># default: unit=&#39;BYTE&#39;. With len=1, we return a single byte.</span>
+<span class="n">tf</span><span class="o">.</span><span class="n">strings</span><span class="o">.</span><span class="n">substr</span><span class="p">(</span><span class="n">thanks</span><span class="p">,</span> <span class="n">pos</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="nb">len</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>b&#39;\xf0&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Specifying unit=&#39;UTF8_CHAR&#39;, we return a single character, which in this case</span>
+<span class="c1"># is 4 bytes.</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">strings</span><span class="o">.</span><span class="n">substr</span><span class="p">(</span><span class="n">thanks</span><span class="p">,</span> <span class="n">pos</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="nb">len</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="s1">&#39;UTF8_CHAR&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">numpy</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>b&#39;\xf0\x9f\x98\x8a&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="split-unicode-strings">
+<h3>Split Unicode strings<a class="headerlink" href="#split-unicode-strings" title="Permalink to this headline">¶</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">tf.strings.unicode_split</span></code> operation splits unicode strings into substrings of individual characters:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tf</span><span class="o">.</span><span class="n">strings</span><span class="o">.</span><span class="n">unicode_split</span><span class="p">(</span><span class="n">thanks</span><span class="p">,</span> <span class="s1">&#39;UTF-8&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([b&#39;T&#39;, b&#39;h&#39;, b&#39;a&#39;, b&#39;n&#39;, b&#39;k&#39;, b&#39;s&#39;, b&#39; &#39;, b&#39;\xf0\x9f\x98\x8a&#39;],
+      dtype=object)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="byte-offsets-for-characters">
+<h3>Byte offsets for characters<a class="headerlink" href="#byte-offsets-for-characters" title="Permalink to this headline">¶</a></h3>
+<p>To align the character tensor generated by <code class="docutils literal notranslate"><span class="pre">tf.strings.unicode_decode</span></code> with the original string, it’s useful to know the offset for where each character begins.  The method <code class="docutils literal notranslate"><span class="pre">tf.strings.unicode_decode_with_offsets</span></code> is similar to <code class="docutils literal notranslate"><span class="pre">unicode_decode</span></code>, except that it returns a second tensor containing the start offset of each character.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">codepoints</span><span class="p">,</span> <span class="n">offsets</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">strings</span><span class="o">.</span><span class="n">unicode_decode_with_offsets</span><span class="p">(</span><span class="sa">u</span><span class="s2">&quot;🎈🎉🎊&quot;</span><span class="p">,</span> <span class="s1">&#39;UTF-8&#39;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="n">codepoint</span><span class="p">,</span> <span class="n">offset</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">codepoints</span><span class="o">.</span><span class="n">numpy</span><span class="p">(),</span> <span class="n">offsets</span><span class="o">.</span><span class="n">numpy</span><span class="p">()):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;At byte offset </span><span class="si">{}</span><span class="s2">: codepoint </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">offset</span><span class="p">,</span> <span class="n">codepoint</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>At byte offset 0: codepoint 127880
+At byte offset 4: codepoint 127881
+At byte offset 8: codepoint 127882
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="unicode-scripts">
+<h2>Unicode scripts<a class="headerlink" href="#unicode-scripts" title="Permalink to this headline">¶</a></h2>
+<p>Each Unicode code point belongs to a single collection of codepoints known as a <a class="reference external" href="https://en.wikipedia.org/wiki/Script_%28Unicode%29">script</a> .  A character’s script is helpful in determining which language the character might be in. For example, knowing that ‘Б’ is in Cyrillic script indicates that modern text containing that character is likely from a Slavic language such as Russian or Ukrainian.</p>
+<p>TensorFlow provides the <code class="docutils literal notranslate"><span class="pre">tf.strings.unicode_script</span></code> operation to determine which script a given codepoint uses. The script codes are <code class="docutils literal notranslate"><span class="pre">int32</span></code> values corresponding to <a class="reference external" href="http://site.icu-project.org/home">International Components for
+Unicode</a> (ICU) <a class="reference external" href="http://icu-project.org/apiref/icu4c/uscript_8h.html"><code class="docutils literal notranslate"><span class="pre">UScriptCode</span></code></a> values.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">uscript</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">strings</span><span class="o">.</span><span class="n">unicode_script</span><span class="p">([</span><span class="mi">33464</span><span class="p">,</span> <span class="mi">1041</span><span class="p">])</span>  <span class="c1"># [&#39;芸&#39;, &#39;Б&#39;]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">uscript</span><span class="o">.</span><span class="n">numpy</span><span class="p">())</span>  <span class="c1"># [17, 8] == [USCRIPT_HAN, USCRIPT_CYRILLIC]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[17  8]
+</pre></div>
+</div>
+</div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">tf.strings.unicode_script</span></code> operation can also be applied to multidimensional <code class="docutils literal notranslate"><span class="pre">tf.Tensor</span></code>s or <code class="docutils literal notranslate"><span class="pre">tf.RaggedTensor</span></code>s of codepoints:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">strings</span><span class="o">.</span><span class="n">unicode_script</span><span class="p">(</span><span class="n">batch_chars_ragged</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;tf.RaggedTensor [[25, 25, 25, 25, 25], [25, 25, 25, 25, 0, 25, 25, 0, 25, 25, 25, 0, 25, 25, 25, 25, 25, 25, 25, 0, 25, 25, 25, 25, 25, 25, 25, 25], [25, 25, 25, 25, 25, 25, 25, 25, 25], [0]]&gt;
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="example-simple-segmentation">
+<h2>Example: Simple segmentation<a class="headerlink" href="#example-simple-segmentation" title="Permalink to this headline">¶</a></h2>
+<p>Segmentation is the task of splitting text into word-like units. This is often easy when space characters are used to separate words, but some languages (like Chinese and Japanese) do not use spaces, and some languages (like German) contain long compounds that must be split in order to analyze their meaning. In web text, different languages and scripts are frequently mixed together, as in “NY株価” (New York Stock Exchange).</p>
+<p>We can perform very rough segmentation (without implementing any ML models) by using changes in script to approximate word boundaries. This will work for strings like the “NY株価” example above. It will also work for most languages that use spaces, as the space characters of various scripts are all classified as USCRIPT_COMMON, a special script code that differs from that of any actual text.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># dtype: string; shape: [num_sentences]</span>
+<span class="c1">#</span>
+<span class="c1"># The sentences to process.  Edit this line to try out different inputs!</span>
+<span class="n">sentence_texts</span> <span class="o">=</span> <span class="p">[</span><span class="sa">u</span><span class="s1">&#39;Hello, world.&#39;</span><span class="p">,</span> <span class="sa">u</span><span class="s1">&#39;世界こんにちは&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>First, we decode the sentences into character codepoints, and find the script identifeir for each character.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># dtype: int32; shape: [num_sentences, (num_chars_per_sentence)]</span>
+<span class="c1">#</span>
+<span class="c1"># sentence_char_codepoint[i, j] is the codepoint for the j&#39;th character in</span>
+<span class="c1"># the i&#39;th sentence.</span>
+<span class="n">sentence_char_codepoint</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">strings</span><span class="o">.</span><span class="n">unicode_decode</span><span class="p">(</span><span class="n">sentence_texts</span><span class="p">,</span> <span class="s1">&#39;UTF-8&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sentence_char_codepoint</span><span class="p">)</span>
+
+<span class="c1"># dtype: int32; shape: [num_sentences, (num_chars_per_sentence)]</span>
+<span class="c1">#</span>
+<span class="c1"># sentence_char_scripts[i, j] is the unicode script of the j&#39;th character in</span>
+<span class="c1"># the i&#39;th sentence.</span>
+<span class="n">sentence_char_script</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">strings</span><span class="o">.</span><span class="n">unicode_script</span><span class="p">(</span><span class="n">sentence_char_codepoint</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sentence_char_script</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;tf.RaggedTensor [[72, 101, 108, 108, 111, 44, 32, 119, 111, 114, 108, 100, 46], [19990, 30028, 12371, 12435, 12395, 12385, 12399]]&gt;
+&lt;tf.RaggedTensor [[25, 25, 25, 25, 25, 0, 0, 25, 25, 25, 25, 25, 0], [17, 17, 20, 20, 20, 20, 20]]&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Next, we use those script identifiers to determine where word boundaries should be added.  We add a word boundary at the beginning of each sentence, and for each character whose script differs from the previous character:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># dtype: bool; shape: [num_sentences, (num_chars_per_sentence)]</span>
+<span class="c1">#</span>
+<span class="c1"># sentence_char_starts_word[i, j] is True if the j&#39;th character in the i&#39;th</span>
+<span class="c1"># sentence is the start of a word.</span>
+<span class="n">sentence_char_starts_word</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span>
+    <span class="p">[</span><span class="n">tf</span><span class="o">.</span><span class="n">fill</span><span class="p">([</span><span class="n">sentence_char_script</span><span class="o">.</span><span class="n">nrows</span><span class="p">(),</span> <span class="mi">1</span><span class="p">],</span> <span class="kc">True</span><span class="p">),</span>
+     <span class="n">tf</span><span class="o">.</span><span class="n">not_equal</span><span class="p">(</span><span class="n">sentence_char_script</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:],</span> <span class="n">sentence_char_script</span><span class="p">[:,</span> <span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">])],</span>
+    <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># dtype: int64; shape: [num_words]</span>
+<span class="c1">#</span>
+<span class="c1"># word_starts[i] is the index of the character that starts the i&#39;th word (in</span>
+<span class="c1"># the flattened list of characters from all sentences).</span>
+<span class="n">word_starts</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">sentence_char_starts_word</span><span class="o">.</span><span class="n">values</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">word_starts</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tf.Tensor([ 0  5  7 12 13 15], shape=(6,), dtype=int64)
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can then use those start offsets to build a <code class="docutils literal notranslate"><span class="pre">RaggedTensor</span></code> containing the list of words from all batches:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># dtype: int32; shape: [num_words, (num_chars_per_word)]</span>
+<span class="c1">#</span>
+<span class="c1"># word_char_codepoint[i, j] is the codepoint for the j&#39;th character in the</span>
+<span class="c1"># i&#39;th word.</span>
+<span class="n">word_char_codepoint</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">RaggedTensor</span><span class="o">.</span><span class="n">from_row_starts</span><span class="p">(</span>
+    <span class="n">values</span><span class="o">=</span><span class="n">sentence_char_codepoint</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
+    <span class="n">row_starts</span><span class="o">=</span><span class="n">word_starts</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">word_char_codepoint</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;tf.RaggedTensor [[72, 101, 108, 108, 111], [44, 32], [119, 111, 114, 108, 100], [46], [19990, 30028], [12371, 12435, 12395, 12385, 12399]]&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>And finally, we can segment the word codepoints <code class="docutils literal notranslate"><span class="pre">RaggedTensor</span></code> back into sentences:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># dtype: int64; shape: [num_sentences]</span>
+<span class="c1">#</span>
+<span class="c1"># sentence_num_words[i] is the number of words in the i&#39;th sentence.</span>
+<span class="n">sentence_num_words</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">reduce_sum</span><span class="p">(</span>
+    <span class="n">tf</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="n">sentence_char_starts_word</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">int64</span><span class="p">),</span>
+    <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># dtype: int32; shape: [num_sentences, (num_words_per_sentence), (num_chars_per_word)]</span>
+<span class="c1">#</span>
+<span class="c1"># sentence_word_char_codepoint[i, j, k] is the codepoint for the k&#39;th character</span>
+<span class="c1"># in the j&#39;th word in the i&#39;th sentence.</span>
+<span class="n">sentence_word_char_codepoint</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">RaggedTensor</span><span class="o">.</span><span class="n">from_row_lengths</span><span class="p">(</span>
+    <span class="n">values</span><span class="o">=</span><span class="n">word_char_codepoint</span><span class="p">,</span>
+    <span class="n">row_lengths</span><span class="o">=</span><span class="n">sentence_num_words</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sentence_word_char_codepoint</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;tf.RaggedTensor [[[72, 101, 108, 108, 111], [44, 32], [119, 111, 114, 108, 100], [46]], [[19990, 30028], [12371, 12435, 12395, 12385, 12399]]]&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>To make the final result easier to read, we can encode it back into UTF-8 strings:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tf</span><span class="o">.</span><span class="n">strings</span><span class="o">.</span><span class="n">unicode_encode</span><span class="p">(</span><span class="n">sentence_word_char_codepoint</span><span class="p">,</span> <span class="s1">&#39;UTF-8&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">to_list</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[b&#39;Hello&#39;, b&#39;, &#39;, b&#39;world&#39;, b&#39;.&#39;],
+ [b&#39;\xe4\xb8\x96\xe7\x95\x8c&#39;,
+  b&#39;\xe3\x81\x93\xe3\x82\x93\xe3\x81\xab\xe3\x81\xa1\xe3\x81\xaf&#39;]]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./skillsets/tf2"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="tf2_beginner_text.html" title="previous page">Text</a>
+    <a class='right-next' id="next-link" href="tf2_beginner_tftext.html" title="next page">TF.Text</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By comafire<br/>
+        
+            &copy; Copyright 2015.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+<script async="" src="https://www.google-analytics.com/analytics.js"></script>
+<script>
+                        window.ga = window.ga || function () {
+                            (ga.q = ga.q || []).push(arguments) };
+                        ga.l = +new Date;
+                        ga('create', 'UA-81648003-1', 'auto');
+                        ga('set', 'anonymizeIp', true);
+                        ga('send', 'pageview');
+                    </script>
+
+  </body>
+</html>

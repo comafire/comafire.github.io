@@ -7,8 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Search &#8212; 데사견문록</title>
     
-  <link href="_static/css/theme.css" rel="stylesheet" />
-  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,37 +19,36 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     
-    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <script src="_static/searchtools.js"></script>
     <script src="_static/language_data.js"></script>
@@ -57,11 +57,38 @@
   <script src="searchindex.js" defer></script>
   
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
+    <meta name="docsearch:language" content="None">
     
 
+    <!-- Google Analytics -->
+    
+<script async="" src="https://www.google-analytics.com/analytics.js"></script>
+<script>
+                        window.ga = window.ga || function () {
+                            (ga.q = ga.q || []).push(arguments) };
+                        ga.l = +new Date;
+                        ga('create', 'UA-81648003-1', 'auto');
+                        ga('set', 'anonymizeIp', true);
+                        ga('send', 'pageview');
+                    </script>
+
+
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -70,10 +97,15 @@
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
       
       <img src="_static/logo.png" class="logo" alt="logo">
       
@@ -84,53 +116,25 @@
 </div><form class="bd-search d-flex align-items-center" action="#" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="root.html">
+                    <no title>
+                </a>
+            </li>
+        </ul>
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="readme.html">
-   데이터사이언스견문록
-  </a>
- </li>
-</ul>
-<p class="caption">
- <span class="caption-text">
-  End to End Data Science
- </span>
-</p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="e2eds/data_science.html">
-   Data Science
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="e2eds/e2eds.html">
+  <a class="reference internal" href="e2eds.html">
    End to End Data Science
   </a>
  </li>
-</ul>
-<p class="caption">
- <span class="caption-text">
-  Episodes
- </span>
-</p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="episodes/tbc.html">
-   TO BE CONTINUE…
-  </a>
- </li>
-</ul>
-<p class="caption">
- <span class="caption-text">
-  skillsets
- </span>
-</p>
-<ul class="nav bd-sidenav">
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="skillsets/tf2/tf2.html">
-   Tensorflow2
+  <a class="reference internal" href="platform.html">
+   Platform
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
@@ -138,14 +142,9 @@
    </i>
   </label>
   <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="skillsets/tf2/tf2_10mins.html">
-     TF2 10mins
-    </a>
-   </li>
    <li class="toctree-l2 has-children">
-    <a class="reference internal" href="skillsets/tf2/tf2_beginner.html">
-     TF2 Beginner
+    <a class="reference internal" href="platform/infrastructure.html">
+     Infrastructure
     </a>
     <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
     <label for="toctree-checkbox-2">
@@ -154,100 +153,30 @@
     </label>
     <ul>
      <li class="toctree-l3">
-      <a class="reference internal" href="skillsets/tf2/tf2_beginner_quickstart.html">
-       Quickstart
+      <a class="reference internal" href="platform/computer.html">
+       Computer
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="skillsets/tf2/tf2_beginner_image_classification.html">
-       Image Classification
+      <a class="reference internal" href="platform/network.html">
+       Network
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="skillsets/tf2/tf2_beginner_text_classification.html">
-       Text Classification
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="skillsets/tf2/tf2_beginner_hub_text_classification.html">
-       Text Classification with Hub
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="skillsets/tf2/tf2_beginner_regression.html">
-       Regression
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="skillsets/tf2/tf2_beginner_overfit_underfit.html">
-       Overfit &amp; Underfit
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="skillsets/tf2/tf2_beginner_save_load.html">
-       Save &amp; Load
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="skillsets/tf2/tf2_beginner_keras_tuner.html">
-       Keras Tuner
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="skillsets/tf2/tf2_beginner_images.html">
-       Images
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="skillsets/tf2/tf2_beginner_csv.html">
-       CSV
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="skillsets/tf2/tf2_beginner_numpy.html">
-       Numpy
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="skillsets/tf2/tf2_beginner_pandas.html">
-       Pandas
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="skillsets/tf2/tf2_beginner_text.html">
-       Text
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="skillsets/tf2/tf2_beginner_unicode.html">
-       Unicode
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="skillsets/tf2/tf2_beginner_tftext.html">
-       TF.Text
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="skillsets/tf2/tf2_beginner_subwords_tokenizer.html">
-       Subword Tokenization
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="skillsets/tf2/tf2_beginner_tfrecord.html">
-       TFRecord and tf.train.Example
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="skillsets/tf2/tf2_beginner_tfio.html">
-       TF I/O
+      <a class="reference internal" href="platform/gce_nested_vm.html">
+       Google Computer Engine
       </a>
      </li>
     </ul>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="platform/vagrant_virtualbox.html">
+     Vagrant &amp; Virtualbox
+    </a>
+   </li>
    <li class="toctree-l2 has-children">
-    <a class="reference internal" href="skillsets/tf2/tf2_advanced.html">
-     TF2 Advanced
+    <a class="reference internal" href="platform/jupyter.html">
+     Jupyter
     </a>
     <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
     <label for="toctree-checkbox-3">
@@ -256,38 +185,65 @@
     </label>
     <ul>
      <li class="toctree-l3">
-      <a class="reference internal" href="skillsets/tf2/tf2_advanced_quickstart.html">
-       Quickstart
+      <a class="reference internal" href="platform/jupyter_cloud.html">
+       Jupyter (Cloud)
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="skillsets/tf2/tf2_advanced_image_cnn.html">
-       Image CNN
+      <a class="reference internal" href="platform/jupyter_native_ubuntu.html">
+       Jupyter (Ubuntu)
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="skillsets/tf2/tf2_advanced_image_classification.html">
-       Image Classification
+      <a class="reference internal" href="platform/jupyter_native_macos_x86.html">
+       Jupyter (macOS x86)
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="skillsets/tf2/tf2_advanced_transfer_learning.html">
-       Transfer learning and fine-tuning
+      <a class="reference internal" href="platform/jupyter_docker.html">
+       Jupyter (Docker)
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="platform/skp.html">
+     St. Kilda Pier (SKP)
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+    <label for="toctree-checkbox-4">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="platform/skp_vagrant_single.html">
+       vagrant_skp_single
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="skillsets/tf2/tf2_advanced_transfer_learning_with_hub.html">
-       Transfer learning with TensorFlow Hub
+      <a class="reference internal" href="platform/skp_ansible_ubuntu.html">
+       ansible_skp_ubuntu
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="skillsets/tf2/tf2_advanced_data_augmentation.html">
-       Data augmentation
+      <a class="reference internal" href="platform/skp_n4e_vscode.html">
+       Native Visual Studio Code
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="skillsets/tf2/tf2_advanced_image_segmentation.html">
-       Image Segmentation
+      <a class="reference internal" href="platform/skp_n4e_jupyter.html">
+       Native Jupyter
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="platform/skp_d4r_jupyter.html">
+       Docker Jupyter
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="platform/skp_n4e_traefik.html">
+       Native Traefik
       </a>
      </li>
     </ul>
@@ -295,40 +251,8 @@
   </ul>
  </li>
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="skillsets/keras/keras.html">
-   Keras
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
-  <label for="toctree-checkbox-4">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="skillsets/keras/keras_10mins.html">
-     Keras 10mins
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="skillsets/keras/keras_dnn_regression.html">
-     DNN Regression
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="skillsets/keras/keras_dnn_classification.html">
-     DNN Classification
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="skillsets/keras/keras_deepmf.html">
-     Deep MF
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="skillsets/sklearn/sklearn.html">
-   Scikit-Learn
+  <a class="reference internal" href="dataset.html">
+   Dataset
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
   <label for="toctree-checkbox-5">
@@ -337,70 +261,65 @@
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="skillsets/sklearn/sklearn_10mins.html">
-     Scikit-Learn 10mins
+    <a class="reference internal" href="dataset/data_type.html">
+     Data Type
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="skillsets/sklearn/sklearn_datasets.html">
-     Datasets
+    <a class="reference internal" href="dataset/pandas.html">
+     Pandas Cheatsheet
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="skillsets/sklearn/sklearn_preprocessing.html">
-     Preprocessing
+    <a class="reference internal" href="dataset/spark_dataframe.html">
+     Spark DataFrame 10mins
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="modeling.html">
+   Modeling
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="modeling/data_description.html">
+     Data Description
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="modeling/random_seed.html">
+     Random
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="modeling/numpy.html">
+     Numpy Cheatsheet
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="modeling/missing_value.html">
+     Missing Value
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="modeling/descriptive_data_analysis.html">
+     Descriptive Data Analysis
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="modeling/exploratory_data_analysis.html">
+     Exploratory Data Analysis
     </a>
    </li>
    <li class="toctree-l2 has-children">
-    <a class="reference internal" href="skillsets/sklearn/sklearn_regression.html">
-     Regression
-    </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
-    <label for="toctree-checkbox-6">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul>
-     <li class="toctree-l3">
-      <a class="reference internal" href="skillsets/sklearn/sklearn_linear_regression.html">
-       Linear Regression
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="skillsets/sklearn/sklearn_polynomial_regression.html">
-       Polynomial Regression
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="skillsets/sklearn/sklearn_sgd_regression.html">
-       SGD Regression
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="skillsets/sklearn/sklearn_svm_regression.html">
-       SVM Regression
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="skillsets/sklearn/sklearn_nearest_neighbor_regression.html">
-       Nearest Neighbors Regression
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="skillsets/sklearn/sklearn_ensemble_regression.html">
-       Ensemble Regression
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="skillsets/sklearn/sklearn_eval_regression.html">
-       Regression Evaluation
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="skillsets/sklearn/sklearn_classification.html">
-     Classification
+    <a class="reference internal" href="modeling/statistics.html">
+     Statistics
     </a>
     <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
     <label for="toctree-checkbox-7">
@@ -409,40 +328,40 @@
     </label>
     <ul>
      <li class="toctree-l3">
-      <a class="reference internal" href="skillsets/sklearn/sklearn_logistic_regression.html">
-       Logistic Regression
+      <a class="reference internal" href="modeling/statistics/probability_distribution.html">
+       Probability Distribution
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="skillsets/sklearn/sklearn_sgd_classification.html">
-       SGD Classification
+      <a class="reference internal" href="modeling/statistics/estimation.html">
+       Estimation
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="skillsets/sklearn/sklearn_svm_classification.html">
-       SVM Classification
+      <a class="reference internal" href="modeling/statistics/testing_hypothesis.html">
+       Testing Hypothesis
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="skillsets/sklearn/sklearn_nearest_neighbor_classification.html">
-       Nearest Neighbors Classification
+      <a class="reference internal" href="modeling/statistics/normality_test.html">
+       Normality Test
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="skillsets/sklearn/sklearn_ensemble_classification.html">
-       Ensemble Classification
+      <a class="reference internal" href="modeling/statistics/statistics_test.html">
+       Statistics Test
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="skillsets/sklearn/sklearn_eval_classification.html">
-       Classification Evaluation
+      <a class="reference internal" href="modeling/statistics/parallel_algorithm.html">
+       One-Pass/Parallel Algorithm
       </a>
      </li>
     </ul>
    </li>
    <li class="toctree-l2 has-children">
-    <a class="reference internal" href="skillsets/sklearn/sklearn_clustering.html">
-     Clustering
+    <a class="reference internal" href="modeling/machine_learning.html">
+     Machine Learning
     </a>
     <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
     <label for="toctree-checkbox-8">
@@ -451,305 +370,251 @@
     </label>
     <ul>
      <li class="toctree-l3">
-      <a class="reference internal" href="skillsets/sklearn/sklearn_kmeans.html">
-       K-Means
+      <a class="reference internal" href="modeling/machine_learning/sklearn.html">
+       Scikit-Learn Cheat Sheet
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="skillsets/sklearn/sklearn_mean_shift.html">
-       Mean Shift
+      <a class="reference internal" href="modeling/machine_learning/datasets_sklearn.html">
+       Datasets
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="skillsets/sklearn/sklearn_spectral_clustering.html">
-       Spectral Clustering
+      <a class="reference internal" href="modeling/machine_learning/preprocessing_sklearn.html">
+       Preprocessing
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="skillsets/sklearn/sklearn_eval_clustering.html">
-       Clustering Evaluation
+      <a class="reference internal" href="modeling/machine_learning/split_train_test_sklearn.html">
+       Train/Valid/Test Dataset
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="modeling/machine_learning/model_persistence_sklearn.html">
+       Model Persistence
+      </a>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="modeling/machine_learning/regression.html">
+       Regression
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+      <label for="toctree-checkbox-9">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="modeling/machine_learning/regression_linear_sklearn.html">
+         Linear Regression
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="modeling/machine_learning/regression_polynomial_sklearn.html">
+         Polynomial Regression
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="modeling/machine_learning/regression_sgd_sklearn.html">
+         SGD Regression
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="modeling/machine_learning/regression_svm_sklearn.html">
+         SVM Regression
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="modeling/machine_learning/regression_nearest_neighbor_sklearn.html">
+         Nearest Neighbors Regression
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="modeling/machine_learning/regression_ensemble_sklearn.html">
+         Ensemble Regression
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="modeling/machine_learning/regression_evaluate_sklearn.html">
+         Regression Evaluation
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="modeling/machine_learning/classification.html">
+       Classification
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+      <label for="toctree-checkbox-10">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="modeling/machine_learning/imbalanced_class.html">
+         Imbalanced Class
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="modeling/machine_learning/regression_logistic.html">
+         Logistic Regression
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="modeling/machine_learning/classification_sgd_sklearn.html">
+         SGD Classification
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="modeling/machine_learning/classification_svm_sklearn.html">
+         SVM Classification
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="modeling/machine_learning/classification_nearest_neighbor_sklearn.html">
+         Nearest Neighbors Classification
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="modeling/machine_learning/classification_ensemble_sklearn.html">
+         Ensemble Classification
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="modeling/machine_learning/classification_evaluate_sklearn.html">
+         Classification Evaluation
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="modeling/machine_learning/clustering.html">
+       Clustering
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
+      <label for="toctree-checkbox-11">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="modeling/machine_learning/clustering_kmeans_sklearn.html">
+         K-Means
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="modeling/machine_learning/clustering_mean_shift_sklearn.html">
+         Mean Shift
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="modeling/machine_learning/clustering_spectral_sklearn.html">
+         Spectral Clustering
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="modeling/machine_learning/clustering_evaluate_sklearn.html">
+         Clustering Evaluation
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="modeling/machine_learning/feature_selection_sklearn.html">
+       Feature Selection
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="modeling/machine_learning/feature_extraction_sklearn.html">
+       Feature Extraction
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="modeling/machine_learning/hyper_parameter_tunning_sklearn.html">
+       Hyper Parameter Tunning
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="modeling/machine_learning/anomaly_detection.html">
+       Anomaly Detection
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="modeling/machine_learning/recommendation_collaborative_filtering_surprise.html">
+       Collaborative Filtering
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="modeling/machine_learning/frontal_face_detector_dlib.html">
+       Frontal Face Detector
       </a>
      </li>
     </ul>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="skillsets/sklearn/sklearn_feature_selection.html">
-     Feature Selection
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="modeling/deep_learning.html">
+     Deep Learning
     </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="skillsets/sklearn/sklearn_feature_extraction.html">
-     Feature Extraction
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="skillsets/sklearn/sklearn_split_train_test.html">
-     Train/Valid/Test Dataset
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="skillsets/sklearn/sklearn_model_persistence.html">
-     Model Persistence
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="skillsets/sklearn/sklearn_hyper_parameter_tunning.html">
-     Hyper Parameter Tunning
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="skillsets/sklearn/sklearn_anomaly_detection.html">
-     Anomaly Detection
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="skillsets/dlib/dlib.html">
-   Dlib
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
-  <label for="toctree-checkbox-9">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="skillsets/dlib/dlib_frontal_face_detector.html">
-     Frontal Face Detector
-    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
+    <label for="toctree-checkbox-12">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="modeling/deep_learning/keras.html">
+       Keras 10mins
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="modeling/deep_learning/regression_dnn_keras.html">
+       DNN Regression
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="modeling/deep_learning/classification_dnn_keras.html">
+       DNN Classification
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="modeling/deep_learning/tf2.html">
+       TF2 10mins
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="modeling/deep_learning/recommendation_collaborative_filtering_keras.html">
+       Deep MF
+      </a>
+     </li>
+    </ul>
    </li>
   </ul>
  </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="skillsets/surprise/surprise.html">
-   Surprise
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
-  <label for="toctree-checkbox-10">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="skillsets/surprise/surprise_collaborative_filtering.html">
-     Collaborative Filtering
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="skillsets/imblearn/imblearn.html">
-   Imblearn
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
-  <label for="toctree-checkbox-11">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="skillsets/imblearn/imblearn_imbalanced_class.html">
-     Imbalanced Class
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="skillsets/spark/spark.html">
-   Spark
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
-  <label for="toctree-checkbox-12">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="skillsets/spark/spark_dataframe_10mins.html">
-     Spark DataFrame 10mins
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="skillsets/pandas/pandas.html">
-   Pandas
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/>
-  <label for="toctree-checkbox-13">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="skillsets/pandas/pandas_10mins.html">
-     Pandas 10mins
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="skillsets/pandas/pandas_missing_value.html">
-     Missing Value
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="skillsets/pandas/pandas_data_description.html">
-     Data Description
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="skillsets/numpy/numpy.html">
-   Numpy
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/>
-  <label for="toctree-checkbox-14">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="skillsets/numpy/numpy_10mins.html">
-     Numpy 10mins
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="skillsets/numpy/numpy_outlier.html">
-     Outlier
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="skillsets/jupyter/jupyter.html">
-   Jupyter
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/>
-  <label for="toctree-checkbox-15">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="skillsets/jupyter/jupyter_cloud.html">
-     Jupyter (Cloud)
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="skillsets/jupyter/jupyter_native_ubuntu.html">
-     Jupyter (Ubuntu)
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="skillsets/jupyter/jupyter_native_macos_x86.html">
-     Jupyter (macOS x86)
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="skillsets/jupyter/jupyter_docker.html">
-     Jupyter (Docker)
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="skillsets/skp/skp.html">
-   St. Kilda Pier (SKP)
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/>
-  <label for="toctree-checkbox-16">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="skillsets/skp/skp_n4e_vscode.html">
-     Native Visual Studio Code
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="skillsets/skp/skp_n4e_jupyter.html">
-     Native Jupyter
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="skillsets/skp/skp_d4r_jupyter.html">
-     Docker Jupyter
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="skillsets/skp/skp_n4e_traefik.html">
-     Native Traefik
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="skillsets/ansible/ansible.html">
-   Ansible
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/>
-  <label for="toctree-checkbox-17">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="skillsets/ansible/ansible_skp_ubuntu.html">
-     ansible_skp_ubuntu
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="skillsets/vagrant/vagrant_virtualbox.html">
-   Vagrant &amp; Virtualbox
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/>
-  <label for="toctree-checkbox-18">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="skillsets/vagrant/vagrant_skp_single.html">
-     vagrant_skp_single
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
-<p class="caption">
- <span class="caption-text">
-  devicesets
- </span>
-</p>
-<ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="devicesets/computer.html">
-   Computer
+  <a class="reference internal" href="deployment.html">
+   Deployment
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="devicesets/network.html">
-   Network
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="devicesets/gce_nested_vm.html">
-   Google Computer Engine
+  <a class="reference internal" href="episode.html">
+   Episode
   </a>
  </li>
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
 </div>
 
 
@@ -757,123 +622,179 @@
 
 
           
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
     
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
-            
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/comafire/comafire.github.io"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/comafire/comafire.github.io/issues/new?title=Issue%20on%20page%20%2Fsearch.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+    <div class="header-article row sticky-top noprint">
         
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/comafire/comafire.github.io"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/comafire/comafire.github.io/issues/new?title=Issue%20on%20page%20%2Fsearch.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
     </div>
 </div>
 
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
-            
-        </div>
-    </div>
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1></h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
               <div>
                 
   <h1 id="search-documentation">Search</h1>
-  <div id="fallback" class="admonition warning">
-  <script>$('#fallback').hide();</script>
+  
+  <noscript>
+  <div class="admonition warning">
   <p>
     Please activate JavaScript to enable the search
     functionality.
   </p>
   </div>
+  </noscript>
+  
+  
   <p>
     Searching for multiple words only shows matches that contain
     all words.
   </p>
+  
+  
   <form action="" method="get">
-    <input type="text" name="q" aria-labelledby="search-documentation" value="" />
+    <input type="text" name="q" aria-labelledby="search-documentation" value="" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
     <input type="submit" value="search" />
     <span id="search-progress" style="padding-left: 10px"></span>
   </form>
   
+  
+  
   <div id="search-results">
   
   </div>
+  
 
               </div>
               
-        
-        <div class='prev-next-bottom'>
-            
-
-        </div>
-        
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            </footer>
         </div>
     </div>
-    <footer class="footer mt-5 mt-md-0">
-    <div class="container">
-      <p>
-        
-          By comafire<br/>
-        
-            &copy; Copyright 2015.<br/>
-      </p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By comafire<br/>
+  
+      &copy; Copyright 2015.<br/>
+</p>
+        </footer>
     </div>
-  </footer>
-</main>
+    
+</div>
 
 
       </div>
     </div>
   
-  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
 
-  
-<script async="" src="https://www.google-analytics.com/analytics.js"></script>
-<script>
-                        window.ga = window.ga || function () {
-                            (ga.q = ga.q || []).push(arguments) };
-                        ga.l = +new Date;
-                        ga('create', 'UA-81648003-1', 'auto');
-                        ga('set', 'anonymizeIp', true);
-                        ga('send', 'pageview');
-                    </script>
 
   </body>
 </html>

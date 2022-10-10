@@ -1,0 +1,1159 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>End to End Data Science &#8212; 데사견문록</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Platform" href="platform.html" />
+    <link rel="prev" title="&lt;no title&gt;" href="root.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+<script async="" src="https://www.google-analytics.com/analytics.js"></script>
+<script>
+                        window.ga = window.ga || function () {
+                            (ga.q = ga.q || []).push(arguments) };
+                        ga.l = +new Date;
+                        ga('create', 'UA-81648003-1', 'auto');
+                        ga('set', 'anonymizeIp', true);
+                        ga('send', 'pageview');
+                    </script>
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">데사견문록</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="root.html">
+                    <no title>
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   End to End Data Science
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="platform.html">
+   Platform
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="platform/infrastructure.html">
+     Infrastructure
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+    <label for="toctree-checkbox-2">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="platform/computer.html">
+       Computer
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="platform/network.html">
+       Network
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="platform/gce_nested_vm.html">
+       Google Computer Engine
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="platform/vagrant_virtualbox.html">
+     Vagrant &amp; Virtualbox
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="platform/jupyter.html">
+     Jupyter
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+    <label for="toctree-checkbox-3">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="platform/jupyter_cloud.html">
+       Jupyter (Cloud)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="platform/jupyter_native_ubuntu.html">
+       Jupyter (Ubuntu)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="platform/jupyter_native_macos_x86.html">
+       Jupyter (macOS x86)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="platform/jupyter_docker.html">
+       Jupyter (Docker)
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="platform/skp.html">
+     St. Kilda Pier (SKP)
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+    <label for="toctree-checkbox-4">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="platform/skp_vagrant_single.html">
+       vagrant_skp_single
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="platform/skp_ansible_ubuntu.html">
+       ansible_skp_ubuntu
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="platform/skp_n4e_vscode.html">
+       Native Visual Studio Code
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="platform/skp_n4e_jupyter.html">
+       Native Jupyter
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="platform/skp_d4r_jupyter.html">
+       Docker Jupyter
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="platform/skp_n4e_traefik.html">
+       Native Traefik
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="dataset.html">
+   Dataset
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="dataset/data_type.html">
+     Data Type
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="dataset/pandas.html">
+     Pandas Cheatsheet
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="dataset/spark_dataframe.html">
+     Spark DataFrame 10mins
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="modeling.html">
+   Modeling
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="modeling/data_description.html">
+     Data Description
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="modeling/random_seed.html">
+     Random
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="modeling/numpy.html">
+     Numpy Cheatsheet
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="modeling/missing_value.html">
+     Missing Value
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="modeling/descriptive_data_analysis.html">
+     Descriptive Data Analysis
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="modeling/exploratory_data_analysis.html">
+     Exploratory Data Analysis
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="modeling/statistics.html">
+     Statistics
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+    <label for="toctree-checkbox-7">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="modeling/statistics/probability_distribution.html">
+       Probability Distribution
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="modeling/statistics/estimation.html">
+       Estimation
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="modeling/statistics/testing_hypothesis.html">
+       Testing Hypothesis
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="modeling/statistics/normality_test.html">
+       Normality Test
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="modeling/statistics/statistics_test.html">
+       Statistics Test
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="modeling/statistics/parallel_algorithm.html">
+       One-Pass/Parallel Algorithm
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="modeling/machine_learning.html">
+     Machine Learning
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+    <label for="toctree-checkbox-8">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="modeling/machine_learning/sklearn.html">
+       Scikit-Learn Cheat Sheet
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="modeling/machine_learning/datasets_sklearn.html">
+       Datasets
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="modeling/machine_learning/preprocessing_sklearn.html">
+       Preprocessing
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="modeling/machine_learning/split_train_test_sklearn.html">
+       Train/Valid/Test Dataset
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="modeling/machine_learning/model_persistence_sklearn.html">
+       Model Persistence
+      </a>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="modeling/machine_learning/regression.html">
+       Regression
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+      <label for="toctree-checkbox-9">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="modeling/machine_learning/regression_linear_sklearn.html">
+         Linear Regression
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="modeling/machine_learning/regression_polynomial_sklearn.html">
+         Polynomial Regression
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="modeling/machine_learning/regression_sgd_sklearn.html">
+         SGD Regression
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="modeling/machine_learning/regression_svm_sklearn.html">
+         SVM Regression
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="modeling/machine_learning/regression_nearest_neighbor_sklearn.html">
+         Nearest Neighbors Regression
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="modeling/machine_learning/regression_ensemble_sklearn.html">
+         Ensemble Regression
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="modeling/machine_learning/regression_evaluate_sklearn.html">
+         Regression Evaluation
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="modeling/machine_learning/classification.html">
+       Classification
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+      <label for="toctree-checkbox-10">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="modeling/machine_learning/imbalanced_class.html">
+         Imbalanced Class
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="modeling/machine_learning/regression_logistic.html">
+         Logistic Regression
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="modeling/machine_learning/classification_sgd_sklearn.html">
+         SGD Classification
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="modeling/machine_learning/classification_svm_sklearn.html">
+         SVM Classification
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="modeling/machine_learning/classification_nearest_neighbor_sklearn.html">
+         Nearest Neighbors Classification
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="modeling/machine_learning/classification_ensemble_sklearn.html">
+         Ensemble Classification
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="modeling/machine_learning/classification_evaluate_sklearn.html">
+         Classification Evaluation
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="modeling/machine_learning/clustering.html">
+       Clustering
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
+      <label for="toctree-checkbox-11">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="modeling/machine_learning/clustering_kmeans_sklearn.html">
+         K-Means
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="modeling/machine_learning/clustering_mean_shift_sklearn.html">
+         Mean Shift
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="modeling/machine_learning/clustering_spectral_sklearn.html">
+         Spectral Clustering
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="modeling/machine_learning/clustering_evaluate_sklearn.html">
+         Clustering Evaluation
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="modeling/machine_learning/feature_selection_sklearn.html">
+       Feature Selection
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="modeling/machine_learning/feature_extraction_sklearn.html">
+       Feature Extraction
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="modeling/machine_learning/hyper_parameter_tunning_sklearn.html">
+       Hyper Parameter Tunning
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="modeling/machine_learning/anomaly_detection.html">
+       Anomaly Detection
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="modeling/machine_learning/recommendation_collaborative_filtering_surprise.html">
+       Collaborative Filtering
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="modeling/machine_learning/frontal_face_detector_dlib.html">
+       Frontal Face Detector
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="modeling/deep_learning.html">
+     Deep Learning
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
+    <label for="toctree-checkbox-12">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="modeling/deep_learning/keras.html">
+       Keras 10mins
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="modeling/deep_learning/regression_dnn_keras.html">
+       DNN Regression
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="modeling/deep_learning/classification_dnn_keras.html">
+       DNN Classification
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="modeling/deep_learning/tf2.html">
+       TF2 10mins
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="modeling/deep_learning/recommendation_collaborative_filtering_keras.html">
+       Deep MF
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="deployment.html">
+   Deployment
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="episode.html">
+   Episode
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/comafire/comafire.github.io/master?urlpath=tree/e2eds.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/comafire/comafire.github.io"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/comafire/comafire.github.io/issues/new?title=Issue%20on%20page%20%2Fe2eds.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/e2eds.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-science">
+   Data Science
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   End to End Data Science
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-science-methodology">
+   Data Science Methodology
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#cross-industry-standard-process-for-data-mining-crisp-dm">
+     CRoss Industry Standard Process for Data Mining (CRISP-DM)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data-driven-scrum">
+     Data Driven Scrum
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-scientist">
+   Data Scientist
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data-science-skills">
+     Data Science Skills
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     Data Science 직군 변화에 대한 고찰
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ops">
+     Ops 적인 측면에서 바라본 데이터 사이언스 직군
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     국내 기업 관점에서 바라본 데이터 분야 직군
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>End to End Data Science</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-science">
+   Data Science
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   End to End Data Science
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-science-methodology">
+   Data Science Methodology
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#cross-industry-standard-process-for-data-mining-crisp-dm">
+     CRoss Industry Standard Process for Data Mining (CRISP-DM)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data-driven-scrum">
+     Data Driven Scrum
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-scientist">
+   Data Scientist
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data-science-skills">
+     Data Science Skills
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     Data Science 직군 변화에 대한 고찰
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ops">
+     Ops 적인 측면에서 바라본 데이터 사이언스 직군
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     국내 기업 관점에서 바라본 데이터 분야 직군
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="end-to-end-data-science">
+<h1>End to End Data Science<a class="headerlink" href="#end-to-end-data-science" title="Permalink to this headline">#</a></h1>
+<div class="section" id="data-science">
+<h2>Data Science<a class="headerlink" href="#data-science" title="Permalink to this headline">#</a></h2>
+<blockquote>
+<div><p>Data Science 란 ? <br />
+“정형, 비정형 형태를 포함한 다양한 데이터로부터 지식과 인사이트를 추출하는데 과학적 방법론, 프로세스, 알고리즘, 시스템을 동원하는 융합분야다.” <br />
+(<a class="reference external" href="https://ko.wikipedia.org/wiki/%EB%8D%B0%EC%9D%B4%ED%84%B0_%EC%82%AC%EC%9D%B4%EC%96%B8%EC%8A%A4">https://ko.wikipedia.org/wiki/데이터_사이언스</a>)</p>
+</div></blockquote>
+<p>데이터 사이언스는 우리가 가진 문제들의 해결책을 사람의 직관에 의존하던 방식에서 벗어나, 데이터와 액션 사이의 의사결정을 위한 다양한 분석 방법을 제공함으로써 정량적, 체계적, 합리적으로 의사결정 할 수 있도록 지식과 인사이트를 제공하는 총체적인 행위를 말합니다.</p>
+<p><img alt="" src="_images/e2eds_006.png" /></p>
+<p>(<a class="reference external" href="https://datajourney.akvo.org/hubfs/Screen%20Shot%202020-07-28%20at%2012.08.42.png">https://datajourney.akvo.org/hubfs/Screen Shot 2020-07-28 at 12.08.42.png</a>)</p>
+<p>과거부터 다양한 형태로 수행되어 왔지만, 융합 학문이고 정립되어진지 얼마되지 않았기 때문에 데이터 사이언스에 대한 소개 및 범위는 적용 영역마다 조금씩 다르고 변화되고 있습니다. 그러다보니 데이터 사이언스 프로젝트를 위해 필요한 스킬의 경우도 매우 많고 다양합니다.</p>
+<p><img alt="" src="_images/e2eds_008.png" /></p>
+<p>(<a class="reference external" href="https://miro.medium.com/max/1400/1*jd_xgOzAFw7rBklREtgOTQ.png">https://miro.medium.com/max/1400/1*jd_xgOzAFw7rBklREtgOTQ.png</a>)</p>
+</div>
+<div class="section" id="id1">
+<h2>End to End Data Science<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h2>
+<p>빅데이터 및 인공지능의 시대가 도래함에 따라 데이터 사이언스의 영역은 다방면으로 영역을 확대해 나가고 있습니다. 많은 도메인에서 데이터를 활용하여 도메인 문제들을 해결하는 사례들이 점점 보편화 되어 가고 있고, 이에 도메인의 문제를 데이터 기반으로 해결하려는 데이터 사이언스 프로젝트들이 우후죽순 생겨나고 있지만, 달콤한 열매를 맛보는 프로젝트는 소수에 지나지 않습니다.</p>
+<p>데이터 사이언스의 정의에서도 유추할 수 있듯 문제의 정의부터 데이터를 통해 인사이트를 성공적으로 추출하기까지는 다양한 분야의 융합이 필요하기 때문에 프로젝트는 상당히 자유도가 높고 프로젝의 성공은 많은 실패를 동반하게 되는 경우가 많기 때문에 프로젝트의 수행기간 또한 깁니다. 프로젝트 실패의 주요 원인이 성공하기 위해 실패할 시간이 부족했기 때문이라는 우스게 소리가 나올 정도니까요.</p>
+<p>게다가 데이터 사이언스의 특성상 인사이트를 얻는 과정은 분할되지 않은 통합적이고 창의적인 과정을 필요로 하기때문에 프로젝트를 공학적인 마인드로 분할 정복하기 쉽지 않습니다. 많은 프로젝트들이 공학적 마인드로 문제를 수평적으로 분해하여 프로젝트를 진행하다가 실패합니다.</p>
+<p><img alt="" src="_images/e2eds_004.gif" /></p>
+<p>(<a class="reference external" href="https://www.datascience-pm.com/wp-content/uploads/2020/08/crisp-dm-horizontal-waterfall-600x.gif">https://www.datascience-pm.com/wp-content/uploads/2020/08/crisp-dm-horizontal-waterfall-600x.gif</a>)</p>
+<p>데이터 사이언스 프로젝트의 성공률을 높이기 위해서는 아래와 같이 문제를 수직적으로 분해하여 진행하는 것이 좋습니다. 이러한 특성으로 인해 다양한 조직으로 구성된 통합 프로젝트 진행은 커뮤니케이션 오버헤드와 각 조직의 이해관계로 인해 진행 속도가 제한되며, 이는 마치 프로젝트에 데이터 사일로와 같은 영향을 주게 됩니다.</p>
+<p><img alt="" src="_images/e2eds_003.gif" /></p>
+<p>(<a class="reference external" href="https://www.datascience-pm.com/wp-content/uploads/2020/08/crisp-dm-vertical-agile-600px.gif">https://www.datascience-pm.com/wp-content/uploads/2020/08/crisp-dm-vertical-agile-600px.gif</a>)</p>
+<p>이를 위해서는 데이터 사이언스 프로젝트 수행을 위한 범위, 방식, 조직을 최대한 문제를 수직적으로 분해 가능하도록 만드는 것이 중요합니다.</p>
+<ul class="simple">
+<li><p>수행범위: 데이터 사이언스 프로젝트의 처음부터 끝까지</p></li>
+<li><p>수행방식: 데이터 사이언스 방법론을 다양한 분석 기법을 이용하여 빠르게 반복 수행</p></li>
+<li><p>수행조직: 프로젝트 수행을 위한 이해관계자들이 하나의 조직(권한, 책임, 성과를 가진)으로 수행</p></li>
+</ul>
+<p>이 경우, 조직이 제약 없이 프로젝트 핵심에 집중하게 되며, 다양한 방법을 융합하여 빠르게 시도하고 배움으로써 빠르게 누적된 데이터 사이언스 역량을 통해 프로젝트는 높은 성공 확률을 가지게 됩니다.</p>
+<p>저와 비슷한 생각을 제시하는 블로그 글이 있어 링크를 남깁니다.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://applyingml.com/resources/end-to-end/">https://applyingml.com/resources/end-to-end/</a></p></li>
+<li><p><a class="reference external" href="https://eugeneyan.com/writing/end-to-end-data-science/">https://eugeneyan.com/writing/end-to-end-data-science/</a></p></li>
+</ul>
+<p>이를 위해 데이터 사이언티스트들은 각자의 역량을 Data Science를 수행할 수 있는 End to End로 최대한 확장하는 것이 중요합니다.</p>
+</div>
+<div class="section" id="data-science-methodology">
+<h2>Data Science Methodology<a class="headerlink" href="#data-science-methodology" title="Permalink to this headline">#</a></h2>
+<p>데이터 사이언스를 효율적으로 진행하기 위해 다양한 방법론들이 존재 합니다.</p>
+<p><a class="reference external" href="https://www.datascience-pm.com">Data Science Process Alliance</a> 사이트에서는 CRIS-DM 뿐 아니라 KDD and Data Minig, SEMMA, Microsoft TDSP, 등등 다양한 방법론에 대해서 소개하고 있습니다.</p>
+<p>CRISP-DM은 비록 1999년에 만들어졌지만, 큰 흐름상에서 현재까지 데이터 사이언스 방법론을 비교적 잘 설명해주고 있으며 아직까지 제일 많이 사용되는 프로세스 입니다.</p>
+<p><a class="reference external" href="https://www.datascience-pm.com/crisp-dm-2/">What is CRISP DM?</a></p>
+<p>이는 위 기사에서도 언급하고 있고, 아래 여러 설문을 통해서도 나타납니다.</p>
+<p><img alt="" src="_images/e2eds_001.png" /></p>
+<p>(<a class="reference external" href="https://www.datascience-pm.com/wp-content/uploads/2020/10/process-google-search-volume-2019-2020.png">https://www.datascience-pm.com/wp-content/uploads/2020/10/process-google-search-volume-2019-2020.png</a>)</p>
+<div class="section" id="cross-industry-standard-process-for-data-mining-crisp-dm">
+<h3>CRoss Industry Standard Process for Data Mining (CRISP-DM)<a class="headerlink" href="#cross-industry-standard-process-for-data-mining-crisp-dm" title="Permalink to this headline">#</a></h3>
+<p>CRISP-DM 은 크게 6 단계로 이루어져 있으며, 아래 도시된 흐름으로 진행됩니다.</p>
+<p><img alt="" src="_images/e2eds_002.png" /></p>
+<p>(<a class="reference external" href="https://www.datascience-pm.com/wp-content/uploads/2021/02/CRISP-DM.png">https://www.datascience-pm.com/wp-content/uploads/2021/02/CRISP-DM.png</a>)</p>
+<ul class="simple">
+<li><p>Business understanding</p>
+<ul>
+<li><p>비즈니스 목표 정의: 비즈니스 이해를 통해 기업 관점에서 성공 목표 및 평가 방식을 정량적으로 정의합니다.</p></li>
+<li><p>프로젝트 목표 정의: 비즈니스 목표를 만족시키기 위한 프로젝트의 목표 및 평가 방식을 정략적으로 정의합니다.</p></li>
+<li><p>프로젝트 상황 평가: 프로젝트의 요구 사항 및 자원 가용성 그리고 비용 분석을 통해 비용대비 성과의 생각하여 비즈니스 목표 및 프로젝트 목표를 조정합니다.</p></li>
+<li><p>프로젝트 계획 생성: 기술과 도구를 선택하고 각 프로젝트 단계에 대한 자세한 계획을 정의하십시오.</p></li>
+</ul>
+</li>
+<li><p>Data understanding</p>
+<ul>
+<li><p>데이터 수집: 필요한 데이터를 정의하고 수집합니다.</p></li>
+<li><p>데이터 메타: 데이터 형식, 레코드 수 또는 필드 ID와 같은 속성을 문서화합니다.</p></li>
+<li><p>데이터 탐색: 데이터를 쿼리하고, 시각화하고, 데이터 간의 관계를 탐색합니다.</p></li>
+<li><p>데이터 품질: 데이터가 얼마나 깨끗하고 더러운지 품질 문제를 문서화합니다.</p></li>
+</ul>
+</li>
+<li><p>Data preparation: 선택된 모델링 알고리즘들에 필요한 데이터를 선택하고 준비합니다.</p></li>
+<li><p>Modeling: 각 모델링 알고리즘을 통해 생성된 모델들 중에 평가를 통해 최적 모델을 선택합니다.</p></li>
+<li><p>Evaluation: 최적화된 모델링들 중에 비즈니스 목표를 가장 잘 만족하는 모델링을 선택합니다.</p></li>
+<li><p>Deployment: 프로덕트 환경에 적용/운영하면서 A/B 테스트 등을 통해 비즈니스 영향도를 측정하고 이를 기반으로 각 단계로 분기하여 반복수행하면서 개선합니다.</p></li>
+</ul>
+<p>위 기사에서도 다루고 있듯이 E2EDS를 하기위한 방법론은 CRIS-DM 뿐 아니라 CRIS-DM 을 기반으로 좀 더 개량된 다양한 방법론들도 많습니다. <br />
+방법론은 프로젝트 계획 및 진행 시 많은 영감과 도움을 주기에 자신의 상황에 맞는지 평가해보고 적용하는 것이 필요합니다.</p>
+<p>Coursera 에서는 Data Science Methodology 에 대하여 CRISP-DM을 기본으로하는 확장된 방법론을 소개합니다.</p>
+<p><img alt="" src="https://miro.medium.com/max/1400/1*QaDjoT2jbziHwuUVdeWSbw.jpeg" /></p>
+<ul class="simple">
+<li><p>Business Understanding: 비지니스의 이해를 통해 풀어야 할 문제에 대한 정의와 프로젝트의 목표 및 결과를 설정.</p></li>
+<li><p>Analytic Approach: 통계, 머신러닝 기술을 이용하여 프로젝트 결과를 위한 접근방법 정의.</p></li>
+<li><p>Data Requirements: 데이터 모델링에 사용될 알고리즘에 따라 필요한 데이터의 요구 사항정의.</p></li>
+<li><p>Data Collection: 데이터 모델링에 사용될 데이터 Raw Data 수집 방법 정의.</p></li>
+<li><p>Data Understanding: 제공된 데이터에 대한 통계적, 시각적 방법을 통해 초기 데이터를 이해.</p></li>
+<li><p>Data Preparation: Data Collection 을 통해 수집된 Raw Data 를 각 모델에서 필요한 입력 데이터 형태에 맞게 변형.</p></li>
+<li><p>Data Modeling: Data Preparation 을 통해 제공된 훈련용 입력 데이터를 이용해 데이터 모델 훈련.</p></li>
+<li><p>Model Evaluation: Data Modeling 을 통해 훈련된 모델을 이용해 테스트 데이터에 대한 모델 성능을 평가.</p></li>
+<li><p>Build Data Product: 최종 선택된 데이터 모델을 이용하여 Data Product 을 구축.</p></li>
+<li><p>Feedback: Data Product 사용자들의 Feedback 을 받아 전체 프로세스를 순환하면서 발전 시킴.</p></li>
+</ul>
+<p>코세라 강의: <a class="reference external" href="https://www.coursera.org/learn/data-science-methodology">https://www.coursera.org/learn/data-science-methodology</a></p>
+<p>블로그에 올라온 강좌 서머리 들</p>
+<ul class="simple">
+<li><p>Data Science Methodology — How to design your data science project</p>
+<ul>
+<li><p><a class="reference external" href="https://medium.com/ml-research-lab/data-science-methodology-101-2fa9b7cf2ffe">Overview of Data Science Methodology</a></p></li>
+<li><p><a class="reference external" href="https://medium.com/ml-research-lab/part-1-data-science-methodology-from-problem-to-approach-e2d05e7afc6b">Part-1 Data Science Methodology- From Problem to Approach</a></p></li>
+<li><p><a class="reference external" href="https://medium.com/ml-research-lab/part-2-data-science-methodology-from-requirement-to-collection-4964e1f31058">Part-2 Data Science Methodology From Requirement to Collection</a></p></li>
+<li><p><a class="reference external" href="https://medium.com/ml-research-lab/part-3-data-science-methodology-from-understanding-to-preparation-a666a8203179">Part-3 Data Science Methodology From Understanding to Preparation</a></p></li>
+<li><p><a class="reference external" href="https://medium.com/ml-research-lab/part-4-data-science-methodology-from-modelling-to-evaluation-3fb3c0cdf805">Part-4 Data Science Methodology From Modelling to Evaluation</a></p></li>
+<li><p><a class="reference external" href="https://medium.com/ml-research-lab/part-5-data-science-methodology-from-deployment-to-feedback-d37f5e0ec479">Part-5 Data Science Methodology From Deployment to Feedback</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="https://medium.com/&#64;umaruninawab321/data-science-methodology-101-81a9aedcb9dc">Data Science Methodology-101 - Steps to follow while being a Data Scientist to solve any specific problem</a></p></li>
+</ul>
+</div>
+<div class="section" id="data-driven-scrum">
+<h3>Data Driven Scrum<a class="headerlink" href="#data-driven-scrum" title="Permalink to this headline">#</a></h3>
+<p>Data Driven Scrum(DDS)은 애자일 방법론을 데이터 프로젝트 수행에 적용한 방법입니다. 애자일 방법론을 통해 데이터 프로젝트 수행시 팀의 협업과 커뮤니케이션을 개선하는 것을 목표로 합니다.</p>
+<p>Data Science Process Alliance는 잘 알려진 다른 애자일 접근 방식(예: Scrum 및 Kanban)이 종종 데이터 과학 프로젝트의 고유한 요구 사항을 수용하지 못한다는 사실을 해결하기 위해 Data Driven Scrum을 만들었습니다.</p>
+<p><a class="reference external" href="https://www.datascience-pm.com/data-driven-scrum/">https://www.datascience-pm.com/data-driven-scrum/</a></p>
+<p><img alt="" src="_images/e2eds_005.jpg" /></p>
+<p>(<a class="reference external" href="https://www.datascience-pm.com/wp-content/uploads/2022/02/Data-Driven-Scrum-detailedFlow.jpg">https://www.datascience-pm.com/wp-content/uploads/2022/02/Data-Driven-Scrum-detailedFlow.jpg</a>)</p>
+</div>
+</div>
+<div class="section" id="data-scientist">
+<h2>Data Scientist<a class="headerlink" href="#data-scientist" title="Permalink to this headline">#</a></h2>
+<p>데이터 사이언스가 여러 도메인에서 사용되고 기술또한 빠르게 발전하면서 데이터 사이언티스트의 직군 또한 초기 데이터 사이언티스트라는 하나의 직군에서 좀더 세분화되고 있습니다. <br />
+이로인해 직군의 정의와 수행 범위가 시기 및 관점에 따라서 변경되고 있어 혼란 스럽기도 합니다만, 대략적으로 아래 소개된 글들을 통해 세분화된 직군들의 업무 정의 및 수행 범위를 파악할 수 있습니다.</p>
+<p>데이터 사이언스의 정의, 범위, 프로세스, 직군 등에 대하여 짧게 잘 설명된 Youtube 영상입니다. <br />
+<a class="reference external" href="https://www.youtube.com/watch?v=RBSUwFGa6Fk">What is Data Science? - IBM Technology</a></p>
+<p><a class="reference external" href="https://www.youtube.com/watch?v=RBSUwFGa6Fk"><img alt="youtube" src="https://img.youtube.com/vi/RBSUwFGa6Fk/maxresdefault.jpg" /></a></p>
+<div class="section" id="data-science-skills">
+<h3>Data Science Skills<a class="headerlink" href="#data-science-skills" title="Permalink to this headline">#</a></h3>
+<p>융합 학문이다 보니 데이터에서 인사이트를 추출하기위해서는 Statistical Data Analysis와 Machine Learning 및 Deep Learning을 포함하는 광범위한 분석 기법 및 도구들을 사용합니다. 맵상에 모든 스킬을 익혀야만 데이터 사이언스를 할수 있는 것은 아니니 단계적으로 영역을 확장한다는 느낌으로 프로젝트에서 필요한 기술부터 차근히 익여 나가는 것을 추천합니다.</p>
+<p><a class="reference external" href="https://towardsdatascience.com/the-data-science-process-a19eb7ebc41b">The Data Science Process - A Visual Guide to Standard Procedures in Data Science</a></p>
+<p><img alt="" src="https://miro.medium.com/max/1400/1*o7DTEHgBknK2iBE9c-2Ing.jpeg" /></p>
+</div>
+<div class="section" id="id2">
+<h3>Data Science 직군 변화에 대한 고찰<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h3>
+<p><a class="reference external" href="https://towardsdatascience.com/mlevsds-3c89425baabb">Machine Learning Engineer vs Data Scientist (Is Data Science Over?) vs Data Analyst vs Research Scientist vs Applied Scientist vs… </a></p>
+<p>번역: <a class="reference external" href="https://medium.com/code-states/%EB%A8%B8%EC%8B%A0-%EB%9F%AC%EB%8B%9D-%EC%97%94%EC%A7%80%EB%8B%88%EC%96%B4-vs-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EC%82%AC%EC%9D%B4%EC%96%B8%ED%8B%B0%EC%8A%A4%ED%8A%B8-7cff2ae6f253">머신 러닝 엔지니어 vs. 데이터 사이언티스트</a></p>
+<p><img alt="" src="https://miro.medium.com/max/1400/1*51rgXMpM7q0S_gHBKX-FvA.png" />
+<img alt="" src="https://miro.medium.com/max/1400/1*sGlxcIB1KAPjSSoCEheXng.png" /></p>
+</div>
+<div class="section" id="ops">
+<h3>Ops 적인 측면에서 바라본 데이터 사이언스 직군<a class="headerlink" href="#ops" title="Permalink to this headline">#</a></h3>
+<p><a class="reference external" href="https://towardsdatascience.com/what-the-ops-are-you-talking-about-518b1b1a2694">What the Ops are you talking about?</a></p>
+<p><img alt="" src="https://miro.medium.com/max/2000/1*SQP1pjIA1DeAWRAkTw6ODA.png" /></p>
+</div>
+<div class="section" id="id3">
+<h3>국내 기업 관점에서 바라본 데이터 분야 직군<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h3>
+<p><a class="reference external" href="https://github.com/Team-Neighborhood/I-want-to-study-Data-Science/wiki/%EB%8D%B0%EC%9D%B4%ED%84%B0-%EB%B6%84%EC%95%BC%EC%9D%98-%EC%A7%81%EA%B5%B0-%EC%86%8C%EA%B0%9C">데이터 분야의 직군 소개</a></p>
+<p><img alt="" src="https://camo.githubusercontent.com/85fbb8ad73ae8649610e1a67ead1395712600a92e38a7c7727ba7c4403d8826c/68747470733a2f2f7777772e64726f70626f782e636f6d2f732f77316a76736466306d7638667a346a2f53637265656e73686f74253230323031382d30372d323025323031312e35362e31392e706e673f7261773d31" /></p>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="root.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">&lt;no title&gt;</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="platform.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Platform</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By comafire<br/>
+  
+      &copy; Copyright 2015.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

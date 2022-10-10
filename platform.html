@@ -844,13 +844,6 @@ title="Print to PDF"
     <a class="reference internal nav-link" href="#id1">
      기술 진화 방향
     </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#unified-data-service-platform">
-       Unified Data Service Platform
-      </a>
-     </li>
-    </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#id2">
@@ -934,13 +927,6 @@ title="Print to PDF"
     <a class="reference internal nav-link" href="#id1">
      기술 진화 방향
     </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#unified-data-service-platform">
-       Unified Data Service Platform
-      </a>
-     </li>
-    </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#id2">
@@ -1060,12 +1046,7 @@ title="Print to PDF"
 <p><img alt="" src="_images/platform_004.png" /></p>
 <p>데이터 사이언스의 확장되어가는 적용 영역과 기술적 진화 상황을 볼때, 하둡으로 대표되던 빅데이터 플랫폼은 지고 클라우드의 Loosely Computed Compte/Storage 아키텍처에 적합하면서 범용 엔진으로써 Spark 을 기반으로 하여 머신러닝 및 딥러닝 영역까지 커버 가능한 통합 범용 플랫폼의 성장이 두드러 지고 있습니다.</p>
 <p>이는 실제 우버의 빅데이터 플랫폼 진화 여정을 통해서도 흐름을 확인해볼 수 있습니다.</p>
-<div class="section" id="unified-data-service-platform">
-<h4>Unified Data Service Platform<a class="headerlink" href="#unified-data-service-platform" title="Permalink to this headline">#</a></h4>
-<ul class="simple">
-<li><p><a class="reference external" href="https://eng.uber.com/uber-big-data-platform/">Uber’s Big Data Platform: 100+ Petabytes with Minute Latency</a></p></li>
-</ul>
-</div>
+<p><a class="reference external" href="https://eng.uber.com/uber-big-data-platform/">Uber’s Big Data Platform: 100+ Petabytes with Minute Latency</a></p>
 </div>
 <div class="section" id="id2">
 <h3>저장과 분석이 분리된 아키텍처<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h3>
@@ -1074,7 +1055,7 @@ title="Print to PDF"
 <li><p>Dark Data: 저장되고 있긴 하지만, 부서간 장벽(데이터 사일로) 및 비정형적 특성으로 인해 분석이 어려웠던 데이터로 이미 저장된 데이터</p></li>
 <li><p>Long Data: 한 분야에서 꾸준히 축적된 히스토리 데이터가 무조건 많은 데이터보다 많은 가치를 가지기때문에 당장 성과가 나지 않더라도 수집해야 하는 데이터</p></li>
 </ul>
-<p>저장과 분석이 통합된 아키텍처의 단점은 저장용량이 더욱 필요하면, 처리 용량이 더 필요 없더라도 노드수를 늘릴 수 밖에 없다는 것입니다. 또한, 데이터의 처리 형식 또한 통합된 분석 엔진에 종속적일 수 밖에 없다는 것입니다. 이에 분산 오브젝트 스토리지 이용하여 다양한 데이터 포맷의 저장을 지원하고 빠른 네트워크를 통해 저장된 데이터를 다양한 분석 플랫폼에서 가져다 쓸수 있도록 저장과 분석이 분리된 아키텍처가 등장하게 됩니다.</p>
+<p>저장과 분석이 통합된 아키텍처의 단점은 저장용량이 더욱 필요하면, 처리 용량이 더 필요 없더라도 노드수를 늘릴 수 밖에 없다는 것입니다. 또한, 데이터의 처리 형식 또한 통합된 분석 엔진에 종속적일 수 밖에 없다는 것입니다. 이에 분산 오브젝트 스토리지 이용하여 다양한 데이터 포맷의 저장을 지원하고 빠른 네트워크를 통해 저장된 데이터에 대한 다양한 분석 플랫폼에서 가져다 쓸수 있도록 저장과 분석이 분리된 아키텍처가 등장하게 됩니다.</p>
 <p><img alt="" src="_images/platform_005.png" /></p>
 <p>(<a class="reference external" href="https://image.slidesharecdn.com/architektur-von-bigdata-loesungen-v1-171218212154/95/architecture-of-big-data-solutions-31-638.jpg?cb=1513633793">https://image.slidesharecdn.com/architektur-von-bigdata-loesungen-v1-171218212154/95/architecture-of-big-data-solutions-31-638.jpg?cb=1513633793</a>)</p>
 <p>저장과 분석이 분리된 아키텍처는 Schema on Read 의 특성을 나타내게 됩니다. 스토리지는 다양한 형태(정형/비정형)의 데이터를 변경 없이 Raw 형태로 빠르게 저장하는데 집중하며, 스키마의 변경은 데이터 처리 및 분석을 위하여 데이터가 이동될때 수행됩니다. 이는 저장하는 시점에 데이터의 스키마를 정의하는 저장과 분석이 통합된 아키텍처(예: Data Warehouse)의 Schema on Write 와 반대되는 아키텍처입니다.</p>
@@ -1105,7 +1086,7 @@ title="Print to PDF"
 <div class="section" id="id5">
 <h3>현업 사용자를 위한 데이터 셀프 서비스<a class="headerlink" href="#id5" title="Permalink to this headline">#</a></h3>
 <p>전통적인 산업들은 Digital Transformation을 통해 데이터 기반의 경영을 강화해 나가고 있습니다. 이러한 Digital Transformation 과정에서 가장 중요하게 것 중 하나가 의사 결정을 해야 하는 자리에 있는 직원들이 데이터 기반으로 고객의 변화를 빠르게 인지할 수 있도록 돕는 것입니다. 따라서, Data Lake 에서 Data Self Service는 중요한 서비스 중에 하나로 인시되고 있습니다.</p>
-<p>데이서 셀프 서비스는 데이터의 준비, 탐색, 시각화, 활용 모두를 사용자 스스로 직접 할 수 있도록 돕는 서비스로</p>
+<p>데이터 셀프 서비스는 데이터의 준비, 탐색, 시각화, 활용 모두를 사용자 스스로 직접 할 수 있도록 돕는 서비스로</p>
 <ul class="simple">
 <li><p>BI(Business Intelligence) 셀프 서비스: 데이터를 자유롭게 시각화하고, 인사이트를 추출 가능하도록 돕는 서비스</p></li>
 <li><p>데이터 탐색 셀프 서비스: 데이터 레이크에 존재하는 데이터를 쉽게 탐색하고 조회 가능하도록 돕는 서비스</p></li>
@@ -1115,15 +1096,16 @@ title="Print to PDF"
 <p>등과 같이 다양한 영역이 존재할 수 있습니다.</p>
 <p>현업 사용자들의 데이터 분석 능력을 배가 시키는 과정 또한 필요하지만, 이에 익숙하지 않은 현업 사용자들을 위한 서비스를 발굴하고 제공하는 것 또한 중요합니다. 뮌헨 리의 데이터 사냥꾼은 이러한 측면의 좋은 예입니다.</p>
 <blockquote>
-<div><p>데이터 사냥꾼 팀
-뮌헨 리는 새로운 사용자 층을 지원하기 위해 전용 데이터 수신 팀을 구성하여 데이터 호수에 어떤 데이터 소스를 가져오고 어떤 수준의 품질을 제공하는지 확인했다. 또 ‘데이터 사냥꾼’이라는 팀을 구축해 회사 내부 및 외부의 유스 케이스에 대한 흥미로운 데이터 소스를 찾아내도록 조치했다.</p>
+<div><p>데이터 헌터 팀
+뮌헨 리는 새로운 사용자 층을 지원하기 위해 전용 데이터 팀을 구성하여 데이터 레이크에 어떤 데이터 소스를 가져오고 어떤 수준의 품질을 제공하는지 확인했다. 또 ‘데이터 사냥꾼’이라는 팀을 구축해 회사 내부 및 외부의 유스 케이스에 대한 흥미로운 데이터 소스를 찾아내도록 조치했다.</p>
 </div></blockquote>
 <blockquote>
-<div><p>쾰마이어는 “만약 직원이 좋은 아이디어를 갖고 있다면 데이터 사냥꾼들이 나가서 그 데이터를 찾아서 획득하고, 청소하고, 준비하고 그것을 데이터 호수에 가져올 수 있도록 도와준다”라고 설명했다.</p>
+<div><p>쾰마이어는 “만약 직원이 좋은 아이디어를 갖고 있다면 데이터 사냥꾼들이 나가서 그 데이터를 찾아서 획득하고, 청소하고, 준비하고 그것을 데이터 레이크에 가져올 수 있도록 도와준다”라고 설명했다.</p>
 </div></blockquote>
 <blockquote>
-<div><p>한편 이 모든 작업은 자연스럽게 뮌헨 리의 종합적 재교육 프로그램으로 이어졌다. 쾰마이어는 “이러한 조치를 수행하다보면 다른 기업 또한 데이터 엔지니어링 및 데이터 과학을 위한 전담 교육 프로그램이 절실히 필요해지게 될 것”이라고 말했다. 이 회사는 올해 데이터 엔지니어링 및 모델링, 분석 역량을 약 2,000명의 직원에게 훈련시키는 것을 목표로 삼고 있다. <a class="reference external" href="http://www.ciokorea.com/interview/38005#csidxcccf57e1e0782b095ed0580dcded117">원문</a></p>
+<div><p>한편 이 모든 작업은 자연스럽게 뮌헨 리의 종합적 재교육 프로그램으로 이어졌다. 쾰마이어는 “이러한 조치를 수행하다보면 다른 기업 또한 데이터 엔지니어링 및 데이터 과학을 위한 전담 교육 프로그램이 절실히 필요해지게 될 것”이라고 말했다. 이 회사는 올해 데이터 엔지니어링 및 모델링, 분석 역량을 약 2,000명의 직원에게 훈련시키는 것을 목표로 삼고 있다.</p>
 </div></blockquote>
+<p><a class="reference external" href="http://www.ciokorea.com/interview/38005#csidxcccf57e1e0782b095ed0580dcded117">http://www.ciokorea.com/interview/38005#csidxcccf57e1e0782b095ed0580dcded117</a></p>
 <p>(The Data Lake Manifesto: 10 Best Practices, 2017, Philip Russom.)</p>
 </div>
 </div>
